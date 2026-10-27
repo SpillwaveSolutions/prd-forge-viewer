@@ -1,0 +1,21 @@
+@startsalt
+title WF-008 Themes
+{+
+  {/ <b>Themes</b> }
+  {
+    Clay | built-in, cannot change <1>
+    Ice Snowstorm | built-in, cannot change
+    › Acme | custom
+  }
+  [New theme]
+  --
+  { Name | "Acme            " | <2> }
+  { Page | "FFFFFF" | Text | "222222" | <3> }
+  { Heading | "003366" | Accent | "E87722" }
+  --
+  { Text | (X) Serif | () Sans-serif | () Monospace | <4> }
+  { Heading | () Serif | (X) Sans-serif | () Monospace }
+  --
+  { [Delete] | <5> | [Save] | <6> }
+}
+@endsalt

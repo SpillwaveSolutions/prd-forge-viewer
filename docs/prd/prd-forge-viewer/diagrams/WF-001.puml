@@ -1,0 +1,38 @@
+@startsalt
+title WF-001 The PRD set, with the scores
+{+
+  {/ <b>PRD Forge Viewer</b> | [Search] | [Export] }
+  ==
+  {
+    {T
+     + PRD, v0.3.2 <1>
+     ++ 1 Problem  75
+     ++ 2 Market  70
+     ++ 3 Objectives  83
+     ++ 4 Personas • 86
+     ++ 5 Journeys  90
+     ++ …
+     ++ 12 Questions  –
+     ++ 15 Change log  –
+    } | {
+      <b>PRD Forge Viewer PRD <2>
+      v0.3.2 · Draft · 8 of 18 final
+      --
+      {#
+        Section | Score | Blk | Graded <3>
+        › 1 Problem | 75 | 0 | 10-26
+        › 2 Market | 70 | 0 | 10-26
+        › 4 Personas • | 86 | 0 | 10-26 <4>
+        › 12 Questions | draft | – | none
+      }
+      …
+      --
+      <b>Executive summary <5>
+      PRD authors cannot read an
+      18-file PRD Forge set as one
+      document or see every grade at
+      once. …
+    }
+  }
+}
+@endsalt

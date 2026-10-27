@@ -1,0 +1,21 @@
+@startsalt
+title WF-009 First page of an export
+{+
+  {/ <b>PRD Forge Viewer PRD</b> | page 1 }
+  { <b>DRAFT <1> | . | Version 0.3.2 <2> }
+  --
+  <b>Executive summary <3>
+  PRD authors cannot read a PRD Forge set as one
+  document or see every grade at once. …
+  --
+  <b>Contents <4>
+  {#
+    Section | Status | Score | Blk
+    1 Problem and opportunity | final | 75 | 0
+    4 Users and personas | final | 86 | 0
+    12 Open questions | draft | – | –
+    15 Change log | pending <5> | – | –
+  }
+  …
+}
+@endsalt

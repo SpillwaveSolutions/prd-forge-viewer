@@ -1,0 +1,29 @@
+@startsalt
+title WF-003 Search results
+{+
+  {/ <b>PRD Forge Viewer</b> | [Search] | [Export] }
+  ==
+  {
+    {T
+     + PRD, v0.3.2
+     ++ 6 Scope  92
+     ++ 7 Requirements
+     +++ FR-010 <3>
+     +++ FR-011
+     +++ FR-012
+     ++ 8 NFRs  93
+     ++ …
+    } | {
+      { "export        " | ^Reqs^ | <1> }
+      --
+      3 matches, best first <2>
+      {#
+        Score | ID | Title | Sec <4>
+        100 | FR-010 | Export as a fixed-layout… | 7
+        92 | FR-011 | Export as an editable… | 7
+        81 | FR-012 | Export only selected… | 7
+      }
+    }
+  }
+}
+@endsalt

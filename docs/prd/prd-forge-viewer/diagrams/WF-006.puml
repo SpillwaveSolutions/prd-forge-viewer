@@ -1,0 +1,16 @@
+@startsalt
+title WF-006 No PRD set in this folder
+{+
+  {/ <b>PRD Forge Viewer</b> }
+  No PRD set in ~/clients/work/src <1>
+  ==
+  <b>Known PRD sets <2>
+  {#
+    Product | Location
+    › PRD Forge Viewer | ~/…/work/src/prd-forge-viewer
+    › PRD Forge | ~/…/work/src/prd-forge
+    › PRD Forge | ~/…/work/src/prd-forge-fix-table
+    PRD Forge | ~/…/src/prd-forge-old, not found <3>
+  }
+}
+@endsalt

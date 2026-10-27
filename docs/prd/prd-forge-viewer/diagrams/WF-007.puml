@@ -1,0 +1,21 @@
+@startsalt
+title WF-007 Export
+{+
+  {/ <b>Export</b> | PRD Forge Viewer v0.3.2 }
+  <b>Format <1>
+  { (X) Fixed-layout document | () Editable document }
+  --
+  { Theme <2> | ^Clay^ | › Edit themes }
+  --
+  { <b>Sections <3> | [] All }
+  {
+    [X] 0 PRD Forge Viewer PRD | [X] 5 User journeys
+    [X] 1 Problem, opportunity | [X] 7 Functional reqs
+    [X] 4 Users and personas | [] 12 Open questions
+  }
+  …
+  --
+  The export shows "Draft": 10 documents are not final <4>
+  { . | [Print] | [Export] | <5> }
+}
+@endsalt

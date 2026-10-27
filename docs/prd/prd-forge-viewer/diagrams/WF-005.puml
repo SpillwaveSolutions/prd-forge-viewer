@@ -1,0 +1,23 @@
+@startsalt
+title WF-005 A document that cannot be read
+{+
+  {/ <b>PRD Forge Viewer</b> | [Search] | [Export] }
+  ==
+  {
+    {T
+     + PRD, v0.3.2
+     ++ 5 Journeys  90
+     ++ 5 Scenarios  !
+     ++ 6 Scope  92
+     ++ 11 Risks  96
+     ++ …
+    } | {
+      <b>5 Scenarios <1>
+      --
+      This document cannot be read.
+      File: 06-scenarios.md <2>
+      The other 17 documents can be read.
+    }
+  }
+}
+@endsalt

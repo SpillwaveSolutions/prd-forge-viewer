@@ -1,0 +1,18 @@
+@startsalt
+title WF-004 A search with no match
+{+
+  {/ <b>PRD Forge Viewer</b> | [Search] | [Export] }
+  ==
+  {
+    {T
+     + PRD, v0.3.2
+     ++ 1 Problem  75
+     ++ …
+    } | {
+      { "invoice       " | ^All^ }
+      --
+      No item contains "invoice". <1>
+    }
+  }
+}
+@endsalt

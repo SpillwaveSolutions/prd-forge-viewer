@@ -1,0 +1,30 @@
+@startsalt
+title WF-002 One item, selected in the tree
+{+
+  {/ <b>PRD Forge Viewer</b> | [Search] | [Export] }
+  ==
+  {
+    {T
+     + PRD, v0.3.2
+     ++ 3 Objectives  83
+     ++ 4 Personas • 86
+     +++ PER-001 <2>
+     +++ PER-002
+     +++ PER-003
+     +++ PER-004
+     +++ PER-005
+     ++ 5 Journeys  90
+     ++ …
+    } | {
+      <b>PER-001 PRD author <1>
+      4 Personas · final  · 86 · 0 blk
+      --
+      • Changed 10:42, 61 to 86 <3>
+      --
+      "Show me what is weak, then let
+      me send it today."
+      Pains: › P-001 <4>, › P-002, › P-003
+    }
+  }
+}
+@endsalt
