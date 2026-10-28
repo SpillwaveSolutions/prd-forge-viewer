@@ -2,6 +2,46 @@
 
 _The evidence chain: plan → item → ticket → code → release, forward and backward. Generated from `docs/.index/_graph.json`; do not edit._
 
+### Task 6: MCP checks for phase 1
+`01M62CK387T88WGKEFSBY4483E` · status: todo
+- belongs-to: Plan 3: read sections, items, and references
+- produced-by: [[Plan-plan-3-reading]]
+
+### Task 5: the section page, the item view, and reference links
+`01M62CK387T88WGKEFSBY4483C` · status: todo
+- belongs-to: Plan 3: read sections, items, and references
+- produced-by: [[Plan-plan-3-reading]]
+
+### Task 4: render a body with no scripts and no remote images
+`01M62CK387T88WGKEFSBY4483A` · status: todo
+- belongs-to: Plan 3: read sections, items, and references
+- produced-by: [[Plan-plan-3-reading]]
+
+### Task 3: the item index and local assets
+`01M62CK387T88WGKEFSBY44838` · status: todo
+- belongs-to: Plan 3: read sections, items, and references
+- produced-by: [[Plan-plan-3-reading]]
+
+### Task 2: read one section safely
+`01M62CK387T88WGKEFSBY44836` · status: todo
+- belongs-to: Plan 3: read sections, items, and references
+- produced-by: [[Plan-plan-3-reading]]
+
+### Task 1: items at any depth of the front matter
+`01M62CK386VS7C7CQR7W0G6AA5` · status: todo
+- belongs-to: Plan 3: read sections, items, and references
+- produced-by: [[Plan-plan-3-reading]]
+
+### Plan 3: read sections, items, and references
+`01M62CK37SV62AATV5XSRPCJHE` · status: todo
+- contains: Task 1: items at any depth of the front matter
+- contains: Task 2: read one section safely
+- contains: Task 3: the item index and local assets
+- contains: Task 4: render a body with no scripts and no remote images
+- contains: Task 5: the section page, the item view, and reference links
+- contains: Task 6: MCP checks for phase 1
+- produced-by: [[Plan-plan-3-reading]]
+
 ### All release 1 stories closed, the roadmap rendered, and GitHub Issues synced
 `01M62C7REHN9N2P8Z19K0EPA0H` · status: todo
 - belongs-to: Phase 6: close out release 1
@@ -170,7 +210,7 @@ _The evidence chain: plan → item → ticket → code → release, forward and 
 - produced-by: [[Plan-release-1-completion]]
 
 ### Phase 1: read sections, items, and references (US-008, US-009, US-010)
-`01M62C7REFJRP4FVS9Z3JD5SB7` · status: todo
+`01M62C7REFJRP4FVS9Z3JD5SB7` · status: in_progress
 - belongs-to: Release 1 completion: build the 15 remaining requirements
 - references: [github#107](https://github.com/SpillwaveSolutions/prd-forge-viewer/issues/107)
 - contains: Plan 3 written and captured

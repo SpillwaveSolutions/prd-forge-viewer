@@ -1,6 +1,6 @@
 # Phase 1: read sections, items, and references (US-008, US-009, US-010)
 
-`01M62C7REFJRP4FVS9Z3JD5SB7` · task/feature · **open**
+`01M62C7REFJRP4FVS9Z3JD5SB7` · task/feature · **in-progress**
 
 Make each document clickable and readable, list the items of a section, show one item with the status and grade of its section, and turn ids into links.
 

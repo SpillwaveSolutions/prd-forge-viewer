@@ -7,7 +7,7 @@
 
 ## What are we working on now?
 [[Roadmap]]
-Active plans: [[Plan-release-1-completion]]
+Active plans: [[Plan-release-1-completion]], [[Plan-plan-3-reading]]
 
 ## Why was it built this way?
 [[Index-Decisions]] — ADRs and plans, with supersede chains
