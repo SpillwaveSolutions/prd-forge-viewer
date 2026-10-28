@@ -111,7 +111,7 @@ pub fn load_set(dir: &Path) -> Result<PrdSet, LoadError> {
             Err(why) => DocEntry {
                 file,
                 title: child.title,
-                section: None,
+                section: child.section,
                 order,
                 status: "unreadable".into(),
                 grade: None,

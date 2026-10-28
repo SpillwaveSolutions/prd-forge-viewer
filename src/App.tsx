@@ -3,7 +3,7 @@ import { invoke } from "@tauri-apps/api/core";
 import { open } from "@tauri-apps/plugin-dialog";
 import { GradesTable } from "./GradesTable";
 import { SetOverview } from "./SetOverview";
-import { openSet } from "./openSet";
+import { applyResult, openSet } from "./openSet";
 import type { PrdSet } from "./types";
 
 const pickFolder = async () => {
@@ -17,9 +17,9 @@ export function App() {
     const [error, setError] = useState<string>();
 
     const onOpen = async () => {
-        const r = await openSet(pickFolder, loadSet);
-        if (r.set) setSet(r.set);
-        setError(r.error);
+        const next = applyResult(set, await openSet(pickFolder, loadSet));
+        setSet(next.set);
+        setError(next.error);
     };
 
     return (

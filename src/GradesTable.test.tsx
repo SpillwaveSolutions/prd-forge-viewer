@@ -1,7 +1,6 @@
 import { expect, test } from "bun:test";
 import { renderToStaticMarkup } from "react-dom/server";
 import { GradesTable } from "./GradesTable";
-import { gradeLabel } from "./grade";
 import { doc } from "./fixtures";
 
 const s3 = doc({ file: "03.md", title: "Objectives", section: 3, order: 30, status: "review", grade: { score: 75, blocking: 1, graded: "2026-10-27" } });
@@ -19,7 +18,16 @@ test("ungraded_section", () => {
 });
 
 test("score_without_date", () => {
-    expect(gradeLabel(doc({ section: 2, grade: { score: 70, blocking: 0, graded: null } }))).toBe("70, 0 blocking, no date");
+    const html = renderToStaticMarkup(<GradesTable documents={[doc({ section: 2, grade: { score: 70, blocking: 0, graded: null } })]} />);
+    expect(html).toContain("70");
+    expect(html).toContain("no date");
+    expect(html).not.toContain("Not graded");
+});
+
+test("unreadable_section_is_a_row", () => {
+    const html = renderToStaticMarkup(<GradesTable documents={[doc({ title: "Users and personas", section: 4, status: "unreadable", unreadable: "no front matter" })]} />);
+    expect(html).toContain("4. Users and personas");
+    expect(html).toContain("unreadable");
 });
 
 test("no_fix_marks", () => {

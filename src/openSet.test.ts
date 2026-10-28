@@ -1,5 +1,5 @@
 import { expect, test } from "bun:test";
-import { openSet } from "./openSet";
+import { applyResult, openSet } from "./openSet";
 import { sampleSet } from "./fixtures";
 
 test("cancel_gives_nothing", async () => {
@@ -16,4 +16,16 @@ test("failure_gives_message", async () => {
         throw "No PRD set in /tmp/empty: prd.md was not found.";
     });
     expect(r).toEqual({ error: "No PRD set in /tmp/empty: prd.md was not found." });
+});
+
+test("error_clears_the_old_set", () => {
+    expect(applyResult(sampleSet([]), { error: "No PRD set in /tmp/empty: prd.md was not found." })).toEqual({
+        set: undefined,
+        error: "No PRD set in /tmp/empty: prd.md was not found.",
+    });
+});
+
+test("cancel_keeps_the_old_set", () => {
+    const set = sampleSet([]);
+    expect(applyResult(set, {})).toEqual({ set, error: undefined });
 });

@@ -33,6 +33,7 @@ pub struct Links {
 pub struct ChildLink {
     pub path: String,
     pub title: String,
+    pub section: Option<u8>,
     pub order: Option<u32>,
     pub status: Option<String>,
 }
@@ -49,7 +50,7 @@ fn date_as_string<'de, D: Deserializer<'de>>(d: D) -> Result<Option<String>, D::
 
 /// Split a document into its front matter and its body. None when the document has no front matter.
 pub fn split_front_matter(text: &str) -> Option<(String, String)> {
-    let text = text.replace("\r\n", "\n");
+    let text = text.strip_prefix('\u{FEFF}').unwrap_or(text).replace("\r\n", "\n");
     let rest = text.strip_prefix("---\n")?;
     let end = rest.find("\n---")?;
     let yaml = rest[..end].to_string();
@@ -93,6 +94,18 @@ mod tests {
         assert_eq!(h.score, Some(83));
         assert_eq!(h.blocking, Some(0));
         assert_eq!(h.graded.as_deref(), Some("2026-10-28"));
+    }
+
+    #[test]
+    fn bom_front_matter() {
+        let (yaml, _) = split_front_matter(&format!("\u{FEFF}---\n{GRADED}\n---\nBody")).unwrap();
+        assert_eq!(parse_header(&yaml).unwrap().score, Some(83));
+    }
+
+    #[test]
+    fn score_without_graded_date() {
+        let h = parse_header(&GRADED.replace("\ngraded: 2026-10-28", "")).unwrap();
+        assert_eq!((h.score, h.graded), (Some(83), None));
     }
 
     #[test]

@@ -2,7 +2,8 @@ use crate::prdset::load::{load_set, PrdSet};
 use std::path::Path;
 
 /// Open the PRD set in `path` (FR-001). The UI calls `invoke("open_set", { path })`.
-#[tauri::command]
+// async: runs off the main thread, so a slow folder does not freeze the window.
+#[tauri::command(async)]
 pub fn open_set(path: String) -> Result<PrdSet, String> {
     load_set(Path::new(&path)).map_err(|e| e.to_string())
 }

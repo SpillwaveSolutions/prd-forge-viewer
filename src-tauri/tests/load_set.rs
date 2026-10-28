@@ -57,6 +57,7 @@ fn unreadable_section_marked() {
     let bad = set.documents.iter().find(|d| d.file == "04-personas.md").unwrap();
     assert_eq!(bad.status, "unreadable");
     assert!(bad.unreadable.is_some());
+    assert_eq!(bad.section, Some(4));
     assert_eq!(set.documents.iter().filter(|d| d.unreadable.is_none()).count(), 17);
 }
 
@@ -67,6 +68,8 @@ fn missing_section_marked() {
     let set = load_set(dir.path()).unwrap();
     let gone = set.documents.iter().find(|d| d.file == "06-scenarios.md").unwrap();
     assert_eq!(gone.status, "unreadable");
+    assert!(gone.unreadable.is_some());
+    assert_eq!(set.documents.iter().filter(|d| d.unreadable.is_none()).count(), 17);
 }
 
 #[test]
