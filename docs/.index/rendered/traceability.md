@@ -18,12 +18,12 @@ _The evidence chain: plan → item → ticket → code → release, forward and 
 - produced-by: [[Plan-plan-4-search]]
 
 ### Task 2: ranked search with a category filter
-`01M62EBHZ3H52KPBDQCA3YYTVG` · status: todo
+`01M62EBHZ3H52KPBDQCA3YYTVG` · status: done
 - belongs-to: Plan 4: search with ranked results
 - produced-by: [[Plan-plan-4-search]]
 
 ### Task 1: the per-set index with content hashes
-`01M62EBHZ3H52KPBDQCA3YYTVE` · status: todo
+`01M62EBHZ3H52KPBDQCA3YYTVE` · status: done
 - belongs-to: Plan 4: search with ranked results
 - produced-by: [[Plan-plan-4-search]]
 

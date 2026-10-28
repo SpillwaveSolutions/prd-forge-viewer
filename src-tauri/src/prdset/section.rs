@@ -38,14 +38,14 @@ fn inside(dir: &Path, rel: &str) -> Result<std::path::PathBuf, String> {
     if path.starts_with(&root) { Ok(path) } else { Err(format!("{rel} is outside the PRD set")) }
 }
 
-fn read(dir: &Path, file: &str) -> Result<(Header, String, String), String> {
+pub(crate) fn read(dir: &Path, file: &str) -> Result<(Header, String, String), String> {
     let text = fs::read_to_string(inside(dir, file)?).map_err(|e| format!("{file} cannot be read: {e}"))?;
     let (yaml, body) = split_front_matter(&text).ok_or(format!("{file} has no front matter"))?;
     Ok((parse_header(&yaml)?, yaml, body))
 }
 
 /// The root and the children it lists: the only documents the viewer opens.
-fn listed(dir: &Path) -> Vec<String> {
+pub(crate) fn listed(dir: &Path) -> Vec<String> {
     let mut files = vec!["prd.md".to_string()];
     if let Ok((root, _, _)) = read(dir, "prd.md") {
         files.extend(root.links.unwrap_or_default().children.into_iter().map(|c| c.path.trim_start_matches("./").to_string()));

@@ -1,6 +1,6 @@
 # Task 2: ranked search with a category filter
 
-`01M62EBHZ3H52KPBDQCA3YYTVG` · task/feature · **open**
+`01M62EBHZ3H52KPBDQCA3YYTVG` · task/feature · **done**
 
 `search(term, category)` returns items ranked by `bm25()`, with title matches weighted above text, and a score from 0 to 100.
 

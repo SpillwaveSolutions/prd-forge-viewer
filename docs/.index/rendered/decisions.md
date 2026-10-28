@@ -12,7 +12,7 @@ _Why things are the way they are: ADRs (rules adopted) and plans (designs execut
 | Plan | Lifecycle | Truth | Date |
 |---|---|---|---|
 | [[Plan-release-1-completion]] Release 1 completion: build the 15 remaining requirements | active | current | 2026-10-28 |
-| [[Plan-plan-4-search]] Plan 4: search with ranked results | planned | current | 2026-10-28 |
+| [[Plan-plan-4-search]] Plan 4: search with ranked results | active | current | 2026-10-28 |
 | [[Plan-plan-3-reading]] Plan 3: read sections, items, and references | completed | current | 2026-10-28 |
 | [[Plan-plan-2-launcher-and-settings]] Plan 2, the prdf launcher, known locations, and the last set | completed | current | 2026-10-28 |
 | [[Plan-plan-1-open-and-grades]] Plan 1, open a PRD set and see its grades | completed | current | 2026-10-28 |

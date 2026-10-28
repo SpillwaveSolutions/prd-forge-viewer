@@ -1,5 +1,5 @@
 {
- "git_hash": "5ca9ad2",
+ "git_hash": "1ffbff3",
  "pages": [
   {
    "frozen": false,
@@ -15,7 +15,7 @@
    "frozen": false,
    "page_name": "Index-Decisions",
    "render": "as-is",
-   "render_hash": "83cf1098f906",
+   "render_hash": "5a1e411e42c5",
    "source": "docs/.index/rendered/decisions.md",
    "title": "Decisions Index",
    "truth_state": "current",
@@ -45,7 +45,7 @@
    "frozen": false,
    "page_name": "Index-Traceability",
    "render": "as-is",
-   "render_hash": "911cb0a76458",
+   "render_hash": "9d3af6a977cb",
    "source": "docs/.index/rendered/traceability.md",
    "title": "Traceability Index",
    "truth_state": "current",
@@ -1405,7 +1405,7 @@
    "frozen": false,
    "page_name": "Ticket-01M62EBHYNFP9BW4QZRF310SYS",
    "render": "as-is",
-   "render_hash": "b3366d006e3e",
+   "render_hash": "f54ebdd8787c",
    "source": "docs/.index/rendered/tickets/01M62EBHYNFP9BW4QZRF310SYS.md",
    "title": "Plan 4: search with ranked results",
    "truth_state": "open",
@@ -1415,20 +1415,20 @@
    "frozen": false,
    "page_name": "Ticket-01M62EBHZ3H52KPBDQCA3YYTVE",
    "render": "as-is",
-   "render_hash": "aa5fd43d8964",
+   "render_hash": "80503f3ab4df",
    "source": "docs/.index/rendered/tickets/01M62EBHZ3H52KPBDQCA3YYTVE.md",
    "title": "Task 1: the per-set index with content hashes",
-   "truth_state": "open",
+   "truth_state": "done",
    "wiki_key": "item/01M62EBHZ3H52KPBDQCA3YYTVE"
   },
   {
    "frozen": false,
    "page_name": "Ticket-01M62EBHZ3H52KPBDQCA3YYTVG",
    "render": "as-is",
-   "render_hash": "4312ed54db8f",
+   "render_hash": "c7e77da10dac",
    "source": "docs/.index/rendered/tickets/01M62EBHZ3H52KPBDQCA3YYTVG.md",
    "title": "Task 2: ranked search with a category filter",
-   "truth_state": "open",
+   "truth_state": "done",
    "wiki_key": "item/01M62EBHZ3H52KPBDQCA3YYTVG"
   },
   {
@@ -1498,11 +1498,11 @@
    "wiki_key": "plan/2026-10-28-plan-3-reading"
   },
   {
-   "banner": "> **Current** \u2014 plan not yet started; plans are frozen once written, a changed design gets a new plan.",
+   "banner": "> **Current** \u2014 plan in flight; plans are frozen once written, a changed design gets a new plan.",
    "frozen": true,
    "page_name": "Plan-plan-4-search",
    "render": "doc+banner",
-   "render_hash": "db6337fd46ae",
+   "render_hash": "47c71a68f9de",
    "source": "docs/plans/2026-10-28-plan-4-search.md",
    "source_hash": "a4c654e8f794",
    "title": "Plan 4: search with ranked results",
@@ -1522,13 +1522,13 @@
    "wiki_key": "plan/2026-10-28-release-1-completion"
   },
   {
-   "banner": "> **Current** \u2014 this is the living version; regenerated at 2026-10-28T23:43:34Z. Historical snapshots are linked from [[Index-Releases]].",
+   "banner": "> **Current** \u2014 this is the living version; regenerated at 2026-10-28T23:45:17Z. Historical snapshots are linked from [[Index-Releases]].",
    "frozen": false,
    "page_name": "Roadmap",
    "render": "doc+banner",
-   "render_hash": "55807bf75360",
+   "render_hash": "63ca5cdc9d56",
    "source": "docs/roadmap.md",
-   "source_hash": "464f84aada96",
+   "source_hash": "c0de12552c69",
    "title": "Roadmap",
    "truth_state": "current",
    "wiki_key": "roadmap"
