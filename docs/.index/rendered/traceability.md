@@ -198,19 +198,19 @@ _The evidence chain: plan → item → ticket → code → release, forward and 
 - produced-by: [[Plan-release-1-completion]]
 
 ### e2e/phase1.mjs passes: FR-005, FR-023, FR-007, and a remote image that does not load
-`01M62C7REFJRP4FVS9Z3JD5SBD` · status: todo
+`01M62C7REFJRP4FVS9Z3JD5SBD` · status: done
 - belongs-to: Phase 1: read sections, items, and references (US-008, US-009, US-010)
 - references: [github#110](https://github.com/SpillwaveSolutions/prd-forge-viewer/issues/110)
 - produced-by: [[Plan-release-1-completion]]
 
 ### Built with TDD, and the review findings fixed
-`01M62C7REFJRP4FVS9Z3JD5SBB` · status: todo
+`01M62C7REFJRP4FVS9Z3JD5SBB` · status: done
 - belongs-to: Phase 1: read sections, items, and references (US-008, US-009, US-010)
 - references: [github#109](https://github.com/SpillwaveSolutions/prd-forge-viewer/issues/109)
 - produced-by: [[Plan-release-1-completion]]
 
 ### Plan 3 written and captured
-`01M62C7REFJRP4FVS9Z3JD5SB9` · status: todo
+`01M62C7REFJRP4FVS9Z3JD5SB9` · status: done
 - belongs-to: Phase 1: read sections, items, and references (US-008, US-009, US-010)
 - references: [github#108](https://github.com/SpillwaveSolutions/prd-forge-viewer/issues/108)
 - produced-by: [[Plan-release-1-completion]]
@@ -810,19 +810,19 @@ _The evidence chain: plan → item → ticket → code → release, forward and 
 - targets: release/REL-001
 
 ### US-010 Follow a reference from one item to the item it names
-`01M61XNJY90VDMDZW16HAGY522` · status: todo
+`01M61XNJY90VDMDZW16HAGY522` · status: done
 - belongs-to: EPIC-003 Go to a weak section: Go directly to a weak section or item, or find it by search.
 - references: [github#17](https://github.com/SpillwaveSolutions/prd-forge-viewer/issues/17)
 - targets: release/REL-001
 
 ### US-009 Select one item of a section and read it without the whole section
-`01M61XNJW2AZJVWS7GNVCDWE6J` · status: todo
+`01M61XNJW2AZJVWS7GNVCDWE6J` · status: done
 - belongs-to: EPIC-003 Go to a weak section: Go directly to a weak section or item, or find it by search.
 - references: [github#16](https://github.com/SpillwaveSolutions/prd-forge-viewer/issues/16)
 - targets: release/REL-001
 
 ### US-008 Go directly to any section
-`01M61XNJSXCVG60KPJFNBC4GPT` · status: todo
+`01M61XNJSXCVG60KPJFNBC4GPT` · status: done
 - belongs-to: EPIC-003 Go to a weak section: Go directly to a weak section or item, or find it by search.
 - references: [github#15](https://github.com/SpillwaveSolutions/prd-forge-viewer/issues/15)
 - targets: release/REL-001

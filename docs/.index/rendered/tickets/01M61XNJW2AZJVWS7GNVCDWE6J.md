@@ -1,6 +1,6 @@
 # US-009 Select one item of a section and read it without the whole section
 
-`01M61XNJW2AZJVWS7GNVCDWE6J` · story/feature · **open**
+`01M61XNJW2AZJVWS7GNVCDWE6J` · story/feature · **done**
 
 As a PRD author, I want to select one item of a section and read it without the whole section, so that the author reads one item, such as a persona or a requirement, without reading the whole section first.
 

@@ -1,5 +1,5 @@
 {
- "git_hash": "8d63a4e",
+ "git_hash": "e17b540",
  "pages": [
   {
    "frozen": false,
@@ -45,7 +45,7 @@
    "frozen": false,
    "page_name": "Index-Traceability",
    "render": "as-is",
-   "render_hash": "40a6836bea16",
+   "render_hash": "f43f9b74634a",
    "source": "docs/.index/rendered/traceability.md",
    "title": "Traceability Index",
    "truth_state": "current",
@@ -55,7 +55,7 @@
    "frozen": false,
    "page_name": "Release-REL-001",
    "render": "as-is",
-   "render_hash": "698c1d5d292d",
+   "render_hash": "23cdf01bfaa4",
    "source": "docs/.index/rendered/releases/REL-001.md",
    "title": "Release REL-001",
    "truth_state": "shipped",
@@ -155,7 +155,7 @@
    "frozen": false,
    "page_name": "Ticket-01M61XNJQPA0F7H1BG56ERNJ3P",
    "render": "as-is",
-   "render_hash": "5a8b1838587f",
+   "render_hash": "82d948ea6285",
    "source": "docs/.index/rendered/tickets/01M61XNJQPA0F7H1BG56ERNJ3P.md",
    "title": "EPIC-003 Go to a weak section: Go directly to a weak section or item, or find it by search.",
    "truth_state": "open",
@@ -165,30 +165,30 @@
    "frozen": false,
    "page_name": "Ticket-01M61XNJSXCVG60KPJFNBC4GPT",
    "render": "as-is",
-   "render_hash": "499d5c4344e5",
+   "render_hash": "32e4f5f574cb",
    "source": "docs/.index/rendered/tickets/01M61XNJSXCVG60KPJFNBC4GPT.md",
    "title": "US-008 Go directly to any section",
-   "truth_state": "open",
+   "truth_state": "done",
    "wiki_key": "item/01M61XNJSXCVG60KPJFNBC4GPT"
   },
   {
    "frozen": false,
    "page_name": "Ticket-01M61XNJW2AZJVWS7GNVCDWE6J",
    "render": "as-is",
-   "render_hash": "caadcfd9069b",
+   "render_hash": "4a54c999d9e1",
    "source": "docs/.index/rendered/tickets/01M61XNJW2AZJVWS7GNVCDWE6J.md",
    "title": "US-009 Select one item of a section and read it without the whole section",
-   "truth_state": "open",
+   "truth_state": "done",
    "wiki_key": "item/01M61XNJW2AZJVWS7GNVCDWE6J"
   },
   {
    "frozen": false,
    "page_name": "Ticket-01M61XNJY90VDMDZW16HAGY522",
    "render": "as-is",
-   "render_hash": "33120cf8715f",
+   "render_hash": "83d82a7d8185",
    "source": "docs/.index/rendered/tickets/01M61XNJY90VDMDZW16HAGY522.md",
    "title": "US-010 Follow a reference from one item to the item it names",
-   "truth_state": "open",
+   "truth_state": "done",
    "wiki_key": "item/01M61XNJY90VDMDZW16HAGY522"
   },
   {
@@ -1065,7 +1065,7 @@
    "frozen": false,
    "page_name": "Ticket-01M62C7REFJRP4FVS9Z3JD5SB7",
    "render": "as-is",
-   "render_hash": "528cf5c41c34",
+   "render_hash": "917c896b96a9",
    "source": "docs/.index/rendered/tickets/01M62C7REFJRP4FVS9Z3JD5SB7.md",
    "title": "Phase 1: read sections, items, and references (US-008, US-009, US-010)",
    "truth_state": "done",
@@ -1075,30 +1075,30 @@
    "frozen": false,
    "page_name": "Ticket-01M62C7REFJRP4FVS9Z3JD5SB9",
    "render": "as-is",
-   "render_hash": "b038144f3e35",
+   "render_hash": "db64044e0128",
    "source": "docs/.index/rendered/tickets/01M62C7REFJRP4FVS9Z3JD5SB9.md",
    "title": "Plan 3 written and captured",
-   "truth_state": "open",
+   "truth_state": "done",
    "wiki_key": "item/01M62C7REFJRP4FVS9Z3JD5SB9"
   },
   {
    "frozen": false,
    "page_name": "Ticket-01M62C7REFJRP4FVS9Z3JD5SBB",
    "render": "as-is",
-   "render_hash": "90430820acfd",
+   "render_hash": "558422c0bad9",
    "source": "docs/.index/rendered/tickets/01M62C7REFJRP4FVS9Z3JD5SBB.md",
    "title": "Built with TDD, and the review findings fixed",
-   "truth_state": "open",
+   "truth_state": "done",
    "wiki_key": "item/01M62C7REFJRP4FVS9Z3JD5SBB"
   },
   {
    "frozen": false,
    "page_name": "Ticket-01M62C7REFJRP4FVS9Z3JD5SBD",
    "render": "as-is",
-   "render_hash": "7706d046fda1",
+   "render_hash": "e6c33d874bf4",
    "source": "docs/.index/rendered/tickets/01M62C7REFJRP4FVS9Z3JD5SBD.md",
    "title": "e2e/phase1.mjs passes: FR-005, FR-023, FR-007, and a remote image that does not load",
-   "truth_state": "open",
+   "truth_state": "done",
    "wiki_key": "item/01M62C7REFJRP4FVS9Z3JD5SBD"
   },
   {
@@ -1450,13 +1450,13 @@
    "wiki_key": "plan/2026-10-28-release-1-completion"
   },
   {
-   "banner": "> **Current** \u2014 this is the living version; regenerated at 2026-10-28T23:29:38Z. Historical snapshots are linked from [[Index-Releases]].",
+   "banner": "> **Current** \u2014 this is the living version; regenerated at 2026-10-28T23:29:54Z. Historical snapshots are linked from [[Index-Releases]].",
    "frozen": false,
    "page_name": "Roadmap",
    "render": "doc+banner",
-   "render_hash": "657366110b7d",
+   "render_hash": "55faf72c673c",
    "source": "docs/roadmap.md",
-   "source_hash": "c734e8ec1a6b",
+   "source_hash": "48a662cab3c4",
    "title": "Roadmap",
    "truth_state": "current",
    "wiki_key": "roadmap"

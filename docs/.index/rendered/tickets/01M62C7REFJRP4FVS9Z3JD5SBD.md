@@ -1,6 +1,6 @@
 # e2e/phase1.mjs passes: FR-005, FR-023, FR-007, and a remote image that does not load
 
-`01M62C7REFJRP4FVS9Z3JD5SBD` · subtask/feature · **open**
+`01M62C7REFJRP4FVS9Z3JD5SBD` · subtask/feature · **done**
 
 e2e/phase1.mjs passes: FR-005, FR-023, FR-007, and a remote image that does not load
 

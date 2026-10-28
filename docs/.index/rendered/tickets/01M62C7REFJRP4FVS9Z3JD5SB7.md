@@ -10,11 +10,11 @@ Make each document clickable and readable, list the items of a section, show one
 
 ## Subtasks
 
-- [[Ticket-01M62C7REFJRP4FVS9Z3JD5SB9]] Plan 3 written and captured — Plan 3 written and captured (open)
-- [[Ticket-01M62C7REFJRP4FVS9Z3JD5SBB]] Built with TDD, and the review findings fixed — Built with TDD, and the review findings fixed (open)
-- [[Ticket-01M62C7REFJRP4FVS9Z3JD5SBD]] e2e/phase1.mjs passes: FR-005, FR-023, FR-007, and a remote image that does not load — e2e/phase1.mjs passes: FR-005, FR-023, FR-007, and a remote image that does not load (open)
+- [[Ticket-01M62C7REFJRP4FVS9Z3JD5SB9]] Plan 3 written and captured — Plan 3 written and captured (done)
+- [[Ticket-01M62C7REFJRP4FVS9Z3JD5SBB]] Built with TDD, and the review findings fixed — Built with TDD, and the review findings fixed (done)
+- [[Ticket-01M62C7REFJRP4FVS9Z3JD5SBD]] e2e/phase1.mjs passes: FR-005, FR-023, FR-007, and a remote image that does not load — e2e/phase1.mjs passes: FR-005, FR-023, FR-007, and a remote image that does not load (done)
 
-Progress: 0/3 done
+Progress: 3/3 done
 
 ## Related tickets
 

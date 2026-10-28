@@ -1994,17 +1994,17 @@
   },
   "item/01M61XNJSXCVG60KPJFNBC4GPT": {
    "doc_type": "item",
-   "status": "todo",
+   "status": "done",
    "title": "US-008 Go directly to any section"
   },
   "item/01M61XNJW2AZJVWS7GNVCDWE6J": {
    "doc_type": "item",
-   "status": "todo",
+   "status": "done",
    "title": "US-009 Select one item of a section and read it without the whole section"
   },
   "item/01M61XNJY90VDMDZW16HAGY522": {
    "doc_type": "item",
-   "status": "todo",
+   "status": "done",
    "title": "US-010 Follow a reference from one item to the item it names"
   },
   "item/01M61XNK0EWMYWDZNRXHB78SZ7": {
@@ -2449,17 +2449,17 @@
   },
   "item/01M62C7REFJRP4FVS9Z3JD5SB9": {
    "doc_type": "item",
-   "status": "todo",
+   "status": "done",
    "title": "Plan 3 written and captured"
   },
   "item/01M62C7REFJRP4FVS9Z3JD5SBB": {
    "doc_type": "item",
-   "status": "todo",
+   "status": "done",
    "title": "Built with TDD, and the review findings fixed"
   },
   "item/01M62C7REFJRP4FVS9Z3JD5SBD": {
    "doc_type": "item",
-   "status": "todo",
+   "status": "done",
    "title": "e2e/phase1.mjs passes: FR-005, FR-023, FR-007, and a remote image that does not load"
   },
   "item/01M62C7REFJRP4FVS9Z3JD5SBF": {

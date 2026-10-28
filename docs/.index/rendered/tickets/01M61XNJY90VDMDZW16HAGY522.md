@@ -1,6 +1,6 @@
 # US-010 Follow a reference from one item to the item it names
 
-`01M61XNJY90VDMDZW16HAGY522` · story/feature · **open**
+`01M61XNJY90VDMDZW16HAGY522` · story/feature · **done**
 
 As a developer who uses the authoring tools, I want to follow a reference from one item to the item it names, so that the developer reads the related item, such as the journey stage that a requirement serves.
 
