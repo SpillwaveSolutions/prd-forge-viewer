@@ -34,3 +34,9 @@ button:focus-visible { outline: 3px solid #0a66d8; outline-offset: 2px; }
 .doc-nav .doc-link { text-align: left; text-decoration: none; padding: 3px 6px; border-radius: 4px; }
 .doc-nav .doc-link[aria-current="page"] { background: #e8f0fe; font-weight: 600; }
 .body .doc-link { display: inline; }
+.search { margin: 8px 0 16px; padding: 8px 12px; border: 1px solid #e5e5ea; border-radius: 8px; background: #fff; }
+.search input, .search select { font: inherit; padding: 4px 6px; }
+.results ol { list-style: none; padding: 0; margin: 6px 0 0; }
+.results li { margin: 3px 0; }
+.results button { text-align: left; width: 100%; }
+.score { display: inline-block; min-width: 2.5em; font-variant-numeric: tabular-nums; color: #0a66d8; font-weight: 600; }

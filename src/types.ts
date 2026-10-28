@@ -72,3 +72,18 @@ export interface ItemRef {
     file: string;
     parent: string | null;
 }
+
+// Mirrors src-tauri/src/search.rs.
+export interface Hit {
+    id: string;
+    title: string;
+    file: string;
+    section: string;
+    category: string;
+    score: number;
+}
+
+export interface Category {
+    kind: string;
+    title: string;
+}

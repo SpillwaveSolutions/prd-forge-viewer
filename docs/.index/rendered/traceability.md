@@ -8,7 +8,7 @@ _The evidence chain: plan → item → ticket → code → release, forward and 
 - produced-by: [[Plan-plan-4-search]]
 
 ### Task 4: the search bar and the results list
-`01M62EBHZ3H52KPBDQCA3YYTVM` · status: todo
+`01M62EBHZ3H52KPBDQCA3YYTVM` · status: done
 - belongs-to: Plan 4: search with ranked results
 - produced-by: [[Plan-plan-4-search]]
 

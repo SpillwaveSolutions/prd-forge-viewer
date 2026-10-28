@@ -1,6 +1,6 @@
 # Task 4: the search bar and the results list
 
-`01M62EBHZ3H52KPBDQCA3YYTVM` · task/feature · **open**
+`01M62EBHZ3H52KPBDQCA3YYTVM` · task/feature · **done**
 
 A search box, a category filter, the number of matches, each result with its score, id, title, and section, and a no-match message (WF-003, WF-004).
 

@@ -3,11 +3,12 @@ import { invoke } from "@tauri-apps/api/core";
 import { listen } from "@tauri-apps/api/event";
 import { ask, open } from "@tauri-apps/plugin-dialog";
 import { GradesTable } from "./GradesTable";
+import { SearchPanel } from "./SearchPanel";
 import { SectionPage } from "./SectionPage";
 import { SetOverview } from "./SetOverview";
 import { StartScreen } from "./StartScreen";
 import { applyResult, applyStart, openSet } from "./openSet";
-import type { ItemRef, PrdSet, Section, StartView } from "./types";
+import type { Category, Hit, ItemRef, PrdSet, Section, StartView } from "./types";
 
 const pickFolder = async () => {
     const picked = await open({ directory: true, title: "Open PRD set" });
@@ -22,12 +23,17 @@ export function App() {
     const [notice, setNotice] = useState<string>();
     const [page, setPage] = useState<{ section: Section; selected: string | null }>();
     const [index, setIndex] = useState<ItemRef[]>([]);
+    const [categories, setCategories] = useState<Category[]>([]);
 
     // Each new set gets a fresh item index and starts on its overview.
     useEffect(() => {
         setPage(undefined);
         setIndex([]);
-        if (set) void invoke<ItemRef[]>("item_index", { folder: set.folder }).then(setIndex).catch(() => setIndex([]));
+        setCategories([]);
+        if (set) {
+            void invoke<ItemRef[]>("item_index", { folder: set.folder }).then(setIndex).catch(() => setIndex([]));
+            void invoke<Category[]>("categories", { folder: set.folder }).then(setCategories).catch(() => setCategories([]));
+        }
     }, [set?.folder]);
 
     const openDoc = useCallback(async (file: string, selected: string | null = null) => {
@@ -95,6 +101,14 @@ export function App() {
             </header>
             {notice && <p role="status">{notice}</p>}
             {error && <p role="alert" className="error">{error}</p>}
+            {set && (
+                <SearchPanel
+                    key={set.folder}
+                    categories={categories}
+                    onSearch={(term, category) => invoke<Hit[]>("search", { folder: set.folder, term, category })}
+                    onOpenItem={openItem}
+                />
+            )}
             {set && page ? (
                 <SectionPage
                     section={page.section}
