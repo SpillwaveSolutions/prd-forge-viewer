@@ -13,7 +13,7 @@
 | **Status** | DRAFT |
 | **Version** | 1.0 |
 | **Created Date** | 2026-10-26 |
-| **Last Modified** | 2026-10-27 |
+| **Last Modified** | 2026-10-28 |
 | **Review Cycle** | On-Demand |
 | **Next Review Date** | 2026-11-25 |
 | **Owner** | Richard Hightower, PRD owner |
@@ -29,6 +29,7 @@
 | 1.0 | 2026-10-26 | ArcKit AI | Regenerated for PRD 0.3.2, ADR v1.1, and HLDR v1.1 | [PENDING] | [PENDING] |
 | 1.0 | 2026-10-27 | ArcKit AI | Updated for PRD 0.4.0: FR-023 restated, the ST-008 gap closed because ST-008 is not on the release line | [PENDING] | [PENDING] |
 | 1.0 | 2026-10-27 | ArcKit AI | Updated for PRD 0.5.0: nine requirements to SHOULD_HAVE, FR-025 added for REL-002 | [PENDING] | [PENDING] |
+| 1.0 | 2026-10-28 | ArcKit AI | Updated for PRD 0.6.1: C-001, C-002, and C-004 retired, NFR-008 extended, release 1 on 2026-11-06 | [PENDING] | [PENDING] |
 
 ## Document purpose
 
@@ -76,7 +77,7 @@ range that holds it. "HLDR" is the HLD review finding that applies.
 
 | Req ID | Requirement | Priority | Design component | Design references | HLDR | Planned test | Status |
 |--------|-------------|----------|------------------|-------------------|------|--------------|--------|
-| BR-001 | Stakeholders give feedback on a PRD version sooner | MUST_HAVE | All release 1 containers | ADR-002, ADR-003, ADR-004, ADR-005 |  | Measure per version sent (Q-001) | ⏳ Planned |
+| BR-001 | Stakeholders give feedback on a PRD version sooner | MUST_HAVE | All release 1 containers | ADR-002, ADR-003, ADR-004, ADR-005 |  | Baseline about 10 days from the historic PRDs (Q-001, answered) | ⏳ Planned |
 | BR-002 | No version reaches a stakeholder with a blocking defect | MUST_HAVE | Export assembly layer (grades in export) | ADR-002 |  | Read grades of each version sent | ⏳ Planned |
 | BR-003 | Deliver the two releases on their dates | MUST_HAVE | Not a design element | ADR-001, ADR-002, ADR-003, HLDR | ADV-07 (closed) | Release date check | ⏳ Planned |
 | FR-001 | Open a PRD set and see its contents | MUST_HAVE | Set reader, Web UI tree | ADR-001, DATA, DIAG-001, DIAG-002, DIAG-003, HLDR |  | Acceptance criteria in REQ | ⏳ Planned |
@@ -88,8 +89,8 @@ range that holds it. "HLDR" is the HLD review finding that applies.
 | FR-007 | Follow a reference from one item to the item it names | SHOULD_HAVE | Set reader, Web UI | ADR-001, ADR-003, DATA, DIAG-001, DIAG-002, DIAG-003, HLDR |  | Acceptance criteria in REQ | ⏳ Planned |
 | FR-008 | Search the PRD set by term, in one category or in all categories | MUST_HAVE | Search index | ADR-001, ADR-003, DATA, DIAG-001, DIAG-002, DIAG-003, HLDR | ADV-08 (closed) | Acceptance criteria in REQ | ⏳ Planned |
 | FR-009 | See changes that the authoring tools make, without any action | MUST_HAVE | Change watcher, Set reader | ADR-001, ADR-005, DATA, DIAG-001, DIAG-002, DIAG-003, DIAG-004, HLDR |  | Acceptance criteria in REQ | ⏳ Planned |
-| FR-010 | Export the PRD set as a fixed-layout document (C-001) | MUST_HAVE | HTML to PDF writer, Export saver | ADR-001, ADR-002, DIAG-001, DIAG-002, DIAG-003, HLDR | BLOCKING-01 (closed) | Acceptance criteria in REQ | ⏳ Planned |
-| FR-011 | Export the PRD set as an editable document (C-001) | SHOULD_HAVE | Web UI Word writer, Export saver | ADR-001, ADR-002, DIAG-001, DIAG-002, DIAG-003, HLDR |  | Acceptance criteria in REQ | ⏳ Planned |
+| FR-010 | Export the PRD set as a fixed-layout document (IN-006) | MUST_HAVE | HTML to PDF writer, Export saver | ADR-001, ADR-002, DIAG-001, DIAG-002, DIAG-003, HLDR | BLOCKING-01 (closed) | Acceptance criteria in REQ | ⏳ Planned |
+| FR-011 | Export the PRD set as an editable document (IN-006) | SHOULD_HAVE | Web UI Word writer, Export saver | ADR-001, ADR-002, DIAG-001, DIAG-002, DIAG-003, HLDR |  | Acceptance criteria in REQ | ⏳ Planned |
 | FR-012 | Export only selected sections | MUST_HAVE | Export assembly layer | ADR-001, ADR-002, ADR-003, DIAG-001, DIAG-002, DIAG-003, HLDR |  | Acceptance criteria in REQ | ⏳ Planned |
 | FR-013 | Print the PRD set or selected sections | SHOULD_HAVE | Web UI, OS print service | ADR-001, ADR-002, DATA, DIAG-001, DIAG-002, HLDR | ADV-06 | Acceptance criteria in REQ | ⏳ Planned |
 | FR-014 | See the version of the PRD, and if it is a draft, in an export | MUST_HAVE | Export assembly layer | ADR-001, ADR-002, DATA, DIAG-001, DIAG-002, HLDR |  | Acceptance criteria in REQ | ⏳ Planned |
@@ -109,7 +110,7 @@ range that holds it. "HLDR" is the HLD review finding that applies.
 | NFR-P-003 | Search response time | MUST_HAVE | Search index | ADR-001, ADR-003, DATA, DIAG-001, DIAG-002, DIAG-003, DIAG-004, HLDR |  | Perf: search 18-document fixture, p95 | ⏳ Planned |
 | NFR-P-004 | Export time | MUST_HAVE | Export writers | ADR-001, ADR-002, DATA, DIAG-001, DIAG-002, DIAG-003, DIAG-004, HLDR |  | Perf: whole-set export, p95 | ⏳ Planned |
 | NFR-A-001 | Works without a network | MUST_HAVE | Whole app, no network | ADR-001, DIAG-001, DIAG-002, DIAG-003, DIAG-004, HLDR |  | Acceptance suite with the network off | ⏳ Planned |
-| NFR-A-002 | Custom themes survive a restart | MUST_HAVE | Settings store | ADR-002, ADR-004, DATA, DIAG-001, DIAG-002, DIAG-003, DIAG-004, HLDR |  | Restart test with custom themes | ⏳ Planned |
+| NFR-A-002 | Custom themes, known locations, and the last set survive a restart | MUST_HAVE | Settings store | ADR-002, ADR-004, DATA, DIAG-001, DIAG-002, DIAG-003, DIAG-004, HLDR |  | Restart test with custom themes, known locations, and the last set | ⏳ Planned |
 | NFR-A-003 | Fault tolerance for unreadable documents | MUST_HAVE | Set reader | DIAG-001, DIAG-002, DIAG-003, DIAG-004, HLDR |  | Acceptance criteria in REQ | ⏳ Planned |
 | NFR-SEC-001 | No PRD content leaves the computer | MUST_HAVE | Whole app, no network | ADR-001, DATA, DIAG-001, DIAG-002, DIAG-003, DIAG-004, HLDR |  | Acceptance criteria in REQ | ⏳ Planned |
 | NFR-SEC-002 | The viewer does not change the PRD set | MUST_HAVE | Command handler, Export saver, capabilities | ADR-001, ADR-003, ADR-004, ADR-005, DATA, DIAG-001, DIAG-002, DIAG-003, DIAG-004, HLDR |  | Checksum of every set file before and after | ⏳ Planned |
@@ -270,6 +271,8 @@ No regulation applies. NFR-I-001 (format version 1) and NFR-I-002 (PDF and
 | C-004 added: macOS only (HLDR ADV-03) | ADR-001, NFR-I-003 |
 | NFR-010 added: only local content (HLDR ADV-01) | NFR-SEC-003 now has a PRD source |
 | Release 1 moved to 2026-10-27 (HLDR ADV-07) | BR-003 |
+| C-001, C-002, and C-004 retired to IN-006, OUT-001, and OUT-003 (PRD 0.6.0) | NFR-SEC-002, NFR-I-003, FR-010, FR-011 |
+| Release 1 moved to 2026-11-06 (PRD 0.6.1) | BR-003 |
 | SQLite index (HLDR ADV-08) | ADR-003, E-006 |
 
 ---
@@ -350,7 +353,7 @@ and each ID range.
 
 | Doc ID | Filename | Type | Source Location | Description |
 |--------|----------|------|-----------------|-------------|
-| PFVP | prd-forge-viewer-prd.pdf | PRD | `projects/001-prd-forge-viewer/external/` | The PRD, version 0.5.0 |
+| PFVP | prd-forge-viewer-prd.pdf | PRD | `projects/001-prd-forge-viewer/external/` | The PRD, version 0.6.1 |
 
 ### Citations
 
@@ -367,7 +370,7 @@ and each ID range.
 ---
 
 **Generated by**: ArcKit `/arckit:traceability` command
-**Generated on**: 2026-10-27
+**Generated on**: 2026-10-28
 **ArcKit Version**: 6.18.3
 **Project**: PRD Forge Viewer (Project 001)
 **Model**: claude-opus-5-5

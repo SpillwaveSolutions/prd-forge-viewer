@@ -13,7 +13,7 @@
 | **Status** | DRAFT |
 | **Version** | 1.0 |
 | **Created Date** | 2026-10-26 |
-| **Last Modified** | 2026-10-27 |
+| **Last Modified** | 2026-10-28 |
 | **Review Cycle** | On-Demand |
 | **Next Review Date** | 2026-11-25 |
 | **Owner** | Richard Hightower, PRD owner |
@@ -29,12 +29,13 @@
 | 1.0 | 2026-10-26 | ArcKit AI | Regenerated from PRD 0.3.2: FR-024, NFR-SEC-003 from PRD NFR-010, NFR-I-003 from C-004, release 1 on 2026-10-27 | [PENDING] | [PENDING] |
 | 1.0 | 2026-10-27 | ArcKit AI | Updated from PRD 0.4.0 (PRD Forge 0.8.1): FR-007 and FR-008 at ST-003, FR-012 at ST-005, FR-023 restated with no control, FR-012 and FR-013 Givens, WF-010 | [PENDING] | [PENDING] |
 | 1.0 | 2026-10-27 | ArcKit AI | Updated from PRD 0.5.0: nine requirements to SHOULD_HAVE, FR-025 for REL-002, SC-008, WF-011, Q-008 answered | [PENDING] | [PENDING] |
+| 1.0 | 2026-10-28 | ArcKit AI | Updated from PRD 0.6.1: NFR targets, sources, and measurements; C-001, C-002, and C-004 retired to IN-006, OUT-001, and OUT-003; Q-001 and Q-009 answered; release 1 on 2026-11-06 | [PENDING] | [PENDING] |
 
 ---
 
 ## Document purpose
 
-This document restates the PRD Forge Viewer PRD, version 0.5.0, as an
+This document restates the PRD Forge Viewer PRD, version 0.6.1, as an
 ArcKit requirements specification. The design documents (data model, ADRs,
 diagrams, HLD review, and traceability) read it.
 
@@ -76,11 +77,11 @@ desktop app with no server (A-002, NFR-006).
 
 - O-001: Stakeholders give feedback on a PRD version sooner.
 - O-002: Authors fix blocking defects before stakeholders see a version.
-- Deliver release 1 by 2026-10-27 and release 2 by 2026-11-06.
+- Deliver release 1 by 2026-11-06 and release 2 by 2026-11-06.
 
 ### Expected outcomes
 
-- Median days from the send of a version to the first written feedback: 2 days or less by 2027-03-31. Baseline about 10 days, an owner estimate (Q-001) [PFVP-C3].
+- Median days from the send of a version to the first written feedback: 2 days or less by 2027-03-31. Baseline about 10 days on the historic PRDs. This PRD does not count, because it is for a new tool (Q-001) [PFVP-C3].
 - Blocking defects in each version sent: 0 by 2027-03-31. Baseline 1, in version 0.2.0 of this PRD [PFVP-C4].
 
 ### Project scope
@@ -92,14 +93,15 @@ desktop app with no server (A-002, NFR-006).
 - IN-003: Go directly to any section and read it. (FR-005, FR-023)
 - IN-004: Search the PRD set by term, in one category or in all, and see the best matches first. (FR-008, FR-007)
 - IN-005: See each change that the authoring tools make to a section, without any action from the author. (FR-009)
-- IN-006: Export the whole PRD set or selected sections as a fixed-layout or an editable document (IN-006), or print it. The export shows the version and the status of the PRD and of each section. (FR-010, FR-011, FR-013, FR-014, FR-019)
+- IN-006: Export the whole PRD set or selected sections as a fixed-layout document or an editable document, or print it. The fixed-layout document is PDF (ISO 32000). The editable document is a .docx file (ISO/IEC 29500). The readers already open these formats without installing anything (A-001). The export shows the version and the status of the PRD and of each section. (FR-010, FR-011, FR-013, FR-014, FR-019)
 - IN-007: Select an export theme. The viewer includes the built-in themes, and the author can make, change, and delete custom themes. (FR-015, FR-016, FR-017, FR-018, FR-020)
 - IN-008: Export only the sections that a developer selects. (FR-012)
 
 **Out of Scope**:
 
 - OUT-001: Editing the text of a section in the viewer (Q-005). Revisit: The PRD owner decides at the release 2 review, on 2026-11-06, if editing goes into a release.
-- OUT-002: Showing the findings behind each grade, such as what is missing and what to improve (Q-004). Revisit: The authoring tools record the findings from PRD Forge 0.2.0 (D-002 delivered). Release 2 shows them (FR-025), on 2026-11-06.
+- OUT-002: Showing the findings behind each grade, such as what is missing and what to improve (Q-004). Revisit: The authoring tools now record the findings (D-002 delivered). Release 2 shows them (FR-025), on 2026-11-06.
+- OUT-003: Operating systems other than macOS. Release 1 runs on macOS only, on the only test computer, an Apple silicon Mac with 16 GB of memory. The PRD owner decided this on item ADV-03 of the HLD review (change log, version 0.3.2). Revisit: The PRD owner decides at the release 2 review, on 2026-11-06, if another operating system goes into a release.
 
 ---
 
@@ -132,7 +134,7 @@ feedback waits (P-002). Serves goals G-1, G-2, G-3, and G-5.
 **Acceptance Criteria**:
 
 - [ ] The median calendar days from the send of a version to the first written feedback from any stakeholder is 2 days or less, by 2027-03-31.
-- [ ] The first send of this PRD replaces the baseline estimate of about 10 days with a measured figure (Q-001, due 2026-11-30).
+- [ ] The baseline stays at about 10 days, from the historic PRDs. This PRD does not count for review time (Q-001, answered 2026-10-28).
 
 **Priority**: MUST_HAVE
 
@@ -160,7 +162,7 @@ defects (SD-4). Serves goal G-4.
 
 ### BR-003: Deliver the two releases on their dates
 
-**Description**: Release 1 (REL-001, read and export) is due 2026-10-27.
+**Description**: Release 1 (REL-001, read and export) is due 2026-11-06.
 Release 2 (REL-002, grade findings) is due 2026-11-06. PRD source: section 13.
 
 **Rationale**: The PRD owner set both dates on 2026-10-26. O-001 needs the
@@ -168,7 +170,7 @@ viewer in use well before 2027-03-31.
 
 **Acceptance Criteria**:
 
-- [ ] Every REL-001 requirement passes its acceptance criteria by 2026-10-27.
+- [ ] Every REL-001 requirement passes its acceptance criteria by 2026-11-06.
 - [ ] REL-002 shows the findings behind each grade by 2026-11-06.
 
 **Priority**: MUST_HAVE
@@ -436,7 +438,7 @@ There are 24 functional requirements. All text is copied from
 
 **Relates To**: BR-001, UC-1 (J-001), ST-003
 
-**Rationale**: Author (PER-001) needs this at ST-003 (Go to a weak section). It serves O-001. PRD source: Interview, 2026-10-26. Dropped on 2026-10-26 by the PRD owner: the tree (FR-005, FR-023) moves the author to any section.
+**Rationale**: Author (PER-001) needs this at ST-003 (Go to a weak section). It serves O-001. PRD source: Interview, 2026-10-26. Dropped on 2026-10-26 by the PRD owner: FR-005 and FR-023 move the author to any section..
 
 **Acceptance Criteria**:
 
@@ -751,7 +753,7 @@ There are 24 functional requirements. All text is copied from
 
 **Relates To**: BR-001, UC-1 (J-001), ST-001
 
-**Rationale**: Author (PER-001) needs this at ST-001 (Open the PRD). It serves O-001. PRD source: Interview, 2026-10-26.
+**Rationale**: Author (PER-001) needs this at ST-001 (Open the PRD). It serves O-001. PRD source: Interview, 2026-10-26. The PRD owner keeps the name docs/prd on 2026-10-27, because it is the folder that the authoring tools use and that the author sees..
 
 **Acceptance Criteria**:
 
@@ -867,18 +869,20 @@ an Apple silicon Mac with 16 GB.
 
 **Requirement**: The author sees a PRD set within 2 seconds of opening it.
 
-- Metric: Time from the open action to the moment the author sees the product name, the version, and the status of every document.
-- Target: p95 at most 2 seconds, for a PRD set of 18 documents
+- Metric: Time from the open action to the moment the author sees the product name, the version, the executive summary, and the status of every document.
+- Target: p95 at most 2 seconds, for a PRD set of at most 18 documents and 176 KB of text, the size of this set on 2026-10-28
 
-**Measurement Method**: Open this PRD set 20 times on the test computer (OUT-003), time each open from a screen recording, and take the 19th fastest time.
+**Measurement Method**: On one day, open this PRD set 20 times on the test computer (OUT-003): 10 times from the viewer, 5 times with prdf, and 5 times from the list of sets. Time each open from a screen recording, and take the 19th fastest time.
 
-**Applies To**: FR-001, FR-002, FR-003
+**Target Source**: PRD owner decision, Richard Hightower, 2026-10-26. The author opens the viewer several times a day while writing a PRD (Q-003). 2 seconds is within the 10-second limit of attention in "Response Times: The 3 Important Limits", Jakob Nielsen, Nielsen Norman Group, 1993, updated 2014, https://www.nngroup.com/articles/response-times-3-important-limits/
+
+**Applies To**: FR-001, FR-002, FR-003, FR-021, FR-024
 
 **Rationale**: The author opens the viewer several times a day (Q-003). Serves G-1 and principle 11.
 
 **Acceptance Criteria**:
 
-- [ ] The measurement above meets the target: p95 at most 2 seconds, for a PRD set of 18 documents.
+- [ ] The measurement above meets the target: p95 at most 2 seconds, for a PRD set of at most 18 documents and 176 KB of text, the size of this set on 2026-10-28.
 
 **Priority**: MUST_HAVE
 
@@ -891,9 +895,11 @@ an Apple silicon Mac with 16 GB.
 **Requirement**: The author sees a change from the authoring tools within 2 seconds of the save.
 
 - Metric: Time from the moment the authoring tools save a section to the moment the author sees the new text and score in the viewer.
-- Target: p95 at most 2 seconds
+- Target: p95 at most 2 seconds, for a PRD set of at most 18 documents and 176 KB of text, the size of this set on 2026-10-28
 
-**Measurement Method**: Change and save one section 20 times while the viewer shows it, on the test computer, time each update from a screen recording, and take the 19th fastest time.
+**Measurement Method**: On one day, change and save one section 20 times while the viewer shows it, on the test computer. Time each update from a screen recording, and take the 19th fastest time.
+
+**Target Source**: PRD owner decision, Richard Hightower, 2026-10-26. The author checks each change while writing (Q-003, SC-003).
 
 **Applies To**: FR-009
 
@@ -901,7 +907,7 @@ an Apple silicon Mac with 16 GB.
 
 **Acceptance Criteria**:
 
-- [ ] The measurement above meets the target: p95 at most 2 seconds.
+- [ ] The measurement above meets the target: p95 at most 2 seconds, for a PRD set of at most 18 documents and 176 KB of text, the size of this set on 2026-10-28.
 
 **Priority**: MUST_HAVE
 
@@ -914,9 +920,11 @@ an Apple silicon Mac with 16 GB.
 **Requirement**: The developer sees search results within 0.5 seconds of searching.
 
 - Metric: Time from the search action to the moment the developer sees the results.
-- Target: p95 at most 0.5 seconds, for a PRD set of 18 documents
+- Target: p95 at most 0.5 seconds, for a PRD set of at most 18 documents and 176 KB of text, the size of this set on 2026-10-28
 
-**Measurement Method**: Run 20 searches with different terms and categories on this PRD set, on the test computer, time each from a screen recording, and take the 19th fastest time.
+**Measurement Method**: On one day, run 20 searches with different terms and categories on this PRD set, on the test computer. Time each from a screen recording, and take the 19th fastest time.
+
+**Target Source**: PRD owner decision, Richard Hightower, 2026-10-26. A search must not break the developer's flow of thought. Nielsen gives 1.0 second as the limit for an uninterrupted flow of thought, and 0.5 seconds keeps half of that as a margin. "Response Times: The 3 Important Limits", Jakob Nielsen, Nielsen Norman Group, 1993, updated 2014, https://www.nngroup.com/articles/response-times-3-important-limits/
 
 **Applies To**: FR-008
 
@@ -924,7 +932,7 @@ an Apple silicon Mac with 16 GB.
 
 **Acceptance Criteria**:
 
-- [ ] The measurement above meets the target: p95 at most 0.5 seconds, for a PRD set of 18 documents.
+- [ ] The measurement above meets the target: p95 at most 0.5 seconds, for a PRD set of at most 18 documents and 176 KB of text, the size of this set on 2026-10-28.
 
 **Priority**: MUST_HAVE
 
@@ -937,9 +945,11 @@ an Apple silicon Mac with 16 GB.
 **Requirement**: The author has the export file within 10 seconds of starting the export.
 
 - Metric: Time from the export action to the moment the file is ready to open.
-- Target: p95 at most 10 seconds, for the whole PRD set of 18 documents
+- Target: p95 at most 10 seconds, for the whole PRD set, at most 18 documents and 176 KB of text, the size of this set on 2026-10-28
 
-**Measurement Method**: Export this PRD set 20 times, 10 times in each format of IN-006, on the test computer, time each export, and take the 19th fastest time.
+**Measurement Method**: On one day, export this PRD set 20 times, 10 times in each format of IN-006, on the test computer. Time each export, and take the 19th fastest time.
+
+**Target Source**: PRD owner decision, Richard Hightower, 2026-10-26. The author waits for the export and does not change to another task. Nielsen gives 10 seconds as the limit for keeping the user's attention. "Response Times: The 3 Important Limits", Jakob Nielsen, Nielsen Norman Group, 1993, updated 2014, https://www.nngroup.com/articles/response-times-3-important-limits/
 
 **Applies To**: FR-010, FR-011, FR-012
 
@@ -947,7 +957,7 @@ an Apple silicon Mac with 16 GB.
 
 **Acceptance Criteria**:
 
-- [ ] The measurement above meets the target: p95 at most 10 seconds, for the whole PRD set of 18 documents.
+- [ ] The measurement above meets the target: p95 at most 10 seconds, for the whole PRD set, at most 18 documents and 176 KB of text, the size of this set on 2026-10-28.
 
 **Priority**: MUST_HAVE
 
@@ -968,9 +978,11 @@ not apply.
 - Metric: Share of the release 1 functional requirements that pass with the network off.
 - Target: 100% of the 23 functional requirements
 
-**Measurement Method**: Turn off all network connections on the test computer and run the acceptance criteria of FR-001 to FR-024, except FR-006.
+**Measurement Method**: On one day, turn off all network connections on the test computer and run the acceptance criteria of FR-001 to FR-024, except FR-006.
 
-**Applies To**: All FRs
+**Target Source**: PRD owner decision, Richard Hightower, 2026-10-26. The viewer shows only local content (NFR-010), so no feature needs a network.
+
+**Applies To**: Every release 1 requirement
 
 **Rationale**: The PRD set is local (A-002). Serves principle 1.
 
@@ -986,14 +998,16 @@ not apply.
 
 **PRD Source**: NFR-008 (durability)
 
-**Requirement**: Custom export themes are not lost when the viewer restarts.
+**Requirement**: Custom export themes, the known locations, and the last open PRD set are not lost when the viewer restarts.
 
-- Metric: Number of custom themes, or theme values, lost after a restart.
+- Metric: Number of custom themes, theme values, known locations, or last-set records lost after a restart.
 - Target: Zero
 
-**Measurement Method**: Make 5 custom themes, close the viewer, restart the computer, open the viewer, and compare every value of every theme.
+**Measurement Method**: On one day, make 5 custom themes, open PRD sets from 3 locations, and leave one set open. Close the viewer, restart the computer, and open the viewer. Compare every theme value and every known location, and check that the same set is open.
 
-**Applies To**: FR-016, FR-020
+**Target Source**: PRD owner decision, Richard Hightower, 2026-10-26, extended on 2026-10-28 to the known locations and the last set. The author makes these once and expects to find them again.
+
+**Applies To**: FR-002, FR-016, FR-020, FR-022
 
 **Rationale**: The author makes a theme once for each client. Serves FR-020.
 
@@ -1042,12 +1056,14 @@ Authentication, authorization, and secrets management do not apply.
 
 **Requirement**: No content of a PRD set leaves the author's computer.
 
-- Metric: Number of network transfers that contain any content of a PRD set.
+- Metric: Number of network transfers that the viewer makes during a session. A transfer counts even if its content is encrypted.
 - Target: Zero
 
-**Measurement Method**: Record all network traffic from the test computer during a session that opens, searches, and exports this PRD set. Search the record for text from the PRD set. The count of matches is zero.
+**Measurement Method**: On one day, record all network connections that the viewer opens on the test computer during a session that opens, searches, and exports this PRD set. Count every connection to a host other than the computer itself. The count is zero.
 
-**Applies To**: All FRs
+**Target Source**: PRD owner decision, Richard Hightower, 2026-10-26. A PRD set can hold client information, because the sponsor (PER-004) is a client executive. No feature needs to send it (NFR-010).
+
+**Applies To**: Every release 1 requirement
 
 **Rationale**: PRD content is client material. Serves principles 1 and 8.
 
@@ -1087,7 +1103,9 @@ author changes documents only in the authoring tools.
 - Metric: Number of scripts that run, and number of network requests that the viewer makes, while it shows a test PRD set that holds a script in a section, a script in a diagram, a remote image, and a remote link.
 - Target: Zero scripts run and zero network requests
 
-**Measurement Method**: On the test computer, start a network monitor, open the test PRD set, read every section, select the remote link, and count the scripts that run and the network requests.
+**Measurement Method**: On one day, on the test computer, start a network monitor and open the test PRD set. Each test script, if it runs, changes the visible text of its section to SCRIPT RAN. Read every section, select the remote link, and count the sections that show SCRIPT RAN and the network requests.
+
+**Target Source**: PRD owner decision, Richard Hightower, 2026-10-26. A PRD set can come from another person, and its content must not act on the author's computer.
 
 **Applies To**: FR-001, FR-005, FR-007, FR-008, FR-009, FR-010, FR-011, FR-012, FR-013, FR-023
 
@@ -1119,18 +1137,20 @@ Word are a scope decision, not a regulation (IN-006).
 
 **Requirement**: A person who uses only a keyboard can do every task in the viewer.
 
-- Metric: Share of the release 1 acceptance criteria that a tester completes with a keyboard only, and the count of WCAG 2.2 level AA failures.
-- Target: 100% of the acceptance criteria, and zero WCAG 2.2 AA failures
+- Metric: Share of the release 1 acceptance criteria that a tester completes with a keyboard only, and the count of failures of the WCAG 2.2 level AA success criteria, as WCAG2ICT applies them to non-web software.
+- Target: 100% of the acceptance criteria, and zero level AA failures
 
-**Measurement Method**: A tester runs the acceptance criteria of FR-001 to FR-024, except FR-006, with a keyboard only, then checks the viewer against the WCAG 2.2 level AA success criteria.
+**Measurement Method**: In one week, a tester runs the acceptance criteria of FR-001 to FR-024, except FR-006, with a keyboard only. The tester then checks the viewer against each WCAG 2.2 level AA success criterion that WCAG2ICT applies to non-web software.
 
-**Applies To**: All FRs
+**Target Source**: PRD owner decision, Richard Hightower, 2026-10-26. The success criteria come from WCAG 2.2, applied to a desktop app by "Guidance on Applying WCAG 2 to Non-Web Information and Communications Technologies (WCAG2ICT)", W3C Group Note, 11 December 2025, https://www.w3.org/TR/wcag2ict-22/
+
+**Applies To**: Every release 1 requirement
 
 **Rationale**: Every person must be able to use the viewer. Serves principle 12.
 
 **Acceptance Criteria**:
 
-- [ ] The measurement above meets the target: 100% of the acceptance criteria, and zero WCAG 2.2 AA failures.
+- [ ] The measurement above meets the target: 100% of the acceptance criteria, and zero level AA failures.
 
 **Priority**: MUST_HAVE
 
@@ -1142,10 +1162,12 @@ Word are a scope decision, not a regulation (IN-006).
 
 **Requirement**: A reader who uses a screen reader can read every export.
 
-- Metric: Number of errors that the built-in accessibility checker of the reader's software reports on an export.
-- Target: Zero errors, for each format in IN-006
+- Metric: Number of errors that the accessibility checker of a reader for each format of IN-006 reports on an export.
+- Target: Zero errors, for each format of IN-006
 
-**Measurement Method**: Export this PRD set in each format of IN-006 and run the accessibility checker of a standard PDF reader and of a word processor on each file.
+**Measurement Method**: On one day, export this PRD set in each format of IN-006. Run the accessibility checker of a reader for that format on each file.
+
+**Target Source**: PRD owner decision, Richard Hightower, 2026-10-26. Every reader of the export (PER-003, PER-004, PER-005) must be able to read it, also a reader who uses a screen reader.
 
 **Applies To**: FR-010, FR-011, FR-012
 
@@ -1153,7 +1175,7 @@ Word are a scope decision, not a regulation (IN-006).
 
 **Acceptance Criteria**:
 
-- [ ] The measurement above meets the target: Zero errors, for each format in IN-006.
+- [ ] The measurement above meets the target: Zero errors, for each format of IN-006.
 
 **Priority**: SHOULD_HAVE
 
@@ -1626,7 +1648,7 @@ None. The viewer reads PRD sets in place and has no earlier version.
 
 **C-002** (retired in PRD 0.6.0): The PRD now records the read-only rule as OUT-001, a release 1 non-goal that the PRD owner revisits on 2026-11-06.
 
-**C-003** (standard): The viewer reads PRD sets in the document layout of the authoring tools, version 1: one root document and 17 section documents with the headers and links that the authoring tools define. Verification: Open a PRD set that passes the PRD Forge validator. Every document and every grade shows in the viewer.
+**C-003** (standard): The viewer reads PRD sets in the document layout of the authoring tools, version 1: one root document and the section documents, with the headers and links that the prd-forge/*@1 schemas define. Authority: The PRD Forge document format, version 1: the prd-forge/*@1 schemas in the schemas folder of https://github.com/SpillwaveSolutions/prd-forge. Release 0.9.0 of the authoring tools, read on 2026-10-28, uses them for 18 documents. Verification: Open a PRD set that passes the validator of the authoring tools, release 0.9.0. Every document and every grade shows in the viewer. Then change one section header so that it fails the schema, and open the set again. That section shows as unreadable, as FR-003 says.
 
 **C-004** (retired in PRD 0.6.0): The PRD now records macOS only for release 1 as OUT-003, out of scope, which the PRD owner revisits on 2026-11-06.
 
@@ -1636,7 +1658,7 @@ None. The viewer reads PRD sets in place and has no earlier version.
 
 **BC-1**: The viewer is free and open source for anyone who uses PRD Forge (PRD owner decision, 2026-10-26).
 
-**BC-2**: Release 1 is due 2026-10-27. The PRD owner moved it from 2026-10-26 on 2026-10-26. Release 2 is due 2026-11-06.
+**BC-2**: Release 1 is due 2026-11-06. The PRD owner moved it from 2026-10-26 to 2026-10-27 on 2026-10-26, and to 2026-11-06 on 2026-10-28. Release 2 is due 2026-11-06.
 
 **BC-3**: Every export shows "Draft" until every document is final (TR-005).
 
@@ -1671,16 +1693,16 @@ None. The viewer reads PRD sets in place and has no earlier version.
 
 | Metric | Target | Measurement Method |
 |---|---|---|
-| NFR-P-001 (NFR-001) Open a PRD set | p95 at most 2 seconds, for a PRD set of 18 documents | Open this PRD set 20 times on the test computer (OUT-003), time each open from a screen recording, and take the 19th fastest time. |
-| NFR-P-002 (NFR-002) Show a change from the authoring tools | p95 at most 2 seconds | Change and save one section 20 times while the viewer shows it, on the test computer, time each update from a screen recording, and take the 19th fastest time. |
-| NFR-P-003 (NFR-003) Search response time | p95 at most 0.5 seconds, for a PRD set of 18 documents | Run 20 searches with different terms and categories on this PRD set, on the test computer, time each from a screen recording, and take the 19th fastest time. |
-| NFR-P-004 (NFR-004) Export time | p95 at most 10 seconds, for the whole PRD set of 18 documents | Export this PRD set 20 times, 10 times in each format of IN-006, on the test computer, time each export, and take the 19th fastest time. |
-| NFR-SEC-001 (NFR-005) No PRD content leaves the computer | Zero | Record all network traffic from the test computer during a session that opens, searches, and exports this PRD set. Search the record for text from the PRD set. The count of matches is zero. |
-| NFR-A-001 (NFR-006) Works without a network | 100% of the 23 functional requirements | Turn off all network connections on the test computer and run the acceptance criteria of FR-001 to FR-024, except FR-006. |
-| NFR-U-001 (NFR-007) Keyboard-only use | 100% of the acceptance criteria, and zero WCAG 2.2 AA failures | A tester runs the acceptance criteria of FR-001 to FR-024, except FR-006, with a keyboard only, then checks the viewer against the WCAG 2.2 level AA success criteria. |
-| NFR-A-002 (NFR-008) Custom themes survive a restart | Zero | Make 5 custom themes, close the viewer, restart the computer, open the viewer, and compare every value of every theme. |
-| NFR-U-002 (NFR-009) Exports readable by a screen reader | Zero errors, for each format in IN-006 | Export this PRD set in each format of IN-006 and run the accessibility checker of a standard PDF reader and of a word processor on each file. |
-| NFR-SEC-003 (NFR-010) Only local content shows | Zero scripts run and zero network requests | On the test computer, start a network monitor, open the test PRD set, read every section, select the remote link, and count the scripts that run and the network requests. |
+| NFR-P-001 (NFR-001) Open a PRD set | p95 at most 2 seconds, for a PRD set of at most 18 documents and 176 KB of text, the size of this set on 2026-10-28 | On one day, open this PRD set 20 times on the test computer (OUT-003): 10 times from the viewer, 5 times with prdf, and 5 times from the list of sets. Time each open from a screen recording, and take the 19th fastest time. |
+| NFR-P-002 (NFR-002) Show a change from the authoring tools | p95 at most 2 seconds, for a PRD set of at most 18 documents and 176 KB of text, the size of this set on 2026-10-28 | On one day, change and save one section 20 times while the viewer shows it, on the test computer. Time each update from a screen recording, and take the 19th fastest time. |
+| NFR-P-003 (NFR-003) Search response time | p95 at most 0.5 seconds, for a PRD set of at most 18 documents and 176 KB of text, the size of this set on 2026-10-28 | On one day, run 20 searches with different terms and categories on this PRD set, on the test computer. Time each from a screen recording, and take the 19th fastest time. |
+| NFR-P-004 (NFR-004) Export time | p95 at most 10 seconds, for the whole PRD set, at most 18 documents and 176 KB of text, the size of this set on 2026-10-28 | On one day, export this PRD set 20 times, 10 times in each format of IN-006, on the test computer. Time each export, and take the 19th fastest time. |
+| NFR-SEC-001 (NFR-005) No PRD content leaves the computer | Zero | On one day, record all network connections that the viewer opens on the test computer during a session that opens, searches, and exports this PRD set. Count every connection to a host other than the computer itself. The count is zero. |
+| NFR-A-001 (NFR-006) Works without a network | 100% of the 23 functional requirements | On one day, turn off all network connections on the test computer and run the acceptance criteria of FR-001 to FR-024, except FR-006. |
+| NFR-U-001 (NFR-007) Keyboard-only use | 100% of the acceptance criteria, and zero level AA failures | In one week, a tester runs the acceptance criteria of FR-001 to FR-024, except FR-006, with a keyboard only. The tester then checks the viewer against each WCAG 2.2 level AA success criterion that WCAG2ICT applies to non-web software. |
+| NFR-A-002 (NFR-008) Custom themes survive a restart | Zero | On one day, make 5 custom themes, open PRD sets from 3 locations, and leave one set open. Close the viewer, restart the computer, and open the viewer. Compare every theme value and every known location, and check that the same set is open. |
+| NFR-U-002 (NFR-009) Exports readable by a screen reader | Zero errors, for each format of IN-006 | On one day, export this PRD set in each format of IN-006. Run the accessibility checker of a reader for that format on each file. |
+| NFR-SEC-003 (NFR-010) Only local content shows | Zero scripts run and zero network requests | On one day, on the test computer, start a network monitor and open the test PRD set. Each test script, if it runs, changes the visible text of its section to SCRIPT RAN. Read every section, select the remote link, and count the sections that show SCRIPT RAN and the network requests. |
 
 ---
 
@@ -1719,13 +1741,15 @@ PRD does not have cites one of them.
 
 | ID | Question | Decider | By | Blocks |
 |---|---|---|---|---|
-| Q-001 | How long does it take today from a finished PRD to stakeholder feedback? The PRD owner estimates about 10 days. Measure it on this PRD to replace the estimate. | Richard Hightower | 2026-11-30 | P-001, P-002 |
+| Q-001 | How long does it take today from a finished PRD to stakeholder feedback? The PRD owner estimates about 10 days. Measure it on this PRD to replace the estimate. Answered 2026-10-28: The historic PRDs took about 10 calendar days. This PRD does not count for review time, because it is for a new tool. The 10 days stay the baseline of O-001. | Richard Hightower | 2026-11-30 | P-001, P-002 |
 | Q-002 | How many stakeholders review a typical PRD, and how many of them have Claude Code and PRD Forge? | Richard Hightower | 2026-11-30 | P-002 |
-| Q-003 | How often do the PRD author (PER-001) and the developer who uses PRD Forge (PER-002) open a PRD in the viewer? | Richard Hightower | 2026-11-30 | PER-001, PER-002 |
-| Q-004 | The findings behind each grade (what is missing and what to improve) are not kept in the PRD set today. Must release 1 show them, and if so, who records them so that the author can see them later? | Richard Hightower | 2026-11-30 | ST-002, ST-003, P-003 |
-| Q-005 | Is editing text in the viewer in release 1? | Richard Hightower | 2026-10-26 | None |
-| Q-006 | When the sponsor (PER-004) is not available to approve a version, who approves it, or does the approval wait? | Richard Hightower | 2026-11-30 | TR-007 |
-| Q-007 | By what date must PRD Forge record the findings behind each grade (D-002), and in which release does the viewer show them (OUT-002)? | Richard Hightower | 2026-10-26 | D-002, OUT-002 |
+| Q-003 | How often do the PRD author (PER-001) and the developer who uses PRD Forge (PER-002) open a PRD in the viewer? Answered 2026-10-26: Answered on 2026-10-26. The author opens the viewer several times a day while writing a PRD. The frequency for PER-002 is not known. | Richard Hightower | 2026-11-30 | PER-001, PER-002 |
+| Q-004 | The findings behind each grade (what is missing and what to improve) are not kept in the PRD set today. Must release 1 show them, and if so, who records them so that the author can see them later? Answered 2026-10-26: Answered on 2026-10-26. Release 1 does not show the findings behind each grade. That is a later feature, and it depends on a change to the authoring tools so that they record the findings in the PRD set. Release 1 shows the status, score, blocking count, and grade date that the authoring tools already record. | Richard Hightower | 2026-11-30 | ST-002, ST-003, P-003 |
+| Q-005 | Is editing text in the viewer in release 1? Answered 2026-10-26: No. Editing in the viewer is a later feature. In release 1 the author changes sections only in the authoring tools. Section 6 records this as a non-goal for release 1. | Richard Hightower | 2026-10-26 | None |
+| Q-006 | When the sponsor (PER-004) is not available to approve a version, who approves it, or does the approval wait? Answered 2026-10-26: Answered on 2026-10-26. The approval waits until the sponsor is available. Nobody else approves. | Richard Hightower | 2026-11-30 | TR-007 |
+| Q-007 | By what date must PRD Forge record the findings behind each grade (D-002), and in which release does the viewer show them (OUT-002)? Answered 2026-10-26: Answered on 2026-10-26. PRD Forge 0.2.0 already writes the reasons for each grade to a grades file beside each section, so D-002 is delivered. The PRD owner decides when the viewer shows them. | Richard Hightower | 2026-10-26 | D-002, OUT-002 |
+| Q-008 | J-002 has one happy scenario (SC-005) and one exception (SC-007). What other way can a developer's search or export of selected sections go wrong, and must release 1 handle it? Answered 2026-10-27: A developer exports a section that is still pending. The export has every selected section, and the pending one says that it is not written yet (SC-008). Release 1 handles it as a should. | Richard Hightower | 2026-11-30 | J-002 |
+| Q-009 | In one review of this PRD, how many times does the author or a developer search for an item before the discussion can start, and how many minutes does each search take? Measure it to give P-001 its evidence and cost. Answered 2026-10-28: About 10 searches in one review of this PRD, about 3 minutes each, so about 30 minutes for each review (PRD owner estimate, 2026-10-28). P-001 records it. | Richard Hightower | 2026-11-30 | None |
 
 ---
 
@@ -1825,7 +1849,7 @@ PRD does not have cites one of them.
 
 | Milestone | Description | Target Date | Dependencies |
 |---|---|---|---|
-| REL-001 | Release 1, read and export | 2026-10-27 | FR-001, FR-002, FR-003, FR-004, FR-005, FR-007, FR-008, FR-0... |
+| REL-001 | Release 1, read and export | 2026-11-06 | FR-001, FR-002, FR-003, FR-004, FR-005, FR-007, FR-008, FR-0... |
 | REL-002 | Release 2, grade findings | 2026-11-06 | FR-025 (depends on D-002) |
 
 ---
@@ -1896,7 +1920,7 @@ Copied from section 14 of the PRD.
 
 ### Appendix B: reference documents
 
-- [PRD set](../../docs/prd/prd-forge-viewer/prd.md), version 0.5.0
+- [PRD set](../../docs/prd/prd-forge-viewer/prd.md), version 0.6.1
 - `projects/000-global/ARC-000-PRIN-v1.0.md`, architecture principles
 - `ARC-001-STKE-v1.0.md`, stakeholder analysis
 
@@ -1966,7 +1990,7 @@ The wireframes are in section 7 of the PRD.
 
 | Doc ID | Filename | Type | Source Location | Description |
 |--------|----------|------|-----------------|-------------|
-| PFVP | prd-forge-viewer-prd.pdf | PRD | `projects/001-prd-forge-viewer/external/` | Export of the PRD Forge Viewer PRD, version 0.5.0, 18 documents. Source: `docs/prd/prd-forge-viewer/` |
+| PFVP | prd-forge-viewer-prd.pdf | PRD | `projects/001-prd-forge-viewer/external/` | Export of the PRD Forge Viewer PRD, version 0.6.1, 18 documents. Source: `docs/prd/prd-forge-viewer/` |
 
 ### Citations
 
@@ -1986,8 +2010,8 @@ The wireframes are in section 7 of the PRD.
 ---
 
 **Generated by**: ArcKit `/arckit:requirements` command
-**Generated on**: 2026-10-27
+**Generated on**: 2026-10-28
 **ArcKit Version**: 6.18.3
 **Project**: PRD Forge Viewer (Project 001)
 **Model**: claude-opus-5-5
-**Generation Context**: PRD set version 0.5.0 front matter, `ARC-000-PRIN-v1.0.md`, and `ARC-001-STKE-v1.0.md`. FR and NFR text copied by a script from the PRD front matter.
+**Generation Context**: PRD set version 0.6.1 front matter, `ARC-000-PRIN-v1.0.md`, and `ARC-001-STKE-v1.0.md`. FR and NFR text copied by a script from the PRD front matter.

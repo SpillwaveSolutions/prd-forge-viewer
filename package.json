@@ -1,0 +1,24 @@
+{
+  "name": "prd-forge-viewer",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "bun run scripts/build.ts",
+    "tauri": "tauri",
+    "test": "bun test src",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@tauri-apps/api": "^2.9.1",
+    "@tauri-apps/plugin-dialog": "^2.6.0",
+    "react": "^19.2.3",
+    "react-dom": "^19.2.3"
+  },
+  "devDependencies": {
+    "@tauri-apps/cli": "^2.9.6",
+    "@types/bun": "latest",
+    "@types/react": "^19.2.9",
+    "@types/react-dom": "^19.2.3",
+    "typescript": "^5"
+  }
+}

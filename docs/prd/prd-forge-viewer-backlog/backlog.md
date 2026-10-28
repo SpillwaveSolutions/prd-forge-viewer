@@ -104,8 +104,7 @@ grade (FR-025). Its stories are written in backlog refinement before release 2.
 - J-002 (ST-008 to ST-010) and J-003 (ST-011 and ST-012) have no requirements
   of their own. Their requirements sit on the J-001 stages, so their stories are
   in EPIC-001, EPIC-003, and EPIC-005.
-- Release 1 had a target date of 2026-10-27, which is before this backlog was
-  derived. The PRD owner must set a new date in section 13.
+- The PRD owner moved the release 1 target date to 2026-11-06 on 2026-10-28.
 
 ## What this backlog does not have
 
