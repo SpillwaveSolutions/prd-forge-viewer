@@ -13,7 +13,7 @@
 | **Status** | DRAFT |
 | **Version** | 1.0 |
 | **Created Date** | 2026-10-26 |
-| **Last Modified** | 2026-10-26 |
+| **Last Modified** | 2026-10-27 |
 | **Review Cycle** | On-Demand |
 | **Next Review Date** | 2026-11-25 |
 | **Owner** | Richard Hightower, PRD owner |
@@ -27,6 +27,8 @@
 |---------|------|--------|---------|-------------|---------------|
 | 1.0 | 2026-10-26 | ArcKit AI | Initial creation from `/arckit:traceability` command | [PENDING] | [PENDING] |
 | 1.0 | 2026-10-26 | ArcKit AI | Regenerated for PRD 0.3.2, ADR v1.1, and HLDR v1.1 | [PENDING] | [PENDING] |
+| 1.0 | 2026-10-27 | ArcKit AI | Updated for PRD 0.4.0: FR-023 restated, the ST-008 gap closed because ST-008 is not on the release line | [PENDING] | [PENDING] |
+| 1.0 | 2026-10-27 | ArcKit AI | Updated for PRD 0.5.0: nine requirements to SHOULD_HAVE, FR-025 added for REL-002 | [PENDING] | [PENDING] |
 
 ## Document purpose
 
@@ -78,7 +80,7 @@ range that holds it. "HLDR" is the HLD review finding that applies.
 | BR-002 | No version reaches a stakeholder with a blocking defect | MUST_HAVE | Export assembly layer (grades in export) | ADR-002 |  | Read grades of each version sent | ⏳ Planned |
 | BR-003 | Deliver the two releases on their dates | MUST_HAVE | Not a design element | ADR-001, ADR-002, ADR-003, HLDR | ADV-07 (closed) | Release date check | ⏳ Planned |
 | FR-001 | Open a PRD set and see its contents | MUST_HAVE | Set reader, Web UI tree | ADR-001, DATA, DIAG-001, DIAG-002, DIAG-003, HLDR |  | Acceptance criteria in REQ | ⏳ Planned |
-| FR-002 | Return to the same PRD set in the next session | MUST_HAVE | Settings store, Change watcher | ADR-001, ADR-004, ADR-005, DATA, DIAG-001, DIAG-002, DIAG-003, HLDR |  | Acceptance criteria in REQ | ⏳ Planned |
+| FR-002 | Return to the same PRD set in the next session | SHOULD_HAVE | Settings store, Change watcher | ADR-001, ADR-004, ADR-005, DATA, DIAG-001, DIAG-002, DIAG-003, HLDR |  | Acceptance criteria in REQ | ⏳ Planned |
 | FR-003 | Open a PRD set that has incomplete or unreadable documents | MUST_HAVE | Set reader | ADR-001, ADR-005, DATA, DIAG-001, DIAG-002, DIAG-003, DIAG-004, HLDR |  | Acceptance criteria in REQ | ⏳ Planned |
 | FR-004 | See the grades of all sections together | MUST_HAVE | Web UI grade view | ADR-001, DATA, DIAG-001, DIAG-002, DIAG-003, HLDR |  | Acceptance criteria in REQ | ⏳ Planned |
 | FR-005 | Go directly to any section | MUST_HAVE | Web UI tree | ADR-001, ADR-003, DATA, DIAG-001, DIAG-002, HLDR |  | Acceptance criteria in REQ | ⏳ Planned |
@@ -87,20 +89,21 @@ range that holds it. "HLDR" is the HLD review finding that applies.
 | FR-008 | Search the PRD set by term, in one category or in all categories | MUST_HAVE | Search index | ADR-001, ADR-003, DATA, DIAG-001, DIAG-002, DIAG-003, HLDR | ADV-08 (closed) | Acceptance criteria in REQ | ⏳ Planned |
 | FR-009 | See changes that the authoring tools make, without any action | MUST_HAVE | Change watcher, Set reader | ADR-001, ADR-005, DATA, DIAG-001, DIAG-002, DIAG-003, DIAG-004, HLDR |  | Acceptance criteria in REQ | ⏳ Planned |
 | FR-010 | Export the PRD set as a fixed-layout document (C-001) | MUST_HAVE | HTML to PDF writer, Export saver | ADR-001, ADR-002, DIAG-001, DIAG-002, DIAG-003, HLDR | BLOCKING-01 (closed) | Acceptance criteria in REQ | ⏳ Planned |
-| FR-011 | Export the PRD set as an editable document (C-001) | MUST_HAVE | Web UI Word writer, Export saver | ADR-001, ADR-002, DIAG-001, DIAG-002, DIAG-003, HLDR |  | Acceptance criteria in REQ | ⏳ Planned |
+| FR-011 | Export the PRD set as an editable document (C-001) | SHOULD_HAVE | Web UI Word writer, Export saver | ADR-001, ADR-002, DIAG-001, DIAG-002, DIAG-003, HLDR |  | Acceptance criteria in REQ | ⏳ Planned |
 | FR-012 | Export only selected sections | MUST_HAVE | Export assembly layer | ADR-001, ADR-002, ADR-003, DIAG-001, DIAG-002, DIAG-003, HLDR |  | Acceptance criteria in REQ | ⏳ Planned |
 | FR-013 | Print the PRD set or selected sections | SHOULD_HAVE | Web UI, OS print service | ADR-001, ADR-002, DATA, DIAG-001, DIAG-002, HLDR | ADV-06 | Acceptance criteria in REQ | ⏳ Planned |
 | FR-014 | See the version of the PRD, and if it is a draft, in an export | MUST_HAVE | Export assembly layer | ADR-001, ADR-002, DATA, DIAG-001, DIAG-002, HLDR |  | Acceptance criteria in REQ | ⏳ Planned |
 | FR-015 | Select an export theme from the built-in themes | MUST_HAVE | Motion themes | ADR-001, ADR-002, DATA, DIAG-001, DIAG-002, HLDR |  | Acceptance criteria in REQ | ⏳ Planned |
-| FR-016 | Make a custom export theme | MUST_HAVE | Theme dialogs, Settings store | ADR-001, ADR-002, DATA, DIAG-001, DIAG-002, DIAG-003, HLDR |  | Acceptance criteria in REQ | ⏳ Planned |
-| FR-017 | Change a custom export theme | MUST_HAVE | Theme dialogs, Settings store | ADR-001, ADR-002, DATA, DIAG-001, DIAG-002, DIAG-003, HLDR |  | Acceptance criteria in REQ | ⏳ Planned |
-| FR-018 | Delete a custom export theme | MUST_HAVE | Theme dialogs, Settings store | ADR-001, ADR-002, DATA, DIAG-001, DIAG-002, DIAG-003, HLDR |  | Acceptance criteria in REQ | ⏳ Planned |
-| FR-019 | See the status and score of every section in an export | MUST_HAVE | Export assembly layer | ADR-001, ADR-002, DATA, DIAG-001, DIAG-002, HLDR |  | Acceptance criteria in REQ | ⏳ Planned |
-| FR-020 | Keep custom export themes from one session to the next | MUST_HAVE | Settings store | ADR-001, ADR-002, DATA, DIAG-001, DIAG-002, DIAG-003, HLDR |  | Acceptance criteria in REQ | ⏳ Planned |
+| FR-016 | Make a custom export theme | SHOULD_HAVE | Theme dialogs, Settings store | ADR-001, ADR-002, DATA, DIAG-001, DIAG-002, DIAG-003, HLDR |  | Acceptance criteria in REQ | ⏳ Planned |
+| FR-017 | Change a custom export theme | SHOULD_HAVE | Theme dialogs, Settings store | ADR-001, ADR-002, DATA, DIAG-001, DIAG-002, DIAG-003, HLDR |  | Acceptance criteria in REQ | ⏳ Planned |
+| FR-018 | Delete a custom export theme | SHOULD_HAVE | Theme dialogs, Settings store | ADR-001, ADR-002, DATA, DIAG-001, DIAG-002, DIAG-003, HLDR |  | Acceptance criteria in REQ | ⏳ Planned |
+| FR-019 | See the status and score of every section in an export | SHOULD_HAVE | Export assembly layer | ADR-001, ADR-002, DATA, DIAG-001, DIAG-002, HLDR |  | Acceptance criteria in REQ | ⏳ Planned |
+| FR-020 | Keep custom export themes from one session to the next | SHOULD_HAVE | Settings store | ADR-001, ADR-002, DATA, DIAG-001, DIAG-002, DIAG-003, HLDR |  | Acceptance criteria in REQ | ⏳ Planned |
 | FR-021 | Start the viewer from a terminal with the command prdf | MUST_HAVE | prdf launcher, Instance handler | ADR-001, ADR-004, DATA, DIAG-001, DIAG-002, DIAG-003, HLDR |  | Acceptance criteria in REQ | ⏳ Planned |
-| FR-022 | Choose a PRD set from the locations the viewer remembers | MUST_HAVE | Settings store, Web UI | ADR-001, ADR-004, DATA, DIAG-001, DIAG-002, DIAG-003, HLDR |  | Acceptance criteria in REQ | ⏳ Planned |
-| FR-023 | Expand a section in the tree and select one of its items | MUST_HAVE | Web UI tree, Set reader | ADR-001, DATA, DIAG-001, DIAG-002, HLDR |  | Acceptance criteria in REQ | ⏳ Planned |
-| FR-024 | Choose one PRD set when the docs/prd folder holds more than one | MUST_HAVE | prdf launcher, Web UI set list | ADR-001, ADR-004, DIAG-001, HLDR | ADV-02 (closed) | Acceptance criteria in REQ | ⏳ Planned |
+| FR-022 | Choose a PRD set from the locations the viewer remembers | SHOULD_HAVE | Settings store, Web UI | ADR-001, ADR-004, DATA, DIAG-001, DIAG-002, DIAG-003, HLDR |  | Acceptance criteria in REQ | ⏳ Planned |
+| FR-023 | Select one item of a section and read it without the whole section | MUST_HAVE | Web UI tree, Set reader | ADR-001, DATA, DIAG-001, DIAG-002, HLDR |  | Acceptance criteria in REQ | ⏳ Planned |
+| FR-024 | Choose one PRD set when the docs/prd folder holds more than one | SHOULD_HAVE | prdf launcher, Web UI set list | ADR-001, ADR-004, DIAG-001, HLDR | ADV-02 (closed) | Acceptance criteria in REQ | ⏳ Planned |
+| FR-025 | See the findings behind the grade of a section | WONT_HAVE (REL-002) | Set reader, Web UI grade view | DATA |  | Acceptance criteria in REQ | ⏳ Planned |
 | NFR-P-001 | Open a PRD set | MUST_HAVE | Set reader, Search index | ADR-001, ADR-003, ADR-004, DIAG-001, DIAG-002, DIAG-003, DIAG-004, HLDR |  | Perf: open 18-document fixture, p95 | ⏳ Planned |
 | NFR-P-002 | Show a change from the authoring tools | MUST_HAVE | Change watcher | ADR-001, ADR-003, ADR-005, DATA, DIAG-001, DIAG-002, DIAG-003, DIAG-004, HLDR |  | Perf: 20 saves, screen recording, 19th fastest | ⏳ Planned |
 | NFR-P-003 | Search response time | MUST_HAVE | Search index | ADR-001, ADR-003, DATA, DIAG-001, DIAG-002, DIAG-003, DIAG-004, HLDR |  | Perf: search 18-document fixture, p95 | ⏳ Planned |
@@ -296,7 +299,6 @@ First run. No trend yet.
 | Gap | Action | Owner |
 |-----|--------|-------|
 | PDF print engine | Pick it with the NFR-U-002 test | Engineering lead |
-| ST-008 has no `must` requirement | Add one or record that FR-001 and FR-021 serve it | PRD owner |
 | DR priorities UNSPECIFIED | Add a priority line to each data entity in the REQ document | PRD owner |
 | FR-013, INT-005 print path | Add to the DLD | Engineering lead |
 
@@ -348,7 +350,7 @@ and each ID range.
 
 | Doc ID | Filename | Type | Source Location | Description |
 |--------|----------|------|-----------------|-------------|
-| PFVP | prd-forge-viewer-prd.pdf | PRD | `projects/001-prd-forge-viewer/external/` | The PRD, version 0.3.2 |
+| PFVP | prd-forge-viewer-prd.pdf | PRD | `projects/001-prd-forge-viewer/external/` | The PRD, version 0.5.0 |
 
 ### Citations
 
@@ -365,7 +367,7 @@ and each ID range.
 ---
 
 **Generated by**: ArcKit `/arckit:traceability` command
-**Generated on**: 2026-10-26
+**Generated on**: 2026-10-27
 **ArcKit Version**: 6.18.3
 **Project**: PRD Forge Viewer (Project 001)
 **Model**: claude-opus-5-5

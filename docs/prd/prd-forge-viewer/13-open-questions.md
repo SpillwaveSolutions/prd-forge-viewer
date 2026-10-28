@@ -4,7 +4,7 @@ kind: open-questions
 schema: prd-forge/open-questions@1
 title: Open questions
 status: draft
-updated: 2026-10-26
+updated: 2026-10-27
 domain: software product management
 section: 12
 order: 130
@@ -28,6 +28,7 @@ questions:
     blocks:
       - P-002
   - id: Q-003
+    answered: 2026-10-26
     question: >-
       How often do the PRD author (PER-001) and the developer who uses PRD Forge
       (PER-002) open a PRD in the viewer?
@@ -40,6 +41,7 @@ questions:
       Answered on 2026-10-26. The author opens the viewer several times a day
       while writing a PRD. The frequency for PER-002 is not known.
   - id: Q-004
+    answered: 2026-10-26
     question: >-
       The findings behind each grade (what is missing and what to improve) are
       not kept in the PRD set today. Must release 1 show them, and if so, who
@@ -57,6 +59,7 @@ questions:
       status, score, blocking count, and grade date that the authoring tools
       already record.
   - id: Q-005
+    answered: 2026-10-26
     question: Is editing text in the viewer in release 1?
     decider: Richard Hightower
     by: 2026-10-26
@@ -65,6 +68,7 @@ questions:
       changes sections only in the authoring tools. Section 6 records this as a
       non-goal for release 1.
   - id: Q-006
+    answered: 2026-10-26
     question: >-
       When the sponsor (PER-004) is not available to approve a version, who
       approves it, or does the approval wait?
@@ -76,6 +80,7 @@ questions:
       Answered on 2026-10-26. The approval waits until the sponsor is available.
       Nobody else approves.
   - id: Q-007
+    answered: 2026-10-26
     question: >-
       By what date must PRD Forge record the findings behind each grade (D-002),
       and in which release does the viewer show them (OUT-002)?
@@ -95,6 +100,11 @@ questions:
       wrong, and must release 1 handle it?
     decider: Richard Hightower
     by: 2026-11-30
+    answer: >-
+      A developer exports a section that is still pending. The export has every
+      selected section, and the pending one says that it is not written yet
+      (SC-008). Release 1 handles it as a should.
+    answered: 2026-10-27
     blocks:
       - J-002
 links:
@@ -116,7 +126,7 @@ Questions are collected during the interview and consolidated later.
 | Q-005 | Is editing text in the viewer in release 1? Answered: no, it is a later feature. | Richard Hightower | 2026-10-26 |
 | Q-006 | Who approves when the sponsor is not available? Answered: nobody, the approval waits. | Richard Hightower | 2026-11-30 |
 | Q-007 | When must PRD Forge record grade findings? Answered: PRD Forge 0.2.0 does it now. | Richard Hightower | 2026-10-26 |
-| Q-008 | What other unhappy path does J-002 need? | Richard Hightower | 2026-11-30 |
+| Q-008 | What other unhappy path does J-002 need? Answered: an export with a pending section (SC-008). | Richard Hightower | 2026-11-30 |
 
 ## Q-001. Time from a finished PRD to stakeholder feedback
 
@@ -155,3 +165,6 @@ Answered on 2026-10-26: PRD Forge 0.2.0 records the findings now (D-002 delivere
 
 J-002 has one happy scenario (SC-005) and one exception (SC-007), a search with
 no match. The PRD owner decides by 2026-11-30 if release 1 needs another one.
+
+Answered on 2026-10-27: a developer exports a section that is still pending
+(SC-008). Release 1 handles it as a should.

@@ -2,7 +2,7 @@
 title WF-009 First page of an export
 {+
   {/ <b>PRD Forge Viewer PRD</b> | page 1 }
-  { <b>DRAFT <1> | . | Version 0.3.2 <2> }
+  { <b>DRAFT <1> | . | Version 0.5.0 <2> }
   --
   <b>Executive summary <3>
   PRD authors cannot read a PRD Forge set as one

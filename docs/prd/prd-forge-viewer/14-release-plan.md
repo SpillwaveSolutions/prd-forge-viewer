@@ -4,13 +4,13 @@ kind: release-plan
 schema: prd-forge/release-plan@1
 title: Release plan
 status: final
-updated: 2026-10-26
+updated: 2026-10-27
 domain: software product management
 section: 13
 order: 140
-score: 92
+score: 96
 blocking: 0
-graded: 2026-10-26
+graded: 2026-10-27
 releases:
   - id: REL-001
     name: Release 1, read and export
@@ -29,9 +29,8 @@ releases:
       - ST-003
       - ST-004
       - ST-005
-      - ST-008
-      - ST-009
-      - ST-010
+      - ST-006
+      - ST-007
     requirements:
       - FR-001
       - FR-002
@@ -59,6 +58,10 @@ releases:
     objectives:
       - O-001
     target_date: 2026-10-27
+    date_status: committed
+    exit_criteria:
+      - SC-001, the end-to-end acceptance test for release 1, passes.
+      - Every must requirement in this release passes its acceptance criteria.
   - id: REL-002
     name: Release 2, grade findings
     outcomes:
@@ -68,10 +71,19 @@ releases:
     journey_stages:
       - ST-002
       - ST-003
+    requirements:
+      - FR-025
     objectives:
       - O-001
       - O-002
     target_date: 2026-11-06
+    date_status: indicative
+    depends_on:
+      - D-002
+    exit_criteria:
+      - >-
+        For each graded section, the author sees the findings behind its grade:
+        what is missing and what to improve.
 links:
   parent: { id: prd-forge-viewer, kind: prd, path: ./prd.md, title: PRD Forge Viewer PRD }
   prev: { id: prd-forge-viewer-open-questions, kind: open-questions, path: ./13-open-questions.md, title: Open questions }
@@ -86,18 +98,24 @@ links:
 
 | ID | Release | Target date | Stages | Requirements |
 | --- | --- | --- | --- | --- |
-| REL-001 | Release 1, read and export | 2026-10-27 | ST-001 to ST-005, ST-008 to ST-010 | FR-001 to FR-024, except FR-006 |
-| REL-002 | Release 2, grade findings | 2026-11-06 | ST-002, ST-003 | Added after D-002 |
+| REL-001 | Release 1, read and export | 2026-10-27, committed | ST-001 to ST-007 | FR-001 to FR-024, except FR-006 |
+| REL-002 | Release 2, grade findings | 2026-11-06, indicative | ST-002, ST-003 | FR-025 |
 
 ## REL-001. Release 1, read and export
 
 The author reads the whole PRD set, sees the grades, and sends a themed PDF or
 Word export with a draft mark. A developer searches and exports selected
-sections. ST-006 and ST-007 happen outside the viewer. The PRD owner moved the
+sections, as part of ST-003 and ST-005. Release 1 comes first because it
+delivers the golden thread J-001. The PRD owner commits the date to the product
+sponsor (PER-004). ST-006 and ST-007 happen outside the
+viewer. Release 1 is done when SC-001 passes and every must requirement passes
+its acceptance criteria. The PRD owner moved the
 target date from 2026-10-26 to 2026-10-27 on 2026-10-26. Release 1 runs on
 macOS only (C-004).
 
 ## REL-002. Release 2, grade findings
 
-The author sees the findings behind each grade. D-002 is delivered, so this release
-can start when the PRD owner decides. Editing in the viewer (OUT-001) has no release yet.
+The author sees the findings behind each grade (FR-025). Release 2 comes second
+because release 1 is the golden thread J-001, and findings are useful only after
+the author sees all grades in one view (FR-004, release 1). Findings serve O-002.
+The authoring tools already record them (D-002). Editing in the viewer (OUT-001) has no release yet.

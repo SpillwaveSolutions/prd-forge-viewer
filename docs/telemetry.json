@@ -1,6 +1,47 @@
 {
-  "generated": "2026-10-27T03:51:56.654Z",
+  "generated": "2026-10-27T13:54:54.196Z",
   "sessions": [
+    {
+      "ts": "2026-10-27T13:54:54.196Z",
+      "type": "governance",
+      "isFailure": false,
+      "commits": 1,
+      "filesChanged": 120,
+      "artifacts": [
+        {
+          "project": "000",
+          "categories": {
+            "Architecture": [
+              "Architecture Principles"
+            ]
+          }
+        },
+        {
+          "project": "001",
+          "categories": {
+            "Architecture": [
+              "Architecture Decision Records",
+              "Architecture Diagrams",
+              "Data Model",
+              "High-Level Design Review"
+            ],
+            "Discovery": [
+              "Requirements",
+              "Stakeholder Analysis"
+            ],
+            "Governance": [
+              "Traceability Matrix"
+            ]
+          }
+        }
+      ],
+      "effort": "medium",
+      "telemetry": {
+        "toolCalls": 9,
+        "p50": 2218,
+        "p95": 9877
+      }
+    },
     {
       "ts": "2026-10-27T03:51:56.654Z",
       "type": "architecture",

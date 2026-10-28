@@ -18,16 +18,19 @@ segments:
       Nobody buys it. The viewer is free and open source. The PRD author chooses
       to install it.
     user: PER-001, PER-002
+    user_personas: [PER-001, PER-002]
     size: Not known. PRD Forge had its first release in October 2026 (R-002, Q-001).
     willingness_to_pay: None needed. The viewer is free.
   - id: S-002
     name: Stakeholders who read PRDs from those teams
     buyer: Nobody buys it. They receive exports and can install the free viewer.
     user: PER-003, PER-004, PER-005
+    user_personas: [PER-003, PER-004, PER-005]
     size: Not known (Q-002).
     willingness_to_pay: None needed. The viewer is free.
 competitors:
   - name: The status quo, reading the files in a text editor
+    kind: status-quo
     offer: >-
       The author and developers open each of the 18 files separately. The
       stakeholders get the files or a copy that the author makes by hand.
@@ -35,11 +38,13 @@ competitors:
       The author reads the whole set and every grade in one place, and sends a
       file that stakeholders open without the authoring tools.
   - name: The command-line export of the authoring tools
+    kind: indirect
     offer: One PDF and one Word file of the whole set, in one fixed appearance.
     our_edge: >-
       The author selects the sections and the theme, and does not need a command
       line.
   - name: The stepper pane of the authoring tools
+    kind: indirect
     offer: >-
       Steps through the sections one at a time, inside the authoring tools.
     our_edge: >-
