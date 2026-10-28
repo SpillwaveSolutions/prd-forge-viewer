@@ -4,7 +4,7 @@ use serde::Serialize;
 use std::path::Path;
 
 /// What the window shows at start (FR-002, FR-021, FR-022, FR-024).
-#[derive(Serialize, Debug, PartialEq)]
+#[derive(Serialize, Debug, PartialEq, Clone)]
 #[serde(tag = "kind", rename_all = "camelCase", rename_all_fields = "camelCase")]
 pub enum StartView {
     Open { folder: String },

@@ -21,6 +21,7 @@ serde_json = "1.0"
 serde_yaml = "0.9" # ponytail: deprecated upstream but stable; swap for a maintained fork if it breaks
 tauri = { version = "2.9.5", features = [] }
 tauri-plugin-dialog = "2.6.0"
+tauri-plugin-single-instance = "2"
 
 [dev-dependencies]
 tempfile = "3"
