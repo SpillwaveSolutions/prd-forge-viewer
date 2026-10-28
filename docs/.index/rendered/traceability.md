@@ -2,9 +2,15 @@
 
 _The evidence chain: plan → item → ticket → code → release, forward and backward. Generated from `docs/.index/_graph.json`; do not edit._
 
+### Show a list of sentences one per line in the item view
+`01M62D1KA9KN53KDG1DBA8A232` · status: done
+- belongs-to: Task 6: MCP checks for phase 1
+- targets: release/REL-001
+
 ### Task 6: MCP checks for phase 1
-`01M62CK387T88WGKEFSBY4483E` · status: todo
+`01M62CK387T88WGKEFSBY4483E` · status: done
 - belongs-to: Plan 3: read sections, items, and references
+- contains: Show a list of sentences one per line in the item view
 - produced-by: [[Plan-plan-3-reading]]
 
 ### Task 5: the section page, the item view, and reference links

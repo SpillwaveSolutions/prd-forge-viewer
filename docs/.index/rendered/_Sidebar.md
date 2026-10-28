@@ -3,7 +3,6 @@
 - [[Roadmap]]
 - [[Design-Doc]] · [[Code-Walkthrough]]
 - Plan: [[Plan-release-1-completion]]
-- Plan: [[Plan-plan-3-reading]]
 
 ### History
 

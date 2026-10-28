@@ -1,11 +1,11 @@
 {
- "git_hash": "0212fb0",
+ "git_hash": "1270ea9",
  "pages": [
   {
    "frozen": false,
    "page_name": "Home",
    "render": "as-is",
-   "render_hash": "900710ea19e4",
+   "render_hash": "2f569509541c",
    "source": "docs/.index/rendered/home.md",
    "title": "Home",
    "truth_state": "current",
@@ -15,7 +15,7 @@
    "frozen": false,
    "page_name": "Index-Decisions",
    "render": "as-is",
-   "render_hash": "deb1da5059a7",
+   "render_hash": "39b385f62bcd",
    "source": "docs/.index/rendered/decisions.md",
    "title": "Decisions Index",
    "truth_state": "current",
@@ -45,7 +45,7 @@
    "frozen": false,
    "page_name": "Index-Traceability",
    "render": "as-is",
-   "render_hash": "7836bbbff425",
+   "render_hash": "bd84435ab968",
    "source": "docs/.index/rendered/traceability.md",
    "title": "Traceability Index",
    "truth_state": "current",
@@ -55,7 +55,7 @@
    "frozen": false,
    "page_name": "Release-REL-001",
    "render": "as-is",
-   "render_hash": "3cb65c3f38ca",
+   "render_hash": "698c1d5d292d",
    "source": "docs/.index/rendered/releases/REL-001.md",
    "title": "Release REL-001",
    "truth_state": "shipped",
@@ -1325,7 +1325,7 @@
    "frozen": false,
    "page_name": "Ticket-01M62CK37SV62AATV5XSRPCJHE",
    "render": "as-is",
-   "render_hash": "0a84738aadb1",
+   "render_hash": "4deaea86db40",
    "source": "docs/.index/rendered/tickets/01M62CK37SV62AATV5XSRPCJHE.md",
    "title": "Plan 3: read sections, items, and references",
    "truth_state": "open",
@@ -1385,11 +1385,21 @@
    "frozen": false,
    "page_name": "Ticket-01M62CK387T88WGKEFSBY4483E",
    "render": "as-is",
-   "render_hash": "74ddfc9bcfec",
+   "render_hash": "6312092e3be6",
    "source": "docs/.index/rendered/tickets/01M62CK387T88WGKEFSBY4483E.md",
    "title": "Task 6: MCP checks for phase 1",
-   "truth_state": "open",
+   "truth_state": "done",
    "wiki_key": "item/01M62CK387T88WGKEFSBY4483E"
+  },
+  {
+   "frozen": false,
+   "page_name": "Ticket-01M62D1KA9KN53KDG1DBA8A232",
+   "render": "as-is",
+   "render_hash": "9e9cfef5201e",
+   "source": "docs/.index/rendered/tickets/01M62D1KA9KN53KDG1DBA8A232.md",
+   "title": "Show a list of sentences one per line in the item view",
+   "truth_state": "done",
+   "wiki_key": "item/01M62D1KA9KN53KDG1DBA8A232"
   },
   {
    "banner": "> **Current** \u2014 completed plan; plans are frozen once written, a changed design gets a new plan.",
@@ -1416,11 +1426,11 @@
    "wiki_key": "plan/2026-10-28-plan-2-launcher-and-settings"
   },
   {
-   "banner": "> **Current** \u2014 plan in flight; plans are frozen once written, a changed design gets a new plan.",
+   "banner": "> **Current** \u2014 completed plan; plans are frozen once written, a changed design gets a new plan.",
    "frozen": true,
    "page_name": "Plan-plan-3-reading",
    "render": "doc+banner",
-   "render_hash": "59614e134653",
+   "render_hash": "179e7b6159a3",
    "source": "docs/plans/2026-10-28-plan-3-reading.md",
    "source_hash": "0ae0926212dd",
    "title": "Plan 3: read sections, items, and references",
@@ -1440,20 +1450,20 @@
    "wiki_key": "plan/2026-10-28-release-1-completion"
   },
   {
-   "banner": "> **Current** \u2014 this is the living version; regenerated at 2026-10-28T23:18:18Z. Historical snapshots are linked from [[Index-Releases]].",
+   "banner": "> **Current** \u2014 this is the living version; regenerated at 2026-10-28T23:22:11Z. Historical snapshots are linked from [[Index-Releases]].",
    "frozen": false,
    "page_name": "Roadmap",
    "render": "doc+banner",
-   "render_hash": "6d3f939a733a",
+   "render_hash": "20356e540b66",
    "source": "docs/roadmap.md",
-   "source_hash": "6d89a69bf39a",
+   "source_hash": "5710e2cfa398",
    "title": "Roadmap",
    "truth_state": "current",
    "wiki_key": "roadmap"
   }
  ],
  "sidebar": {
-  "render_hash": "18e80df922a2",
+  "render_hash": "e6fad2ac0a2a",
   "source": "docs/.index/rendered/_Sidebar.md"
  },
  "version": 1

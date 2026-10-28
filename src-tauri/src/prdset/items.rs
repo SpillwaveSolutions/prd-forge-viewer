@@ -60,7 +60,9 @@ fn scalar_text(v: &Value) -> String {
 fn text_of(v: &Value) -> String {
     match v {
         Value::Sequence(seq) if seq.iter().all(|e| !matches!(e, Value::Mapping(_) | Value::Sequence(_))) => {
-            seq.iter().map(scalar_text).collect::<Vec<_>>().join(", ")
+            let parts: Vec<_> = seq.iter().map(scalar_text).collect();
+            // Ids read as one comma-separated line; sentences read one per line.
+            parts.join(if parts.iter().any(|p| p.contains(' ')) { "\n" } else { ", " })
         }
         Value::Sequence(seq) if seq.iter().all(|e| matches!(e, Value::Mapping(m) if item_id(m).is_some())) => {
             seq.iter().filter_map(|e| e.as_mapping().and_then(item_id)).collect::<Vec<_>>().join(", ")
@@ -141,6 +143,16 @@ mod tests {
         let fr = items.iter().find(|i| i.id == "FR-008").unwrap();
         assert!(fr.title.starts_with("Search the PRD set by term"), "{}", fr.title);
         assert!(fr.fields.iter().any(|f| f.name == "journey_stage" && f.text == "ST-003"));
+    }
+
+    #[test]
+    fn list_of_sentences_is_one_per_line() {
+        let items = items_of_file("05-user-journeys.md");
+        let st = items.iter().find(|i| i.id == "ST-002").unwrap();
+        let steps = &st.fields.iter().find(|f| f.name == "steps").unwrap().text;
+        assert!(steps.contains("section.\nThe author"), "{steps}");
+        let fr = items_of_file("08-functional-requirements.md");
+        assert!(fr.iter().any(|i| i.fields.iter().any(|f| f.text.contains(", "))));
     }
 
     #[test]

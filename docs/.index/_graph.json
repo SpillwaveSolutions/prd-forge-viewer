@@ -1711,6 +1711,16 @@
    "type": "belongs-to"
   },
   {
+   "from": "item/01M62D1KA9KN53KDG1DBA8A232",
+   "to": "item/01M62CK387T88WGKEFSBY4483E",
+   "type": "belongs-to"
+  },
+  {
+   "from": "item/01M62D1KA9KN53KDG1DBA8A232",
+   "to": "release/REL-001",
+   "type": "targets"
+  },
+  {
    "from": "plan/2026-10-28-plan-1-open-and-grades",
    "to": "item/01M61XNJ3ME272NXHFN3BS3541",
    "type": "produces"
@@ -2594,8 +2604,13 @@
   },
   "item/01M62CK387T88WGKEFSBY4483E": {
    "doc_type": "item",
-   "status": "todo",
+   "status": "done",
    "title": "Task 6: MCP checks for phase 1"
+  },
+  "item/01M62D1KA9KN53KDG1DBA8A232": {
+   "doc_type": "item",
+   "status": "done",
+   "title": "Show a list of sentences one per line in the item view"
   },
   "plan/2026-10-28-plan-1-open-and-grades": {
    "doc_type": "plan",
