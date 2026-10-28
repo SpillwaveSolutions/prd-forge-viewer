@@ -5,7 +5,7 @@ import { ask, open } from "@tauri-apps/plugin-dialog";
 import { GradesTable } from "./GradesTable";
 import { SetOverview } from "./SetOverview";
 import { StartScreen } from "./StartScreen";
-import { applyResult, openSet } from "./openSet";
+import { applyResult, applyStart, openSet } from "./openSet";
 import type { PrdSet, StartView } from "./types";
 
 const pickFolder = async () => {
@@ -30,8 +30,10 @@ export function App() {
     const showStart = useCallback((view: StartView) => {
         if (view.kind === "open") void show(async () => view.folder);
         else {
-            setSet(undefined);
-            setStart(view);
+            const next = applyStart(view);
+            setSet(next.set);
+            setError(next.error);
+            setStart(next.start);
         }
     }, [show]);
 
@@ -43,6 +45,13 @@ export function App() {
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 
+    // A picked folder goes through the same start rules as prdf: one set opens, several are listed,
+    // and a folder with no set shows the known locations (FR-022, FR-024).
+    const pickAndStart = async () => {
+        const folder = await pickFolder().catch(() => null);
+        if (folder) showStart(await invoke<StartView>("start_for", { path: folder }));
+    };
+
     const installPrdf = async () => {
         if (!(await ask("Install the prdf command in ~/.local/bin?", { title: "Install prdf command" }))) return;
         setNotice(await invoke<string>("install_prdf").catch(String));
@@ -51,7 +60,7 @@ export function App() {
     return (
         <main>
             <header className="toolbar">
-                <button type="button" onClick={() => show(pickFolder)} autoFocus>
+                <button type="button" onClick={pickAndStart} autoFocus>
                     Open PRD set
                 </button>{" "}
                 <button type="button" onClick={installPrdf}>

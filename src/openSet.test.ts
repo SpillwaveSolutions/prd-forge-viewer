@@ -1,5 +1,5 @@
 import { expect, test } from "bun:test";
-import { applyResult, openSet } from "./openSet";
+import { applyResult, applyStart, openSet } from "./openSet";
 import { sampleSet } from "./fixtures";
 
 test("cancel_gives_nothing", async () => {
@@ -28,4 +28,9 @@ test("error_clears_the_old_set", () => {
 test("cancel_keeps_the_old_set", () => {
     const set = sampleSet([]);
     expect(applyResult(set, {})).toEqual({ set, error: undefined });
+});
+
+test("start_screen_clears_set_and_error", () => {
+    const view = { kind: "notFound" as const, folder: "/work", known: [] };
+    expect(applyStart(view)).toEqual({ set: undefined, error: undefined, start: view });
 });

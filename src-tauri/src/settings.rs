@@ -2,6 +2,7 @@ use serde::{Deserialize, Serialize};
 use std::fs;
 use std::io;
 use std::path::Path;
+use std::sync::atomic::{AtomicU32, Ordering};
 
 /// Known PRD set locations and the last open set, kept in the app config folder (ADR-004).
 #[derive(Serialize, Deserialize, Default, Debug, PartialEq, Clone)]
@@ -22,7 +23,8 @@ pub fn save_settings(path: &Path, s: &Settings) -> io::Result<()> {
     if let Some(dir) = path.parent() {
         fs::create_dir_all(dir)?;
     }
-    let tmp = path.with_extension("json.tmp");
+    static N: AtomicU32 = AtomicU32::new(0);
+    let tmp = path.with_extension(format!("json.{}.{}.tmp", std::process::id(), N.fetch_add(1, Ordering::Relaxed)));
     fs::write(&tmp, serde_json::to_string_pretty(s)?)?;
     fs::rename(tmp, path)
 }

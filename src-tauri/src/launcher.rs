@@ -20,8 +20,11 @@ exec open -n -a "PRD Forge Viewer" --args "$target"
 /// Write `dir/prdf` with mode 0755. A `prdf` that the app did not write is never replaced.
 pub fn install_launcher(dir: &Path) -> Result<PathBuf, String> {
     let path = dir.join("prdf");
-    if let Ok(old) = fs::read_to_string(&path) {
-        if !old.contains(MARKER) {
+    // Decide by existence first: a binary, unreadable, or symlinked prdf is never ours.
+    if let Ok(meta) = fs::symlink_metadata(&path) {
+        let ours = !meta.file_type().is_symlink()
+            && fs::read(&path).map(|b| b.windows(MARKER.len()).any(|w| w == MARKER.as_bytes())).unwrap_or(false);
+        if !ours {
             return Err(format!("{} already exists and is not the PRD Forge Viewer launcher. It was not changed.", path.display()));
         }
     }
@@ -81,6 +84,23 @@ mod tests {
         fs::write(d.path().join("prdf"), "#!/bin/sh\necho other tool\n").unwrap();
         assert!(install_launcher(d.path()).is_err());
         assert_eq!(fs::read_to_string(d.path().join("prdf")).unwrap(), "#!/bin/sh\necho other tool\n");
+    }
+
+    #[test]
+    fn keeps_foreign_binary_prdf() {
+        let d = TempDir::new().unwrap();
+        fs::write(d.path().join("prdf"), b"\xff\xfe\0binary").unwrap();
+        assert!(install_launcher(d.path()).is_err());
+        assert_eq!(fs::read(d.path().join("prdf")).unwrap(), b"\xff\xfe\0binary");
+    }
+
+    #[test]
+    fn keeps_symlinked_prdf() {
+        let d = TempDir::new().unwrap();
+        let target = d.path().join("elsewhere");
+        std::os::unix::fs::symlink(&target, d.path().join("prdf")).unwrap();
+        assert!(install_launcher(d.path()).is_err());
+        assert!(!target.exists());
     }
 
     #[test]

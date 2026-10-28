@@ -8,7 +8,7 @@ fn make_set(dir: &Path, product: &str) -> String {
     fs::create_dir_all(dir).unwrap();
     let root = format!("---\nid: r\nkind: prd\ntitle: {product} PRD\nstatus: draft\nproduct: {product}\nlinks: {{}}\n---\n");
     fs::write(dir.join("prd.md"), root).unwrap();
-    dir.display().to_string()
+    fs::canonicalize(dir).unwrap().display().to_string()
 }
 
 fn with_last(last: &str) -> Settings {
@@ -67,6 +67,15 @@ fn two_sets_and_no_last_is_choose() {
         StartView::Choose { sets, .. } => assert_eq!(sets.len(), 2),
         v => panic!("expected Choose, got {v:?}"),
     }
+}
+
+#[test]
+fn dot_path_reopens_last() {
+    let d = TempDir::new().unwrap();
+    make_set(&d.path().join("docs/prd/a"), "Alpha");
+    let b = make_set(&d.path().join("docs/prd/b"), "Beta");
+    let dot = d.path().join(".");
+    assert_eq!(start_view(Some(&dot), &with_last(&b)), StartView::Open { folder: b });
 }
 
 #[test]

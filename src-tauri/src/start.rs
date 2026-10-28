@@ -1,6 +1,7 @@
 use crate::locate::{find_sets, set_ref, SetRef};
 use crate::settings::Settings;
 use serde::Serialize;
+use std::fs;
 use std::path::Path;
 
 /// What the window shows at start (FR-002, FR-021, FR-022, FR-024).
@@ -19,13 +20,17 @@ fn known(settings: &Settings) -> Vec<SetRef> {
 
 /// The viewer proposes a set, and the author can open any other (TR-001, TR-012).
 pub fn start_view(arg: Option<&Path>, settings: &Settings) -> StartView {
-    let last = settings.last.as_deref();
+    // Compare real paths, so `prdf .`, `../x`, and symlinked folders match the saved last set.
+    let canon = |p: &Path| fs::canonicalize(p).unwrap_or_else(|_| p.to_path_buf());
+    let last = settings.last.as_deref().map(|l| canon(Path::new(l)).display().to_string());
+    let last = last.as_deref();
     let Some(arg) = arg else {
         return match last {
             Some(l) if Path::new(l).join("prd.md").is_file() => StartView::Open { folder: l.into() },
             _ => StartView::Welcome { known: known(settings) },
         };
     };
+    let arg = &canon(arg);
     let folder = arg.display().to_string();
     if arg.join("prd.md").is_file() {
         return StartView::Open { folder };
