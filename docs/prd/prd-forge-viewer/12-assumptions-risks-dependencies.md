@@ -3,7 +3,7 @@ id: prd-forge-viewer-ard
 kind: assumptions-risks-dependencies
 schema: prd-forge/assumptions-risks-dependencies@1
 title: Assumptions, risks, and dependencies
-status: review
+status: final
 updated: 2026-10-28
 domain: software product management
 section: 11

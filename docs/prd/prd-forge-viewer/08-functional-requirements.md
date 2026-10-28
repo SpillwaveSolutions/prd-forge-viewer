@@ -3,7 +3,7 @@ id: prd-forge-viewer-functional-requirements
 kind: functional-requirements
 schema: prd-forge/functional-requirements@1
 title: Functional requirements
-status: review
+status: final
 updated: 2026-10-28
 domain: software product management
 section: 7

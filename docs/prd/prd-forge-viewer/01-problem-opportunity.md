@@ -3,7 +3,7 @@ id: prd-forge-viewer-problem
 kind: problem-opportunity
 schema: prd-forge/problem-opportunity@1
 title: Problem and opportunity
-status: review
+status: final
 updated: 2026-10-28
 domain: software product management
 section: 1

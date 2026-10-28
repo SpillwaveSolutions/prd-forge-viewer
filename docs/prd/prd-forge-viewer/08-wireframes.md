@@ -3,7 +3,7 @@ id: prd-forge-viewer-wireframes
 kind: wireframes
 schema: prd-forge/wireframes@1
 title: Wireframes
-status: review
+status: final
 updated: 2026-10-28
 domain: software product management
 section: 7

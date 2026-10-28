@@ -39,21 +39,21 @@ summary:
 links:
   parent: null
   children:
-    - { id: prd-forge-viewer-problem, kind: problem-opportunity, path: ./01-problem-opportunity.md, title: Problem and opportunity, section: 1, order: 10, status: review }
-    - { id: prd-forge-viewer-market, kind: customer-market, path: ./02-customer-market.md, title: Target customer and market, section: 2, order: 20, status: review }
-    - { id: prd-forge-viewer-objectives, kind: objectives-metrics, path: ./03-objectives-metrics.md, title: Objectives and success metrics, section: 3, order: 30, status: review }
+    - { id: prd-forge-viewer-problem, kind: problem-opportunity, path: ./01-problem-opportunity.md, title: Problem and opportunity, section: 1, order: 10, status: final }
+    - { id: prd-forge-viewer-market, kind: customer-market, path: ./02-customer-market.md, title: Target customer and market, section: 2, order: 20, status: final }
+    - { id: prd-forge-viewer-objectives, kind: objectives-metrics, path: ./03-objectives-metrics.md, title: Objectives and success metrics, section: 3, order: 30, status: final }
     - { id: prd-forge-viewer-personas, kind: personas, path: ./04-personas.md, title: Users and personas, section: 4, order: 40, status: final }
     - { id: prd-forge-viewer-journeys, kind: journeys, path: ./05-user-journeys.md, title: User journeys, section: 5, order: 50, status: final }
     - { id: prd-forge-viewer-scenarios, kind: scenarios, path: ./06-scenarios.md, title: Scenarios, section: 5, order: 60, status: final }
-    - { id: prd-forge-viewer-scope, kind: scope, path: ./07-scope.md, title: Scope, section: 6, order: 70, status: review }
-    - { id: prd-forge-viewer-functional-requirements, kind: functional-requirements, path: ./08-functional-requirements.md, title: Functional requirements, section: 7, order: 80, status: review }
-    - { id: prd-forge-viewer-wireframes, kind: wireframes, path: ./08-wireframes.md, title: Wireframes, section: 7, order: 85, status: review }
-    - { id: prd-forge-viewer-nfr, kind: nonfunctional-requirements, path: ./09-nonfunctional-requirements.md, title: Non-functional requirements, section: 8, order: 90, status: review }
-    - { id: prd-forge-viewer-constraints, kind: constraints, path: ./10-constraints.md, title: Constraints, section: 9, order: 100, status: review }
+    - { id: prd-forge-viewer-scope, kind: scope, path: ./07-scope.md, title: Scope, section: 6, order: 70, status: final }
+    - { id: prd-forge-viewer-functional-requirements, kind: functional-requirements, path: ./08-functional-requirements.md, title: Functional requirements, section: 7, order: 80, status: final }
+    - { id: prd-forge-viewer-wireframes, kind: wireframes, path: ./08-wireframes.md, title: Wireframes, section: 7, order: 85, status: final }
+    - { id: prd-forge-viewer-nfr, kind: nonfunctional-requirements, path: ./09-nonfunctional-requirements.md, title: Non-functional requirements, section: 8, order: 90, status: final }
+    - { id: prd-forge-viewer-constraints, kind: constraints, path: ./10-constraints.md, title: Constraints, section: 9, order: 100, status: final }
     - { id: prd-forge-viewer-decision-rights, kind: decision-rights, path: ./11-decision-rights.md, title: Decision rights, section: 10, order: 110, status: final }
-    - { id: prd-forge-viewer-ard, kind: assumptions-risks-dependencies, path: ./12-assumptions-risks-dependencies.md, title: Assumptions, risks, and dependencies, section: 11, order: 120, status: review }
+    - { id: prd-forge-viewer-ard, kind: assumptions-risks-dependencies, path: ./12-assumptions-risks-dependencies.md, title: Assumptions, risks, and dependencies, section: 11, order: 120, status: final }
     - { id: prd-forge-viewer-open-questions, kind: open-questions, path: ./13-open-questions.md, title: Open questions, section: 12, order: 130, status: draft }
-    - { id: prd-forge-viewer-release-plan, kind: release-plan, path: ./14-release-plan.md, title: Release plan, section: 13, order: 140, status: review }
+    - { id: prd-forge-viewer-release-plan, kind: release-plan, path: ./14-release-plan.md, title: Release plan, section: 13, order: 140, status: final }
     - { id: prd-forge-viewer-glossary, kind: glossary, path: ./15-glossary.md, title: Glossary, section: 14, order: 150, status: draft }
     - { id: prd-forge-viewer-change-log, kind: change-log, path: ./16-change-log.md, title: Change log, section: 15, order: 160, status: draft }
 ---

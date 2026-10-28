@@ -3,7 +3,7 @@ id: prd-forge-viewer-market
 kind: customer-market
 schema: prd-forge/customer-market@1
 title: Target customer and market
-status: review
+status: final
 updated: 2026-10-28
 domain: software product management
 section: 2
