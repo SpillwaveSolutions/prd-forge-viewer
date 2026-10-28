@@ -1,3 +1,4 @@
+pub mod locate;
 pub mod settings;
 pub mod commands;
 
