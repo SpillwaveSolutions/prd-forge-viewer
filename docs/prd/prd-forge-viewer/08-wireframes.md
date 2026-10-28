@@ -3,14 +3,14 @@ id: prd-forge-viewer-wireframes
 kind: wireframes
 schema: prd-forge/wireframes@1
 title: Wireframes
-status: review
-updated: 2026-10-26
+status: final
+updated: 2026-10-27
 domain: software product management
 section: 7
 order: 85
-score: 94
+score: 97
 blocking: 0
-graded: 2026-10-26
+graded: 2026-10-27
 wireframes:
   - id: WF-001
     title: The PRD set, with the scores
@@ -68,12 +68,11 @@ wireframes:
     type: screen
     persona: PER-001
     journey_stage: ST-001
-    illustrates: [FR-021, FR-022, FR-024]
+    illustrates: [FR-021, FR-022]
     shows:
       - The folder where prdf ran
       - The known locations, each with its product name
       - A location whose PRD set no longer exists
-      - When docs/prd holds more than one PRD set, the sets found there, above the known locations
   - id: WF-007
     title: Export
     type: screen
@@ -111,6 +110,25 @@ wireframes:
       - "The executive summary"
       - "The contents, with the status, score, and blocking defects of each section"
       - "A section that is not written yet, marked pending"
+  - id: WF-010
+    title: More than one PRD set in docs/prd
+    type: screen
+    persona: PER-001
+    journey_stage: ST-001
+    state_of: WF-006
+    illustrates: [FR-024, FR-022]
+    shows:
+      - The folder where prdf ran, and that the viewer opens no set until the author selects one
+      - The PRD sets found in docs/prd, each with its product name and folder, above the known locations
+  - id: WF-011
+    title: The findings behind a grade
+    type: screen
+    persona: PER-001
+    journey_stage: ST-002
+    illustrates: [FR-025]
+    shows:
+      - The blocking defects of the section, or that it has none
+      - The items to raise the grade, each with its dimension
 links:
   parent: { id: prd-forge-viewer, kind: prd, path: ./prd.md, title: PRD Forge Viewer PRD }
   prev: { id: prd-forge-viewer-functional-requirements, kind: functional-requirements, path: ./08-functional-requirements.md, title: Functional requirements }
@@ -129,7 +147,10 @@ then a section, then an item.
 
 The PRD owner approved WF-001 to WF-009 on 2026-10-26. The sponsor approved
 the WF-006 change for FR-024 in version 0.3.2. Version 0.3.4 changes the example
-folder names in WF-006 and waits for approval.
+folder names in WF-006. Version 0.4.0 moves the list of PRD sets in docs/prd
+from WF-006 to WF-010, a state of WF-006. The sponsor approved both versions
+on 2026-10-27. Version 0.5.0 adds WF-011 for FR-025 (release 2), and the
+sketches show version 0.5.0.
 
 The numbered marks in each sketch are explained, in order, by its `shows` list.
 Each sketch is also drawn in PlantUML Salt for the printed PRD.
@@ -142,8 +163,8 @@ The author opens the set and sees every section and its grade in one place. Each
 
 ```wireframe
 ┌─ PRD Forge Viewer ─────────────── [ Search ] [ Export ] ─┐
-│ ▾ PRD, v0.3.2 <1>    │ PRD Forge Viewer PRD <2>          │
-│   ▸ 1 Problem    75  │ v0.3.2 · Draft · 8 of 18 final    │
+│ ▾ PRD, v0.5.0 <1>    │ PRD Forge Viewer PRD <2>          │
+│   ▸ 1 Problem    75  │ v0.5.0 · Draft · 8 of 18 final    │
 │   ▸ 2 Market     70  │ ───────────────────────────────── │
 │   ▸ 3 Objectives 83  │ Section      Score Blk Graded <3> │
 │   ▸ 4 Personas • 86  │ › 1 Problem     75   0  10-26     │
@@ -170,7 +191,7 @@ The author expands a section and reads one item. The authoring tools changed the
 
 ```wireframe
 ┌─ PRD Forge Viewer ─────────────── [ Search ] [ Export ] ─┐
-│ ▾ PRD, v0.3.2        │ PER-001 PRD author <1>            │
+│ ▾ PRD, v0.5.0        │ PER-001 PRD author <1>            │
 │   ▸ 3 Objectives 83  │ 4 Personas · final  · 86 · 0 blk  │
 │   ▾ 4 Personas • 86  │ ───────────────────────────────── │
 │     PER-001 <2>      │ • Changed 10:42, 61 to 86 <3>     │
@@ -194,7 +215,7 @@ relevance scores, so the numbers here only show the order: highest first.
 
 ```wireframe
 ┌─ PRD Forge Viewer ─────────────── [ Search ] [ Export ] ─┐
-│ ▾ PRD, v0.3.2        │ [ export_______ ] [ Reqs ▾ ] <1>  │
+│ ▾ PRD, v0.5.0        │ [ export_______ ] [ Reqs ▾ ] <1>  │
 │   ▸ 6 Scope      92  │ ───────────────────────────────── │
 │   ▾ 7 Requirements   │ 3 matches, best first <2>         │
 │      FR-010 <3>      │ Score ID     Title       Sec <4>  │
@@ -215,7 +236,7 @@ SC-007 names this state.
 
 ```wireframe
 ┌─ PRD Forge Viewer ─────────────── [ Search ] [ Export ] ─┐
-│ ▾ PRD, v0.3.2        │ [ invoice______ ] [ All  ▾ ]      │
+│ ▾ PRD, v0.5.0        │ [ invoice______ ] [ All  ▾ ]      │
 │   ▸ 1 Problem    75  │ ───────────────────────────────── │
 │   …                  │ No item contains "invoice". <1>   │
 └──────────────────────┴───────────────────────────────────┘
@@ -231,7 +252,7 @@ SC-002 names this state.
 
 ```wireframe
 ┌─ PRD Forge Viewer ─────────────── [ Search ] [ Export ] ─┐
-│ ▾ PRD, v0.3.2        │ 5 Scenarios <1>                   │
+│ ▾ PRD, v0.5.0        │ 5 Scenarios <1>                   │
 │   ▸ 5 Journeys   90  │ ───────────────────────────────── │
 │   ▸ 5 Scenarios  !   │ This document cannot be read.     │
 │   ▸ 6 Scope      92  │ File: 06-scenarios.md <2>         │
@@ -244,12 +265,12 @@ SC-002 names this state.
 
 ## WF-006 No PRD set in this folder
 
-Illustration, not a design. Illustrates FR-021, FR-022, and FR-024. PER-001 sees it at ST-001.
+Illustration, not a design. Illustrates FR-021 and FR-022. PER-001 sees it at ST-001.
 
 The author runs prdf in a folder with no PRD set. The first three locations are
 real PRD sets on the owner's computer. The fourth shows a location that no
-longer exists. When docs/prd holds more than one PRD set, the same screen lists
-those sets first, and the viewer opens none until the author selects one (FR-024).
+longer exists. When docs/prd holds more than one PRD set, the screen changes to
+WF-010.
 
 ```wireframe
 ┌─ PRD Forge Viewer ───────────────────────────────────────┐
@@ -273,7 +294,7 @@ Illustration, not a design. Illustrates FR-010, FR-011, FR-012, FR-013, and FR-0
 The author exports the whole set, or some sections, in a theme.
 
 ```wireframe
-┌─ Export ─────────────────────── PRD Forge Viewer v0.3.2 ─┐
+┌─ Export ─────────────────────── PRD Forge Viewer v0.5.0 ─┐
 │ Format <1>                                               │
 │ (•) Fixed-layout document   ( ) Editable document        │
 ├──────────────────────────────────────────────────────────┤
@@ -330,7 +351,7 @@ The Change log row shows how a pending section looks (SC-004, FR-019).
 
 ```wireframe
 ┌─ PRD Forge Viewer PRD ────────────────────────── page 1 ─┐
-│ DRAFT <1>                              Version 0.3.2 <2> │
+│ DRAFT <1>                              Version 0.5.0 <2> │
 ├──────────────────────────────────────────────────────────┤
 │ Executive summary <3>                                    │
 │ PRD authors cannot read a PRD Forge set as one           │
@@ -348,3 +369,53 @@ The Change log row shows how a pending section looks (SC-004, FR-019).
 ```
 
 ![WF-009 drawing](diagrams/WF-009.svg)
+
+## WF-010 More than one PRD set in docs/prd
+
+Illustration, not a design. Illustrates FR-024 and FR-022. PER-001 sees it at ST-001.
+It is a state of WF-006.
+
+The author runs prdf in a folder whose docs/prd holds two PRD sets, and neither
+set was open in the last session. The viewer lists the two sets above the known
+locations and opens neither until the author selects one. The product names
+and folders are examples.
+
+```wireframe
+┌─ PRD Forge Viewer ───────────────────────────────────────┐
+│ Select a PRD set in ~/clients/work/src/docs/prd <1>      │
+├──────────────────────────────────────────────────────────┤
+│ PRD sets in docs/prd <2>                                 │
+│ Product             Location                             │
+│ ──────────────────────────────────────────────────────── │
+│ › Portal            docs/prd/portal                      │
+│ › Portal Admin      docs/prd/portal-admin                │
+├──────────────────────────────────────────────────────────┤
+│ Known PRD sets                                           │
+│ › PRD Forge Viewer  ~/…/work/src/prd-forge-viewer        │
+│ › PRD Forge         ~/…/work/src/prd-forge               │
+└──────────────────────────────────────────────────────────┘
+```
+
+![WF-010 drawing](diagrams/WF-010.svg)
+
+## WF-011 The findings behind a grade
+
+Illustration, not a design. Illustrates FR-025. PER-001 sees it at ST-002. FR-025 is in release 2.
+
+The author reads the findings of section 5. The values come from the grade of
+section 5 on 2026-10-27.
+
+```wireframe
+┌─ PRD Forge Viewer ─────────────── [ Search ] [ Export ] ─┐
+│ ▾ PRD, v0.5.0        │ 5 Scenarios · review · 72 · 0 blk │
+│   ▸ 4 Personas   86  │ Blocking defects: none <1>        │
+│   ▾ 5 Scenarios  72  │ ───────────────────────────────── │
+│     Findings         │ To raise the grade <2>            │
+│   ▸ 6 Scope      88  │ • Lifecycle 1 to 4: add the       │
+│   …                  │   section lifecycle               │
+│                      │ • First use 3 to 4: add a         │
+│                      │   first-use scenario at ST-001    │
+└──────────────────────┴───────────────────────────────────┘
+```
+
+![WF-011 drawing](diagrams/WF-011.svg)

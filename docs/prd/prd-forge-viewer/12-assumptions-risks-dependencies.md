@@ -4,7 +4,7 @@ kind: assumptions-risks-dependencies
 schema: prd-forge/assumptions-risks-dependencies@1
 title: Assumptions, risks, and dependencies
 status: final
-updated: 2026-10-26
+updated: 2026-10-27
 domain: software product management
 section: 11
 order: 120
@@ -85,7 +85,7 @@ links:
 
 # Assumptions, risks, and dependencies
 
-Release 1 target date: 2026-10-26. Release 2 target date: 2026-11-06. The PRD
+Release 1 target date: 2026-10-27. Release 2 target date: 2026-11-06. The PRD
 owner set both on 2026-10-26.
 
 | ID | Assumption | If it is false |

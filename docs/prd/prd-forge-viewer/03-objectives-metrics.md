@@ -4,7 +4,7 @@ kind: objectives-metrics
 schema: prd-forge/objectives-metrics@1
 title: Objectives and success metrics
 status: final
-updated: 2026-10-26
+updated: 2026-10-27
 domain: software product management
 section: 3
 order: 30
@@ -14,6 +14,7 @@ graded: 2026-10-26
 objectives:
   - id: O-001
     objective: Stakeholders give feedback on a PRD version sooner.
+    problems: [P-001, P-002]
     metric: >-
       Median calendar days from the day the author sends a PRD version to a
       stakeholder, to the day of the first written feedback from any
@@ -22,11 +23,13 @@ objectives:
       About 10 calendar days, from past PRDs written before PRD Forge (estimate
       by the PRD owner, 2026-10-26). The first send of this PRD replaces it with
       a measured figure (Q-001).
+    baseline_question: Q-001
     target: 2 days or less
     by: 2027-03-31
     owner: Richard Hightower, PRD owner
   - id: O-002
     objective: Authors fix blocking defects before stakeholders see a version.
+    problems: [P-003]
     metric: >-
       Count of blocking defects in a PRD version on the day the author sends it
       to a stakeholder, read from the grades in the export.

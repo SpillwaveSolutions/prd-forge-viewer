@@ -1,7 +1,7 @@
 @startsalt
 title WF-007 Export
 {+
-  {/ <b>Export</b> | PRD Forge Viewer v0.3.2 }
+  {/ <b>Export</b> | PRD Forge Viewer v0.5.0 }
   <b>Format <1>
   { (X) Fixed-layout document | () Editable document }
   --

@@ -5,7 +5,7 @@ title WF-001 The PRD set, with the scores
   ==
   {
     {T
-     + PRD, v0.3.2 <1>
+     + PRD, v0.5.0 <1>
      ++ 1 Problem  75
      ++ 2 Market  70
      ++ 3 Objectives  83
@@ -16,7 +16,7 @@ title WF-001 The PRD set, with the scores
      ++ 15 Change log  –
     } | {
       <b>PRD Forge Viewer PRD <2>
-      v0.3.2 · Draft · 8 of 18 final
+      v0.5.0 · Draft · 8 of 18 final
       --
       {#
         Section | Score | Blk | Graded <3>

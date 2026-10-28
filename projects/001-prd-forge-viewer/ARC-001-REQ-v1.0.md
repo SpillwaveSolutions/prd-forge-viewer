@@ -13,7 +13,7 @@
 | **Status** | DRAFT |
 | **Version** | 1.0 |
 | **Created Date** | 2026-10-26 |
-| **Last Modified** | 2026-10-26 |
+| **Last Modified** | 2026-10-27 |
 | **Review Cycle** | On-Demand |
 | **Next Review Date** | 2026-11-25 |
 | **Owner** | Richard Hightower, PRD owner |
@@ -27,12 +27,14 @@
 |---------|------|--------|---------|-------------|---------------|
 | 1.0 | 2026-10-26 | ArcKit AI | Initial creation from `/arckit:requirements` command | [PENDING] | [PENDING] |
 | 1.0 | 2026-10-26 | ArcKit AI | Regenerated from PRD 0.3.2: FR-024, NFR-SEC-003 from PRD NFR-010, NFR-I-003 from C-004, release 1 on 2026-10-27 | [PENDING] | [PENDING] |
+| 1.0 | 2026-10-27 | ArcKit AI | Updated from PRD 0.4.0 (PRD Forge 0.8.1): FR-007 and FR-008 at ST-003, FR-012 at ST-005, FR-023 restated with no control, FR-012 and FR-013 Givens, WF-010 | [PENDING] | [PENDING] |
+| 1.0 | 2026-10-27 | ArcKit AI | Updated from PRD 0.5.0: nine requirements to SHOULD_HAVE, FR-025 for REL-002, SC-008, WF-011, Q-008 answered | [PENDING] | [PENDING] |
 
 ---
 
 ## Document purpose
 
-This document restates the PRD Forge Viewer PRD, version 0.3.4, as an
+This document restates the PRD Forge Viewer PRD, version 0.5.0, as an
 ArcKit requirements specification. The design documents (data model, ADRs,
 diagrams, HLD review, and traceability) read it.
 
@@ -96,8 +98,8 @@ desktop app with no server (A-002, NFR-006).
 
 **Out of Scope**:
 
-- OUT-001: Editing the text of a section in the viewer (Q-005). Revisit: After release 1 ships, when authors ask to edit without the authoring tools.
-- OUT-002: Showing the findings behind each grade, such as what is missing and what to improve (Q-004). Revisit: The authoring tools record the findings from PRD Forge 0.2.0 (D-002 delivered). Release 2 shows them, on 2026-11-06.
+- OUT-001: Editing the text of a section in the viewer (Q-005). Revisit: The PRD owner decides at the release 2 review, on 2026-11-06, if editing goes into a release.
+- OUT-002: Showing the findings behind each grade, such as what is missing and what to improve (Q-004). Revisit: The authoring tools record the findings from PRD Forge 0.2.0 (D-002 delivered). Release 2 shows them (FR-025), on 2026-11-06.
 
 ---
 
@@ -284,6 +286,7 @@ happy path.
 **Alternative and Exception Flows**:
 
 - **SC-007** (exception, ST-009): The PRD set has its functional requirements and scenarios written. Expected: The developer sees that no item contains "invoice", and sees no results.
+- **SC-008** (alternate, ST-010): The release plan section is still pending. Expected: The file has both selected sections, the pending one says that it is not written yet, and the export shows "Draft".
 
 **Golden Thread**: No
 
@@ -359,7 +362,7 @@ There are 24 functional requirements. All text is copied from
 
 **Shown In**: screen
 
-**Priority**: MUST_HAVE
+**Priority**: SHOULD_HAVE
 
 **Release**: REL-001
 
@@ -454,9 +457,9 @@ There are 24 functional requirements. All text is copied from
 
 **Description**: The developer reads the related item, such as the journey stage that a requirement serves.
 
-**Relates To**: BR-001, UC-2 (J-002), ST-009
+**Relates To**: BR-001, UC-1 (J-001), ST-003, UC-2 (J-002)
 
-**Rationale**: ToolsDeveloper (PER-002) needs this at ST-009 (Search for the work). It serves O-001. PRD source: J-002.
+**Rationale**: ToolsDeveloper (PER-002) needs this at ST-003 (Go to a weak section), the J-001 stage that holds search in release 1. It serves O-001. PRD source: J-002.
 
 **Acceptance Criteria**:
 
@@ -474,9 +477,9 @@ There are 24 functional requirements. All text is copied from
 
 **Description**: The developer sees the matching items, most relevant first, each with its id and section.
 
-**Relates To**: BR-001, UC-2 (J-002), ST-009
+**Relates To**: BR-001, UC-1 (J-001), ST-003, UC-2 (J-002)
 
-**Rationale**: ToolsDeveloper (PER-002) needs this at ST-009 (Search for the work). It serves O-001. PRD source: Interview, 2026-10-26; SC-005.
+**Rationale**: ToolsDeveloper (PER-002) needs this at ST-003 (Go to a weak section), the J-001 stage that holds search in release 1. It serves O-001. PRD source: Interview, 2026-10-26; SC-005.
 
 **Acceptance Criteria**:
 
@@ -551,7 +554,7 @@ There are 24 functional requirements. All text is copied from
 
 **Shown In**: report
 
-**Priority**: MUST_HAVE
+**Priority**: SHOULD_HAVE
 
 **Release**: REL-001
 
@@ -561,13 +564,13 @@ There are 24 functional requirements. All text is copied from
 
 **Description**: The developer has one file with only the selected sections.
 
-**Relates To**: BR-001, UC-2 (J-002), ST-010
+**Relates To**: BR-001, UC-1 (J-001), ST-005, UC-2 (J-002)
 
-**Rationale**: ToolsDeveloper (PER-002) needs this at ST-010 (Share the items). It serves O-001. PRD source: Interview, 2026-10-26; SC-005.
+**Rationale**: ToolsDeveloper (PER-002) needs this at ST-005 (Export the PRD), the J-001 stage that holds the export of selected sections in release 1. It serves O-001. PRD source: Interview, 2026-10-26; SC-005.
 
 **Acceptance Criteria**:
 
-- [ ] Given the developer selects the user journeys section and the functional requirements section, when the developer exports them, then the file contains only those two sections, in reading order.
+- [ ] Given the user journeys section and the functional requirements section are the only sections selected, when the developer exports them, then the file contains only those two sections, in reading order.
 
 **Shown In**: report
 
@@ -587,7 +590,7 @@ There are 24 functional requirements. All text is copied from
 
 **Acceptance Criteria**:
 
-- [ ] Given the author selects the whole PRD set, when the author prints it, then the printed copy has the same documents, order, and draft mark as the fixed-layout export.
+- [ ] Given the whole PRD set is selected, when the author prints it, then the printed copy has the same documents, order, and draft mark as the fixed-layout export.
 
 **Shown In**: report
 
@@ -653,7 +656,7 @@ There are 24 functional requirements. All text is copied from
 
 **Shown In**: screen
 
-**Priority**: MUST_HAVE
+**Priority**: SHOULD_HAVE
 
 **Release**: REL-001
 
@@ -674,7 +677,7 @@ There are 24 functional requirements. All text is copied from
 
 **Shown In**: screen
 
-**Priority**: MUST_HAVE
+**Priority**: SHOULD_HAVE
 
 **Release**: REL-001
 
@@ -695,7 +698,7 @@ There are 24 functional requirements. All text is copied from
 
 **Shown In**: screen
 
-**Priority**: MUST_HAVE
+**Priority**: SHOULD_HAVE
 
 **Release**: REL-001
 
@@ -716,7 +719,7 @@ There are 24 functional requirements. All text is copied from
 
 **Shown In**: report
 
-**Priority**: MUST_HAVE
+**Priority**: SHOULD_HAVE
 
 **Release**: REL-001
 
@@ -736,7 +739,7 @@ There are 24 functional requirements. All text is copied from
 
 **Shown In**: screen
 
-**Priority**: MUST_HAVE
+**Priority**: SHOULD_HAVE
 
 **Release**: REL-001
 
@@ -780,24 +783,24 @@ There are 24 functional requirements. All text is copied from
 
 **Shown In**: screen
 
-**Priority**: MUST_HAVE
+**Priority**: SHOULD_HAVE
 
 **Release**: REL-001
 
 ---
 
-#### FR-023: Expand a section in the tree and select one of its items
+#### FR-023: Select one item of a section and read it without the whole section
 
 **Description**: The author reads one item, such as a persona or a requirement, without reading the whole section first.
 
 **Relates To**: BR-001, UC-1 (J-001), ST-003
 
-**Rationale**: Author (PER-001) needs this at ST-003 (Go to a weak section). It serves O-001. PRD source: Interview, 2026-10-26; wireframe WF-002.
+**Rationale**: Author (PER-001) needs this at ST-003 (Go to a weak section). It serves O-001. PRD source: Interview, 2026-10-26.
 
 **Acceptance Criteria**:
 
-- [ ] Given the users and personas section with PER-001 to PER-005, when the author expands that section in the tree, then the author sees the five persona ids below it.
-- [ ] Given the expanded section, when the author selects PER-001, then the author sees PER-001 with the status and grade of its section.
+- [ ] Given the users and personas section with PER-001 to PER-005, when the author asks for the items of that section, then the author sees the five persona ids.
+- [ ] Given the five persona ids of that section are in view, when the author selects PER-001, then the author sees PER-001 with the status and grade of its section.
 
 **Shown In**: screen
 
@@ -823,12 +826,33 @@ There are 24 functional requirements. All text is copied from
 
 **Shown In**: screen
 
-**Priority**: MUST_HAVE
+**Priority**: SHOULD_HAVE
 
 **Release**: REL-001
 
 ---
 
+
+#### FR-025: See the findings behind the grade of a section
+
+**Description**: The author sees what is missing in a section and what to improve, without the authoring tools.
+
+**Relates To**: BR-002, UC-1 (J-001), ST-002
+
+**Rationale**: Author (PER-001) needs this at ST-002 (Check the grades). It serves O-002. PRD source: PRD owner decision, 2026-10-27; OUT-002, D-002.
+
+**Acceptance Criteria**:
+
+- [ ] Given section 7 has a grade with 1 blocking defect and 2 items to raise the grade, when the author views the findings of section 7, then the author sees the blocking defect and the 2 items.
+- [ ] Given a section with no recorded findings, when the author views its findings, then the author sees that no findings are recorded.
+
+**Shown In**: screen
+
+**Priority**: WONT_HAVE (release 1). It is the only requirement of release 2.
+
+**Release**: REL-002
+
+---
 
 ## Non-Functional Requirements (NFRs)
 
@@ -1702,7 +1726,6 @@ PRD does not have cites one of them.
 | Q-005 | Is editing text in the viewer in release 1? | Richard Hightower | 2026-10-26 | None |
 | Q-006 | When the sponsor (PER-004) is not available to approve a version, who approves it, or does the approval wait? | Richard Hightower | 2026-11-30 | TR-007 |
 | Q-007 | By what date must PRD Forge record the findings behind each grade (D-002), and in which release does the viewer show them (OUT-002)? | Richard Hightower | 2026-10-26 | D-002, OUT-002 |
-| Q-008 | J-002 has one happy scenario (SC-005) and one exception (SC-007). What other way can a developer's search or export of selected sections go wrong, and must release 1 handle it? | Richard Hightower | 2026-11-30 | J-002 |
 
 ---
 
@@ -1803,7 +1826,7 @@ PRD does not have cites one of them.
 | Milestone | Description | Target Date | Dependencies |
 |---|---|---|---|
 | REL-001 | Release 1, read and export | 2026-10-27 | FR-001, FR-002, FR-003, FR-004, FR-005, FR-007, FR-008, FR-0... |
-| REL-002 | Release 2, grade findings | 2026-11-06 | D-002 |
+| REL-002 | Release 2, grade findings | 2026-11-06 | FR-025 (depends on D-002) |
 
 ---
 
@@ -1873,7 +1896,7 @@ Copied from section 14 of the PRD.
 
 ### Appendix B: reference documents
 
-- [PRD set](../../docs/prd/prd-forge-viewer/prd.md), version 0.3.4
+- [PRD set](../../docs/prd/prd-forge-viewer/prd.md), version 0.5.0
 - `projects/000-global/ARC-000-PRIN-v1.0.md`, architecture principles
 - `ARC-001-STKE-v1.0.md`, stakeholder analysis
 
@@ -1888,10 +1911,12 @@ The wireframes are in section 7 of the PRD.
 | [WF-003](../../docs/prd/prd-forge-viewer/diagrams/WF-003.svg) | Search results | PER-002 | ST-009 | FR-008, FR-023 |
 | [WF-004](../../docs/prd/prd-forge-viewer/diagrams/WF-004.svg) | A search with no match | PER-002 | ST-009 | FR-008 |
 | [WF-005](../../docs/prd/prd-forge-viewer/diagrams/WF-005.svg) | A document that cannot be read | PER-001 | ST-001 | FR-003 |
-| [WF-006](../../docs/prd/prd-forge-viewer/diagrams/WF-006.svg) | No PRD set in this folder | PER-001 | ST-001 | FR-021, FR-022, FR-024 |
+| [WF-006](../../docs/prd/prd-forge-viewer/diagrams/WF-006.svg) | No PRD set in this folder | PER-001 | ST-001 | FR-021, FR-022 |
 | [WF-007](../../docs/prd/prd-forge-viewer/diagrams/WF-007.svg) | Export | PER-001 | ST-005 | FR-010, FR-011, FR-012, FR-013, FR-015 |
 | [WF-008](../../docs/prd/prd-forge-viewer/diagrams/WF-008.svg) | Themes | PER-001 | ST-005 | FR-015, FR-016, FR-017, FR-018, FR-020 |
 | [WF-009](../../docs/prd/prd-forge-viewer/diagrams/WF-009.svg) | First page of an export | PER-004 | ST-011 | FR-014, FR-019, FR-010 |
+| [WF-011](../../docs/prd/prd-forge-viewer/diagrams/WF-011.svg) | The findings behind a grade (release 2) | PER-001 | ST-002 | FR-025 |
+| [WF-010](../../docs/prd/prd-forge-viewer/diagrams/WF-010.svg) | More than one PRD set in docs/prd (a state of WF-006) | PER-001 | ST-001 | FR-024, FR-022 |
 
 ### Appendix D: requirements traceability
 
@@ -1903,12 +1928,12 @@ The wireframes are in section 7 of the PRD.
 | FR-004 | PER-001 | ST-002 | BR-002 | G-1 | REL-001 |
 | FR-005 | PER-001 | ST-003 | BR-001 | G-1 | REL-001 |
 | FR-006 | PER-001 | ST-003 | BR-001 | G-1 | None (dropped) |
-| FR-007 | PER-002 | ST-009 | BR-001 | G-3 | REL-001 |
-| FR-008 | PER-002 | ST-009 | BR-001 | G-3 | REL-001 |
+| FR-007 | PER-002 | ST-003 | BR-001 | G-3 | REL-001 |
+| FR-008 | PER-002 | ST-003 | BR-001 | G-3 | REL-001 |
 | FR-009 | PER-001 | ST-004 | BR-001 | G-1 | REL-001 |
 | FR-010 | PER-001 | ST-005 | BR-001 | G-2 | REL-001 |
 | FR-011 | PER-001 | ST-005 | BR-001 | G-2 | REL-001 |
-| FR-012 | PER-002 | ST-010 | BR-001 | G-3 | REL-001 |
+| FR-012 | PER-002 | ST-005 | BR-001 | G-3 | REL-001 |
 | FR-013 | PER-001 | ST-005 | BR-001 | G-2 | REL-001 |
 | FR-014 | PER-004 | ST-005 | BR-001 | G-5 | REL-001 |
 | FR-015 | PER-001 | ST-005 | BR-001 | G-2 | REL-001 |
@@ -1921,6 +1946,7 @@ The wireframes are in section 7 of the PRD.
 | FR-022 | PER-001 | ST-001 | BR-001 | G-1 | REL-001 |
 | FR-023 | PER-001 | ST-003 | BR-001 | G-1 | REL-001 |
 | FR-024 | PER-001 | ST-001 | BR-001 | G-1 | REL-001 |
+| FR-025 | PER-001 | ST-002 | BR-002 | G-1 | REL-002 |
 
 ---
 
@@ -1929,6 +1955,8 @@ The wireframes are in section 7 of the PRD.
 | Version | Date | Author | Changes |
 |---------|------|--------|---------|
 | 1.0 | 2026-10-26 | ArcKit AI | First draft from PRD version 0.3.4 |
+| 1.0 | 2026-10-27 | ArcKit AI | Updated from PRD version 0.4.0 |
+| 1.0 | 2026-10-27 | ArcKit AI | Updated from PRD version 0.5.0 |
 
 ## External references
 
@@ -1938,7 +1966,7 @@ The wireframes are in section 7 of the PRD.
 
 | Doc ID | Filename | Type | Source Location | Description |
 |--------|----------|------|-----------------|-------------|
-| PFVP | prd-forge-viewer-prd.pdf | PRD | `projects/001-prd-forge-viewer/external/` | Export of the PRD Forge Viewer PRD, version 0.3.4, 18 documents. Source: `docs/prd/prd-forge-viewer/` |
+| PFVP | prd-forge-viewer-prd.pdf | PRD | `projects/001-prd-forge-viewer/external/` | Export of the PRD Forge Viewer PRD, version 0.5.0, 18 documents. Source: `docs/prd/prd-forge-viewer/` |
 
 ### Citations
 
@@ -1958,8 +1986,8 @@ The wireframes are in section 7 of the PRD.
 ---
 
 **Generated by**: ArcKit `/arckit:requirements` command
-**Generated on**: 2026-10-26
+**Generated on**: 2026-10-27
 **ArcKit Version**: 6.18.3
 **Project**: PRD Forge Viewer (Project 001)
 **Model**: claude-opus-5-5
-**Generation Context**: PRD set version 0.3.4 front matter, `ARC-000-PRIN-v1.0.md`, and `ARC-001-STKE-v1.0.md`. FR and NFR text copied by a script from the PRD front matter.
+**Generation Context**: PRD set version 0.5.0 front matter, `ARC-000-PRIN-v1.0.md`, and `ARC-001-STKE-v1.0.md`. FR and NFR text copied by a script from the PRD front matter.

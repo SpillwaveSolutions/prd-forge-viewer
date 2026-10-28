@@ -4,13 +4,13 @@ kind: nonfunctional-requirements
 schema: prd-forge/nonfunctional-requirements@1
 title: Non-functional requirements
 status: final
-updated: 2026-10-26
+updated: 2026-10-27
 domain: software product management
 section: 8
 order: 90
-score: 86
+score: 79
 blocking: 0
-graded: 2026-10-26
+graded: 2026-10-27
 requirements:
   - id: NFR-001
     category: performance
@@ -149,6 +149,20 @@ requirements:
       - FR-012
       - FR-013
       - FR-023
+not_applicable:
+  - category: scale
+    reason: >-
+      One person opens one local PRD set at a time, and a set has 18 documents.
+      The viewer has no shared data and no other users.
+  - category: retention
+    reason: >-
+      The viewer is read-only (C-002). The PRD set stays where the authoring
+      tools keep it. The viewer keeps only a derived cache and its settings.
+  - category: observability
+    reason: >-
+      The viewer runs on the person's own computer and loads nothing remote
+      (NFR-010). Failures show to that person, as in FR-003. No service exists
+      to monitor.
 links:
   parent: { id: prd-forge-viewer, kind: prd, path: ./prd.md, title: PRD Forge Viewer PRD }
   prev: { id: prd-forge-viewer-wireframes, kind: wireframes, path: ./08-wireframes.md, title: Wireframes }
@@ -177,15 +191,6 @@ while writing a PRD (Q-003), so the open and update targets are 2 seconds.
 | NFR-009 | accessibility | Exports work with a screen reader | zero checker errors |
 | NFR-010 | security | Only local content shows. No script runs, nothing remote loads | zero scripts, zero requests |
 
-## Categories that do not apply
-
-- **Retention.** The viewer stores no PRD content. The PRD set stays where the
-  authoring tools keep it (C-002).
-- **Scale.** One person uses the viewer on one computer with one PRD set of 18
-  documents at a time.
-- **Observability.** The viewer runs on one person's computer. Failures show to
-  that person, as in FR-003.
-
 ## NFR-002. Show a change from the authoring tools
 
 This sets the time limit that FR-009 and SC-003 refer to.
@@ -200,3 +205,11 @@ target on 2026-10-26.
 A PRD set can hold a script or a link to a remote image. The viewer shows the
 text and the local files only. The viewer has no accounts and no shared data.
 The PRD owner accepted this target on 2026-10-26.
+
+## Categories that do not apply
+
+| Category | Reason |
+| --- | --- |
+| Scale | One person opens one local PRD set of 18 documents at a time. |
+| Retention | The viewer is read-only (C-002). The PRD set stays where the authoring tools keep it. The viewer keeps only a derived cache and its settings. |
+| Observability | The viewer runs on the person's own computer and loads nothing remote (NFR-010). Failures show to that person, as in FR-003. |

@@ -3,14 +3,14 @@ id: prd-forge-viewer-functional-requirements
 kind: functional-requirements
 schema: prd-forge/functional-requirements@1
 title: Functional requirements
-status: draft
-updated: 2026-10-26
+status: final
+updated: 2026-10-27
 domain: software product management
 section: 7
 order: 80
-score: 91
-blocking: 1
-graded: 2026-10-26
+score: 88
+blocking: 0
+graded: 2026-10-27
 requirements:
   - id: FR-001
     shown_in: screen
@@ -42,7 +42,7 @@ requirements:
         Given a section changed while the viewer was closed, when the author
         opens the viewer again, then the author sees the current version of that
         section.
-    priority: must
+    priority: should
     journey_stage: ST-001
     objective: O-001
     source: Interview, 2026-10-26; SC-006
@@ -124,8 +124,8 @@ requirements:
     journey_stage: ST-003
     objective: O-001
     source: >-
-      Interview, 2026-10-26. Dropped on 2026-10-26 by the PRD owner: the tree
-      (FR-005, FR-023) moves the author to any section.
+      Interview, 2026-10-26. Dropped on 2026-10-26 by the PRD owner: FR-005
+      and FR-023 move the author to any section.
   - id: FR-007
     shown_in: screen
     user: PER-002
@@ -138,7 +138,7 @@ requirements:
         Given requirement FR-004 names stage ST-002, when the developer follows
         that reference, then the developer sees stage ST-002 in J-001.
     priority: should
-    journey_stage: ST-009
+    journey_stage: ST-003
     objective: O-001
     source: J-002
   - id: FR-008
@@ -172,7 +172,7 @@ requirements:
         Given a term that no item contains, when the developer searches, then
         the developer sees that there are no matches.
     priority: must
-    journey_stage: ST-009
+    journey_stage: ST-003
     objective: O-001
     source: Interview, 2026-10-26; SC-005
   - id: FR-009
@@ -226,7 +226,7 @@ requirements:
         as an editable document, then one file in the format that C-001 names
         contains every document in order, and the
         engineering lead opens it in a word processor without the authoring tools.
-    priority: must
+    priority: should
     journey_stage: ST-005
     objective: O-001
     source: Interview, 2026-10-26; SC-004
@@ -237,11 +237,11 @@ requirements:
     outcome: The developer has one file with only the selected sections.
     acceptance:
       - >-
-        Given the developer selects the user journeys section and the functional
-        requirements section, when the developer exports them, then the file
+        Given the user journeys section and the functional requirements section
+        are the only sections selected, when the developer exports them, then the file
         contains only those two sections, in reading order.
     priority: must
-    journey_stage: ST-010
+    journey_stage: ST-005
     objective: O-001
     source: Interview, 2026-10-26; SC-005
   - id: FR-013
@@ -251,7 +251,7 @@ requirements:
     outcome: The author has a printed copy with the same content as the export.
     acceptance:
       - >-
-        Given the author selects the whole PRD set, when the author prints it,
+        Given the whole PRD set is selected, when the author prints it,
         then the printed copy has the same documents, order, and draft mark as
         the fixed-layout export.
     priority: should
@@ -306,7 +306,7 @@ requirements:
         Given an export with the theme "Acme", when a reader opens it on a
         computer that does not have those fonts installed, then the reader sees
         the same fonts as the author.
-    priority: must
+    priority: should
     journey_stage: ST-005
     objective: O-001
     source: Interview, 2026-10-26
@@ -322,7 +322,7 @@ requirements:
       - >-
         Given a built-in theme, when the author tries to change it, then the
         built-in theme stays as it was.
-    priority: must
+    priority: should
     journey_stage: ST-005
     objective: O-001
     source: Interview, 2026-10-26
@@ -338,7 +338,7 @@ requirements:
       - >-
         Given a built-in theme, when the author tries to delete it, then the
         built-in theme is still available.
-    priority: must
+    priority: should
     journey_stage: ST-005
     objective: O-001
     source: Interview, 2026-10-26
@@ -354,7 +354,7 @@ requirements:
       - >-
         Given a pending section, when the engineering lead reaches it in the
         export, then the section says that it is not written yet.
-    priority: must
+    priority: should
     journey_stage: ST-005
     objective: O-001
     source: SC-004
@@ -368,7 +368,7 @@ requirements:
         Given the author made the custom theme "Acme", when the author closes and
         reopens the viewer, then "Acme" is available to select, with the same
         colors and fonts.
-    priority: must
+    priority: should
     journey_stage: ST-005
     objective: O-001
     source: Interview, 2026-10-26
@@ -393,7 +393,10 @@ requirements:
     priority: must
     journey_stage: ST-001
     objective: O-001
-    source: Interview, 2026-10-26
+    source: >-
+      Interview, 2026-10-26. The PRD owner keeps the name docs/prd on 2026-10-27,
+      because it is the folder that the authoring tools use and that the author
+      sees.
   - id: FR-022
     shown_in: screen
     user: PER-001
@@ -412,29 +415,30 @@ requirements:
       - >-
         Given a known location whose PRD set no longer exists, when the author
         sees the list, then that location is marked as not found.
-    priority: must
+    priority: should
     journey_stage: ST-001
     objective: O-001
     source: Interview, 2026-10-26
   - id: FR-023
     shown_in: screen
     user: PER-001
-    capability: Expand a section in the tree and select one of its items
+    capability: Select one item of a section and read it without the whole section
     outcome: >-
       The author reads one item, such as a persona or a requirement, without
       reading the whole section first.
     acceptance:
       - >-
         Given the users and personas section with PER-001 to PER-005, when the
-        author expands that section in the tree, then the author sees the five
-        persona ids below it.
+        author asks for the items of that section, then the author sees the five
+        persona ids.
       - >-
-        Given the expanded section, when the author selects PER-001, then the
-        author sees PER-001 with the status and grade of its section.
+        Given the five persona ids of that section are in view, when the author
+        selects PER-001, then the author sees PER-001 with the status and grade
+        of its section.
     priority: must
     journey_stage: ST-003
     objective: O-001
-    source: Interview, 2026-10-26; wireframe WF-002
+    source: Interview, 2026-10-26
   - id: FR-024
     shown_in: screen
     user: PER-001
@@ -454,10 +458,29 @@ requirements:
       - >-
         Given that list, when the author selects one set, then the viewer opens
         that PRD set.
-    priority: must
+    priority: should
     journey_stage: ST-001
     objective: O-001
     source: PRD owner decision, 2026-10-26 (HLD review ADV-02)
+  - id: FR-025
+    shown_in: screen
+    user: PER-001
+    capability: See the findings behind the grade of a section
+    outcome: >-
+      The author sees what is missing in a section and what to improve, without
+      the authoring tools.
+    acceptance:
+      - >-
+        Given section 7 has a grade with 1 blocking defect and 2 items to raise
+        the grade, when the author views the findings of section 7, then the
+        author sees the blocking defect and the 2 items.
+      - >-
+        Given a section with no recorded findings, when the author views its
+        findings, then the author sees that no findings are recorded.
+    priority: wont
+    journey_stage: ST-002
+    objective: O-002
+    source: PRD owner decision, 2026-10-27; OUT-002, D-002
 links:
   parent: { id: prd-forge-viewer, kind: prd, path: ./prd.md, title: PRD Forge Viewer PRD }
   prev: { id: prd-forge-viewer-scope, kind: scope, path: ./07-scope.md, title: Scope }
@@ -475,29 +498,30 @@ Each requirement uses MoSCoW priority: must, should, could, or won't.
 | ID | User | Capability | Priority | Stage |
 | --- | --- | --- | --- | --- |
 | FR-001 | PER-001 | Open a PRD set and see its contents | must | ST-001 |
-| FR-002 | PER-001 | Return to the same PRD set in the next session | must | ST-001 |
+| FR-002 | PER-001 | Return to the same PRD set in the next session | should | ST-001 |
 | FR-003 | PER-001 | Open a set with incomplete or unreadable documents | must | ST-001 |
 | FR-004 | PER-001 | See the grades of all sections together | must | ST-002 |
 | FR-005 | PER-001 | Go directly to any section | must | ST-003 |
-| FR-006 | PER-001 | Move to the previous or next section. Dropped: the tree covers it | wont | ST-003 |
-| FR-007 | PER-002 | Follow a reference to the item it names | should | ST-009 |
-| FR-008 | PER-002 | Search by term and category | must | ST-009 |
+| FR-006 | PER-001 | Move to the previous or next section. Dropped: FR-005 and FR-023 cover it | wont | ST-003 |
+| FR-007 | PER-002 | Follow a reference to the item it names | should | ST-003 |
+| FR-008 | PER-002 | Search by term and category | must | ST-003 |
 | FR-009 | PER-001 | See changes from the authoring tools without any action | must | ST-004 |
 | FR-010 | PER-001 | Export as a fixed-layout document | must | ST-005 |
-| FR-011 | PER-001 | Export as an editable document | must | ST-005 |
-| FR-012 | PER-002 | Export only selected sections | must | ST-010 |
+| FR-011 | PER-001 | Export as an editable document | should | ST-005 |
+| FR-012 | PER-002 | Export only selected sections | must | ST-005 |
 | FR-013 | PER-001 | Print the set or selected sections | should | ST-005 |
 | FR-014 | PER-004 | See the version, and if it is a draft, in an export | must | ST-005 |
 | FR-015 | PER-001 | Select a built-in export theme | must | ST-005 |
-| FR-016 | PER-001 | Make a custom export theme | must | ST-005 |
-| FR-017 | PER-001 | Change a custom export theme | must | ST-005 |
-| FR-018 | PER-001 | Delete a custom export theme | must | ST-005 |
-| FR-019 | PER-003 | See the status and score of every section in an export | must | ST-005 |
-| FR-020 | PER-001 | Keep custom themes from one session to the next | must | ST-005 |
+| FR-016 | PER-001 | Make a custom export theme | should | ST-005 |
+| FR-017 | PER-001 | Change a custom export theme | should | ST-005 |
+| FR-018 | PER-001 | Delete a custom export theme | should | ST-005 |
+| FR-019 | PER-003 | See the status and score of every section in an export | should | ST-005 |
+| FR-020 | PER-001 | Keep custom themes from one session to the next | should | ST-005 |
 | FR-021 | PER-001 | Start the viewer from a terminal with prdf | must | ST-001 |
-| FR-022 | PER-001 | Choose a PRD set from remembered locations | must | ST-001 |
-| FR-023 | PER-001 | Expand a section in the tree and select an item | must | ST-003 |
-| FR-024 | PER-001 | Choose one PRD set when docs/prd holds more than one | must | ST-001 |
+| FR-022 | PER-001 | Choose a PRD set from remembered locations | should | ST-001 |
+| FR-023 | PER-001 | Select one item of a section and read it | must | ST-003 |
+| FR-024 | PER-001 | Choose one PRD set when docs/prd holds more than one | should | ST-001 |
+| FR-025 | PER-001 | See the findings behind the grade of a section, in release 2 | wont | ST-002 |
 
 ## FR-001. Open a PRD set and see its contents
 
@@ -526,8 +550,8 @@ From any section, the author reaches any other section in one action.
 
 ## FR-006. Move to the previous or next section
 
-Dropped on 2026-10-26. The tree (FR-005 and FR-023) moves the author to any
-section, so the viewer has no previous and next links. The ID stays, and nobody
+Dropped on 2026-10-26. FR-005 and FR-023 move the author to any section and
+item, so the viewer has no previous and next links. The ID stays, and nobody
 reuses it.
 
 ## FR-007. Follow a reference to the item it names
@@ -605,9 +629,9 @@ on the path that the author gives.
 The viewer remembers every PRD set location that it opened. In a folder with no
 PRD set, the author picks one from that list.
 
-## FR-023. Expand a section in the tree and select an item
+## FR-023. Select one item of a section and read it
 
-The author expands a section in the tree, sees its items by id, and selects one
+The author asks for the items of a section, sees them by id, and selects one
 item to read it with the status and grade of its section.
 
 ## FR-024. Choose one of several PRD sets
@@ -616,3 +640,10 @@ When docs/prd holds more than one PRD set, prdf reopens the set that was open in
 the last session. If none of them was open before, the viewer shows a list of the
 sets it found, and the author selects one. The PRD owner decided this on
 2026-10-26.
+
+## FR-025. See the findings behind the grade of a section
+
+The author sees the blocking defects and the items to raise the grade of a
+section. The authoring tools record these findings (D-002). FR-025 is the
+only requirement of release 2 (REL-002). Its priority is wont, because the priority
+says what release 1 must handle, and release 1 does not have it.

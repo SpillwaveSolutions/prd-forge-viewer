@@ -4,11 +4,11 @@ kind: prd
 schema: prd-forge/prd-root@1
 title: PRD Forge Viewer PRD
 status: draft
-updated: 2026-10-26
+updated: 2026-10-27
 domain: software product management
 product: PRD Forge Viewer
 slug: prd-forge-viewer
-version: 0.3.4
+version: 0.5.0
 owner: Richard Hightower
 stakeholders:
   - Engineering lead (PER-003)
@@ -16,6 +16,8 @@ stakeholders:
   - Developers (PER-002, PER-005)
 created: 2026-10-26
 golden_thread: J-001
+primary_persona: PER-001
+approvers: [PER-004]
 summary:
   problem: >-
     A PRD Forge set is 18 linked files. Authors cannot read it as one document
@@ -44,8 +46,8 @@ links:
     - { id: prd-forge-viewer-journeys, kind: journeys, path: ./05-user-journeys.md, title: User journeys, section: 5, order: 50, status: final }
     - { id: prd-forge-viewer-scenarios, kind: scenarios, path: ./06-scenarios.md, title: Scenarios, section: 5, order: 60, status: final }
     - { id: prd-forge-viewer-scope, kind: scope, path: ./07-scope.md, title: Scope, section: 6, order: 70, status: final }
-    - { id: prd-forge-viewer-functional-requirements, kind: functional-requirements, path: ./08-functional-requirements.md, title: Functional requirements, section: 7, order: 80, status: draft }
-    - { id: prd-forge-viewer-wireframes, kind: wireframes, path: ./08-wireframes.md, title: Wireframes, section: 7, order: 85, status: review }
+    - { id: prd-forge-viewer-functional-requirements, kind: functional-requirements, path: ./08-functional-requirements.md, title: Functional requirements, section: 7, order: 80, status: final }
+    - { id: prd-forge-viewer-wireframes, kind: wireframes, path: ./08-wireframes.md, title: Wireframes, section: 7, order: 85, status: final }
     - { id: prd-forge-viewer-nfr, kind: nonfunctional-requirements, path: ./09-nonfunctional-requirements.md, title: Non-functional requirements, section: 8, order: 90, status: final }
     - { id: prd-forge-viewer-constraints, kind: constraints, path: ./10-constraints.md, title: Constraints, section: 9, order: 100, status: final }
     - { id: prd-forge-viewer-decision-rights, kind: decision-rights, path: ./11-decision-rights.md, title: Decision rights, section: 10, order: 110, status: final }
@@ -63,7 +65,7 @@ grade at once. Stakeholders without the authoring tools cannot read it at all,
 so feedback waits. The viewer shows the whole set and its grades in one place,
 shows changes as the authoring tools make them, searches, and makes themed
 export files marked with the version and draft status (formats in C-001). Release 1 is due
-2026-10-26 and delivers J-001, the golden thread. Success is feedback within 2
+2026-10-27 and delivers J-001, the golden thread. Success is feedback within 2
 days of sending a version, by 2027-03-31.
 
 | Section | Document |

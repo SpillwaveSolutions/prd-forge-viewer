@@ -4,7 +4,7 @@ kind: personas
 schema: prd-forge/personas@1
 title: Users and personas
 status: final
-updated: 2026-10-26
+updated: 2026-10-27
 domain: software product management
 section: 4
 order: 40
@@ -15,6 +15,8 @@ personas:
   - id: PER-001
     name: PRD author, a senior consultant or product lead at a consulting firm, who uses the authoring tools
     short_name: Author
+    primary: true
+    problems: [P-001, P-002, P-003]
     goals:
       - "Show me what is weak, then let me send it today."
       - See the whole PRD and go directly to the section under discussion
@@ -38,6 +40,7 @@ personas:
   - id: PER-002
     name: Developer on the consulting delivery team who uses the authoring tools but did not write the PRD
     short_name: ToolsDeveloper
+    problems: [P-001]
     goals:
       - "Give me the requirements for my story, nothing else."
       - Find the requirements, stories, and scenarios for the current work without reading the whole PRD
@@ -53,6 +56,7 @@ personas:
   - id: PER-003
     name: Engineering lead on the client or delivery team that builds the product
     short_name: EngineeringLead
+    problems: [P-002]
     goals:
       - "Can my team build this, yes or no?"
       - Decide if the team can build the product from this PRD
@@ -65,6 +69,7 @@ personas:
   - id: PER-004
     name: Product sponsor, a client executive who approves the PRD
     short_name: Sponsor
+    problems: [P-002]
     goals:
       - "Two pages, then I decide."
       - Read a short summary and decide to approve or reject the PRD
@@ -76,6 +81,7 @@ personas:
   - id: PER-005
     name: Developer on the client or delivery team who does not use the authoring tools
     short_name: TeamDeveloper
+    problems: [P-002]
     goals:
       - "Send me the part I need."
       - Read the sections that apply to the current work

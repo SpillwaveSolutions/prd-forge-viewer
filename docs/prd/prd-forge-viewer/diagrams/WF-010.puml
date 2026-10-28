@@ -1,0 +1,21 @@
+@startsalt
+title WF-010 More than one PRD set in docs/prd
+{+
+  {/ <b>PRD Forge Viewer</b> }
+  Select a PRD set in ~/clients/work/src/docs/prd <1>
+  ==
+  <b>PRD sets in docs/prd <2>
+  {#
+    Product | Location
+    › Portal | docs/prd/portal
+    › Portal Admin | docs/prd/portal-admin
+  }
+  ==
+  <b>Known PRD sets
+  {#
+    Product | Location
+    › PRD Forge Viewer | ~/…/work/src/prd-forge-viewer
+    › PRD Forge | ~/…/work/src/prd-forge
+  }
+}
+@endsalt
