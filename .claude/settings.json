@@ -1,5 +1,6 @@
 {
   "enabledPlugins": {
-    "prd-forge@prd-forge": true
+    "prd-forge@prd-forge": true,
+    "worklog@worklog-marketplace": true
   }
 }
