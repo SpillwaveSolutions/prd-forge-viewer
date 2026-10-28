@@ -1,6 +1,6 @@
 # Task 3: the search command and its timing
 
-`01M62EBHZ3H52KPBDQCA3YYTVJ` · task/feature · **open**
+`01M62EBHZ3H52KPBDQCA3YYTVJ` · task/feature · **done**
 
 The `search` and `categories` commands use one index for each open set.
 

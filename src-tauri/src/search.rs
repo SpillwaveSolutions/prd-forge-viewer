@@ -159,6 +159,30 @@ impl Index {
     }
 }
 
+/// The index of the open set, kept between searches. A search on another set opens that set's index.
+#[derive(Default)]
+pub struct SearchState(std::sync::Mutex<Option<(PathBuf, Index)>>);
+
+impl SearchState {
+    fn with<T>(&self, db: &Path, set: &Path, f: impl FnOnce(&mut Index) -> Result<T, String>) -> Result<T, String> {
+        let mut slot = self.0.lock().unwrap_or_else(|e| e.into_inner());
+        if slot.as_ref().map(|(s, _)| s.as_path() != set).unwrap_or(true) {
+            *slot = Some((set.to_path_buf(), Index::open(db, set)?));
+        }
+        let (_, ix) = slot.as_mut().unwrap();
+        ix.refresh()?;
+        f(ix)
+    }
+
+    pub fn search(&self, db: &Path, set: &Path, term: &str, category: &str) -> Result<Vec<Hit>, String> {
+        self.with(db, set, |ix| ix.search(term, category))
+    }
+
+    pub fn categories(&self, db: &Path, set: &Path) -> Result<Vec<Category>, String> {
+        self.with(db, set, |ix| Ok(ix.categories()))
+    }
+}
+
 #[cfg(test)]
 mod tests {
     use super::*;
@@ -260,6 +284,19 @@ mod tests {
         small_set(&s, "Now with zebra");
         assert_eq!(ix.refresh().unwrap(), 1);
         assert_eq!(ix.search("zebra", "all").unwrap()[0].id, "FR-001");
+    }
+
+    #[test]
+    fn twenty_searches_within_half_a_second() {
+        let d = TempDir::new().unwrap();
+        let state = SearchState::default();
+        let db = d.path().join("ix.sqlite");
+        for term in ["export", "grade", "theme", "search", "section", "draft", "sponsor", "PDF", "keyboard", "prdf",
+                     "known", "stage", "journey", "score", "blocking", "persona", "release", "network", "script", "folder"] {
+            let t0 = std::time::Instant::now();
+            state.search(&db, real(), term, "all").unwrap();
+            assert!(t0.elapsed().as_millis() < 500, "{term}: {:?}", t0.elapsed());
+        }
     }
 
     #[test]

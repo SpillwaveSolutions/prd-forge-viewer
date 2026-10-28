@@ -13,7 +13,7 @@ _The evidence chain: plan → item → ticket → code → release, forward and 
 - produced-by: [[Plan-plan-4-search]]
 
 ### Task 3: the search command and its timing
-`01M62EBHZ3H52KPBDQCA3YYTVJ` · status: todo
+`01M62EBHZ3H52KPBDQCA3YYTVJ` · status: done
 - belongs-to: Plan 4: search with ranked results
 - produced-by: [[Plan-plan-4-search]]
 

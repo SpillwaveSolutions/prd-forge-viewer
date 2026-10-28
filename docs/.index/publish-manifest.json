@@ -1,5 +1,5 @@
 {
- "git_hash": "1ffbff3",
+ "git_hash": "a554834",
  "pages": [
   {
    "frozen": false,
@@ -45,7 +45,7 @@
    "frozen": false,
    "page_name": "Index-Traceability",
    "render": "as-is",
-   "render_hash": "9d3af6a977cb",
+   "render_hash": "94d430f3c238",
    "source": "docs/.index/rendered/traceability.md",
    "title": "Traceability Index",
    "truth_state": "current",
@@ -1405,7 +1405,7 @@
    "frozen": false,
    "page_name": "Ticket-01M62EBHYNFP9BW4QZRF310SYS",
    "render": "as-is",
-   "render_hash": "f54ebdd8787c",
+   "render_hash": "f3fa0f85f4b5",
    "source": "docs/.index/rendered/tickets/01M62EBHYNFP9BW4QZRF310SYS.md",
    "title": "Plan 4: search with ranked results",
    "truth_state": "open",
@@ -1435,10 +1435,10 @@
    "frozen": false,
    "page_name": "Ticket-01M62EBHZ3H52KPBDQCA3YYTVJ",
    "render": "as-is",
-   "render_hash": "a1bf1cb66e0c",
+   "render_hash": "e91b7c28746b",
    "source": "docs/.index/rendered/tickets/01M62EBHZ3H52KPBDQCA3YYTVJ.md",
    "title": "Task 3: the search command and its timing",
-   "truth_state": "open",
+   "truth_state": "done",
    "wiki_key": "item/01M62EBHZ3H52KPBDQCA3YYTVJ"
   },
   {
@@ -1522,13 +1522,13 @@
    "wiki_key": "plan/2026-10-28-release-1-completion"
   },
   {
-   "banner": "> **Current** \u2014 this is the living version; regenerated at 2026-10-28T23:45:17Z. Historical snapshots are linked from [[Index-Releases]].",
+   "banner": "> **Current** \u2014 this is the living version; regenerated at 2026-10-28T23:46:09Z. Historical snapshots are linked from [[Index-Releases]].",
    "frozen": false,
    "page_name": "Roadmap",
    "render": "doc+banner",
-   "render_hash": "63ca5cdc9d56",
+   "render_hash": "1484b15d91a3",
    "source": "docs/roadmap.md",
-   "source_hash": "c0de12552c69",
+   "source_hash": "a3a776bc4a0b",
    "title": "Roadmap",
    "truth_state": "current",
    "wiki_key": "roadmap"
