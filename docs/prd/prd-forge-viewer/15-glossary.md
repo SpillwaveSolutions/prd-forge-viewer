@@ -4,7 +4,7 @@ kind: glossary
 schema: prd-forge/glossary@1
 title: Glossary
 status: draft
-updated: 2026-10-26
+updated: 2026-10-28
 domain: software product management
 section: 14
 order: 150
@@ -68,6 +68,20 @@ terms:
       The priority of a requirement: must (release 1 needs it), should
       (important, not essential for release 1), could (if time allows), or won't
       (not in this release).
+    not: >-
+      A won't requirement is not a non-goal. It is out of release 1 and comes
+      back in a later release, as FR-025 does in release 2. The source defines
+      the priorities for any timebox. This set ties them to release 1.
+    source: >-
+      "What is MoSCoW Prioritization?", Agile Business Consortium,
+      https://www.agilebusiness.org/?p=1907
+  - term: acceptance criterion
+    meaning: >-
+      One test that shows a requirement works, in the form Given a situation,
+      when a person acts, then a result that a tester can see.
+    source: >-
+      "Introducing BDD", Dan North, 20 Sep 2006,
+      https://dannorth.net/blog/introducing-bdd/
   - term: built-in theme
     meaning: >-
       An export theme that comes with the viewer and that the author cannot
@@ -77,11 +91,11 @@ terms:
   - term: fixed-layout document
     meaning: >-
       An export file whose pages look the same on every computer and that the
-      reader cannot easily change. C-001 names the format.
+      reader cannot easily change. IN-006 names the format.
   - term: editable document
     meaning: >-
       An export file that the reader can open and change in a word processor.
-      C-001 names the format.
+      IN-006 names the format.
   - term: unreadable document
     meaning: >-
       A document in a PRD set whose header the viewer cannot read, so its id,
@@ -137,10 +151,11 @@ Each term enters the glossary when it first appears in the interview.
 | persona | One role that uses the product or approves something about it. |
 | export | A document file or printed copy that a reader opens without the authoring tools. |
 | export theme | A named set of colors and fonts that controls how an export looks. |
-| MoSCoW priority | must, should, could, or won't. |
+| MoSCoW priority | must, should, could, or won't, for release 1. Source: Agile Business Consortium. |
+| acceptance criterion | A Given, when, then test of one requirement. Source: Dan North, "Introducing BDD". |
 | built-in theme | A theme that comes with the viewer: Ice Snowstorm or Clay. |
-| fixed-layout document | An export whose pages look the same everywhere. Format in C-001. |
+| fixed-layout document | An export whose pages look the same everywhere. Format in IN-006. |
 | unreadable document | A document whose header the viewer cannot read. Pending is not unreadable. |
 | contents list | The list of every document, in reading order, at the start of an export. |
 | reading order | Root document first, then each section by its order number. |
-| editable document | An export that a reader can change in a word processor. Format in C-001. |
+| editable document | An export that a reader can change in a word processor. Format in IN-006. |

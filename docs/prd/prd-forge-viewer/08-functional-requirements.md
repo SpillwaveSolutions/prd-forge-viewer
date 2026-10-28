@@ -3,8 +3,8 @@ id: prd-forge-viewer-functional-requirements
 kind: functional-requirements
 schema: prd-forge/functional-requirements@1
 title: Functional requirements
-status: final
-updated: 2026-10-27
+status: review
+updated: 2026-10-28
 domain: software product management
 section: 7
 order: 80
@@ -199,14 +199,14 @@ requirements:
   - id: FR-010
     shown_in: report
     user: PER-001
-    capability: Export the PRD set as a fixed-layout document (C-001)
+    capability: Export the PRD set as a fixed-layout document (IN-006)
     outcome: >-
       The author has one fixed-layout document that a reader opens with software
       already on the computer, without the authoring tools.
     acceptance:
       - >-
         Given a PRD set with 18 documents, when the author exports the whole set
-        as a fixed-layout document, then one file in the format that C-001 names
+        as a fixed-layout document, then one file in the format that IN-006 names
         contains every document in order, and the sponsor opens it without the
         authoring tools.
     priority: must
@@ -216,14 +216,14 @@ requirements:
   - id: FR-011
     shown_in: report
     user: PER-001
-    capability: Export the PRD set as an editable document (C-001)
+    capability: Export the PRD set as an editable document (IN-006)
     outcome: >-
       The author has one editable document that a reader opens with software
       already on the computer, without the authoring tools.
     acceptance:
       - >-
         Given a PRD set with 18 documents, when the author exports the whole set
-        as an editable document, then one file in the format that C-001 names
+        as an editable document, then one file in the format that IN-006 names
         contains every document in order, and the
         engineering lead opens it in a word processor without the authoring tools.
     priority: should
@@ -570,12 +570,12 @@ limit in section 8.
 
 ## FR-010. Export as a fixed-layout document
 
-One fixed-layout document (C-001) holds every document in order. A reader opens it without the
+One fixed-layout document (IN-006) holds every document in order. A reader opens it without the
 authoring tools.
 
 ## FR-011. Export as an editable document
 
-One editable document (C-001) holds every document in order. A reader opens it without the
+One editable document (IN-006) holds every document in order. A reader opens it without the
 authoring tools.
 
 ## FR-012. Export only selected sections

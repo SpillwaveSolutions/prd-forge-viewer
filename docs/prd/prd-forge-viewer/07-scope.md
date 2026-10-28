@@ -3,14 +3,14 @@ id: prd-forge-viewer-scope
 kind: scope
 schema: prd-forge/scope@1
 title: Scope
-status: final
-updated: 2026-10-27
+status: review
+updated: 2026-10-28
 domain: software product management
 section: 6
 order: 70
-score: 96
+score: 92
 blocking: 0
-graded: 2026-10-27
+graded: 2026-10-28
 release: REL-001, Release 1, read and export
 release_line: >-
   J-001 stages ST-001 to ST-005 happen in the viewer: open the PRD set, check the
@@ -72,10 +72,12 @@ in_scope:
       - FR-009
   - id: IN-006
     summary: >-
-      Export the whole PRD set or selected sections as a fixed-layout or an
-      editable document (C-001), or
-      print it. The export shows the version and the status of the PRD and of
-      each section.
+      Export the whole PRD set or selected sections as a fixed-layout document
+      or an editable document, or print it. The fixed-layout document is PDF
+      (ISO 32000). The editable document is a .docx file (ISO/IEC 29500). The
+      readers already open these formats without installing anything (A-001).
+      The export shows the version and the status of the PRD and of each
+      section.
     journey_stage: ST-005
     requirements:
       - FR-010
@@ -110,8 +112,17 @@ out_of_scope:
       Showing the findings behind each grade, such as what is missing and what to
       improve (Q-004).
     revisit: >-
-      The authoring tools record the findings from PRD Forge 0.2.0 (D-002
+      The authoring tools now record the findings (D-002
       delivered). Release 2 shows them (FR-025), on 2026-11-06.
+  - id: OUT-003
+    summary: >-
+      Operating systems other than macOS. Release 1 runs on macOS only, on the
+      only test computer, an Apple silicon Mac with 16 GB of memory. The PRD
+      owner decided this on item ADV-03 of the HLD review (change log, version
+      0.3.2).
+    revisit: >-
+      The PRD owner decides at the release 2 review, on 2026-11-06, if another
+      operating system goes into a release.
 non_goals:
   - statement: We are not building a tool that writes or grades a PRD.
     reason: >-
@@ -151,10 +162,10 @@ of ST-005.
 | --- | --- | --- |
 | IN-001 | Open a PRD set and see every document's status; reopen the same set next time | ST-001 |
 | IN-002 | See status, score, blocking count, and grade date of every section | ST-002 |
-| IN-003 | Go directly to any section or item in the tree | ST-003 |
+| IN-003 | Go directly to any section and read it | ST-003 |
 | IN-004 | Search by term and category, best matches first | ST-003 |
 | IN-005 | See changes from the authoring tools without any action | ST-004 |
-| IN-006 | Export the whole set or selected sections as a fixed-layout or editable document (C-001), or print, with version and status | ST-005 |
+| IN-006 | Export the whole set or selected sections as a fixed-layout document (PDF) or an editable document (.docx), or print, with version and status | ST-005 |
 | IN-007 | Select a built-in theme, or make, change, and delete custom themes | ST-005 |
 | IN-008 | Export only the sections that a developer selects | ST-005 |
 
@@ -164,6 +175,7 @@ of ST-005.
 | --- | --- | --- |
 | OUT-001 | Editing section text in the viewer | The PRD owner decides at the release 2 review, on 2026-11-06 |
 | OUT-002 | The findings behind each grade | Release 2, on 2026-11-06, with FR-025 (D-002 delivered). |
+| OUT-003 | Operating systems other than macOS. The only test computer is an Apple silicon Mac with 16 GB of memory | The PRD owner decides at the release 2 review, on 2026-11-06 |
 
 ## Non-goals
 

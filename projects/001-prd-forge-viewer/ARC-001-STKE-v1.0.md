@@ -50,7 +50,7 @@ one driver: read the PRD without the authoring tools (P-002).
 
 - Stakeholders give written feedback on a version within 2 days of the send, by 2027-03-31 (O-001).
 - Every version sent has 0 blocking defects, by 2027-03-31 (O-002).
-- People without the authoring tools read every export in PDF or Word (C-001).
+- People without the authoring tools read every export in PDF or Word (IN-006).
 
 ### Stakeholder alignment score
 
@@ -191,7 +191,7 @@ owner (O-001, Q-001).
 
 **Enablers**:
 
-- PDF and Word exports (C-001, FR-010, FR-011).
+- PDF and Word exports (IN-006, FR-010, FR-011).
 - Themes that match the client (FR-015 to FR-018).
 - The version and draft mark on every export (FR-014, TR-005).
 
@@ -393,7 +393,7 @@ has zero screen-reader errors.
 - **Primary Metric**: Export time for 18 documents (NFR-004).
 - **Secondary Metrics**:
   - Screen-reader errors per format (NFR-009).
-  - Exports that open without the authoring tools (C-001 verification).
+  - Exports that open without the authoring tools (IN-006 verification).
 
 **Baseline**: The command-line export of the authoring tools (A-004).
 
@@ -408,7 +408,7 @@ PDF reader and word processor.
 
 **Risks to Achievement**:
 
-- A-001 is false, and C-001 changes.
+- A-001 is false, and IN-006 changes.
 
 ---
 
