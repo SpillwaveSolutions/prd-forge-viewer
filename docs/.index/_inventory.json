@@ -1,0 +1,99 @@
+{
+ "docs": [
+  {
+   "canonical_key": "plan/2026-10-28-plan-1-open-and-grades",
+   "date": "2026-10-28",
+   "doc_type": "plan",
+   "epic": "01M61XNJ3ME272NXHFN3BS3541",
+   "git_hash": "65049c0",
+   "items": [
+    "01M61XNJ3ME272NXHFN3BS3541",
+    "01M61XNJK6H7BC7R6S80XR242E",
+    "01M61XNJ5TFSD53MNXM1XHBD57",
+    "01M61XNJA9X5VBGWV3V2PKABB4",
+    "01M61XNJNE8SY61J75A69S4TPA"
+   ],
+   "slug": "plan-1-open-and-grades",
+   "source": "docs/plans/2026-10-28-plan-1-open-and-grades.md",
+   "status": "completed",
+   "title": "Plan 1, open a PRD set and see its grades",
+   "truth_state": "current",
+   "wiki_key": "plan/2026-10-28-plan-1-open-and-grades"
+  },
+  {
+   "canonical_key": "plan/2026-10-28-plan-2-launcher-and-settings",
+   "date": "2026-10-28",
+   "doc_type": "plan",
+   "epic": "01M61XNJ3ME272NXHFN3BS3541",
+   "git_hash": "e3b7a88",
+   "items": [
+    "01M61XNJ81PQF626SXP9WX3KVX",
+    "01M61XNJCGQ4NBRVQGV7FMCJ2V",
+    "01M61XNJEQ6EERZRJYVAH4FH1H",
+    "01M61XNJGZ7VDMBJZB37S0NA2P"
+   ],
+   "slug": "plan-2-launcher-and-settings",
+   "source": "docs/plans/2026-10-28-plan-2-launcher-and-settings.md",
+   "status": "completed",
+   "title": "Plan 2, the prdf launcher, known locations, and the last set",
+   "truth_state": "current",
+   "wiki_key": "plan/2026-10-28-plan-2-launcher-and-settings"
+  },
+  {
+   "canonical_key": "plan/2026-10-28-release-1-completion",
+   "date": "2026-10-28",
+   "doc_type": "plan",
+   "epic": "01M62C7RE2CW1HN12H2T82VJ6C",
+   "git_hash": "9cd5edeb810fe80a6c390293cde8f520753e949c",
+   "items": [
+    "01M62C7REFJRP4FVS9Z3JD5SB5",
+    "01M62C7REFJRP4FVS9Z3JD5SB7",
+    "01M62C7REFJRP4FVS9Z3JD5SB9",
+    "01M62C7REFJRP4FVS9Z3JD5SBB",
+    "01M62C7REFJRP4FVS9Z3JD5SBD",
+    "01M62C7REFJRP4FVS9Z3JD5SBF",
+    "01M62C7REFJRP4FVS9Z3JD5SBH",
+    "01M62C7REFJRP4FVS9Z3JD5SBK",
+    "01M62C7REFJRP4FVS9Z3JD5SBN",
+    "01M62C7REFJRP4FVS9Z3JD5SBQ",
+    "01M62C7REFJRP4FVS9Z3JD5SBS",
+    "01M62C7REGCD2R415FMWFCZMTG",
+    "01M62C7REGCD2R415FMWFCZMTJ",
+    "01M62C7REGCD2R415FMWFCZMTM",
+    "01M62C7REGCD2R415FMWFCZMTP",
+    "01M62C7REGCD2R415FMWFCZMTR",
+    "01M62C7REGCD2R415FMWFCZMTT",
+    "01M62C7REGCD2R415FMWFCZMTW",
+    "01M62C7REGCD2R415FMWFCZMTY",
+    "01M62C7REGCD2R415FMWFCZMV0",
+    "01M62C7REGCD2R415FMWFCZMV2",
+    "01M62C7REGCD2R415FMWFCZMV4",
+    "01M62C7REGCD2R415FMWFCZMV6",
+    "01M62C7REGCD2R415FMWFCZMV8",
+    "01M62C7REGCD2R415FMWFCZMVA",
+    "01M62C7REHN9N2P8Z19K0EPA0F",
+    "01M62C7REHN9N2P8Z19K0EPA0H"
+   ],
+   "slug": "release-1-completion",
+   "source": "docs/plans/2026-10-28-release-1-completion.md",
+   "status": "active",
+   "title": "Release 1 completion: build the 15 remaining requirements",
+   "truth_state": "current",
+   "wiki": "https://github.com/SpillwaveSolutions/prd-forge-viewer/wiki/Plan-release-1-completion",
+   "wiki_key": "plan/2026-10-28-release-1-completion"
+  },
+  {
+   "canonical_key": "roadmap",
+   "doc_type": "roadmap",
+   "generated_at": "2026-10-28T23:11:34Z",
+   "git_hash": "2c654ac",
+   "slug": "roadmap",
+   "source": "docs/roadmap.md",
+   "source_hash": "f52ff9f1",
+   "title": "Roadmap",
+   "truth_state": "current",
+   "wiki_key": "roadmap"
+  }
+ ],
+ "version": 1
+}

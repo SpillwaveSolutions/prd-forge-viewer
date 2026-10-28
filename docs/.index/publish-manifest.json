@@ -1,0 +1,1378 @@
+{
+ "git_hash": "2c654ac",
+ "pages": [
+  {
+   "frozen": false,
+   "page_name": "Home",
+   "render": "as-is",
+   "render_hash": "2f569509541c",
+   "source": "docs/.index/rendered/home.md",
+   "title": "Home",
+   "truth_state": "current",
+   "wiki_key": "home"
+  },
+  {
+   "frozen": false,
+   "page_name": "Index-Decisions",
+   "render": "as-is",
+   "render_hash": "6033ad6c1ce2",
+   "source": "docs/.index/rendered/decisions.md",
+   "title": "Decisions Index",
+   "truth_state": "current",
+   "wiki_key": "index/decisions"
+  },
+  {
+   "frozen": false,
+   "page_name": "Index-Releases",
+   "render": "as-is",
+   "render_hash": "f45668ba0034",
+   "source": "docs/.index/rendered/releases.md",
+   "title": "Releases Index",
+   "truth_state": "current",
+   "wiki_key": "index/releases"
+  },
+  {
+   "frozen": false,
+   "page_name": "Index-Status",
+   "render": "as-is",
+   "render_hash": "b8bcebbbbe23",
+   "source": "docs/.index/rendered/status.md",
+   "title": "Status Archive",
+   "truth_state": "current",
+   "wiki_key": "index/status"
+  },
+  {
+   "frozen": false,
+   "page_name": "Index-Traceability",
+   "render": "as-is",
+   "render_hash": "8ada8813b5e3",
+   "source": "docs/.index/rendered/traceability.md",
+   "title": "Traceability Index",
+   "truth_state": "current",
+   "wiki_key": "index/traceability"
+  },
+  {
+   "frozen": false,
+   "page_name": "Release-REL-001",
+   "render": "as-is",
+   "render_hash": "3cb65c3f38ca",
+   "source": "docs/.index/rendered/releases/REL-001.md",
+   "title": "Release REL-001",
+   "truth_state": "shipped",
+   "wiki_key": "release/REL-001"
+  },
+  {
+   "frozen": false,
+   "page_name": "Ticket-01M61XNJ3ME272NXHFN3BS3541",
+   "render": "as-is",
+   "render_hash": "b042e3240c57",
+   "source": "docs/.index/rendered/tickets/01M61XNJ3ME272NXHFN3BS3541.md",
+   "title": "EPIC-001 Open the PRD: Open the right PRD set, from the viewer or the terminal, and see what it holds.",
+   "truth_state": "done",
+   "wiki_key": "item/01M61XNJ3ME272NXHFN3BS3541"
+  },
+  {
+   "frozen": false,
+   "page_name": "Ticket-01M61XNJ5TFSD53MNXM1XHBD57",
+   "render": "as-is",
+   "render_hash": "13b07a68b843",
+   "source": "docs/.index/rendered/tickets/01M61XNJ5TFSD53MNXM1XHBD57.md",
+   "title": "US-001 Open a PRD set and see its contents",
+   "truth_state": "done",
+   "wiki_key": "item/01M61XNJ5TFSD53MNXM1XHBD57"
+  },
+  {
+   "frozen": false,
+   "page_name": "Ticket-01M61XNJ81PQF626SXP9WX3KVX",
+   "render": "as-is",
+   "render_hash": "ad066e238e49",
+   "source": "docs/.index/rendered/tickets/01M61XNJ81PQF626SXP9WX3KVX.md",
+   "title": "US-002 Return to the same PRD set in the next session",
+   "truth_state": "done",
+   "wiki_key": "item/01M61XNJ81PQF626SXP9WX3KVX"
+  },
+  {
+   "frozen": false,
+   "page_name": "Ticket-01M61XNJA9X5VBGWV3V2PKABB4",
+   "render": "as-is",
+   "render_hash": "ae044ef0cd48",
+   "source": "docs/.index/rendered/tickets/01M61XNJA9X5VBGWV3V2PKABB4.md",
+   "title": "US-003 Open a PRD set that has incomplete or unreadable documents",
+   "truth_state": "done",
+   "wiki_key": "item/01M61XNJA9X5VBGWV3V2PKABB4"
+  },
+  {
+   "frozen": false,
+   "page_name": "Ticket-01M61XNJCGQ4NBRVQGV7FMCJ2V",
+   "render": "as-is",
+   "render_hash": "c6ed39f47419",
+   "source": "docs/.index/rendered/tickets/01M61XNJCGQ4NBRVQGV7FMCJ2V.md",
+   "title": "US-004 Start the viewer from a terminal with the command prdf",
+   "truth_state": "done",
+   "wiki_key": "item/01M61XNJCGQ4NBRVQGV7FMCJ2V"
+  },
+  {
+   "frozen": false,
+   "page_name": "Ticket-01M61XNJEQ6EERZRJYVAH4FH1H",
+   "render": "as-is",
+   "render_hash": "8830ff544e53",
+   "source": "docs/.index/rendered/tickets/01M61XNJEQ6EERZRJYVAH4FH1H.md",
+   "title": "US-005 Choose a PRD set from the locations the viewer remembers",
+   "truth_state": "done",
+   "wiki_key": "item/01M61XNJEQ6EERZRJYVAH4FH1H"
+  },
+  {
+   "frozen": false,
+   "page_name": "Ticket-01M61XNJGZ7VDMBJZB37S0NA2P",
+   "render": "as-is",
+   "render_hash": "3b2eba3a6e2a",
+   "source": "docs/.index/rendered/tickets/01M61XNJGZ7VDMBJZB37S0NA2P.md",
+   "title": "US-006 Choose one PRD set when the docs/prd folder holds more than one",
+   "truth_state": "done",
+   "wiki_key": "item/01M61XNJGZ7VDMBJZB37S0NA2P"
+  },
+  {
+   "frozen": false,
+   "page_name": "Ticket-01M61XNJK6H7BC7R6S80XR242E",
+   "render": "as-is",
+   "render_hash": "637103deb72d",
+   "source": "docs/.index/rendered/tickets/01M61XNJK6H7BC7R6S80XR242E.md",
+   "title": "EPIC-002 Check the grades: See the grade of every section in one view.",
+   "truth_state": "done",
+   "wiki_key": "item/01M61XNJK6H7BC7R6S80XR242E"
+  },
+  {
+   "frozen": false,
+   "page_name": "Ticket-01M61XNJNE8SY61J75A69S4TPA",
+   "render": "as-is",
+   "render_hash": "0a7e5c944ce7",
+   "source": "docs/.index/rendered/tickets/01M61XNJNE8SY61J75A69S4TPA.md",
+   "title": "US-007 See the grades of all sections together",
+   "truth_state": "done",
+   "wiki_key": "item/01M61XNJNE8SY61J75A69S4TPA"
+  },
+  {
+   "frozen": false,
+   "page_name": "Ticket-01M61XNJQPA0F7H1BG56ERNJ3P",
+   "render": "as-is",
+   "render_hash": "5a8b1838587f",
+   "source": "docs/.index/rendered/tickets/01M61XNJQPA0F7H1BG56ERNJ3P.md",
+   "title": "EPIC-003 Go to a weak section: Go directly to a weak section or item, or find it by search.",
+   "truth_state": "open",
+   "wiki_key": "item/01M61XNJQPA0F7H1BG56ERNJ3P"
+  },
+  {
+   "frozen": false,
+   "page_name": "Ticket-01M61XNJSXCVG60KPJFNBC4GPT",
+   "render": "as-is",
+   "render_hash": "499d5c4344e5",
+   "source": "docs/.index/rendered/tickets/01M61XNJSXCVG60KPJFNBC4GPT.md",
+   "title": "US-008 Go directly to any section",
+   "truth_state": "open",
+   "wiki_key": "item/01M61XNJSXCVG60KPJFNBC4GPT"
+  },
+  {
+   "frozen": false,
+   "page_name": "Ticket-01M61XNJW2AZJVWS7GNVCDWE6J",
+   "render": "as-is",
+   "render_hash": "caadcfd9069b",
+   "source": "docs/.index/rendered/tickets/01M61XNJW2AZJVWS7GNVCDWE6J.md",
+   "title": "US-009 Select one item of a section and read it without the whole section",
+   "truth_state": "open",
+   "wiki_key": "item/01M61XNJW2AZJVWS7GNVCDWE6J"
+  },
+  {
+   "frozen": false,
+   "page_name": "Ticket-01M61XNJY90VDMDZW16HAGY522",
+   "render": "as-is",
+   "render_hash": "33120cf8715f",
+   "source": "docs/.index/rendered/tickets/01M61XNJY90VDMDZW16HAGY522.md",
+   "title": "US-010 Follow a reference from one item to the item it names",
+   "truth_state": "open",
+   "wiki_key": "item/01M61XNJY90VDMDZW16HAGY522"
+  },
+  {
+   "frozen": false,
+   "page_name": "Ticket-01M61XNK0EWMYWDZNRXHB78SZ7",
+   "render": "as-is",
+   "render_hash": "58b92a5826e7",
+   "source": "docs/.index/rendered/tickets/01M61XNK0EWMYWDZNRXHB78SZ7.md",
+   "title": "US-011 Search the PRD set by term, in one category or in all categories",
+   "truth_state": "open",
+   "wiki_key": "item/01M61XNK0EWMYWDZNRXHB78SZ7"
+  },
+  {
+   "frozen": false,
+   "page_name": "Ticket-01M61XNK2Q80TZ9MTV20FQGGZM",
+   "render": "as-is",
+   "render_hash": "1164e9cea251",
+   "source": "docs/.index/rendered/tickets/01M61XNK2Q80TZ9MTV20FQGGZM.md",
+   "title": "US-012 See the search results ranked by relevance, and open one result",
+   "truth_state": "open",
+   "wiki_key": "item/01M61XNK2Q80TZ9MTV20FQGGZM"
+  },
+  {
+   "frozen": false,
+   "page_name": "Ticket-01M61XNK50616FWM0WZ4FGWGEB",
+   "render": "as-is",
+   "render_hash": "c1f0da74adef",
+   "source": "docs/.index/rendered/tickets/01M61XNK50616FWM0WZ4FGWGEB.md",
+   "title": "EPIC-004 Fix the section: See each change from the authoring tools while the section is open.",
+   "truth_state": "open",
+   "wiki_key": "item/01M61XNK50616FWM0WZ4FGWGEB"
+  },
+  {
+   "frozen": false,
+   "page_name": "Ticket-01M61XNK7A3WE67AVJFXNDZT2P",
+   "render": "as-is",
+   "render_hash": "bc809e5f1909",
+   "source": "docs/.index/rendered/tickets/01M61XNK7A3WE67AVJFXNDZT2P.md",
+   "title": "US-013 See changes that the authoring tools make, without any action",
+   "truth_state": "open",
+   "wiki_key": "item/01M61XNK7A3WE67AVJFXNDZT2P"
+  },
+  {
+   "frozen": false,
+   "page_name": "Ticket-01M61XNK9MPMV0RAEKPX0JC3K4",
+   "render": "as-is",
+   "render_hash": "c1b7ac5d6ad9",
+   "source": "docs/.index/rendered/tickets/01M61XNK9MPMV0RAEKPX0JC3K4.md",
+   "title": "EPIC-005 Export the PRD: Export the selected sections, in a selected theme, as a file that a reader opens without the authoring tools.",
+   "truth_state": "open",
+   "wiki_key": "item/01M61XNK9MPMV0RAEKPX0JC3K4"
+  },
+  {
+   "frozen": false,
+   "page_name": "Ticket-01M61XNKBWWJM55QTR4QJJDQXS",
+   "render": "as-is",
+   "render_hash": "a8e3e32ae834",
+   "source": "docs/.index/rendered/tickets/01M61XNKBWWJM55QTR4QJJDQXS.md",
+   "title": "US-014 Export the PRD set as a fixed-layout document (IN-006)",
+   "truth_state": "open",
+   "wiki_key": "item/01M61XNKBWWJM55QTR4QJJDQXS"
+  },
+  {
+   "frozen": false,
+   "page_name": "Ticket-01M61XNKE6PN209QVSMRS7ZMJB",
+   "render": "as-is",
+   "render_hash": "aff61ebe011c",
+   "source": "docs/.index/rendered/tickets/01M61XNKE6PN209QVSMRS7ZMJB.md",
+   "title": "US-015 Export the PRD set as an editable document (IN-006)",
+   "truth_state": "open",
+   "wiki_key": "item/01M61XNKE6PN209QVSMRS7ZMJB"
+  },
+  {
+   "frozen": false,
+   "page_name": "Ticket-01M61XNKGH9S4J40A909MN4KA2",
+   "render": "as-is",
+   "render_hash": "d9efbcfc8194",
+   "source": "docs/.index/rendered/tickets/01M61XNKGH9S4J40A909MN4KA2.md",
+   "title": "US-016 Export only selected sections",
+   "truth_state": "open",
+   "wiki_key": "item/01M61XNKGH9S4J40A909MN4KA2"
+  },
+  {
+   "frozen": false,
+   "page_name": "Ticket-01M61XNKJS20P36A6GTVDDSJJC",
+   "render": "as-is",
+   "render_hash": "8185dfd90e4a",
+   "source": "docs/.index/rendered/tickets/01M61XNKJS20P36A6GTVDDSJJC.md",
+   "title": "US-017 Print the PRD set or selected sections",
+   "truth_state": "open",
+   "wiki_key": "item/01M61XNKJS20P36A6GTVDDSJJC"
+  },
+  {
+   "frozen": false,
+   "page_name": "Ticket-01M61XNKN3MT565WYVQJX63YTE",
+   "render": "as-is",
+   "render_hash": "bdda58825fd8",
+   "source": "docs/.index/rendered/tickets/01M61XNKN3MT565WYVQJX63YTE.md",
+   "title": "US-018 See the version of the PRD, and if it is a draft, in an export",
+   "truth_state": "open",
+   "wiki_key": "item/01M61XNKN3MT565WYVQJX63YTE"
+  },
+  {
+   "frozen": false,
+   "page_name": "Ticket-01M61XNKQC1ZHJPMYK5FW5N17N",
+   "render": "as-is",
+   "render_hash": "0da367fe5596",
+   "source": "docs/.index/rendered/tickets/01M61XNKQC1ZHJPMYK5FW5N17N.md",
+   "title": "US-019 See \"Draft\" on every export until every document of the PRD set is final, and see no claim that the PRD is approved",
+   "truth_state": "open",
+   "wiki_key": "item/01M61XNKQC1ZHJPMYK5FW5N17N"
+  },
+  {
+   "frozen": false,
+   "page_name": "Ticket-01M61XNKSH8CJ2NKNBEG5CVC7J",
+   "render": "as-is",
+   "render_hash": "d6ee716ca648",
+   "source": "docs/.index/rendered/tickets/01M61XNKSH8CJ2NKNBEG5CVC7J.md",
+   "title": "US-020 See the status and score of every section in an export",
+   "truth_state": "open",
+   "wiki_key": "item/01M61XNKSH8CJ2NKNBEG5CVC7J"
+  },
+  {
+   "frozen": false,
+   "page_name": "Ticket-01M61XNKVTP7XDRC60FNYY6Z6Y",
+   "render": "as-is",
+   "render_hash": "002f205f8f52",
+   "source": "docs/.index/rendered/tickets/01M61XNKVTP7XDRC60FNYY6Z6Y.md",
+   "title": "US-021 Select an export theme from the built-in themes",
+   "truth_state": "open",
+   "wiki_key": "item/01M61XNKVTP7XDRC60FNYY6Z6Y"
+  },
+  {
+   "frozen": false,
+   "page_name": "Ticket-01M61XNKY44E0TMA06D5YGBBCT",
+   "render": "as-is",
+   "render_hash": "1594f4a2ff2b",
+   "source": "docs/.index/rendered/tickets/01M61XNKY44E0TMA06D5YGBBCT.md",
+   "title": "US-022 Make a custom export theme",
+   "truth_state": "open",
+   "wiki_key": "item/01M61XNKY44E0TMA06D5YGBBCT"
+  },
+  {
+   "frozen": false,
+   "page_name": "Ticket-01M61XNM0DH5XMHFKF6XVTBXFD",
+   "render": "as-is",
+   "render_hash": "d89fe2033a4a",
+   "source": "docs/.index/rendered/tickets/01M61XNM0DH5XMHFKF6XVTBXFD.md",
+   "title": "US-023 Change a custom export theme",
+   "truth_state": "open",
+   "wiki_key": "item/01M61XNM0DH5XMHFKF6XVTBXFD"
+  },
+  {
+   "frozen": false,
+   "page_name": "Ticket-01M61XNM2XG682DJC9R566BJ3K",
+   "render": "as-is",
+   "render_hash": "c2e11dc0f5c5",
+   "source": "docs/.index/rendered/tickets/01M61XNM2XG682DJC9R566BJ3K.md",
+   "title": "US-024 Delete a custom export theme",
+   "truth_state": "open",
+   "wiki_key": "item/01M61XNM2XG682DJC9R566BJ3K"
+  },
+  {
+   "frozen": false,
+   "page_name": "Ticket-01M61XNM5721TS9RGHEHTY4PYT",
+   "render": "as-is",
+   "render_hash": "2a41c2e5dadc",
+   "source": "docs/.index/rendered/tickets/01M61XNM5721TS9RGHEHTY4PYT.md",
+   "title": "US-025 Keep custom export themes from one session to the next",
+   "truth_state": "open",
+   "wiki_key": "item/01M61XNM5721TS9RGHEHTY4PYT"
+  },
+  {
+   "frozen": false,
+   "page_name": "Ticket-01M61XNM7GHPSJ1B96BCHA59ZE",
+   "render": "as-is",
+   "render_hash": "c21acbbff225",
+   "source": "docs/.index/rendered/tickets/01M61XNM7GHPSJ1B96BCHA59ZE.md",
+   "title": "EPIC-006 Check the grades: See the findings behind the grade of each section.",
+   "truth_state": "open",
+   "wiki_key": "item/01M61XNM7GHPSJ1B96BCHA59ZE"
+  },
+  {
+   "frozen": false,
+   "page_name": "Ticket-01M61XNM9NY7F4D4V7400J56X9",
+   "render": "as-is",
+   "render_hash": "0b36d4704d9c",
+   "source": "docs/.index/rendered/tickets/01M61XNM9NY7F4D4V7400J56X9.md",
+   "title": "SPK-001 Spike: How many stakeholders review a typical PRD, and how many of them have Claude Code and PRD Forge?",
+   "truth_state": "open",
+   "wiki_key": "item/01M61XNM9NY7F4D4V7400J56X9"
+  },
+  {
+   "frozen": false,
+   "page_name": "Ticket-01M61XY5XWQS30P8FD1209SDCJ",
+   "render": "as-is",
+   "render_hash": "08df5b34785b",
+   "source": "docs/.index/rendered/tickets/01M61XY5XWQS30P8FD1209SDCJ.md",
+   "title": "Plan 1 task 1: Scaffold the Tauri app with a CSP that blocks scripts",
+   "truth_state": "done",
+   "wiki_key": "item/01M61XY5XWQS30P8FD1209SDCJ"
+  },
+  {
+   "frozen": false,
+   "page_name": "Ticket-01M61XY609YWC7RQ21MMQDCYVC",
+   "render": "as-is",
+   "render_hash": "42927e99ac6d",
+   "source": "docs/.index/rendered/tickets/01M61XY609YWC7RQ21MMQDCYVC.md",
+   "title": "Plan 1 task 2: Read the header of one PRD document",
+   "truth_state": "done",
+   "wiki_key": "item/01M61XY609YWC7RQ21MMQDCYVC"
+  },
+  {
+   "frozen": false,
+   "page_name": "Ticket-01M61XY62P8D6JAB1B2QZ28334",
+   "render": "as-is",
+   "render_hash": "5efaaa100769",
+   "source": "docs/.index/rendered/tickets/01M61XY62P8D6JAB1B2QZ28334.md",
+   "title": "Plan 1 task 3: Load a PRD set with pending, unreadable, and missing documents",
+   "truth_state": "done",
+   "wiki_key": "item/01M61XY62P8D6JAB1B2QZ28334"
+  },
+  {
+   "frozen": false,
+   "page_name": "Ticket-01M61XY654EX10AQWFN7EBJQV4",
+   "render": "as-is",
+   "render_hash": "dec18c822609",
+   "source": "docs/.index/rendered/tickets/01M61XY654EX10AQWFN7EBJQV4.md",
+   "title": "Plan 1 task 4: Add the open_set command",
+   "truth_state": "done",
+   "wiki_key": "item/01M61XY654EX10AQWFN7EBJQV4"
+  },
+  {
+   "frozen": false,
+   "page_name": "Ticket-01M61XY67GHYE00FHCT9Y885PQ",
+   "render": "as-is",
+   "render_hash": "22bb8f54627e",
+   "source": "docs/.index/rendered/tickets/01M61XY67GHYE00FHCT9Y885PQ.md",
+   "title": "Plan 1 task 5: Show the set overview",
+   "truth_state": "done",
+   "wiki_key": "item/01M61XY67GHYE00FHCT9Y885PQ"
+  },
+  {
+   "frozen": false,
+   "page_name": "Ticket-01M61XY69X33PYC12EDYN486BY",
+   "render": "as-is",
+   "render_hash": "4fa8bf5e6da3",
+   "source": "docs/.index/rendered/tickets/01M61XY69X33PYC12EDYN486BY.md",
+   "title": "Plan 1 task 6: Show the grades view",
+   "truth_state": "done",
+   "wiki_key": "item/01M61XY69X33PYC12EDYN486BY"
+  },
+  {
+   "frozen": false,
+   "page_name": "Ticket-01M61XY6C9MH3WMNFJE2MT9Q69",
+   "render": "as-is",
+   "render_hash": "2970cf0f3b00",
+   "source": "docs/.index/rendered/tickets/01M61XY6C9MH3WMNFJE2MT9Q69.md",
+   "title": "Plan 1 task 7: Open a PRD set from the app",
+   "truth_state": "done",
+   "wiki_key": "item/01M61XY6C9MH3WMNFJE2MT9Q69"
+  },
+  {
+   "frozen": false,
+   "page_name": "Ticket-01M622SKFTP6M4S53EFBAF06X9",
+   "render": "as-is",
+   "render_hash": "5055a10cc392",
+   "source": "docs/.index/rendered/tickets/01M622SKFTP6M4S53EFBAF06X9.md",
+   "title": "Plan 2 task 1: Settings store for known locations and the last set",
+   "truth_state": "done",
+   "wiki_key": "item/01M622SKFTP6M4S53EFBAF06X9"
+  },
+  {
+   "frozen": false,
+   "page_name": "Ticket-01M622SKJ5RRFD3YEH5CVN0WQ1",
+   "render": "as-is",
+   "render_hash": "573c28e3e0c3",
+   "source": "docs/.index/rendered/tickets/01M622SKJ5RRFD3YEH5CVN0WQ1.md",
+   "title": "Plan 2 task 2: Find PRD sets in a folder and in docs/prd",
+   "truth_state": "done",
+   "wiki_key": "item/01M622SKJ5RRFD3YEH5CVN0WQ1"
+  },
+  {
+   "frozen": false,
+   "page_name": "Ticket-01M622SKMG2W0MCWFCT8K1GWS6",
+   "render": "as-is",
+   "render_hash": "5596533bbc47",
+   "source": "docs/.index/rendered/tickets/01M622SKMG2W0MCWFCT8K1GWS6.md",
+   "title": "Plan 2 task 3: Decide what the window shows at start",
+   "truth_state": "done",
+   "wiki_key": "item/01M622SKMG2W0MCWFCT8K1GWS6"
+  },
+  {
+   "frozen": false,
+   "page_name": "Ticket-01M622SKPTT2KCA8P2DG8R0362",
+   "render": "as-is",
+   "render_hash": "bbbfc6d90bce",
+   "source": "docs/.index/rendered/tickets/01M622SKPTT2KCA8P2DG8R0362.md",
+   "title": "Plan 2 task 4: Commands, settings path, and the second launch",
+   "truth_state": "done",
+   "wiki_key": "item/01M622SKPTT2KCA8P2DG8R0362"
+  },
+  {
+   "frozen": false,
+   "page_name": "Ticket-01M622SKS4XVFQSAWJ4DHRTNXV",
+   "render": "as-is",
+   "render_hash": "1514658307f4",
+   "source": "docs/.index/rendered/tickets/01M622SKS4XVFQSAWJ4DHRTNXV.md",
+   "title": "Plan 2 task 5: The prdf launcher",
+   "truth_state": "done",
+   "wiki_key": "item/01M622SKS4XVFQSAWJ4DHRTNXV"
+  },
+  {
+   "frozen": false,
+   "page_name": "Ticket-01M622SKVBZR53QNE96MSMKK19",
+   "render": "as-is",
+   "render_hash": "4b50f2768f96",
+   "source": "docs/.index/rendered/tickets/01M622SKVBZR53QNE96MSMKK19.md",
+   "title": "Plan 2 task 6: The start screen and the app wiring",
+   "truth_state": "done",
+   "wiki_key": "item/01M622SKVBZR53QNE96MSMKK19"
+  },
+  {
+   "frozen": false,
+   "page_name": "Ticket-01M622SKXHA54HD33GZZEZXWZD",
+   "render": "as-is",
+   "render_hash": "552558e860bc",
+   "source": "docs/.index/rendered/tickets/01M622SKXHA54HD33GZZEZXWZD.md",
+   "title": "Plan 2 task 7: Check by hand with the installed app",
+   "truth_state": "done",
+   "wiki_key": "item/01M622SKXHA54HD33GZZEZXWZD"
+  },
+  {
+   "frozen": false,
+   "page_name": "Ticket-01M6237C9ST9D5W9S7M3WF7F06",
+   "render": "as-is",
+   "render_hash": "d3e046320ef8",
+   "source": "docs/.index/rendered/tickets/01M6237C9ST9D5W9S7M3WF7F06.md",
+   "title": "Test csp_blocks_scripts_and_network",
+   "truth_state": "done",
+   "wiki_key": "item/01M6237C9ST9D5W9S7M3WF7F06"
+  },
+  {
+   "frozen": false,
+   "page_name": "Ticket-01M6237CBY2XBBRATDVEKA3NDF",
+   "render": "as-is",
+   "render_hash": "c5a9252cc016",
+   "source": "docs/.index/rendered/tickets/01M6237CBY2XBBRATDVEKA3NDF.md",
+   "title": "Test splits_front_matter",
+   "truth_state": "done",
+   "wiki_key": "item/01M6237CBY2XBBRATDVEKA3NDF"
+  },
+  {
+   "frozen": false,
+   "page_name": "Ticket-01M6237CE6BEN0Y5VZ1HP2RB44",
+   "render": "as-is",
+   "render_hash": "d2a5eb6a9602",
+   "source": "docs/.index/rendered/tickets/01M6237CE6BEN0Y5VZ1HP2RB44.md",
+   "title": "Test no_front_matter_is_none",
+   "truth_state": "done",
+   "wiki_key": "item/01M6237CE6BEN0Y5VZ1HP2RB44"
+  },
+  {
+   "frozen": false,
+   "page_name": "Ticket-01M6237CGKZPPJQEGQHSR59RJ3",
+   "render": "as-is",
+   "render_hash": "9cc8a082006e",
+   "source": "docs/.index/rendered/tickets/01M6237CGKZPPJQEGQHSR59RJ3.md",
+   "title": "Test crlf_front_matter",
+   "truth_state": "done",
+   "wiki_key": "item/01M6237CGKZPPJQEGQHSR59RJ3"
+  },
+  {
+   "frozen": false,
+   "page_name": "Ticket-01M6237CJZQT0TJWEEDBGZNKK7",
+   "render": "as-is",
+   "render_hash": "45e6be527c46",
+   "source": "docs/.index/rendered/tickets/01M6237CJZQT0TJWEEDBGZNKK7.md",
+   "title": "Test parses_graded_section",
+   "truth_state": "done",
+   "wiki_key": "item/01M6237CJZQT0TJWEEDBGZNKK7"
+  },
+  {
+   "frozen": false,
+   "page_name": "Ticket-01M6237CN9MEZG65KSC062GGEB",
+   "render": "as-is",
+   "render_hash": "327aae09a40d",
+   "source": "docs/.index/rendered/tickets/01M6237CN9MEZG65KSC062GGEB.md",
+   "title": "Test bad_yaml_is_err",
+   "truth_state": "done",
+   "wiki_key": "item/01M6237CN9MEZG65KSC062GGEB"
+  },
+  {
+   "frozen": false,
+   "page_name": "Ticket-01M6237CQM60T90EQP6H0C2NA4",
+   "render": "as-is",
+   "render_hash": "3effb52cbcc9",
+   "source": "docs/.index/rendered/tickets/01M6237CQM60T90EQP6H0C2NA4.md",
+   "title": "Test loads_the_real_set",
+   "truth_state": "done",
+   "wiki_key": "item/01M6237CQM60T90EQP6H0C2NA4"
+  },
+  {
+   "frozen": false,
+   "page_name": "Ticket-01M6237CSZ3ST3QQXQVEYH85PW",
+   "render": "as-is",
+   "render_hash": "d94ebb4f1141",
+   "source": "docs/.index/rendered/tickets/01M6237CSZ3ST3QQXQVEYH85PW.md",
+   "title": "Test pending_sections_listed",
+   "truth_state": "done",
+   "wiki_key": "item/01M6237CSZ3ST3QQXQVEYH85PW"
+  },
+  {
+   "frozen": false,
+   "page_name": "Ticket-01M6237CW8791Z6NYQZ7531B8K",
+   "render": "as-is",
+   "render_hash": "1d358a27cba7",
+   "source": "docs/.index/rendered/tickets/01M6237CW8791Z6NYQZ7531B8K.md",
+   "title": "Test unreadable_section_marked",
+   "truth_state": "done",
+   "wiki_key": "item/01M6237CW8791Z6NYQZ7531B8K"
+  },
+  {
+   "frozen": false,
+   "page_name": "Ticket-01M6237CYMPHNJFE811ZM8462C",
+   "render": "as-is",
+   "render_hash": "981ef9e1f56b",
+   "source": "docs/.index/rendered/tickets/01M6237CYMPHNJFE811ZM8462C.md",
+   "title": "Test missing_section_marked",
+   "truth_state": "done",
+   "wiki_key": "item/01M6237CYMPHNJFE811ZM8462C"
+  },
+  {
+   "frozen": false,
+   "page_name": "Ticket-01M6237D0XJATP1Q5G9YH7EG8F",
+   "render": "as-is",
+   "render_hash": "61aefc6570dc",
+   "source": "docs/.index/rendered/tickets/01M6237D0XJATP1Q5G9YH7EG8F.md",
+   "title": "Test folder_without_root",
+   "truth_state": "done",
+   "wiki_key": "item/01M6237D0XJATP1Q5G9YH7EG8F"
+  },
+  {
+   "frozen": false,
+   "page_name": "Ticket-01M6237D36XS3238MBCKSCNNM0",
+   "render": "as-is",
+   "render_hash": "2c772b0f38f1",
+   "source": "docs/.index/rendered/tickets/01M6237D36XS3238MBCKSCNNM0.md",
+   "title": "Test open_set_returns_the_set",
+   "truth_state": "done",
+   "wiki_key": "item/01M6237D36XS3238MBCKSCNNM0"
+  },
+  {
+   "frozen": false,
+   "page_name": "Ticket-01M6237D5BDY14EW5TK576ETGA",
+   "render": "as-is",
+   "render_hash": "502e81896e07",
+   "source": "docs/.index/rendered/tickets/01M6237D5BDY14EW5TK576ETGA.md",
+   "title": "Test open_set_reports_no_root",
+   "truth_state": "done",
+   "wiki_key": "item/01M6237D5BDY14EW5TK576ETGA"
+  },
+  {
+   "frozen": false,
+   "page_name": "Ticket-01M6237D7HT6F7WVNB31MACYXN",
+   "render": "as-is",
+   "render_hash": "19c39a96f4ce",
+   "source": "docs/.index/rendered/tickets/01M6237D7HT6F7WVNB31MACYXN.md",
+   "title": "Test shows_product_version_and_summary",
+   "truth_state": "done",
+   "wiki_key": "item/01M6237D7HT6F7WVNB31MACYXN"
+  },
+  {
+   "frozen": false,
+   "page_name": "Ticket-01M6237D9ZV4FH79AGW6ADEJMD",
+   "render": "as-is",
+   "render_hash": "3cec3828019c",
+   "source": "docs/.index/rendered/tickets/01M6237D9ZV4FH79AGW6ADEJMD.md",
+   "title": "Test lists_documents_in_order",
+   "truth_state": "done",
+   "wiki_key": "item/01M6237D9ZV4FH79AGW6ADEJMD"
+  },
+  {
+   "frozen": false,
+   "page_name": "Ticket-01M6237DC951Z80QE5B31YABM9",
+   "render": "as-is",
+   "render_hash": "13394150b730",
+   "source": "docs/.index/rendered/tickets/01M6237DC951Z80QE5B31YABM9.md",
+   "title": "Test marks_unreadable_with_file_name",
+   "truth_state": "done",
+   "wiki_key": "item/01M6237DC951Z80QE5B31YABM9"
+  },
+  {
+   "frozen": false,
+   "page_name": "Ticket-01M6237DEH2FKV5FHRCP057YF9",
+   "render": "as-is",
+   "render_hash": "445ee9966567",
+   "source": "docs/.index/rendered/tickets/01M6237DEH2FKV5FHRCP057YF9.md",
+   "title": "Test title_markup_is_text",
+   "truth_state": "done",
+   "wiki_key": "item/01M6237DEH2FKV5FHRCP057YF9"
+  },
+  {
+   "frozen": false,
+   "page_name": "Ticket-01M6237DGPFKBC9J5RH26Z0GX9",
+   "render": "as-is",
+   "render_hash": "0cc40fe5acd8",
+   "source": "docs/.index/rendered/tickets/01M6237DGPFKBC9J5RH26Z0GX9.md",
+   "title": "Test shows_both_grades",
+   "truth_state": "done",
+   "wiki_key": "item/01M6237DGPFKBC9J5RH26Z0GX9"
+  },
+  {
+   "frozen": false,
+   "page_name": "Ticket-01M6237DJYXVG9EY31RNBW9FH7",
+   "render": "as-is",
+   "render_hash": "4d1648d10768",
+   "source": "docs/.index/rendered/tickets/01M6237DJYXVG9EY31RNBW9FH7.md",
+   "title": "Test ungraded_section",
+   "truth_state": "done",
+   "wiki_key": "item/01M6237DJYXVG9EY31RNBW9FH7"
+  },
+  {
+   "frozen": false,
+   "page_name": "Ticket-01M6237DN3TGSA2C680EBP9B29",
+   "render": "as-is",
+   "render_hash": "51a8d8cd1051",
+   "source": "docs/.index/rendered/tickets/01M6237DN3TGSA2C680EBP9B29.md",
+   "title": "Test score_without_date",
+   "truth_state": "done",
+   "wiki_key": "item/01M6237DN3TGSA2C680EBP9B29"
+  },
+  {
+   "frozen": false,
+   "page_name": "Ticket-01M6237DQAE0D1ZPM0H5DFWD88",
+   "render": "as-is",
+   "render_hash": "74c88724d0fc",
+   "source": "docs/.index/rendered/tickets/01M6237DQAE0D1ZPM0H5DFWD88.md",
+   "title": "Test no_fix_marks",
+   "truth_state": "done",
+   "wiki_key": "item/01M6237DQAE0D1ZPM0H5DFWD88"
+  },
+  {
+   "frozen": false,
+   "page_name": "Ticket-01M6237DSGQAH8RFQVEB4DZG61",
+   "render": "as-is",
+   "render_hash": "4806acd6bf76",
+   "source": "docs/.index/rendered/tickets/01M6237DSGQAH8RFQVEB4DZG61.md",
+   "title": "Test cancel_gives_nothing",
+   "truth_state": "done",
+   "wiki_key": "item/01M6237DSGQAH8RFQVEB4DZG61"
+  },
+  {
+   "frozen": false,
+   "page_name": "Ticket-01M6237DVP5C4MWR9DKMMZ6AXE",
+   "render": "as-is",
+   "render_hash": "f025c4599dab",
+   "source": "docs/.index/rendered/tickets/01M6237DVP5C4MWR9DKMMZ6AXE.md",
+   "title": "Test success_gives_set",
+   "truth_state": "done",
+   "wiki_key": "item/01M6237DVP5C4MWR9DKMMZ6AXE"
+  },
+  {
+   "frozen": false,
+   "page_name": "Ticket-01M6237DY1TB38CDJ70D9Y7C9R",
+   "render": "as-is",
+   "render_hash": "1acfc2ffad1a",
+   "source": "docs/.index/rendered/tickets/01M6237DY1TB38CDJ70D9Y7C9R.md",
+   "title": "Test failure_gives_message",
+   "truth_state": "done",
+   "wiki_key": "item/01M6237DY1TB38CDJ70D9Y7C9R"
+  },
+  {
+   "frozen": false,
+   "page_name": "Ticket-01M6237E0B906NVRY0073CFYEE",
+   "render": "as-is",
+   "render_hash": "d0b83551931d",
+   "source": "docs/.index/rendered/tickets/01M6237E0B906NVRY0073CFYEE.md",
+   "title": "Test missing_file_is_default",
+   "truth_state": "done",
+   "wiki_key": "item/01M6237E0B906NVRY0073CFYEE"
+  },
+  {
+   "frozen": false,
+   "page_name": "Ticket-01M6237E2P88XMZZ0ZPBW8VTPY",
+   "render": "as-is",
+   "render_hash": "33e30f323d61",
+   "source": "docs/.index/rendered/tickets/01M6237E2P88XMZZ0ZPBW8VTPY.md",
+   "title": "Test bad_json_is_default",
+   "truth_state": "done",
+   "wiki_key": "item/01M6237E2P88XMZZ0ZPBW8VTPY"
+  },
+  {
+   "frozen": false,
+   "page_name": "Ticket-01M6237E4V9M8G2EVBW523DWEB",
+   "render": "as-is",
+   "render_hash": "90ef1f20f538",
+   "source": "docs/.index/rendered/tickets/01M6237E4V9M8G2EVBW523DWEB.md",
+   "title": "Test survives_restart",
+   "truth_state": "done",
+   "wiki_key": "item/01M6237E4V9M8G2EVBW523DWEB"
+  },
+  {
+   "frozen": false,
+   "page_name": "Ticket-01M6237E77SRTS4870PHZ2AZ34",
+   "render": "as-is",
+   "render_hash": "33659cf64a0d",
+   "source": "docs/.index/rendered/tickets/01M6237E77SRTS4870PHZ2AZ34.md",
+   "title": "Test remember_moves_to_front",
+   "truth_state": "done",
+   "wiki_key": "item/01M6237E77SRTS4870PHZ2AZ34"
+  },
+  {
+   "frozen": false,
+   "page_name": "Ticket-01M6237E9G5A3HZRVJMHWP0Y4E",
+   "render": "as-is",
+   "render_hash": "9c4e61de2923",
+   "source": "docs/.index/rendered/tickets/01M6237E9G5A3HZRVJMHWP0Y4E.md",
+   "title": "Test trailing_slash_is_one_location",
+   "truth_state": "done",
+   "wiki_key": "item/01M6237E9G5A3HZRVJMHWP0Y4E"
+  },
+  {
+   "frozen": false,
+   "page_name": "Ticket-01M6237EBTEPFRFFXA0EPKTVBE",
+   "render": "as-is",
+   "render_hash": "8f64f7c259ba",
+   "source": "docs/.index/rendered/tickets/01M6237EBTEPFRFFXA0EPKTVBE.md",
+   "title": "Test set_ref_reads_product",
+   "truth_state": "done",
+   "wiki_key": "item/01M6237EBTEPFRFFXA0EPKTVBE"
+  },
+  {
+   "frozen": false,
+   "page_name": "Ticket-01M6237EE1QV3EVSW8FKWWF2HQ",
+   "render": "as-is",
+   "render_hash": "d5dd79e73e49",
+   "source": "docs/.index/rendered/tickets/01M6237EE1QV3EVSW8FKWWF2HQ.md",
+   "title": "Test set_ref_missing_is_not_found",
+   "truth_state": "done",
+   "wiki_key": "item/01M6237EE1QV3EVSW8FKWWF2HQ"
+  },
+  {
+   "frozen": false,
+   "page_name": "Ticket-01M6237EG63CZ3FSMKQQ3CFTYX",
+   "render": "as-is",
+   "render_hash": "aedb129d7fbb",
+   "source": "docs/.index/rendered/tickets/01M6237EG63CZ3FSMKQQ3CFTYX.md",
+   "title": "Test finds_two_sets",
+   "truth_state": "done",
+   "wiki_key": "item/01M6237EG63CZ3FSMKQQ3CFTYX"
+  },
+  {
+   "frozen": false,
+   "page_name": "Ticket-01M6237EJG3HJ1ERZMHSB71W8B",
+   "render": "as-is",
+   "render_hash": "7e794c72a5eb",
+   "source": "docs/.index/rendered/tickets/01M6237EJG3HJ1ERZMHSB71W8B.md",
+   "title": "Test ignores_clutter",
+   "truth_state": "done",
+   "wiki_key": "item/01M6237EJG3HJ1ERZMHSB71W8B"
+  },
+  {
+   "frozen": false,
+   "page_name": "Ticket-01M6237EMTCSTA9PP46GJQ07BM",
+   "render": "as-is",
+   "render_hash": "d5083171668a",
+   "source": "docs/.index/rendered/tickets/01M6237EMTCSTA9PP46GJQ07BM.md",
+   "title": "Test last_set_reopens",
+   "truth_state": "done",
+   "wiki_key": "item/01M6237EMTCSTA9PP46GJQ07BM"
+  },
+  {
+   "frozen": false,
+   "page_name": "Ticket-01M6237EQ38JRFBAS201C5YAZ9",
+   "render": "as-is",
+   "render_hash": "0b84369adf95",
+   "source": "docs/.index/rendered/tickets/01M6237EQ38JRFBAS201C5YAZ9.md",
+   "title": "Test last_set_gone_is_welcome",
+   "truth_state": "done",
+   "wiki_key": "item/01M6237EQ38JRFBAS201C5YAZ9"
+  },
+  {
+   "frozen": false,
+   "page_name": "Ticket-01M6237ESA0GNXE2N5M65SZVQR",
+   "render": "as-is",
+   "render_hash": "285a77eb8e79",
+   "source": "docs/.index/rendered/tickets/01M6237ESA0GNXE2N5M65SZVQR.md",
+   "title": "Test path_of_a_set_opens",
+   "truth_state": "done",
+   "wiki_key": "item/01M6237ESA0GNXE2N5M65SZVQR"
+  },
+  {
+   "frozen": false,
+   "page_name": "Ticket-01M6237EVH03N8R1YYVPEP97AT",
+   "render": "as-is",
+   "render_hash": "8f3ff11ba8d7",
+   "source": "docs/.index/rendered/tickets/01M6237EVH03N8R1YYVPEP97AT.md",
+   "title": "Test one_set_in_docs_prd_opens",
+   "truth_state": "done",
+   "wiki_key": "item/01M6237EVH03N8R1YYVPEP97AT"
+  },
+  {
+   "frozen": false,
+   "page_name": "Ticket-01M6237EXS0ZAZY6GB5A0NATXZ",
+   "render": "as-is",
+   "render_hash": "2977fb8cc0f4",
+   "source": "docs/.index/rendered/tickets/01M6237EXS0ZAZY6GB5A0NATXZ.md",
+   "title": "Test no_set_is_not_found_with_known",
+   "truth_state": "done",
+   "wiki_key": "item/01M6237EXS0ZAZY6GB5A0NATXZ"
+  },
+  {
+   "frozen": false,
+   "page_name": "Ticket-01M6237F01GWHP5157S78GA32K",
+   "render": "as-is",
+   "render_hash": "15e5c0bb080e",
+   "source": "docs/.index/rendered/tickets/01M6237F01GWHP5157S78GA32K.md",
+   "title": "Test two_sets_and_no_last_is_choose",
+   "truth_state": "done",
+   "wiki_key": "item/01M6237F01GWHP5157S78GA32K"
+  },
+  {
+   "frozen": false,
+   "page_name": "Ticket-01M6237F278PW4BQE0QWWK6NA1",
+   "render": "as-is",
+   "render_hash": "fab62ec31134",
+   "source": "docs/.index/rendered/tickets/01M6237F278PW4BQE0QWWK6NA1.md",
+   "title": "Test two_sets_and_last_opens_last",
+   "truth_state": "done",
+   "wiki_key": "item/01M6237F278PW4BQE0QWWK6NA1"
+  },
+  {
+   "frozen": false,
+   "page_name": "Ticket-01M6237F4E8PXHEWRDKZ0BRHEQ",
+   "render": "as-is",
+   "render_hash": "a34e8b55f82f",
+   "source": "docs/.index/rendered/tickets/01M6237F4E8PXHEWRDKZ0BRHEQ.md",
+   "title": "Test open_remembers_on_success",
+   "truth_state": "done",
+   "wiki_key": "item/01M6237F4E8PXHEWRDKZ0BRHEQ"
+  },
+  {
+   "frozen": false,
+   "page_name": "Ticket-01M6237F6TT4WB7WD4YT5B6NNV",
+   "render": "as-is",
+   "render_hash": "18c58be319c2",
+   "source": "docs/.index/rendered/tickets/01M6237F6TT4WB7WD4YT5B6NNV.md",
+   "title": "Test open_failure_remembers_nothing",
+   "truth_state": "done",
+   "wiki_key": "item/01M6237F6TT4WB7WD4YT5B6NNV"
+  },
+  {
+   "frozen": false,
+   "page_name": "Ticket-01M6237F968A34VX0CAY4JYGGG",
+   "render": "as-is",
+   "render_hash": "0962c390363e",
+   "source": "docs/.index/rendered/tickets/01M6237F968A34VX0CAY4JYGGG.md",
+   "title": "Test script_has_marker_and_open",
+   "truth_state": "done",
+   "wiki_key": "item/01M6237F968A34VX0CAY4JYGGG"
+  },
+  {
+   "frozen": false,
+   "page_name": "Ticket-01M6237FBC27ZE5X5B9Q6XJVJ1",
+   "render": "as-is",
+   "render_hash": "42412be927c6",
+   "source": "docs/.index/rendered/tickets/01M6237FBC27ZE5X5B9Q6XJVJ1.md",
+   "title": "Test relative_path_made_absolute",
+   "truth_state": "done",
+   "wiki_key": "item/01M6237FBC27ZE5X5B9Q6XJVJ1"
+  },
+  {
+   "frozen": false,
+   "page_name": "Ticket-01M6237FDJX2P2501T3AG8738W",
+   "render": "as-is",
+   "render_hash": "8f87e1c3612c",
+   "source": "docs/.index/rendered/tickets/01M6237FDJX2P2501T3AG8738W.md",
+   "title": "Test installs_executable",
+   "truth_state": "done",
+   "wiki_key": "item/01M6237FDJX2P2501T3AG8738W"
+  },
+  {
+   "frozen": false,
+   "page_name": "Ticket-01M6237FFQW812JX5VYF5MNEJJ",
+   "render": "as-is",
+   "render_hash": "c091fc4fa312",
+   "source": "docs/.index/rendered/tickets/01M6237FFQW812JX5VYF5MNEJJ.md",
+   "title": "Test keeps_foreign_prdf",
+   "truth_state": "done",
+   "wiki_key": "item/01M6237FFQW812JX5VYF5MNEJJ"
+  },
+  {
+   "frozen": false,
+   "page_name": "Ticket-01M6237FJ02XPE2SGN102JRMZC",
+   "render": "as-is",
+   "render_hash": "011ddfe7ff8b",
+   "source": "docs/.index/rendered/tickets/01M6237FJ02XPE2SGN102JRMZC.md",
+   "title": "Test replaces_own_prdf",
+   "truth_state": "done",
+   "wiki_key": "item/01M6237FJ02XPE2SGN102JRMZC"
+  },
+  {
+   "frozen": false,
+   "page_name": "Ticket-01M6237FMASYTC1W8KBSJTN67Y",
+   "render": "as-is",
+   "render_hash": "369a65c3eb99",
+   "source": "docs/.index/rendered/tickets/01M6237FMASYTC1W8KBSJTN67Y.md",
+   "title": "Test not_found_lists_known",
+   "truth_state": "done",
+   "wiki_key": "item/01M6237FMASYTC1W8KBSJTN67Y"
+  },
+  {
+   "frozen": false,
+   "page_name": "Ticket-01M6237FPM2DMWMFVZ9AG0CG69",
+   "render": "as-is",
+   "render_hash": "e2f6c7e458aa",
+   "source": "docs/.index/rendered/tickets/01M6237FPM2DMWMFVZ9AG0CG69.md",
+   "title": "Test missing_location_marked",
+   "truth_state": "done",
+   "wiki_key": "item/01M6237FPM2DMWMFVZ9AG0CG69"
+  },
+  {
+   "frozen": false,
+   "page_name": "Ticket-01M6237FSCNN7DZHPNKQ995M5Z",
+   "render": "as-is",
+   "render_hash": "df3ab013dcae",
+   "source": "docs/.index/rendered/tickets/01M6237FSCNN7DZHPNKQ995M5Z.md",
+   "title": "Test choose_lists_sets_above_known",
+   "truth_state": "done",
+   "wiki_key": "item/01M6237FSCNN7DZHPNKQ995M5Z"
+  },
+  {
+   "frozen": false,
+   "page_name": "Ticket-01M6237FVP5HFM46A7NKEVZYFJ",
+   "render": "as-is",
+   "render_hash": "d49904107cb0",
+   "source": "docs/.index/rendered/tickets/01M6237FVP5HFM46A7NKEVZYFJ.md",
+   "title": "Test welcome_empty",
+   "truth_state": "done",
+   "wiki_key": "item/01M6237FVP5HFM46A7NKEVZYFJ"
+  },
+  {
+   "frozen": false,
+   "page_name": "Ticket-01M62AM3P77VBYWD0YJH3E32ZH",
+   "render": "as-is",
+   "render_hash": "5b190f5b3e25",
+   "source": "docs/.index/rendered/tickets/01M62AM3P77VBYWD0YJH3E32ZH.md",
+   "title": "MCP end-to-end tests of the app and the installed prdf",
+   "truth_state": "done",
+   "wiki_key": "item/01M62AM3P77VBYWD0YJH3E32ZH"
+  },
+  {
+   "frozen": false,
+   "page_name": "Ticket-01M62C7RE2CW1HN12H2T82VJ6C",
+   "render": "as-is",
+   "render_hash": "700c480b5358",
+   "source": "docs/.index/rendered/tickets/01M62C7RE2CW1HN12H2T82VJ6C.md",
+   "title": "Release 1 completion: build the 15 remaining requirements",
+   "truth_state": "open",
+   "wiki_key": "item/01M62C7RE2CW1HN12H2T82VJ6C"
+  },
+  {
+   "frozen": false,
+   "page_name": "Ticket-01M62C7REFJRP4FVS9Z3JD5SB5",
+   "render": "as-is",
+   "render_hash": "a31c79e504da",
+   "source": "docs/.index/rendered/tickets/01M62C7REFJRP4FVS9Z3JD5SB5.md",
+   "title": "Phase 0: merge the MCP tests and add a phase check runner",
+   "truth_state": "done",
+   "wiki_key": "item/01M62C7REFJRP4FVS9Z3JD5SB5"
+  },
+  {
+   "frozen": false,
+   "page_name": "Ticket-01M62C7REFJRP4FVS9Z3JD5SB7",
+   "render": "as-is",
+   "render_hash": "a9a0c085e23d",
+   "source": "docs/.index/rendered/tickets/01M62C7REFJRP4FVS9Z3JD5SB7.md",
+   "title": "Phase 1: read sections, items, and references (US-008, US-009, US-010)",
+   "truth_state": "open",
+   "wiki_key": "item/01M62C7REFJRP4FVS9Z3JD5SB7"
+  },
+  {
+   "frozen": false,
+   "page_name": "Ticket-01M62C7REFJRP4FVS9Z3JD5SB9",
+   "render": "as-is",
+   "render_hash": "b038144f3e35",
+   "source": "docs/.index/rendered/tickets/01M62C7REFJRP4FVS9Z3JD5SB9.md",
+   "title": "Plan 3 written and captured",
+   "truth_state": "open",
+   "wiki_key": "item/01M62C7REFJRP4FVS9Z3JD5SB9"
+  },
+  {
+   "frozen": false,
+   "page_name": "Ticket-01M62C7REFJRP4FVS9Z3JD5SBB",
+   "render": "as-is",
+   "render_hash": "90430820acfd",
+   "source": "docs/.index/rendered/tickets/01M62C7REFJRP4FVS9Z3JD5SBB.md",
+   "title": "Built with TDD, and the review findings fixed",
+   "truth_state": "open",
+   "wiki_key": "item/01M62C7REFJRP4FVS9Z3JD5SBB"
+  },
+  {
+   "frozen": false,
+   "page_name": "Ticket-01M62C7REFJRP4FVS9Z3JD5SBD",
+   "render": "as-is",
+   "render_hash": "7706d046fda1",
+   "source": "docs/.index/rendered/tickets/01M62C7REFJRP4FVS9Z3JD5SBD.md",
+   "title": "e2e/phase1.mjs passes: FR-005, FR-023, FR-007, and a remote image that does not load",
+   "truth_state": "open",
+   "wiki_key": "item/01M62C7REFJRP4FVS9Z3JD5SBD"
+  },
+  {
+   "frozen": false,
+   "page_name": "Ticket-01M62C7REFJRP4FVS9Z3JD5SBF",
+   "render": "as-is",
+   "render_hash": "c94b081f6fba",
+   "source": "docs/.index/rendered/tickets/01M62C7REFJRP4FVS9Z3JD5SBF.md",
+   "title": "Phase 2: search with ranked results (US-011, US-012)",
+   "truth_state": "open",
+   "wiki_key": "item/01M62C7REFJRP4FVS9Z3JD5SBF"
+  },
+  {
+   "frozen": false,
+   "page_name": "Ticket-01M62C7REFJRP4FVS9Z3JD5SBH",
+   "render": "as-is",
+   "render_hash": "a6a6a52787cd",
+   "source": "docs/.index/rendered/tickets/01M62C7REFJRP4FVS9Z3JD5SBH.md",
+   "title": "Plan 4 written and captured",
+   "truth_state": "open",
+   "wiki_key": "item/01M62C7REFJRP4FVS9Z3JD5SBH"
+  },
+  {
+   "frozen": false,
+   "page_name": "Ticket-01M62C7REFJRP4FVS9Z3JD5SBK",
+   "render": "as-is",
+   "render_hash": "9e45c5b6a66a",
+   "source": "docs/.index/rendered/tickets/01M62C7REFJRP4FVS9Z3JD5SBK.md",
+   "title": "Built with TDD, and the review findings fixed",
+   "truth_state": "open",
+   "wiki_key": "item/01M62C7REFJRP4FVS9Z3JD5SBK"
+  },
+  {
+   "frozen": false,
+   "page_name": "Ticket-01M62C7REFJRP4FVS9Z3JD5SBN",
+   "render": "as-is",
+   "render_hash": "124691d7467c",
+   "source": "docs/.index/rendered/tickets/01M62C7REFJRP4FVS9Z3JD5SBN.md",
+   "title": "e2e/phase2.mjs passes: all six FR-008 criteria, and NFR-003 within 0.5 s",
+   "truth_state": "open",
+   "wiki_key": "item/01M62C7REFJRP4FVS9Z3JD5SBN"
+  },
+  {
+   "frozen": false,
+   "page_name": "Ticket-01M62C7REFJRP4FVS9Z3JD5SBQ",
+   "render": "as-is",
+   "render_hash": "c179f05d04da",
+   "source": "docs/.index/rendered/tickets/01M62C7REFJRP4FVS9Z3JD5SBQ.md",
+   "title": "Phase 3: live updates from the authoring tools (US-013)",
+   "truth_state": "open",
+   "wiki_key": "item/01M62C7REFJRP4FVS9Z3JD5SBQ"
+  },
+  {
+   "frozen": false,
+   "page_name": "Ticket-01M62C7REFJRP4FVS9Z3JD5SBS",
+   "render": "as-is",
+   "render_hash": "5271d56ac1d0",
+   "source": "docs/.index/rendered/tickets/01M62C7REFJRP4FVS9Z3JD5SBS.md",
+   "title": "Plan 5 written and captured",
+   "truth_state": "open",
+   "wiki_key": "item/01M62C7REFJRP4FVS9Z3JD5SBS"
+  },
+  {
+   "frozen": false,
+   "page_name": "Ticket-01M62C7REGCD2R415FMWFCZMTG",
+   "render": "as-is",
+   "render_hash": "26453c97b19d",
+   "source": "docs/.index/rendered/tickets/01M62C7REGCD2R415FMWFCZMTG.md",
+   "title": "Built with TDD, and the review findings fixed",
+   "truth_state": "open",
+   "wiki_key": "item/01M62C7REGCD2R415FMWFCZMTG"
+  },
+  {
+   "frozen": false,
+   "page_name": "Ticket-01M62C7REGCD2R415FMWFCZMTJ",
+   "render": "as-is",
+   "render_hash": "c127af050388",
+   "source": "docs/.index/rendered/tickets/01M62C7REGCD2R415FMWFCZMTJ.md",
+   "title": "e2e/phase3.mjs passes: all three FR-009 criteria, and NFR-002 within 2 s",
+   "truth_state": "open",
+   "wiki_key": "item/01M62C7REGCD2R415FMWFCZMTJ"
+  },
+  {
+   "frozen": false,
+   "page_name": "Ticket-01M62C7REGCD2R415FMWFCZMTM",
+   "render": "as-is",
+   "render_hash": "89d1e91f8de5",
+   "source": "docs/.index/rendered/tickets/01M62C7REGCD2R415FMWFCZMTM.md",
+   "title": "Phase 4: export themes (US-021 to US-025)",
+   "truth_state": "open",
+   "wiki_key": "item/01M62C7REGCD2R415FMWFCZMTM"
+  },
+  {
+   "frozen": false,
+   "page_name": "Ticket-01M62C7REGCD2R415FMWFCZMTP",
+   "render": "as-is",
+   "render_hash": "7022b61e3802",
+   "source": "docs/.index/rendered/tickets/01M62C7REGCD2R415FMWFCZMTP.md",
+   "title": "Plan 6 written and captured",
+   "truth_state": "open",
+   "wiki_key": "item/01M62C7REGCD2R415FMWFCZMTP"
+  },
+  {
+   "frozen": false,
+   "page_name": "Ticket-01M62C7REGCD2R415FMWFCZMTR",
+   "render": "as-is",
+   "render_hash": "03f793318623",
+   "source": "docs/.index/rendered/tickets/01M62C7REGCD2R415FMWFCZMTR.md",
+   "title": "Built with TDD, and the review findings fixed",
+   "truth_state": "open",
+   "wiki_key": "item/01M62C7REGCD2R415FMWFCZMTR"
+  },
+  {
+   "frozen": false,
+   "page_name": "Ticket-01M62C7REGCD2R415FMWFCZMTT",
+   "render": "as-is",
+   "render_hash": "91606b592cc3",
+   "source": "docs/.index/rendered/tickets/01M62C7REGCD2R415FMWFCZMTT.md",
+   "title": "e2e/phase4.mjs passes: FR-015 to FR-018 and FR-020, with themes kept after a restart",
+   "truth_state": "open",
+   "wiki_key": "item/01M62C7REGCD2R415FMWFCZMTT"
+  },
+  {
+   "frozen": false,
+   "page_name": "Ticket-01M62C7REGCD2R415FMWFCZMTW",
+   "render": "as-is",
+   "render_hash": "d08f484c0fbd",
+   "source": "docs/.index/rendered/tickets/01M62C7REGCD2R415FMWFCZMTW.md",
+   "title": "Phase 5: PDF and Word export, print, and the Draft mark (US-014 to US-020)",
+   "truth_state": "open",
+   "wiki_key": "item/01M62C7REGCD2R415FMWFCZMTW"
+  },
+  {
+   "frozen": false,
+   "page_name": "Ticket-01M62C7REGCD2R415FMWFCZMTY",
+   "render": "as-is",
+   "render_hash": "7c874885c716",
+   "source": "docs/.index/rendered/tickets/01M62C7REGCD2R415FMWFCZMTY.md",
+   "title": "Plan 7 written and captured",
+   "truth_state": "open",
+   "wiki_key": "item/01M62C7REGCD2R415FMWFCZMTY"
+  },
+  {
+   "frozen": false,
+   "page_name": "Ticket-01M62C7REGCD2R415FMWFCZMV0",
+   "render": "as-is",
+   "render_hash": "f3508181516e",
+   "source": "docs/.index/rendered/tickets/01M62C7REGCD2R415FMWFCZMV0.md",
+   "title": "Built with TDD, and the review findings fixed",
+   "truth_state": "open",
+   "wiki_key": "item/01M62C7REGCD2R415FMWFCZMV0"
+  },
+  {
+   "frozen": false,
+   "page_name": "Ticket-01M62C7REGCD2R415FMWFCZMV2",
+   "render": "as-is",
+   "render_hash": "0be39d05e1d3",
+   "source": "docs/.index/rendered/tickets/01M62C7REGCD2R415FMWFCZMV2.md",
+   "title": "e2e/phase5.mjs passes: FR-010 to FR-014, FR-019, TR-005, TR-007, and TR-010, with file checks of each export",
+   "truth_state": "open",
+   "wiki_key": "item/01M62C7REGCD2R415FMWFCZMV2"
+  },
+  {
+   "frozen": false,
+   "page_name": "Ticket-01M62C7REGCD2R415FMWFCZMV4",
+   "render": "as-is",
+   "render_hash": "68caee5f0052",
+   "source": "docs/.index/rendered/tickets/01M62C7REGCD2R415FMWFCZMV4.md",
+   "title": "NFR-004 within 10 s, and NFR-009 with zero checker errors",
+   "truth_state": "open",
+   "wiki_key": "item/01M62C7REGCD2R415FMWFCZMV4"
+  },
+  {
+   "frozen": false,
+   "page_name": "Ticket-01M62C7REGCD2R415FMWFCZMV6",
+   "render": "as-is",
+   "render_hash": "379f67ec1135",
+   "source": "docs/.index/rendered/tickets/01M62C7REGCD2R415FMWFCZMV6.md",
+   "title": "Phase 6: close out release 1",
+   "truth_state": "open",
+   "wiki_key": "item/01M62C7REGCD2R415FMWFCZMV6"
+  },
+  {
+   "frozen": false,
+   "page_name": "Ticket-01M62C7REGCD2R415FMWFCZMV8",
+   "render": "as-is",
+   "render_hash": "d5d24dd3d1c5",
+   "source": "docs/.index/rendered/tickets/01M62C7REGCD2R415FMWFCZMV8.md",
+   "title": "All e2e checks and unit tests pass on the release build",
+   "truth_state": "open",
+   "wiki_key": "item/01M62C7REGCD2R415FMWFCZMV8"
+  },
+  {
+   "frozen": false,
+   "page_name": "Ticket-01M62C7REGCD2R415FMWFCZMVA",
+   "render": "as-is",
+   "render_hash": "1b84ee27a347",
+   "source": "docs/.index/rendered/tickets/01M62C7REGCD2R415FMWFCZMVA.md",
+   "title": "The release build is installed in /Applications with no MCP bridge",
+   "truth_state": "open",
+   "wiki_key": "item/01M62C7REGCD2R415FMWFCZMVA"
+  },
+  {
+   "frozen": false,
+   "page_name": "Ticket-01M62C7REHN9N2P8Z19K0EPA0F",
+   "render": "as-is",
+   "render_hash": "fab911e747cf",
+   "source": "docs/.index/rendered/tickets/01M62C7REHN9N2P8Z19K0EPA0F.md",
+   "title": "REQ and TRAC show each release 1 requirement as built and tested",
+   "truth_state": "open",
+   "wiki_key": "item/01M62C7REHN9N2P8Z19K0EPA0F"
+  },
+  {
+   "frozen": false,
+   "page_name": "Ticket-01M62C7REHN9N2P8Z19K0EPA0H",
+   "render": "as-is",
+   "render_hash": "0a94b14a9876",
+   "source": "docs/.index/rendered/tickets/01M62C7REHN9N2P8Z19K0EPA0H.md",
+   "title": "All release 1 stories closed, the roadmap rendered, and GitHub Issues synced",
+   "truth_state": "open",
+   "wiki_key": "item/01M62C7REHN9N2P8Z19K0EPA0H"
+  },
+  {
+   "banner": "> **Current** \u2014 completed plan; plans are frozen once written, a changed design gets a new plan.",
+   "frozen": true,
+   "page_name": "Plan-plan-1-open-and-grades",
+   "render": "doc+banner",
+   "render_hash": "faa2cf5db857",
+   "source": "docs/plans/2026-10-28-plan-1-open-and-grades.md",
+   "source_hash": "00d7dea306c1",
+   "title": "Plan 1, open a PRD set and see its grades",
+   "truth_state": "current",
+   "wiki_key": "plan/2026-10-28-plan-1-open-and-grades"
+  },
+  {
+   "banner": "> **Current** \u2014 completed plan; plans are frozen once written, a changed design gets a new plan.",
+   "frozen": true,
+   "page_name": "Plan-plan-2-launcher-and-settings",
+   "render": "doc+banner",
+   "render_hash": "da97be759b32",
+   "source": "docs/plans/2026-10-28-plan-2-launcher-and-settings.md",
+   "source_hash": "64f676107f4a",
+   "title": "Plan 2, the prdf launcher, known locations, and the last set",
+   "truth_state": "current",
+   "wiki_key": "plan/2026-10-28-plan-2-launcher-and-settings"
+  },
+  {
+   "banner": "> **Current** \u2014 plan in flight; plans are frozen once written, a changed design gets a new plan.",
+   "frozen": true,
+   "page_name": "Plan-release-1-completion",
+   "render": "doc+banner",
+   "render_hash": "4135bc7ed664",
+   "source": "docs/plans/2026-10-28-release-1-completion.md",
+   "source_hash": "7b5163d2505c",
+   "title": "Release 1 completion: build the 15 remaining requirements",
+   "truth_state": "current",
+   "wiki_key": "plan/2026-10-28-release-1-completion"
+  },
+  {
+   "banner": "> **Current** \u2014 this is the living version; regenerated at 2026-10-28T23:11:34Z. Historical snapshots are linked from [[Index-Releases]].",
+   "frozen": false,
+   "page_name": "Roadmap",
+   "render": "doc+banner",
+   "render_hash": "bef69b94e891",
+   "source": "docs/roadmap.md",
+   "source_hash": "2ae78eae1c4c",
+   "title": "Roadmap",
+   "truth_state": "current",
+   "wiki_key": "roadmap"
+  }
+ ],
+ "sidebar": {
+  "render_hash": "e6fad2ac0a2a",
+  "source": "docs/.index/rendered/_Sidebar.md"
+ },
+ "version": 1
+}
