@@ -1,3 +1,4 @@
+pub mod launcher;
 pub mod start;
 pub mod locate;
 pub mod settings;
@@ -22,7 +23,7 @@ pub fn run() {
         }))
         .plugin(tauri_plugin_dialog::init())
         .manage(commands::StartArg(std::sync::Mutex::new(first_arg)))
-        .invoke_handler(tauri::generate_handler![commands::open_set, commands::startup])
+        .invoke_handler(tauri::generate_handler![commands::open_set, commands::startup, commands::install_prdf])
         .run(tauri::generate_context!())
         .expect("error while running the PRD Forge Viewer");
 }

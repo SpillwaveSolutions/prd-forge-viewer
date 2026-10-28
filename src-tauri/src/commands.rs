@@ -37,6 +37,20 @@ pub fn startup(app: AppHandle, arg: State<StartArg>) -> StartView {
     start_view(arg.as_deref(), &load_settings(&settings_path(&app)))
 }
 
+/// Install `prdf` in ~/.local/bin, after the author confirms in the UI (FR-021, ADR-004).
+#[tauri::command(async)]
+pub fn install_prdf() -> Result<String, String> {
+    let home = std::env::var("HOME").map_err(|_| "HOME is not set".to_string())?;
+    let dir = Path::new(&home).join(".local/bin");
+    let path = crate::launcher::install_launcher(&dir)?;
+    let on_path = std::env::var("PATH").unwrap_or_default().split(':').any(|p| Path::new(p) == dir);
+    Ok(if on_path {
+        format!("Installed {}. Run prdf in a project folder.", path.display())
+    } else {
+        format!("Installed {}. Add {} to your PATH to run prdf.", path.display(), dir.display())
+    })
+}
+
 #[cfg(test)]
 mod tests {
     use super::*;
