@@ -23,6 +23,17 @@ pub fn run() {
         }))
         .plugin(tauri_plugin_dialog::init())
         .manage(commands::StartArg(std::sync::Mutex::new(first_arg)))
+        .setup(|_app| {
+            // The MCP bridge, only with `--features mcp-bridge`, as in Motion. Its capability is added
+            // here and not in capabilities/, so builds without the feature still pass tauri-build.
+            // Bound to 127.0.0.1 because it can drive the app.
+            #[cfg(feature = "mcp-bridge")]
+            {
+                _app.handle().add_capability(include_str!("../mcp-bridge.capability.json"))?;
+                _app.handle().plugin(tauri_plugin_mcp_bridge::Builder::new().bind_address("127.0.0.1").build())?;
+            }
+            Ok(())
+        })
         .invoke_handler(tauri::generate_handler![commands::open_set, commands::startup, commands::install_prdf, commands::start_for])
         .run(tauri::generate_context!())
         .expect("error while running the PRD Forge Viewer");

@@ -5,8 +5,11 @@
   "scripts": {
     "build": "bun run scripts/build.ts",
     "tauri": "tauri",
+    "tauri:mcp": "tauri dev --features mcp-bridge --config src-tauri/tauri.mcp.conf.json",
     "test": "bun test src",
-    "typecheck": "tsc --noEmit"
+    "typecheck": "tsc --noEmit",
+    "build:mcp": "tauri build --debug --no-bundle --features mcp-bridge --config src-tauri/tauri.mcp.conf.json",
+    "test:e2e": "bun run build:mcp && bun e2e/e2e.mjs"
   },
   "dependencies": {
     "@tauri-apps/api": "^2.9.1",
@@ -15,6 +18,8 @@
     "react-dom": "^19.2.3"
   },
   "devDependencies": {
+    "@hypothesi/tauri-mcp-server": "0.12.0",
+    "@modelcontextprotocol/sdk": "1",
     "@tauri-apps/cli": "^2.9.6",
     "@types/bun": "latest",
     "@types/react": "^19.2.9",

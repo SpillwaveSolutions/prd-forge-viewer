@@ -1,0 +1,6 @@
+{
+  "identifier": "mcp-bridge",
+  "description": "Agent-driving MCP bridge for local tests. Added at runtime from lib.rs behind the mcp-bridge feature, never in release builds.",
+  "windows": ["main"],
+  "permissions": ["mcp-bridge:default"]
+}
