@@ -3,7 +3,7 @@ id: prd-forge-viewer-release-plan
 kind: release-plan
 schema: prd-forge/release-plan@1
 title: Release plan
-status: review
+status: final
 updated: 2026-10-28
 domain: software product management
 section: 13

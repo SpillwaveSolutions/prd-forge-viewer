@@ -3,7 +3,7 @@ id: prd-forge-viewer-objectives
 kind: objectives-metrics
 schema: prd-forge/objectives-metrics@1
 title: Objectives and success metrics
-status: review
+status: final
 updated: 2026-10-28
 domain: software product management
 section: 3

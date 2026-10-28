@@ -3,7 +3,7 @@ id: prd-forge-viewer-constraints
 kind: constraints
 schema: prd-forge/constraints@1
 title: Constraints
-status: review
+status: final
 updated: 2026-10-28
 domain: software product management
 section: 9

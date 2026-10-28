@@ -3,7 +3,7 @@ id: prd-forge-viewer-scope
 kind: scope
 schema: prd-forge/scope@1
 title: Scope
-status: review
+status: final
 updated: 2026-10-28
 domain: software product management
 section: 6

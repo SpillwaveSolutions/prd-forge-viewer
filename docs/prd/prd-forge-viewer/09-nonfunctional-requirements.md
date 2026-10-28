@@ -3,7 +3,7 @@ id: prd-forge-viewer-nfr
 kind: nonfunctional-requirements
 schema: prd-forge/nonfunctional-requirements@1
 title: Non-functional requirements
-status: review
+status: final
 updated: 2026-10-28
 domain: software product management
 section: 8

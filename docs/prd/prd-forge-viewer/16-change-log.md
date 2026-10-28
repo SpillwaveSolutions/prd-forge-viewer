@@ -176,6 +176,11 @@ changes:
       cite IN-006 in place of C-001.
     sections: [1, 2, 3, 6, 7, 8, 9, 11, 12, 13, 14, 15]
     resolves: [Q-001, Q-009]
+    approvals:
+      - name: Richard Hightower
+        role: Sponsor (PER-004)
+        date: 2026-10-28
+        decision: approved
 links:
   parent: { id: prd-forge-viewer, kind: prd, path: ./prd.md, title: PRD Forge Viewer PRD }
   prev: { id: prd-forge-viewer-glossary, kind: glossary, path: ./15-glossary.md, title: Glossary }
@@ -196,7 +201,7 @@ links:
 | 0.4.0 | 2026-10-27 | Richard Hightower | PRD Forge 0.8.1: release line ST-001 to ST-007, WF-010, new front matter fields | Richard Hightower, sponsor, approved 2026-10-27 |
 | 0.5.0 | 2026-10-27 | Richard Hightower | Answers from the open questions: NFR categories, must share, FR-025, SC-008 to SC-012, TR-012, TR-013 | Richard Hightower, sponsor, approved 2026-10-27 |
 | 0.5.1 | 2026-10-28 | Richard Hightower | Glossary sources for MoSCoW priority and acceptance criterion | None yet |
-| 0.6.0 | 2026-10-28 | Richard Hightower | Sections 1, 2, 8, and 9 above 80; C-001, C-002, and C-004 retired to IN-006, OUT-001, and OUT-003; Q-001 and Q-009 answered | None yet |
+| 0.6.0 | 2026-10-28 | Richard Hightower | Sections 1, 2, 8, and 9 above 80; C-001, C-002, and C-004 retired to IN-006, OUT-001, and OUT-003; Q-001 and Q-009 answered | Richard Hightower, sponsor, approved 2026-10-28 |
 
 ## 0.1.0. First draft
 
@@ -346,3 +351,6 @@ Section 2 now sizes S-001 from the 126 people who cloned the authoring tools in
 the 14 days to 2026-10-28, and names a shared online document and a team script
 as substitutes. Sections 3, 7, 11, 12, 13, and 14 changed only to match these
 answers.
+
+The sponsor approved version 0.6.0 on 2026-10-28, and the changed sections
+moved to final.
