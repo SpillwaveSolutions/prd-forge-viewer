@@ -13,3 +13,8 @@ button:focus-visible { outline: 3px solid #0a66d8; outline-offset: 2px; }
 .grades { border-collapse: collapse; margin-top: 24px; }
 .grades caption { text-align: left; font-weight: 600; font-size: 1.2em; margin-bottom: 8px; }
 .grades th, .grades td { text-align: left; padding: 4px 12px; border-bottom: 1px solid #e5e5ea; }
+.set-list { list-style: none; padding: 0; }
+.set-list li { margin: 6px 0; }
+.set-list button { text-align: left; }
+.folder { color: #6e6e73; margin-left: 6px; }
+.not-found { color: #b00020; }

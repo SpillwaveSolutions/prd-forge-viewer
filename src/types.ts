@@ -27,3 +27,16 @@ export interface PrdSet {
     summary: SummaryItem[];
     documents: DocEntry[];
 }
+
+export interface SetRef {
+    folder: string;
+    product: string | null;
+    found: boolean;
+}
+
+// Mirrors the Rust StartView from the startup command (src-tauri/src/start.rs).
+export type StartView =
+    | { kind: "open"; folder: string }
+    | { kind: "choose"; folder: string; sets: SetRef[]; known: SetRef[] }
+    | { kind: "notFound"; folder: string; known: SetRef[] }
+    | { kind: "welcome"; known: SetRef[] };
