@@ -15,3 +15,7 @@ Port the Motion theme model and theme dialog, store custom themes in the setting
 - [[Ticket-01M62C7REGCD2R415FMWFCZMTT]] e2e/phase4.mjs passes: FR-015 to FR-018 and FR-020, with themes kept after a restart — e2e/phase4.mjs passes: FR-015 to FR-018 and FR-020, with themes kept after a restart (open)
 
 Progress: 0/3 done
+
+## Related tickets
+
+- [github #119](https://github.com/SpillwaveSolutions/prd-forge-viewer/issues/119)

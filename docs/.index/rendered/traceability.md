@@ -5,26 +5,31 @@ _The evidence chain: plan → item → ticket → code → release, forward and 
 ### All release 1 stories closed, the roadmap rendered, and GitHub Issues synced
 `01M62C7REHN9N2P8Z19K0EPA0H` · status: todo
 - belongs-to: Phase 6: close out release 1
+- references: [github#132](https://github.com/SpillwaveSolutions/prd-forge-viewer/issues/132)
 - produced-by: [[Plan-release-1-completion]]
 
 ### REQ and TRAC show each release 1 requirement as built and tested
 `01M62C7REHN9N2P8Z19K0EPA0F` · status: todo
 - belongs-to: Phase 6: close out release 1
+- references: [github#131](https://github.com/SpillwaveSolutions/prd-forge-viewer/issues/131)
 - produced-by: [[Plan-release-1-completion]]
 
 ### The release build is installed in /Applications with no MCP bridge
 `01M62C7REGCD2R415FMWFCZMVA` · status: todo
 - belongs-to: Phase 6: close out release 1
+- references: [github#130](https://github.com/SpillwaveSolutions/prd-forge-viewer/issues/130)
 - produced-by: [[Plan-release-1-completion]]
 
 ### All e2e checks and unit tests pass on the release build
 `01M62C7REGCD2R415FMWFCZMV8` · status: todo
 - belongs-to: Phase 6: close out release 1
+- references: [github#129](https://github.com/SpillwaveSolutions/prd-forge-viewer/issues/129)
 - produced-by: [[Plan-release-1-completion]]
 
 ### Phase 6: close out release 1
 `01M62C7REGCD2R415FMWFCZMV6` · status: todo
 - belongs-to: Release 1 completion: build the 15 remaining requirements
+- references: [github#128](https://github.com/SpillwaveSolutions/prd-forge-viewer/issues/128)
 - contains: All e2e checks and unit tests pass on the release build
 - contains: The release build is installed in /Applications with no MCP bridge
 - contains: REQ and TRAC show each release 1 requirement as built and tested
@@ -34,26 +39,31 @@ _The evidence chain: plan → item → ticket → code → release, forward and 
 ### NFR-004 within 10 s, and NFR-009 with zero checker errors
 `01M62C7REGCD2R415FMWFCZMV4` · status: todo
 - belongs-to: Phase 5: PDF and Word export, print, and the Draft mark (US-014 to US-020)
+- references: [github#127](https://github.com/SpillwaveSolutions/prd-forge-viewer/issues/127)
 - produced-by: [[Plan-release-1-completion]]
 
 ### e2e/phase5.mjs passes: FR-010 to FR-014, FR-019, TR-005, TR-007, and TR-010, with file checks of each export
 `01M62C7REGCD2R415FMWFCZMV2` · status: todo
 - belongs-to: Phase 5: PDF and Word export, print, and the Draft mark (US-014 to US-020)
+- references: [github#126](https://github.com/SpillwaveSolutions/prd-forge-viewer/issues/126)
 - produced-by: [[Plan-release-1-completion]]
 
 ### Built with TDD, and the review findings fixed
 `01M62C7REGCD2R415FMWFCZMV0` · status: todo
 - belongs-to: Phase 5: PDF and Word export, print, and the Draft mark (US-014 to US-020)
+- references: [github#125](https://github.com/SpillwaveSolutions/prd-forge-viewer/issues/125)
 - produced-by: [[Plan-release-1-completion]]
 
 ### Plan 7 written and captured
 `01M62C7REGCD2R415FMWFCZMTY` · status: todo
 - belongs-to: Phase 5: PDF and Word export, print, and the Draft mark (US-014 to US-020)
+- references: [github#124](https://github.com/SpillwaveSolutions/prd-forge-viewer/issues/124)
 - produced-by: [[Plan-release-1-completion]]
 
 ### Phase 5: PDF and Word export, print, and the Draft mark (US-014 to US-020)
 `01M62C7REGCD2R415FMWFCZMTW` · status: todo
 - belongs-to: Release 1 completion: build the 15 remaining requirements
+- references: [github#123](https://github.com/SpillwaveSolutions/prd-forge-viewer/issues/123)
 - contains: Plan 7 written and captured
 - contains: Built with TDD, and the review findings fixed
 - contains: e2e/phase5.mjs passes: FR-010 to FR-014, FR-019, TR-005, TR-007, and TR-010, with file checks of each export
@@ -63,21 +73,25 @@ _The evidence chain: plan → item → ticket → code → release, forward and 
 ### e2e/phase4.mjs passes: FR-015 to FR-018 and FR-020, with themes kept after a restart
 `01M62C7REGCD2R415FMWFCZMTT` · status: todo
 - belongs-to: Phase 4: export themes (US-021 to US-025)
+- references: [github#122](https://github.com/SpillwaveSolutions/prd-forge-viewer/issues/122)
 - produced-by: [[Plan-release-1-completion]]
 
 ### Built with TDD, and the review findings fixed
 `01M62C7REGCD2R415FMWFCZMTR` · status: todo
 - belongs-to: Phase 4: export themes (US-021 to US-025)
+- references: [github#121](https://github.com/SpillwaveSolutions/prd-forge-viewer/issues/121)
 - produced-by: [[Plan-release-1-completion]]
 
 ### Plan 6 written and captured
 `01M62C7REGCD2R415FMWFCZMTP` · status: todo
 - belongs-to: Phase 4: export themes (US-021 to US-025)
+- references: [github#120](https://github.com/SpillwaveSolutions/prd-forge-viewer/issues/120)
 - produced-by: [[Plan-release-1-completion]]
 
 ### Phase 4: export themes (US-021 to US-025)
 `01M62C7REGCD2R415FMWFCZMTM` · status: todo
 - belongs-to: Release 1 completion: build the 15 remaining requirements
+- references: [github#119](https://github.com/SpillwaveSolutions/prd-forge-viewer/issues/119)
 - contains: Plan 6 written and captured
 - contains: Built with TDD, and the review findings fixed
 - contains: e2e/phase4.mjs passes: FR-015 to FR-018 and FR-020, with themes kept after a restart
@@ -86,21 +100,25 @@ _The evidence chain: plan → item → ticket → code → release, forward and 
 ### e2e/phase3.mjs passes: all three FR-009 criteria, and NFR-002 within 2 s
 `01M62C7REGCD2R415FMWFCZMTJ` · status: todo
 - belongs-to: Phase 3: live updates from the authoring tools (US-013)
+- references: [github#118](https://github.com/SpillwaveSolutions/prd-forge-viewer/issues/118)
 - produced-by: [[Plan-release-1-completion]]
 
 ### Built with TDD, and the review findings fixed
 `01M62C7REGCD2R415FMWFCZMTG` · status: todo
 - belongs-to: Phase 3: live updates from the authoring tools (US-013)
+- references: [github#117](https://github.com/SpillwaveSolutions/prd-forge-viewer/issues/117)
 - produced-by: [[Plan-release-1-completion]]
 
 ### Plan 5 written and captured
 `01M62C7REFJRP4FVS9Z3JD5SBS` · status: todo
 - belongs-to: Phase 3: live updates from the authoring tools (US-013)
+- references: [github#116](https://github.com/SpillwaveSolutions/prd-forge-viewer/issues/116)
 - produced-by: [[Plan-release-1-completion]]
 
 ### Phase 3: live updates from the authoring tools (US-013)
 `01M62C7REFJRP4FVS9Z3JD5SBQ` · status: todo
 - belongs-to: Release 1 completion: build the 15 remaining requirements
+- references: [github#115](https://github.com/SpillwaveSolutions/prd-forge-viewer/issues/115)
 - contains: Plan 5 written and captured
 - contains: Built with TDD, and the review findings fixed
 - contains: e2e/phase3.mjs passes: all three FR-009 criteria, and NFR-002 within 2 s
@@ -109,21 +127,25 @@ _The evidence chain: plan → item → ticket → code → release, forward and 
 ### e2e/phase2.mjs passes: all six FR-008 criteria, and NFR-003 within 0.5 s
 `01M62C7REFJRP4FVS9Z3JD5SBN` · status: todo
 - belongs-to: Phase 2: search with ranked results (US-011, US-012)
+- references: [github#114](https://github.com/SpillwaveSolutions/prd-forge-viewer/issues/114)
 - produced-by: [[Plan-release-1-completion]]
 
 ### Built with TDD, and the review findings fixed
 `01M62C7REFJRP4FVS9Z3JD5SBK` · status: todo
 - belongs-to: Phase 2: search with ranked results (US-011, US-012)
+- references: [github#113](https://github.com/SpillwaveSolutions/prd-forge-viewer/issues/113)
 - produced-by: [[Plan-release-1-completion]]
 
 ### Plan 4 written and captured
 `01M62C7REFJRP4FVS9Z3JD5SBH` · status: todo
 - belongs-to: Phase 2: search with ranked results (US-011, US-012)
+- references: [github#112](https://github.com/SpillwaveSolutions/prd-forge-viewer/issues/112)
 - produced-by: [[Plan-release-1-completion]]
 
 ### Phase 2: search with ranked results (US-011, US-012)
 `01M62C7REFJRP4FVS9Z3JD5SBF` · status: todo
 - belongs-to: Release 1 completion: build the 15 remaining requirements
+- references: [github#111](https://github.com/SpillwaveSolutions/prd-forge-viewer/issues/111)
 - contains: Plan 4 written and captured
 - contains: Built with TDD, and the review findings fixed
 - contains: e2e/phase2.mjs passes: all six FR-008 criteria, and NFR-003 within 0.5 s
@@ -132,21 +154,25 @@ _The evidence chain: plan → item → ticket → code → release, forward and 
 ### e2e/phase1.mjs passes: FR-005, FR-023, FR-007, and a remote image that does not load
 `01M62C7REFJRP4FVS9Z3JD5SBD` · status: todo
 - belongs-to: Phase 1: read sections, items, and references (US-008, US-009, US-010)
+- references: [github#110](https://github.com/SpillwaveSolutions/prd-forge-viewer/issues/110)
 - produced-by: [[Plan-release-1-completion]]
 
 ### Built with TDD, and the review findings fixed
 `01M62C7REFJRP4FVS9Z3JD5SBB` · status: todo
 - belongs-to: Phase 1: read sections, items, and references (US-008, US-009, US-010)
+- references: [github#109](https://github.com/SpillwaveSolutions/prd-forge-viewer/issues/109)
 - produced-by: [[Plan-release-1-completion]]
 
 ### Plan 3 written and captured
 `01M62C7REFJRP4FVS9Z3JD5SB9` · status: todo
 - belongs-to: Phase 1: read sections, items, and references (US-008, US-009, US-010)
+- references: [github#108](https://github.com/SpillwaveSolutions/prd-forge-viewer/issues/108)
 - produced-by: [[Plan-release-1-completion]]
 
 ### Phase 1: read sections, items, and references (US-008, US-009, US-010)
 `01M62C7REFJRP4FVS9Z3JD5SB7` · status: todo
 - belongs-to: Release 1 completion: build the 15 remaining requirements
+- references: [github#107](https://github.com/SpillwaveSolutions/prd-forge-viewer/issues/107)
 - contains: Plan 3 written and captured
 - contains: Built with TDD, and the review findings fixed
 - contains: e2e/phase1.mjs passes: FR-005, FR-023, FR-007, and a remote image that does not load
@@ -155,10 +181,12 @@ _The evidence chain: plan → item → ticket → code → release, forward and 
 ### Phase 0: merge the MCP tests and add a phase check runner
 `01M62C7REFJRP4FVS9Z3JD5SB5` · status: todo
 - belongs-to: Release 1 completion: build the 15 remaining requirements
+- references: [github#106](https://github.com/SpillwaveSolutions/prd-forge-viewer/issues/106)
 - produced-by: [[Plan-release-1-completion]]
 
 ### Release 1 completion: build the 15 remaining requirements
 `01M62C7RE2CW1HN12H2T82VJ6C` · status: todo
+- references: [github#105](https://github.com/SpillwaveSolutions/prd-forge-viewer/issues/105)
 - contains: Phase 0: merge the MCP tests and add a phase check runner
 - contains: Phase 1: read sections, items, and references (US-008, US-009, US-010)
 - contains: Phase 2: search with ranked results (US-011, US-012)

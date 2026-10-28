@@ -79,16 +79,17 @@
    "status": "planned",
    "title": "Release 1 completion: build the 15 remaining requirements",
    "truth_state": "current",
+   "wiki": "https://github.com/SpillwaveSolutions/prd-forge-viewer/wiki/Plan-release-1-completion",
    "wiki_key": "plan/2026-10-28-release-1-completion"
   },
   {
    "canonical_key": "roadmap",
    "doc_type": "roadmap",
-   "generated_at": "2026-10-28T23:06:32Z",
-   "git_hash": "9cd5ede",
+   "generated_at": "2026-10-28T23:09:16Z",
+   "git_hash": "f42b50f",
    "slug": "roadmap",
    "source": "docs/roadmap.md",
-   "source_hash": "bb082c25",
+   "source_hash": "6f1f2992",
    "title": "Roadmap",
    "truth_state": "current",
    "wiki_key": "roadmap"

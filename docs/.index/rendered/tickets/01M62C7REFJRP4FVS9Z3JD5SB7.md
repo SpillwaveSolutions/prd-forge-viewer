@@ -15,3 +15,7 @@ Make each document clickable and readable, list the items of a section, show one
 - [[Ticket-01M62C7REFJRP4FVS9Z3JD5SBD]] e2e/phase1.mjs passes: FR-005, FR-023, FR-007, and a remote image that does not load — e2e/phase1.mjs passes: FR-005, FR-023, FR-007, and a remote image that does not load (open)
 
 Progress: 0/3 done
+
+## Related tickets
+
+- [github #107](https://github.com/SpillwaveSolutions/prd-forge-viewer/issues/107)

@@ -16,3 +16,7 @@ Build the export model and its first page, write PDF from themed HTML and Word w
 - [[Ticket-01M62C7REGCD2R415FMWFCZMV4]] NFR-004 within 10 s, and NFR-009 with zero checker errors — NFR-004 within 10 s, and NFR-009 with zero checker errors (open)
 
 Progress: 0/4 done
+
+## Related tickets
+
+- [github #123](https://github.com/SpillwaveSolutions/prd-forge-viewer/issues/123)

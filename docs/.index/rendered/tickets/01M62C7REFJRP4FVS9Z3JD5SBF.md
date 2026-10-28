@@ -15,3 +15,7 @@ Add a local full-text index with BM25 ranking, a search box with a category filt
 - [[Ticket-01M62C7REFJRP4FVS9Z3JD5SBN]] e2e/phase2.mjs passes: all six FR-008 criteria, and NFR-003 within 0.5 s — e2e/phase2.mjs passes: all six FR-008 criteria, and NFR-003 within 0.5 s (open)
 
 Progress: 0/3 done
+
+## Related tickets
+
+- [github #111](https://github.com/SpillwaveSolutions/prd-forge-viewer/issues/111)

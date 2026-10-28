@@ -15,3 +15,7 @@ Watch the set folder, reload changed documents, and show the new text, score, an
 - [[Ticket-01M62C7REGCD2R415FMWFCZMTJ]] e2e/phase3.mjs passes: all three FR-009 criteria, and NFR-002 within 2 s — e2e/phase3.mjs passes: all three FR-009 criteria, and NFR-002 within 2 s (open)
 
 Progress: 0/3 done
+
+## Related tickets
+
+- [github #115](https://github.com/SpillwaveSolutions/prd-forge-viewer/issues/115)

@@ -16,3 +16,7 @@ Run every phase check and unit test, check NFR-001 to NFR-010, install the relea
 - [[Ticket-01M62C7REHN9N2P8Z19K0EPA0H]] All release 1 stories closed, the roadmap rendered, and GitHub Issues synced — All release 1 stories closed, the roadmap rendered, and GitHub Issues synced (open)
 
 Progress: 0/4 done
+
+## Related tickets
+
+- [github #128](https://github.com/SpillwaveSolutions/prd-forge-viewer/issues/128)
