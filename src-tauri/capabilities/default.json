@@ -3,5 +3,5 @@
   "identifier": "default",
   "description": "Least privilege: core defaults and the folder picker only. No file system or network plugin.",
   "windows": ["main"],
-  "permissions": ["core:default", "dialog:allow-open"]
+  "permissions": ["core:default", "dialog:allow-open", "dialog:allow-ask"]
 }
