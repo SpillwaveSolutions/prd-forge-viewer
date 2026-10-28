@@ -42,3 +42,8 @@ test("nested_item_shows_its_parent", () => {
     const html = page({ section: { ...personas, items: [st] }, selected: "ST-002" });
     expect(html).toContain("in J-001");
 });
+
+test("section_page_shows_the_document_list_for_one_action", () => {
+    const html = page({ nav: <button type="button">Functional requirements</button> });
+    expect(html).toMatch(/<nav[^>]*aria-label="Documents"[^>]*>.*Functional requirements/s);
+});

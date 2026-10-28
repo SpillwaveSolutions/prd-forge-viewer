@@ -30,8 +30,16 @@ pub struct ItemRef {
     pub parent: Option<String>,
 }
 
+/// The real path of `rel` inside the set folder. A path that resolves outside it, through `..`,
+/// an absolute path, or a symlink, is refused (NFR-010).
+fn inside(dir: &Path, rel: &str) -> Result<std::path::PathBuf, String> {
+    let root = fs::canonicalize(dir).map_err(|e| e.to_string())?;
+    let path = fs::canonicalize(root.join(rel)).map_err(|_| format!("{rel} was not found"))?;
+    if path.starts_with(&root) { Ok(path) } else { Err(format!("{rel} is outside the PRD set")) }
+}
+
 fn read(dir: &Path, file: &str) -> Result<(Header, String, String), String> {
-    let text = fs::read_to_string(dir.join(file)).map_err(|e| format!("{file} cannot be read: {e}"))?;
+    let text = fs::read_to_string(inside(dir, file)?).map_err(|e| format!("{file} cannot be read: {e}"))?;
     let (yaml, body) = split_front_matter(&text).ok_or(format!("{file} has no front matter"))?;
     Ok((parse_header(&yaml)?, yaml, body))
 }
@@ -77,11 +85,7 @@ pub fn item_index(dir: &Path) -> Vec<ItemRef> {
 
 /// An image inside the set folder as a data URL. Anything outside the folder, or not an image, is refused.
 pub fn read_asset(dir: &Path, rel: &str) -> Result<String, String> {
-    let root = fs::canonicalize(dir).map_err(|e| e.to_string())?;
-    let path = fs::canonicalize(root.join(rel)).map_err(|_| format!("{rel} was not found"))?;
-    if !path.starts_with(&root) {
-        return Err(format!("{rel} is outside the PRD set"));
-    }
+    let path = inside(dir, rel)?;
     let mime = match path.extension().and_then(|e| e.to_str()).map(|e| e.to_ascii_lowercase()).as_deref() {
         Some("svg") => "image/svg+xml",
         Some("png") => "image/png",
@@ -131,6 +135,37 @@ mod tests {
     #[test]
     fn asset_inside_the_set_is_a_data_url() {
         assert!(read_asset(real(), "diagrams/SC-001.svg").unwrap().starts_with("data:image/svg+xml;base64,"));
+    }
+
+    fn set_with_outside_files() -> tempfile::TempDir {
+        let d = tempfile::TempDir::new().unwrap();
+        let set = d.path().join("set");
+        std::fs::create_dir_all(&set).unwrap();
+        let png = std::fs::read(real().join("diagrams/SC-001.png")).unwrap();
+        std::fs::write(d.path().join("outside.png"), &png).unwrap();
+        std::fs::write(d.path().join("outside.md"), "---\nid: o\nkind: scope\ntitle: Outside\nstatus: final\n---\nsecret\n").unwrap();
+        std::os::unix::fs::symlink(d.path().join("outside.md"), set.join("linked.md")).unwrap();
+        std::os::unix::fs::symlink(d.path().join("outside.png"), set.join("linked.png")).unwrap();
+        let root = "---\nid: r\nkind: prd\ntitle: R\nstatus: draft\nlinks:\n  children:\n    - { path: ../outside.md, title: Outside }\n    - { path: ./linked.md, title: Linked }\n---\n";
+        std::fs::write(set.join("prd.md"), root).unwrap();
+        d
+    }
+
+    #[test]
+    fn listed_paths_outside_the_set_are_refused() {
+        let d = set_with_outside_files();
+        let set = d.path().join("set");
+        assert!(read_section(&set, "../outside.md").is_err());
+        assert!(read_section(&set, "linked.md").is_err());
+        assert!(!item_index(&set).iter().any(|r| r.file.contains("outside") || r.file.contains("linked")));
+    }
+
+    #[test]
+    fn real_image_outside_the_set_is_refused() {
+        let d = set_with_outside_files();
+        let set = d.path().join("set");
+        assert!(read_asset(&set, "../outside.png").unwrap_err().contains("outside"));
+        assert!(read_asset(&set, "linked.png").unwrap_err().contains("outside"));
     }
 
     #[test]

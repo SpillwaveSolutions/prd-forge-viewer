@@ -19,12 +19,14 @@ await run(async (h) => {
 
   await h.check("FR-005 one action opens the functional requirements from the problem section", async () => {
     await h.click("//button[contains(., 'Problem and opportunity')]", "xpath");
-    await h.waitText("P-001");
-    await h.click("//button[contains(., 'Back to the PRD set')]", "xpath");
+    await until(h, "return document.querySelector('.section-page h1')?.innerText || ''", /Problem and opportunity/);
+    // One action: the document list on the section page, with no Back.
     const t0 = Date.now();
-    await h.click("//button[contains(., 'Functional requirements')]", "xpath");
+    await h.click("//nav[@aria-label='Documents']/button[.='Functional requirements']", "xpath");
     await until(h, "return document.querySelector('.section-page h1')?.innerText || ''", /Functional requirements/);
-    h.results.push(["INFO", `section opened in ${Date.now() - t0} ms`]);
+    const ms = Date.now() - t0;
+    h.results.push(["INFO", `section opened in ${ms} ms`]);
+    expect(ms < 2000, `took ${ms} ms`);
   });
 
   await h.check("FR-023 the personas section lists PER-001 to PER-005, and PER-001 shows with its section status and grade", async () => {
@@ -62,16 +64,15 @@ await run(async (h) => {
 
   // NFR-010: a remote image and a script in a body do nothing.
   const set = copySet(join(tmp(), "remote"));
-  appendFileSync(join(set, "07-scope.md"), '\n![tracker](https://example.com/pixel.png)\n\n<script>document.title="SCRIPT RAN"</script>\n<img src="x" onerror="document.title=\'SCRIPT RAN\'">\n');
+  appendFileSync(join(set, "07-scope.md"), '\n![tracker](https://example.com/pixel.png)\n\n<details open ontoggle="document.title=\'SCRIPT RAN\'"><summary>s</summary>x</details>\n<svg onload="document.title=\'SCRIPT RAN\'"><circle r="1"/></svg>\n<img src="https://example.com/b.png" srcset="https://example.com/c.png 1x">\n');
   await h.launch(set);
   await h.check("NFR-010 a remote image does not load and no script in a body runs", async () => {
     await h.waitText("Version");
-    await h.call("ipc_monitor", { action: "start" }).catch(() => {});
     await h.click("//button[contains(., 'Scope')]", "xpath");
     await h.waitText("[image: tracker]");
     await new Promise((r) => setTimeout(r, 800));
-    const remote = await h.num("return [...document.querySelectorAll('img')].filter(i => /^https?:/.test(i.getAttribute('src') || '')).length");
-    expect(remote === 0, `remote images: ${remote}`);
+    const remote = await h.num("return document.querySelector('.body').innerHTML.split('example.com').length - 1");
+    expect(remote === 0, `remote URLs left in the body: ${remote}`);
     const title = await h.js("return document.title");
     expect(!title.includes("SCRIPT RAN"), "a script ran");
   });

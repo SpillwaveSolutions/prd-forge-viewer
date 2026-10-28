@@ -29,9 +29,25 @@ test("remote_link_does_not_navigate", () => {
     expect(html).toContain("site");
 });
 
-test("link_to_a_document_opens_it_in_the_viewer", () => {
+test("link_to_a_document_is_a_focusable_button", () => {
     const html = renderBody("[Scope](./07-scope.md)", win);
-    expect(html).toContain('data-doc="07-scope.md"');
+    expect(html).toMatch(/<button[^>]*data-doc="07-scope.md"[^>]*>Scope<\/button>/);
+});
+
+test("every_remote_load_path_is_removed", () => {
+    const md = [
+        '<img src="local.png" srcset="https://example.com/a.png 1x">',
+        '<picture><source srcset="https://example.com/b.png"><img src="c.png"></picture>',
+        '<svg><image href="https://example.com/d.png"/></svg>',
+        '<table background="https://example.com/e.png"><tr><td background="https://example.com/f.png">x</td></tr></table>',
+        '<video poster="https://example.com/g.png" src="https://example.com/h.mp4"></video>',
+        '<audio src="https://example.com/i.mp3"></audio>',
+        '<input type="image" src="https://example.com/j.png">',
+        '<img src="https://example.com/k.png" alt="raw">',
+        '<a href="https://example.com/l">raw link</a>',
+    ].join("\n\n");
+    const html = renderBody(md, win);
+    expect(html).not.toContain("example.com");
 });
 
 test("no_sanitizer_fails_closed", () => {

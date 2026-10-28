@@ -29,3 +29,8 @@ button:focus-visible { outline: 3px solid #0a66d8; outline-offset: 2px; }
 .image-blocked, .link-blocked { color: #6e6e73; }
 .body table { border-collapse: collapse; }
 .body th, .body td { border: 1px solid #e5e5ea; padding: 4px 8px; }
+.section-layout { display: grid; grid-template-columns: 220px 1fr; gap: 24px; align-items: start; }
+.doc-nav { display: flex; flex-direction: column; gap: 4px; position: sticky; top: 12px; }
+.doc-nav .doc-link { text-align: left; text-decoration: none; padding: 3px 6px; border-radius: 4px; }
+.doc-nav .doc-link[aria-current="page"] { background: #e8f0fe; font-weight: 600; }
+.body .doc-link { display: inline; }

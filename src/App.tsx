@@ -102,9 +102,14 @@ export function App() {
                     selected={page.selected}
                     onSelect={(selected) => setPage({ ...page, selected })}
                     onOpenItem={openItem}
-                    onOpenDoc={(file) => openDoc(file)}
-                    onBack={() => setPage(undefined)}
+                    onOpenDoc={openDoc}
+                    onBack={() => { setPage(undefined); setError(undefined); }}
                     loadAsset={loadAsset}
+                    nav={set.documents.filter((d) => !d.unreadable).map((d) => (
+                        <button key={d.file} type="button" className="doc-link" aria-current={d.file === page.section.file ? "page" : undefined} onClick={() => openDoc(d.file)}>
+                            {d.title}
+                        </button>
+                    ))}
                 />
             ) : set ? (
                 <>

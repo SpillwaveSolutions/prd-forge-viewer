@@ -1,4 +1,4 @@
-import { useEffect, useRef, type ReactNode } from "react";
+import { useEffect, useMemo, useRef, type ReactNode } from "react";
 import { renderBody } from "./renderBody";
 import type { Item, Section } from "./types";
 
@@ -51,18 +51,24 @@ interface Props {
     onOpenDoc?: (file: string) => void;
     loadAsset?: (rel: string) => Promise<string>;
     renderHtml?: (markdown: string) => string;
+    /** The list of documents, so that any other section is one action away (FR-005). */
+    nav?: ReactNode;
 }
 
 /** One document: its status and grade, its items, the selected item (WF-002), and its body (FR-005, FR-023). */
-export function SectionPage({ section, known, selected, onSelect, onOpenItem, onBack, onOpenDoc, loadAsset, renderHtml = renderBody }: Props) {
+export function SectionPage({ section, known, selected, onSelect, onOpenItem, onBack, onOpenDoc, loadAsset, renderHtml = renderBody, nav }: Props) {
     const body = useRef<HTMLDivElement>(null);
     const item = section.items.find((i) => i.id === selected);
+    // Render the body once for each section, not on every item click.
+    const html = useMemo(() => renderHtml(section.body), [section.body, renderHtml]);
 
     useEffect(() => {
         const el = body.current;
         if (!el) return;
         for (const img of Array.from(el.querySelectorAll<HTMLImageElement>("img[data-asset]"))) {
-            loadAsset?.(img.dataset.asset!).then((url) => (img.src = url)).catch(() => img.replaceWith(`[image not found: ${img.alt}]`));
+            const rel = img.dataset.asset!;
+            img.removeAttribute("data-asset");
+            loadAsset?.(rel).then((url) => (img.src = url)).catch(() => img.replaceWith(`[image not found: ${img.alt}]`));
         }
         const onClick = (e: MouseEvent) => {
             const a = (e.target as HTMLElement).closest<HTMLElement>("[data-doc]");
@@ -70,9 +76,11 @@ export function SectionPage({ section, known, selected, onSelect, onOpenItem, on
         };
         el.addEventListener("click", onClick);
         return () => el.removeEventListener("click", onClick);
-    }, [section, loadAsset, onOpenDoc]);
+    }, [html, loadAsset, onOpenDoc]);
 
     return (
+        <div className="section-layout">
+        {nav && <nav aria-label="Documents" className="doc-nav">{nav}</nav>}
         <section aria-label={section.title} className="section-page">
             <button type="button" onClick={onBack}>Back to the PRD set</button>
             <h1>{section.title}</h1>
@@ -89,7 +97,8 @@ export function SectionPage({ section, known, selected, onSelect, onOpenItem, on
                 </nav>
             )}
             {item && <ItemView item={item} section={section} known={known} onOpenItem={onOpenItem} />}
-            <div ref={body} className="body" dangerouslySetInnerHTML={{ __html: renderHtml(section.body) }} />
+            <div ref={body} className="body" dangerouslySetInnerHTML={{ __html: html }} />
         </section>
+        </div>
     );
 }
