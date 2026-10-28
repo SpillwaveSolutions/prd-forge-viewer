@@ -8,7 +8,7 @@ const remote = (url: string) => /^[a-z][a-z0-9+.-]*:/i.test(url) && !url.startsW
  * image keeps its path in data-asset for read_asset to load; a remote image shows its alt text.
  * A remote link does not navigate, and a link to another document opens it in the viewer.
  */
-export function renderBody(markdown: string, win: Window = window): string {
+export function renderBody(markdown: string, win: Window & typeof globalThis = window): string {
     const purify = DOMPurify(win);
     // Fail closed: without a working sanitizer, show the markdown as plain text.
     if (!purify.isSupported) {
@@ -20,7 +20,7 @@ export function renderBody(markdown: string, win: Window = window): string {
     const clean = purify.sanitize(raw, { FORBID_TAGS: ["style", "iframe", "object", "embed", "form"], FORBID_ATTR: ["style"] });
     const doc = new win.DOMParser().parseFromString(`<div>${clean}</div>`, "text/html");
     const root = doc.body.firstElementChild!;
-    for (const img of Array.from(root.querySelectorAll("img"))) {
+    for (const img of Array.from(root.querySelectorAll("img")) as HTMLImageElement[]) {
         const src = img.getAttribute("src") ?? "";
         if (remote(src)) {
             const span = doc.createElement("span");
@@ -32,7 +32,7 @@ export function renderBody(markdown: string, win: Window = window): string {
             img.removeAttribute("src");
         }
     }
-    for (const a of Array.from(root.querySelectorAll("a"))) {
+    for (const a of Array.from(root.querySelectorAll("a")) as HTMLAnchorElement[]) {
         const href = a.getAttribute("href") ?? "";
         a.removeAttribute("href");
         if (remote(href)) a.className = "link-blocked";

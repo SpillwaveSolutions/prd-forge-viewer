@@ -8,7 +8,7 @@ _The evidence chain: plan → item → ticket → code → release, forward and 
 - produced-by: [[Plan-plan-3-reading]]
 
 ### Task 5: the section page, the item view, and reference links
-`01M62CK387T88WGKEFSBY4483C` · status: todo
+`01M62CK387T88WGKEFSBY4483C` · status: done
 - belongs-to: Plan 3: read sections, items, and references
 - produced-by: [[Plan-plan-3-reading]]
 

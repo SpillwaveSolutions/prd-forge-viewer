@@ -2,7 +2,7 @@ import { expect, test } from "bun:test";
 import { JSDOM } from "jsdom";
 import { renderBody } from "./renderBody";
 
-const win = new JSDOM("").window as unknown as Window;
+const win = new JSDOM("").window as unknown as Window & typeof globalThis;
 
 test("script_and_handlers_removed", () => {
     const html = renderBody('# T\n\n<script>alert(1)</script>\n\n<img src="x.png" onerror="alert(2)">', win);
@@ -35,6 +35,6 @@ test("link_to_a_document_opens_it_in_the_viewer", () => {
 });
 
 test("no_sanitizer_fails_closed", () => {
-    const html = renderBody("<script>alert(1)</script>", { document: win.document } as unknown as Window);
+    const html = renderBody("<script>alert(1)</script>", { document: win.document } as unknown as Window & typeof globalThis);
     expect(html).toBe("<pre>&lt;script&gt;alert(1)&lt;/script&gt;</pre>");
 });
