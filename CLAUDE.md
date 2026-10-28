@@ -79,7 +79,7 @@ without the owner.
 
 - The viewer is read-only in release 1, and editing is out of scope (OUT-001).
   C-002 is retired. The PRD owner revisits editing on 2026-11-06.
-- Release 1 (REL-001, 2026-10-27) covers FR-001 to FR-024, except FR-006. Grade findings come
+- Release 1 (REL-001, 2026-11-06) covers FR-001 to FR-024, except FR-006. Grade findings come
   in release 2 (REL-002, 2026-11-06).
 - Every export shows "Draft" until every document is `final` (TR-005).
 - The terminal command is `prdf` (FR-021). It remembers known PRD set locations

@@ -8,7 +8,7 @@ updated: 2026-10-28
 domain: software product management
 product: PRD Forge Viewer
 slug: prd-forge-viewer
-version: 0.6.0
+version: 0.6.1
 owner: Richard Hightower
 stakeholders:
   - Engineering lead (PER-003)
@@ -51,9 +51,9 @@ links:
     - { id: prd-forge-viewer-nfr, kind: nonfunctional-requirements, path: ./09-nonfunctional-requirements.md, title: Non-functional requirements, section: 8, order: 90, status: final }
     - { id: prd-forge-viewer-constraints, kind: constraints, path: ./10-constraints.md, title: Constraints, section: 9, order: 100, status: final }
     - { id: prd-forge-viewer-decision-rights, kind: decision-rights, path: ./11-decision-rights.md, title: Decision rights, section: 10, order: 110, status: final }
-    - { id: prd-forge-viewer-ard, kind: assumptions-risks-dependencies, path: ./12-assumptions-risks-dependencies.md, title: Assumptions, risks, and dependencies, section: 11, order: 120, status: final }
+    - { id: prd-forge-viewer-ard, kind: assumptions-risks-dependencies, path: ./12-assumptions-risks-dependencies.md, title: Assumptions, risks, and dependencies, section: 11, order: 120, status: review }
     - { id: prd-forge-viewer-open-questions, kind: open-questions, path: ./13-open-questions.md, title: Open questions, section: 12, order: 130, status: draft }
-    - { id: prd-forge-viewer-release-plan, kind: release-plan, path: ./14-release-plan.md, title: Release plan, section: 13, order: 140, status: final }
+    - { id: prd-forge-viewer-release-plan, kind: release-plan, path: ./14-release-plan.md, title: Release plan, section: 13, order: 140, status: review }
     - { id: prd-forge-viewer-glossary, kind: glossary, path: ./15-glossary.md, title: Glossary, section: 14, order: 150, status: draft }
     - { id: prd-forge-viewer-change-log, kind: change-log, path: ./16-change-log.md, title: Change log, section: 15, order: 160, status: draft }
 ---
@@ -65,7 +65,7 @@ grade at once. Stakeholders without the authoring tools cannot read it at all,
 so feedback waits. The viewer shows the whole set and its grades in one place,
 shows changes as the authoring tools make them, searches, and makes themed
 export files marked with the version and draft status (formats in IN-006). Release 1 is due
-2026-10-27 and delivers J-001, the golden thread. Success is feedback within 2
+2026-11-06 and delivers J-001, the golden thread. Success is feedback within 2
 days of sending a version, by 2027-03-31.
 
 | Section | Document |
