@@ -1,6 +1,6 @@
 # Phase 2: search with ranked results (US-011, US-012)
 
-`01M62C7REFJRP4FVS9Z3JD5SBF` · task/feature · **open**
+`01M62C7REFJRP4FVS9Z3JD5SBF` · task/feature · **in-progress**
 
 Add a local full-text index with BM25 ranking, a search box with a category filter, scores from 0 to 100, and results that open their item.
 

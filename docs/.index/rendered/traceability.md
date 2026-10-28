@@ -2,44 +2,86 @@
 
 _The evidence chain: plan → item → ticket → code → release, forward and backward. Generated from `docs/.index/_graph.json`; do not edit._
 
+### Task 5: MCP checks for phase 2
+`01M62EBHZ3H52KPBDQCA3YYTVP` · status: todo
+- belongs-to: Plan 4: search with ranked results
+- produced-by: [[Plan-plan-4-search]]
+
+### Task 4: the search bar and the results list
+`01M62EBHZ3H52KPBDQCA3YYTVM` · status: todo
+- belongs-to: Plan 4: search with ranked results
+- produced-by: [[Plan-plan-4-search]]
+
+### Task 3: the search command and its timing
+`01M62EBHZ3H52KPBDQCA3YYTVJ` · status: todo
+- belongs-to: Plan 4: search with ranked results
+- produced-by: [[Plan-plan-4-search]]
+
+### Task 2: ranked search with a category filter
+`01M62EBHZ3H52KPBDQCA3YYTVG` · status: todo
+- belongs-to: Plan 4: search with ranked results
+- produced-by: [[Plan-plan-4-search]]
+
+### Task 1: the per-set index with content hashes
+`01M62EBHZ3H52KPBDQCA3YYTVE` · status: todo
+- belongs-to: Plan 4: search with ranked results
+- produced-by: [[Plan-plan-4-search]]
+
+### Plan 4: search with ranked results
+`01M62EBHYNFP9BW4QZRF310SYS` · status: todo
+- contains: Task 1: the per-set index with content hashes
+- contains: Task 2: ranked search with a category filter
+- contains: Task 3: the search command and its timing
+- contains: Task 4: the search bar and the results list
+- contains: Task 5: MCP checks for phase 2
+- produced-by: [[Plan-plan-4-search]]
+
 ### Show a list of sentences one per line in the item view
 `01M62D1KA9KN53KDG1DBA8A232` · status: done
 - belongs-to: Task 6: MCP checks for phase 1
+- references: [github#141](https://github.com/SpillwaveSolutions/prd-forge-viewer/issues/141)
 - targets: release/REL-001
 
 ### Task 6: MCP checks for phase 1
 `01M62CK387T88WGKEFSBY4483E` · status: done
 - belongs-to: Plan 3: read sections, items, and references
+- references: [github#140](https://github.com/SpillwaveSolutions/prd-forge-viewer/issues/140)
 - contains: Show a list of sentences one per line in the item view
 - produced-by: [[Plan-plan-3-reading]]
 
 ### Task 5: the section page, the item view, and reference links
 `01M62CK387T88WGKEFSBY4483C` · status: done
 - belongs-to: Plan 3: read sections, items, and references
+- references: [github#139](https://github.com/SpillwaveSolutions/prd-forge-viewer/issues/139)
 - produced-by: [[Plan-plan-3-reading]]
 
 ### Task 4: render a body with no scripts and no remote images
 `01M62CK387T88WGKEFSBY4483A` · status: done
 - belongs-to: Plan 3: read sections, items, and references
+- references: [github#138](https://github.com/SpillwaveSolutions/prd-forge-viewer/issues/138)
 - produced-by: [[Plan-plan-3-reading]]
 
 ### Task 3: the item index and local assets
 `01M62CK387T88WGKEFSBY44838` · status: done
 - belongs-to: Plan 3: read sections, items, and references
+- references: [github#137](https://github.com/SpillwaveSolutions/prd-forge-viewer/issues/137)
 - produced-by: [[Plan-plan-3-reading]]
 
 ### Task 2: read one section safely
 `01M62CK387T88WGKEFSBY44836` · status: done
 - belongs-to: Plan 3: read sections, items, and references
+- references: [github#136](https://github.com/SpillwaveSolutions/prd-forge-viewer/issues/136)
 - produced-by: [[Plan-plan-3-reading]]
 
 ### Task 1: items at any depth of the front matter
 `01M62CK386VS7C7CQR7W0G6AA5` · status: done
 - belongs-to: Plan 3: read sections, items, and references
+- references: [github#135](https://github.com/SpillwaveSolutions/prd-forge-viewer/issues/135)
 - produced-by: [[Plan-plan-3-reading]]
 
 ### Plan 3: read sections, items, and references
 `01M62CK37SV62AATV5XSRPCJHE` · status: done
+- references: [github#134](https://github.com/SpillwaveSolutions/prd-forge-viewer/issues/134)
 - contains: Task 1: items at any depth of the front matter
 - contains: Task 2: read one section safely
 - contains: Task 3: the item index and local assets
@@ -189,7 +231,7 @@ _The evidence chain: plan → item → ticket → code → release, forward and 
 - produced-by: [[Plan-release-1-completion]]
 
 ### Phase 2: search with ranked results (US-011, US-012)
-`01M62C7REFJRP4FVS9Z3JD5SBF` · status: todo
+`01M62C7REFJRP4FVS9Z3JD5SBF` · status: in_progress
 - belongs-to: Release 1 completion: build the 15 remaining requirements
 - references: [github#111](https://github.com/SpillwaveSolutions/prd-forge-viewer/issues/111)
 - contains: Plan 4 written and captured
