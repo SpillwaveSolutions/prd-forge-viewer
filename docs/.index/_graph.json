@@ -2444,7 +2444,7 @@
   },
   "item/01M62C7REFJRP4FVS9Z3JD5SB7": {
    "doc_type": "item",
-   "status": "in_progress",
+   "status": "done",
    "title": "Phase 1: read sections, items, and references (US-008, US-009, US-010)"
   },
   "item/01M62C7REFJRP4FVS9Z3JD5SB9": {
@@ -2574,7 +2574,7 @@
   },
   "item/01M62CK37SV62AATV5XSRPCJHE": {
    "doc_type": "item",
-   "status": "todo",
+   "status": "done",
    "title": "Plan 3: read sections, items, and references"
   },
   "item/01M62CK386VS7C7CQR7W0G6AA5": {

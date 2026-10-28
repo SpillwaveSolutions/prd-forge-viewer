@@ -39,7 +39,7 @@ _The evidence chain: plan → item → ticket → code → release, forward and 
 - produced-by: [[Plan-plan-3-reading]]
 
 ### Plan 3: read sections, items, and references
-`01M62CK37SV62AATV5XSRPCJHE` · status: todo
+`01M62CK37SV62AATV5XSRPCJHE` · status: done
 - contains: Task 1: items at any depth of the front matter
 - contains: Task 2: read one section safely
 - contains: Task 3: the item index and local assets
@@ -216,7 +216,7 @@ _The evidence chain: plan → item → ticket → code → release, forward and 
 - produced-by: [[Plan-release-1-completion]]
 
 ### Phase 1: read sections, items, and references (US-008, US-009, US-010)
-`01M62C7REFJRP4FVS9Z3JD5SB7` · status: in_progress
+`01M62C7REFJRP4FVS9Z3JD5SB7` · status: done
 - belongs-to: Release 1 completion: build the 15 remaining requirements
 - references: [github#107](https://github.com/SpillwaveSolutions/prd-forge-viewer/issues/107)
 - contains: Plan 3 written and captured

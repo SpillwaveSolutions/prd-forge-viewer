@@ -106,11 +106,11 @@
   {
    "canonical_key": "roadmap",
    "doc_type": "roadmap",
-   "generated_at": "2026-10-28T23:22:11Z",
-   "git_hash": "1270ea9",
+   "generated_at": "2026-10-28T23:29:38Z",
+   "git_hash": "8d63a4e",
    "slug": "roadmap",
    "source": "docs/roadmap.md",
-   "source_hash": "5ff82351",
+   "source_hash": "02779dbe",
    "title": "Roadmap",
    "truth_state": "current",
    "wiki_key": "roadmap"

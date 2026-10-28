@@ -1,6 +1,6 @@
 # Plan 3: read sections, items, and references
 
-`01M62CK37SV62AATV5XSRPCJHE` · epic/feature · **open**
+`01M62CK37SV62AATV5XSRPCJHE` · epic/feature · **done**
 
 Phase 1 of the release 1 completion plan.
 

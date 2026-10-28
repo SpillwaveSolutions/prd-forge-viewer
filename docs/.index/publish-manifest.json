@@ -1,5 +1,5 @@
 {
- "git_hash": "1270ea9",
+ "git_hash": "8d63a4e",
  "pages": [
   {
    "frozen": false,
@@ -45,7 +45,7 @@
    "frozen": false,
    "page_name": "Index-Traceability",
    "render": "as-is",
-   "render_hash": "bd84435ab968",
+   "render_hash": "40a6836bea16",
    "source": "docs/.index/rendered/traceability.md",
    "title": "Traceability Index",
    "truth_state": "current",
@@ -1045,7 +1045,7 @@
    "frozen": false,
    "page_name": "Ticket-01M62C7RE2CW1HN12H2T82VJ6C",
    "render": "as-is",
-   "render_hash": "3578bc42ee16",
+   "render_hash": "806cf84e550c",
    "source": "docs/.index/rendered/tickets/01M62C7RE2CW1HN12H2T82VJ6C.md",
    "title": "Release 1 completion: build the 15 remaining requirements",
    "truth_state": "open",
@@ -1065,10 +1065,10 @@
    "frozen": false,
    "page_name": "Ticket-01M62C7REFJRP4FVS9Z3JD5SB7",
    "render": "as-is",
-   "render_hash": "04f1e77073f2",
+   "render_hash": "528cf5c41c34",
    "source": "docs/.index/rendered/tickets/01M62C7REFJRP4FVS9Z3JD5SB7.md",
    "title": "Phase 1: read sections, items, and references (US-008, US-009, US-010)",
-   "truth_state": "in-progress",
+   "truth_state": "done",
    "wiki_key": "item/01M62C7REFJRP4FVS9Z3JD5SB7"
   },
   {
@@ -1325,10 +1325,10 @@
    "frozen": false,
    "page_name": "Ticket-01M62CK37SV62AATV5XSRPCJHE",
    "render": "as-is",
-   "render_hash": "4deaea86db40",
+   "render_hash": "69a2621b541e",
    "source": "docs/.index/rendered/tickets/01M62CK37SV62AATV5XSRPCJHE.md",
    "title": "Plan 3: read sections, items, and references",
-   "truth_state": "open",
+   "truth_state": "done",
    "wiki_key": "item/01M62CK37SV62AATV5XSRPCJHE"
   },
   {
@@ -1450,13 +1450,13 @@
    "wiki_key": "plan/2026-10-28-release-1-completion"
   },
   {
-   "banner": "> **Current** \u2014 this is the living version; regenerated at 2026-10-28T23:22:11Z. Historical snapshots are linked from [[Index-Releases]].",
+   "banner": "> **Current** \u2014 this is the living version; regenerated at 2026-10-28T23:29:38Z. Historical snapshots are linked from [[Index-Releases]].",
    "frozen": false,
    "page_name": "Roadmap",
    "render": "doc+banner",
-   "render_hash": "20356e540b66",
+   "render_hash": "657366110b7d",
    "source": "docs/roadmap.md",
-   "source_hash": "5710e2cfa398",
+   "source_hash": "c734e8ec1a6b",
    "title": "Roadmap",
    "truth_state": "current",
    "wiki_key": "roadmap"
