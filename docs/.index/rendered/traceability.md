@@ -13,7 +13,7 @@ _The evidence chain: plan → item → ticket → code → release, forward and 
 - produced-by: [[Plan-plan-3-reading]]
 
 ### Task 4: render a body with no scripts and no remote images
-`01M62CK387T88WGKEFSBY4483A` · status: todo
+`01M62CK387T88WGKEFSBY4483A` · status: done
 - belongs-to: Plan 3: read sections, items, and references
 - produced-by: [[Plan-plan-3-reading]]
 
