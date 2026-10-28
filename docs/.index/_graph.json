@@ -1681,6 +1681,46 @@
    "type": "references"
   },
   {
+   "from": "item/01M62CK386VS7C7CQR7W0G6AA5",
+   "to": "item/01M62CK37SV62AATV5XSRPCJHE",
+   "type": "belongs-to"
+  },
+  {
+   "from": "item/01M62CK387T88WGKEFSBY44836",
+   "to": "item/01M62CK37SV62AATV5XSRPCJHE",
+   "type": "belongs-to"
+  },
+  {
+   "from": "item/01M62CK387T88WGKEFSBY44838",
+   "to": "item/01M62CK37SV62AATV5XSRPCJHE",
+   "type": "belongs-to"
+  },
+  {
+   "from": "item/01M62CK387T88WGKEFSBY4483A",
+   "to": "item/01M62CK37SV62AATV5XSRPCJHE",
+   "type": "belongs-to"
+  },
+  {
+   "from": "item/01M62CK387T88WGKEFSBY4483C",
+   "to": "item/01M62CK37SV62AATV5XSRPCJHE",
+   "type": "belongs-to"
+  },
+  {
+   "from": "item/01M62CK387T88WGKEFSBY4483E",
+   "to": "item/01M62CK37SV62AATV5XSRPCJHE",
+   "type": "belongs-to"
+  },
+  {
+   "from": "item/01M62D1KA9KN53KDG1DBA8A232",
+   "to": "item/01M62CK387T88WGKEFSBY4483E",
+   "type": "belongs-to"
+  },
+  {
+   "from": "item/01M62D1KA9KN53KDG1DBA8A232",
+   "to": "release/REL-001",
+   "type": "targets"
+  },
+  {
    "from": "plan/2026-10-28-plan-1-open-and-grades",
    "to": "item/01M61XNJ3ME272NXHFN3BS3541",
    "type": "produces"
@@ -1723,6 +1763,41 @@
   {
    "from": "plan/2026-10-28-plan-2-launcher-and-settings",
    "to": "item/01M61XNJGZ7VDMBJZB37S0NA2P",
+   "type": "produces"
+  },
+  {
+   "from": "plan/2026-10-28-plan-3-reading",
+   "to": "item/01M62CK37SV62AATV5XSRPCJHE",
+   "type": "produces"
+  },
+  {
+   "from": "plan/2026-10-28-plan-3-reading",
+   "to": "item/01M62CK386VS7C7CQR7W0G6AA5",
+   "type": "produces"
+  },
+  {
+   "from": "plan/2026-10-28-plan-3-reading",
+   "to": "item/01M62CK387T88WGKEFSBY44836",
+   "type": "produces"
+  },
+  {
+   "from": "plan/2026-10-28-plan-3-reading",
+   "to": "item/01M62CK387T88WGKEFSBY44838",
+   "type": "produces"
+  },
+  {
+   "from": "plan/2026-10-28-plan-3-reading",
+   "to": "item/01M62CK387T88WGKEFSBY4483A",
+   "type": "produces"
+  },
+  {
+   "from": "plan/2026-10-28-plan-3-reading",
+   "to": "item/01M62CK387T88WGKEFSBY4483C",
+   "type": "produces"
+  },
+  {
+   "from": "plan/2026-10-28-plan-3-reading",
+   "to": "item/01M62CK387T88WGKEFSBY4483E",
    "type": "produces"
   },
   {
@@ -1919,17 +1994,17 @@
   },
   "item/01M61XNJSXCVG60KPJFNBC4GPT": {
    "doc_type": "item",
-   "status": "todo",
+   "status": "done",
    "title": "US-008 Go directly to any section"
   },
   "item/01M61XNJW2AZJVWS7GNVCDWE6J": {
    "doc_type": "item",
-   "status": "todo",
+   "status": "done",
    "title": "US-009 Select one item of a section and read it without the whole section"
   },
   "item/01M61XNJY90VDMDZW16HAGY522": {
    "doc_type": "item",
-   "status": "todo",
+   "status": "done",
    "title": "US-010 Follow a reference from one item to the item it names"
   },
   "item/01M61XNK0EWMYWDZNRXHB78SZ7": {
@@ -2369,22 +2444,22 @@
   },
   "item/01M62C7REFJRP4FVS9Z3JD5SB7": {
    "doc_type": "item",
-   "status": "todo",
+   "status": "done",
    "title": "Phase 1: read sections, items, and references (US-008, US-009, US-010)"
   },
   "item/01M62C7REFJRP4FVS9Z3JD5SB9": {
    "doc_type": "item",
-   "status": "todo",
+   "status": "done",
    "title": "Plan 3 written and captured"
   },
   "item/01M62C7REFJRP4FVS9Z3JD5SBB": {
    "doc_type": "item",
-   "status": "todo",
+   "status": "done",
    "title": "Built with TDD, and the review findings fixed"
   },
   "item/01M62C7REFJRP4FVS9Z3JD5SBD": {
    "doc_type": "item",
-   "status": "todo",
+   "status": "done",
    "title": "e2e/phase1.mjs passes: FR-005, FR-023, FR-007, and a remote image that does not load"
   },
   "item/01M62C7REFJRP4FVS9Z3JD5SBF": {
@@ -2497,6 +2572,46 @@
    "status": "todo",
    "title": "All release 1 stories closed, the roadmap rendered, and GitHub Issues synced"
   },
+  "item/01M62CK37SV62AATV5XSRPCJHE": {
+   "doc_type": "item",
+   "status": "done",
+   "title": "Plan 3: read sections, items, and references"
+  },
+  "item/01M62CK386VS7C7CQR7W0G6AA5": {
+   "doc_type": "item",
+   "status": "done",
+   "title": "Task 1: items at any depth of the front matter"
+  },
+  "item/01M62CK387T88WGKEFSBY44836": {
+   "doc_type": "item",
+   "status": "done",
+   "title": "Task 2: read one section safely"
+  },
+  "item/01M62CK387T88WGKEFSBY44838": {
+   "doc_type": "item",
+   "status": "done",
+   "title": "Task 3: the item index and local assets"
+  },
+  "item/01M62CK387T88WGKEFSBY4483A": {
+   "doc_type": "item",
+   "status": "done",
+   "title": "Task 4: render a body with no scripts and no remote images"
+  },
+  "item/01M62CK387T88WGKEFSBY4483C": {
+   "doc_type": "item",
+   "status": "done",
+   "title": "Task 5: the section page, the item view, and reference links"
+  },
+  "item/01M62CK387T88WGKEFSBY4483E": {
+   "doc_type": "item",
+   "status": "done",
+   "title": "Task 6: MCP checks for phase 1"
+  },
+  "item/01M62D1KA9KN53KDG1DBA8A232": {
+   "doc_type": "item",
+   "status": "done",
+   "title": "Show a list of sentences one per line in the item view"
+  },
   "plan/2026-10-28-plan-1-open-and-grades": {
    "doc_type": "plan",
    "source": "docs/plans/2026-10-28-plan-1-open-and-grades.md",
@@ -2507,6 +2622,12 @@
    "doc_type": "plan",
    "source": "docs/plans/2026-10-28-plan-2-launcher-and-settings.md",
    "title": "Plan 2, the prdf launcher, known locations, and the last set",
+   "truth_state": "current"
+  },
+  "plan/2026-10-28-plan-3-reading": {
+   "doc_type": "plan",
+   "source": "docs/plans/2026-10-28-plan-3-reading.md",
+   "title": "Plan 3: read sections, items, and references",
    "truth_state": "current"
   },
   "plan/2026-10-28-release-1-completion": {

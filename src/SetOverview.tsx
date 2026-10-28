@@ -1,6 +1,6 @@
 import type { DocEntry, PrdSet } from "./types";
 
-function DocLine({ doc }: { doc: DocEntry }) {
+function DocLine({ doc, onOpen }: { doc: DocEntry; onOpen?: (file: string) => void }) {
     if (doc.unreadable) {
         return (
             <li className="unreadable">
@@ -10,13 +10,18 @@ function DocLine({ doc }: { doc: DocEntry }) {
     }
     return (
         <li>
-            {doc.title} <span className={`status status-${doc.status}`}>{doc.status}</span>
+            {onOpen ? (
+                <button type="button" className="doc-link" onClick={() => onOpen(doc.file)}>{doc.title}</button>
+            ) : (
+                doc.title
+            )}{" "}
+            <span className={`status status-${doc.status}`}>{doc.status}</span>
         </li>
     );
 }
 
 /** The product name, version, executive summary, and every document in order (FR-001, FR-003, WF-001, WF-005). */
-export function SetOverview({ set }: { set: PrdSet }) {
+export function SetOverview({ set, onOpen }: { set: PrdSet; onOpen?: (file: string) => void }) {
     return (
         <section aria-label="PRD set">
             <h1>{set.product}</h1>
@@ -32,7 +37,7 @@ export function SetOverview({ set }: { set: PrdSet }) {
             <h2>Documents</h2>
             <ol className="documents">
                 {set.documents.map((d) => (
-                    <DocLine key={d.file} doc={d} />
+                    <DocLine key={d.file} doc={d} onOpen={onOpen} />
                 ))}
             </ol>
         </section>

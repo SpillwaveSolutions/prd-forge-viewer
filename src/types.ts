@@ -40,3 +40,35 @@ export type StartView =
     | { kind: "choose"; folder: string; sets: SetRef[]; known: SetRef[] }
     | { kind: "notFound"; folder: string; known: SetRef[] }
     | { kind: "welcome"; known: SetRef[] };
+
+// Mirrors src-tauri/src/prdset/items.rs and section.rs.
+export interface Field {
+    name: string;
+    text: string;
+}
+
+export interface Item {
+    id: string;
+    title: string;
+    parent: string | null;
+    fields: Field[];
+}
+
+export interface Section {
+    file: string;
+    title: string;
+    status: string;
+    section: number | null;
+    score: number | null;
+    blocking: number | null;
+    graded: string | null;
+    body: string;
+    items: Item[];
+}
+
+export interface ItemRef {
+    id: string;
+    title: string;
+    file: string;
+    parent: string | null;
+}

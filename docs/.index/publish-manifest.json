@@ -1,5 +1,5 @@
 {
- "git_hash": "2c654ac",
+ "git_hash": "e17b540",
  "pages": [
   {
    "frozen": false,
@@ -15,7 +15,7 @@
    "frozen": false,
    "page_name": "Index-Decisions",
    "render": "as-is",
-   "render_hash": "6033ad6c1ce2",
+   "render_hash": "39b385f62bcd",
    "source": "docs/.index/rendered/decisions.md",
    "title": "Decisions Index",
    "truth_state": "current",
@@ -45,7 +45,7 @@
    "frozen": false,
    "page_name": "Index-Traceability",
    "render": "as-is",
-   "render_hash": "8ada8813b5e3",
+   "render_hash": "f43f9b74634a",
    "source": "docs/.index/rendered/traceability.md",
    "title": "Traceability Index",
    "truth_state": "current",
@@ -55,7 +55,7 @@
    "frozen": false,
    "page_name": "Release-REL-001",
    "render": "as-is",
-   "render_hash": "3cb65c3f38ca",
+   "render_hash": "23cdf01bfaa4",
    "source": "docs/.index/rendered/releases/REL-001.md",
    "title": "Release REL-001",
    "truth_state": "shipped",
@@ -155,7 +155,7 @@
    "frozen": false,
    "page_name": "Ticket-01M61XNJQPA0F7H1BG56ERNJ3P",
    "render": "as-is",
-   "render_hash": "5a8b1838587f",
+   "render_hash": "82d948ea6285",
    "source": "docs/.index/rendered/tickets/01M61XNJQPA0F7H1BG56ERNJ3P.md",
    "title": "EPIC-003 Go to a weak section: Go directly to a weak section or item, or find it by search.",
    "truth_state": "open",
@@ -165,30 +165,30 @@
    "frozen": false,
    "page_name": "Ticket-01M61XNJSXCVG60KPJFNBC4GPT",
    "render": "as-is",
-   "render_hash": "499d5c4344e5",
+   "render_hash": "32e4f5f574cb",
    "source": "docs/.index/rendered/tickets/01M61XNJSXCVG60KPJFNBC4GPT.md",
    "title": "US-008 Go directly to any section",
-   "truth_state": "open",
+   "truth_state": "done",
    "wiki_key": "item/01M61XNJSXCVG60KPJFNBC4GPT"
   },
   {
    "frozen": false,
    "page_name": "Ticket-01M61XNJW2AZJVWS7GNVCDWE6J",
    "render": "as-is",
-   "render_hash": "caadcfd9069b",
+   "render_hash": "4a54c999d9e1",
    "source": "docs/.index/rendered/tickets/01M61XNJW2AZJVWS7GNVCDWE6J.md",
    "title": "US-009 Select one item of a section and read it without the whole section",
-   "truth_state": "open",
+   "truth_state": "done",
    "wiki_key": "item/01M61XNJW2AZJVWS7GNVCDWE6J"
   },
   {
    "frozen": false,
    "page_name": "Ticket-01M61XNJY90VDMDZW16HAGY522",
    "render": "as-is",
-   "render_hash": "33120cf8715f",
+   "render_hash": "83d82a7d8185",
    "source": "docs/.index/rendered/tickets/01M61XNJY90VDMDZW16HAGY522.md",
    "title": "US-010 Follow a reference from one item to the item it names",
-   "truth_state": "open",
+   "truth_state": "done",
    "wiki_key": "item/01M61XNJY90VDMDZW16HAGY522"
   },
   {
@@ -1045,7 +1045,7 @@
    "frozen": false,
    "page_name": "Ticket-01M62C7RE2CW1HN12H2T82VJ6C",
    "render": "as-is",
-   "render_hash": "700c480b5358",
+   "render_hash": "806cf84e550c",
    "source": "docs/.index/rendered/tickets/01M62C7RE2CW1HN12H2T82VJ6C.md",
    "title": "Release 1 completion: build the 15 remaining requirements",
    "truth_state": "open",
@@ -1065,40 +1065,40 @@
    "frozen": false,
    "page_name": "Ticket-01M62C7REFJRP4FVS9Z3JD5SB7",
    "render": "as-is",
-   "render_hash": "a9a0c085e23d",
+   "render_hash": "917c896b96a9",
    "source": "docs/.index/rendered/tickets/01M62C7REFJRP4FVS9Z3JD5SB7.md",
    "title": "Phase 1: read sections, items, and references (US-008, US-009, US-010)",
-   "truth_state": "open",
+   "truth_state": "done",
    "wiki_key": "item/01M62C7REFJRP4FVS9Z3JD5SB7"
   },
   {
    "frozen": false,
    "page_name": "Ticket-01M62C7REFJRP4FVS9Z3JD5SB9",
    "render": "as-is",
-   "render_hash": "b038144f3e35",
+   "render_hash": "db64044e0128",
    "source": "docs/.index/rendered/tickets/01M62C7REFJRP4FVS9Z3JD5SB9.md",
    "title": "Plan 3 written and captured",
-   "truth_state": "open",
+   "truth_state": "done",
    "wiki_key": "item/01M62C7REFJRP4FVS9Z3JD5SB9"
   },
   {
    "frozen": false,
    "page_name": "Ticket-01M62C7REFJRP4FVS9Z3JD5SBB",
    "render": "as-is",
-   "render_hash": "90430820acfd",
+   "render_hash": "558422c0bad9",
    "source": "docs/.index/rendered/tickets/01M62C7REFJRP4FVS9Z3JD5SBB.md",
    "title": "Built with TDD, and the review findings fixed",
-   "truth_state": "open",
+   "truth_state": "done",
    "wiki_key": "item/01M62C7REFJRP4FVS9Z3JD5SBB"
   },
   {
    "frozen": false,
    "page_name": "Ticket-01M62C7REFJRP4FVS9Z3JD5SBD",
    "render": "as-is",
-   "render_hash": "7706d046fda1",
+   "render_hash": "e6c33d874bf4",
    "source": "docs/.index/rendered/tickets/01M62C7REFJRP4FVS9Z3JD5SBD.md",
    "title": "e2e/phase1.mjs passes: FR-005, FR-023, FR-007, and a remote image that does not load",
-   "truth_state": "open",
+   "truth_state": "done",
    "wiki_key": "item/01M62C7REFJRP4FVS9Z3JD5SBD"
   },
   {
@@ -1322,6 +1322,86 @@
    "wiki_key": "item/01M62C7REHN9N2P8Z19K0EPA0H"
   },
   {
+   "frozen": false,
+   "page_name": "Ticket-01M62CK37SV62AATV5XSRPCJHE",
+   "render": "as-is",
+   "render_hash": "69a2621b541e",
+   "source": "docs/.index/rendered/tickets/01M62CK37SV62AATV5XSRPCJHE.md",
+   "title": "Plan 3: read sections, items, and references",
+   "truth_state": "done",
+   "wiki_key": "item/01M62CK37SV62AATV5XSRPCJHE"
+  },
+  {
+   "frozen": false,
+   "page_name": "Ticket-01M62CK386VS7C7CQR7W0G6AA5",
+   "render": "as-is",
+   "render_hash": "cf9dc08e6193",
+   "source": "docs/.index/rendered/tickets/01M62CK386VS7C7CQR7W0G6AA5.md",
+   "title": "Task 1: items at any depth of the front matter",
+   "truth_state": "done",
+   "wiki_key": "item/01M62CK386VS7C7CQR7W0G6AA5"
+  },
+  {
+   "frozen": false,
+   "page_name": "Ticket-01M62CK387T88WGKEFSBY44836",
+   "render": "as-is",
+   "render_hash": "f155a1e0592a",
+   "source": "docs/.index/rendered/tickets/01M62CK387T88WGKEFSBY44836.md",
+   "title": "Task 2: read one section safely",
+   "truth_state": "done",
+   "wiki_key": "item/01M62CK387T88WGKEFSBY44836"
+  },
+  {
+   "frozen": false,
+   "page_name": "Ticket-01M62CK387T88WGKEFSBY44838",
+   "render": "as-is",
+   "render_hash": "6ed864a6cd30",
+   "source": "docs/.index/rendered/tickets/01M62CK387T88WGKEFSBY44838.md",
+   "title": "Task 3: the item index and local assets",
+   "truth_state": "done",
+   "wiki_key": "item/01M62CK387T88WGKEFSBY44838"
+  },
+  {
+   "frozen": false,
+   "page_name": "Ticket-01M62CK387T88WGKEFSBY4483A",
+   "render": "as-is",
+   "render_hash": "7ee878f475bc",
+   "source": "docs/.index/rendered/tickets/01M62CK387T88WGKEFSBY4483A.md",
+   "title": "Task 4: render a body with no scripts and no remote images",
+   "truth_state": "done",
+   "wiki_key": "item/01M62CK387T88WGKEFSBY4483A"
+  },
+  {
+   "frozen": false,
+   "page_name": "Ticket-01M62CK387T88WGKEFSBY4483C",
+   "render": "as-is",
+   "render_hash": "4b74cd6c817c",
+   "source": "docs/.index/rendered/tickets/01M62CK387T88WGKEFSBY4483C.md",
+   "title": "Task 5: the section page, the item view, and reference links",
+   "truth_state": "done",
+   "wiki_key": "item/01M62CK387T88WGKEFSBY4483C"
+  },
+  {
+   "frozen": false,
+   "page_name": "Ticket-01M62CK387T88WGKEFSBY4483E",
+   "render": "as-is",
+   "render_hash": "6312092e3be6",
+   "source": "docs/.index/rendered/tickets/01M62CK387T88WGKEFSBY4483E.md",
+   "title": "Task 6: MCP checks for phase 1",
+   "truth_state": "done",
+   "wiki_key": "item/01M62CK387T88WGKEFSBY4483E"
+  },
+  {
+   "frozen": false,
+   "page_name": "Ticket-01M62D1KA9KN53KDG1DBA8A232",
+   "render": "as-is",
+   "render_hash": "9e9cfef5201e",
+   "source": "docs/.index/rendered/tickets/01M62D1KA9KN53KDG1DBA8A232.md",
+   "title": "Show a list of sentences one per line in the item view",
+   "truth_state": "done",
+   "wiki_key": "item/01M62D1KA9KN53KDG1DBA8A232"
+  },
+  {
    "banner": "> **Current** \u2014 completed plan; plans are frozen once written, a changed design gets a new plan.",
    "frozen": true,
    "page_name": "Plan-plan-1-open-and-grades",
@@ -1346,6 +1426,18 @@
    "wiki_key": "plan/2026-10-28-plan-2-launcher-and-settings"
   },
   {
+   "banner": "> **Current** \u2014 completed plan; plans are frozen once written, a changed design gets a new plan.",
+   "frozen": true,
+   "page_name": "Plan-plan-3-reading",
+   "render": "doc+banner",
+   "render_hash": "179e7b6159a3",
+   "source": "docs/plans/2026-10-28-plan-3-reading.md",
+   "source_hash": "0ae0926212dd",
+   "title": "Plan 3: read sections, items, and references",
+   "truth_state": "current",
+   "wiki_key": "plan/2026-10-28-plan-3-reading"
+  },
+  {
    "banner": "> **Current** \u2014 plan in flight; plans are frozen once written, a changed design gets a new plan.",
    "frozen": true,
    "page_name": "Plan-release-1-completion",
@@ -1358,13 +1450,13 @@
    "wiki_key": "plan/2026-10-28-release-1-completion"
   },
   {
-   "banner": "> **Current** \u2014 this is the living version; regenerated at 2026-10-28T23:11:34Z. Historical snapshots are linked from [[Index-Releases]].",
+   "banner": "> **Current** \u2014 this is the living version; regenerated at 2026-10-28T23:29:54Z. Historical snapshots are linked from [[Index-Releases]].",
    "frozen": false,
    "page_name": "Roadmap",
    "render": "doc+banner",
-   "render_hash": "bef69b94e891",
+   "render_hash": "55faf72c673c",
    "source": "docs/roadmap.md",
-   "source_hash": "2ae78eae1c4c",
+   "source_hash": "48a662cab3c4",
    "title": "Roadmap",
    "truth_state": "current",
    "wiki_key": "roadmap"

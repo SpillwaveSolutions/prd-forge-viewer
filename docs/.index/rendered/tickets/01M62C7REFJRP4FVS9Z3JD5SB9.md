@@ -1,6 +1,6 @@
 # Plan 3 written and captured
 
-`01M62C7REFJRP4FVS9Z3JD5SB9` · subtask/feature · **open**
+`01M62C7REFJRP4FVS9Z3JD5SB9` · subtask/feature · **done**
 
 Plan 3 written and captured
 

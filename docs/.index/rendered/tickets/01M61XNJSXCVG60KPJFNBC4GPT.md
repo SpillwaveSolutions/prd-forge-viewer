@@ -1,6 +1,6 @@
 # US-008 Go directly to any section
 
-`01M61XNJSXCVG60KPJFNBC4GPT` · story/feature · **open**
+`01M61XNJSXCVG60KPJFNBC4GPT` · story/feature · **done**
 
 As a PRD author, I want to go directly to any section, so that the author reads the selected section without opening other documents first.
 

@@ -2,6 +2,52 @@
 
 _The evidence chain: plan → item → ticket → code → release, forward and backward. Generated from `docs/.index/_graph.json`; do not edit._
 
+### Show a list of sentences one per line in the item view
+`01M62D1KA9KN53KDG1DBA8A232` · status: done
+- belongs-to: Task 6: MCP checks for phase 1
+- targets: release/REL-001
+
+### Task 6: MCP checks for phase 1
+`01M62CK387T88WGKEFSBY4483E` · status: done
+- belongs-to: Plan 3: read sections, items, and references
+- contains: Show a list of sentences one per line in the item view
+- produced-by: [[Plan-plan-3-reading]]
+
+### Task 5: the section page, the item view, and reference links
+`01M62CK387T88WGKEFSBY4483C` · status: done
+- belongs-to: Plan 3: read sections, items, and references
+- produced-by: [[Plan-plan-3-reading]]
+
+### Task 4: render a body with no scripts and no remote images
+`01M62CK387T88WGKEFSBY4483A` · status: done
+- belongs-to: Plan 3: read sections, items, and references
+- produced-by: [[Plan-plan-3-reading]]
+
+### Task 3: the item index and local assets
+`01M62CK387T88WGKEFSBY44838` · status: done
+- belongs-to: Plan 3: read sections, items, and references
+- produced-by: [[Plan-plan-3-reading]]
+
+### Task 2: read one section safely
+`01M62CK387T88WGKEFSBY44836` · status: done
+- belongs-to: Plan 3: read sections, items, and references
+- produced-by: [[Plan-plan-3-reading]]
+
+### Task 1: items at any depth of the front matter
+`01M62CK386VS7C7CQR7W0G6AA5` · status: done
+- belongs-to: Plan 3: read sections, items, and references
+- produced-by: [[Plan-plan-3-reading]]
+
+### Plan 3: read sections, items, and references
+`01M62CK37SV62AATV5XSRPCJHE` · status: done
+- contains: Task 1: items at any depth of the front matter
+- contains: Task 2: read one section safely
+- contains: Task 3: the item index and local assets
+- contains: Task 4: render a body with no scripts and no remote images
+- contains: Task 5: the section page, the item view, and reference links
+- contains: Task 6: MCP checks for phase 1
+- produced-by: [[Plan-plan-3-reading]]
+
 ### All release 1 stories closed, the roadmap rendered, and GitHub Issues synced
 `01M62C7REHN9N2P8Z19K0EPA0H` · status: todo
 - belongs-to: Phase 6: close out release 1
@@ -152,25 +198,25 @@ _The evidence chain: plan → item → ticket → code → release, forward and 
 - produced-by: [[Plan-release-1-completion]]
 
 ### e2e/phase1.mjs passes: FR-005, FR-023, FR-007, and a remote image that does not load
-`01M62C7REFJRP4FVS9Z3JD5SBD` · status: todo
+`01M62C7REFJRP4FVS9Z3JD5SBD` · status: done
 - belongs-to: Phase 1: read sections, items, and references (US-008, US-009, US-010)
 - references: [github#110](https://github.com/SpillwaveSolutions/prd-forge-viewer/issues/110)
 - produced-by: [[Plan-release-1-completion]]
 
 ### Built with TDD, and the review findings fixed
-`01M62C7REFJRP4FVS9Z3JD5SBB` · status: todo
+`01M62C7REFJRP4FVS9Z3JD5SBB` · status: done
 - belongs-to: Phase 1: read sections, items, and references (US-008, US-009, US-010)
 - references: [github#109](https://github.com/SpillwaveSolutions/prd-forge-viewer/issues/109)
 - produced-by: [[Plan-release-1-completion]]
 
 ### Plan 3 written and captured
-`01M62C7REFJRP4FVS9Z3JD5SB9` · status: todo
+`01M62C7REFJRP4FVS9Z3JD5SB9` · status: done
 - belongs-to: Phase 1: read sections, items, and references (US-008, US-009, US-010)
 - references: [github#108](https://github.com/SpillwaveSolutions/prd-forge-viewer/issues/108)
 - produced-by: [[Plan-release-1-completion]]
 
 ### Phase 1: read sections, items, and references (US-008, US-009, US-010)
-`01M62C7REFJRP4FVS9Z3JD5SB7` · status: todo
+`01M62C7REFJRP4FVS9Z3JD5SB7` · status: done
 - belongs-to: Release 1 completion: build the 15 remaining requirements
 - references: [github#107](https://github.com/SpillwaveSolutions/prd-forge-viewer/issues/107)
 - contains: Plan 3 written and captured
@@ -764,19 +810,19 @@ _The evidence chain: plan → item → ticket → code → release, forward and 
 - targets: release/REL-001
 
 ### US-010 Follow a reference from one item to the item it names
-`01M61XNJY90VDMDZW16HAGY522` · status: todo
+`01M61XNJY90VDMDZW16HAGY522` · status: done
 - belongs-to: EPIC-003 Go to a weak section: Go directly to a weak section or item, or find it by search.
 - references: [github#17](https://github.com/SpillwaveSolutions/prd-forge-viewer/issues/17)
 - targets: release/REL-001
 
 ### US-009 Select one item of a section and read it without the whole section
-`01M61XNJW2AZJVWS7GNVCDWE6J` · status: todo
+`01M61XNJW2AZJVWS7GNVCDWE6J` · status: done
 - belongs-to: EPIC-003 Go to a weak section: Go directly to a weak section or item, or find it by search.
 - references: [github#16](https://github.com/SpillwaveSolutions/prd-forge-viewer/issues/16)
 - targets: release/REL-001
 
 ### US-008 Go directly to any section
-`01M61XNJSXCVG60KPJFNBC4GPT` · status: todo
+`01M61XNJSXCVG60KPJFNBC4GPT` · status: done
 - belongs-to: EPIC-003 Go to a weak section: Go directly to a weak section or item, or find it by search.
 - references: [github#15](https://github.com/SpillwaveSolutions/prd-forge-viewer/issues/15)
 - targets: release/REL-001

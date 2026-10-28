@@ -3,10 +3,11 @@ import { invoke } from "@tauri-apps/api/core";
 import { listen } from "@tauri-apps/api/event";
 import { ask, open } from "@tauri-apps/plugin-dialog";
 import { GradesTable } from "./GradesTable";
+import { SectionPage } from "./SectionPage";
 import { SetOverview } from "./SetOverview";
 import { StartScreen } from "./StartScreen";
 import { applyResult, applyStart, openSet } from "./openSet";
-import type { PrdSet, StartView } from "./types";
+import type { ItemRef, PrdSet, Section, StartView } from "./types";
 
 const pickFolder = async () => {
     const picked = await open({ directory: true, title: "Open PRD set" });
@@ -19,6 +20,31 @@ export function App() {
     const [error, setError] = useState<string>();
     const [start, setStart] = useState<Exclude<StartView, { kind: "open" }>>();
     const [notice, setNotice] = useState<string>();
+    const [page, setPage] = useState<{ section: Section; selected: string | null }>();
+    const [index, setIndex] = useState<ItemRef[]>([]);
+
+    // Each new set gets a fresh item index and starts on its overview.
+    useEffect(() => {
+        setPage(undefined);
+        setIndex([]);
+        if (set) void invoke<ItemRef[]>("item_index", { folder: set.folder }).then(setIndex).catch(() => setIndex([]));
+    }, [set?.folder]);
+
+    const openDoc = useCallback(async (file: string, selected: string | null = null) => {
+        if (!set) return;
+        try {
+            setPage({ section: await invoke<Section>("read_section", { folder: set.folder, file }), selected });
+            setError(undefined);
+        } catch (e) {
+            setError(String(e));
+        }
+    }, [set]);
+    const openItem = useCallback((id: string) => {
+        const ref = index.find((r) => r.id === id);
+        if (ref) void openDoc(ref.file, id);
+    }, [index, openDoc]);
+    const loadAsset = useCallback((rel: string) => invoke<string>("read_asset", { folder: set!.folder, rel }), [set]);
+    const known = new Set(index.map((r) => r.id));
 
     const show = useCallback(async (pick: () => Promise<string | null>) => {
         const next = applyResult(set, await openSet(pick, loadSet));
@@ -69,9 +95,25 @@ export function App() {
             </header>
             {notice && <p role="status">{notice}</p>}
             {error && <p role="alert" className="error">{error}</p>}
-            {set ? (
+            {set && page ? (
+                <SectionPage
+                    section={page.section}
+                    known={known}
+                    selected={page.selected}
+                    onSelect={(selected) => setPage({ ...page, selected })}
+                    onOpenItem={openItem}
+                    onOpenDoc={openDoc}
+                    onBack={() => { setPage(undefined); setError(undefined); }}
+                    loadAsset={loadAsset}
+                    nav={set.documents.filter((d) => !d.unreadable).map((d) => (
+                        <button key={d.file} type="button" className="doc-link" aria-current={d.file === page.section.file ? "page" : undefined} onClick={() => openDoc(d.file)}>
+                            {d.title}
+                        </button>
+                    ))}
+                />
+            ) : set ? (
                 <>
-                    <SetOverview set={set} />
+                    <SetOverview set={set} onOpen={(file) => openDoc(file)} />
                     <GradesTable documents={set.documents} />
                 </>
             ) : start ? (

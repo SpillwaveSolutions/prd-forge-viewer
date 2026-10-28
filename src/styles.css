@@ -18,3 +18,19 @@ button:focus-visible { outline: 3px solid #0a66d8; outline-offset: 2px; }
 .set-list button { text-align: left; }
 .folder { color: #6e6e73; margin-left: 6px; }
 .not-found { color: #b00020; }
+.doc-link { border: none; background: none; padding: 0; color: #0a66d8; text-decoration: underline; font: inherit; cursor: pointer; }
+.section-page .items { display: flex; flex-wrap: wrap; gap: 6px; margin: 12px 0; }
+.section-page .items button[aria-pressed="true"] { background: #0a66d8; color: #fff; }
+.item { border: 1px solid #e5e5ea; border-radius: 8px; padding: 12px 16px; margin: 12px 0; background: #fff; }
+.item dt { font-weight: 600; margin-top: 6px; }
+.item dd { margin: 2px 0 0; white-space: pre-wrap; }
+.ref { border: none; background: none; padding: 0; color: #0a66d8; text-decoration: underline; font: inherit; cursor: pointer; }
+.body img { max-width: 100%; }
+.image-blocked, .link-blocked { color: #6e6e73; }
+.body table { border-collapse: collapse; }
+.body th, .body td { border: 1px solid #e5e5ea; padding: 4px 8px; }
+.section-layout { display: grid; grid-template-columns: 220px 1fr; gap: 24px; align-items: start; }
+.doc-nav { display: flex; flex-direction: column; gap: 4px; position: sticky; top: 12px; }
+.doc-nav .doc-link { text-align: left; text-decoration: none; padding: 3px 6px; border-radius: 4px; }
+.doc-nav .doc-link[aria-current="page"] { background: #e8f0fe; font-weight: 600; }
+.body .doc-link { display: inline; }
