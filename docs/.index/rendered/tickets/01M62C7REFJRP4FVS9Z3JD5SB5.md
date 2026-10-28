@@ -1,6 +1,6 @@
 # Phase 0: merge the MCP tests and add a phase check runner
 
-`01M62C7REFJRP4FVS9Z3JD5SB5` · task/feature · **open**
+`01M62C7REFJRP4FVS9Z3JD5SB5` · task/feature · **done**
 
 Merge PR #104 on green.
 

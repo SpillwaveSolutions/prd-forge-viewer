@@ -7,3 +7,5 @@ src-tauri/gen/
 .superpowers/
 __pycache__/
 e2e/shots/
+.work/wiki-checkout/
+.work/.sessions

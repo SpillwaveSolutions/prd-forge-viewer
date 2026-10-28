@@ -1,5 +1,5 @@
 {
- "git_hash": "f42b50f",
+ "git_hash": "2c654ac",
  "pages": [
   {
    "frozen": false,
@@ -15,7 +15,7 @@
    "frozen": false,
    "page_name": "Index-Decisions",
    "render": "as-is",
-   "render_hash": "3ad42e45a580",
+   "render_hash": "6033ad6c1ce2",
    "source": "docs/.index/rendered/decisions.md",
    "title": "Decisions Index",
    "truth_state": "current",
@@ -45,7 +45,7 @@
    "frozen": false,
    "page_name": "Index-Traceability",
    "render": "as-is",
-   "render_hash": "5defff19d183",
+   "render_hash": "8ada8813b5e3",
    "source": "docs/.index/rendered/traceability.md",
    "title": "Traceability Index",
    "truth_state": "current",
@@ -1045,7 +1045,7 @@
    "frozen": false,
    "page_name": "Ticket-01M62C7RE2CW1HN12H2T82VJ6C",
    "render": "as-is",
-   "render_hash": "4ee692cb70d6",
+   "render_hash": "700c480b5358",
    "source": "docs/.index/rendered/tickets/01M62C7RE2CW1HN12H2T82VJ6C.md",
    "title": "Release 1 completion: build the 15 remaining requirements",
    "truth_state": "open",
@@ -1055,10 +1055,10 @@
    "frozen": false,
    "page_name": "Ticket-01M62C7REFJRP4FVS9Z3JD5SB5",
    "render": "as-is",
-   "render_hash": "aa1d7fdf5866",
+   "render_hash": "a31c79e504da",
    "source": "docs/.index/rendered/tickets/01M62C7REFJRP4FVS9Z3JD5SB5.md",
    "title": "Phase 0: merge the MCP tests and add a phase check runner",
-   "truth_state": "open",
+   "truth_state": "done",
    "wiki_key": "item/01M62C7REFJRP4FVS9Z3JD5SB5"
   },
   {
@@ -1346,11 +1346,11 @@
    "wiki_key": "plan/2026-10-28-plan-2-launcher-and-settings"
   },
   {
-   "banner": "> **Current** \u2014 plan not yet started; plans are frozen once written, a changed design gets a new plan.",
+   "banner": "> **Current** \u2014 plan in flight; plans are frozen once written, a changed design gets a new plan.",
    "frozen": true,
    "page_name": "Plan-release-1-completion",
    "render": "doc+banner",
-   "render_hash": "cdd51a626196",
+   "render_hash": "4135bc7ed664",
    "source": "docs/plans/2026-10-28-release-1-completion.md",
    "source_hash": "7b5163d2505c",
    "title": "Release 1 completion: build the 15 remaining requirements",
@@ -1358,13 +1358,13 @@
    "wiki_key": "plan/2026-10-28-release-1-completion"
   },
   {
-   "banner": "> **Current** \u2014 this is the living version; regenerated at 2026-10-28T23:09:16Z. Historical snapshots are linked from [[Index-Releases]].",
+   "banner": "> **Current** \u2014 this is the living version; regenerated at 2026-10-28T23:11:34Z. Historical snapshots are linked from [[Index-Releases]].",
    "frozen": false,
    "page_name": "Roadmap",
    "render": "doc+banner",
-   "render_hash": "db094cddcada",
+   "render_hash": "bef69b94e891",
    "source": "docs/roadmap.md",
-   "source_hash": "298def5f3d1c",
+   "source_hash": "2ae78eae1c4c",
    "title": "Roadmap",
    "truth_state": "current",
    "wiki_key": "roadmap"

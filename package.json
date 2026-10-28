@@ -9,7 +9,7 @@
     "test": "bun test src",
     "typecheck": "tsc --noEmit",
     "build:mcp": "tauri build --debug --no-bundle --features mcp-bridge --config src-tauri/tauri.mcp.conf.json",
-    "test:e2e": "bun run build:mcp && bun e2e/e2e.mjs"
+    "test:e2e": "bun run build:mcp && bun e2e/run.mjs"
   },
   "dependencies": {
     "@tauri-apps/api": "^2.9.1",

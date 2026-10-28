@@ -179,7 +179,7 @@ _The evidence chain: plan → item → ticket → code → release, forward and 
 - produced-by: [[Plan-release-1-completion]]
 
 ### Phase 0: merge the MCP tests and add a phase check runner
-`01M62C7REFJRP4FVS9Z3JD5SB5` · status: todo
+`01M62C7REFJRP4FVS9Z3JD5SB5` · status: done
 - belongs-to: Release 1 completion: build the 15 remaining requirements
 - references: [github#106](https://github.com/SpillwaveSolutions/prd-forge-viewer/issues/106)
 - produced-by: [[Plan-release-1-completion]]

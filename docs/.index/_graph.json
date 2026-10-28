@@ -2364,7 +2364,7 @@
   },
   "item/01M62C7REFJRP4FVS9Z3JD5SB5": {
    "doc_type": "item",
-   "status": "todo",
+   "status": "done",
    "title": "Phase 0: merge the MCP tests and add a phase check runner"
   },
   "item/01M62C7REFJRP4FVS9Z3JD5SB7": {
