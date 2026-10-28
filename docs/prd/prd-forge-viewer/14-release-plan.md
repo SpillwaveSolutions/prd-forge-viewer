@@ -3,8 +3,8 @@ id: prd-forge-viewer-release-plan
 kind: release-plan
 schema: prd-forge/release-plan@1
 title: Release plan
-status: final
-updated: 2026-10-27
+status: review
+updated: 2026-10-28
 domain: software product management
 section: 13
 order: 140
@@ -111,7 +111,7 @@ sponsor (PER-004). ST-006 and ST-007 happen outside the
 viewer. Release 1 is done when SC-001 passes and every must requirement passes
 its acceptance criteria. The PRD owner moved the
 target date from 2026-10-26 to 2026-10-27 on 2026-10-26. Release 1 runs on
-macOS only (C-004).
+macOS only (OUT-003).
 
 ## REL-002. Release 2, grade findings
 

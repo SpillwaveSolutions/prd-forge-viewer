@@ -4,7 +4,7 @@ kind: change-log
 schema: prd-forge/change-log@1
 title: Change log
 status: draft
-updated: 2026-10-27
+updated: 2026-10-28
 domain: software product management
 section: 15
 order: 160
@@ -149,6 +149,33 @@ changes:
         role: Sponsor (PER-004)
         date: 2026-10-27
         decision: approved
+  - version: 0.5.1
+    date: 2026-10-28
+    author: Richard Hightower
+    summary: >-
+      PRD Forge 0.9.0 asks the glossary to cite the source of each standard
+      term. MoSCoW priority cites the Agile Business Consortium and states how
+      this set departs from it. The new term acceptance criterion cites Dan
+      North for the Given, when, then form.
+    sections: [14]
+  - version: 0.6.0
+    date: 2026-10-28
+    author: Richard Hightower
+    summary: >-
+      Raises sections 1, 2, 8, and 9 above a grade of 80 under PRD Forge 0.9.0.
+      Section 1 gives P-001 a cost (about 10 searches of about 3 minutes in one
+      review, Q-009) and states that this PRD does not count for review time,
+      because it is for a new tool. The historic PRDs took about 10 days
+      (Q-001). Section 2 sizes S-001 from the clone count of the authoring
+      tools and adds two substitutes. Section 8 gives each NFR a source, cites
+      the Nielsen response time limits and WCAG2ICT, and extends NFR-008 to the
+      known locations and the last set. Section 9 keeps only C-003. C-001,
+      C-002, and C-004 are retired, because the PRD owner can change them.
+      Section 6 records them: IN-006 names the export formats, OUT-001 the
+      read-only rule, and the new OUT-003 macOS only. Sections 7, 11, and 14
+      cite IN-006 in place of C-001.
+    sections: [1, 2, 3, 6, 7, 8, 9, 11, 12, 13, 14, 15]
+    resolves: [Q-001, Q-009]
 links:
   parent: { id: prd-forge-viewer, kind: prd, path: ./prd.md, title: PRD Forge Viewer PRD }
   prev: { id: prd-forge-viewer-glossary, kind: glossary, path: ./15-glossary.md, title: Glossary }
@@ -168,6 +195,8 @@ links:
 | 0.3.4 | 2026-10-27 | Richard Hightower | Neutral folder names in WF-006 | Richard Hightower, sponsor, approved 2026-10-27 |
 | 0.4.0 | 2026-10-27 | Richard Hightower | PRD Forge 0.8.1: release line ST-001 to ST-007, WF-010, new front matter fields | Richard Hightower, sponsor, approved 2026-10-27 |
 | 0.5.0 | 2026-10-27 | Richard Hightower | Answers from the open questions: NFR categories, must share, FR-025, SC-008 to SC-012, TR-012, TR-013 | Richard Hightower, sponsor, approved 2026-10-27 |
+| 0.5.1 | 2026-10-28 | Richard Hightower | Glossary sources for MoSCoW priority and acceptance criterion | None yet |
+| 0.6.0 | 2026-10-28 | Richard Hightower | Sections 1, 2, 8, and 9 above 80; C-001, C-002, and C-004 retired to IN-006, OUT-001, and OUT-003; Q-001 and Q-009 answered | None yet |
 
 ## 0.1.0. First draft
 
@@ -284,3 +313,36 @@ The PRD owner answered these questions on 2026-10-27:
 
 The sponsor approved version 0.5.0 on 2026-10-27, and the changed sections
 moved to final.
+
+## 0.5.1. Sources for standard terms
+
+PRD Forge 0.9.0 asks the glossary to cite the published source of each
+standard term. The glossary entry for MoSCoW priority now cites the Agile
+Business Consortium. It states that this set ties the priorities to release 1,
+and that a won't requirement is not a non-goal. The new entry for acceptance
+criterion cites Dan North for the Given, when, then form that section 7 uses.
+The glossary is a draft, so this version needs no approval to keep the other
+sections final.
+
+## 0.6.0. Sections 1, 2, 8, and 9 above 80
+
+The PRD owner answered these questions on 2026-10-28:
+
+- In one review of this PRD, the PRD owner searched the files for an item about
+  10 times, about 3 minutes each (Q-009). P-001 records the cost, about 30
+  minutes for each review.
+- The historic PRDs took about 10 calendar days to the first feedback. This PRD
+  does not count for review time, because it is for a new tool (Q-001). O-001
+  keeps the 10 days as its baseline.
+- Packaging one version by hand takes 2 to 4 hours (P-002).
+- The NFR speed targets follow the response time limits of Jakob Nielsen.
+  NFR-008 also covers the known locations and the last set.
+- C-001, C-002, and C-004 are retired, because the PRD owner can change them.
+  IN-006 names the export formats, PDF and .docx. OUT-001 records the read-only
+  rule, and the new OUT-003 records macOS only for release 1. The PRD owner
+  revisits OUT-001 and OUT-003 on 2026-11-06. Section 9 keeps only C-003.
+
+Section 2 now sizes S-001 from the 126 people who cloned the authoring tools in
+the 14 days to 2026-10-28, and names a shared online document and a team script
+as substitutes. Sections 3, 7, 11, 12, 13, and 14 changed only to match these
+answers.

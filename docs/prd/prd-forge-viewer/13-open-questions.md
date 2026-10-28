@@ -4,7 +4,7 @@ kind: open-questions
 schema: prd-forge/open-questions@1
 title: Open questions
 status: draft
-updated: 2026-10-27
+updated: 2026-10-28
 domain: software product management
 section: 12
 order: 130
@@ -16,6 +16,11 @@ questions:
       the estimate.
     decider: Richard Hightower
     by: 2026-11-30
+    answer: >-
+      The historic PRDs took about 10 calendar days. This PRD does not count for
+      review time, because it is for a new tool. The 10 days stay the baseline
+      of O-001.
+    answered: 2026-10-28
     blocks:
       - P-001
       - P-002
@@ -107,6 +112,18 @@ questions:
     answered: 2026-10-27
     blocks:
       - J-002
+  - id: Q-009
+    answered: 2026-10-28
+    question: >-
+      In one review of this PRD, how many times does the author or a developer
+      search for an item before the discussion can start, and how many minutes
+      does each search take? Measure it to give P-001 its evidence and cost.
+    decider: Richard Hightower
+    by: 2026-11-30
+    answer: >-
+      About 10 searches in one review of this PRD, about 3 minutes each, so
+      about 30 minutes for each review (PRD owner estimate, 2026-10-28). P-001
+      records it.
 links:
   parent: { id: prd-forge-viewer, kind: prd, path: ./prd.md, title: PRD Forge Viewer PRD }
   prev: { id: prd-forge-viewer-ard, kind: assumptions-risks-dependencies, path: ./12-assumptions-risks-dependencies.md, title: Assumptions, risks, and dependencies }
@@ -119,7 +136,7 @@ Questions are collected during the interview and consolidated later.
 
 | ID | Question | Decider | By |
 | --- | --- | --- | --- |
-| Q-001 | How long from a finished PRD to stakeholder feedback today? | Richard Hightower | 2026-11-30 |
+| Q-001 | How long from a finished PRD to stakeholder feedback today? Answered: about 10 days on the historic PRDs. | Richard Hightower | 2026-11-30 |
 | Q-002 | How many stakeholders review a PRD, and how many have the tools? | Richard Hightower | 2026-11-30 |
 | Q-003 | How often do PER-001 and PER-002 open a PRD in the viewer? Answered: the author, several times a day. | Richard Hightower | 2026-11-30 |
 | Q-004 | Must release 1 show the findings behind each grade? Answered: no, later, after a change to the authoring tools. | Richard Hightower | 2026-11-30 |
@@ -127,11 +144,15 @@ Questions are collected during the interview and consolidated later.
 | Q-006 | Who approves when the sponsor is not available? Answered: nobody, the approval waits. | Richard Hightower | 2026-11-30 |
 | Q-007 | When must PRD Forge record grade findings? Answered: PRD Forge 0.2.0 does it now. | Richard Hightower | 2026-10-26 |
 | Q-008 | What other unhappy path does J-002 need? Answered: an export with a pending section (SC-008). | Richard Hightower | 2026-11-30 |
+| Q-009 | How often, and for how long, does a review start with a search for an item? Answered: about 10 searches of about 3 minutes. | Richard Hightower | 2026-11-30 |
 
 ## Q-001. Time from a finished PRD to stakeholder feedback
 
 Measure it on this PRD as the baseline. Blocks the cost of inaction for P-001 and
 P-002.
+
+Answered on 2026-10-28: the historic PRDs took about 10 calendar days. This PRD
+does not count for review time, because it is for a new tool.
 
 ## Q-002. Stakeholders per PRD, and how many have the tools
 
@@ -168,3 +189,11 @@ no match. The PRD owner decides by 2026-11-30 if release 1 needs another one.
 
 Answered on 2026-10-27: a developer exports a section that is still pending
 (SC-008). Release 1 handles it as a should.
+
+## Q-009. Time to find an item
+
+P-001 had no measured cost. The PRD owner counts the searches for an item in one
+review of this PRD, and the minutes of each, by 2026-11-30.
+
+Answered on 2026-10-28: about 10 searches in one review, about 3 minutes each
+(owner estimate). P-001 records the cost, about 30 minutes for each review.

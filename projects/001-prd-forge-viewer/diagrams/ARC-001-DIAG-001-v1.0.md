@@ -87,7 +87,7 @@ gave more than 5 line crossings.
 
 ### Key Design Decisions
 
-- The viewer never writes to the PRD set (C-002, principle 2).
+- The viewer never writes to the PRD set (OUT-001, principle 2).
 - The authoring tools and the viewer share only files (principle 9).
 - Exports leave the viewer as files. The viewer sends nothing (TR-006).
 
@@ -236,7 +236,7 @@ specific to the PRD Forge format.
 
 | Citation ID | Doc ID | Page/Section | Category | Quoted Passage |
 |-------------|--------|--------------|----------|----------------|
-| PFVP-C1 | PFVP | Section 9, C-002 | Constraint | The viewer does not change any document of a PRD set. |
+| PFVP-C1 | PFVP | Section 6, OUT-001 | Out of scope | Release 1 does not edit any document of a PRD set. |
 
 ### Unreferenced Documents
 

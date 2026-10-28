@@ -3,8 +3,8 @@ id: prd-forge-viewer-ard
 kind: assumptions-risks-dependencies
 schema: prd-forge/assumptions-risks-dependencies@1
 title: Assumptions, risks, and dependencies
-status: final
-updated: 2026-10-27
+status: review
+updated: 2026-10-28
 domain: software product management
 section: 11
 order: 120
@@ -14,7 +14,7 @@ graded: 2026-10-26
 assumptions:
   - id: A-001
     assumption: Stakeholders open PDF and Word files without installing anything.
-    if_false: C-001 changes, and FR-010 and FR-011 need other formats.
+    if_false: IN-006 changes, and FR-010 and FR-011 need other formats.
     validated_by: Send the first export of this PRD to PER-003 and PER-004 and ask.
     owner: Richard Hightower
   - id: A-002
@@ -90,7 +90,7 @@ owner set both on 2026-10-26.
 
 | ID | Assumption | If it is false |
 | --- | --- | --- |
-| A-001 | Stakeholders open PDF and Word without installing anything | C-001, FR-010, and FR-011 change |
+| A-001 | Stakeholders open PDF and Word without installing anything | IN-006, FR-010, and FR-011 change |
 | A-002 | The PRD set is on the same computer as the viewer | FR-001, FR-002, NFR-005, and NFR-006 change |
 | A-003 | The PRD Forge version 1 format is stable until release 1 | C-003, FR-001, FR-003, and FR-004 can fail |
 | A-004 | Authors want a viewer, not only the command-line export | O-001 does not move |

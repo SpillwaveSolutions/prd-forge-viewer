@@ -96,7 +96,7 @@ Every release 1 feature must work without a network connection (NFR-006)
 The viewer MUST NOT change, create, move, or delete any document of a PRD set.
 
 **Rationale**:
-Edits go through the authoring tools so that they are graded (C-002, Q-005)
+Edits go through the authoring tools so that they are graded (OUT-001, Q-005)
 [PFVP-C4]. Editing in the viewer is out of scope for release 1 (OUT-001).
 
 **Implications**:
@@ -107,7 +107,7 @@ Edits go through the authoring tools so that they are graded (C-002, Q-005)
 
 **Validation Gates**:
 
-- [ ] A checksum of every PRD set file is the same before and after a session that opens, searches, and exports the set (C-002 verification).
+- [ ] A checksum of every PRD set file is the same before and after a session that opens, searches, and exports the set (OUT-001 verification).
 - [ ] No code path opens a PRD set file for writing.
 - [ ] The export dialog refuses a target path that is a document of the PRD set.
 
@@ -332,7 +332,7 @@ Exports MUST use the formats that the stakeholders already read: PDF for the
 fixed layout, and Microsoft Word (.docx) for the editable document.
 
 **Rationale**:
-C-001 sets these two formats [PFVP-C11]. The engineering lead, the sponsor, and
+IN-006 sets these two formats [PFVP-C11]. The engineering lead, the sponsor, and
 developers without the authoring tools read PDF and Word files. Every export
 shows "Draft" until every document is final (TR-005) [PFVP-C12]. Screen-reader
 users must read every export (NFR-009).
@@ -346,7 +346,7 @@ users must read every export (NFR-009).
 
 **Validation Gates**:
 
-- [ ] Open each export in a standard PDF reader and a word processor on a computer without the authoring tools (C-001 verification).
+- [ ] Open each export in a standard PDF reader and a word processor on a computer without the authoring tools (IN-006 verification).
 - [ ] An export of a set with one draft document shows "Draft".
 - [ ] An accessibility checker reports zero errors for each format (NFR-009).
 
@@ -563,7 +563,7 @@ The principles are mandatory unless the PRD owner approves a documented exceptio
 | # | Principle | Category | Criticality | PRD source |
 |---|-----------|----------|-------------|------------|
 | 1 | Local first, no server | Strategic | CRITICAL | A-002, NFR-005, NFR-006 |
-| 2 | Read-only on the PRD set | Strategic | CRITICAL | C-002, OUT-001 |
+| 2 | Read-only on the PRD set | Strategic | CRITICAL | OUT-001 |
 | 3 | Fail visibly, one document at a time | Strategic | HIGH | FR-003, R-001 |
 | 4 | Security by design for a local reader | Strategic | CRITICAL | NFR-005 |
 | 5 | Free and open source | Strategic | HIGH | PRD owner decision, 2026-10-26 |
@@ -571,7 +571,7 @@ The principles are mandatory unless the PRD owner approves a documented exceptio
 | 7 | Format fidelity to PRD Forge version 1 | Data | HIGH | C-003, D-001, A-003 |
 | 8 | No personal data | Data | HIGH | NFR-005 |
 | 9 | Files are the only contract with the authoring tools | Integration | HIGH | FR-009, FR-021 |
-| 10 | Standard export formats only | Integration | CRITICAL | C-001, TR-005, NFR-009 |
+| 10 | Standard export formats only | Integration | CRITICAL | IN-006, TR-005, NFR-009 |
 | 11 | Performance targets from the PRD | Quality | HIGH | NFR-001 to NFR-004 |
 | 12 | Accessible to keyboard and screen-reader users | Quality | HIGH | NFR-007 |
 | 13 | Honest status | Quality | HIGH | O-001, Q-006, TR-005 |
@@ -604,14 +604,14 @@ The principles are mandatory unless the PRD owner approves a documented exceptio
 | PFVP-C1 | PFVP | Root, executive summary | Scope | The viewer shows the whole set and its grades in one place, shows changes as the authoring tools make them, searches, and makes themed export files |
 | PFVP-C2 | PFVP | Section 11, A-002 | Assumption | The PRD set is on the same computer as the viewer. |
 | PFVP-C3 | PFVP | Section 8, NFR-006 | Availability | Every release 1 feature works without a network connection. |
-| PFVP-C4 | PFVP | Section 9, C-002 | Constraint | The viewer does not change any document of a PRD set. |
+| PFVP-C4 | PFVP | Section 6, OUT-001 | Out of scope | Release 1 does not edit any document of a PRD set. |
 | PFVP-C5 | PFVP | Section 11, R-001 | Risk | A change to the PRD Forge document format breaks the viewer. |
 | PFVP-C6 | PFVP | Section 15, version 0.1.0 | Decision | The viewer is free and open source for anyone who uses PRD Forge. |
 | PFVP-C7 | PFVP | Section 9, C-003 | Standard | One root document and 17 section documents with the headers and links that the authoring tools define. |
 | PFVP-C8 | PFVP | Section 8, NFR-002 | Performance | The author sees a change from the authoring tools within 2 seconds of the save. |
 | PFVP-C9 | PFVP | Section 9, C-003 | Standard | The viewer reads PRD sets in the document layout of the authoring tools, version 1. |
-| PFVP-C10 | PFVP | Section 9, C-001 | Constraint | The developers without the authoring tools read PDF and Word files. |
-| PFVP-C11 | PFVP | Section 9, C-001 | Constraint | The fixed-layout document is PDF. The editable document is a Microsoft Word document (.docx). |
+| PFVP-C10 | PFVP | Section 6, IN-006 | Scope | The developers without the authoring tools read PDF and Word files. |
+| PFVP-C11 | PFVP | Section 6, IN-006 | Scope | The fixed-layout document is PDF. The editable document is a Microsoft Word document (.docx). |
 | PFVP-C12 | PFVP | Section 10, TR-005 | Decision | Every export shows "Draft" until every document is final. |
 | PFVP-C13 | PFVP | Section 15, version 0.2.0 | Test | The test computer is an Apple silicon Mac with 16 GB. |
 | PFVP-C14 | PFVP | Section 8, NFR-007 | Accessibility | A person who uses only a keyboard can do every task in the viewer. |

@@ -3,8 +3,8 @@ id: prd-forge-viewer-objectives
 kind: objectives-metrics
 schema: prd-forge/objectives-metrics@1
 title: Objectives and success metrics
-status: final
-updated: 2026-10-27
+status: review
+updated: 2026-10-28
 domain: software product management
 section: 3
 order: 30
@@ -20,9 +20,9 @@ objectives:
       stakeholder, to the day of the first written feedback from any
       stakeholder on that version.
     baseline: >-
-      About 10 calendar days, from past PRDs written before PRD Forge (estimate
-      by the PRD owner, 2026-10-26). The first send of this PRD replaces it with
-      a measured figure (Q-001).
+      About 10 calendar days, from the historic PRDs written before the
+      authoring tools (PRD owner, 2026-10-26, confirmed 2026-10-28). This PRD
+      does not count for review time, because it is for a new tool (Q-001).
     baseline_question: Q-001
     target: 2 days or less
     by: 2027-03-31
@@ -61,9 +61,9 @@ Metric: median calendar days from the day the author sends a PRD version to a
 stakeholder, to the day of the first written feedback from any stakeholder on
 that version. Serves P-001 and P-002.
 
-Baseline: about 10 calendar days, from past PRDs written before PRD Forge. This
-is an estimate by the PRD owner on 2026-10-26. The first send of this PRD
-replaces it with a measured figure (Q-001).
+Baseline: about 10 calendar days, from the historic PRDs written before the
+authoring tools (PRD owner, 2026-10-26, confirmed 2026-10-28). This PRD does not
+count for review time, because it is for a new tool (Q-001).
 
 Target: 2 days or less by 2027-03-31. Owner: Richard Hightower, PRD owner.
 

@@ -783,7 +783,7 @@ units.
 
 #### Integration INT-003 and INT-004: PDF readers and word processors
 
-**Target System**: Any standard PDF reader or word processor (C-001)
+**Target System**: Any standard PDF reader or word processor (IN-006)
 
 **Data Flow Direction**: Viewer → export file
 

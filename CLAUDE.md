@@ -69,7 +69,7 @@ python3 $P/scripts/prd_export.py $SET          # write the PDF and .docx
   `IN-`, `OUT-`, `FR-`, `NFR-`, `C-`, `TR-`, `A-`, `R-`, `D-`, `Q-`, `REL-`,
   `WF-`. Cross-references between sections use these IDs.
 - The PRD names no technology. It says "authoring tools" for PRD Forge in Claude
-  Code. File formats appear only in constraint C-001 (PDF and Word .docx). Keep
+  Code. File formats appear only in scope item IN-006 (PDF and .docx). Keep
   technology choices for ADRs.
 
 ## Decisions already made
@@ -77,15 +77,15 @@ python3 $P/scripts/prd_export.py $SET          # write the PDF and .docx
 These come from the PRD owner and are recorded in the set. Do not reopen them
 without the owner.
 
-- The viewer is read-only (C-002). Editing is out of scope for release 1
-  (OUT-001).
+- The viewer is read-only in release 1, and editing is out of scope (OUT-001).
+  C-002 is retired. The PRD owner revisits editing on 2026-11-06.
 - Release 1 (REL-001, 2026-10-27) covers FR-001 to FR-024, except FR-006. Grade findings come
   in release 2 (REL-002, 2026-11-06).
 - Every export shows "Draft" until every document is `final` (TR-005).
 - The terminal command is `prdf` (FR-021). It remembers known PRD set locations
   (FR-022). When `docs/prd` holds more than one set, the viewer reopens the
   last one, or lists them the first time (FR-024).
-- Release 1 runs on macOS only (C-004).
+- Release 1 runs on macOS only (OUT-003). C-004 is retired.
 - The viewer shows only local content. No script runs, and nothing remote
   loads (NFR-010).
 

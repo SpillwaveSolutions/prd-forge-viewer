@@ -3,71 +3,42 @@ id: prd-forge-viewer-constraints
 kind: constraints
 schema: prd-forge/constraints@1
 title: Constraints
-status: final
-updated: 2026-10-26
+status: review
+updated: 2026-10-28
 domain: software product management
 section: 9
 order: 100
-score: 75
+score: 85
 blocking: 0
-graded: 2026-10-26
+graded: 2026-10-28
 constraints:
-  - id: C-001
-    category: policy
-    statement: >-
-      Exports use the formats that the stakeholders already read. The
-      fixed-layout document is PDF. The editable document is a Microsoft Word
-      document (.docx).
-    authority: >-
-      PRD owner decision, Richard Hightower, 2026-10-26. The engineering lead, the
-      sponsor, and the developers without the authoring tools read PDF and Word
-      files.
-    applies_to:
-      - FR-010
-      - FR-011
-      - FR-012
-      - FR-013
-    verification: >-
-      Open each export in a standard PDF reader and in a word processor that
-      reads .docx files, on a computer without the authoring tools.
-  - id: C-002
-    category: firm
-    statement: >-
-      The viewer does not change any document of a PRD set. The author changes
-      documents only in the authoring tools.
-    authority: >-
-      PRD owner decision, Richard Hightower, 2026-10-26 (Q-005). Edits go through
-      the authoring tools so that they are graded.
-    verification: >-
-      Compare every document of a PRD set before and after a session in which the
-      author opens, searches, and exports it. No document has changed.
   - id: C-003
     category: standard
     statement: >-
       The viewer reads PRD sets in the document layout of the authoring tools,
-      version 1: one root document and 17 section documents with the headers and
-      links that the authoring tools define.
+      version 1: one root document and the section documents, with the headers
+      and links that the prd-forge/*@1 schemas define.
     authority: >-
-      The PRD Forge document format, version 1 (the prd-forge/*@1 schemas),
-      published with PRD Forge 0.1.0.
+      The PRD Forge document format, version 1: the prd-forge/*@1 schemas in
+      the schemas folder of https://github.com/SpillwaveSolutions/prd-forge.
+      Release 0.9.0 of the authoring tools, read on 2026-10-28, uses them for
+      18 documents.
     applies_to:
       - FR-001
+      - FR-002
       - FR-003
       - FR-004
+      - FR-005
+      - FR-007
+      - FR-008
+      - FR-009
+      - FR-023
+      - FR-024
     verification: >-
-      Open a PRD set that passes the PRD Forge validator. Every document and
-      every grade shows in the viewer.
-  - id: C-004
-    category: policy
-    statement: >-
-      Release 1 runs on macOS only. Other operating systems come in a later
-      release, after the PRD owner decides.
-    authority: >-
-      PRD owner decision, Richard Hightower, 2026-10-26. The only test computer
-      is an Apple silicon Mac with 16 GB of memory.
-    verification: >-
-      Install release 1 on the test computer and run the acceptance criteria of
-      FR-001 to FR-024, except FR-006.
+      Open a PRD set that passes the validator of the authoring tools, release
+      0.9.0. Every document and every grade shows in the viewer. Then change one
+      section header so that it fails the schema, and open the set again. That
+      section shows as unreadable, as FR-003 says.
 links:
   parent: { id: prd-forge-viewer, kind: prd, path: ./prd.md, title: PRD Forge Viewer PRD }
   prev: { id: prd-forge-viewer-nfr, kind: nonfunctional-requirements, path: ./09-nonfunctional-requirements.md, title: Non-functional requirements }
@@ -78,28 +49,24 @@ links:
 
 # Constraints
 
+Constraints are rules that the product team cannot change by agreement. C-003
+comes from the published PRD Forge format. The viewer must read the PRD sets
+that the authoring tools already write, so the team cannot change the format.
+
 | ID | Category | Rule | Authority |
 | --- | --- | --- | --- |
-| C-001 | policy | Exports are PDF (fixed-layout) and Word .docx (editable) | PRD owner, 2026-10-26 |
-| C-002 | firm | The viewer never changes a document of a PRD set | PRD owner, 2026-10-26 |
-| C-003 | standard | The viewer reads the PRD Forge document format, version 1 | PRD Forge 0.1.0 schemas |
-| C-004 | policy | Release 1 runs on macOS only | PRD owner, 2026-10-26 |
-
-## C-001. Export formats
-
-The stakeholders read PDF and Word files. The requirements say "fixed-layout
-document" and "editable document"; this constraint names the formats.
-
-## C-002. The viewer is read-only
-
-The author changes sections only in the authoring tools, so that every change is
-graded.
+| C-003 | standard | The viewer reads the PRD Forge document format, version 1 | The prd-forge/*@1 schemas |
 
 ## C-003. The PRD Forge document format
 
 The viewer reads PRD sets that follow the PRD Forge version 1 layout and headers.
 
-## C-004. Release 1 platform
+## Retired constraints
 
-Release 1 runs on macOS, the operating system of the only test computer. Other
-operating systems wait for a later release.
+C-001 (the export formats), C-002 (the viewer is read-only), and C-004 (release
+1 runs on macOS only) were retired in version 0.6.0. Each is a release 1
+decision that the PRD owner can change, not an outside rule. Section 6 records
+them: IN-006 names the export formats, OUT-001 records the read-only rule, and
+OUT-003 records macOS only. The PRD owner revisits OUT-001 and OUT-003 at the
+release 2 review on 2026-11-06. The ids C-001, C-002, and C-004 are not used
+again.

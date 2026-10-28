@@ -1,22 +1,22 @@
 ---
 doc: ../09-nonfunctional-requirements.md
-score: 79
+score: 82
 blocking: 0
-graded: 2026-10-27
+graded: 2026-10-28
 grader: prd-forge:prd-adversary
 ---
 
-# Why non-functional requirements scored 79
+# Why non-functional requirements scored 82
 
 | Dimension | Score | Why |
 | --- | --- | --- |
 | Numbers | 4 | Every target has a quantity and a unit. |
-| Percentiles | 4 | All four latency targets use p95. |
-| Measurement | 3 | NFR-010 does not say how a tester sees that a script ran. NFR-005 searches for text, which cannot find content in encrypted traffic. NFR-007 does not say how WCAG 2.2 applies to a desktop app. No method has a window. |
-| Category coverage | 3 | All core categories are covered or not applicable. The scale reason fixes the document count but not the length. The body had two not-applicable sections with different reasons. |
-| Derivation | 2 | No entry has a `source`. The 0.5-second search and 10-second export targets have no stated reason. |
-| No technology | 3 | NFR-009 names a PDF reader and a word processor, outside C-001. |
-| Scope | 3 | NFR-001 does not apply to FR-021 and FR-024, and its metric leaves out the executive summary. Nothing keeps the known locations (FR-022) or the last set (FR-002) across a restart. |
+| Percentiles | 4 | All four latency targets use p95, and the 19th fastest of 20 runs fits it. |
+| Measurement | 3 | NFR-009 does not say which checker to run. NFR-002 does not say what on the recording marks the save. |
+| Category coverage | 3 | The retention reason says that the viewer keeps a copy for search, but not how long it keeps it. |
+| Derivation | 3 | The targets trace to Q-003 and to the Nielsen limits. The size bound is this set, not the largest set of the segment. PER-002 search frequency is not known. |
+| No technology | 3 | The retention reason says "a derived cache", which is a design term. |
+| Scope | 3 | NFR-010 covers the whole viewer but lists only 10 FRs in `applies_to`. |
 
 ## Blocking defects
 
@@ -24,8 +24,9 @@ None.
 
 ## How to raise the grade
 
-- **Derivation (2 to 4):** Add a `source` to every entry, and give the reason for the 0.5-second and 10-second targets.
-- **Category coverage (3 to 4):** Keep one not-applicable section. Give the speed targets a size limit.
-- **Measurement (3 to 4):** Make each test script leave a visible trace. Count every network transfer in NFR-005. Name WCAG2ICT in NFR-007. Add a window to each method.
-- **No technology (3 to 4):** In NFR-009, write "a reader for each format of C-001".
-- **Scope (3 to 4):** Add FR-021 and FR-024 to NFR-001, and the executive summary to its metric. Keep FR-022 and FR-002 across a restart.
+- **Measurement (3 to 4):** In NFR-009, name the standard that the checker tests against for each format. In NFR-002, start the time when the save message of the authoring tools shows on the recording.
+- **Category coverage (3 to 4):** Say how long the viewer keeps its search copy of a set after the set is deleted or removed from the known locations.
+- **Derivation (3 to 4):** Give the largest set that the segment makes, with its source.
+- **No technology (3 to 4):** Say "what the viewer keeps to search a set" in place of "a derived cache".
+- **Scope (3 to 4):** Remove `applies_to` from NFR-010, so it holds for the whole viewer.
+- Take one p95 for each format in NFR-004.

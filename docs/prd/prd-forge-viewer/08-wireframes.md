@@ -3,8 +3,8 @@ id: prd-forge-viewer-wireframes
 kind: wireframes
 schema: prd-forge/wireframes@1
 title: Wireframes
-status: final
-updated: 2026-10-27
+status: review
+updated: 2026-10-28
 domain: software product management
 section: 7
 order: 85
@@ -80,7 +80,7 @@ wireframes:
     journey_stage: ST-005
     illustrates: [FR-010, FR-011, FR-012, FR-013, FR-015]
     shows:
-      - "The format, from C-001"
+      - "The format, from IN-006"
       - "The theme; Edit themes opens WF-008"
       - "The sections to export, in reading order"
       - "The reason that the export shows Draft (TR-005)"

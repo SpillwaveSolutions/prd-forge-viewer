@@ -50,7 +50,7 @@ This document adds no functional requirement. Rules for the IDs:
   source.
 - Other PRD IDs (C-, A-, R-, D-, Q-, TR-, WF-) keep their PRD meaning.
 - Requirement conflicts use the prefix RC-, so that they do not share IDs with
-  the PRD constraints C-001 to C-004.
+  the PRD constraint C-003. C-001, C-002, and C-004 are retired (IN-006, OUT-001, OUT-003).
 
 If the PRD changes, generate this document again. Do not change the copied text
 here.
@@ -67,7 +67,7 @@ so feedback waits [PFVP-C2].
 
 The viewer shows the whole set and its grades in one place. It shows changes as
 the authoring tools make them. It searches, and it makes themed export files
-marked with the version and draft status (formats in C-001).
+marked with the version and draft status (formats in IN-006).
 
 The viewer is free and open source for anyone who uses PRD Forge. It is a local
 desktop app with no server (A-002, NFR-006).
@@ -92,7 +92,7 @@ desktop app with no server (A-002, NFR-006).
 - IN-003: Go directly to any section and read it. (FR-005, FR-023)
 - IN-004: Search the PRD set by term, in one category or in all, and see the best matches first. (FR-008, FR-007)
 - IN-005: See each change that the authoring tools make to a section, without any action from the author. (FR-009)
-- IN-006: Export the whole PRD set or selected sections as a fixed-layout or an editable document (C-001), or print it. The export shows the version and the status of the PRD and of each section. (FR-010, FR-011, FR-013, FR-014, FR-019)
+- IN-006: Export the whole PRD set or selected sections as a fixed-layout or an editable document (IN-006), or print it. The export shows the version and the status of the PRD and of each section. (FR-010, FR-011, FR-013, FR-014, FR-019)
 - IN-007: Select an export theme. The viewer includes the built-in themes, and the author can make, change, and delete custom themes. (FR-015, FR-016, FR-017, FR-018, FR-020)
 - IN-008: Export only the sections that a developer selects. (FR-012)
 
@@ -520,7 +520,7 @@ There are 24 functional requirements. All text is copied from
 
 ---
 
-#### FR-010: Export the PRD set as a fixed-layout document (C-001)
+#### FR-010: Export the PRD set as a fixed-layout document (IN-006)
 
 **Description**: The author has one fixed-layout document that a reader opens with software already on the computer, without the authoring tools.
 
@@ -530,7 +530,7 @@ There are 24 functional requirements. All text is copied from
 
 **Acceptance Criteria**:
 
-- [ ] Given a PRD set with 18 documents, when the author exports the whole set as a fixed-layout document, then one file in the format that C-001 names contains every document in order, and the sponsor opens it without the authoring tools.
+- [ ] Given a PRD set with 18 documents, when the author exports the whole set as a fixed-layout document, then one file in the format that IN-006 names contains every document in order, and the sponsor opens it without the authoring tools.
 
 **Shown In**: report
 
@@ -540,7 +540,7 @@ There are 24 functional requirements. All text is copied from
 
 ---
 
-#### FR-011: Export the PRD set as an editable document (C-001)
+#### FR-011: Export the PRD set as an editable document (IN-006)
 
 **Description**: The author has one editable document that a reader opens with software already on the computer, without the authoring tools.
 
@@ -550,7 +550,7 @@ There are 24 functional requirements. All text is copied from
 
 **Acceptance Criteria**:
 
-- [ ] Given a PRD set with 18 documents, when the author exports the whole set as an editable document, then one file in the format that C-001 names contains every document in order, and the engineering lead opens it in a word processor without the authoring tools.
+- [ ] Given a PRD set with 18 documents, when the author exports the whole set as an editable document, then one file in the format that IN-006 names contains every document in order, and the engineering lead opens it in a word processor without the authoring tools.
 
 **Shown In**: report
 
@@ -870,7 +870,7 @@ an Apple silicon Mac with 16 GB.
 - Metric: Time from the open action to the moment the author sees the product name, the version, and the status of every document.
 - Target: p95 at most 2 seconds, for a PRD set of 18 documents
 
-**Measurement Method**: Open this PRD set 20 times on the test computer (C-004), time each open from a screen recording, and take the 19th fastest time.
+**Measurement Method**: Open this PRD set 20 times on the test computer (OUT-003), time each open from a screen recording, and take the 19th fastest time.
 
 **Applies To**: FR-001, FR-002, FR-003
 
@@ -939,7 +939,7 @@ an Apple silicon Mac with 16 GB.
 - Metric: Time from the export action to the moment the file is ready to open.
 - Target: p95 at most 10 seconds, for the whole PRD set of 18 documents
 
-**Measurement Method**: Export this PRD set 20 times, 10 times in each format of C-001, on the test computer, time each export, and take the 19th fastest time.
+**Measurement Method**: Export this PRD set 20 times, 10 times in each format of IN-006, on the test computer, time each export, and take the 19th fastest time.
 
 **Applies To**: FR-010, FR-011, FR-012
 
@@ -1062,7 +1062,7 @@ Authentication, authorization, and secrets management do not apply.
 
 #### NFR-SEC-002: The viewer does not change the PRD set
 
-**PRD Source**: C-002
+**PRD Source**: OUT-001 (C-002 retired in PRD 0.6.0)
 
 **Requirement**: The viewer does not change any document of a PRD set. The
 author changes documents only in the authoring tools.
@@ -1107,7 +1107,7 @@ author changes documents only in the authoring tools.
 ### Compliance and regulatory requirements
 
 No regulation applies. The viewer holds no personal data (principle 8). PDF and
-Word are a constraint, not a regulation (C-001).
+Word are a scope decision, not a regulation (IN-006).
 
 ---
 
@@ -1143,9 +1143,9 @@ Word are a constraint, not a regulation (C-001).
 **Requirement**: A reader who uses a screen reader can read every export.
 
 - Metric: Number of errors that the built-in accessibility checker of the reader's software reports on an export.
-- Target: Zero errors, for each format in C-001
+- Target: Zero errors, for each format in IN-006
 
-**Measurement Method**: Export this PRD set in each format of C-001 and run the accessibility checker of a standard PDF reader and of a word processor on each file.
+**Measurement Method**: Export this PRD set in each format of IN-006 and run the accessibility checker of a standard PDF reader and of a word processor on each file.
 
 **Applies To**: FR-010, FR-011, FR-012
 
@@ -1153,7 +1153,7 @@ Word are a constraint, not a regulation (C-001).
 
 **Acceptance Criteria**:
 
-- [ ] The measurement above meets the target: Zero errors, for each format in C-001.
+- [ ] The measurement above meets the target: Zero errors, for each format in IN-006.
 
 **Priority**: SHOULD_HAVE
 
@@ -1191,7 +1191,7 @@ the format. Serves principle 7.
 
 #### NFR-I-002: Standard export formats
 
-**PRD Source**: C-001
+**PRD Source**: IN-006 (C-001 retired in PRD 0.6.0)
 
 **Requirement**: Exports use the formats that the stakeholders already read. The
 fixed-layout document is PDF. The editable document is a Microsoft Word
@@ -1210,7 +1210,7 @@ authoring tools read PDF and Word files. Serves principle 10.
 
 #### NFR-I-003: Release 1 platform
 
-**PRD Source**: C-004
+**PRD Source**: OUT-003 (C-004 retired in PRD 0.6.0)
 
 **Requirement**: Release 1 runs on macOS only. Other operating systems come in a
 later release, after the PRD owner decides.
@@ -1299,7 +1299,7 @@ from remembered locations (FR-021, FR-022).
 
 #### INT-003: Integration with PDF readers
 
-**Purpose**: Stakeholders read a fixed-layout export (FR-010, C-001).
+**Purpose**: Stakeholders read a fixed-layout export (FR-010, IN-006).
 
 **Integration Type**: File export
 
@@ -1330,7 +1330,7 @@ from remembered locations (FR-021, FR-022).
 
 #### INT-004: Integration with word processors (.docx)
 
-**Purpose**: Stakeholders read and edit an export (FR-011, C-001).
+**Purpose**: Stakeholders read and edit an export (FR-011, IN-006).
 
 **Integration Type**: File export
 
@@ -1622,13 +1622,13 @@ None. The viewer reads PRD sets in place and has no earlier version.
 
 ### Technical constraints
 
-**C-001** (policy): Exports use the formats that the stakeholders already read. The fixed-layout document is PDF. The editable document is a Microsoft Word document (.docx). Verification: Open each export in a standard PDF reader and in a word processor that reads .docx files, on a computer without the authoring tools.
+**C-001** (retired in PRD 0.6.0): The PRD now names the export formats, PDF and .docx, in scope item IN-006.
 
-**C-002** (firm): The viewer does not change any document of a PRD set. The author changes documents only in the authoring tools. Verification: Compare every document of a PRD set before and after a session in which the author opens, searches, and exports it. No document has changed.
+**C-002** (retired in PRD 0.6.0): The PRD now records the read-only rule as OUT-001, a release 1 non-goal that the PRD owner revisits on 2026-11-06.
 
 **C-003** (standard): The viewer reads PRD sets in the document layout of the authoring tools, version 1: one root document and 17 section documents with the headers and links that the authoring tools define. Verification: Open a PRD set that passes the PRD Forge validator. Every document and every grade shows in the viewer.
 
-**C-004** (policy): Release 1 runs on macOS only. Other operating systems come in a later release, after the PRD owner decides. Verification: Install release 1 on the test computer and run the acceptance criteria of FR-001 to FR-024, except FR-006.
+**C-004** (retired in PRD 0.6.0): The PRD now records macOS only for release 1 as OUT-003, out of scope, which the PRD owner revisits on 2026-11-06.
 
 ---
 
@@ -1644,7 +1644,7 @@ None. The viewer reads PRD sets in place and has no earlier version.
 
 ### Assumptions
 
-**A-001**: Stakeholders open PDF and Word files without installing anything. If false: C-001 changes, and FR-010 and FR-011 need other formats. Validated by: Send the first export of this PRD to PER-003 and PER-004 and ask.
+**A-001**: Stakeholders open PDF and Word files without installing anything. If false: IN-006 changes, and FR-010 and FR-011 need other formats. Validated by: Send the first export of this PRD to PER-003 and PER-004 and ask.
 
 **A-002**: The PRD set is on the same computer as the viewer. If false: FR-001 and FR-002 change, and NFR-005 and NFR-006 need new targets. Validated by: Ask the first three authors where they keep their PRD sets.
 
@@ -1671,15 +1671,15 @@ None. The viewer reads PRD sets in place and has no earlier version.
 
 | Metric | Target | Measurement Method |
 |---|---|---|
-| NFR-P-001 (NFR-001) Open a PRD set | p95 at most 2 seconds, for a PRD set of 18 documents | Open this PRD set 20 times on the test computer (C-004), time each open from a screen recording, and take the 19th fastest time. |
+| NFR-P-001 (NFR-001) Open a PRD set | p95 at most 2 seconds, for a PRD set of 18 documents | Open this PRD set 20 times on the test computer (OUT-003), time each open from a screen recording, and take the 19th fastest time. |
 | NFR-P-002 (NFR-002) Show a change from the authoring tools | p95 at most 2 seconds | Change and save one section 20 times while the viewer shows it, on the test computer, time each update from a screen recording, and take the 19th fastest time. |
 | NFR-P-003 (NFR-003) Search response time | p95 at most 0.5 seconds, for a PRD set of 18 documents | Run 20 searches with different terms and categories on this PRD set, on the test computer, time each from a screen recording, and take the 19th fastest time. |
-| NFR-P-004 (NFR-004) Export time | p95 at most 10 seconds, for the whole PRD set of 18 documents | Export this PRD set 20 times, 10 times in each format of C-001, on the test computer, time each export, and take the 19th fastest time. |
+| NFR-P-004 (NFR-004) Export time | p95 at most 10 seconds, for the whole PRD set of 18 documents | Export this PRD set 20 times, 10 times in each format of IN-006, on the test computer, time each export, and take the 19th fastest time. |
 | NFR-SEC-001 (NFR-005) No PRD content leaves the computer | Zero | Record all network traffic from the test computer during a session that opens, searches, and exports this PRD set. Search the record for text from the PRD set. The count of matches is zero. |
 | NFR-A-001 (NFR-006) Works without a network | 100% of the 23 functional requirements | Turn off all network connections on the test computer and run the acceptance criteria of FR-001 to FR-024, except FR-006. |
 | NFR-U-001 (NFR-007) Keyboard-only use | 100% of the acceptance criteria, and zero WCAG 2.2 AA failures | A tester runs the acceptance criteria of FR-001 to FR-024, except FR-006, with a keyboard only, then checks the viewer against the WCAG 2.2 level AA success criteria. |
 | NFR-A-002 (NFR-008) Custom themes survive a restart | Zero | Make 5 custom themes, close the viewer, restart the computer, open the viewer, and compare every value of every theme. |
-| NFR-U-002 (NFR-009) Exports readable by a screen reader | Zero errors, for each format in C-001 | Export this PRD set in each format of C-001 and run the accessibility checker of a standard PDF reader and of a word processor on each file. |
+| NFR-U-002 (NFR-009) Exports readable by a screen reader | Zero errors, for each format in IN-006 | Export this PRD set in each format of IN-006 and run the accessibility checker of a standard PDF reader and of a word processor on each file. |
 | NFR-SEC-003 (NFR-010) Only local content shows | Zero scripts run and zero network requests | On the test computer, start a network monitor, open the test PRD set, read every section, select the remote link, and count the scripts that run and the network requests. |
 
 ---
@@ -1882,8 +1882,8 @@ Copied from section 14 of the PRD.
 | export theme | A named set of colors and fonts that controls how an export looks. Some themes come with the viewer, and the author can make more. |
 | MoSCoW priority | The priority of a requirement: must (release 1 needs it), should (important, not essential for release 1), could (if time allows), or won't (not in this release). |
 | built-in theme | An export theme that comes with the viewer and that the author cannot change or delete. Release 1 has two: Ice Snowstorm and Clay. |
-| fixed-layout document | An export file whose pages look the same on every computer and that the reader cannot easily change. C-001 names the format. |
-| editable document | An export file that the reader can open and change in a word processor. C-001 names the format. |
+| fixed-layout document | An export file whose pages look the same on every computer and that the reader cannot easily change. IN-006 names the format. |
+| editable document | An export file that the reader can open and change in a word processor. IN-006 names the format. |
 | unreadable document | A document in a PRD set whose header the viewer cannot read, so its id, kind, title, or status is not known. A pending section with no content is not unreadable. |
 | contents list | The list of every document of the PRD set, in reading order, at the start of an export. |
 | reading order | The order of the documents in a PRD set: the root document first, then each section by its order number. |
