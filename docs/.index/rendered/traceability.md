@@ -18,17 +18,17 @@ _The evidence chain: plan → item → ticket → code → release, forward and 
 - produced-by: [[Plan-plan-3-reading]]
 
 ### Task 3: the item index and local assets
-`01M62CK387T88WGKEFSBY44838` · status: todo
+`01M62CK387T88WGKEFSBY44838` · status: done
 - belongs-to: Plan 3: read sections, items, and references
 - produced-by: [[Plan-plan-3-reading]]
 
 ### Task 2: read one section safely
-`01M62CK387T88WGKEFSBY44836` · status: todo
+`01M62CK387T88WGKEFSBY44836` · status: done
 - belongs-to: Plan 3: read sections, items, and references
 - produced-by: [[Plan-plan-3-reading]]
 
 ### Task 1: items at any depth of the front matter
-`01M62CK386VS7C7CQR7W0G6AA5` · status: todo
+`01M62CK386VS7C7CQR7W0G6AA5` · status: done
 - belongs-to: Plan 3: read sections, items, and references
 - produced-by: [[Plan-plan-3-reading]]
 

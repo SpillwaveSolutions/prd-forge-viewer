@@ -1,5 +1,5 @@
 {
- "git_hash": "88025c3",
+ "git_hash": "dee9cc0",
  "pages": [
   {
    "frozen": false,
@@ -15,7 +15,7 @@
    "frozen": false,
    "page_name": "Index-Decisions",
    "render": "as-is",
-   "render_hash": "55f9e8cc8366",
+   "render_hash": "deb1da5059a7",
    "source": "docs/.index/rendered/decisions.md",
    "title": "Decisions Index",
    "truth_state": "current",
@@ -45,7 +45,7 @@
    "frozen": false,
    "page_name": "Index-Traceability",
    "render": "as-is",
-   "render_hash": "3f53253afec7",
+   "render_hash": "3cd05326a2e5",
    "source": "docs/.index/rendered/traceability.md",
    "title": "Traceability Index",
    "truth_state": "current",
@@ -1325,7 +1325,7 @@
    "frozen": false,
    "page_name": "Ticket-01M62CK37SV62AATV5XSRPCJHE",
    "render": "as-is",
-   "render_hash": "a3c38b9114c8",
+   "render_hash": "80e51e2609c6",
    "source": "docs/.index/rendered/tickets/01M62CK37SV62AATV5XSRPCJHE.md",
    "title": "Plan 3: read sections, items, and references",
    "truth_state": "open",
@@ -1335,30 +1335,30 @@
    "frozen": false,
    "page_name": "Ticket-01M62CK386VS7C7CQR7W0G6AA5",
    "render": "as-is",
-   "render_hash": "2a72ce415be7",
+   "render_hash": "cf9dc08e6193",
    "source": "docs/.index/rendered/tickets/01M62CK386VS7C7CQR7W0G6AA5.md",
    "title": "Task 1: items at any depth of the front matter",
-   "truth_state": "open",
+   "truth_state": "done",
    "wiki_key": "item/01M62CK386VS7C7CQR7W0G6AA5"
   },
   {
    "frozen": false,
    "page_name": "Ticket-01M62CK387T88WGKEFSBY44836",
    "render": "as-is",
-   "render_hash": "fdbc730e1559",
+   "render_hash": "f155a1e0592a",
    "source": "docs/.index/rendered/tickets/01M62CK387T88WGKEFSBY44836.md",
    "title": "Task 2: read one section safely",
-   "truth_state": "open",
+   "truth_state": "done",
    "wiki_key": "item/01M62CK387T88WGKEFSBY44836"
   },
   {
    "frozen": false,
    "page_name": "Ticket-01M62CK387T88WGKEFSBY44838",
    "render": "as-is",
-   "render_hash": "3204d420ad2f",
+   "render_hash": "6ed864a6cd30",
    "source": "docs/.index/rendered/tickets/01M62CK387T88WGKEFSBY44838.md",
    "title": "Task 3: the item index and local assets",
-   "truth_state": "open",
+   "truth_state": "done",
    "wiki_key": "item/01M62CK387T88WGKEFSBY44838"
   },
   {
@@ -1416,11 +1416,11 @@
    "wiki_key": "plan/2026-10-28-plan-2-launcher-and-settings"
   },
   {
-   "banner": "> **Current** \u2014 plan not yet started; plans are frozen once written, a changed design gets a new plan.",
+   "banner": "> **Current** \u2014 plan in flight; plans are frozen once written, a changed design gets a new plan.",
    "frozen": true,
    "page_name": "Plan-plan-3-reading",
    "render": "doc+banner",
-   "render_hash": "ece7106bf016",
+   "render_hash": "59614e134653",
    "source": "docs/plans/2026-10-28-plan-3-reading.md",
    "source_hash": "0ae0926212dd",
    "title": "Plan 3: read sections, items, and references",
@@ -1440,13 +1440,13 @@
    "wiki_key": "plan/2026-10-28-release-1-completion"
   },
   {
-   "banner": "> **Current** \u2014 this is the living version; regenerated at 2026-10-28T23:12:43Z. Historical snapshots are linked from [[Index-Releases]].",
+   "banner": "> **Current** \u2014 this is the living version; regenerated at 2026-10-28T23:15:03Z. Historical snapshots are linked from [[Index-Releases]].",
    "frozen": false,
    "page_name": "Roadmap",
    "render": "doc+banner",
-   "render_hash": "074ab5923736",
+   "render_hash": "4802a210e26b",
    "source": "docs/roadmap.md",
-   "source_hash": "cc9a0b43719c",
+   "source_hash": "382e36174a94",
    "title": "Roadmap",
    "truth_state": "current",
    "wiki_key": "roadmap"

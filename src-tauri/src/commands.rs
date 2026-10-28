@@ -47,6 +47,24 @@ pub fn start_for(app: AppHandle, path: String) -> StartView {
     start_view(Some(Path::new(&path)), &load_settings(&settings_path(&app)))
 }
 
+/// One document of the set, with its body and items (FR-005, FR-023).
+#[tauri::command(async)]
+pub fn read_section(folder: String, file: String) -> Result<crate::prdset::section::Section, String> {
+    crate::prdset::section::read_section(Path::new(&folder), &file)
+}
+
+/// Every item id of the set with the file that holds it (FR-007).
+#[tauri::command(async)]
+pub fn item_index(folder: String) -> Vec<crate::prdset::section::ItemRef> {
+    crate::prdset::section::item_index(Path::new(&folder))
+}
+
+/// A local image of the set as a data URL. Paths outside the set are refused (NFR-010).
+#[tauri::command(async)]
+pub fn read_asset(folder: String, rel: String) -> Result<String, String> {
+    crate::prdset::section::read_asset(Path::new(&folder), &rel)
+}
+
 /// Install `prdf` in ~/.local/bin, after the author confirms in the UI (FR-021, ADR-004).
 #[tauri::command(async)]
 pub fn install_prdf() -> Result<String, String> {
