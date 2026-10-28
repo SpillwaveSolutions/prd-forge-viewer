@@ -3,7 +3,7 @@
 _The evidence chain: plan → item → ticket → code → release, forward and backward. Generated from `docs/.index/_graph.json`; do not edit._
 
 ### Task 5: MCP checks for phase 2
-`01M62EBHZ3H52KPBDQCA3YYTVP` · status: todo
+`01M62EBHZ3H52KPBDQCA3YYTVP` · status: done
 - belongs-to: Plan 4: search with ranked results
 - produced-by: [[Plan-plan-4-search]]
 

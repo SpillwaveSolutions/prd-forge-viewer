@@ -75,7 +75,7 @@
    ],
    "slug": "plan-4-search",
    "source": "docs/plans/2026-10-28-plan-4-search.md",
-   "status": "active",
+   "status": "completed",
    "title": "Plan 4: search with ranked results",
    "truth_state": "current",
    "wiki_key": "plan/2026-10-28-plan-4-search"
@@ -126,11 +126,11 @@
   {
    "canonical_key": "roadmap",
    "doc_type": "roadmap",
-   "generated_at": "2026-10-28T23:47:04Z",
-   "git_hash": "a666352",
+   "generated_at": "2026-10-28T23:52:45Z",
+   "git_hash": "7b40ee6",
    "slug": "roadmap",
    "source": "docs/roadmap.md",
-   "source_hash": "4ec2361e",
+   "source_hash": "40a95a59",
    "title": "Roadmap",
    "truth_state": "current",
    "wiki_key": "roadmap"

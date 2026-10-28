@@ -1,11 +1,11 @@
 {
- "git_hash": "a666352",
+ "git_hash": "7b40ee6",
  "pages": [
   {
    "frozen": false,
    "page_name": "Home",
    "render": "as-is",
-   "render_hash": "ac1c430a61e0",
+   "render_hash": "2f569509541c",
    "source": "docs/.index/rendered/home.md",
    "title": "Home",
    "truth_state": "current",
@@ -15,7 +15,7 @@
    "frozen": false,
    "page_name": "Index-Decisions",
    "render": "as-is",
-   "render_hash": "5a1e411e42c5",
+   "render_hash": "8491761c3ba1",
    "source": "docs/.index/rendered/decisions.md",
    "title": "Decisions Index",
    "truth_state": "current",
@@ -45,7 +45,7 @@
    "frozen": false,
    "page_name": "Index-Traceability",
    "render": "as-is",
-   "render_hash": "42d08285372a",
+   "render_hash": "0524b34f04d5",
    "source": "docs/.index/rendered/traceability.md",
    "title": "Traceability Index",
    "truth_state": "current",
@@ -1405,7 +1405,7 @@
    "frozen": false,
    "page_name": "Ticket-01M62EBHYNFP9BW4QZRF310SYS",
    "render": "as-is",
-   "render_hash": "61607d39120f",
+   "render_hash": "5a0c780ac369",
    "source": "docs/.index/rendered/tickets/01M62EBHYNFP9BW4QZRF310SYS.md",
    "title": "Plan 4: search with ranked results",
    "truth_state": "open",
@@ -1455,10 +1455,10 @@
    "frozen": false,
    "page_name": "Ticket-01M62EBHZ3H52KPBDQCA3YYTVP",
    "render": "as-is",
-   "render_hash": "59d2117936a4",
+   "render_hash": "dfcde51143f5",
    "source": "docs/.index/rendered/tickets/01M62EBHZ3H52KPBDQCA3YYTVP.md",
    "title": "Task 5: MCP checks for phase 2",
-   "truth_state": "open",
+   "truth_state": "done",
    "wiki_key": "item/01M62EBHZ3H52KPBDQCA3YYTVP"
   },
   {
@@ -1498,11 +1498,11 @@
    "wiki_key": "plan/2026-10-28-plan-3-reading"
   },
   {
-   "banner": "> **Current** \u2014 plan in flight; plans are frozen once written, a changed design gets a new plan.",
+   "banner": "> **Current** \u2014 completed plan; plans are frozen once written, a changed design gets a new plan.",
    "frozen": true,
    "page_name": "Plan-plan-4-search",
    "render": "doc+banner",
-   "render_hash": "47c71a68f9de",
+   "render_hash": "3540da9ce29a",
    "source": "docs/plans/2026-10-28-plan-4-search.md",
    "source_hash": "a4c654e8f794",
    "title": "Plan 4: search with ranked results",
@@ -1522,20 +1522,20 @@
    "wiki_key": "plan/2026-10-28-release-1-completion"
   },
   {
-   "banner": "> **Current** \u2014 this is the living version; regenerated at 2026-10-28T23:47:04Z. Historical snapshots are linked from [[Index-Releases]].",
+   "banner": "> **Current** \u2014 this is the living version; regenerated at 2026-10-28T23:52:45Z. Historical snapshots are linked from [[Index-Releases]].",
    "frozen": false,
    "page_name": "Roadmap",
    "render": "doc+banner",
-   "render_hash": "5a14cf07f240",
+   "render_hash": "d6b1412531ea",
    "source": "docs/roadmap.md",
-   "source_hash": "29a701650521",
+   "source_hash": "44dc4300ce8e",
    "title": "Roadmap",
    "truth_state": "current",
    "wiki_key": "roadmap"
   }
  ],
  "sidebar": {
-  "render_hash": "3d4534456711",
+  "render_hash": "e6fad2ac0a2a",
   "source": "docs/.index/rendered/_Sidebar.md"
  },
  "version": 1

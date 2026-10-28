@@ -1,6 +1,6 @@
 # Task 5: MCP checks for phase 2
 
-`01M62EBHZ3H52KPBDQCA3YYTVP` · task/feature · **open**
+`01M62EBHZ3H52KPBDQCA3YYTVP` · task/feature · **done**
 
 `e2e/checks/phase-2-search.mjs` checks the six FR-008 criteria and NFR-003 through the tauri MCP server.
 
