@@ -1956,6 +1956,11 @@
    "type": "belongs-to"
   },
   {
+   "from": "item/01M64BCTQK4AN0YWKW7QS4V3FH",
+   "to": "item/01M64AFRXQ04J5X7RQ0PC24VNC",
+   "type": "belongs-to"
+  },
+  {
    "from": "plan/2026-10-28-plan-1-open-and-grades",
    "to": "item/01M61XNJ3ME272NXHFN3BS3541",
    "type": "produces"
@@ -3091,6 +3096,11 @@
    "doc_type": "item",
    "status": "done",
    "title": "Task 6: MCP checks for phase 5"
+  },
+  "item/01M64BCTQK4AN0YWKW7QS4V3FH": {
+   "doc_type": "item",
+   "status": "done",
+   "title": "Fix the phase 5 review findings"
   },
   "plan/2026-10-28-plan-1-open-and-grades": {
    "doc_type": "plan",

@@ -13,7 +13,8 @@ async function build() {
         target: "browser",
         format: "esm",
         minify: true,
-        define: { "process.env.NODE_ENV": '"production"' },
+        // The e2e hooks for the save and print dialogs exist only in the MCP test build.
+        define: { "process.env.NODE_ENV": '"production"', __PFV_E2E__: String(process.argv.includes("--e2e")) },
     });
     if (!result.success) {
         for (const log of result.logs) console.error(log);

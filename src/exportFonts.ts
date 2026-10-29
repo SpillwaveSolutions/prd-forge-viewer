@@ -12,7 +12,11 @@ export const FONT_FILES: Record<ThemeFont, string[]> = {
 
 export type FontData = Record<string, Uint8Array>;
 
-const fromApp = async (file: string) => new Uint8Array(await (await fetch(`./fonts/${file}`)).arrayBuffer());
+const fromApp = async (file: string) => {
+    const res = await fetch(`./fonts/${file}`);
+    if (!res.ok) throw new Error(`The font ${file} is missing from the app (${res.status}).`);
+    return new Uint8Array(await res.arrayBuffer());
+};
 
 /** Read every font file once. The window reads them from the app; the tests read them from disk. */
 export async function loadFonts(read: (file: string) => Promise<Uint8Array> = fromApp): Promise<FontData> {

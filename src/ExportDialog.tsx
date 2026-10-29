@@ -54,7 +54,7 @@ export function ExportDialog({ set, themes, themeId, onEditThemes, onClose, onEx
     };
 
     return (
-        <dialog ref={ref} className="modal" aria-label="Export" data-runs={runs} onCancel={(e) => { e.preventDefault(); onClose(); }}>
+        <dialog ref={ref} className="modal" aria-label="Export" data-runs={runs} onCancel={(e) => { e.preventDefault(); if (!busy) onClose(); }}>
             <h2>Export</h2>
             <fieldset>
                 <legend>Format</legend>
@@ -83,7 +83,7 @@ export function ExportDialog({ set, themes, themeId, onEditThemes, onClose, onEx
             {draft && <p className="draft-reason">Draft: {draft} The mark goes away when every document is final.</p>}
             {status && <p role="status">{status}</p>}
             <div className="actions">
-                <button type="button" onClick={onClose}>Close</button>
+                <button type="button" disabled={busy} onClick={onClose}>Close</button>
                 <button type="button" disabled={busy || selected.size === 0} onClick={() => run(() => onPrint(theme, selected), "Sent to the printer.")}>Print</button>
                 <button type="button" disabled={busy || selected.size === 0} onClick={() => run(() => onExport(format, theme, selected), "Export saved.")}>Export</button>
             </div>

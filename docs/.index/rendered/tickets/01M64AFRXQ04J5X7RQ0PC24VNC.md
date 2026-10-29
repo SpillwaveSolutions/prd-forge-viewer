@@ -12,5 +12,6 @@ Phase 5 of the release 1 completion plan.
 - [[Ticket-01M64AFRY2E3BX98SZ4RCG3PEM]] Task 4: write the files outside the set — `write_export` and `export_pdf` refuse paths in the set. (done)
 - [[Ticket-01M64AFRY2E3BX98SZ4RCG3PEP]] Task 5: the export dialog and print — An **Export** button opens WF-007: the format, the theme, **Edit themes**, the sections in reading order, the reason for Draft, **Print**, and **Export**. (done)
 - [[Ticket-01M64AFRY2E3BX98SZ4RCG3PER]] Task 6: MCP checks for phase 5 — `e2e/checks/phase-5-export.mjs` exports both formats and two sections, prints, and reads each file: order, version, Draft, contents, pending text, theme colors, and embedded fonts. (done)
+- [[Ticket-01M64BCTQK4AN0YWKW7QS4V3FH]] Fix the phase 5 review findings — The export commands trust the set folder from the window and write any file type. (done)
 
-Progress: 6/6 done
+Progress: 7/7 done

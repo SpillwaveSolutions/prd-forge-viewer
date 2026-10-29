@@ -31,3 +31,13 @@ test("the_html_names_its_language_and_title_for_screen_readers", () => {
     expect(html).toContain('<html lang="en">');
     expect(html).toContain("<title>PRD Forge Viewer PRD</title>");
 });
+
+test("a_missing_font_file_is_an_error_not_an_html_page", async () => {
+    const real = globalThis.fetch;
+    globalThis.fetch = (async () => new Response("<html>404</html>", { status: 404 })) as unknown as typeof fetch;
+    try {
+        await expect(loadFonts()).rejects.toThrow("SourceSerif4-Regular.ttf");
+    } finally {
+        globalThis.fetch = real;
+    }
+});

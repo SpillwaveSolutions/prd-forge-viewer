@@ -1,5 +1,5 @@
 {
- "git_hash": "336ece9",
+ "git_hash": "1bfc70a",
  "pages": [
   {
    "frozen": false,
@@ -45,7 +45,7 @@
    "frozen": false,
    "page_name": "Index-Traceability",
    "render": "as-is",
-   "render_hash": "557f2aa56e90",
+   "render_hash": "85124a9f0b16",
    "source": "docs/.index/rendered/traceability.md",
    "title": "Traceability Index",
    "truth_state": "current",
@@ -1595,7 +1595,7 @@
    "frozen": false,
    "page_name": "Ticket-01M64AFRXQ04J5X7RQ0PC24VNC",
    "render": "as-is",
-   "render_hash": "8a247ce71733",
+   "render_hash": "4b7073203315",
    "source": "docs/.index/rendered/tickets/01M64AFRXQ04J5X7RQ0PC24VNC.md",
    "title": "Plan 7: PDF and Word export, print, and the Draft mark",
    "truth_state": "open",
@@ -1660,6 +1660,16 @@
    "title": "Task 6: MCP checks for phase 5",
    "truth_state": "done",
    "wiki_key": "item/01M64AFRY2E3BX98SZ4RCG3PER"
+  },
+  {
+   "frozen": false,
+   "page_name": "Ticket-01M64BCTQK4AN0YWKW7QS4V3FH",
+   "render": "as-is",
+   "render_hash": "b2b31fce7a5a",
+   "source": "docs/.index/rendered/tickets/01M64BCTQK4AN0YWKW7QS4V3FH.md",
+   "title": "Fix the phase 5 review findings",
+   "truth_state": "done",
+   "wiki_key": "item/01M64BCTQK4AN0YWKW7QS4V3FH"
   },
   {
    "banner": "> **Current** \u2014 completed plan; plans are frozen once written, a changed design gets a new plan.",
@@ -1758,11 +1768,11 @@
    "wiki_key": "plan/2026-10-29-plan-7-export"
   },
   {
-   "banner": "> **Current** \u2014 this is the living version; regenerated at 2026-10-29T17:27:22Z. Historical snapshots are linked from [[Index-Releases]].",
+   "banner": "> **Current** \u2014 this is the living version; regenerated at 2026-10-29T17:38:54Z. Historical snapshots are linked from [[Index-Releases]].",
    "frozen": false,
    "page_name": "Roadmap",
    "render": "doc+banner",
-   "render_hash": "58591ad2416e",
+   "render_hash": "a9f34e8fd587",
    "source": "docs/roadmap.md",
    "source_hash": "2e82f3e2cfe0",
    "title": "Roadmap",

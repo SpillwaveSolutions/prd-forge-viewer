@@ -8,7 +8,8 @@ import { copySet, expect, run, tmp } from "../harness.mjs";
 const sh = (cmd, ...args) => execFileSync(cmd, args, { encoding: "utf8", maxBuffer: 64 << 20 });
 const pdfText = (f) => sh("pdftotext", "-layout", f, "-").replace(/\s+/g, " ");
 const docxPart = (f, part) => sh("unzip", "-p", f, part);
-const docxText = (f) => docxPart(f, "word/document.xml").replace(/<w:tab\/>/g, " ").replace(/<[^>]+>/g, "").replace(/\s+/g, " ");
+const xmlText = (x) => x.replace(/<[^>]+>/g, "").replace(/&quot;/g, '"').replace(/&apos;/g, "'").replace(/&lt;/g, "<").replace(/&gt;/g, ">").replace(/&amp;/g, "&");
+const docxText = (f) => xmlText(docxPart(f, "word/document.xml").replace(/<w:tab\/>/g, " ")).replace(/\s+/g, " ");
 const setStatus = (file, status) => writeFileSync(file, readFileSync(file, "utf8").replace(/^status: .*$/m, `status: ${status}`));
 // The page color of the PDF, from a small rendering of page 1 (PPM: header, then RGB bytes).
 const pageColor = (f) => {
@@ -19,6 +20,24 @@ const pageColor = (f) => {
   return "#" + [...b.subarray(start, start + 3)].map((x) => x.toString(16).padStart(2, "0")).join("").toUpperCase();
 };
 const order = (text, titles) => titles.map((t) => text.indexOf(t, text.indexOf("Executive summary") + 1));
+// The first plain line of body text of a section, from the file on disk. The contents table has
+// only titles, so a body line proves that the body itself is in the file, at that place.
+const bodyLine = (file) => readFileSync(file, "utf8").split(/\n---\n/).slice(1).join("\n").split("\n").map((l) => l.trim())
+  .find((l) => /^[A-Z][a-z]/.test(l) && !/[[\]()|*_`<>]/.test(l) && l.length > 30)?.slice(0, 30);
+// The documents in reading order (the root, then the sections by file name), with a body line each.
+const bodies = (set) => ["prd.md", ...readdirSync(set).filter((f) => f.endsWith(".md") && f !== "prd.md").sort()]
+  .map((f) => ({ f, line: readFileSync(join(set, f), "utf8").match(/^status: pending$/m) ? null : bodyLine(join(set, f)) }))
+  .filter((b) => b.line);
+// Each search starts after the line of the section before, so it checks presence and order together.
+const inOrder = (text, set) => {
+  let from = text.indexOf("Contents");
+  for (const b of bodies(set)) {
+    const at = text.indexOf(b.line, from + 1);
+    if (at < 0) return `${b.f} is missing or out of order ("${b.line}")`;
+    from = at;
+  }
+  return "";
+};
 
 await run(async (h) => {
   const set = copySet(join(tmp(), "export"));
@@ -54,9 +73,9 @@ await run(async (h) => {
     pdf = join(out, "set.pdf");
     pdfMs = await exportTo(pdf, "PDF", /Ice Snowstorm/);
     const text = pdfText(pdf);
-    const at = order(text, titles);
-    expect(titles.length === 18 && at.every((i) => i > 0), `missing: ${titles.filter((_, i) => at[i] < 0)}`);
-    expect(at.every((v, i) => i === 0 || v > at[i - 1]), `out of order: ${at}`);
+    expect(titles.length === 18 && bodies(set).length >= 16, `titles ${titles.length}, body lines ${bodies(set).length}`);
+    const bad = inOrder(text, set);
+    expect(!bad, bad);
     h.results.push(["INFO", `PDF export ${pdfMs} ms, ${sh("pdfinfo", pdf).match(/Pages:\s+(\d+)/)[1]} pages`]);
   });
 
@@ -102,8 +121,8 @@ await run(async (h) => {
     docx = join(out, "set.docx");
     docxMs = await exportTo(docx, "Word", /Clay/);
     const text = docxText(docx);
-    const at = order(text, titles);
-    expect(at.every((v, i) => v > 0 && (i === 0 || v > at[i - 1])), `order: ${at}`);
+    const bad = inOrder(text, set);
+    expect(!bad, bad);
     const xml = docxPart(docx, "word/document.xml") + docxPart(docx, "word/styles.xml");
     for (const c of ["FAF9F5", "3D3D3A", "141413", "D97757"]) expect(xml.includes(c), `no ${c}`);
     expect(xml.includes('w:ascii="Source Serif 4"') && xml.includes('w:ascii="Source Sans 3"'), "fonts");
@@ -142,8 +161,8 @@ await run(async (h) => {
     const [printed, display] = (await h.js("return window.__printed")).split("|");
     expect(display === "none", "the print copy shows on screen");
     const p = printed.replace(/\s+/g, " ");
-    const at = order(p, titles);
-    expect(/Draft/.test(p) && at.every((v, i) => v > 0 && (i === 0 || v > at[i - 1])), `print order: ${at}`);
+    const bad = inOrder(p, set);
+    expect(/Draft/.test(p) && !bad, `print: ${bad}`);
   });
 
   await h.check("NFR-004: 20 exports, p95 within 10 s", async () => {

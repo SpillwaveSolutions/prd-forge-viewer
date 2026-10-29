@@ -1,5 +1,5 @@
 import { expect, test } from "bun:test";
-import { collectBodies, printCss, toBase64 } from "./exportRun";
+import { collectBodies, exportFileName, printCss, toBase64 } from "./exportRun";
 import { renderThemedHtml } from "./exportHtml";
 import { doc, sampleSet } from "./fixtures";
 import { CLAY } from "./themes";
@@ -31,4 +31,8 @@ test("the_print_css_applies_only_when_printing_and_keeps_the_fonts_outside", () 
 test("base64_round_trips_large_bytes", () => {
     const bytes = new Uint8Array(200000).map((_, i) => i % 256);
     expect(Uint8Array.from(atob(toBase64(bytes)), (c) => c.charCodeAt(0))).toEqual(bytes);
+});
+
+test("the_file_name_is_clean_even_with_a_slash_in_the_version", () => {
+    expect(exportFileName({ ...set, product: "PRD Forge", version: "1.0/beta" }, "pdf")).toBe("PRD-Forge-PRD-1.0-beta.pdf");
 });

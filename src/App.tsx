@@ -19,6 +19,7 @@ const pickFolder = async () => {
     const picked = await open({ directory: true, title: "Open PRD set" });
     return typeof picked === "string" ? picked : null;
 };
+declare const __PFV_E2E__: boolean;
 const loadSet = (path: string) => invoke<PrdSet>("open_set", { path });
 
 export function App() {
@@ -127,7 +128,8 @@ export function App() {
     };
 
     // The e2e checks set window.__pfvSavePath and window.__pfvPrint, because they cannot drive the macOS dialogs.
-    const testHooks = window as unknown as { __pfvSavePath?: string; __pfvPrint?: () => void };
+    // Only the MCP test build (scripts/build.ts --e2e) reads them; a release build has no hooks.
+    const testHooks: { __pfvSavePath?: string; __pfvPrint?: () => void } = typeof __PFV_E2E__ !== "undefined" && __PFV_E2E__ ? (window as never) : {};
     const exportDeps = (folder: string): Deps => ({
         read: (file) => invoke<Section>("read_section", { folder, file }),
         save: async (format, name) => testHooks.__pfvSavePath ?? (await save({ defaultPath: name, filters: [{ name: format === "pdf" ? "PDF" : "Word", extensions: [format] }] })),

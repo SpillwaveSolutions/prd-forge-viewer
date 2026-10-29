@@ -2,6 +2,10 @@
 
 _The evidence chain: plan → item → ticket → code → release, forward and backward. Generated from `docs/.index/_graph.json`; do not edit._
 
+### Fix the phase 5 review findings
+`01M64BCTQK4AN0YWKW7QS4V3FH` · status: done
+- belongs-to: Plan 7: PDF and Word export, print, and the Draft mark
+
 ### Task 6: MCP checks for phase 5
 `01M64AFRY2E3BX98SZ4RCG3PER` · status: done
 - belongs-to: Plan 7: PDF and Word export, print, and the Draft mark
@@ -40,6 +44,7 @@ _The evidence chain: plan → item → ticket → code → release, forward and 
 - contains: Task 4: write the files outside the set
 - contains: Task 5: the export dialog and print
 - contains: Task 6: MCP checks for phase 5
+- contains: Fix the phase 5 review findings
 - produced-by: [[Plan-plan-7-export]]
 
 ### Fix the phase 4 review findings

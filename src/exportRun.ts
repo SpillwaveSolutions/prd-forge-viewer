@@ -16,8 +16,15 @@ export async function collectBodies(set: PrdSet, selected: ReadonlySet<string> |
 }
 
 let fonts: Promise<FontData> | undefined;
-// ponytail: the fonts load once per window, about 1.6 MB.
-const appFonts = () => (fonts ??= loadFonts());
+// ponytail: the fonts load once per window, about 1.6 MB. A failed load is tried again next time.
+const appFonts = () => (fonts ??= loadFonts().catch((e) => { fonts = undefined; throw e; }));
+
+const clean = (s: string) => s.replace(/[^\w.-]+/g, "-");
+
+/** The default file name, for example PRD-Forge-Viewer-PRD-0.6.1.pdf. */
+export function exportFileName(set: PrdSet, format: "pdf" | "docx"): string {
+    return `${clean(set.product)}-PRD-${clean(set.version)}.${format}`;
+}
 
 export type Deps = {
     read: (file: string) => Promise<Section>;
@@ -34,8 +41,7 @@ async function themedExport(set: PrdSet, theme: ExportTheme, selected: ReadonlyS
 
 /** Export to PDF or Word, saved where the author picks (FR-010, FR-011, FR-012). Returns false when the author cancels. */
 export async function runExport(format: "pdf" | "docx", set: PrdSet, theme: ExportTheme, selected: ReadonlySet<string>, deps: Deps): Promise<boolean> {
-    const name = `${set.product.replace(/[^\w.-]+/g, "-")}-PRD-${set.version}.${format}`;
-    const path = await deps.save(format, name);
+    const path = await deps.save(format, exportFileName(set, format));
     if (!path) return false;
     const { markdown, title, fonts } = await themedExport(set, theme, selected, deps.read);
     if (format === "pdf") await deps.writePdf(path, renderThemedHtml(markdown, theme, title, fontFaceCss(fonts)));
@@ -66,5 +72,7 @@ export async function runPrint(set: PrdSet, theme: ExportTheme, selected: Readon
     root.innerHTML = DOMPurify.sanitize(/<body>([\s\S]*)<\/body>/.exec(html)?.[1] ?? "");
     document.head.append(style);
     document.body.append(root);
+    // Remove the print copy after printing, so a later print of the window does not print it.
+    window.addEventListener("afterprint", () => { style.remove(); root.remove(); }, { once: true });
     await deps.print();
 }
