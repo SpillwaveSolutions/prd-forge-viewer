@@ -3154,7 +3154,7 @@
   },
   "item/01M64C03048SWRXRJ3A59AD9W0": {
    "doc_type": "item",
-   "status": "todo",
+   "status": "done",
    "title": "Task 1: check the real print dialog"
   },
   "item/01M64C03048SWRXRJ3A59AD9W2": {
@@ -3164,7 +3164,7 @@
   },
   "item/01M64C03048SWRXRJ3A59AD9W4": {
    "doc_type": "item",
-   "status": "todo",
+   "status": "done",
    "title": "Task 3: the build status in REQ and TRAC"
   },
   "item/01M64C03048SWRXRJ3A59AD9W6": {

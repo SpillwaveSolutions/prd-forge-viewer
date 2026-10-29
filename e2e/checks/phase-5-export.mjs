@@ -165,6 +165,23 @@ await run(async (h) => {
     expect(/Draft/.test(p) && !bad, `print: ${bad}`);
   });
 
+  await h.check("FR-013: Print opens the macOS print panel, and Escape closes it", async () => {
+    await h.js("delete window.__pfvPrint; return 'ok'");
+    const runs = await h.js("return document.querySelector('dialog[aria-label=Export]').dataset.runs");
+    await h.click("//dialog//button[.='Print']", "xpath");
+    // The panel is a sheet or a window of the app process; System Events sees it.
+    let panel = "";
+    for (let i = 0; i < 20 && !/true/.test(panel); i++) {
+      await new Promise((r) => setTimeout(r, 500));
+      panel = sh("osascript", "-e", `tell application "System Events" to tell (first process whose unix id is ${h.app.pid}) to return ((count of windows) > 1) or (exists sheet 1 of window 1)`).trim();
+    }
+    expect(panel === "true", "no print panel");
+    await h.realKey(53); // Escape
+    await h.call("webview_wait_for", { type: "selector", value: `dialog[aria-label=Export]:not([data-runs="${runs}"])`, timeout: 30000 });
+    const after = sh("osascript", "-e", `tell application "System Events" to tell (first process whose unix id is ${h.app.pid}) to return ((count of windows) > 1) or (exists sheet 1 of window 1)`).trim();
+    expect(after === "false", "the print panel is still open");
+  });
+
   await h.check("NFR-004: 20 exports, p95 within 10 s", async () => {
     const ms = [];
     for (let i = 0; i < 10; i++) {

@@ -8,7 +8,7 @@ _The evidence chain: plan → item → ticket → code → release, forward and 
 - produced-by: [[Plan-plan-8-closeout]]
 
 ### Task 3: the build status in REQ and TRAC
-`01M64C03048SWRXRJ3A59AD9W4` · status: todo
+`01M64C03048SWRXRJ3A59AD9W4` · status: done
 - belongs-to: Plan 8: close out release 1
 - produced-by: [[Plan-plan-8-closeout]]
 
@@ -18,7 +18,7 @@ _The evidence chain: plan → item → ticket → code → release, forward and 
 - produced-by: [[Plan-plan-8-closeout]]
 
 ### Task 1: check the real print dialog
-`01M64C03048SWRXRJ3A59AD9W0` · status: todo
+`01M64C03048SWRXRJ3A59AD9W0` · status: done
 - belongs-to: Plan 8: close out release 1
 - produced-by: [[Plan-plan-8-closeout]]
 

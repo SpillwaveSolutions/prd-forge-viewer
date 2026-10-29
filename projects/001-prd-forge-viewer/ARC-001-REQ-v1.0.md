@@ -13,7 +13,7 @@
 | **Status** | DRAFT |
 | **Version** | 1.0 |
 | **Created Date** | 2026-10-26 |
-| **Last Modified** | 2026-10-28 |
+| **Last Modified** | 2026-10-29 |
 | **Review Cycle** | On-Demand |
 | **Next Review Date** | 2026-11-25 |
 | **Owner** | Richard Hightower, PRD owner |
@@ -30,6 +30,7 @@
 | 1.0 | 2026-10-27 | ArcKit AI | Updated from PRD 0.4.0 (PRD Forge 0.8.1): FR-007 and FR-008 at ST-003, FR-012 at ST-005, FR-023 restated with no control, FR-012 and FR-013 Givens, WF-010 | [PENDING] | [PENDING] |
 | 1.0 | 2026-10-27 | ArcKit AI | Updated from PRD 0.5.0: nine requirements to SHOULD_HAVE, FR-025 for REL-002, SC-008, WF-011, Q-008 answered | [PENDING] | [PENDING] |
 | 1.0 | 2026-10-28 | ArcKit AI | Updated from PRD 0.6.1: NFR targets, sources, and measurements; C-001, C-002, and C-004 retired to IN-006, OUT-001, and OUT-003; Q-001 and Q-009 answered; release 1 on 2026-11-06 | [PENDING] | [PENDING] |
+| 1.0 | 2026-10-29 | ArcKit AI | Build status: FR-001 to FR-024 except FR-006 built, with each acceptance criterion checked by a tauri MCP check in `e2e/checks/` | [PENDING] | [PENDING] |
 
 ---
 
@@ -339,13 +340,15 @@ There are 24 functional requirements. All text is copied from
 
 **Acceptance Criteria**:
 
-- [ ] Given a PRD set with 18 documents, when the author opens it, then the author sees the product name, the version, the executive summary, and all 18 documents in order, each with its status.
+- [x] Given a PRD set with 18 documents, when the author opens it, then the author sees the product name, the version, the executive summary, and all 18 documents in order, each with its status.
 
 **Shown In**: screen
 
 **Priority**: MUST_HAVE
 
 **Release**: REL-001
+
+**Build Status**: Built and tested, 2026-10-29. Tested by `e2e/checks/plans-1-2.mjs`.
 
 ---
 
@@ -359,14 +362,16 @@ There are 24 functional requirements. All text is copied from
 
 **Acceptance Criteria**:
 
-- [ ] Given the author closed the viewer while a PRD set was open, when the author opens the viewer again, then the same PRD set is open without any selection.
-- [ ] Given a section changed while the viewer was closed, when the author opens the viewer again, then the author sees the current version of that section.
+- [x] Given the author closed the viewer while a PRD set was open, when the author opens the viewer again, then the same PRD set is open without any selection.
+- [x] Given a section changed while the viewer was closed, when the author opens the viewer again, then the author sees the current version of that section.
 
 **Shown In**: screen
 
 **Priority**: SHOULD_HAVE
 
 **Release**: REL-001
+
+**Build Status**: Built and tested, 2026-10-29. Tested by `e2e/checks/plans-1-2.mjs`.
 
 ---
 
@@ -380,14 +385,16 @@ There are 24 functional requirements. All text is copied from
 
 **Acceptance Criteria**:
 
-- [ ] Given a PRD set with 13 pending sections that have no content, when the author opens it, then all 18 documents are listed and each pending section shows its status as pending.
-- [ ] Given one section that cannot be read, when the author opens the set, then the author sees that section marked as unreadable with its file name, and can read the other 17 documents.
+- [x] Given a PRD set with 13 pending sections that have no content, when the author opens it, then all 18 documents are listed and each pending section shows its status as pending.
+- [x] Given one section that cannot be read, when the author opens the set, then the author sees that section marked as unreadable with its file name, and can read the other 17 documents.
 
 **Shown In**: screen
 
 **Priority**: MUST_HAVE
 
 **Release**: REL-001
+
+**Build Status**: Built and tested, 2026-10-29. Tested by `e2e/checks/plans-1-2.mjs`.
 
 ---
 
@@ -401,14 +408,16 @@ There are 24 functional requirements. All text is copied from
 
 **Acceptance Criteria**:
 
-- [ ] Given section 4 has score 61 and 0 blocking defects and section 3 has score 75 and 1 blocking defect, when the author views the grades, then the author sees both sections with those values and their grade dates.
-- [ ] Given a section that has no grade, when the author views the grades, then that section shows that it is not graded.
+- [x] Given section 4 has score 61 and 0 blocking defects and section 3 has score 75 and 1 blocking defect, when the author views the grades, then the author sees both sections with those values and their grade dates.
+- [x] Given a section that has no grade, when the author views the grades, then that section shows that it is not graded.
 
 **Shown In**: screen
 
 **Priority**: MUST_HAVE
 
 **Release**: REL-001
+
+**Build Status**: Built and tested, 2026-10-29. Tested by `e2e/checks/plans-1-2.mjs`.
 
 ---
 
@@ -422,13 +431,15 @@ There are 24 functional requirements. All text is copied from
 
 **Acceptance Criteria**:
 
-- [ ] Given the author is reading the problem and opportunity section, when the author selects the functional requirements section, then the author sees it in one action.
+- [x] Given the author is reading the problem and opportunity section, when the author selects the functional requirements section, then the author sees it in one action.
 
 **Shown In**: screen
 
 **Priority**: MUST_HAVE
 
 **Release**: REL-001
+
+**Build Status**: Built and tested, 2026-10-29. Tested by `e2e/checks/phase-1-reading.mjs`.
 
 ---
 
@@ -465,13 +476,15 @@ There are 24 functional requirements. All text is copied from
 
 **Acceptance Criteria**:
 
-- [ ] Given requirement FR-004 names stage ST-002, when the developer follows that reference, then the developer sees stage ST-002 in J-001.
+- [x] Given requirement FR-004 names stage ST-002, when the developer follows that reference, then the developer sees stage ST-002 in J-001.
 
 **Shown In**: screen
 
 **Priority**: SHOULD_HAVE
 
 **Release**: REL-001
+
+**Build Status**: Built and tested, 2026-10-29. Tested by `e2e/checks/phase-1-reading.mjs`.
 
 ---
 
@@ -485,18 +498,20 @@ There are 24 functional requirements. All text is copied from
 
 **Acceptance Criteria**:
 
-- [ ] Given the term "export" and the category functional requirements, when the developer searches, then the developer sees only the functional requirements that contain "export", each with its id and section.
-- [ ] Given the same term and the category "all", when the developer searches, then the developer sees matching items from every section, including scenarios.
-- [ ] Given item A has "export" in its title and item B has "export" only once in its text, when the developer searches for "export", then item A is above item B.
-- [ ] Given a search with matches, when the developer views the results, then each result shows its id, its title, its section, and a relevance score from 0 to 100, highest first.
-- [ ] Given a list of results, when the developer selects one result, then the developer sees that item in its section.
-- [ ] Given a term that no item contains, when the developer searches, then the developer sees that there are no matches.
+- [x] Given the term "export" and the category functional requirements, when the developer searches, then the developer sees only the functional requirements that contain "export", each with its id and section.
+- [x] Given the same term and the category "all", when the developer searches, then the developer sees matching items from every section, including scenarios.
+- [x] Given item A has "export" in its title and item B has "export" only once in its text, when the developer searches for "export", then item A is above item B.
+- [x] Given a search with matches, when the developer views the results, then each result shows its id, its title, its section, and a relevance score from 0 to 100, highest first.
+- [x] Given a list of results, when the developer selects one result, then the developer sees that item in its section.
+- [x] Given a term that no item contains, when the developer searches, then the developer sees that there are no matches.
 
 **Shown In**: screen
 
 **Priority**: MUST_HAVE
 
 **Release**: REL-001
+
+**Build Status**: Built and tested, 2026-10-29. Tested by `e2e/checks/phase-2-search.mjs`.
 
 ---
 
@@ -510,15 +525,17 @@ There are 24 functional requirements. All text is copied from
 
 **Acceptance Criteria**:
 
-- [ ] Given the author reads section 4 with score 61, when the authoring tools save section 4 with score 75, then the author sees score 75 and the new text without any action, within the time limit in NFR-002.
-- [ ] Given the author reads section 4 when the authoring tools save it, when the new version shows, then the author sees that section 4 changed.
-- [ ] Given the authoring tools change a section the author is not reading, when the author views the grades, then that section shows its new status and score.
+- [x] Given the author reads section 4 with score 61, when the authoring tools save section 4 with score 75, then the author sees score 75 and the new text without any action, within the time limit in NFR-002.
+- [x] Given the author reads section 4 when the authoring tools save it, when the new version shows, then the author sees that section 4 changed.
+- [x] Given the authoring tools change a section the author is not reading, when the author views the grades, then that section shows its new status and score.
 
 **Shown In**: screen
 
 **Priority**: MUST_HAVE
 
 **Release**: REL-001
+
+**Build Status**: Built and tested, 2026-10-29. Tested by `e2e/checks/phase-3-live.mjs`.
 
 ---
 
@@ -532,13 +549,15 @@ There are 24 functional requirements. All text is copied from
 
 **Acceptance Criteria**:
 
-- [ ] Given a PRD set with 18 documents, when the author exports the whole set as a fixed-layout document, then one file in the format that IN-006 names contains every document in order, and the sponsor opens it without the authoring tools.
+- [x] Given a PRD set with 18 documents, when the author exports the whole set as a fixed-layout document, then one file in the format that IN-006 names contains every document in order, and the sponsor opens it without the authoring tools.
 
 **Shown In**: report
 
 **Priority**: MUST_HAVE
 
 **Release**: REL-001
+
+**Build Status**: Built and tested, 2026-10-29. Tested by `e2e/checks/phase-5-export.mjs`.
 
 ---
 
@@ -552,13 +571,15 @@ There are 24 functional requirements. All text is copied from
 
 **Acceptance Criteria**:
 
-- [ ] Given a PRD set with 18 documents, when the author exports the whole set as an editable document, then one file in the format that IN-006 names contains every document in order, and the engineering lead opens it in a word processor without the authoring tools.
+- [x] Given a PRD set with 18 documents, when the author exports the whole set as an editable document, then one file in the format that IN-006 names contains every document in order, and the engineering lead opens it in a word processor without the authoring tools.
 
 **Shown In**: report
 
 **Priority**: SHOULD_HAVE
 
 **Release**: REL-001
+
+**Build Status**: Built and tested, 2026-10-29. Tested by `e2e/checks/phase-5-export.mjs`.
 
 ---
 
@@ -572,13 +593,15 @@ There are 24 functional requirements. All text is copied from
 
 **Acceptance Criteria**:
 
-- [ ] Given the user journeys section and the functional requirements section are the only sections selected, when the developer exports them, then the file contains only those two sections, in reading order.
+- [x] Given the user journeys section and the functional requirements section are the only sections selected, when the developer exports them, then the file contains only those two sections, in reading order.
 
 **Shown In**: report
 
 **Priority**: MUST_HAVE
 
 **Release**: REL-001
+
+**Build Status**: Built and tested, 2026-10-29. Tested by `e2e/checks/phase-5-export.mjs`.
 
 ---
 
@@ -592,13 +615,15 @@ There are 24 functional requirements. All text is copied from
 
 **Acceptance Criteria**:
 
-- [ ] Given the whole PRD set is selected, when the author prints it, then the printed copy has the same documents, order, and draft mark as the fixed-layout export.
+- [x] Given the whole PRD set is selected, when the author prints it, then the printed copy has the same documents, order, and draft mark as the fixed-layout export.
 
 **Shown In**: report
 
 **Priority**: SHOULD_HAVE
 
 **Release**: REL-001
+
+**Build Status**: Built and tested, 2026-10-29. Tested by `e2e/checks/phase-5-export.mjs`.
 
 ---
 
@@ -612,13 +637,15 @@ There are 24 functional requirements. All text is copied from
 
 **Acceptance Criteria**:
 
-- [ ] Given version 0.1.0 with sections at draft, when the sponsor opens the export, then the first page shows version 0.1.0 and the word "Draft".
+- [x] Given version 0.1.0 with sections at draft, when the sponsor opens the export, then the first page shows version 0.1.0 and the word "Draft".
 
 **Shown In**: report
 
 **Priority**: MUST_HAVE
 
 **Release**: REL-001
+
+**Build Status**: Built and tested, 2026-10-29. Tested by `e2e/checks/phase-5-export.mjs`.
 
 ---
 
@@ -632,14 +659,16 @@ There are 24 functional requirements. All text is copied from
 
 **Acceptance Criteria**:
 
-- [ ] Given the built-in theme Clay, when the author exports with Clay, then the file has page color FAF9F5, text color 3D3D3A, heading color 141413, accent color D97757, a serif font for headings, and a sans-serif font for text.
-- [ ] Given the built-in theme Ice Snowstorm, when the author exports with it, then the file has page color F3F6FB, text color 111111, heading color 0B1F4B, accent color 1D4E89, and a sans-serif font for headings and text.
+- [x] Given the built-in theme Clay, when the author exports with Clay, then the file has page color FAF9F5, text color 3D3D3A, heading color 141413, accent color D97757, a serif font for headings, and a sans-serif font for text.
+- [x] Given the built-in theme Ice Snowstorm, when the author exports with it, then the file has page color F3F6FB, text color 111111, heading color 0B1F4B, accent color 1D4E89, and a sans-serif font for headings and text.
 
 **Shown In**: screen
 
 **Priority**: MUST_HAVE
 
 **Release**: REL-001
+
+**Build Status**: Built and tested, 2026-10-29. Tested by `e2e/checks/phase-4-themes.mjs`, `e2e/checks/phase-5-export.mjs`.
 
 ---
 
@@ -653,14 +682,16 @@ There are 24 functional requirements. All text is copied from
 
 **Acceptance Criteria**:
 
-- [ ] Given the author makes a theme named "Acme" with a page color, a text color, a heading color, an accent color, a text font, and a heading font, each font chosen from serif, sans-serif, and monospace, when the author exports with "Acme", then the file uses those colors and fonts.
-- [ ] Given an export with the theme "Acme", when a reader opens it on a computer that does not have those fonts installed, then the reader sees the same fonts as the author.
+- [x] Given the author makes a theme named "Acme" with a page color, a text color, a heading color, an accent color, a text font, and a heading font, each font chosen from serif, sans-serif, and monospace, when the author exports with "Acme", then the file uses those colors and fonts.
+- [x] Given an export with the theme "Acme", when a reader opens it on a computer that does not have those fonts installed, then the reader sees the same fonts as the author.
 
 **Shown In**: screen
 
 **Priority**: SHOULD_HAVE
 
 **Release**: REL-001
+
+**Build Status**: Built and tested, 2026-10-29. Tested by `e2e/checks/phase-4-themes.mjs`, `e2e/checks/phase-5-export.mjs`.
 
 ---
 
@@ -674,14 +705,16 @@ There are 24 functional requirements. All text is copied from
 
 **Acceptance Criteria**:
 
-- [ ] Given the custom theme "Acme", when the author changes its accent color and exports, then the file uses the new accent color.
-- [ ] Given a built-in theme, when the author tries to change it, then the built-in theme stays as it was.
+- [x] Given the custom theme "Acme", when the author changes its accent color and exports, then the file uses the new accent color.
+- [x] Given a built-in theme, when the author tries to change it, then the built-in theme stays as it was.
 
 **Shown In**: screen
 
 **Priority**: SHOULD_HAVE
 
 **Release**: REL-001
+
+**Build Status**: Built and tested, 2026-10-29. Tested by `e2e/checks/phase-4-themes.mjs`.
 
 ---
 
@@ -695,14 +728,16 @@ There are 24 functional requirements. All text is copied from
 
 **Acceptance Criteria**:
 
-- [ ] Given the custom theme "Acme", when the author deletes it, then "Acme" is no longer available to select.
-- [ ] Given a built-in theme, when the author tries to delete it, then the built-in theme is still available.
+- [x] Given the custom theme "Acme", when the author deletes it, then "Acme" is no longer available to select.
+- [x] Given a built-in theme, when the author tries to delete it, then the built-in theme is still available.
 
 **Shown In**: screen
 
 **Priority**: SHOULD_HAVE
 
 **Release**: REL-001
+
+**Build Status**: Built and tested, 2026-10-29. Tested by `e2e/checks/phase-4-themes.mjs`.
 
 ---
 
@@ -716,14 +751,16 @@ There are 24 functional requirements. All text is copied from
 
 **Acceptance Criteria**:
 
-- [ ] Given 13 pending sections, when the engineering lead opens the export, then the contents list shows the status and score of every section.
-- [ ] Given a pending section, when the engineering lead reaches it in the export, then the section says that it is not written yet.
+- [x] Given 13 pending sections, when the engineering lead opens the export, then the contents list shows the status and score of every section.
+- [x] Given a pending section, when the engineering lead reaches it in the export, then the section says that it is not written yet.
 
 **Shown In**: report
 
 **Priority**: SHOULD_HAVE
 
 **Release**: REL-001
+
+**Build Status**: Built and tested, 2026-10-29. Tested by `e2e/checks/phase-5-export.mjs`.
 
 ---
 
@@ -737,13 +774,15 @@ There are 24 functional requirements. All text is copied from
 
 **Acceptance Criteria**:
 
-- [ ] Given the author made the custom theme "Acme", when the author closes and reopens the viewer, then "Acme" is available to select, with the same colors and fonts.
+- [x] Given the author made the custom theme "Acme", when the author closes and reopens the viewer, then "Acme" is available to select, with the same colors and fonts.
 
 **Shown In**: screen
 
 **Priority**: SHOULD_HAVE
 
 **Release**: REL-001
+
+**Build Status**: Built and tested, 2026-10-29. Tested by `e2e/checks/phase-4-themes.mjs`.
 
 ---
 
@@ -757,15 +796,17 @@ There are 24 functional requirements. All text is copied from
 
 **Acceptance Criteria**:
 
-- [ ] Given the current directory contains docs/prd with one PRD set, when the author runs prdf, then the viewer opens and shows that PRD set.
-- [ ] Given the author runs prdf with the path of a PRD set, when the viewer opens, then it shows that PRD set.
-- [ ] Given the current directory contains no PRD set, when the author runs prdf, then the author sees that no PRD set was found there, and sees the list of known PRD set locations (FR-022).
+- [x] Given the current directory contains docs/prd with one PRD set, when the author runs prdf, then the viewer opens and shows that PRD set.
+- [x] Given the author runs prdf with the path of a PRD set, when the viewer opens, then it shows that PRD set.
+- [x] Given the current directory contains no PRD set, when the author runs prdf, then the author sees that no PRD set was found there, and sees the list of known PRD set locations (FR-022).
 
 **Shown In**: screen
 
 **Priority**: MUST_HAVE
 
 **Release**: REL-001
+
+**Build Status**: Built and tested, 2026-10-29. Tested by `e2e/checks/plans-1-2.mjs`.
 
 ---
 
@@ -779,15 +820,17 @@ There are 24 functional requirements. All text is copied from
 
 **Acceptance Criteria**:
 
-- [ ] Given the author opened PRD sets in two different folders before, when the author opens a folder with no PRD set, then the author sees both locations, each with its product name.
-- [ ] Given the list of known locations, when the author selects one, then the viewer opens that PRD set.
-- [ ] Given a known location whose PRD set no longer exists, when the author sees the list, then that location is marked as not found.
+- [x] Given the author opened PRD sets in two different folders before, when the author opens a folder with no PRD set, then the author sees both locations, each with its product name.
+- [x] Given the list of known locations, when the author selects one, then the viewer opens that PRD set.
+- [x] Given a known location whose PRD set no longer exists, when the author sees the list, then that location is marked as not found.
 
 **Shown In**: screen
 
 **Priority**: SHOULD_HAVE
 
 **Release**: REL-001
+
+**Build Status**: Built and tested, 2026-10-29. Tested by `e2e/checks/plans-1-2.mjs`.
 
 ---
 
@@ -801,14 +844,16 @@ There are 24 functional requirements. All text is copied from
 
 **Acceptance Criteria**:
 
-- [ ] Given the users and personas section with PER-001 to PER-005, when the author asks for the items of that section, then the author sees the five persona ids.
-- [ ] Given the five persona ids of that section are in view, when the author selects PER-001, then the author sees PER-001 with the status and grade of its section.
+- [x] Given the users and personas section with PER-001 to PER-005, when the author asks for the items of that section, then the author sees the five persona ids.
+- [x] Given the five persona ids of that section are in view, when the author selects PER-001, then the author sees PER-001 with the status and grade of its section.
 
 **Shown In**: screen
 
 **Priority**: MUST_HAVE
 
 **Release**: REL-001
+
+**Build Status**: Built and tested, 2026-10-29. Tested by `e2e/checks/phase-1-reading.mjs`.
 
 ---
 
@@ -822,15 +867,17 @@ There are 24 functional requirements. All text is copied from
 
 **Acceptance Criteria**:
 
-- [ ] Given the current directory contains docs/prd with two PRD sets, and neither set was open in the last session, when the author runs prdf, then the author sees both sets, each with its product name and folder, and the viewer opens neither set.
-- [ ] Given the current directory contains docs/prd with two PRD sets, and one of them was open in the last session, when the author runs prdf, then the viewer opens that set.
-- [ ] Given that list, when the author selects one set, then the viewer opens that PRD set.
+- [x] Given the current directory contains docs/prd with two PRD sets, and neither set was open in the last session, when the author runs prdf, then the author sees both sets, each with its product name and folder, and the viewer opens neither set.
+- [x] Given the current directory contains docs/prd with two PRD sets, and one of them was open in the last session, when the author runs prdf, then the viewer opens that set.
+- [x] Given that list, when the author selects one set, then the viewer opens that PRD set.
 
 **Shown In**: screen
 
 **Priority**: SHOULD_HAVE
 
 **Release**: REL-001
+
+**Build Status**: Built and tested, 2026-10-29. Tested by `e2e/checks/plans-1-2.mjs`.
 
 ---
 

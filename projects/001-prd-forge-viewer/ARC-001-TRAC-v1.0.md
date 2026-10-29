@@ -13,7 +13,7 @@
 | **Status** | DRAFT |
 | **Version** | 1.0 |
 | **Created Date** | 2026-10-26 |
-| **Last Modified** | 2026-10-28 |
+| **Last Modified** | 2026-10-29 |
 | **Review Cycle** | On-Demand |
 | **Next Review Date** | 2026-11-25 |
 | **Owner** | Richard Hightower, PRD owner |
@@ -30,6 +30,7 @@
 | 1.0 | 2026-10-27 | ArcKit AI | Updated for PRD 0.4.0: FR-023 restated, the ST-008 gap closed because ST-008 is not on the release line | [PENDING] | [PENDING] |
 | 1.0 | 2026-10-27 | ArcKit AI | Updated for PRD 0.5.0: nine requirements to SHOULD_HAVE, FR-025 added for REL-002 | [PENDING] | [PENDING] |
 | 1.0 | 2026-10-28 | ArcKit AI | Updated for PRD 0.6.1: C-001, C-002, and C-004 retired, NFR-008 extended, release 1 on 2026-11-06 | [PENDING] | [PENDING] |
+| 1.0 | 2026-10-29 | ArcKit AI | Build status for release 1: FR-001 to FR-024 except FR-006 built and tested by the tauri MCP checks in `e2e/checks/` | [PENDING] | [PENDING] |
 
 ## Document purpose
 
@@ -80,43 +81,43 @@ range that holds it. "HLDR" is the HLD review finding that applies.
 | BR-001 | Stakeholders give feedback on a PRD version sooner | MUST_HAVE | All release 1 containers | ADR-002, ADR-003, ADR-004, ADR-005 |  | Baseline about 10 days from the historic PRDs (Q-001, answered) | ⏳ Planned |
 | BR-002 | No version reaches a stakeholder with a blocking defect | MUST_HAVE | Export assembly layer (grades in export) | ADR-002 |  | Read grades of each version sent | ⏳ Planned |
 | BR-003 | Deliver the two releases on their dates | MUST_HAVE | Not a design element | ADR-001, ADR-002, ADR-003, HLDR | ADV-07 (closed) | Release date check | ⏳ Planned |
-| FR-001 | Open a PRD set and see its contents | MUST_HAVE | Set reader, Web UI tree | ADR-001, DATA, DIAG-001, DIAG-002, DIAG-003, HLDR |  | Acceptance criteria in REQ | ⏳ Planned |
-| FR-002 | Return to the same PRD set in the next session | SHOULD_HAVE | Settings store, Change watcher | ADR-001, ADR-004, ADR-005, DATA, DIAG-001, DIAG-002, DIAG-003, HLDR |  | Acceptance criteria in REQ | ⏳ Planned |
-| FR-003 | Open a PRD set that has incomplete or unreadable documents | MUST_HAVE | Set reader | ADR-001, ADR-005, DATA, DIAG-001, DIAG-002, DIAG-003, DIAG-004, HLDR |  | Acceptance criteria in REQ | ⏳ Planned |
-| FR-004 | See the grades of all sections together | MUST_HAVE | Web UI grade view | ADR-001, DATA, DIAG-001, DIAG-002, DIAG-003, HLDR |  | Acceptance criteria in REQ | ⏳ Planned |
-| FR-005 | Go directly to any section | MUST_HAVE | Web UI tree | ADR-001, ADR-003, DATA, DIAG-001, DIAG-002, HLDR |  | Acceptance criteria in REQ | ⏳ Planned |
+| FR-001 | Open a PRD set and see its contents | MUST_HAVE | Set reader, Web UI tree | ADR-001, DATA, DIAG-001, DIAG-002, DIAG-003, HLDR |  | Acceptance criteria in REQ | ✅ Built and tested: `e2e/checks/plans-1-2.mjs`, `e2e/checks/phase-2-search.mjs` |
+| FR-002 | Return to the same PRD set in the next session | SHOULD_HAVE | Settings store, Change watcher | ADR-001, ADR-004, ADR-005, DATA, DIAG-001, DIAG-002, DIAG-003, HLDR |  | Acceptance criteria in REQ | ✅ Built and tested: `e2e/checks/plans-1-2.mjs`, `e2e/checks/phase-2-search.mjs` |
+| FR-003 | Open a PRD set that has incomplete or unreadable documents | MUST_HAVE | Set reader | ADR-001, ADR-005, DATA, DIAG-001, DIAG-002, DIAG-003, DIAG-004, HLDR |  | Acceptance criteria in REQ | ✅ Built and tested: `e2e/checks/plans-1-2.mjs` |
+| FR-004 | See the grades of all sections together | MUST_HAVE | Web UI grade view | ADR-001, DATA, DIAG-001, DIAG-002, DIAG-003, HLDR |  | Acceptance criteria in REQ | ✅ Built and tested: `e2e/checks/plans-1-2.mjs`, `e2e/checks/phase-1-reading.mjs` |
+| FR-005 | Go directly to any section | MUST_HAVE | Web UI tree | ADR-001, ADR-003, DATA, DIAG-001, DIAG-002, HLDR |  | Acceptance criteria in REQ | ✅ Built and tested: `e2e/checks/phase-1-reading.mjs` |
 | FR-006 | Move to the previous or the next section in reading order | WONT_HAVE | None (WONT_HAVE) | ADR-001, DIAG-001, HLDR |  | Acceptance criteria in REQ | ➖ Not delivered |
-| FR-007 | Follow a reference from one item to the item it names | SHOULD_HAVE | Set reader, Web UI | ADR-001, ADR-003, DATA, DIAG-001, DIAG-002, DIAG-003, HLDR |  | Acceptance criteria in REQ | ⏳ Planned |
-| FR-008 | Search the PRD set by term, in one category or in all categories | MUST_HAVE | Search index | ADR-001, ADR-003, DATA, DIAG-001, DIAG-002, DIAG-003, HLDR | ADV-08 (closed) | Acceptance criteria in REQ | ⏳ Planned |
-| FR-009 | See changes that the authoring tools make, without any action | MUST_HAVE | Change watcher, Set reader | ADR-001, ADR-005, DATA, DIAG-001, DIAG-002, DIAG-003, DIAG-004, HLDR |  | Acceptance criteria in REQ | ⏳ Planned |
-| FR-010 | Export the PRD set as a fixed-layout document (IN-006) | MUST_HAVE | HTML to PDF writer, Export saver | ADR-001, ADR-002, DIAG-001, DIAG-002, DIAG-003, HLDR | BLOCKING-01 (closed) | Acceptance criteria in REQ | ⏳ Planned |
-| FR-011 | Export the PRD set as an editable document (IN-006) | SHOULD_HAVE | Web UI Word writer, Export saver | ADR-001, ADR-002, DIAG-001, DIAG-002, DIAG-003, HLDR |  | Acceptance criteria in REQ | ⏳ Planned |
-| FR-012 | Export only selected sections | MUST_HAVE | Export assembly layer | ADR-001, ADR-002, ADR-003, DIAG-001, DIAG-002, DIAG-003, HLDR |  | Acceptance criteria in REQ | ⏳ Planned |
-| FR-013 | Print the PRD set or selected sections | SHOULD_HAVE | Web UI, OS print service | ADR-001, ADR-002, DATA, DIAG-001, DIAG-002, HLDR | ADV-06 | Acceptance criteria in REQ | ⏳ Planned |
-| FR-014 | See the version of the PRD, and if it is a draft, in an export | MUST_HAVE | Export assembly layer | ADR-001, ADR-002, DATA, DIAG-001, DIAG-002, HLDR |  | Acceptance criteria in REQ | ⏳ Planned |
-| FR-015 | Select an export theme from the built-in themes | MUST_HAVE | Motion themes | ADR-001, ADR-002, DATA, DIAG-001, DIAG-002, HLDR |  | Acceptance criteria in REQ | ⏳ Planned |
-| FR-016 | Make a custom export theme | SHOULD_HAVE | Theme dialogs, Settings store | ADR-001, ADR-002, DATA, DIAG-001, DIAG-002, DIAG-003, HLDR |  | Acceptance criteria in REQ | ⏳ Planned |
-| FR-017 | Change a custom export theme | SHOULD_HAVE | Theme dialogs, Settings store | ADR-001, ADR-002, DATA, DIAG-001, DIAG-002, DIAG-003, HLDR |  | Acceptance criteria in REQ | ⏳ Planned |
-| FR-018 | Delete a custom export theme | SHOULD_HAVE | Theme dialogs, Settings store | ADR-001, ADR-002, DATA, DIAG-001, DIAG-002, DIAG-003, HLDR |  | Acceptance criteria in REQ | ⏳ Planned |
-| FR-019 | See the status and score of every section in an export | SHOULD_HAVE | Export assembly layer | ADR-001, ADR-002, DATA, DIAG-001, DIAG-002, HLDR |  | Acceptance criteria in REQ | ⏳ Planned |
-| FR-020 | Keep custom export themes from one session to the next | SHOULD_HAVE | Settings store | ADR-001, ADR-002, DATA, DIAG-001, DIAG-002, DIAG-003, HLDR |  | Acceptance criteria in REQ | ⏳ Planned |
-| FR-021 | Start the viewer from a terminal with the command prdf | MUST_HAVE | prdf launcher, Instance handler | ADR-001, ADR-004, DATA, DIAG-001, DIAG-002, DIAG-003, HLDR |  | Acceptance criteria in REQ | ⏳ Planned |
-| FR-022 | Choose a PRD set from the locations the viewer remembers | SHOULD_HAVE | Settings store, Web UI | ADR-001, ADR-004, DATA, DIAG-001, DIAG-002, DIAG-003, HLDR |  | Acceptance criteria in REQ | ⏳ Planned |
-| FR-023 | Select one item of a section and read it without the whole section | MUST_HAVE | Web UI tree, Set reader | ADR-001, DATA, DIAG-001, DIAG-002, HLDR |  | Acceptance criteria in REQ | ⏳ Planned |
-| FR-024 | Choose one PRD set when the docs/prd folder holds more than one | SHOULD_HAVE | prdf launcher, Web UI set list | ADR-001, ADR-004, DIAG-001, HLDR | ADV-02 (closed) | Acceptance criteria in REQ | ⏳ Planned |
+| FR-007 | Follow a reference from one item to the item it names | SHOULD_HAVE | Set reader, Web UI | ADR-001, ADR-003, DATA, DIAG-001, DIAG-002, DIAG-003, HLDR |  | Acceptance criteria in REQ | ✅ Built and tested: `e2e/checks/phase-1-reading.mjs` |
+| FR-008 | Search the PRD set by term, in one category or in all categories | MUST_HAVE | Search index | ADR-001, ADR-003, DATA, DIAG-001, DIAG-002, DIAG-003, HLDR | ADV-08 (closed) | Acceptance criteria in REQ | ✅ Built and tested: `e2e/checks/phase-2-search.mjs` |
+| FR-009 | See changes that the authoring tools make, without any action | MUST_HAVE | Change watcher, Set reader | ADR-001, ADR-005, DATA, DIAG-001, DIAG-002, DIAG-003, DIAG-004, HLDR |  | Acceptance criteria in REQ | ✅ Built and tested: `e2e/checks/phase-3-live.mjs` |
+| FR-010 | Export the PRD set as a fixed-layout document (IN-006) | MUST_HAVE | HTML to PDF writer, Export saver | ADR-001, ADR-002, DIAG-001, DIAG-002, DIAG-003, HLDR | BLOCKING-01 (closed) | Acceptance criteria in REQ | ✅ Built and tested: `e2e/checks/phase-5-export.mjs` |
+| FR-011 | Export the PRD set as an editable document (IN-006) | SHOULD_HAVE | Web UI Word writer, Export saver | ADR-001, ADR-002, DIAG-001, DIAG-002, DIAG-003, HLDR |  | Acceptance criteria in REQ | ✅ Built and tested: `e2e/checks/phase-5-export.mjs` |
+| FR-012 | Export only selected sections | MUST_HAVE | Export assembly layer | ADR-001, ADR-002, ADR-003, DIAG-001, DIAG-002, DIAG-003, HLDR |  | Acceptance criteria in REQ | ✅ Built and tested: `e2e/checks/phase-5-export.mjs` |
+| FR-013 | Print the PRD set or selected sections | SHOULD_HAVE | Web UI, OS print service | ADR-001, ADR-002, DATA, DIAG-001, DIAG-002, HLDR | ADV-06 | Acceptance criteria in REQ | ✅ Built and tested: `e2e/checks/phase-5-export.mjs` |
+| FR-014 | See the version of the PRD, and if it is a draft, in an export | MUST_HAVE | Export assembly layer | ADR-001, ADR-002, DATA, DIAG-001, DIAG-002, HLDR |  | Acceptance criteria in REQ | ✅ Built and tested: `e2e/checks/phase-5-export.mjs` |
+| FR-015 | Select an export theme from the built-in themes | MUST_HAVE | Motion themes | ADR-001, ADR-002, DATA, DIAG-001, DIAG-002, HLDR |  | Acceptance criteria in REQ | ✅ Built and tested: `e2e/checks/phase-4-themes.mjs`, `e2e/checks/phase-5-export.mjs` |
+| FR-016 | Make a custom export theme | SHOULD_HAVE | Theme dialogs, Settings store | ADR-001, ADR-002, DATA, DIAG-001, DIAG-002, DIAG-003, HLDR |  | Acceptance criteria in REQ | ✅ Built and tested: `e2e/checks/phase-4-themes.mjs`, `e2e/checks/phase-5-export.mjs` |
+| FR-017 | Change a custom export theme | SHOULD_HAVE | Theme dialogs, Settings store | ADR-001, ADR-002, DATA, DIAG-001, DIAG-002, DIAG-003, HLDR |  | Acceptance criteria in REQ | ✅ Built and tested: `e2e/checks/phase-4-themes.mjs` |
+| FR-018 | Delete a custom export theme | SHOULD_HAVE | Theme dialogs, Settings store | ADR-001, ADR-002, DATA, DIAG-001, DIAG-002, DIAG-003, HLDR |  | Acceptance criteria in REQ | ✅ Built and tested: `e2e/checks/phase-4-themes.mjs` |
+| FR-019 | See the status and score of every section in an export | SHOULD_HAVE | Export assembly layer | ADR-001, ADR-002, DATA, DIAG-001, DIAG-002, HLDR |  | Acceptance criteria in REQ | ✅ Built and tested: `e2e/checks/phase-5-export.mjs` |
+| FR-020 | Keep custom export themes from one session to the next | SHOULD_HAVE | Settings store | ADR-001, ADR-002, DATA, DIAG-001, DIAG-002, DIAG-003, HLDR |  | Acceptance criteria in REQ | ✅ Built and tested: `e2e/checks/phase-4-themes.mjs` |
+| FR-021 | Start the viewer from a terminal with the command prdf | MUST_HAVE | prdf launcher, Instance handler | ADR-001, ADR-004, DATA, DIAG-001, DIAG-002, DIAG-003, HLDR |  | Acceptance criteria in REQ | ✅ Built and tested: `e2e/checks/plans-1-2.mjs` |
+| FR-022 | Choose a PRD set from the locations the viewer remembers | SHOULD_HAVE | Settings store, Web UI | ADR-001, ADR-004, DATA, DIAG-001, DIAG-002, DIAG-003, HLDR |  | Acceptance criteria in REQ | ✅ Built and tested: `e2e/checks/plans-1-2.mjs` |
+| FR-023 | Select one item of a section and read it without the whole section | MUST_HAVE | Web UI tree, Set reader | ADR-001, DATA, DIAG-001, DIAG-002, HLDR |  | Acceptance criteria in REQ | ✅ Built and tested: `e2e/checks/phase-1-reading.mjs` |
+| FR-024 | Choose one PRD set when the docs/prd folder holds more than one | SHOULD_HAVE | prdf launcher, Web UI set list | ADR-001, ADR-004, DIAG-001, HLDR | ADV-02 (closed) | Acceptance criteria in REQ | ✅ Built and tested: `e2e/checks/plans-1-2.mjs` |
 | FR-025 | See the findings behind the grade of a section | WONT_HAVE (REL-002) | Set reader, Web UI grade view | DATA |  | Acceptance criteria in REQ | ⏳ Planned |
-| NFR-P-001 | Open a PRD set | MUST_HAVE | Set reader, Search index | ADR-001, ADR-003, ADR-004, DIAG-001, DIAG-002, DIAG-003, DIAG-004, HLDR |  | Perf: open 18-document fixture, p95 | ⏳ Planned |
-| NFR-P-002 | Show a change from the authoring tools | MUST_HAVE | Change watcher | ADR-001, ADR-003, ADR-005, DATA, DIAG-001, DIAG-002, DIAG-003, DIAG-004, HLDR |  | Perf: 20 saves, screen recording, 19th fastest | ⏳ Planned |
-| NFR-P-003 | Search response time | MUST_HAVE | Search index | ADR-001, ADR-003, DATA, DIAG-001, DIAG-002, DIAG-003, DIAG-004, HLDR |  | Perf: search 18-document fixture, p95 | ⏳ Planned |
-| NFR-P-004 | Export time | MUST_HAVE | Export writers | ADR-001, ADR-002, DATA, DIAG-001, DIAG-002, DIAG-003, DIAG-004, HLDR |  | Perf: whole-set export, p95 | ⏳ Planned |
+| NFR-P-001 | Open a PRD set | MUST_HAVE | Set reader, Search index | ADR-001, ADR-003, ADR-004, DIAG-001, DIAG-002, DIAG-003, DIAG-004, HLDR |  | Perf: open 18-document fixture, p95 | ✅ Tested: `plans-1-2.mjs`, 850 ms to first paint with app start |
+| NFR-P-002 | Show a change from the authoring tools | MUST_HAVE | Change watcher | ADR-001, ADR-003, ADR-005, DATA, DIAG-001, DIAG-002, DIAG-003, DIAG-004, HLDR |  | Perf: 20 saves, screen recording, 19th fastest | ✅ Tested: `phase-3-live.mjs`, p95 621 ms over 20 saves |
+| NFR-P-003 | Search response time | MUST_HAVE | Search index | ADR-001, ADR-003, DATA, DIAG-001, DIAG-002, DIAG-003, DIAG-004, HLDR |  | Perf: search 18-document fixture, p95 | ✅ Tested: `phase-2-search.mjs`, p95 55 ms over 20 searches |
+| NFR-P-004 | Export time | MUST_HAVE | Export writers | ADR-001, ADR-002, DATA, DIAG-001, DIAG-002, DIAG-003, DIAG-004, HLDR |  | Perf: whole-set export, p95 | ✅ Tested: `phase-5-export.mjs`, p95 about 1.0 s over 20 exports |
 | NFR-A-001 | Works without a network | MUST_HAVE | Whole app, no network | ADR-001, DIAG-001, DIAG-002, DIAG-003, DIAG-004, HLDR |  | Acceptance suite with the network off | ⏳ Planned |
-| NFR-A-002 | Custom themes, known locations, and the last set survive a restart | MUST_HAVE | Settings store | ADR-002, ADR-004, DATA, DIAG-001, DIAG-002, DIAG-003, DIAG-004, HLDR |  | Restart test with custom themes, known locations, and the last set | ⏳ Planned |
-| NFR-A-003 | Fault tolerance for unreadable documents | MUST_HAVE | Set reader | DIAG-001, DIAG-002, DIAG-003, DIAG-004, HLDR |  | Acceptance criteria in REQ | ⏳ Planned |
+| NFR-A-002 | Custom themes, known locations, and the last set survive a restart | MUST_HAVE | Settings store | ADR-002, ADR-004, DATA, DIAG-001, DIAG-002, DIAG-003, DIAG-004, HLDR |  | Restart test with custom themes, known locations, and the last set | ✅ Tested: `phase-4-themes.mjs` and `plans-1-2.mjs` restarts |
+| NFR-A-003 | Fault tolerance for unreadable documents | MUST_HAVE | Set reader | DIAG-001, DIAG-002, DIAG-003, DIAG-004, HLDR |  | Acceptance criteria in REQ | ✅ Tested: `plans-1-2.mjs` (FR-003) |
 | NFR-SEC-001 | No PRD content leaves the computer | MUST_HAVE | Whole app, no network | ADR-001, DATA, DIAG-001, DIAG-002, DIAG-003, DIAG-004, HLDR |  | Acceptance criteria in REQ | ⏳ Planned |
-| NFR-SEC-002 | The viewer does not change the PRD set | MUST_HAVE | Command handler, Export saver, capabilities | ADR-001, ADR-003, ADR-004, ADR-005, DATA, DIAG-001, DIAG-002, DIAG-003, DIAG-004, HLDR |  | Checksum of every set file before and after | ⏳ Planned |
-| NFR-SEC-003 | Only local content shows | MUST_HAVE | CSP, sanitized rendering, SVG as image | ADR-001, DIAG-001, DIAG-002, DIAG-003, DIAG-004, HLDR | ADV-01 (closed), ADV-05 | Hostile fixture: script, remote image, SVG | ⏳ Planned |
-| NFR-U-001 | Keyboard-only use | MUST_HAVE | Web UI | ADR-001, HLDR | ADV-04 | Keyboard-only run of every acceptance criterion | ⏳ Planned |
-| NFR-U-002 | Exports readable by a screen reader | SHOULD_HAVE | Export writers | ADR-002, HLDR | BLOCKING-01 (closed) | PDF and .docx accessibility check, screen reader; picks the PDF engine | ⏳ Planned |
+| NFR-SEC-002 | The viewer does not change the PRD set | MUST_HAVE | Command handler, Export saver, capabilities | ADR-001, ADR-003, ADR-004, ADR-005, DATA, DIAG-001, DIAG-002, DIAG-003, DIAG-004, HLDR |  | Checksum of every set file before and after | 🟡 Partly tested: no new file in the set (`phase-3-live.mjs`), exports refused in the set (`phase-5-export.mjs`); no checksum run |
+| NFR-SEC-003 | Only local content shows | MUST_HAVE | CSP, sanitized rendering, SVG as image | ADR-001, DIAG-001, DIAG-002, DIAG-003, DIAG-004, HLDR | ADV-01 (closed), ADV-05 | Hostile fixture: script, remote image, SVG | 🟡 Partly tested: remote image blocked (`phase-1-reading.mjs`); no full hostile fixture |
+| NFR-U-001 | Keyboard-only use | MUST_HAVE | Web UI | ADR-001, HLDR | ADV-04 | Keyboard-only run of every acceptance criterion | 🟡 Partly tested: keyboard checks in `plans-1-2.mjs` and `phase-4-themes.mjs`; no full keyboard audit |
+| NFR-U-002 | Exports readable by a screen reader | SHOULD_HAVE | Export writers | ADR-002, HLDR | BLOCKING-01 (closed) | PDF and .docx accessibility check, screen reader; picks the PDF engine | 🟡 Partly tested: structure checks in `phase-5-export.mjs`; no reader checker run; PDF engine chosen (ADR-002) |
 | NFR-I-001 | PRD Forge format version 1 | MUST_HAVE | Set reader | DATA, DIAG-003, HLDR |  | Acceptance criteria in REQ | ⏳ Planned |
 | NFR-I-002 | Standard export formats | MUST_HAVE | Export writers | ADR-002, HLDR |  | Acceptance criteria in REQ | ⏳ Planned |
 | NFR-I-003 | Release 1 platform | MUST_HAVE | macOS release package | HLDR | ADV-03 (closed) | Acceptance suite on the macOS test computer | ⏳ Planned |
@@ -138,18 +139,23 @@ HLD finding applies. ❌ Gap = no design reference. ➖ Not delivered = WONT_HAV
 
 ### 2.2 backward traceability: tests → design → requirements
 
-No test exists yet. The planned test groups are:
+The tauri MCP checks in `e2e/checks/` drive the real app and read its files.
+Run them with `bun run test:e2e`. The unit tests run with `cargo test` and
+`bun test src`.
 
-| Test group | Design element | Requirements |
-|------------|----------------|--------------|
-| Acceptance suite on fixture sets, on macOS | All containers | FR-001 to FR-024 except FR-006, INT-001 to INT-005, NFR-I-003 |
-| Performance tests on the 18-document fixture | Set reader, Change watcher, Search index, Export writers | NFR-P-001 to NFR-P-004 |
-| Read-only checksum test | Command handler, Export saver | NFR-SEC-002 |
-| Hostile fixture test | CSP, rendering, SVG as image | NFR-SEC-003 |
-| Network-off acceptance run | Whole app | NFR-A-001, NFR-SEC-001 |
-| Restart test | Settings store | NFR-A-002, FR-020 |
-| Accessibility audit | Web UI, Export writers | NFR-U-001, NFR-U-002 |
-| PDF accessibility test | HTML to PDF writer | FR-010, NFR-U-002 |
+| Test file | Design element | Requirements |
+|-----------|----------------|--------------|
+| `plans-1-2.mjs` | Set reader, Settings store, `prdf` launcher, Web UI grade view | FR-001 to FR-004, FR-021, FR-022, FR-024, NFR-001, NFR-007 |
+| `phase-1-reading.mjs` | Set reader, Web UI tree, sanitized rendering | FR-004, FR-005, FR-007, FR-023, NFR-010 |
+| `phase-2-search.mjs` | Search index | FR-001, FR-002, FR-008, NFR-003 |
+| `phase-3-live.mjs` | Change watcher | FR-009, NFR-002, OUT-001 |
+| `phase-4-themes.mjs` | Motion themes, Theme dialogs, Settings store | FR-015 to FR-018, FR-020, NFR-007 |
+| `phase-5-export.mjs` | Export assembly layer, HTML to PDF writer, Word writer, Export saver | FR-010 to FR-016, FR-019, TR-005, TR-007, TR-010, NFR-004, NFR-009, OUT-001 |
+
+Planned test groups that have no run yet: the network-off run (NFR-A-001,
+NFR-SEC-001), the checksum test (NFR-SEC-002), the full hostile fixture
+(NFR-SEC-003), the full keyboard audit (NFR-U-001), and a reader's
+accessibility checker on each export (NFR-U-002).
 
 ---
 
@@ -193,8 +199,8 @@ design.
 
 ### 3.3 test coverage
 
-Implementation coverage: 0%. Test coverage: 0% run, 100% of covered
-requirements have a planned test. The build has not started.
+Implementation coverage: 23 of 23 release 1 functional requirements are built.
+Each has a passing tauri MCP check (section 2.2). FR-025 is in release 2.
 
 ---
 
@@ -208,11 +214,14 @@ requirements have a planned test. The build has not started.
 
 ### 4.2 requirements without tests
 
-No requirement has a run test. Every requirement has a planned test in section
-2.1. The tests that need a decision first:
+Every release 1 functional requirement has a run test. These non-functional
+requirements have no full run yet:
 
-- NFR-U-002: the first run picks the PDF print engine (ADR-002).
-- NFR-U-001: no tool or method chosen for the keyboard audit (HLDR ADV-04).
+- NFR-A-001 and NFR-SEC-001: no network-off run.
+- NFR-SEC-002: no checksum run. The e2e checks confirm that no file is added to the set and that an export into the set is refused.
+- NFR-SEC-003: no full hostile fixture. The e2e checks confirm that a remote image does not load.
+- NFR-U-001: no full keyboard audit (HLDR ADV-04).
+- NFR-U-002: no reader's accessibility checker was available. The PDF engine is chosen (ADR-002), and the structure checks pass.
 
 ### 4.3 design components without requirements
 

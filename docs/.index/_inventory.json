@@ -196,7 +196,7 @@
    ],
    "slug": "plan-8-closeout",
    "source": "docs/plans/2026-10-29-plan-8-closeout.md",
-   "status": "planned",
+   "status": "active",
    "title": "Plan 8: close out release 1",
    "truth_state": "current",
    "wiki_key": "plan/2026-10-29-plan-8-closeout"
@@ -204,11 +204,11 @@
   {
    "canonical_key": "roadmap",
    "doc_type": "roadmap",
-   "generated_at": "2026-10-29T17:40:49Z",
-   "git_hash": "27c246d",
+   "generated_at": "2026-10-29T17:42:30Z",
+   "git_hash": "29c6b61",
    "slug": "roadmap",
    "source": "docs/roadmap.md",
-   "source_hash": "0b9312bd",
+   "source_hash": "0d1c46c0",
    "title": "Roadmap",
    "truth_state": "current",
    "wiki_key": "roadmap"
