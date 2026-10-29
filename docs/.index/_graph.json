@@ -1761,9 +1761,19 @@
    "type": "targets"
   },
   {
+   "from": "item/01M62EBHYNFP9BW4QZRF310SYS",
+   "to": "ticket/github#143",
+   "type": "references"
+  },
+  {
    "from": "item/01M62EBHZ3H52KPBDQCA3YYTVE",
    "to": "item/01M62EBHYNFP9BW4QZRF310SYS",
    "type": "belongs-to"
+  },
+  {
+   "from": "item/01M62EBHZ3H52KPBDQCA3YYTVE",
+   "to": "ticket/github#144",
+   "type": "references"
   },
   {
    "from": "item/01M62EBHZ3H52KPBDQCA3YYTVG",
@@ -1771,9 +1781,19 @@
    "type": "belongs-to"
   },
   {
+   "from": "item/01M62EBHZ3H52KPBDQCA3YYTVG",
+   "to": "ticket/github#145",
+   "type": "references"
+  },
+  {
    "from": "item/01M62EBHZ3H52KPBDQCA3YYTVJ",
    "to": "item/01M62EBHYNFP9BW4QZRF310SYS",
    "type": "belongs-to"
+  },
+  {
+   "from": "item/01M62EBHZ3H52KPBDQCA3YYTVJ",
+   "to": "ticket/github#146",
+   "type": "references"
   },
   {
    "from": "item/01M62EBHZ3H52KPBDQCA3YYTVM",
@@ -1781,8 +1801,43 @@
    "type": "belongs-to"
   },
   {
+   "from": "item/01M62EBHZ3H52KPBDQCA3YYTVM",
+   "to": "ticket/github#147",
+   "type": "references"
+  },
+  {
    "from": "item/01M62EBHZ3H52KPBDQCA3YYTVP",
    "to": "item/01M62EBHYNFP9BW4QZRF310SYS",
+   "type": "belongs-to"
+  },
+  {
+   "from": "item/01M62EBHZ3H52KPBDQCA3YYTVP",
+   "to": "ticket/github#148",
+   "type": "references"
+  },
+  {
+   "from": "item/01M62GWASEB3E2HFZ9GR8K5WEZ",
+   "to": "item/01M62GWAS1QA1XNBMNG3MPNGRD",
+   "type": "belongs-to"
+  },
+  {
+   "from": "item/01M62GWASEB3E2HFZ9GR8K5WF1",
+   "to": "item/01M62GWAS1QA1XNBMNG3MPNGRD",
+   "type": "belongs-to"
+  },
+  {
+   "from": "item/01M62GWASEB3E2HFZ9GR8K5WF3",
+   "to": "item/01M62GWAS1QA1XNBMNG3MPNGRD",
+   "type": "belongs-to"
+  },
+  {
+   "from": "item/01M62GWASEB3E2HFZ9GR8K5WF5",
+   "to": "item/01M62GWAS1QA1XNBMNG3MPNGRD",
+   "type": "belongs-to"
+  },
+  {
+   "from": "item/01M62HGSCA8H08GP2CEW69EZYN",
+   "to": "item/01M62GWAS1QA1XNBMNG3MPNGRD",
    "type": "belongs-to"
   },
   {
@@ -2033,6 +2088,31 @@
   {
    "from": "plan/2026-10-28-release-1-completion",
    "to": "item/01M62C7REHN9N2P8Z19K0EPA0H",
+   "type": "produces"
+  },
+  {
+   "from": "plan/2026-10-29-plan-5-live",
+   "to": "item/01M62GWAS1QA1XNBMNG3MPNGRD",
+   "type": "produces"
+  },
+  {
+   "from": "plan/2026-10-29-plan-5-live",
+   "to": "item/01M62GWASEB3E2HFZ9GR8K5WEZ",
+   "type": "produces"
+  },
+  {
+   "from": "plan/2026-10-29-plan-5-live",
+   "to": "item/01M62GWASEB3E2HFZ9GR8K5WF1",
+   "type": "produces"
+  },
+  {
+   "from": "plan/2026-10-29-plan-5-live",
+   "to": "item/01M62GWASEB3E2HFZ9GR8K5WF3",
+   "type": "produces"
+  },
+  {
+   "from": "plan/2026-10-29-plan-5-live",
+   "to": "item/01M62GWASEB3E2HFZ9GR8K5WF5",
    "type": "produces"
   }
  ],
@@ -2579,7 +2659,7 @@
   },
   "item/01M62C7REFJRP4FVS9Z3JD5SBQ": {
    "doc_type": "item",
-   "status": "todo",
+   "status": "in_progress",
    "title": "Phase 3: live updates from the authoring tools (US-013)"
   },
   "item/01M62C7REFJRP4FVS9Z3JD5SBS": {
@@ -2737,6 +2817,36 @@
    "status": "done",
    "title": "Task 5: MCP checks for phase 2"
   },
+  "item/01M62GWAS1QA1XNBMNG3MPNGRD": {
+   "doc_type": "item",
+   "status": "todo",
+   "title": "Plan 5: live updates from the authoring tools"
+  },
+  "item/01M62GWASEB3E2HFZ9GR8K5WEZ": {
+   "doc_type": "item",
+   "status": "done",
+   "title": "Task 1: watch the set folder"
+  },
+  "item/01M62GWASEB3E2HFZ9GR8K5WF1": {
+   "doc_type": "item",
+   "status": "done",
+   "title": "Task 2: the watch and reload commands"
+  },
+  "item/01M62GWASEB3E2HFZ9GR8K5WF3": {
+   "doc_type": "item",
+   "status": "done",
+   "title": "Task 3: show changes in the window"
+  },
+  "item/01M62GWASEB3E2HFZ9GR8K5WF5": {
+   "doc_type": "item",
+   "status": "done",
+   "title": "Task 4: MCP checks for phase 3"
+  },
+  "item/01M62HGSCA8H08GP2CEW69EZYN": {
+   "doc_type": "item",
+   "status": "done",
+   "title": "Fix the phase 3 review findings"
+  },
   "plan/2026-10-28-plan-1-open-and-grades": {
    "doc_type": "plan",
    "source": "docs/plans/2026-10-28-plan-1-open-and-grades.md",
@@ -2765,6 +2875,12 @@
    "doc_type": "plan",
    "source": "docs/plans/2026-10-28-release-1-completion.md",
    "title": "Release 1 completion: build the 15 remaining requirements",
+   "truth_state": "current"
+  },
+  "plan/2026-10-29-plan-5-live": {
+   "doc_type": "plan",
+   "source": "docs/plans/2026-10-29-plan-5-live.md",
+   "title": "Plan 5: live updates from the authoring tools",
    "truth_state": "current"
   },
   "release/REL-001": {
@@ -2951,6 +3067,30 @@
   "ticket/github#141": {
    "doc_type": "ticket",
    "url": "https://github.com/SpillwaveSolutions/prd-forge-viewer/issues/141"
+  },
+  "ticket/github#143": {
+   "doc_type": "ticket",
+   "url": "https://github.com/SpillwaveSolutions/prd-forge-viewer/issues/143"
+  },
+  "ticket/github#144": {
+   "doc_type": "ticket",
+   "url": "https://github.com/SpillwaveSolutions/prd-forge-viewer/issues/144"
+  },
+  "ticket/github#145": {
+   "doc_type": "ticket",
+   "url": "https://github.com/SpillwaveSolutions/prd-forge-viewer/issues/145"
+  },
+  "ticket/github#146": {
+   "doc_type": "ticket",
+   "url": "https://github.com/SpillwaveSolutions/prd-forge-viewer/issues/146"
+  },
+  "ticket/github#147": {
+   "doc_type": "ticket",
+   "url": "https://github.com/SpillwaveSolutions/prd-forge-viewer/issues/147"
+  },
+  "ticket/github#148": {
+   "doc_type": "ticket",
+   "url": "https://github.com/SpillwaveSolutions/prd-forge-viewer/issues/148"
   },
   "ticket/github#15": {
    "doc_type": "ticket",
