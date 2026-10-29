@@ -1,11 +1,11 @@
 {
- "git_hash": "5cb790f",
+ "git_hash": "f642750",
  "pages": [
   {
    "frozen": false,
    "page_name": "Home",
    "render": "as-is",
-   "render_hash": "e2213c495465",
+   "render_hash": "2f569509541c",
    "source": "docs/.index/rendered/home.md",
    "title": "Home",
    "truth_state": "current",
@@ -15,7 +15,7 @@
    "frozen": false,
    "page_name": "Index-Decisions",
    "render": "as-is",
-   "render_hash": "dd1c82b01111",
+   "render_hash": "aeb66a98a81a",
    "source": "docs/.index/rendered/decisions.md",
    "title": "Decisions Index",
    "truth_state": "current",
@@ -45,7 +45,7 @@
    "frozen": false,
    "page_name": "Index-Traceability",
    "render": "as-is",
-   "render_hash": "22e88d5345e9",
+   "render_hash": "4b17af6a4932",
    "source": "docs/.index/rendered/traceability.md",
    "title": "Traceability Index",
    "truth_state": "current",
@@ -1525,7 +1525,7 @@
    "frozen": false,
    "page_name": "Ticket-01M62PG5A0K6D0ZN6QHB51EG8W",
    "render": "as-is",
-   "render_hash": "f2ccd43686c9",
+   "render_hash": "6b79120fa5f0",
    "source": "docs/.index/rendered/tickets/01M62PG5A0K6D0ZN6QHB51EG8W.md",
    "title": "Plan 6: export themes",
    "truth_state": "open",
@@ -1565,10 +1565,10 @@
    "frozen": false,
    "page_name": "Ticket-01M62PG5ADWD51YWCVTGKQ63YH",
    "render": "as-is",
-   "render_hash": "0ae4a0856c7d",
+   "render_hash": "8bf8179c929c",
    "source": "docs/.index/rendered/tickets/01M62PG5ADWD51YWCVTGKQ63YH.md",
    "title": "Task 4: MCP checks for phase 4",
-   "truth_state": "open",
+   "truth_state": "done",
    "wiki_key": "item/01M62PG5ADWD51YWCVTGKQ63YH"
   },
   {
@@ -1644,11 +1644,11 @@
    "wiki_key": "plan/2026-10-29-plan-5-live"
   },
   {
-   "banner": "> **Current** \u2014 plan in flight; plans are frozen once written, a changed design gets a new plan.",
+   "banner": "> **Current** \u2014 completed plan; plans are frozen once written, a changed design gets a new plan.",
    "frozen": true,
    "page_name": "Plan-plan-6-themes",
    "render": "doc+banner",
-   "render_hash": "860a24dc414a",
+   "render_hash": "bed67b939cc6",
    "source": "docs/plans/2026-10-29-plan-6-themes.md",
    "source_hash": "f6a9eda99bb3",
    "title": "Plan 6: export themes",
@@ -1656,20 +1656,20 @@
    "wiki_key": "plan/2026-10-29-plan-6-themes"
   },
   {
-   "banner": "> **Current** \u2014 this is the living version; regenerated at 2026-10-29T07:27:11Z. Historical snapshots are linked from [[Index-Releases]].",
+   "banner": "> **Current** \u2014 this is the living version; regenerated at 2026-10-29T09:19:07Z. Historical snapshots are linked from [[Index-Releases]].",
    "frozen": false,
    "page_name": "Roadmap",
    "render": "doc+banner",
-   "render_hash": "96c0451e43e3",
+   "render_hash": "a36e57fc22cc",
    "source": "docs/roadmap.md",
-   "source_hash": "548c62354fca",
+   "source_hash": "d30e770e81f5",
    "title": "Roadmap",
    "truth_state": "current",
    "wiki_key": "roadmap"
   }
  ],
  "sidebar": {
-  "render_hash": "5923a2ee23f8",
+  "render_hash": "e6fad2ac0a2a",
   "source": "docs/.index/rendered/_Sidebar.md"
  },
  "version": 1

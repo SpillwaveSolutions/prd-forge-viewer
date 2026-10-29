@@ -3,7 +3,7 @@
 _The evidence chain: plan → item → ticket → code → release, forward and backward. Generated from `docs/.index/_graph.json`; do not edit._
 
 ### Task 4: MCP checks for phase 4
-`01M62PG5ADWD51YWCVTGKQ63YH` · status: todo
+`01M62PG5ADWD51YWCVTGKQ63YH` · status: done
 - belongs-to: Plan 6: export themes
 - references: [github#160](https://github.com/SpillwaveSolutions/prd-forge-viewer/issues/160)
 - produced-by: [[Plan-plan-6-themes]]
