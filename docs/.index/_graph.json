@@ -1926,6 +1926,36 @@
    "type": "belongs-to"
   },
   {
+   "from": "item/01M64AFRY2E3BX98SZ4RCG3PEE",
+   "to": "item/01M64AFRXQ04J5X7RQ0PC24VNC",
+   "type": "belongs-to"
+  },
+  {
+   "from": "item/01M64AFRY2E3BX98SZ4RCG3PEG",
+   "to": "item/01M64AFRXQ04J5X7RQ0PC24VNC",
+   "type": "belongs-to"
+  },
+  {
+   "from": "item/01M64AFRY2E3BX98SZ4RCG3PEJ",
+   "to": "item/01M64AFRXQ04J5X7RQ0PC24VNC",
+   "type": "belongs-to"
+  },
+  {
+   "from": "item/01M64AFRY2E3BX98SZ4RCG3PEM",
+   "to": "item/01M64AFRXQ04J5X7RQ0PC24VNC",
+   "type": "belongs-to"
+  },
+  {
+   "from": "item/01M64AFRY2E3BX98SZ4RCG3PEP",
+   "to": "item/01M64AFRXQ04J5X7RQ0PC24VNC",
+   "type": "belongs-to"
+  },
+  {
+   "from": "item/01M64AFRY2E3BX98SZ4RCG3PER",
+   "to": "item/01M64AFRXQ04J5X7RQ0PC24VNC",
+   "type": "belongs-to"
+  },
+  {
    "from": "plan/2026-10-28-plan-1-open-and-grades",
    "to": "item/01M61XNJ3ME272NXHFN3BS3541",
    "type": "produces"
@@ -2224,6 +2254,41 @@
    "from": "plan/2026-10-29-plan-6-themes",
    "to": "item/01M62PG5ADWD51YWCVTGKQ63YH",
    "type": "produces"
+  },
+  {
+   "from": "plan/2026-10-29-plan-7-export",
+   "to": "item/01M64AFRXQ04J5X7RQ0PC24VNC",
+   "type": "produces"
+  },
+  {
+   "from": "plan/2026-10-29-plan-7-export",
+   "to": "item/01M64AFRY2E3BX98SZ4RCG3PEE",
+   "type": "produces"
+  },
+  {
+   "from": "plan/2026-10-29-plan-7-export",
+   "to": "item/01M64AFRY2E3BX98SZ4RCG3PEG",
+   "type": "produces"
+  },
+  {
+   "from": "plan/2026-10-29-plan-7-export",
+   "to": "item/01M64AFRY2E3BX98SZ4RCG3PEJ",
+   "type": "produces"
+  },
+  {
+   "from": "plan/2026-10-29-plan-7-export",
+   "to": "item/01M64AFRY2E3BX98SZ4RCG3PEM",
+   "type": "produces"
+  },
+  {
+   "from": "plan/2026-10-29-plan-7-export",
+   "to": "item/01M64AFRY2E3BX98SZ4RCG3PEP",
+   "type": "produces"
+  },
+  {
+   "from": "plan/2026-10-29-plan-7-export",
+   "to": "item/01M64AFRY2E3BX98SZ4RCG3PER",
+   "type": "produces"
   }
  ],
  "nodes": {
@@ -2354,7 +2419,7 @@
   },
   "item/01M61XNKVTP7XDRC60FNYY6Z6Y": {
    "doc_type": "item",
-   "status": "todo",
+   "status": "done",
    "title": "US-021 Select an export theme from the built-in themes"
   },
   "item/01M61XNKY44E0TMA06D5YGBBCT": {
@@ -2364,17 +2429,17 @@
   },
   "item/01M61XNM0DH5XMHFKF6XVTBXFD": {
    "doc_type": "item",
-   "status": "todo",
+   "status": "done",
    "title": "US-023 Change a custom export theme"
   },
   "item/01M61XNM2XG682DJC9R566BJ3K": {
    "doc_type": "item",
-   "status": "todo",
+   "status": "done",
    "title": "US-024 Delete a custom export theme"
   },
   "item/01M61XNM5721TS9RGHEHTY4PYT": {
    "doc_type": "item",
-   "status": "todo",
+   "status": "done",
    "title": "US-025 Keep custom export themes from one session to the next"
   },
   "item/01M61XNM7GHPSJ1B96BCHA59ZE": {
@@ -2789,7 +2854,7 @@
   },
   "item/01M62C7REGCD2R415FMWFCZMTM": {
    "doc_type": "item",
-   "status": "in_progress",
+   "status": "done",
    "title": "Phase 4: export themes (US-021 to US-025)"
   },
   "item/01M62C7REGCD2R415FMWFCZMTP": {
@@ -2799,22 +2864,22 @@
   },
   "item/01M62C7REGCD2R415FMWFCZMTR": {
    "doc_type": "item",
-   "status": "todo",
+   "status": "done",
    "title": "Built with TDD, and the review findings fixed"
   },
   "item/01M62C7REGCD2R415FMWFCZMTT": {
    "doc_type": "item",
-   "status": "todo",
+   "status": "done",
    "title": "e2e/phase4.mjs passes: FR-015 to FR-018 and FR-020, with themes kept after a restart"
   },
   "item/01M62C7REGCD2R415FMWFCZMTW": {
    "doc_type": "item",
-   "status": "todo",
+   "status": "in_progress",
    "title": "Phase 5: PDF and Word export, print, and the Draft mark (US-014 to US-020)"
   },
   "item/01M62C7REGCD2R415FMWFCZMTY": {
    "doc_type": "item",
-   "status": "todo",
+   "status": "done",
    "title": "Plan 7 written and captured"
   },
   "item/01M62C7REGCD2R415FMWFCZMV0": {
@@ -2959,7 +3024,7 @@
   },
   "item/01M62PG5A0K6D0ZN6QHB51EG8W": {
    "doc_type": "item",
-   "status": "todo",
+   "status": "done",
    "title": "Plan 6: export themes"
   },
   "item/01M62PG5ADWD51YWCVTGKQ63YB": {
@@ -2991,6 +3056,41 @@
    "doc_type": "item",
    "status": "done",
    "title": "Fix the phase 4 review findings"
+  },
+  "item/01M64AFRXQ04J5X7RQ0PC24VNC": {
+   "doc_type": "item",
+   "status": "todo",
+   "title": "Plan 7: PDF and Word export, print, and the Draft mark"
+  },
+  "item/01M64AFRY2E3BX98SZ4RCG3PEE": {
+   "doc_type": "item",
+   "status": "todo",
+   "title": "Task 1: the export model and the first page"
+  },
+  "item/01M64AFRY2E3BX98SZ4RCG3PEG": {
+   "doc_type": "item",
+   "status": "todo",
+   "title": "Task 2: themed HTML with embedded fonts"
+  },
+  "item/01M64AFRY2E3BX98SZ4RCG3PEJ": {
+   "doc_type": "item",
+   "status": "todo",
+   "title": "Task 3: the Word writer"
+  },
+  "item/01M64AFRY2E3BX98SZ4RCG3PEM": {
+   "doc_type": "item",
+   "status": "todo",
+   "title": "Task 4: write the files outside the set"
+  },
+  "item/01M64AFRY2E3BX98SZ4RCG3PEP": {
+   "doc_type": "item",
+   "status": "todo",
+   "title": "Task 5: the export dialog and print"
+  },
+  "item/01M64AFRY2E3BX98SZ4RCG3PER": {
+   "doc_type": "item",
+   "status": "todo",
+   "title": "Task 6: MCP checks for phase 5"
   },
   "plan/2026-10-28-plan-1-open-and-grades": {
    "doc_type": "plan",
@@ -3032,6 +3132,12 @@
    "doc_type": "plan",
    "source": "docs/plans/2026-10-29-plan-6-themes.md",
    "title": "Plan 6: export themes",
+   "truth_state": "current"
+  },
+  "plan/2026-10-29-plan-7-export": {
+   "doc_type": "plan",
+   "source": "docs/plans/2026-10-29-plan-7-export.md",
+   "title": "Plan 7: PDF and Word export, print, and the Draft mark",
    "truth_state": "current"
   },
   "release/REL-001": {

@@ -1,6 +1,6 @@
 # Plan 6: export themes
 
-`01M62PG5A0K6D0ZN6QHB51EG8W` · epic/feature · **open**
+`01M62PG5A0K6D0ZN6QHB51EG8W` · epic/feature · **done**
 
 Phase 4 of the release 1 completion plan.
 

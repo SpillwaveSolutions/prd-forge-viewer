@@ -1,6 +1,6 @@
 # Plan 7 written and captured
 
-`01M62C7REGCD2R415FMWFCZMTY` · subtask/feature · **open**
+`01M62C7REGCD2R415FMWFCZMTY` · subtask/feature · **done**
 
 Plan 7 written and captured
 

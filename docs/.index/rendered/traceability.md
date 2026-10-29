@@ -2,6 +2,46 @@
 
 _The evidence chain: plan → item → ticket → code → release, forward and backward. Generated from `docs/.index/_graph.json`; do not edit._
 
+### Task 6: MCP checks for phase 5
+`01M64AFRY2E3BX98SZ4RCG3PER` · status: todo
+- belongs-to: Plan 7: PDF and Word export, print, and the Draft mark
+- produced-by: [[Plan-plan-7-export]]
+
+### Task 5: the export dialog and print
+`01M64AFRY2E3BX98SZ4RCG3PEP` · status: todo
+- belongs-to: Plan 7: PDF and Word export, print, and the Draft mark
+- produced-by: [[Plan-plan-7-export]]
+
+### Task 4: write the files outside the set
+`01M64AFRY2E3BX98SZ4RCG3PEM` · status: todo
+- belongs-to: Plan 7: PDF and Word export, print, and the Draft mark
+- produced-by: [[Plan-plan-7-export]]
+
+### Task 3: the Word writer
+`01M64AFRY2E3BX98SZ4RCG3PEJ` · status: todo
+- belongs-to: Plan 7: PDF and Word export, print, and the Draft mark
+- produced-by: [[Plan-plan-7-export]]
+
+### Task 2: themed HTML with embedded fonts
+`01M64AFRY2E3BX98SZ4RCG3PEG` · status: todo
+- belongs-to: Plan 7: PDF and Word export, print, and the Draft mark
+- produced-by: [[Plan-plan-7-export]]
+
+### Task 1: the export model and the first page
+`01M64AFRY2E3BX98SZ4RCG3PEE` · status: todo
+- belongs-to: Plan 7: PDF and Word export, print, and the Draft mark
+- produced-by: [[Plan-plan-7-export]]
+
+### Plan 7: PDF and Word export, print, and the Draft mark
+`01M64AFRXQ04J5X7RQ0PC24VNC` · status: todo
+- contains: Task 1: the export model and the first page
+- contains: Task 2: themed HTML with embedded fonts
+- contains: Task 3: the Word writer
+- contains: Task 4: write the files outside the set
+- contains: Task 5: the export dialog and print
+- contains: Task 6: MCP checks for phase 5
+- produced-by: [[Plan-plan-7-export]]
+
 ### Fix the phase 4 review findings
 `01M64A1VY1P9GWWTW5H97Z8DY8` · status: done
 - belongs-to: Plan 6: export themes
@@ -35,7 +75,7 @@ _The evidence chain: plan → item → ticket → code → release, forward and 
 - produced-by: [[Plan-plan-6-themes]]
 
 ### Plan 6: export themes
-`01M62PG5A0K6D0ZN6QHB51EG8W` · status: todo
+`01M62PG5A0K6D0ZN6QHB51EG8W` · status: done
 - references: [github#156](https://github.com/SpillwaveSolutions/prd-forge-viewer/issues/156)
 - contains: Task 1: the theme model
 - contains: Task 2: themes in the settings file
@@ -231,13 +271,13 @@ _The evidence chain: plan → item → ticket → code → release, forward and 
 - produced-by: [[Plan-release-1-completion]]
 
 ### Plan 7 written and captured
-`01M62C7REGCD2R415FMWFCZMTY` · status: todo
+`01M62C7REGCD2R415FMWFCZMTY` · status: done
 - belongs-to: Phase 5: PDF and Word export, print, and the Draft mark (US-014 to US-020)
 - references: [github#124](https://github.com/SpillwaveSolutions/prd-forge-viewer/issues/124)
 - produced-by: [[Plan-release-1-completion]]
 
 ### Phase 5: PDF and Word export, print, and the Draft mark (US-014 to US-020)
-`01M62C7REGCD2R415FMWFCZMTW` · status: todo
+`01M62C7REGCD2R415FMWFCZMTW` · status: in_progress
 - belongs-to: Release 1 completion: build the 15 remaining requirements
 - references: [github#123](https://github.com/SpillwaveSolutions/prd-forge-viewer/issues/123)
 - contains: Plan 7 written and captured
@@ -247,13 +287,13 @@ _The evidence chain: plan → item → ticket → code → release, forward and 
 - produced-by: [[Plan-release-1-completion]]
 
 ### e2e/phase4.mjs passes: FR-015 to FR-018 and FR-020, with themes kept after a restart
-`01M62C7REGCD2R415FMWFCZMTT` · status: todo
+`01M62C7REGCD2R415FMWFCZMTT` · status: done
 - belongs-to: Phase 4: export themes (US-021 to US-025)
 - references: [github#122](https://github.com/SpillwaveSolutions/prd-forge-viewer/issues/122)
 - produced-by: [[Plan-release-1-completion]]
 
 ### Built with TDD, and the review findings fixed
-`01M62C7REGCD2R415FMWFCZMTR` · status: todo
+`01M62C7REGCD2R415FMWFCZMTR` · status: done
 - belongs-to: Phase 4: export themes (US-021 to US-025)
 - references: [github#121](https://github.com/SpillwaveSolutions/prd-forge-viewer/issues/121)
 - produced-by: [[Plan-release-1-completion]]
@@ -265,7 +305,7 @@ _The evidence chain: plan → item → ticket → code → release, forward and 
 - produced-by: [[Plan-release-1-completion]]
 
 ### Phase 4: export themes (US-021 to US-025)
-`01M62C7REGCD2R415FMWFCZMTM` · status: in_progress
+`01M62C7REGCD2R415FMWFCZMTM` · status: done
 - belongs-to: Release 1 completion: build the 15 remaining requirements
 - references: [github#119](https://github.com/SpillwaveSolutions/prd-forge-viewer/issues/119)
 - contains: Plan 6 written and captured
@@ -829,19 +869,19 @@ _The evidence chain: plan → item → ticket → code → release, forward and 
 - references: [github#35](https://github.com/SpillwaveSolutions/prd-forge-viewer/issues/35)
 
 ### US-025 Keep custom export themes from one session to the next
-`01M61XNM5721TS9RGHEHTY4PYT` · status: todo
+`01M61XNM5721TS9RGHEHTY4PYT` · status: done
 - belongs-to: EPIC-005 Export the PRD: Export the selected sections, in a selected theme, as a file that a reader opens without the authoring tools.
 - references: [github#34](https://github.com/SpillwaveSolutions/prd-forge-viewer/issues/34)
 - targets: release/REL-001
 
 ### US-024 Delete a custom export theme
-`01M61XNM2XG682DJC9R566BJ3K` · status: todo
+`01M61XNM2XG682DJC9R566BJ3K` · status: done
 - belongs-to: EPIC-005 Export the PRD: Export the selected sections, in a selected theme, as a file that a reader opens without the authoring tools.
 - references: [github#33](https://github.com/SpillwaveSolutions/prd-forge-viewer/issues/33)
 - targets: release/REL-001
 
 ### US-023 Change a custom export theme
-`01M61XNM0DH5XMHFKF6XVTBXFD` · status: todo
+`01M61XNM0DH5XMHFKF6XVTBXFD` · status: done
 - belongs-to: EPIC-005 Export the PRD: Export the selected sections, in a selected theme, as a file that a reader opens without the authoring tools.
 - references: [github#32](https://github.com/SpillwaveSolutions/prd-forge-viewer/issues/32)
 - targets: release/REL-001
@@ -853,7 +893,7 @@ _The evidence chain: plan → item → ticket → code → release, forward and 
 - targets: release/REL-001
 
 ### US-021 Select an export theme from the built-in themes
-`01M61XNKVTP7XDRC60FNYY6Z6Y` · status: todo
+`01M61XNKVTP7XDRC60FNYY6Z6Y` · status: done
 - belongs-to: EPIC-005 Export the PRD: Export the selected sections, in a selected theme, as a file that a reader opens without the authoring tools.
 - references: [github#30](https://github.com/SpillwaveSolutions/prd-forge-viewer/issues/30)
 - targets: release/REL-001

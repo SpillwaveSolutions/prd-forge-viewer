@@ -1,6 +1,6 @@
 # e2e/phase4.mjs passes: FR-015 to FR-018 and FR-020, with themes kept after a restart
 
-`01M62C7REGCD2R415FMWFCZMTT` · subtask/feature · **open**
+`01M62C7REGCD2R415FMWFCZMTT` · subtask/feature · **done**
 
 e2e/phase4.mjs passes: FR-015 to FR-018 and FR-020, with themes kept after a restart
 
