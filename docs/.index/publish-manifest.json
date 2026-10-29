@@ -1,11 +1,11 @@
 {
- "git_hash": "98b2626",
+ "git_hash": "336ece9",
  "pages": [
   {
    "frozen": false,
    "page_name": "Home",
    "render": "as-is",
-   "render_hash": "2d9ae9750a77",
+   "render_hash": "2f569509541c",
    "source": "docs/.index/rendered/home.md",
    "title": "Home",
    "truth_state": "current",
@@ -15,7 +15,7 @@
    "frozen": false,
    "page_name": "Index-Decisions",
    "render": "as-is",
-   "render_hash": "ba5032ae2e9e",
+   "render_hash": "a04113746ccc",
    "source": "docs/.index/rendered/decisions.md",
    "title": "Decisions Index",
    "truth_state": "current",
@@ -45,7 +45,7 @@
    "frozen": false,
    "page_name": "Index-Traceability",
    "render": "as-is",
-   "render_hash": "ebe199a09603",
+   "render_hash": "557f2aa56e90",
    "source": "docs/.index/rendered/traceability.md",
    "title": "Traceability Index",
    "truth_state": "current",
@@ -1595,7 +1595,7 @@
    "frozen": false,
    "page_name": "Ticket-01M64AFRXQ04J5X7RQ0PC24VNC",
    "render": "as-is",
-   "render_hash": "128423a3a1ac",
+   "render_hash": "8a247ce71733",
    "source": "docs/.index/rendered/tickets/01M64AFRXQ04J5X7RQ0PC24VNC.md",
    "title": "Plan 7: PDF and Word export, print, and the Draft mark",
    "truth_state": "open",
@@ -1655,10 +1655,10 @@
    "frozen": false,
    "page_name": "Ticket-01M64AFRY2E3BX98SZ4RCG3PER",
    "render": "as-is",
-   "render_hash": "2d84cd92c5e3",
+   "render_hash": "e54ef8c6ca30",
    "source": "docs/.index/rendered/tickets/01M64AFRY2E3BX98SZ4RCG3PER.md",
    "title": "Task 6: MCP checks for phase 5",
-   "truth_state": "open",
+   "truth_state": "done",
    "wiki_key": "item/01M64AFRY2E3BX98SZ4RCG3PER"
   },
   {
@@ -1746,11 +1746,11 @@
    "wiki_key": "plan/2026-10-29-plan-6-themes"
   },
   {
-   "banner": "> **Current** \u2014 plan in flight; plans are frozen once written, a changed design gets a new plan.",
+   "banner": "> **Current** \u2014 completed plan; plans are frozen once written, a changed design gets a new plan.",
    "frozen": true,
    "page_name": "Plan-plan-7-export",
    "render": "doc+banner",
-   "render_hash": "9a1be7eed325",
+   "render_hash": "5fff3e10dff3",
    "source": "docs/plans/2026-10-29-plan-7-export.md",
    "source_hash": "eaa80e573130",
    "title": "Plan 7: PDF and Word export, print, and the Draft mark",
@@ -1758,20 +1758,20 @@
    "wiki_key": "plan/2026-10-29-plan-7-export"
   },
   {
-   "banner": "> **Current** \u2014 this is the living version; regenerated at 2026-10-29T17:21:32Z. Historical snapshots are linked from [[Index-Releases]].",
+   "banner": "> **Current** \u2014 this is the living version; regenerated at 2026-10-29T17:27:22Z. Historical snapshots are linked from [[Index-Releases]].",
    "frozen": false,
    "page_name": "Roadmap",
    "render": "doc+banner",
-   "render_hash": "b780ac9c6f38",
+   "render_hash": "58591ad2416e",
    "source": "docs/roadmap.md",
-   "source_hash": "9730210be28c",
+   "source_hash": "2e82f3e2cfe0",
    "title": "Roadmap",
    "truth_state": "current",
    "wiki_key": "roadmap"
   }
  ],
  "sidebar": {
-  "render_hash": "a1850c7f7dac",
+  "render_hash": "e6fad2ac0a2a",
   "source": "docs/.index/rendered/_Sidebar.md"
  },
  "version": 1

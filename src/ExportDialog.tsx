@@ -21,6 +21,8 @@ export function ExportDialog({ set, themes, themeId, onEditThemes, onClose, onEx
     const [selected, setSelected] = useState(() => new Set(docs.map((d) => d.file)));
     const [busy, setBusy] = useState(false);
     const [status, setStatus] = useState<string>();
+    // Counts finished jobs, so a check can tell a new "Export saved." from the last one.
+    const [runs, setRuns] = useState(0);
     const theme = findTheme(id, themes);
     const draft = draftReason(set.documents);
 
@@ -47,11 +49,12 @@ export function ExportDialog({ set, themes, themeId, onEditThemes, onClose, onEx
             setStatus(`Not done: ${e instanceof Error ? e.message : String(e)}`);
         } finally {
             setBusy(false);
+            setRuns((n) => n + 1);
         }
     };
 
     return (
-        <dialog ref={ref} className="modal" aria-label="Export" onCancel={(e) => { e.preventDefault(); onClose(); }}>
+        <dialog ref={ref} className="modal" aria-label="Export" data-runs={runs} onCancel={(e) => { e.preventDefault(); onClose(); }}>
             <h2>Export</h2>
             <fieldset>
                 <legend>Format</legend>

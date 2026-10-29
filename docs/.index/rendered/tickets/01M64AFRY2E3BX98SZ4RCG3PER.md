@@ -1,6 +1,6 @@
 # Task 6: MCP checks for phase 5
 
-`01M64AFRY2E3BX98SZ4RCG3PER` · task/feature · **open**
+`01M64AFRY2E3BX98SZ4RCG3PER` · task/feature · **done**
 
 `e2e/checks/phase-5-export.mjs` exports both formats and two sections, prints, and reads each file: order, version, Draft, contents, pending text, theme colors, and embedded fonts.
 

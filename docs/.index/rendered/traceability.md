@@ -3,7 +3,7 @@
 _The evidence chain: plan → item → ticket → code → release, forward and backward. Generated from `docs/.index/_graph.json`; do not edit._
 
 ### Task 6: MCP checks for phase 5
-`01M64AFRY2E3BX98SZ4RCG3PER` · status: todo
+`01M64AFRY2E3BX98SZ4RCG3PER` · status: done
 - belongs-to: Plan 7: PDF and Word export, print, and the Draft mark
 - produced-by: [[Plan-plan-7-export]]
 
