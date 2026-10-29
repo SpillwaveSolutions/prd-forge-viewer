@@ -647,3 +647,587 @@ The author sees the blocking defects and the items to raise the grade of a
 section. The authoring tools record these findings (D-002). FR-025 is the
 only requirement of release 2 (REL-002). Its priority is wont, because the priority
 says what release 1 must handle, and release 1 does not have it.
+
+<!-- prd-forge:details -->
+
+## Details
+
+Every item in this document, with each of its fields.
+
+### FR-001
+
+**Capability:** Open a PRD set and see its contents
+
+**Shown in:** screen
+
+**User:** PER-001
+
+**Outcome:** The author sees the product name, the version, the executive summary, and every document of the set in order, each with its status.
+
+**Acceptance:**
+
+1. Given a PRD set with 18 documents, when the author opens it, then the author sees the product name, the version, the executive summary, and all 18 documents in order, each with its status.
+
+**Priority:** must
+
+**Journey stage:** ST-001
+
+**Objective:** O-001
+
+**Source:** Interview, 2026-10-26; SC-001
+
+### FR-002
+
+**Capability:** Return to the same PRD set in the next session
+
+**Shown in:** screen
+
+**User:** PER-001
+
+**Outcome:** The author continues with the same PRD set without selecting it again.
+
+**Acceptance:**
+
+1. Given the author closed the viewer while a PRD set was open, when the author opens the viewer again, then the same PRD set is open without any selection.
+2. Given a section changed while the viewer was closed, when the author opens the viewer again, then the author sees the current version of that section.
+
+**Priority:** should
+
+**Journey stage:** ST-001
+
+**Objective:** O-001
+
+**Source:** Interview, 2026-10-26; SC-006
+
+### FR-003
+
+**Capability:** Open a PRD set that has incomplete or unreadable documents
+
+**Shown in:** screen
+
+**User:** PER-001
+
+**Outcome:** The author reads every readable document and sees which documents cannot be read.
+
+**Acceptance:**
+
+1. Given a PRD set with 13 pending sections that have no content, when the author opens it, then all 18 documents are listed and each pending section shows its status as pending.
+2. Given one section that cannot be read, when the author opens the set, then the author sees that section marked as unreadable with its file name, and can read the other 17 documents.
+
+**Priority:** must
+
+**Journey stage:** ST-001
+
+**Objective:** O-001
+
+**Source:** SC-002
+
+### FR-004
+
+**Capability:** See the grades of all sections together
+
+**Shown in:** screen
+
+**User:** PER-001
+
+**Outcome:** The author sees the status, score, count of blocking defects, and grade date of every section at the same time.
+
+**Acceptance:**
+
+1. Given section 4 has score 61 and 0 blocking defects and section 3 has score 75 and 1 blocking defect, when the author views the grades, then the author sees both sections with those values and their grade dates.
+2. Given a section that has no grade, when the author views the grades, then that section shows that it is not graded.
+
+**Priority:** must
+
+**Journey stage:** ST-002
+
+**Objective:** O-002
+
+**Source:** Interview, 2026-10-26; P-003
+
+### FR-005
+
+**Capability:** Go directly to any section
+
+**Shown in:** screen
+
+**User:** PER-001
+
+**Outcome:** The author reads the selected section without opening other documents first.
+
+**Acceptance:**
+
+1. Given the author is reading the problem and opportunity section, when the author selects the functional requirements section, then the author sees it in one action.
+
+**Priority:** must
+
+**Journey stage:** ST-003
+
+**Objective:** O-001
+
+**Source:** Interview, 2026-10-26; P-001
+
+### FR-006
+
+**Capability:** Move to the previous or the next section in reading order
+
+**Shown in:** none
+
+**User:** PER-001
+
+**Outcome:** The author reads the PRD set from start to end, one section after the other.
+
+**Acceptance:**
+
+1. Given the author is reading section 4, when the author moves to the next section, then the author sees section 5, user journeys.
+2. Given the author is reading section 4, when the author moves to the previous section, then the author sees section 3, objectives and success metrics.
+3. Given the author is reading the last section, when the author tries to move to the next section, then the author stays on the last section and sees that it is the last one.
+4. Given the author is reading the root document, when the author tries to move to the previous section, then the author stays on the root document and sees that it is the first one.
+
+**Priority:** wont
+
+**Journey stage:** ST-003
+
+**Objective:** O-001
+
+**Source:** Interview, 2026-10-26. Dropped on 2026-10-26 by the PRD owner: FR-005 and FR-023 move the author to any section.
+
+### FR-007
+
+**Capability:** Follow a reference from one item to the item it names
+
+**Shown in:** screen
+
+**User:** PER-002
+
+**Outcome:** The developer reads the related item, such as the journey stage that a requirement serves.
+
+**Acceptance:**
+
+1. Given requirement FR-004 names stage ST-002, when the developer follows that reference, then the developer sees stage ST-002 in J-001.
+
+**Priority:** should
+
+**Journey stage:** ST-003
+
+**Objective:** O-001
+
+**Source:** J-002
+
+### FR-008
+
+**Capability:** Search the PRD set by term, in one category or in all categories
+
+**Shown in:** screen
+
+**User:** PER-002
+
+**Outcome:** The developer sees the matching items, most relevant first, each with its id and section.
+
+**Acceptance:**
+
+1. Given the term "export" and the category functional requirements, when the developer searches, then the developer sees only the functional requirements that contain "export", each with its id and section.
+2. Given the same term and the category "all", when the developer searches, then the developer sees matching items from every section, including scenarios.
+3. Given item A has "export" in its title and item B has "export" only once in its text, when the developer searches for "export", then item A is above item B.
+4. Given a search with matches, when the developer views the results, then each result shows its id, its title, its section, and a relevance score from 0 to 100, highest first.
+5. Given a list of results, when the developer selects one result, then the developer sees that item in its section.
+6. Given a term that no item contains, when the developer searches, then the developer sees that there are no matches.
+
+**Priority:** must
+
+**Journey stage:** ST-003
+
+**Objective:** O-001
+
+**Source:** Interview, 2026-10-26; SC-005
+
+### FR-009
+
+**Capability:** See changes that the authoring tools make, without any action
+
+**Shown in:** screen
+
+**User:** PER-001
+
+**Outcome:** The author sees the current version of each section without any action.
+
+**Acceptance:**
+
+1. Given the author reads section 4 with score 61, when the authoring tools save section 4 with score 75, then the author sees score 75 and the new text without any action, within the time limit in NFR-002.
+2. Given the author reads section 4 when the authoring tools save it, when the new version shows, then the author sees that section 4 changed.
+3. Given the authoring tools change a section the author is not reading, when the author views the grades, then that section shows its new status and score.
+
+**Priority:** must
+
+**Journey stage:** ST-004
+
+**Objective:** O-001
+
+**Source:** Interview, 2026-10-26; SC-003
+
+### FR-010
+
+**Capability:** Export the PRD set as a fixed-layout document (IN-006)
+
+**Shown in:** report
+
+**User:** PER-001
+
+**Outcome:** The author has one fixed-layout document that a reader opens with software already on the computer, without the authoring tools.
+
+**Acceptance:**
+
+1. Given a PRD set with 18 documents, when the author exports the whole set as a fixed-layout document, then one file in the format that IN-006 names contains every document in order, and the sponsor opens it without the authoring tools.
+
+**Priority:** must
+
+**Journey stage:** ST-005
+
+**Objective:** O-001
+
+**Source:** Interview, 2026-10-26; SC-001
+
+### FR-011
+
+**Capability:** Export the PRD set as an editable document (IN-006)
+
+**Shown in:** report
+
+**User:** PER-001
+
+**Outcome:** The author has one editable document that a reader opens with software already on the computer, without the authoring tools.
+
+**Acceptance:**
+
+1. Given a PRD set with 18 documents, when the author exports the whole set as an editable document, then one file in the format that IN-006 names contains every document in order, and the engineering lead opens it in a word processor without the authoring tools.
+
+**Priority:** should
+
+**Journey stage:** ST-005
+
+**Objective:** O-001
+
+**Source:** Interview, 2026-10-26; SC-004
+
+### FR-012
+
+**Capability:** Export only selected sections
+
+**Shown in:** report
+
+**User:** PER-002
+
+**Outcome:** The developer has one file with only the selected sections.
+
+**Acceptance:**
+
+1. Given the user journeys section and the functional requirements section are the only sections selected, when the developer exports them, then the file contains only those two sections, in reading order.
+
+**Priority:** must
+
+**Journey stage:** ST-005
+
+**Objective:** O-001
+
+**Source:** Interview, 2026-10-26; SC-005
+
+### FR-013
+
+**Capability:** Print the PRD set or selected sections
+
+**Shown in:** report
+
+**User:** PER-001
+
+**Outcome:** The author has a printed copy with the same content as the export.
+
+**Acceptance:**
+
+1. Given the whole PRD set is selected, when the author prints it, then the printed copy has the same documents, order, and draft mark as the fixed-layout export.
+
+**Priority:** should
+
+**Journey stage:** ST-005
+
+**Objective:** O-001
+
+**Source:** Interview, 2026-10-26
+
+### FR-014
+
+**Capability:** See the version of the PRD, and if it is a draft, in an export
+
+**Shown in:** report
+
+**User:** PER-004
+
+**Outcome:** The sponsor knows which version is in the file, and if it is a draft.
+
+**Acceptance:**
+
+1. Given version 0.1.0 with sections at draft, when the sponsor opens the export, then the first page shows version 0.1.0 and the word "Draft".
+
+**Priority:** must
+
+**Journey stage:** ST-005
+
+**Objective:** O-001
+
+**Source:** Interview, 2026-10-26; SC-001, SC-004
+
+### FR-015
+
+**Capability:** Select an export theme from the built-in themes
+
+**Shown in:** screen
+
+**User:** PER-001
+
+**Outcome:** The export has the colors and fonts of the selected theme.
+
+**Acceptance:**
+
+1. Given the built-in theme Clay, when the author exports with Clay, then the file has page color FAF9F5, text color 3D3D3A, heading color 141413, accent color D97757, a serif font for headings, and a sans-serif font for text.
+2. Given the built-in theme Ice Snowstorm, when the author exports with it, then the file has page color F3F6FB, text color 111111, heading color 0B1F4B, accent color 1D4E89, and a sans-serif font for headings and text.
+
+**Priority:** must
+
+**Journey stage:** ST-005
+
+**Objective:** O-001
+
+**Source:** Interview, 2026-10-26
+
+### FR-016
+
+**Capability:** Make a custom export theme
+
+**Shown in:** screen
+
+**User:** PER-001
+
+**Outcome:** The author exports with colors and fonts that the author selected.
+
+**Acceptance:**
+
+1. Given the author makes a theme named "Acme" with a page color, a text color, a heading color, an accent color, a text font, and a heading font, each font chosen from serif, sans-serif, and monospace, when the author exports with "Acme", then the file uses those colors and fonts.
+2. Given an export with the theme "Acme", when a reader opens it on a computer that does not have those fonts installed, then the reader sees the same fonts as the author.
+
+**Priority:** should
+
+**Journey stage:** ST-005
+
+**Objective:** O-001
+
+**Source:** Interview, 2026-10-26
+
+### FR-017
+
+**Capability:** Change a custom export theme
+
+**Shown in:** screen
+
+**User:** PER-001
+
+**Outcome:** Later exports use the changed colors and fonts.
+
+**Acceptance:**
+
+1. Given the custom theme "Acme", when the author changes its accent color and exports, then the file uses the new accent color.
+2. Given a built-in theme, when the author tries to change it, then the built-in theme stays as it was.
+
+**Priority:** should
+
+**Journey stage:** ST-005
+
+**Objective:** O-001
+
+**Source:** Interview, 2026-10-26
+
+### FR-018
+
+**Capability:** Delete a custom export theme
+
+**Shown in:** screen
+
+**User:** PER-001
+
+**Outcome:** The deleted theme is no longer available for export.
+
+**Acceptance:**
+
+1. Given the custom theme "Acme", when the author deletes it, then "Acme" is no longer available to select.
+2. Given a built-in theme, when the author tries to delete it, then the built-in theme is still available.
+
+**Priority:** should
+
+**Journey stage:** ST-005
+
+**Objective:** O-001
+
+**Source:** Interview, 2026-10-26
+
+### FR-019
+
+**Capability:** See the status and score of every section in an export
+
+**Shown in:** report
+
+**User:** PER-003
+
+**Outcome:** The engineering lead knows which sections are finished before reading them.
+
+**Acceptance:**
+
+1. Given 13 pending sections, when the engineering lead opens the export, then the contents list shows the status and score of every section.
+2. Given a pending section, when the engineering lead reaches it in the export, then the section says that it is not written yet.
+
+**Priority:** should
+
+**Journey stage:** ST-005
+
+**Objective:** O-001
+
+**Source:** SC-004
+
+### FR-020
+
+**Capability:** Keep custom export themes from one session to the next
+
+**Shown in:** screen
+
+**User:** PER-001
+
+**Outcome:** The author uses the same custom themes after the viewer restarts.
+
+**Acceptance:**
+
+1. Given the author made the custom theme "Acme", when the author closes and reopens the viewer, then "Acme" is available to select, with the same colors and fonts.
+
+**Priority:** should
+
+**Journey stage:** ST-005
+
+**Objective:** O-001
+
+**Source:** Interview, 2026-10-26
+
+### FR-021
+
+**Capability:** Start the viewer from a terminal with the command prdf
+
+**Shown in:** screen
+
+**User:** PER-001
+
+**Outcome:** The author sees the PRD set of the current directory in the viewer, with no other step.
+
+**Acceptance:**
+
+1. Given the current directory contains docs/prd with one PRD set, when the author runs prdf, then the viewer opens and shows that PRD set.
+2. Given the author runs prdf with the path of a PRD set, when the viewer opens, then it shows that PRD set.
+3. Given the current directory contains no PRD set, when the author runs prdf, then the author sees that no PRD set was found there, and sees the list of known PRD set locations (FR-022).
+
+**Priority:** must
+
+**Journey stage:** ST-001
+
+**Objective:** O-001
+
+**Source:** Interview, 2026-10-26. The PRD owner keeps the name docs/prd on 2026-10-27, because it is the folder that the authoring tools use and that the author sees.
+
+### FR-022
+
+**Capability:** Choose a PRD set from the locations the viewer remembers
+
+**Shown in:** screen
+
+**User:** PER-001
+
+**Outcome:** The author opens any PRD set opened before, without typing or finding its path.
+
+**Acceptance:**
+
+1. Given the author opened PRD sets in two different folders before, when the author opens a folder with no PRD set, then the author sees both locations, each with its product name.
+2. Given the list of known locations, when the author selects one, then the viewer opens that PRD set.
+3. Given a known location whose PRD set no longer exists, when the author sees the list, then that location is marked as not found.
+
+**Priority:** should
+
+**Journey stage:** ST-001
+
+**Objective:** O-001
+
+**Source:** Interview, 2026-10-26
+
+### FR-023
+
+**Capability:** Select one item of a section and read it without the whole section
+
+**Shown in:** screen
+
+**User:** PER-001
+
+**Outcome:** The author reads one item, such as a persona or a requirement, without reading the whole section first.
+
+**Acceptance:**
+
+1. Given the users and personas section with PER-001 to PER-005, when the author asks for the items of that section, then the author sees the five persona ids.
+2. Given the five persona ids of that section are in view, when the author selects PER-001, then the author sees PER-001 with the status and grade of its section.
+
+**Priority:** must
+
+**Journey stage:** ST-003
+
+**Objective:** O-001
+
+**Source:** Interview, 2026-10-26
+
+### FR-024
+
+**Capability:** Choose one PRD set when the docs/prd folder holds more than one
+
+**Shown in:** screen
+
+**User:** PER-001
+
+**Outcome:** The author opens the intended PRD set without typing its path.
+
+**Acceptance:**
+
+1. Given the current directory contains docs/prd with two PRD sets, and neither set was open in the last session, when the author runs prdf, then the author sees both sets, each with its product name and folder, and the viewer opens neither set.
+2. Given the current directory contains docs/prd with two PRD sets, and one of them was open in the last session, when the author runs prdf, then the viewer opens that set.
+3. Given that list, when the author selects one set, then the viewer opens that PRD set.
+
+**Priority:** should
+
+**Journey stage:** ST-001
+
+**Objective:** O-001
+
+**Source:** PRD owner decision, 2026-10-26 (HLD review ADV-02)
+
+### FR-025
+
+**Capability:** See the findings behind the grade of a section
+
+**Shown in:** screen
+
+**User:** PER-001
+
+**Outcome:** The author sees what is missing in a section and what to improve, without the authoring tools.
+
+**Acceptance:**
+
+1. Given section 7 has a grade with 1 blocking defect and 2 items to raise the grade, when the author views the findings of section 7, then the author sees the blocking defect and the 2 items.
+2. Given a section with no recorded findings, when the author views its findings, then the author sees that no findings are recorded.
+
+**Priority:** wont
+
+**Journey stage:** ST-002
+
+**Objective:** O-002
+
+**Source:** PRD owner decision, 2026-10-27; OUT-002, D-002
+
+<!-- /prd-forge:details -->

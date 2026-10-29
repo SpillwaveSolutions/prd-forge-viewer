@@ -274,3 +274,284 @@ approved. The author records the approval in section 15. The escalation when the
 sponsor is not available: the approval waits, and nobody else approves (Q-006).
 When the sponsor rejects a version, the author records the rejection and its
 reason in section 15, fixes the PRD, and sends a new version.
+
+<!-- prd-forge:details -->
+
+## Details
+
+Every item in this document, with each of its fields.
+
+### TR-001
+
+**Decision:** Is this the correct PRD set and version (ST-001)
+
+**Stages:** ST-001
+
+**Approver:** PER-001
+
+**Delegable to an agent:** yes
+
+**Never delegated:** no
+
+**Agent role:** proposes
+
+**Evidence required:** The product name and version of the PRD set that is open.
+
+**Escalation:** The viewer proposes the PRD set from the last session. Nobody else decides. The author opens a different PRD set at any time.
+
+**Acceptance:**
+
+1. Given the author closed the viewer with a PRD set open, when the author opens the viewer again, then the same PRD set is open and the author sees its product name and version.
+2. Given the same PRD set reopened, when the author opens a different PRD set, then the different PRD set is open.
+
+### TR-002
+
+**Decision:** Which sections the author fixes before anyone else reads the PRD (ST-002, ST-003)
+
+**Stages:** ST-002, ST-003
+
+**Approver:** PER-001
+
+**Delegable to an agent:** no
+
+**Never delegated:** yes
+
+**Evidence required:** The status, score, count of blocking defects, and grade date of every section, in one view.
+
+**Escalation:** The decision waits for the author. Nobody else decides.
+
+**Acceptance:**
+
+1. Given sections with different scores, when the author views the grades, then the viewer shows every section and does not mark any section as "to fix" on its own.
+
+### TR-003
+
+**Decision:** If a section is good enough to send (ST-004)
+
+**Stages:** ST-004
+
+**Approver:** PER-001
+
+**Delegable to an agent:** no
+
+**Never delegated:** yes
+
+**Evidence required:** The new score, count of blocking defects, and status of the changed section.
+
+**Escalation:** The decision waits for the author. Nobody else decides.
+
+**Acceptance:**
+
+1. Given a section that the authoring tools changed, when the author views it, then the author sees its new score, count of blocking defects, and status before choosing to export.
+
+### TR-004
+
+**Decision:** The format, the theme, and the sections of an export (ST-005)
+
+**Stages:** ST-005
+
+**Approver:** PER-001
+
+**Delegable to an agent:** no
+
+**Never delegated:** no
+
+**Evidence required:** The selected format, theme, and sections before the export starts.
+
+**Escalation:** The export waits for the author. Nobody else decides.
+
+**Acceptance:**
+
+1. Given the author starts an export, when the author has not selected a format, then the author has no file.
+2. Given the author starts an export, when the author has not selected any section, then the author has no file.
+3. Given the author selects a format, a theme, and sections, when the export finishes, then the author sees the selected format, theme, and sections in the file.
+
+### TR-005
+
+**Decision:** If an export shows the word "Draft" (ST-005)
+
+**Stages:** ST-005
+
+**Approver:** PER-001
+
+**Delegable to an agent:** yes
+
+**Never delegated:** no
+
+**Agent role:** acts
+
+**Evidence required:** The status of every section in the PRD set at the time of export.
+
+**Escalation:** PER-001 decides through the status of each section in the authoring tools. The viewer applies the rule, and no person can change the mark in the viewer. If the author thinks that the mark is wrong, the author changes the status of the sections in the authoring tools and exports again.
+
+**Acceptance:**
+
+1. Given the root document and 15 sections at final and 1 section at review, when the author exports, then the first page shows "Draft".
+2. Given all 17 section documents and the root document at final, when the author exports, then the export does not show "Draft".
+3. Given an export that shows "Draft", when the author tries to remove the mark in the viewer, then the mark stays.
+
+### TR-006
+
+**Decision:** Who receives a version of the PRD (ST-006)
+
+**Stages:** ST-006
+
+**Approver:** PER-001
+
+**Delegable to an agent:** no
+
+**Never delegated:** yes
+
+**Evidence required:** The version and the draft mark of the export.
+
+**Escalation:** The decision waits for the author. Nobody else decides.
+
+**Acceptance:**
+
+1. Given the author makes an export, when the export finishes, then the viewer has sent the file to nobody.
+
+### TR-007
+
+**Decision:** Approve or reject a version of the PRD (ST-007, ST-012)
+
+**Stages:** ST-007, ST-012
+
+**Approver:** PER-004
+
+**Delegable to an agent:** no
+
+**Never delegated:** yes
+
+**Evidence required:** The export, with the version, the draft mark, and the status and score of every section.
+
+**Escalation:** When the sponsor is not available, the approval waits. Nobody else approves (Q-006). When the sponsor rejects a version, the author records the rejection and its reason in the change log in section 15, fixes the PRD, and sends a new version.
+
+**Acceptance:**
+
+1. Given any export, when the sponsor opens it, then the export does not say that the PRD is approved. The author records the approval in the change log in section 15.
+
+### TR-008
+
+**Decision:** If the team can build the product from the PRD (ST-007)
+
+**Stages:** ST-007
+
+**Approver:** PER-003
+
+**Delegable to an agent:** no
+
+**Never delegated:** yes
+
+**Evidence required:** The export, with every section and the status and score of each.
+
+**Escalation:** The engineering lead sends comments to the author, who fixes the PRD in the authoring tools. If the engineering lead is not available, the decision waits.
+
+**Acceptance:**
+
+1. Given an export of the whole PRD set, when the engineering lead opens it, then every section is in the file, with its status and score.
+
+### TR-009
+
+**Decision:** Which items apply to the current work (ST-009)
+
+**Stages:** ST-009
+
+**Approver:** PER-002
+
+**Delegable to an agent:** no
+
+**Never delegated:** no
+
+**Evidence required:** The matching items, each with its id and section.
+
+**Escalation:** The decision waits for the developer. Nobody else decides.
+
+**Acceptance:**
+
+1. Given a search with matches, when the developer views the results, then the viewer selects no item on its own.
+
+### TR-010
+
+**Decision:** Fix a section now, or send the PRD as a draft (ST-003)
+
+**Stages:** ST-003
+
+**Approver:** PER-001
+
+**Delegable to an agent:** no
+
+**Never delegated:** yes
+
+**Evidence required:** The status, score, and count of blocking defects of the section.
+
+**Escalation:** The decision waits for the author. Nobody else decides.
+
+**Acceptance:**
+
+1. Given a section with 1 blocking defect, when the author exports, then the viewer makes the export and shows "Draft", and does not stop the export.
+
+### TR-011
+
+**Decision:** If the export has enough for a decision, or the author must answer questions first (ST-011)
+
+**Stages:** ST-011
+
+**Approver:** PER-004
+
+**Delegable to an agent:** no
+
+**Never delegated:** yes
+
+**Evidence required:** The version, the draft mark, the executive summary, and the status and score of every section.
+
+**Escalation:** The sponsor asks the author. The approval waits (Q-006).
+
+**Acceptance:**
+
+1. Given an export of the whole PRD set, when the sponsor opens it, then the first two pages show the version, the draft mark, the executive summary, and the contents list with the status and score of every section.
+
+### TR-012
+
+**Decision:** Is this the correct PRD set and version, in the developer's session (ST-008)
+
+**Stages:** ST-008
+
+**Approver:** PER-002
+
+**Delegable to an agent:** yes
+
+**Never delegated:** no
+
+**Agent role:** proposes
+
+**Evidence required:** The product name and version of the PRD set that is open.
+
+**Escalation:** The viewer proposes the PRD set from the last session. Nobody else decides. The developer opens a different PRD set at any time.
+
+**Acceptance:**
+
+1. Given the developer closed the viewer with a PRD set open, when the developer opens the viewer again, then the same PRD set is open and the developer sees its product name and version.
+2. Given the same PRD set reopened, when the developer opens a different PRD set, then the different PRD set is open.
+
+### TR-013
+
+**Decision:** The format, the theme, and the sections of a developer's export (ST-010)
+
+**Stages:** ST-010
+
+**Approver:** PER-002
+
+**Delegable to an agent:** no
+
+**Never delegated:** no
+
+**Evidence required:** The selected format, theme, and sections before the export starts.
+
+**Escalation:** The export waits for the developer. Nobody else decides.
+
+**Acceptance:**
+
+1. Given the developer starts an export, when the developer has not selected any section, then the developer has no file.
+2. Given the developer selects a format and two sections, when the export finishes, then the developer sees the selected format and only those two sections in the file.
+
+<!-- /prd-forge:details -->

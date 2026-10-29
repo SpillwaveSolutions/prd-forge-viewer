@@ -187,3 +187,123 @@ of ST-005.
 | We are not building a view of several PRD sets at once. | Every journey works on one PRD. No persona needs to compare two sets, and FR-022 already switches between sets. |
 | We are not building accounts, cloud copies, or shared links. | Everything stays on the author's computer (NFR-005). |
 | We are not building a viewer for PRDs in other formats. | The viewer reads only the PRD Forge format (C-003). |
+
+<!-- prd-forge:details -->
+
+## Details
+
+Every item in this document, with each of its fields.
+
+**Release:** REL-001, Release 1, read and export
+
+**Release line:** J-001 stages ST-001 to ST-005 happen in the viewer: open the PRD set, check the grades, go to or search for a section, see the fixed section, and export it. ST-006 and ST-007 happen outside the viewer: the author sends the file, and the stakeholders read it and respond. Together they reach the end state of J-001. Release 1 also lets a developer (PER-002) do the work of J-002. Search is part of ST-003, and the export of selected sections is part of ST-005.
+
+**Outside product:**
+
+- **Stage:** ST-006
+  - **Workaround:** The author sends the export to the stakeholders with the tools that the author already uses.
+- **Stage:** ST-007
+  - **Workaround:** Each stakeholder opens the export without the authoring tools and replies to the author by the means that the team already uses.
+
+**Non-goals:**
+
+- **Statement:** We are not building a tool that writes or grades a PRD.
+  - **Reason:** The authoring tools do that, and the viewer only reads and exports their output.
+- **Statement:** We are not building a way to send files to stakeholders.
+  - **Reason:** The author sends the export with the tools the author already uses.
+- **Statement:** We are not building comments inside the viewer.
+  - **Reason:** Stakeholders reply outside the viewer, and the author records the result in the authoring tools.
+- **Statement:** We are not building a view of several PRD sets at once.
+  - **Reason:** Every journey works on one PRD. No persona needs to compare two sets, and FR-022 already switches between sets.
+- **Statement:** We are not building accounts, cloud copies, or shared links.
+  - **Reason:** Everything stays on the author's computer (NFR-005).
+- **Statement:** We are not building a viewer for PRDs in other formats.
+  - **Reason:** The viewer reads only the PRD Forge format (C-003).
+
+### In scope in detail
+
+#### IN-001
+
+**Summary:** Open a PRD set and see the product name, the version, the executive summary, and the status of every document. The next session opens the same PRD set.
+
+**Journey stage:** ST-001
+
+**Requirements:** FR-001, FR-002, FR-003, FR-021, FR-022, FR-024
+
+#### IN-002
+
+**Summary:** See the status, score, count of blocking defects, and grade date of every section in one view.
+
+**Journey stage:** ST-002
+
+**Requirements:** FR-004
+
+#### IN-003
+
+**Summary:** Go directly to any section and read it.
+
+**Journey stage:** ST-003
+
+**Requirements:** FR-005, FR-023
+
+#### IN-004
+
+**Summary:** Search the PRD set by term, in one category or in all, and see the best matches first.
+
+**Journey stage:** ST-003
+
+**Requirements:** FR-008, FR-007
+
+#### IN-005
+
+**Summary:** See each change that the authoring tools make to a section, without any action from the author.
+
+**Journey stage:** ST-004
+
+**Requirements:** FR-009
+
+#### IN-006
+
+**Summary:** Export the whole PRD set or selected sections as a fixed-layout document or an editable document, or print it. The fixed-layout document is PDF (ISO 32000). The editable document is a .docx file (ISO/IEC 29500). The readers already open these formats without installing anything (A-001). The export shows the version and the status of the PRD and of each section.
+
+**Journey stage:** ST-005
+
+**Requirements:** FR-010, FR-011, FR-013, FR-014, FR-019
+
+#### IN-007
+
+**Summary:** Select an export theme. The viewer includes the built-in themes, and the author can make, change, and delete custom themes.
+
+**Journey stage:** ST-005
+
+**Requirements:** FR-015, FR-016, FR-017, FR-018, FR-020
+
+#### IN-008
+
+**Summary:** Export only the sections that a developer selects.
+
+**Journey stage:** ST-005
+
+**Requirements:** FR-012
+
+### Out of scope in detail
+
+#### OUT-001
+
+**Summary:** Editing the text of a section in the viewer (Q-005).
+
+**Revisit:** The PRD owner decides at the release 2 review, on 2026-11-06, if editing goes into a release.
+
+#### OUT-002
+
+**Summary:** Showing the findings behind each grade, such as what is missing and what to improve (Q-004).
+
+**Revisit:** The authoring tools now record the findings (D-002 delivered). Release 2 shows them (FR-025), on 2026-11-06.
+
+#### OUT-003
+
+**Summary:** Operating systems other than macOS. Release 1 runs on macOS only, on the only test computer, an Apple silicon Mac with 16 GB of memory. The PRD owner decided this on item ADV-03 of the HLD review (change log, version 0.3.2).
+
+**Revisit:** The PRD owner decides at the release 2 review, on 2026-11-06, if another operating system goes into a release.
+
+<!-- /prd-forge:details -->

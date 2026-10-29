@@ -419,3 +419,217 @@ section 5 on 2026-10-27.
 ```
 
 ![WF-011 drawing](diagrams/WF-011.svg)
+
+<!-- prd-forge:details -->
+
+## Details
+
+Every item in this document, with each of its fields.
+
+### WF-001
+
+**Title:** The PRD set, with the scores
+
+**Type:** screen
+
+**Persona:** PER-001
+
+**Journey stage:** ST-001
+
+**Illustrates:** FR-001, FR-002, FR-003, FR-004, FR-005, FR-009
+
+**Shows:**
+
+1. The tree: the PRD, and below it every section with its score
+2. The root page: the product name, the version, the draft mark, and the totals
+3. The grades: each section is a link, with its score and blocking defects
+4. The change mark on a section that changed
+5. The executive summary
+
+### WF-002
+
+**Title:** One item, selected in the tree
+
+**Type:** screen
+
+**Persona:** PER-001
+
+**Journey stage:** ST-003
+
+**Illustrates:** FR-005, FR-007, FR-009, FR-023
+
+**Shows:**
+
+1. The selected item, with the status and grade of its section
+2. The selected item in the expanded section
+3. The change notice
+4. A reference that opens the item it names
+
+### WF-003
+
+**Title:** Search results
+
+**Type:** screen
+
+**Persona:** PER-002
+
+**Journey stage:** ST-009
+
+**Illustrates:** FR-008, FR-023
+
+**Shows:**
+
+1. The search term and the category
+2. The number of matches
+3. The tree opens the section of the selected result
+4. Each result: relevance score, ID, title, and section
+
+### WF-004
+
+**Title:** A search with no match
+
+**Type:** screen
+
+**Persona:** PER-002
+
+**Journey stage:** ST-009
+
+**Illustrates:** FR-008
+
+**Shows:**
+
+1. The no-match message
+
+### WF-005
+
+**Title:** A document that cannot be read
+
+**Type:** screen
+
+**Persona:** PER-001
+
+**Journey stage:** ST-001
+
+**Illustrates:** FR-003
+
+**Shows:**
+
+1. The tree and the page both mark the document that cannot be read
+2. The file name of that document
+
+### WF-006
+
+**Title:** No PRD set in this folder
+
+**Type:** screen
+
+**Persona:** PER-001
+
+**Journey stage:** ST-001
+
+**Illustrates:** FR-021, FR-022
+
+**Shows:**
+
+1. The folder where prdf ran
+2. The known locations, each with its product name
+3. A location whose PRD set no longer exists
+
+### WF-007
+
+**Title:** Export
+
+**Type:** screen
+
+**Persona:** PER-001
+
+**Journey stage:** ST-005
+
+**Illustrates:** FR-010, FR-011, FR-012, FR-013, FR-015
+
+**Shows:**
+
+1. The format, from IN-006
+2. The theme; Edit themes opens WF-008
+3. The sections to export, in reading order
+4. The reason that the export shows Draft (TR-005)
+5. The print and export buttons
+
+### WF-008
+
+**Title:** Themes
+
+**Type:** screen
+
+**Persona:** PER-001
+
+**Journey stage:** ST-005
+
+**Illustrates:** FR-015, FR-016, FR-017, FR-018, FR-020
+
+**Shows:**
+
+1. The themes; the two built-in themes cannot change
+2. The name of the custom theme
+3. The four colors
+4. The text font and the heading font
+5. The delete button, for a custom theme only
+6. The save button; a saved theme is still there after a restart
+
+### WF-009
+
+**Title:** First page of an export
+
+**Type:** report
+
+**Persona:** PER-004
+
+**Journey stage:** ST-011
+
+**Illustrates:** FR-014, FR-019, FR-010
+
+**Shows:**
+
+1. The draft mark
+2. The version
+3. The executive summary
+4. The contents, with the status, score, and blocking defects of each section
+5. A section that is not written yet, marked pending
+
+### WF-010
+
+**Title:** More than one PRD set in docs/prd
+
+**Type:** screen
+
+**Persona:** PER-001
+
+**Journey stage:** ST-001
+
+**Illustrates:** FR-024, FR-022
+
+**Shows:**
+
+1. The folder where prdf ran, and that the viewer opens no set until the author selects one
+2. The PRD sets found in docs/prd, each with its product name and folder, above the known locations
+
+**State of:** WF-006
+
+### WF-011
+
+**Title:** The findings behind a grade
+
+**Type:** screen
+
+**Persona:** PER-001
+
+**Journey stage:** ST-002
+
+**Illustrates:** FR-025
+
+**Shows:**
+
+1. The blocking defects of the section, or that it has none
+2. The items to raise the grade, each with its dimension
+
+<!-- /prd-forge:details -->
