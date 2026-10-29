@@ -53,10 +53,12 @@ interface Props {
     renderHtml?: (markdown: string) => string;
     /** The list of documents, so that any other section is one action away (FR-005). */
     nav?: ReactNode;
+    /** The authoring tools changed this document while it was open (FR-009, WF-002). */
+    changed?: boolean;
 }
 
 /** One document: its status and grade, its items, the selected item (WF-002), and its body (FR-005, FR-023). */
-export function SectionPage({ section, known, selected, onSelect, onOpenItem, onBack, onOpenDoc, loadAsset, renderHtml = renderBody, nav }: Props) {
+export function SectionPage({ section, known, selected, onSelect, onOpenItem, onBack, onOpenDoc, loadAsset, renderHtml = renderBody, nav, changed }: Props) {
     const body = useRef<HTMLDivElement>(null);
     const item = section.items.find((i) => i.id === selected);
     // Render the body once for each section, not on every item click.
@@ -84,6 +86,7 @@ export function SectionPage({ section, known, selected, onSelect, onOpenItem, on
         <section aria-label={section.title} className="section-page">
             <button type="button" onClick={onBack}>Back to the PRD set</button>
             <h1>{section.title}</h1>
+            {changed && <p role="status" className="change-notice">This section changed. You see the current version.</p>}
             <p className="version">
                 <span className={`status status-${section.status}`}>{section.status}</span> {gradeText(section)}
             </p>

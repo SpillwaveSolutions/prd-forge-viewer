@@ -1,5 +1,5 @@
 {
- "git_hash": "93cb59a",
+ "git_hash": "0481db5",
  "pages": [
   {
    "frozen": false,
@@ -45,7 +45,7 @@
    "frozen": false,
    "page_name": "Index-Traceability",
    "render": "as-is",
-   "render_hash": "b170b6ec7b2f",
+   "render_hash": "a1418d327cc9",
    "source": "docs/.index/rendered/traceability.md",
    "title": "Traceability Index",
    "truth_state": "current",
@@ -1465,7 +1465,7 @@
    "frozen": false,
    "page_name": "Ticket-01M62GWAS1QA1XNBMNG3MPNGRD",
    "render": "as-is",
-   "render_hash": "f07608c94bc5",
+   "render_hash": "5bb430a175b8",
    "source": "docs/.index/rendered/tickets/01M62GWAS1QA1XNBMNG3MPNGRD.md",
    "title": "Plan 5: live updates from the authoring tools",
    "truth_state": "open",
@@ -1495,10 +1495,10 @@
    "frozen": false,
    "page_name": "Ticket-01M62GWASEB3E2HFZ9GR8K5WF3",
    "render": "as-is",
-   "render_hash": "64166f7ba755",
+   "render_hash": "9456431e2ccc",
    "source": "docs/.index/rendered/tickets/01M62GWASEB3E2HFZ9GR8K5WF3.md",
    "title": "Task 3: show changes in the window",
-   "truth_state": "open",
+   "truth_state": "done",
    "wiki_key": "item/01M62GWASEB3E2HFZ9GR8K5WF3"
   },
   {
@@ -1584,13 +1584,13 @@
    "wiki_key": "plan/2026-10-29-plan-5-live"
   },
   {
-   "banner": "> **Current** \u2014 this is the living version; regenerated at 2026-10-29T00:31:07Z. Historical snapshots are linked from [[Index-Releases]].",
+   "banner": "> **Current** \u2014 this is the living version; regenerated at 2026-10-29T00:31:54Z. Historical snapshots are linked from [[Index-Releases]].",
    "frozen": false,
    "page_name": "Roadmap",
    "render": "doc+banner",
-   "render_hash": "a965999e3fe7",
+   "render_hash": "7f7df21de97d",
    "source": "docs/roadmap.md",
-   "source_hash": "a1507c0ecda0",
+   "source_hash": "8213293be62a",
    "title": "Roadmap",
    "truth_state": "current",
    "wiki_key": "roadmap"

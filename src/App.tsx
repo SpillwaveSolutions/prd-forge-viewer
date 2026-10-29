@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import { invoke } from "@tauri-apps/api/core";
 import { listen } from "@tauri-apps/api/event";
 import { ask, open } from "@tauri-apps/plugin-dialog";
@@ -8,6 +8,7 @@ import { SectionPage } from "./SectionPage";
 import { SetOverview } from "./SetOverview";
 import { StartScreen } from "./StartScreen";
 import { applyResult, applyStart, openSet } from "./openSet";
+import { applyChange, keepSelection } from "./live";
 import type { Category, Hit, ItemRef, PrdSet, Section, StartView } from "./types";
 
 const pickFolder = async () => {
@@ -24,13 +25,19 @@ export function App() {
     const [page, setPage] = useState<{ section: Section; selected: string | null }>();
     const [index, setIndex] = useState<ItemRef[]>([]);
     const [categories, setCategories] = useState<Category[]>([]);
+    const [changed, setChanged] = useState<Set<string>>(new Set());
+    // The listener for set-changed lives for the whole window, so it reads the current set and page from refs.
+    const current = useRef<{ set?: PrdSet; page?: { section: Section; selected: string | null } }>({});
+    current.current = { set, page };
 
     // Each new set gets a fresh item index and starts on its overview.
     useEffect(() => {
         setPage(undefined);
         setIndex([]);
         setCategories([]);
+        setChanged(new Set());
         if (set) {
+            void invoke("watch_set", { folder: set.folder }).catch(() => {});
             void invoke<ItemRef[]>("item_index", { folder: set.folder }).then(setIndex).catch(() => setIndex([]));
             void invoke<Category[]>("categories", { folder: set.folder }).then(setCategories).catch(() => setCategories([]));
         }
@@ -68,6 +75,23 @@ export function App() {
             setStart(next.start);
         }
     }, [show]);
+
+    // FR-009: a change from the authoring tools shows with no action from the author.
+    useEffect(() => {
+        const off = listen<{ folder: string; files: string[] }>("set-changed", async (e) => {
+            const { set: open, page: shown } = current.current;
+            if (!open || e.payload.folder !== open.folder) return;
+            setChanged((c) => applyChange(c, e.payload.files));
+            const fresh = await invoke<PrdSet>("reload_set", { folder: open.folder }).catch(() => undefined);
+            if (fresh) setSet(fresh);
+            void invoke<ItemRef[]>("item_index", { folder: open.folder }).then(setIndex).catch(() => {});
+            if (shown && e.payload.files.includes(shown.section.file)) {
+                const section = await invoke<Section>("read_section", { folder: open.folder, file: shown.section.file }).catch(() => undefined);
+                if (section) setPage((p) => (p && p.section.file === section.file ? { section, selected: keepSelection(p.selected, section) } : p));
+            }
+        });
+        return () => void off.then((f) => f());
+    }, []);
 
     useEffect(() => {
         void invoke<StartView>("startup").then(showStart);
@@ -119,6 +143,7 @@ export function App() {
                     onOpenDoc={openDoc}
                     onBack={() => { setPage(undefined); setError(undefined); }}
                     loadAsset={loadAsset}
+                    changed={changed.has(page.section.file)}
                     nav={set.documents.filter((d) => !d.unreadable).map((d) => (
                         <button key={d.file} type="button" className="doc-link" aria-current={d.file === page.section.file ? "page" : undefined} onClick={() => openDoc(d.file)}>
                             {d.title}
@@ -127,7 +152,7 @@ export function App() {
                 />
             ) : set ? (
                 <>
-                    <SetOverview set={set} onOpen={(file) => openDoc(file)} />
+                    <SetOverview set={set} onOpen={(file) => openDoc(file)} changed={changed} />
                     <GradesTable documents={set.documents} />
                 </>
             ) : start ? (
