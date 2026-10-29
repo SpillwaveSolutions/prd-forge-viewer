@@ -1,5 +1,5 @@
 // Bundle the UI into dist/ and write dist/index.html, as Motion's build does.
-import { rmSync, writeFileSync } from "fs";
+import { cpSync, rmSync, writeFileSync } from "fs";
 import { join } from "path";
 
 const ROOT = join(import.meta.dir, "..");
@@ -19,6 +19,7 @@ async function build() {
         for (const log of result.logs) console.error(log);
         throw new Error("build failed");
     }
+    cpSync(join(ROOT, "public"), DIST, { recursive: true });
     const name = (p: string) => p.split("/").pop();
     const js = result.outputs.find((o) => o.path.endsWith(".js"));
     const css = result.outputs.find((o) => o.path.endsWith(".css"));

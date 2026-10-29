@@ -1,5 +1,5 @@
 {
- "git_hash": "f4e62ee",
+ "git_hash": "1d1b282",
  "pages": [
   {
    "frozen": false,
@@ -45,7 +45,7 @@
    "frozen": false,
    "page_name": "Index-Traceability",
    "render": "as-is",
-   "render_hash": "d1bba95d16e8",
+   "render_hash": "252d798c6806",
    "source": "docs/.index/rendered/traceability.md",
    "title": "Traceability Index",
    "truth_state": "current",
@@ -1595,7 +1595,7 @@
    "frozen": false,
    "page_name": "Ticket-01M64AFRXQ04J5X7RQ0PC24VNC",
    "render": "as-is",
-   "render_hash": "efb39318c770",
+   "render_hash": "63611c3bd591",
    "source": "docs/.index/rendered/tickets/01M64AFRXQ04J5X7RQ0PC24VNC.md",
    "title": "Plan 7: PDF and Word export, print, and the Draft mark",
    "truth_state": "open",
@@ -1615,10 +1615,10 @@
    "frozen": false,
    "page_name": "Ticket-01M64AFRY2E3BX98SZ4RCG3PEG",
    "render": "as-is",
-   "render_hash": "308edb3acf05",
+   "render_hash": "9cff32ba1f5b",
    "source": "docs/.index/rendered/tickets/01M64AFRY2E3BX98SZ4RCG3PEG.md",
    "title": "Task 2: themed HTML with embedded fonts",
-   "truth_state": "open",
+   "truth_state": "done",
    "wiki_key": "item/01M64AFRY2E3BX98SZ4RCG3PEG"
   },
   {
@@ -1758,13 +1758,13 @@
    "wiki_key": "plan/2026-10-29-plan-7-export"
   },
   {
-   "banner": "> **Current** \u2014 this is the living version; regenerated at 2026-10-29T17:15:38Z. Historical snapshots are linked from [[Index-Releases]].",
+   "banner": "> **Current** \u2014 this is the living version; regenerated at 2026-10-29T17:17:20Z. Historical snapshots are linked from [[Index-Releases]].",
    "frozen": false,
    "page_name": "Roadmap",
    "render": "doc+banner",
-   "render_hash": "11f902e0f7ff",
+   "render_hash": "bcdf3c8e7aca",
    "source": "docs/roadmap.md",
-   "source_hash": "5191ae1ce6e2",
+   "source_hash": "2dad9f706657",
    "title": "Roadmap",
    "truth_state": "current",
    "wiki_key": "roadmap"

@@ -1,6 +1,6 @@
 # Task 2: themed HTML with embedded fonts
 
-`01M64AFRY2E3BX98SZ4RCG3PEG` · task/feature · **open**
+`01M64AFRY2E3BX98SZ4RCG3PEG` · task/feature · **done**
 
 Copy `exportBlocks.ts` and `exportHtml.ts`.
 
