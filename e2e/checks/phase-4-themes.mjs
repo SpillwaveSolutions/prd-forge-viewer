@@ -45,6 +45,35 @@ await run(async (h) => {
     expect(acme && acme.page === "#FFFFF0" && acme.accent === "#CC0000" && acme.font === "serif" && acme.headingFont === "mono", JSON.stringify(acme));
   });
 
+  await h.check("A theme save keeps the known locations, and a set open keeps the themes", async () => {
+    expect(saved().known.includes(set), JSON.stringify(saved().known));
+  });
+
+  await h.check("A blank name or a bad hex blocks the save and says why", async () => {
+    await openDialog();
+    await pick("Acme");
+    await h.js(`return ${type("Theme name", " ")}`);
+    await h.js(`return ${type("Accent hex", "#00880")}`);
+    const state = await h.js("return document.evaluate(\"//button[.='Save themes']\", document, null, 9, null).singleNodeValue.disabled + ' ' + (document.querySelector('dialog [role=alert]')?.innerText || '')");
+    expect(state.startsWith("true") && /no name/.test(state) && /Accent/.test(state), state);
+  });
+
+  await h.check("NFR-007: Escape closes the dialog and the focus goes back to Themes", async () => {
+    await h.realKey(53);
+    await new Promise((r) => setTimeout(r, 400));
+    // Open it again from the keyboard: focus on Themes, then Return. Then close it with Escape.
+    await h.js("document.evaluate(\"//header//button[.='Themes']\", document, null, 9, null).singleNodeValue.focus(); return 'ok'");
+    await h.realKey(36);
+    await h.waitText("Save themes");
+    const inside = await h.js("return String(!!document.activeElement?.closest('dialog'))");
+    expect(inside === "true", "focus is not in the dialog");
+    await h.realKey(53);
+    await new Promise((r) => setTimeout(r, 400));
+    const st = await h.js("return String(!!document.querySelector('dialog[open]')) + ' ' + document.activeElement?.innerText");
+    expect(st === "false Themes", st);
+    expect(saved().themes.find((t) => t.name === "Acme")?.accent === "#CC0000", "Escape saved the change");
+  });
+
   await h.check("FR-020: Acme is there after a restart, with the same colors and fonts", async () => {
     await h.quit();
     await h.launch(set);

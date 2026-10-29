@@ -25,7 +25,8 @@ const BUILTIN_THEMES: [&str; 2] = ["clay", "ice-snowstorm"];
 /// built-in theme can never change (FR-017, FR-018).
 pub fn set_themes(s: &mut Settings, themes: Vec<serde_json::Value>, selected: Option<String>) {
     s.themes = themes.into_iter().filter(|t| !t["id"].as_str().is_some_and(|id| BUILTIN_THEMES.contains(&id))).collect();
-    s.export_theme = selected;
+    // Keep the selection only when it names a theme that exists.
+    s.export_theme = selected.filter(|id| BUILTIN_THEMES.contains(&id.as_str()) || s.themes.iter().any(|t| t["id"].as_str() == Some(id)));
 }
 
 /// A missing or broken file gives empty settings, so the viewer still starts.
@@ -42,6 +43,16 @@ pub fn save_settings(path: &Path, s: &Settings) -> io::Result<()> {
     let tmp = path.with_extension(format!("json.{}.{}.tmp", std::process::id(), N.fetch_add(1, Ordering::Relaxed)));
     fs::write(&tmp, serde_json::to_string_pretty(s)?)?;
     fs::rename(tmp, path)
+}
+
+/// Load, change, and save the settings, one change at a time across all commands, so that a
+/// theme save and a set open never lose each other's update.
+pub fn update_settings(path: &Path, change: impl FnOnce(&mut Settings)) -> io::Result<()> {
+    static LOCK: std::sync::Mutex<()> = std::sync::Mutex::new(());
+    let _guard = LOCK.lock().unwrap_or_else(|e| e.into_inner());
+    let mut s = load_settings(path);
+    change(&mut s);
+    save_settings(path, &s)
 }
 
 /// Put `folder` first in the known locations, with no duplicate, and make it the last set.
@@ -138,5 +149,14 @@ mod tests {
         let themes = vec![serde_json::json!({"id": "clay", "name": "Fake"}), serde_json::json!({"id": "ice-snowstorm"}), serde_json::json!({"id": "acme"})];
         set_themes(&mut s, themes, None);
         assert_eq!(s.themes, vec![serde_json::json!({"id": "acme"})]);
+    }
+
+    #[test]
+    fn a_selected_id_that_names_no_theme_is_not_stored() {
+        let mut s = Settings::default();
+        set_themes(&mut s, vec![], Some("gone".into()));
+        assert_eq!(s.export_theme, None);
+        set_themes(&mut s, vec![], Some("clay".into()));
+        assert_eq!(s.export_theme.as_deref(), Some("clay"));
     }
 }

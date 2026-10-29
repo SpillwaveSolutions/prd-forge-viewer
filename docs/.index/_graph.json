@@ -1916,6 +1916,16 @@
    "type": "references"
   },
   {
+   "from": "item/01M63F9FFKHCM00MBXPKDW6R1D",
+   "to": "item/01M62PG5A0K6D0ZN6QHB51EG8W",
+   "type": "belongs-to"
+  },
+  {
+   "from": "item/01M64A1VY1P9GWWTW5H97Z8DY8",
+   "to": "item/01M62PG5A0K6D0ZN6QHB51EG8W",
+   "type": "belongs-to"
+  },
+  {
    "from": "plan/2026-10-28-plan-1-open-and-grades",
    "to": "item/01M61XNJ3ME272NXHFN3BS3541",
    "type": "produces"
@@ -2971,6 +2981,16 @@
    "doc_type": "item",
    "status": "done",
    "title": "Task 4: MCP checks for phase 4"
+  },
+  "item/01M63F9FFKHCM00MBXPKDW6R1D": {
+   "doc_type": "item",
+   "status": "done",
+   "title": "Check that reload_set writes no settings file"
+  },
+  "item/01M64A1VY1P9GWWTW5H97Z8DY8": {
+   "doc_type": "item",
+   "status": "done",
+   "title": "Fix the phase 4 review findings"
   },
   "plan/2026-10-28-plan-1-open-and-grades": {
    "doc_type": "plan",

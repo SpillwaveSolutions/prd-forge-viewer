@@ -2,6 +2,14 @@
 
 _The evidence chain: plan → item → ticket → code → release, forward and backward. Generated from `docs/.index/_graph.json`; do not edit._
 
+### Fix the phase 4 review findings
+`01M64A1VY1P9GWWTW5H97Z8DY8` · status: done
+- belongs-to: Plan 6: export themes
+
+### Check that reload_set writes no settings file
+`01M63F9FFKHCM00MBXPKDW6R1D` · status: done
+- belongs-to: Plan 6: export themes
+
 ### Task 4: MCP checks for phase 4
 `01M62PG5ADWD51YWCVTGKQ63YH` · status: done
 - belongs-to: Plan 6: export themes
@@ -33,6 +41,8 @@ _The evidence chain: plan → item → ticket → code → release, forward and 
 - contains: Task 2: themes in the settings file
 - contains: Task 3: the themes dialog
 - contains: Task 4: MCP checks for phase 4
+- contains: Check that reload_set writes no settings file
+- contains: Fix the phase 4 review findings
 - produced-by: [[Plan-plan-6-themes]]
 
 ### Fix the phase 3 review findings

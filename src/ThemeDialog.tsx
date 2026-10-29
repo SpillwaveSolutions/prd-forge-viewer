@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { DEFAULT_EXPORT_THEME_ID, listThemes, parseHex, sanitizeCustomThemes, slugThemeId, type ExportTheme, type ThemeFont } from "./themes";
 
 // Adapted from Motion's ThemeSettingsDialog (MIT): only the four colors and two fonts of WF-008.
@@ -16,6 +16,19 @@ export function withoutTheme(custom: readonly ExportTheme[], id: string): Export
     return custom.filter((t) => t.id !== id);
 }
 
+/** The most custom themes that the settings keep (sanitizeCustomThemes drops the rest). */
+export const MAX_CUSTOM = 24;
+
+const COLORS = [["page", "Page"], ["text", "Text"], ["heading", "Headings"], ["accent", "Accent"]] as const;
+
+/** What stops a save: a blank name or a color that is not a hex value. Nothing is ever dropped quietly. */
+export function themeProblems(custom: readonly ExportTheme[]): string[] {
+    return custom.flatMap((t) => [
+        ...(t.name.trim() ? [] : [`A custom theme has no name. Type a name.`]),
+        ...COLORS.filter(([k]) => !parseHex(t[k])).map(([, l]) => `${l} color of "${t.name.trim() || t.id}" is not a hex color such as #1D4E89.`),
+    ]);
+}
+
 /** The themes dialog (WF-008). Nothing is saved until the author selects Save themes. */
 export function ThemeDialog({ themes, themeId, onClose, onSave }: {
     themes: readonly ExportTheme[];
@@ -29,11 +42,15 @@ export function ThemeDialog({ themes, themeId, onClose, onSave }: {
     const all = listThemes(custom);
     const current = all.find((t) => t.id === selected) ?? all[0]!;
 
+    const problems = themeProblems(custom);
+    // A native modal dialog keeps the keyboard focus inside it and closes on Escape (NFR-007).
+    // Focus goes back to the control that opened it.
+    const ref = useRef<HTMLDialogElement>(null);
     useEffect(() => {
-        const onKey = (e: KeyboardEvent) => e.key === "Escape" && onClose();
-        window.addEventListener("keydown", onKey);
-        return () => window.removeEventListener("keydown", onKey);
-    }, [onClose]);
+        const back = document.activeElement as HTMLElement | null;
+        ref.current?.showModal();
+        return () => back?.focus();
+    }, []);
 
     const update = (patch: Partial<ExportTheme>) => {
         if (current.builtin) return;
@@ -50,11 +67,11 @@ export function ThemeDialog({ themes, themeId, onClose, onSave }: {
         if (exportId === current.id) setExportId(DEFAULT_EXPORT_THEME_ID);
         setSelected(DEFAULT_EXPORT_THEME_ID);
     };
-    // A hex value that is not a color is saved as the Clay value, the same rule as on load.
-    const save = () => onSave({ themes: sanitizeCustomThemes(custom), selected: exportId });
+    // Only valid themes reach this point, so sanitizeCustomThemes changes nothing but the case of hex values.
+    const save = () => problems.length === 0 && onSave({ themes: sanitizeCustomThemes(custom), selected: exportId });
 
     return (
-        <div className="modal" role="dialog" aria-modal="true" aria-label="Themes">
+        <dialog ref={ref} className="modal" aria-label="Themes" onCancel={(e) => { e.preventDefault(); onClose(); }}>
             <h2>Themes</h2>
             <div className="theme-layout">
                 <ul className="theme-list" aria-label="Theme list">
@@ -85,13 +102,14 @@ export function ThemeDialog({ themes, themeId, onClose, onSave }: {
                     </label>
                 </div>
             </div>
+            {problems.length > 0 && <ul role="alert" className="error">{problems.map((p) => <li key={p}>{p}</li>)}</ul>}
             <div className="actions">
-                <button type="button" onClick={add}>New theme</button>
+                <button type="button" disabled={custom.length >= MAX_CUSTOM} onClick={add}>New theme</button>
                 <button type="button" disabled={current.builtin} onClick={remove}>Delete</button>
                 <button type="button" onClick={onClose}>Cancel</button>
-                <button type="button" onClick={save}>Save themes</button>
+                <button type="button" disabled={problems.length > 0} onClick={save}>Save themes</button>
             </div>
-        </div>
+        </dialog>
     );
 }
 

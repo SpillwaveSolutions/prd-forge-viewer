@@ -1,5 +1,5 @@
 use crate::prdset::load::{load_set, PrdSet};
-use crate::settings::{load_settings, remember, save_settings};
+use crate::settings::{load_settings, remember, update_settings};
 use crate::start::{start_view, StartView};
 use std::path::{Path, PathBuf};
 use std::sync::Mutex;
@@ -16,13 +16,8 @@ pub fn settings_path(app: &AppHandle) -> PathBuf {
 pub fn open_and_remember(settings_path: &Path, folder: &str) -> Result<PrdSet, String> {
     let folder = std::fs::canonicalize(folder).map(|p| p.display().to_string()).unwrap_or_else(|_| folder.to_string());
     let set = load_set(Path::new(&folder)).map_err(|e| e.to_string())?;
-    // One load-change-save at a time, so parallel opens never lose an update.
-    static LOCK: Mutex<()> = Mutex::new(());
-    let _guard = LOCK.lock().unwrap_or_else(|e| e.into_inner());
-    let mut s = load_settings(settings_path);
-    remember(&mut s, &folder);
     // ponytail: a failed save only loses the reopen; it must not stop the set from opening.
-    if let Err(e) = save_settings(settings_path, &s) {
+    if let Err(e) = update_settings(settings_path, |s| remember(s, &folder)) {
         eprintln!("settings not saved to {}: {e}", settings_path.display());
     }
     Ok(set)
@@ -106,10 +101,11 @@ pub fn themes(app: AppHandle) -> serde_json::Value {
 /// Save the custom export themes and the selected theme id, with the atomic save (NFR-008).
 #[tauri::command]
 pub fn save_themes(app: AppHandle, themes: Vec<serde_json::Value>, selected: Option<String>) -> Result<(), String> {
-    let path = settings_path(&app);
-    let mut s = load_settings(&path);
-    crate::settings::set_themes(&mut s, themes, selected);
-    save_settings(&path, &s).map_err(|e| e.to_string())
+    store_themes(&settings_path(&app), themes, selected)
+}
+
+pub fn store_themes(path: &Path, themes: Vec<serde_json::Value>, selected: Option<String>) -> Result<(), String> {
+    update_settings(path, |s| crate::settings::set_themes(s, themes, selected)).map_err(|e| e.to_string())
 }
 
 /// The watcher of the open set. A new watch replaces it, so the old set's events stop.
@@ -186,6 +182,31 @@ mod tests {
         }
         let text = std::fs::read_to_string(&p).unwrap();
         assert!(serde_json::from_str::<crate::settings::Settings>(&text).is_ok(), "{text}");
+    }
+
+    #[test]
+    fn theme_saves_and_opens_in_parallel_lose_nothing() {
+        let d = TempDir::new().unwrap();
+        let p = d.path().join("settings.json");
+        let acme = serde_json::json!({"id": "acme", "name": "Acme"});
+        let handles: Vec<_> = (0..8)
+            .map(|i| {
+                let (p, acme) = (p.clone(), acme.clone());
+                std::thread::spawn(move || {
+                    if i % 2 == 0 {
+                        open_and_remember(&p, REAL).map(|_| ())
+                    } else {
+                        store_themes(&p, vec![acme], Some("acme".into()))
+                    }
+                })
+            })
+            .collect();
+        for h in handles {
+            h.join().unwrap().unwrap();
+        }
+        let s = load_settings(&p);
+        assert_eq!(s.known.len(), 1);
+        assert_eq!(s.themes, vec![acme]);
     }
 
     #[test]

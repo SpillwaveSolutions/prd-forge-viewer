@@ -1,7 +1,10 @@
 // Phase 3: US-013 (FR-009, all three criteria) and NFR-002, through the tauri MCP server.
 import { readdirSync, readFileSync, rmSync, writeFileSync } from "fs";
 import { join } from "path";
+import { homedir } from "os";
 import { copySet, expect, run, tmp } from "../harness.mjs";
+
+const SETTINGS = join(homedir(), "Library/Application Support/com.spillwave.prd-forge-viewer/settings.json");
 
 const until = async (h, script, re, ms = 4000) => {
   let v = "";
@@ -24,6 +27,7 @@ await run(async (h) => {
   await h.click("//button[contains(., 'Users and personas')]", "xpath");
   await until(h, "return document.querySelector('.section-page h1')?.innerText || ''", /Users and personas/);
   await new Promise((r) => setTimeout(r, 800)); // let the watcher start
+  const settingsBefore = readFileSync(SETTINGS, "utf8");
 
   await h.check("FR-009 1: a save of the open section shows the new score and text with no action", async () => {
     const t0 = Date.now();
@@ -78,6 +82,10 @@ await run(async (h) => {
     rmSync(personas);
     await until(h, "return document.body.innerText", /04-personas.md was removed/);
     expect(!(await h.js("return String(!!document.querySelector('.section-page'))")).includes("true"), "section page still shown");
+  });
+
+  await h.check("reload_set does not change the settings file", async () => {
+    expect(readFileSync(SETTINGS, "utf8") === settingsBefore, "settings changed during the live reloads");
   });
 
   await h.check("OUT-001: the viewer adds no file to the set folder", async () => {
