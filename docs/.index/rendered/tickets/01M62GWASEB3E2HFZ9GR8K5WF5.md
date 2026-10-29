@@ -7,3 +7,7 @@
 ## Hierarchy
 
 - epic: [[Ticket-01M62GWAS1QA1XNBMNG3MPNGRD]] Plan 5: live updates from the authoring tools — Phase 3 of the release 1 completion plan.
+
+## Related tickets
+
+- [github #154](https://github.com/SpillwaveSolutions/prd-forge-viewer/issues/154)

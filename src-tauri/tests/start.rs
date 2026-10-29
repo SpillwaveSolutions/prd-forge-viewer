@@ -12,7 +12,7 @@ fn make_set(dir: &Path, product: &str) -> String {
 }
 
 fn with_last(last: &str) -> Settings {
-    Settings { known: vec![last.into()], last: Some(last.into()) }
+    Settings { known: vec![last.into()], last: Some(last.into()), ..Default::default() }
 }
 
 #[test]
@@ -48,7 +48,7 @@ fn no_set_is_not_found_with_known() {
     let a = make_set(&d.path().join("a"), "Alpha");
     let b = make_set(&d.path().join("b"), "Beta");
     let empty = TempDir::new().unwrap();
-    let s = Settings { known: vec![a, b], last: None };
+    let s = Settings { known: vec![a, b], last: None, ..Default::default() };
     match start_view(Some(empty.path()), &s) {
         StartView::NotFound { known, .. } => {
             let names: Vec<_> = known.iter().map(|k| k.product.clone().unwrap()).collect();

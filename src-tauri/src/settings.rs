@@ -4,13 +4,28 @@ use std::io;
 use std::path::Path;
 use std::sync::atomic::{AtomicU32, Ordering};
 
-/// Known PRD set locations and the last open set, kept in the app config folder (ADR-004).
+/// Known PRD set locations, the last open set, and the custom export themes, kept in the app
+/// config folder (ADR-004).
 #[derive(Serialize, Deserialize, Default, Debug, PartialEq, Clone)]
 pub struct Settings {
     #[serde(default)]
     pub known: Vec<String>,
     #[serde(default)]
     pub last: Option<String>,
+    /// Custom export themes, as the UI writes them. The UI checks each field when it reads them.
+    #[serde(default)]
+    pub themes: Vec<serde_json::Value>,
+    #[serde(default)]
+    pub export_theme: Option<String>,
+}
+
+const BUILTIN_THEMES: [&str; 2] = ["clay", "ice-snowstorm"];
+
+/// Store the custom themes and the selected theme. A theme with a built-in id is dropped, so a
+/// built-in theme can never change (FR-017, FR-018).
+pub fn set_themes(s: &mut Settings, themes: Vec<serde_json::Value>, selected: Option<String>) {
+    s.themes = themes.into_iter().filter(|t| !t["id"].as_str().is_some_and(|id| BUILTIN_THEMES.contains(&id))).collect();
+    s.export_theme = selected;
 }
 
 /// A missing or broken file gives empty settings, so the viewer still starts.
@@ -89,5 +104,39 @@ mod tests {
         remember(&mut s, "/x/set");
         remember(&mut s, "/x/set/");
         assert_eq!(s.known, vec!["/x/set"]);
+    }
+
+    #[test]
+    fn a_plan_2_file_loads_with_no_themes() {
+        let d = TempDir::new().unwrap();
+        let p = d.path().join("settings.json");
+        std::fs::write(&p, r#"{"known":["/a"],"last":"/a"}"#).unwrap();
+        let s = load_settings(&p);
+        assert_eq!(s.known, vec!["/a"]);
+        assert!(s.themes.is_empty());
+        assert_eq!(s.export_theme, None);
+    }
+
+    #[test]
+    fn themes_survive_a_restart_and_keep_the_locations() {
+        let d = TempDir::new().unwrap();
+        let p = d.path().join("settings.json");
+        let mut s = Settings::default();
+        remember(&mut s, "/a");
+        let acme = serde_json::json!({"id": "acme", "name": "Acme", "accent": "#123456"});
+        set_themes(&mut s, vec![acme.clone()], Some("acme".into()));
+        save_settings(&p, &s).unwrap();
+        let back = load_settings(&p);
+        assert_eq!(back.known, vec!["/a"]);
+        assert_eq!(back.themes, vec![acme]);
+        assert_eq!(back.export_theme.as_deref(), Some("acme"));
+    }
+
+    #[test]
+    fn a_builtin_id_is_never_stored() {
+        let mut s = Settings::default();
+        let themes = vec![serde_json::json!({"id": "clay", "name": "Fake"}), serde_json::json!({"id": "ice-snowstorm"}), serde_json::json!({"id": "acme"})];
+        set_themes(&mut s, themes, None);
+        assert_eq!(s.themes, vec![serde_json::json!({"id": "acme"})]);
     }
 }

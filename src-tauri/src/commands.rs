@@ -96,6 +96,22 @@ pub fn install_prdf() -> Result<String, String> {
     })
 }
 
+/// The custom export themes and the selected theme id, from the settings file (FR-020).
+#[tauri::command]
+pub fn themes(app: AppHandle) -> serde_json::Value {
+    let s = load_settings(&settings_path(&app));
+    serde_json::json!({ "themes": s.themes, "selected": s.export_theme })
+}
+
+/// Save the custom export themes and the selected theme id, with the atomic save (NFR-008).
+#[tauri::command]
+pub fn save_themes(app: AppHandle, themes: Vec<serde_json::Value>, selected: Option<String>) -> Result<(), String> {
+    let path = settings_path(&app);
+    let mut s = load_settings(&path);
+    crate::settings::set_themes(&mut s, themes, selected);
+    save_settings(&path, &s).map_err(|e| e.to_string())
+}
+
 /// The watcher of the open set. A new watch replaces it, so the old set's events stop.
 #[derive(Default)]
 pub struct WatchState(Mutex<Option<crate::watch::SetWatcher>>);

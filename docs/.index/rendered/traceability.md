@@ -10,20 +10,24 @@ _The evidence chain: plan → item → ticket → code → release, forward and 
 ### Task 3: the themes dialog
 `01M62PG5ADWD51YWCVTGKQ63YF` · status: todo
 - belongs-to: Plan 6: export themes
+- references: [github#159](https://github.com/SpillwaveSolutions/prd-forge-viewer/issues/159)
 - produced-by: [[Plan-plan-6-themes]]
 
 ### Task 2: themes in the settings file
-`01M62PG5ADWD51YWCVTGKQ63YD` · status: todo
+`01M62PG5ADWD51YWCVTGKQ63YD` · status: done
 - belongs-to: Plan 6: export themes
+- references: [github#158](https://github.com/SpillwaveSolutions/prd-forge-viewer/issues/158)
 - produced-by: [[Plan-plan-6-themes]]
 
 ### Task 1: the theme model
 `01M62PG5ADWD51YWCVTGKQ63YB` · status: done
 - belongs-to: Plan 6: export themes
+- references: [github#157](https://github.com/SpillwaveSolutions/prd-forge-viewer/issues/157)
 - produced-by: [[Plan-plan-6-themes]]
 
 ### Plan 6: export themes
 `01M62PG5A0K6D0ZN6QHB51EG8W` · status: todo
+- references: [github#156](https://github.com/SpillwaveSolutions/prd-forge-viewer/issues/156)
 - contains: Task 1: the theme model
 - contains: Task 2: themes in the settings file
 - contains: Task 3: the themes dialog
@@ -33,29 +37,35 @@ _The evidence chain: plan → item → ticket → code → release, forward and 
 ### Fix the phase 3 review findings
 `01M62HGSCA8H08GP2CEW69EZYN` · status: done
 - belongs-to: Plan 5: live updates from the authoring tools
+- references: [github#155](https://github.com/SpillwaveSolutions/prd-forge-viewer/issues/155)
 
 ### Task 4: MCP checks for phase 3
 `01M62GWASEB3E2HFZ9GR8K5WF5` · status: done
 - belongs-to: Plan 5: live updates from the authoring tools
+- references: [github#154](https://github.com/SpillwaveSolutions/prd-forge-viewer/issues/154)
 - produced-by: [[Plan-plan-5-live]]
 
 ### Task 3: show changes in the window
 `01M62GWASEB3E2HFZ9GR8K5WF3` · status: done
 - belongs-to: Plan 5: live updates from the authoring tools
+- references: [github#153](https://github.com/SpillwaveSolutions/prd-forge-viewer/issues/153)
 - produced-by: [[Plan-plan-5-live]]
 
 ### Task 2: the watch and reload commands
 `01M62GWASEB3E2HFZ9GR8K5WF1` · status: done
 - belongs-to: Plan 5: live updates from the authoring tools
+- references: [github#152](https://github.com/SpillwaveSolutions/prd-forge-viewer/issues/152)
 - produced-by: [[Plan-plan-5-live]]
 
 ### Task 1: watch the set folder
 `01M62GWASEB3E2HFZ9GR8K5WEZ` · status: done
 - belongs-to: Plan 5: live updates from the authoring tools
+- references: [github#151](https://github.com/SpillwaveSolutions/prd-forge-viewer/issues/151)
 - produced-by: [[Plan-plan-5-live]]
 
 ### Plan 5: live updates from the authoring tools
 `01M62GWAS1QA1XNBMNG3MPNGRD` · status: done
+- references: [github#150](https://github.com/SpillwaveSolutions/prd-forge-viewer/issues/150)
 - contains: Task 1: watch the set folder
 - contains: Task 2: the watch and reload commands
 - contains: Task 3: show changes in the window
