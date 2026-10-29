@@ -2,32 +2,81 @@
 
 _The evidence chain: plan → item → ticket → code → release, forward and backward. Generated from `docs/.index/_graph.json`; do not edit._
 
+### Fix the phase 4 review findings
+`01M64A1VY1P9GWWTW5H97Z8DY8` · status: done
+- belongs-to: Plan 6: export themes
+
+### Check that reload_set writes no settings file
+`01M63F9FFKHCM00MBXPKDW6R1D` · status: done
+- belongs-to: Plan 6: export themes
+
+### Task 4: MCP checks for phase 4
+`01M62PG5ADWD51YWCVTGKQ63YH` · status: done
+- belongs-to: Plan 6: export themes
+- references: [github#160](https://github.com/SpillwaveSolutions/prd-forge-viewer/issues/160)
+- produced-by: [[Plan-plan-6-themes]]
+
+### Task 3: the themes dialog
+`01M62PG5ADWD51YWCVTGKQ63YF` · status: done
+- belongs-to: Plan 6: export themes
+- references: [github#159](https://github.com/SpillwaveSolutions/prd-forge-viewer/issues/159)
+- produced-by: [[Plan-plan-6-themes]]
+
+### Task 2: themes in the settings file
+`01M62PG5ADWD51YWCVTGKQ63YD` · status: done
+- belongs-to: Plan 6: export themes
+- references: [github#158](https://github.com/SpillwaveSolutions/prd-forge-viewer/issues/158)
+- produced-by: [[Plan-plan-6-themes]]
+
+### Task 1: the theme model
+`01M62PG5ADWD51YWCVTGKQ63YB` · status: done
+- belongs-to: Plan 6: export themes
+- references: [github#157](https://github.com/SpillwaveSolutions/prd-forge-viewer/issues/157)
+- produced-by: [[Plan-plan-6-themes]]
+
+### Plan 6: export themes
+`01M62PG5A0K6D0ZN6QHB51EG8W` · status: todo
+- references: [github#156](https://github.com/SpillwaveSolutions/prd-forge-viewer/issues/156)
+- contains: Task 1: the theme model
+- contains: Task 2: themes in the settings file
+- contains: Task 3: the themes dialog
+- contains: Task 4: MCP checks for phase 4
+- contains: Check that reload_set writes no settings file
+- contains: Fix the phase 4 review findings
+- produced-by: [[Plan-plan-6-themes]]
+
 ### Fix the phase 3 review findings
 `01M62HGSCA8H08GP2CEW69EZYN` · status: done
 - belongs-to: Plan 5: live updates from the authoring tools
+- references: [github#155](https://github.com/SpillwaveSolutions/prd-forge-viewer/issues/155)
 
 ### Task 4: MCP checks for phase 3
 `01M62GWASEB3E2HFZ9GR8K5WF5` · status: done
 - belongs-to: Plan 5: live updates from the authoring tools
+- references: [github#154](https://github.com/SpillwaveSolutions/prd-forge-viewer/issues/154)
 - produced-by: [[Plan-plan-5-live]]
 
 ### Task 3: show changes in the window
 `01M62GWASEB3E2HFZ9GR8K5WF3` · status: done
 - belongs-to: Plan 5: live updates from the authoring tools
+- references: [github#153](https://github.com/SpillwaveSolutions/prd-forge-viewer/issues/153)
 - produced-by: [[Plan-plan-5-live]]
 
 ### Task 2: the watch and reload commands
 `01M62GWASEB3E2HFZ9GR8K5WF1` · status: done
 - belongs-to: Plan 5: live updates from the authoring tools
+- references: [github#152](https://github.com/SpillwaveSolutions/prd-forge-viewer/issues/152)
 - produced-by: [[Plan-plan-5-live]]
 
 ### Task 1: watch the set folder
 `01M62GWASEB3E2HFZ9GR8K5WEZ` · status: done
 - belongs-to: Plan 5: live updates from the authoring tools
+- references: [github#151](https://github.com/SpillwaveSolutions/prd-forge-viewer/issues/151)
 - produced-by: [[Plan-plan-5-live]]
 
 ### Plan 5: live updates from the authoring tools
-`01M62GWAS1QA1XNBMNG3MPNGRD` · status: todo
+`01M62GWAS1QA1XNBMNG3MPNGRD` · status: done
+- references: [github#150](https://github.com/SpillwaveSolutions/prd-forge-viewer/issues/150)
 - contains: Task 1: watch the set folder
 - contains: Task 2: the watch and reload commands
 - contains: Task 3: show changes in the window
@@ -210,13 +259,13 @@ _The evidence chain: plan → item → ticket → code → release, forward and 
 - produced-by: [[Plan-release-1-completion]]
 
 ### Plan 6 written and captured
-`01M62C7REGCD2R415FMWFCZMTP` · status: todo
+`01M62C7REGCD2R415FMWFCZMTP` · status: done
 - belongs-to: Phase 4: export themes (US-021 to US-025)
 - references: [github#120](https://github.com/SpillwaveSolutions/prd-forge-viewer/issues/120)
 - produced-by: [[Plan-release-1-completion]]
 
 ### Phase 4: export themes (US-021 to US-025)
-`01M62C7REGCD2R415FMWFCZMTM` · status: todo
+`01M62C7REGCD2R415FMWFCZMTM` · status: in_progress
 - belongs-to: Release 1 completion: build the 15 remaining requirements
 - references: [github#119](https://github.com/SpillwaveSolutions/prd-forge-viewer/issues/119)
 - contains: Plan 6 written and captured
@@ -225,25 +274,25 @@ _The evidence chain: plan → item → ticket → code → release, forward and 
 - produced-by: [[Plan-release-1-completion]]
 
 ### e2e/phase3.mjs passes: all three FR-009 criteria, and NFR-002 within 2 s
-`01M62C7REGCD2R415FMWFCZMTJ` · status: todo
+`01M62C7REGCD2R415FMWFCZMTJ` · status: done
 - belongs-to: Phase 3: live updates from the authoring tools (US-013)
 - references: [github#118](https://github.com/SpillwaveSolutions/prd-forge-viewer/issues/118)
 - produced-by: [[Plan-release-1-completion]]
 
 ### Built with TDD, and the review findings fixed
-`01M62C7REGCD2R415FMWFCZMTG` · status: todo
+`01M62C7REGCD2R415FMWFCZMTG` · status: done
 - belongs-to: Phase 3: live updates from the authoring tools (US-013)
 - references: [github#117](https://github.com/SpillwaveSolutions/prd-forge-viewer/issues/117)
 - produced-by: [[Plan-release-1-completion]]
 
 ### Plan 5 written and captured
-`01M62C7REFJRP4FVS9Z3JD5SBS` · status: todo
+`01M62C7REFJRP4FVS9Z3JD5SBS` · status: done
 - belongs-to: Phase 3: live updates from the authoring tools (US-013)
 - references: [github#116](https://github.com/SpillwaveSolutions/prd-forge-viewer/issues/116)
 - produced-by: [[Plan-release-1-completion]]
 
 ### Phase 3: live updates from the authoring tools (US-013)
-`01M62C7REFJRP4FVS9Z3JD5SBQ` · status: in_progress
+`01M62C7REFJRP4FVS9Z3JD5SBQ` · status: done
 - belongs-to: Release 1 completion: build the 15 remaining requirements
 - references: [github#115](https://github.com/SpillwaveSolutions/prd-forge-viewer/issues/115)
 - contains: Plan 5 written and captured
@@ -868,7 +917,7 @@ _The evidence chain: plan → item → ticket → code → release, forward and 
 - contains: US-025 Keep custom export themes from one session to the next
 
 ### US-013 See changes that the authoring tools make, without any action
-`01M61XNK7A3WE67AVJFXNDZT2P` · status: todo
+`01M61XNK7A3WE67AVJFXNDZT2P` · status: done
 - belongs-to: EPIC-004 Fix the section: See each change from the authoring tools while the section is open.
 - references: [github#21](https://github.com/SpillwaveSolutions/prd-forge-viewer/issues/21)
 - targets: release/REL-001

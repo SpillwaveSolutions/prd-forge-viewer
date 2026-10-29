@@ -143,13 +143,32 @@
    "wiki_key": "plan/2026-10-29-plan-5-live"
   },
   {
+   "canonical_key": "plan/2026-10-29-plan-6-themes",
+   "date": "2026-10-29",
+   "doc_type": "plan",
+   "epic": "01M62PG5A0K6D0ZN6QHB51EG8W",
+   "git_hash": "a706740026ef38423f9b5e5c5ff05de60ae34a30",
+   "items": [
+    "01M62PG5ADWD51YWCVTGKQ63YB",
+    "01M62PG5ADWD51YWCVTGKQ63YD",
+    "01M62PG5ADWD51YWCVTGKQ63YF",
+    "01M62PG5ADWD51YWCVTGKQ63YH"
+   ],
+   "slug": "plan-6-themes",
+   "source": "docs/plans/2026-10-29-plan-6-themes.md",
+   "status": "completed",
+   "title": "Plan 6: export themes",
+   "truth_state": "current",
+   "wiki_key": "plan/2026-10-29-plan-6-themes"
+  },
+  {
    "canonical_key": "roadmap",
    "doc_type": "roadmap",
-   "generated_at": "2026-10-29T00:44:12Z",
-   "git_hash": "9805a4c",
+   "generated_at": "2026-10-29T17:11:01Z",
+   "git_hash": "4a046de",
    "slug": "roadmap",
    "source": "docs/roadmap.md",
-   "source_hash": "0fa988a3",
+   "source_hash": "e1e36414",
    "title": "Roadmap",
    "truth_state": "current",
    "wiki_key": "roadmap"

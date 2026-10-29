@@ -6,9 +6,9 @@ Feature FEAT-004 (Fix the section), stage ST-004.
 
 ## Children
 
-- [[Ticket-01M61XNK7A3WE67AVJFXNDZT2P]] US-013 See changes that the authoring tools make, without any action — As a PRD author, I want to see changes that the authoring tools make, without any action, so that the author sees the current version of each section without any action. (open)
+- [[Ticket-01M61XNK7A3WE67AVJFXNDZT2P]] US-013 See changes that the authoring tools make, without any action — As a PRD author, I want to see changes that the authoring tools make, without any action, so that the author sees the current version of each section without any action. (done)
 
-Progress: 0/1 done
+Progress: 1/1 done
 
 ## Related tickets
 

@@ -45,23 +45,30 @@ fn start_with<W: Watcher + Send + 'static>(folder: &Path, notify: notify_debounc
 /// see each save, and the second sees the same content, so a save reloads once. A later save
 /// always has new content, so the last save of a burst is never dropped.
 fn only_new_content(root: PathBuf, on_change: impl Fn(Vec<String>) + Send + Sync + 'static) -> impl Fn(Vec<String>) + Send + Sync + Clone + 'static {
-    let last = Arc::new(Mutex::new(HashMap::<String, Option<u64>>::new()));
+    // A deleted file hashes to None, which is a change too.
+    let hash = |p: &Path| {
+        std::fs::read(p).ok().map(|b| {
+            let mut h = DefaultHasher::new();
+            b.hash(&mut h);
+            h.finish()
+        })
+    };
+    // Start from the content on disk, so a late event for a file that did not change is not a change.
+    let start: HashMap<String, Option<u64>> = std::fs::read_dir(&root)
+        .into_iter()
+        .flatten()
+        .flatten()
+        .filter_map(|e| e.file_name().to_str().filter(|n| n.ends_with(".md")).map(|n| (n.to_string(), hash(&e.path()))))
+        .collect();
+    let last = Arc::new(Mutex::new(start));
     let on_change = Arc::new(on_change);
     move |files: Vec<String>| {
         let fresh: Vec<String> = {
             let mut last = last.lock().unwrap_or_else(|e| e.into_inner());
-            files
-                .into_iter()
-                .filter(|f| {
-                    // A deleted file hashes to None, which is a change too.
-                    let now = std::fs::read(root.join(f)).ok().map(|b| {
-                        let mut h = DefaultHasher::new();
-                        b.hash(&mut h);
-                        h.finish()
-                    });
-                    last.insert(f.clone(), now) != Some(now)
-                })
-                .collect()
+            files.into_iter().filter(|f| {
+                let now = hash(&root.join(f));
+                last.insert(f.clone(), now) != Some(now)
+            }).collect()
         };
         if !fresh.is_empty() {
             on_change(fresh);

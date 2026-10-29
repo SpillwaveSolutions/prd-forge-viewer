@@ -1,6 +1,6 @@
 # e2e/phase3.mjs passes: all three FR-009 criteria, and NFR-002 within 2 s
 
-`01M62C7REGCD2R415FMWFCZMTJ` · subtask/feature · **open**
+`01M62C7REGCD2R415FMWFCZMTJ` · subtask/feature · **done**
 
 e2e/phase3.mjs passes: all three FR-009 criteria, and NFR-002 within 2 s
 

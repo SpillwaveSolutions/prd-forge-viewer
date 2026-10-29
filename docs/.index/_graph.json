@@ -1816,9 +1816,19 @@
    "type": "references"
   },
   {
+   "from": "item/01M62GWAS1QA1XNBMNG3MPNGRD",
+   "to": "ticket/github#150",
+   "type": "references"
+  },
+  {
    "from": "item/01M62GWASEB3E2HFZ9GR8K5WEZ",
    "to": "item/01M62GWAS1QA1XNBMNG3MPNGRD",
    "type": "belongs-to"
+  },
+  {
+   "from": "item/01M62GWASEB3E2HFZ9GR8K5WEZ",
+   "to": "ticket/github#151",
+   "type": "references"
   },
   {
    "from": "item/01M62GWASEB3E2HFZ9GR8K5WF1",
@@ -1826,9 +1836,19 @@
    "type": "belongs-to"
   },
   {
+   "from": "item/01M62GWASEB3E2HFZ9GR8K5WF1",
+   "to": "ticket/github#152",
+   "type": "references"
+  },
+  {
    "from": "item/01M62GWASEB3E2HFZ9GR8K5WF3",
    "to": "item/01M62GWAS1QA1XNBMNG3MPNGRD",
    "type": "belongs-to"
+  },
+  {
+   "from": "item/01M62GWASEB3E2HFZ9GR8K5WF3",
+   "to": "ticket/github#153",
+   "type": "references"
   },
   {
    "from": "item/01M62GWASEB3E2HFZ9GR8K5WF5",
@@ -1836,8 +1856,73 @@
    "type": "belongs-to"
   },
   {
+   "from": "item/01M62GWASEB3E2HFZ9GR8K5WF5",
+   "to": "ticket/github#154",
+   "type": "references"
+  },
+  {
    "from": "item/01M62HGSCA8H08GP2CEW69EZYN",
    "to": "item/01M62GWAS1QA1XNBMNG3MPNGRD",
+   "type": "belongs-to"
+  },
+  {
+   "from": "item/01M62HGSCA8H08GP2CEW69EZYN",
+   "to": "ticket/github#155",
+   "type": "references"
+  },
+  {
+   "from": "item/01M62PG5A0K6D0ZN6QHB51EG8W",
+   "to": "ticket/github#156",
+   "type": "references"
+  },
+  {
+   "from": "item/01M62PG5ADWD51YWCVTGKQ63YB",
+   "to": "item/01M62PG5A0K6D0ZN6QHB51EG8W",
+   "type": "belongs-to"
+  },
+  {
+   "from": "item/01M62PG5ADWD51YWCVTGKQ63YB",
+   "to": "ticket/github#157",
+   "type": "references"
+  },
+  {
+   "from": "item/01M62PG5ADWD51YWCVTGKQ63YD",
+   "to": "item/01M62PG5A0K6D0ZN6QHB51EG8W",
+   "type": "belongs-to"
+  },
+  {
+   "from": "item/01M62PG5ADWD51YWCVTGKQ63YD",
+   "to": "ticket/github#158",
+   "type": "references"
+  },
+  {
+   "from": "item/01M62PG5ADWD51YWCVTGKQ63YF",
+   "to": "item/01M62PG5A0K6D0ZN6QHB51EG8W",
+   "type": "belongs-to"
+  },
+  {
+   "from": "item/01M62PG5ADWD51YWCVTGKQ63YF",
+   "to": "ticket/github#159",
+   "type": "references"
+  },
+  {
+   "from": "item/01M62PG5ADWD51YWCVTGKQ63YH",
+   "to": "item/01M62PG5A0K6D0ZN6QHB51EG8W",
+   "type": "belongs-to"
+  },
+  {
+   "from": "item/01M62PG5ADWD51YWCVTGKQ63YH",
+   "to": "ticket/github#160",
+   "type": "references"
+  },
+  {
+   "from": "item/01M63F9FFKHCM00MBXPKDW6R1D",
+   "to": "item/01M62PG5A0K6D0ZN6QHB51EG8W",
+   "type": "belongs-to"
+  },
+  {
+   "from": "item/01M64A1VY1P9GWWTW5H97Z8DY8",
+   "to": "item/01M62PG5A0K6D0ZN6QHB51EG8W",
    "type": "belongs-to"
   },
   {
@@ -2114,6 +2199,31 @@
    "from": "plan/2026-10-29-plan-5-live",
    "to": "item/01M62GWASEB3E2HFZ9GR8K5WF5",
    "type": "produces"
+  },
+  {
+   "from": "plan/2026-10-29-plan-6-themes",
+   "to": "item/01M62PG5A0K6D0ZN6QHB51EG8W",
+   "type": "produces"
+  },
+  {
+   "from": "plan/2026-10-29-plan-6-themes",
+   "to": "item/01M62PG5ADWD51YWCVTGKQ63YB",
+   "type": "produces"
+  },
+  {
+   "from": "plan/2026-10-29-plan-6-themes",
+   "to": "item/01M62PG5ADWD51YWCVTGKQ63YD",
+   "type": "produces"
+  },
+  {
+   "from": "plan/2026-10-29-plan-6-themes",
+   "to": "item/01M62PG5ADWD51YWCVTGKQ63YF",
+   "type": "produces"
+  },
+  {
+   "from": "plan/2026-10-29-plan-6-themes",
+   "to": "item/01M62PG5ADWD51YWCVTGKQ63YH",
+   "type": "produces"
   }
  ],
  "nodes": {
@@ -2199,7 +2309,7 @@
   },
   "item/01M61XNK7A3WE67AVJFXNDZT2P": {
    "doc_type": "item",
-   "status": "todo",
+   "status": "done",
    "title": "US-013 See changes that the authoring tools make, without any action"
   },
   "item/01M61XNK9MPMV0RAEKPX0JC3K4": {
@@ -2659,32 +2769,32 @@
   },
   "item/01M62C7REFJRP4FVS9Z3JD5SBQ": {
    "doc_type": "item",
-   "status": "in_progress",
+   "status": "done",
    "title": "Phase 3: live updates from the authoring tools (US-013)"
   },
   "item/01M62C7REFJRP4FVS9Z3JD5SBS": {
    "doc_type": "item",
-   "status": "todo",
+   "status": "done",
    "title": "Plan 5 written and captured"
   },
   "item/01M62C7REGCD2R415FMWFCZMTG": {
    "doc_type": "item",
-   "status": "todo",
+   "status": "done",
    "title": "Built with TDD, and the review findings fixed"
   },
   "item/01M62C7REGCD2R415FMWFCZMTJ": {
    "doc_type": "item",
-   "status": "todo",
+   "status": "done",
    "title": "e2e/phase3.mjs passes: all three FR-009 criteria, and NFR-002 within 2 s"
   },
   "item/01M62C7REGCD2R415FMWFCZMTM": {
    "doc_type": "item",
-   "status": "todo",
+   "status": "in_progress",
    "title": "Phase 4: export themes (US-021 to US-025)"
   },
   "item/01M62C7REGCD2R415FMWFCZMTP": {
    "doc_type": "item",
-   "status": "todo",
+   "status": "done",
    "title": "Plan 6 written and captured"
   },
   "item/01M62C7REGCD2R415FMWFCZMTR": {
@@ -2819,7 +2929,7 @@
   },
   "item/01M62GWAS1QA1XNBMNG3MPNGRD": {
    "doc_type": "item",
-   "status": "todo",
+   "status": "done",
    "title": "Plan 5: live updates from the authoring tools"
   },
   "item/01M62GWASEB3E2HFZ9GR8K5WEZ": {
@@ -2846,6 +2956,41 @@
    "doc_type": "item",
    "status": "done",
    "title": "Fix the phase 3 review findings"
+  },
+  "item/01M62PG5A0K6D0ZN6QHB51EG8W": {
+   "doc_type": "item",
+   "status": "todo",
+   "title": "Plan 6: export themes"
+  },
+  "item/01M62PG5ADWD51YWCVTGKQ63YB": {
+   "doc_type": "item",
+   "status": "done",
+   "title": "Task 1: the theme model"
+  },
+  "item/01M62PG5ADWD51YWCVTGKQ63YD": {
+   "doc_type": "item",
+   "status": "done",
+   "title": "Task 2: themes in the settings file"
+  },
+  "item/01M62PG5ADWD51YWCVTGKQ63YF": {
+   "doc_type": "item",
+   "status": "done",
+   "title": "Task 3: the themes dialog"
+  },
+  "item/01M62PG5ADWD51YWCVTGKQ63YH": {
+   "doc_type": "item",
+   "status": "done",
+   "title": "Task 4: MCP checks for phase 4"
+  },
+  "item/01M63F9FFKHCM00MBXPKDW6R1D": {
+   "doc_type": "item",
+   "status": "done",
+   "title": "Check that reload_set writes no settings file"
+  },
+  "item/01M64A1VY1P9GWWTW5H97Z8DY8": {
+   "doc_type": "item",
+   "status": "done",
+   "title": "Fix the phase 4 review findings"
   },
   "plan/2026-10-28-plan-1-open-and-grades": {
    "doc_type": "plan",
@@ -2881,6 +3026,12 @@
    "doc_type": "plan",
    "source": "docs/plans/2026-10-29-plan-5-live.md",
    "title": "Plan 5: live updates from the authoring tools",
+   "truth_state": "current"
+  },
+  "plan/2026-10-29-plan-6-themes": {
+   "doc_type": "plan",
+   "source": "docs/plans/2026-10-29-plan-6-themes.md",
+   "title": "Plan 6: export themes",
    "truth_state": "current"
   },
   "release/REL-001": {
@@ -3096,9 +3247,53 @@
    "doc_type": "ticket",
    "url": "https://github.com/SpillwaveSolutions/prd-forge-viewer/issues/15"
   },
+  "ticket/github#150": {
+   "doc_type": "ticket",
+   "url": "https://github.com/SpillwaveSolutions/prd-forge-viewer/issues/150"
+  },
+  "ticket/github#151": {
+   "doc_type": "ticket",
+   "url": "https://github.com/SpillwaveSolutions/prd-forge-viewer/issues/151"
+  },
+  "ticket/github#152": {
+   "doc_type": "ticket",
+   "url": "https://github.com/SpillwaveSolutions/prd-forge-viewer/issues/152"
+  },
+  "ticket/github#153": {
+   "doc_type": "ticket",
+   "url": "https://github.com/SpillwaveSolutions/prd-forge-viewer/issues/153"
+  },
+  "ticket/github#154": {
+   "doc_type": "ticket",
+   "url": "https://github.com/SpillwaveSolutions/prd-forge-viewer/issues/154"
+  },
+  "ticket/github#155": {
+   "doc_type": "ticket",
+   "url": "https://github.com/SpillwaveSolutions/prd-forge-viewer/issues/155"
+  },
+  "ticket/github#156": {
+   "doc_type": "ticket",
+   "url": "https://github.com/SpillwaveSolutions/prd-forge-viewer/issues/156"
+  },
+  "ticket/github#157": {
+   "doc_type": "ticket",
+   "url": "https://github.com/SpillwaveSolutions/prd-forge-viewer/issues/157"
+  },
+  "ticket/github#158": {
+   "doc_type": "ticket",
+   "url": "https://github.com/SpillwaveSolutions/prd-forge-viewer/issues/158"
+  },
+  "ticket/github#159": {
+   "doc_type": "ticket",
+   "url": "https://github.com/SpillwaveSolutions/prd-forge-viewer/issues/159"
+  },
   "ticket/github#16": {
    "doc_type": "ticket",
    "url": "https://github.com/SpillwaveSolutions/prd-forge-viewer/issues/16"
+  },
+  "ticket/github#160": {
+   "doc_type": "ticket",
+   "url": "https://github.com/SpillwaveSolutions/prd-forge-viewer/issues/160"
   },
   "ticket/github#17": {
    "doc_type": "ticket",

@@ -1,6 +1,6 @@
 # Phase 4: export themes (US-021 to US-025)
 
-`01M62C7REGCD2R415FMWFCZMTM` · task/feature · **open**
+`01M62C7REGCD2R415FMWFCZMTM` · task/feature · **in-progress**
 
 Port the Motion theme model and theme dialog, store custom themes in the settings file, protect the built-in themes, and bundle the fonts that exports embed.
 
@@ -10,11 +10,11 @@ Port the Motion theme model and theme dialog, store custom themes in the setting
 
 ## Subtasks
 
-- [[Ticket-01M62C7REGCD2R415FMWFCZMTP]] Plan 6 written and captured — Plan 6 written and captured (open)
+- [[Ticket-01M62C7REGCD2R415FMWFCZMTP]] Plan 6 written and captured — Plan 6 written and captured (done)
 - [[Ticket-01M62C7REGCD2R415FMWFCZMTR]] Built with TDD, and the review findings fixed — Built with TDD, and the review findings fixed (open)
 - [[Ticket-01M62C7REGCD2R415FMWFCZMTT]] e2e/phase4.mjs passes: FR-015 to FR-018 and FR-020, with themes kept after a restart — e2e/phase4.mjs passes: FR-015 to FR-018 and FR-020, with themes kept after a restart (open)
 
-Progress: 0/3 done
+Progress: 1/3 done
 
 ## Related tickets
 
