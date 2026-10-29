@@ -2,7 +2,7 @@ import { useState } from "react";
 import type { Category, Hit } from "./types";
 
 /** The results of one search: the number of matches, then each result with its score (WF-003, WF-004). */
-export function SearchResults({ term, hits, onOpenItem, seq }: { term: string; hits: Hit[]; onOpenItem: (id: string) => void; seq?: number }) {
+export function SearchResults({ term, hits, onOpenHit, seq }: { term: string; hits: Hit[]; onOpenHit: (hit: Hit) => void; seq?: number }) {
     if (!hits.length) return <p className="no-match" role="status" data-seq={seq}>No matches for “{term}”</p>;
     return (
         <div className="results">
@@ -10,7 +10,7 @@ export function SearchResults({ term, hits, onOpenItem, seq }: { term: string; h
             <ol>
                 {hits.map((h) => (
                     <li key={`${h.file}:${h.id}`}>
-                        <button type="button" onClick={() => onOpenItem(h.id)}>
+                        <button type="button" onClick={() => onOpenHit(h)}>
                             <span className="score" aria-label={`relevance ${h.score}`}>{h.score}</span> <strong>{h.id}</strong> {h.title !== h.id && h.title}{" "}
                             <span className="folder">{h.section}</span>
                         </button>
@@ -24,11 +24,11 @@ export function SearchResults({ term, hits, onOpenItem, seq }: { term: string; h
 interface Props {
     categories: Category[];
     onSearch: (term: string, category: string) => Promise<Hit[]>;
-    onOpenItem: (id: string) => void;
+    onOpenHit: (hit: Hit) => void;
 }
 
 /** Search the set by term, in one category or in all (FR-008). */
-export function SearchPanel({ categories, onSearch, onOpenItem }: Props) {
+export function SearchPanel({ categories, onSearch, onOpenHit }: Props) {
     const [term, setTerm] = useState("");
     const [category, setCategory] = useState("all");
     const [shown, setShown] = useState<{ term: string; hits: Hit[]; seq: number }>();
@@ -65,7 +65,7 @@ export function SearchPanel({ categories, onSearch, onOpenItem }: Props) {
                 {shown && <button type="button" onClick={() => setShown(undefined)}>Clear</button>}
             </form>
             {error && <p role="alert" className="error">{error}</p>}
-            {shown && <SearchResults term={shown.term} hits={shown.hits} seq={shown.seq} onOpenItem={onOpenItem} />}
+            {shown && <SearchResults term={shown.term} hits={shown.hits} seq={shown.seq} onOpenHit={onOpenHit} />}
         </section>
     );
 }

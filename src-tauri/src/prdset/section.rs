@@ -32,7 +32,7 @@ pub struct ItemRef {
 
 /// The real path of `rel` inside the set folder. A path that resolves outside it, through `..`,
 /// an absolute path, or a symlink, is refused (NFR-010).
-fn inside(dir: &Path, rel: &str) -> Result<std::path::PathBuf, String> {
+pub(crate) fn inside(dir: &Path, rel: &str) -> Result<std::path::PathBuf, String> {
     let root = fs::canonicalize(dir).map_err(|e| e.to_string())?;
     let path = fs::canonicalize(root.join(rel)).map_err(|_| format!("{rel} was not found"))?;
     if path.starts_with(&root) { Ok(path) } else { Err(format!("{rel} is outside the PRD set")) }

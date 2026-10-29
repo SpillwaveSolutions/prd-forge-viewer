@@ -51,6 +51,13 @@ fn create(conn: &Connection) -> rusqlite::Result<()> {
     ))
 }
 
+/// Delete an index file with its journal files, so a stale journal cannot roll back into a new file.
+fn remove_files(db: &Path) {
+    for suffix in ["", "-journal", "-wal", "-shm"] {
+        let _ = fs::remove_file(format!("{}{suffix}", db.display()));
+    }
+}
+
 fn usable(conn: &Connection) -> bool {
     conn.query_row("SELECT value FROM meta WHERE key = 'schema'", [], |r| r.get::<_, String>(0)).map(|v| v == SCHEMA).unwrap_or(false)
 }
@@ -70,7 +77,7 @@ impl Index {
         let conn = match Connection::open(db) {
             Ok(c) if usable(&c) => c,
             _ => {
-                let _ = fs::remove_file(db);
+                remove_files(db);
                 let c = Connection::open(db).map_err(|e| e.to_string())?;
                 create(&c).map_err(|e| e.to_string())?;
                 c
@@ -85,17 +92,22 @@ impl Index {
         let files = listed(&self.set);
         let mut changed = 0;
         for file in &files {
-            let Ok(bytes) = fs::read(self.set.join(file)) else { continue };
-            let hash = format!("{:016x}", fnv(&bytes));
+            // read() resolves the path inside the set first, so a listed ../ or absolute path is never read.
+            let doc = read(&self.set, file);
+            let hash = match &doc {
+                Ok((_, yaml, body)) => format!("{:016x}", fnv(format!("{yaml}\n{body}").as_bytes())),
+                Err(_) => "unreadable".to_string(),
+            };
             let old: Option<String> = tx.query_row("SELECT hash FROM docs WHERE file = ?1", [file], |r| r.get(0)).ok();
             if old.as_deref() == Some(hash.as_str()) {
                 continue;
             }
             tx.execute("DELETE FROM items WHERE file = ?1", [file]).map_err(|e| e.to_string())?;
-            let (kind, title) = match read(&self.set, file) {
+            let (kind, title) = match doc {
                 Ok((h, yaml, _)) => {
                     for item in items_of(&yaml) {
-                        let text = item.fields.iter().map(|f| format!("{}: {}", f.name, f.text)).collect::<Vec<_>>().join("\n");
+                        // Values only: field names such as "user" or "outcome" would match every item.
+                        let text = item.fields.iter().filter(|f| f.text != item.title).map(|f| f.text.as_str()).collect::<Vec<_>>().join("\n");
                         tx.execute(
                             "INSERT INTO items(id, title, text, file, kind, section) VALUES (?1, ?2, ?3, ?4, ?5, ?6)",
                             params![item.id, item.title, text, file, h.kind, h.title],
@@ -122,14 +134,14 @@ impl Index {
         Ok(changed)
     }
 
-    /// Items that match every word, best first. Title matches weigh ten times text matches (FR-008, criterion 3).
+    /// Items that match every word, best first. An id match weighs most, then the title, then the text (FR-008, criterion 3).
     pub fn search(&self, term: &str, category: &str) -> Result<Vec<Hit>, String> {
         let Some(q) = fts_query(term) else { return Ok(vec![]) };
         let mut st = self
             .conn
             .prepare(
-                "SELECT id, title, file, section, kind, bm25(items, 5.0, 10.0, 1.0) AS rank FROM items
-                 WHERE items MATCH ?1 AND (?2 = 'all' OR kind = ?2) ORDER BY rank LIMIT 200",
+                "SELECT id, title, file, section, kind, bm25(items, 50.0, 10.0, 1.0) AS rank FROM items
+                 WHERE items MATCH ?1 AND (?2 = 'all' OR kind = ?2) ORDER BY rank, rowid LIMIT 200",
             )
             .map_err(|e| e.to_string())?;
         let rows: Vec<(Hit, f64)> = st
@@ -164,14 +176,24 @@ impl Index {
 pub struct SearchState(std::sync::Mutex<Option<(PathBuf, Index)>>);
 
 impl SearchState {
-    fn with<T>(&self, db: &Path, set: &Path, f: impl FnOnce(&mut Index) -> Result<T, String>) -> Result<T, String> {
+    fn with<T>(&self, db: &Path, set: &Path, f: impl Fn(&mut Index) -> Result<T, String>) -> Result<T, String> {
         let mut slot = self.0.lock().unwrap_or_else(|e| e.into_inner());
         if slot.as_ref().map(|(s, _)| s.as_path() != set).unwrap_or(true) {
             *slot = Some((set.to_path_buf(), Index::open(db, set)?));
         }
         let (_, ix) = slot.as_mut().unwrap();
+        let first = ix.refresh().and_then(|_| f(ix));
+        if let Ok(v) = first {
+            return Ok(v);
+        }
+        // The index is derived data: when it fails, delete it, build it again, and try once more.
+        *slot = None;
+        remove_files(db);
+        let mut ix = Index::open(db, set)?;
         ix.refresh()?;
-        f(ix)
+        let v = f(&mut ix);
+        *slot = Some((set.to_path_buf(), ix));
+        v
     }
 
     pub fn search(&self, db: &Path, set: &Path, term: &str, category: &str) -> Result<Vec<Hit>, String> {
@@ -297,6 +319,49 @@ mod tests {
             state.search(&db, real(), term, "all").unwrap();
             assert!(t0.elapsed().as_millis() < 500, "{term}: {:?}", t0.elapsed());
         }
+    }
+
+    #[test]
+    fn field_names_are_not_search_text() {
+        let d = TempDir::new().unwrap();
+        small_set(&d.path().join("s"), "Plain text");
+        let mut ix = Index::open(&d.path().join("ix.sqlite"), &d.path().join("s")).unwrap();
+        ix.refresh().unwrap();
+        // "outcome" is only a field name in this set; "capability" is also a value ("Plain capability").
+        assert!(ix.search("outcome", "all").unwrap().is_empty());
+        assert_eq!(ix.search("capability", "all").unwrap().len(), 1);
+    }
+
+    #[test]
+    fn an_id_search_puts_that_item_first() {
+        let d = TempDir::new().unwrap();
+        assert_eq!(open_real(&d).search("FR-008", "all").unwrap()[0].id, "FR-008");
+    }
+
+    #[test]
+    fn openable_but_broken_index_is_rebuilt() {
+        for breakage in ["DROP TABLE items", "DELETE FROM items_data WHERE id > 10"] {
+            let d = TempDir::new().unwrap();
+            let db = d.path().join("ix.sqlite");
+            let state = SearchState::default();
+            state.search(&db, real(), "export", "all").unwrap();
+            Connection::open(&db).unwrap().execute_batch(breakage).unwrap();
+            let fresh = SearchState::default();
+            assert!(!fresh.search(&db, real(), "export", "all").unwrap().is_empty(), "{breakage}");
+            assert!(!state.search(&db, real(), "export", "all").unwrap().is_empty(), "{breakage} with an open index");
+        }
+    }
+
+    #[test]
+    fn listed_files_outside_the_set_are_not_read() {
+        let d = TempDir::new().unwrap();
+        let s = d.path().join("s");
+        fs::create_dir_all(&s).unwrap();
+        fs::write(d.path().join("outside.md"), "---\nid: o\nkind: scope\ntitle: O\nstatus: final\nin_scope:\n  - id: IN-001\n    summary: zebraoutside\n---\n").unwrap();
+        fs::write(s.join("prd.md"), "---\nid: r\nkind: prd\ntitle: R\nstatus: draft\nlinks:\n  children:\n    - { path: ../outside.md, title: O }\n    - { path: /dev/zero, title: Z }\n---\n").unwrap();
+        let mut ix = Index::open(&d.path().join("ix.sqlite"), &s).unwrap();
+        ix.refresh().unwrap();
+        assert!(ix.search("zebraoutside", "all").unwrap().is_empty());
     }
 
     #[test]

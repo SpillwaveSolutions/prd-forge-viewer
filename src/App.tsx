@@ -106,7 +106,7 @@ export function App() {
                     key={set.folder}
                     categories={categories}
                     onSearch={(term, category) => invoke<Hit[]>("search", { folder: set.folder, term, category })}
-                    onOpenItem={openItem}
+                    onOpenHit={(hit) => openDoc(hit.file, hit.id)}
                 />
             )}
             {set && page ? (
