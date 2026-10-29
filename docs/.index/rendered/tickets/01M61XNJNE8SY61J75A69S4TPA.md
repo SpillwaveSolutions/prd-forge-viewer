@@ -14,6 +14,10 @@ As a PRD author, I want to see the grades of all sections together, so that the 
 
 Progress: 1/1 done
 
+## Linked PRs
+
+- [[PR-4]]
+
 ## Release
 
 - [[Release-REL-001]]

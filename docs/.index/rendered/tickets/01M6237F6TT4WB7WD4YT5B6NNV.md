@@ -10,6 +10,10 @@ The test open_failure_remembers_nothing of plan 2 task 4 fails first, then passe
 - story: [[Ticket-01M61XNJ81PQF626SXP9WX3KVX]] US-002 Return to the same PRD set in the next session — As a PRD author, I want to return to the same PRD set in the next session, so that the author continues with the same PRD set without selecting it again.
 - epic: [[Ticket-01M61XNJ3ME272NXHFN3BS3541]] EPIC-001 Open the PRD: Open the right PRD set, from the viewer or the terminal, and see what it holds. — Feature FEAT-001 (Open the PRD), stage ST-001.
 
+## Linked PRs
+
+- [[PR-102]]
+
 ## Release
 
 - [[Release-REL-001]]

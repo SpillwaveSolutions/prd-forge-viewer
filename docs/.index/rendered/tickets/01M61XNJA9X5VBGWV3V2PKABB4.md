@@ -14,6 +14,10 @@ As a PRD author, I want to open a PRD set that has incomplete or unreadable docu
 
 Progress: 1/1 done
 
+## Linked PRs
+
+- [[PR-4]]
+
 ## Release
 
 - [[Release-REL-001]]

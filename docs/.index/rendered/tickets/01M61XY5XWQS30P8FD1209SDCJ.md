@@ -15,6 +15,10 @@ Task 1 of docs/plans/2026-10-28-plan-1-open-and-grades.md, for US-001.
 
 Progress: 1/1 done
 
+## Linked PRs
+
+- [[PR-4]]
+
 ## Release
 
 - [[Release-REL-001]]

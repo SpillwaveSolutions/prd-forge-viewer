@@ -16,6 +16,10 @@ As a PRD author, I want to start the viewer from a terminal with the command prd
 
 Progress: 3/3 done
 
+## Linked PRs
+
+- [[PR-102]]
+
 ## Release
 
 - [[Release-REL-001]]

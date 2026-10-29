@@ -1,6 +1,569 @@
 {
-  "generated": "2026-10-28T15:05:04.202Z",
+  "generated": "2026-10-29T17:50:26.147Z",
   "sessions": [
+    {
+      "ts": "2026-10-29T17:50:26.147Z",
+      "type": "general",
+      "isFailure": false,
+      "commits": 1,
+      "filesChanged": 28,
+      "artifacts": [],
+      "effort": "medium",
+      "telemetry": {
+        "toolCalls": 14,
+        "p50": 2736,
+        "p95": 40552
+      }
+    },
+    {
+      "ts": "2026-10-29T17:43:01.512Z",
+      "type": "governance",
+      "isFailure": false,
+      "commits": 3,
+      "filesChanged": 47,
+      "artifacts": [
+        {
+          "project": "001",
+          "categories": {
+            "Discovery": [
+              "Requirements"
+            ],
+            "Governance": [
+              "Traceability Matrix"
+            ]
+          }
+        }
+      ],
+      "effort": "medium",
+      "telemetry": {
+        "toolCalls": 47,
+        "p50": 64,
+        "p95": 7109,
+        "byAgent": [
+          {
+            "agent": "main",
+            "toolCalls": 40,
+            "mcpCalls": 0,
+            "p50": 151,
+            "p95": 7383
+          },
+          {
+            "agent": "pr-review-toolkit:code-reviewer",
+            "toolCalls": 7,
+            "mcpCalls": 0,
+            "p50": 52,
+            "p95": 65
+          }
+        ]
+      }
+    },
+    {
+      "ts": "2026-10-29T17:27:25.998Z",
+      "type": "architecture",
+      "isFailure": false,
+      "commits": 1,
+      "filesChanged": 16,
+      "artifacts": [
+        {
+          "project": "001",
+          "categories": {
+            "Architecture": [
+              "Architecture Decision Records"
+            ]
+          }
+        }
+      ],
+      "effort": "medium",
+      "telemetry": {
+        "toolCalls": 16,
+        "p50": 39,
+        "p95": 3715,
+        "byAgent": [
+          {
+            "agent": "main",
+            "toolCalls": 15,
+            "mcpCalls": 0,
+            "p50": 35,
+            "p95": 3715
+          },
+          {
+            "agent": "pr-review-toolkit:code-reviewer",
+            "toolCalls": 1,
+            "mcpCalls": 0,
+            "p50": 66,
+            "p95": 66
+          }
+        ]
+      }
+    },
+    {
+      "ts": "2026-10-29T17:22:49.083Z",
+      "type": "general",
+      "isFailure": false,
+      "commits": 6,
+      "filesChanged": 61,
+      "artifacts": [],
+      "effort": "medium",
+      "telemetry": {
+        "toolCalls": 46,
+        "p50": 157,
+        "p95": 4743
+      }
+    },
+    {
+      "ts": "2026-10-29T17:11:04.631Z",
+      "type": "general",
+      "isFailure": false,
+      "commits": 1,
+      "filesChanged": 16,
+      "artifacts": [],
+      "effort": "medium",
+      "telemetry": {
+        "toolCalls": 16,
+        "p50": 227,
+        "p95": 13737
+      }
+    },
+    {
+      "ts": "2026-10-29T10:39:33.709Z",
+      "type": "failure (server_error)",
+      "isFailure": true,
+      "commits": 0,
+      "filesChanged": 0,
+      "artifacts": [],
+      "effort": "medium",
+      "telemetry": {
+        "toolCalls": 1,
+        "p50": 55,
+        "p95": 55
+      }
+    },
+    {
+      "ts": "2026-10-29T10:22:54.169Z",
+      "type": "failure (server_error)",
+      "isFailure": true,
+      "commits": 1,
+      "filesChanged": 13,
+      "artifacts": [],
+      "effort": "medium",
+      "telemetry": {
+        "toolCalls": 14,
+        "p50": 173,
+        "p95": 943366,
+        "byAgent": [
+          {
+            "agent": "main",
+            "toolCalls": 9,
+            "mcpCalls": 0,
+            "p50": 294,
+            "p95": 943366
+          },
+          {
+            "agent": "pr-review-toolkit:code-reviewer",
+            "toolCalls": 5,
+            "mcpCalls": 0,
+            "p50": 61,
+            "p95": 67
+          }
+        ]
+      }
+    },
+    {
+      "ts": "2026-10-29T07:50:28.990Z",
+      "type": "failure (server_error)",
+      "isFailure": true,
+      "commits": 1,
+      "filesChanged": 14,
+      "artifacts": [],
+      "effort": "medium",
+      "telemetry": {
+        "toolCalls": 5,
+        "p50": 333,
+        "p95": 8155
+      }
+    },
+    {
+      "ts": "2026-10-29T06:07:33.863Z",
+      "type": "failure (server_error)",
+      "isFailure": true,
+      "commits": 1,
+      "filesChanged": 21,
+      "artifacts": [],
+      "effort": "medium",
+      "telemetry": {
+        "toolCalls": 10,
+        "p50": 262,
+        "p95": 620380
+      }
+    },
+    {
+      "ts": "2026-10-29T04:25:35.756Z",
+      "type": "failure (server_error)",
+      "isFailure": true,
+      "commits": 2,
+      "filesChanged": 29,
+      "artifacts": [],
+      "effort": "medium",
+      "telemetry": {
+        "toolCalls": 15,
+        "p50": 405,
+        "p95": 950891
+      }
+    },
+    {
+      "ts": "2026-10-29T02:03:33.492Z",
+      "type": "failure (server_error)",
+      "isFailure": true,
+      "commits": 0,
+      "filesChanged": 0,
+      "artifacts": [],
+      "effort": "medium",
+      "telemetry": {
+        "toolCalls": 3,
+        "p50": 1990,
+        "p95": 4234
+      }
+    },
+    {
+      "ts": "2026-10-29T00:53:37.083Z",
+      "type": "failure (server_error)",
+      "isFailure": true,
+      "commits": 8,
+      "filesChanged": 52,
+      "artifacts": [
+        {
+          "project": "001",
+          "categories": {
+            "Architecture": [
+              "Architecture Decision Records"
+            ]
+          }
+        }
+      ],
+      "effort": "medium",
+      "telemetry": {
+        "toolCalls": 56,
+        "p50": 216,
+        "p95": 151819,
+        "byAgent": [
+          {
+            "agent": "main",
+            "toolCalls": 53,
+            "mcpCalls": 0,
+            "p50": 330,
+            "p95": 151819
+          },
+          {
+            "agent": "pr-review-toolkit:code-reviewer",
+            "toolCalls": 3,
+            "mcpCalls": 0,
+            "p50": 57,
+            "p95": 67
+          }
+        ]
+      }
+    },
+    {
+      "ts": "2026-10-29T00:17:30.545Z",
+      "type": "failure (server_error)",
+      "isFailure": true,
+      "commits": 0,
+      "filesChanged": 0,
+      "artifacts": [],
+      "effort": "medium",
+      "telemetry": {
+        "toolCalls": 10,
+        "p50": 99,
+        "p95": 102527,
+        "byAgent": [
+          {
+            "agent": "general-purpose",
+            "toolCalls": 9,
+            "mcpCalls": 0,
+            "p50": 93,
+            "p95": 14711
+          },
+          {
+            "agent": "main",
+            "toolCalls": 1,
+            "mcpCalls": 0,
+            "p50": 102527,
+            "p95": 102527
+          }
+        ]
+      }
+    },
+    {
+      "ts": "2026-10-28T23:55:00.915Z",
+      "type": "general",
+      "isFailure": false,
+      "commits": 16,
+      "filesChanged": 90,
+      "artifacts": [],
+      "effort": "medium",
+      "telemetry": {
+        "toolCalls": 102,
+        "p50": 1279,
+        "p95": 75780,
+        "byAgent": [
+          {
+            "agent": "main",
+            "toolCalls": 69,
+            "mcpCalls": 0,
+            "p50": 1894,
+            "p95": 82203
+          },
+          {
+            "agent": "general-purpose",
+            "toolCalls": 33,
+            "mcpCalls": 0,
+            "p50": 103,
+            "p95": 19563
+          }
+        ]
+      }
+    },
+    {
+      "ts": "2026-10-28T23:07:27.617Z",
+      "type": "general",
+      "isFailure": false,
+      "commits": 1,
+      "filesChanged": 143,
+      "artifacts": [],
+      "effort": "medium",
+      "telemetry": {
+        "toolCalls": 27,
+        "p50": 53,
+        "p95": 3770,
+        "byAgent": [
+          {
+            "agent": "main",
+            "toolCalls": 17,
+            "mcpCalls": 0,
+            "p50": 268,
+            "p95": 12144
+          },
+          {
+            "agent": "Explore",
+            "toolCalls": 10,
+            "mcpCalls": 0,
+            "p50": 40,
+            "p95": 63
+          }
+        ]
+      }
+    },
+    {
+      "ts": "2026-10-28T22:41:09.906Z",
+      "type": "general",
+      "isFailure": false,
+      "commits": 1,
+      "filesChanged": 15,
+      "artifacts": [],
+      "effort": "medium",
+      "telemetry": {
+        "toolCalls": 36,
+        "p50": 3628,
+        "p95": 48647
+      }
+    },
+    {
+      "ts": "2026-10-28T20:45:50.711Z",
+      "type": "general",
+      "isFailure": false,
+      "commits": 1,
+      "filesChanged": 3,
+      "artifacts": [],
+      "effort": "medium",
+      "telemetry": {
+        "toolCalls": 3,
+        "p50": 1974,
+        "p95": 2296
+      }
+    },
+    {
+      "ts": "2026-10-28T20:44:16.593Z",
+      "type": "general",
+      "isFailure": false,
+      "commits": 2,
+      "filesChanged": 24,
+      "artifacts": [],
+      "effort": "medium",
+      "telemetry": {
+        "toolCalls": 16,
+        "p50": 2899,
+        "p95": 600806,
+        "byAgent": [
+          {
+            "agent": "main",
+            "toolCalls": 13,
+            "mcpCalls": 0,
+            "p50": 2899,
+            "p95": 600806
+          },
+          {
+            "agent": "general-purpose",
+            "toolCalls": 3,
+            "mcpCalls": 0,
+            "p50": 42,
+            "p95": 14176
+          }
+        ]
+      }
+    },
+    {
+      "ts": "2026-10-28T20:29:24.689Z",
+      "type": "general",
+      "isFailure": false,
+      "commits": 7,
+      "filesChanged": 19,
+      "artifacts": [],
+      "effort": "medium",
+      "telemetry": {
+        "toolCalls": 52,
+        "p50": 153,
+        "p95": 11410,
+        "byAgent": [
+          {
+            "agent": "main",
+            "toolCalls": 44,
+            "mcpCalls": 0,
+            "p50": 776,
+            "p95": 11410
+          },
+          {
+            "agent": "general-purpose",
+            "toolCalls": 8,
+            "mcpCalls": 0,
+            "p50": 48,
+            "p95": 62
+          }
+        ]
+      }
+    },
+    {
+      "ts": "2026-10-28T19:12:28.719Z",
+      "type": "general",
+      "isFailure": false,
+      "commits": 2,
+      "filesChanged": 11,
+      "artifacts": [],
+      "effort": "medium",
+      "telemetry": {
+        "toolCalls": 21,
+        "p50": 89,
+        "p95": 4371,
+        "byAgent": [
+          {
+            "agent": "general-purpose",
+            "toolCalls": 15,
+            "mcpCalls": 0,
+            "p50": 73,
+            "p95": 14729
+          },
+          {
+            "agent": "main",
+            "toolCalls": 6,
+            "mcpCalls": 0,
+            "p50": 2369,
+            "p95": 4371
+          }
+        ]
+      }
+    },
+    {
+      "ts": "2026-10-28T19:07:29.071Z",
+      "type": "governance",
+      "isFailure": false,
+      "commits": 10,
+      "filesChanged": 107,
+      "artifacts": [
+        {
+          "project": "001",
+          "categories": {
+            "Discovery": [
+              "Requirements"
+            ],
+            "Governance": [
+              "Traceability Matrix"
+            ]
+          }
+        }
+      ],
+      "effort": "medium",
+      "telemetry": {
+        "toolCalls": 65,
+        "p50": 385,
+        "p95": 23363
+      }
+    },
+    {
+      "ts": "2026-10-28T18:45:59.032Z",
+      "type": "general",
+      "isFailure": false,
+      "commits": 1,
+      "filesChanged": 21,
+      "artifacts": [],
+      "effort": "medium",
+      "telemetry": {
+        "toolCalls": 29,
+        "p50": 193,
+        "p95": 3084
+      }
+    },
+    {
+      "ts": "2026-10-28T18:28:52.929Z",
+      "type": "architecture",
+      "isFailure": false,
+      "commits": 1,
+      "filesChanged": 35,
+      "artifacts": [
+        {
+          "project": "000",
+          "categories": {
+            "Architecture": [
+              "Architecture Principles"
+            ]
+          }
+        },
+        {
+          "project": "001",
+          "categories": {
+            "Architecture": [
+              "Architecture Decision Records",
+              "Architecture Diagrams",
+              "Data Model"
+            ],
+            "Discovery": [
+              "Requirements",
+              "Stakeholder Analysis"
+            ]
+          }
+        }
+      ],
+      "effort": "medium",
+      "telemetry": {
+        "toolCalls": 217,
+        "p50": 5,
+        "p95": 185,
+        "byAgent": [
+          {
+            "agent": "prd-forge:prd-adversary",
+            "toolCalls": 148,
+            "mcpCalls": 0,
+            "p50": 2,
+            "p95": 15
+          },
+          {
+            "agent": "main",
+            "toolCalls": 69,
+            "mcpCalls": 0,
+            "p50": 122,
+            "p95": 3717
+          }
+        ]
+      }
+    },
     {
       "ts": "2026-10-28T15:05:04.202Z",
       "type": "governance",

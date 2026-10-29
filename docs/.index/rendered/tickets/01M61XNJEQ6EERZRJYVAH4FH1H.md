@@ -14,6 +14,10 @@ As a PRD author, I want to choose a PRD set from the locations the viewer rememb
 
 Progress: 1/1 done
 
+## Linked PRs
+
+- [[PR-102]]
+
 ## Release
 
 - [[Release-REL-001]]

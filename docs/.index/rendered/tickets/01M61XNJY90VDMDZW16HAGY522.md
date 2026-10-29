@@ -8,6 +8,10 @@ As a developer who uses the authoring tools, I want to follow a reference from o
 
 - epic: [[Ticket-01M61XNJQPA0F7H1BG56ERNJ3P]] EPIC-003 Go to a weak section: Go directly to a weak section or item, or find it by search. — Feature FEAT-003 (Go to a weak section), stage ST-003.
 
+## Linked PRs
+
+- [[PR-133]]
+
 ## Release
 
 - [[Release-REL-001]]
