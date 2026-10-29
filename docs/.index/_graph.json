@@ -3265,6 +3265,48 @@
    "title": "PRD Forge Viewer design document",
    "truth_state": "current"
   },
+  "guide/01-open-a-set": {
+   "doc_type": "guide",
+   "source": "docs/user_guide/01-open-a-set.md",
+   "title": "Open a PRD set",
+   "truth_state": "current"
+  },
+  "guide/02-read-sections": {
+   "doc_type": "guide",
+   "source": "docs/user_guide/02-read-sections.md",
+   "title": "Read sections and items",
+   "truth_state": "current"
+  },
+  "guide/03-grades": {
+   "doc_type": "guide",
+   "source": "docs/user_guide/03-grades.md",
+   "title": "See the grades",
+   "truth_state": "current"
+  },
+  "guide/04-search": {
+   "doc_type": "guide",
+   "source": "docs/user_guide/04-search.md",
+   "title": "Search a set",
+   "truth_state": "current"
+  },
+  "guide/05-live-updates": {
+   "doc_type": "guide",
+   "source": "docs/user_guide/05-live-updates.md",
+   "title": "Live updates",
+   "truth_state": "current"
+  },
+  "guide/06-themes": {
+   "doc_type": "guide",
+   "source": "docs/user_guide/06-themes.md",
+   "title": "Export themes",
+   "truth_state": "current"
+  },
+  "guide/07-export-and-print": {
+   "doc_type": "guide",
+   "source": "docs/user_guide/07-export-and-print.md",
+   "title": "Export and print",
+   "truth_state": "current"
+  },
   "item/01M61XNJ3ME272NXHFN3BS3541": {
    "doc_type": "item",
    "status": "done",
