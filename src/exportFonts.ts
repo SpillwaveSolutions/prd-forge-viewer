@@ -20,7 +20,7 @@ export async function loadFonts(read: (file: string) => Promise<Uint8Array> = fr
     return Object.fromEntries(await Promise.all(files.map(async (f) => [f, await read(f)] as const)));
 }
 
-function base64(bytes: Uint8Array): string {
+export function toBase64(bytes: Uint8Array): string {
     let s = "";
     for (let i = 0; i < bytes.length; i += 0x8000) s += String.fromCharCode(...bytes.subarray(i, i + 0x8000));
     return btoa(s);
@@ -30,6 +30,6 @@ function base64(bytes: Uint8Array): string {
 export function fontFaceCss(fonts: FontData): string {
     return (Object.keys(FONT_FILES) as ThemeFont[])
         .flatMap((k) => FONT_FILES[k].filter((f) => fonts[f]).map((f, i) =>
-            `@font-face { font-family: '${FAMILY[k]}'; font-weight: ${i === 0 ? 400 : 600}; src: url(data:font/ttf;base64,${base64(fonts[f]!)}) format("truetype"); }`))
+            `@font-face { font-family: '${FAMILY[k]}'; font-weight: ${i === 0 ? 400 : 600}; src: url(data:font/ttf;base64,${toBase64(fonts[f]!)}) format("truetype"); }`))
         .join("\n");
 }

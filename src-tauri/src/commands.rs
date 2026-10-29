@@ -124,6 +124,12 @@ pub fn export_pdf(app: AppHandle, folder: String, path: String, html: String) ->
     crate::export::export_pdf(&chrome, &work, Path::new(&folder), Path::new(&path), &html)
 }
 
+/// Open the macOS print dialog for the window. The window shows only the export on paper (FR-013).
+#[tauri::command]
+pub fn print_page(window: tauri::WebviewWindow) -> Result<(), String> {
+    window.print().map_err(|e| e.to_string())
+}
+
 /// The watcher of the open set. A new watch replaces it, so the old set's events stop.
 #[derive(Default)]
 pub struct WatchState(Mutex<Option<crate::watch::SetWatcher>>);

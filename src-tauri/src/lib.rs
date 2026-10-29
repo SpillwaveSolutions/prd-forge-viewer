@@ -43,7 +43,8 @@ pub fn run() {
             commands::themes,
             commands::save_themes,
             commands::write_export,
-            commands::export_pdf])
+            commands::export_pdf,
+            commands::print_page])
         .run(tauri::generate_context!())
         .expect("error while running the PRD Forge Viewer");
 }

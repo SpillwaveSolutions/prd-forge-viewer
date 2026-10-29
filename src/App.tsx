@@ -1,7 +1,7 @@
 import { useCallback, useEffect, useRef, useState } from "react";
 import { invoke } from "@tauri-apps/api/core";
 import { listen } from "@tauri-apps/api/event";
-import { ask, open } from "@tauri-apps/plugin-dialog";
+import { ask, open, save } from "@tauri-apps/plugin-dialog";
 import { GradesTable } from "./GradesTable";
 import { SearchPanel } from "./SearchPanel";
 import { SectionPage } from "./SectionPage";
@@ -9,6 +9,8 @@ import { SetOverview } from "./SetOverview";
 import { StartScreen } from "./StartScreen";
 import { applyResult, applyStart, openSet } from "./openSet";
 import { applyChange, reloadedPage } from "./live";
+import { ExportDialog } from "./ExportDialog";
+import { runExport, runPrint, type Deps } from "./exportRun";
 import { ThemeDialog } from "./ThemeDialog";
 import { DEFAULT_EXPORT_THEME_ID, sanitizeCustomThemes, type ExportTheme } from "./themes";
 import type { Category, Hit, ItemRef, PrdSet, Section, StartView } from "./types";
@@ -27,6 +29,7 @@ export function App() {
     // Custom export themes and the selected theme, from the settings file (FR-020).
     const [themes, setThemes] = useState<{ custom: ExportTheme[]; selected: string }>({ custom: [], selected: DEFAULT_EXPORT_THEME_ID });
     const [editThemes, setEditThemes] = useState(false);
+    const [exporting, setExporting] = useState(false);
     const [page, setPage] = useState<{ section: Section; selected: string | null }>();
     const [index, setIndex] = useState<ItemRef[]>([]);
     const [categories, setCategories] = useState<Category[]>([]);
@@ -123,6 +126,16 @@ export function App() {
         if (folder) showStart(await invoke<StartView>("start_for", { path: folder }));
     };
 
+    // The e2e checks set window.__pfvSavePath and window.__pfvPrint, because they cannot drive the macOS dialogs.
+    const testHooks = window as unknown as { __pfvSavePath?: string; __pfvPrint?: () => void };
+    const exportDeps = (folder: string): Deps => ({
+        read: (file) => invoke<Section>("read_section", { folder, file }),
+        save: async (format, name) => testHooks.__pfvSavePath ?? (await save({ defaultPath: name, filters: [{ name: format === "pdf" ? "PDF" : "Word", extensions: [format] }] })),
+        writeDocx: (path, data) => invoke("write_export", { folder, path, data }),
+        writePdf: (path, html) => invoke("export_pdf", { folder, path, html }),
+        print: async () => { if (testHooks.__pfvPrint) testHooks.__pfvPrint(); else await invoke("print_page"); },
+    });
+
     const installPrdf = async () => {
         if (!(await ask("Install the prdf command in ~/.local/bin?", { title: "Install prdf command" }))) return;
         setNotice(await invoke<string>("install_prdf").catch(String));
@@ -140,7 +153,26 @@ export function App() {
                 <button type="button" onClick={() => setEditThemes(true)}>
                     Themes
                 </button>
+                {set && (
+                    <>
+                        {" "}
+                        <button type="button" onClick={() => setExporting(true)}>
+                            Export
+                        </button>
+                    </>
+                )}
             </header>
+            {exporting && set && (
+                <ExportDialog
+                    set={set}
+                    themes={themes.custom}
+                    themeId={themes.selected}
+                    onEditThemes={() => setEditThemes(true)}
+                    onClose={() => setExporting(false)}
+                    onExport={(format, theme, selected) => runExport(format, set, theme, selected, exportDeps(set.folder))}
+                    onPrint={(theme, selected) => runPrint(set, theme, selected, exportDeps(set.folder))}
+                />
+            )}
             {editThemes && (
                 <ThemeDialog
                     themes={themes.custom}
