@@ -25,7 +25,7 @@
    "frozen": false,
    "page_name": "Index-Releases",
    "render": "as-is",
-   "render_hash": "7e58ff38f2f6",
+   "render_hash": "0279327243fb",
    "source": "docs/.index/rendered/releases.md",
    "title": "Releases Index",
    "truth_state": "current",
@@ -1820,6 +1820,42 @@
    "title": "Cut release 0.1.0",
    "truth_state": "in-progress",
    "wiki_key": "item/01M64CZNVN13K32BT680E0S8VY"
+  },
+  {
+   "banner": "> **Snapshot** of release v0.1.0 (2026-10-29) \u2014 frozen record. The current version is [[Code-Walkthrough]].",
+   "frozen": true,
+   "page_name": "Design-Freeze-2026-10-29_v0.1.0-release",
+   "render": "doc+banner",
+   "render_hash": "2ee91120fea4",
+   "source": "docs/designs/2026-10-29_v0.1.0-release.md",
+   "source_hash": "3a31bb43d80b",
+   "title": "Design freeze for v0.1.0",
+   "truth_state": "snapshot",
+   "wiki_key": "design/2026-10-29_v0.1.0-release"
+  },
+  {
+   "banner": "> **Current** \u2014 this is the living version; regenerated at 2026-10-29T18:07:19Z. Historical snapshots are linked from [[Index-Releases]].",
+   "frozen": false,
+   "page_name": "Code-Walkthrough",
+   "render": "doc+banner",
+   "render_hash": "ad284c607439",
+   "source": "docs/designs/current_code_walkthrough.md",
+   "source_hash": "1946071ea152",
+   "title": "PRD Forge Viewer code walkthrough",
+   "truth_state": "current",
+   "wiki_key": "design/current-code-walkthrough"
+  },
+  {
+   "banner": "> **Current** \u2014 this is the living version; regenerated at 2026-10-29T18:07:19Z. Historical snapshots are linked from [[Index-Releases]].",
+   "frozen": false,
+   "page_name": "Design-Doc",
+   "render": "doc+banner",
+   "render_hash": "fa5ba8a08df3",
+   "source": "docs/designs/current_design_doc.md",
+   "source_hash": "9955752c9adf",
+   "title": "PRD Forge Viewer design document",
+   "truth_state": "current",
+   "wiki_key": "design/current-design-doc"
   },
   {
    "banner": "> **Current** \u2014 this is the living version. Historical snapshots are linked from [[Index-Releases]].",

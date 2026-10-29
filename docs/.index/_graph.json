@@ -1,6 +1,26 @@
 {
  "edges": [
   {
+   "from": "design/2026-10-29_v0.1.0-release",
+   "to": "design/current-code-walkthrough",
+   "type": "snapshot-of"
+  },
+  {
+   "from": "design/2026-10-29_v0.1.0-release",
+   "to": "release/v0.1.0",
+   "type": "targets"
+  },
+  {
+   "from": "design/current-code-walkthrough",
+   "to": "release/v0.1.0",
+   "type": "targets"
+  },
+  {
+   "from": "design/current-design-doc",
+   "to": "release/v0.1.0",
+   "type": "targets"
+  },
+  {
    "from": "item/01M61XNJ3ME272NXHFN3BS3541",
    "to": "ticket/github#5",
    "type": "references"
@@ -3227,6 +3247,24 @@
   }
  ],
  "nodes": {
+  "design/2026-10-29_v0.1.0-release": {
+   "doc_type": "design",
+   "source": "docs/designs/2026-10-29_v0.1.0-release.md",
+   "title": "Design freeze for v0.1.0",
+   "truth_state": "snapshot"
+  },
+  "design/current-code-walkthrough": {
+   "doc_type": "design",
+   "source": "docs/designs/current_code_walkthrough.md",
+   "title": "PRD Forge Viewer code walkthrough",
+   "truth_state": "current"
+  },
+  "design/current-design-doc": {
+   "doc_type": "design",
+   "source": "docs/designs/current_design_doc.md",
+   "title": "PRD Forge Viewer design document",
+   "truth_state": "current"
+  },
   "guide/01-open-a-set": {
    "doc_type": "guide",
    "source": "docs/user_guide/01-open-a-set.md",
