@@ -18,7 +18,7 @@ _The evidence chain: plan → item → ticket → code → release, forward and 
 - produced-by: [[Plan-plan-7-export]]
 
 ### Task 3: the Word writer
-`01M64AFRY2E3BX98SZ4RCG3PEJ` · status: todo
+`01M64AFRY2E3BX98SZ4RCG3PEJ` · status: done
 - belongs-to: Plan 7: PDF and Word export, print, and the Draft mark
 - produced-by: [[Plan-plan-7-export]]
 

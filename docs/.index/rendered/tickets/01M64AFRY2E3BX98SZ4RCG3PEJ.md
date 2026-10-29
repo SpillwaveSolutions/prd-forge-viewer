@@ -1,6 +1,6 @@
 # Task 3: the Word writer
 
-`01M64AFRY2E3BX98SZ4RCG3PEJ` · task/feature · **open**
+`01M64AFRY2E3BX98SZ4RCG3PEJ` · task/feature · **done**
 
 Copy `exportDocx.ts`, return bytes, and embed the fonts.
 

@@ -1,6 +1,6 @@
 /**
- * Themed Word document. Heading and body fonts follow the theme
- * (Georgia for serif, Calibri for sans, Consolas for mono).
+ * Copied from Motion (MIT). Themed Word document. Heading and body fonts follow the theme and use
+ * the bundled fonts of exportFonts.ts, which the document embeds (FR-016, criterion 2).
  */
 import {
     BorderStyle,
@@ -17,13 +17,19 @@ import {
     type FileChild,
 } from "docx";
 import { markdownToBlocks, type ExportBlock, type InlineRun } from "./exportBlocks";
+import { FAMILY, FONT_FILES, type FontData } from "./exportFonts";
 import { hexBare, type ExportTheme, type ThemeFont } from "./themes";
 
-const FONT: Record<ThemeFont, string> = {
-    serif: "Georgia",
-    sans: "Calibri",
-    mono: "Consolas",
-};
+const FONT: Record<ThemeFont, string> = FAMILY;
+
+/** The fonts that the theme uses, with their regular and semibold faces, for embedding. */
+function embedded(theme: ExportTheme, fonts: FontData) {
+    const used = [...new Set<ThemeFont>([theme.font, theme.headingFont, "mono"])];
+    return used.flatMap((k) => {
+        const [regular, bold] = FONT_FILES[k].map((f) => fonts[f]);
+        return regular ? [{ name: FAMILY[k], data: regular as Buffer, ...(bold ? { bold: bold as Buffer } : {}) }] : [];
+    });
+}
 
 const HEADING: Record<1 | 2 | 3 | 4 | 5 | 6, (typeof HeadingLevel)[keyof typeof HeadingLevel]> = {
     1: HeadingLevel.HEADING_1,
@@ -34,13 +40,14 @@ const HEADING: Record<1 | 2 | 3 | 4 | 5 | 6, (typeof HeadingLevel)[keyof typeof 
     6: HeadingLevel.HEADING_6,
 };
 
-export async function exportDocx(markdown: string, theme: ExportTheme, title: string): Promise<Blob> {
+export async function exportDocx(markdown: string, theme: ExportTheme, title: string, fonts: FontData = {}): Promise<Blob> {
     const children = blocksToChildren(markdownToBlocks(markdown), theme);
     if (children.length === 0) {
         children.push(paragraph(title || "Untitled", theme, { heading: true, size: 36 }));
     }
     const doc = new Document({
         title,
+        fonts: embedded(theme, fonts),
         background: { color: hexBare(theme.page) },
         styles: {
             default: {
