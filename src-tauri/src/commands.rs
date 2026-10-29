@@ -101,14 +101,19 @@ pub fn install_prdf() -> Result<String, String> {
 pub struct WatchState(Mutex<Option<crate::watch::SetWatcher>>);
 
 /// Watch the open set, and emit `set-changed` with the changed file names (FR-009, ADR-005).
-#[tauri::command(async)]
-pub fn watch_set(app: AppHandle, state: State<WatchState>, folder: String) -> Result<(), String> {
+/// With no folder, stop watching. A sync command runs on the main thread in the order of the calls,
+/// so the last set opened is always the one watched.
+#[tauri::command]
+pub fn watch_set(app: AppHandle, state: State<WatchState>, folder: Option<String>) -> Result<(), String> {
     use tauri::Emitter;
+    let mut slot = state.0.lock().unwrap_or_else(|e| e.into_inner());
+    *slot = None;
+    let Some(folder) = folder else { return Ok(()) };
     let f = folder.clone();
     let watcher = crate::watch::SetWatcher::start(Path::new(&folder), move |files| {
         let _ = app.emit("set-changed", serde_json::json!({ "folder": f, "files": files }));
     })?;
-    *state.0.lock().unwrap_or_else(|e| e.into_inner()) = Some(watcher);
+    *slot = Some(watcher);
     Ok(())
 }
 

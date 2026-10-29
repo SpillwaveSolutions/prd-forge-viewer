@@ -8,7 +8,7 @@ import { SectionPage } from "./SectionPage";
 import { SetOverview } from "./SetOverview";
 import { StartScreen } from "./StartScreen";
 import { applyResult, applyStart, openSet } from "./openSet";
-import { applyChange, keepSelection } from "./live";
+import { applyChange, reloadedPage } from "./live";
 import type { Category, Hit, ItemRef, PrdSet, Section, StartView } from "./types";
 
 const pickFolder = async () => {
@@ -36,8 +36,9 @@ export function App() {
         setIndex([]);
         setCategories([]);
         setChanged(new Set());
+        if (!set) void invoke("watch_set", { folder: null }).catch(() => {});
         if (set) {
-            void invoke("watch_set", { folder: set.folder }).catch(() => {});
+            void invoke("watch_set", { folder: set.folder }).catch((e) => setError(`Live updates are off: ${e}`));
             void invoke<ItemRef[]>("item_index", { folder: set.folder }).then(setIndex).catch(() => setIndex([]));
             void invoke<Category[]>("categories", { folder: set.folder }).then(setCategories).catch(() => setCategories([]));
         }
@@ -78,16 +79,24 @@ export function App() {
 
     // FR-009: a change from the authoring tools shows with no action from the author.
     useEffect(() => {
+        let seq = 0;
         const off = listen<{ folder: string; files: string[] }>("set-changed", async (e) => {
             const { set: open, page: shown } = current.current;
             if (!open || e.payload.folder !== open.folder) return;
+            const mine = ++seq;
+            // A later change, or another set, wins over this one.
+            const stale = () => mine !== seq || current.current.set?.folder !== open.folder;
             setChanged((c) => applyChange(c, e.payload.files));
             const fresh = await invoke<PrdSet>("reload_set", { folder: open.folder }).catch(() => undefined);
+            if (stale()) return;
             if (fresh) setSet(fresh);
-            void invoke<ItemRef[]>("item_index", { folder: open.folder }).then(setIndex).catch(() => {});
+            void invoke<ItemRef[]>("item_index", { folder: open.folder }).then((i) => stale() || setIndex(i)).catch(() => {});
             if (shown && e.payload.files.includes(shown.section.file)) {
                 const section = await invoke<Section>("read_section", { folder: open.folder, file: shown.section.file }).catch(() => undefined);
-                if (section) setPage((p) => (p && p.section.file === section.file ? { section, selected: keepSelection(p.selected, section) } : p));
+                if (stale() || current.current.page?.section.file !== shown.section.file) return;
+                const next = reloadedPage(shown, section);
+                setPage(next.page);
+                if (next.error) setError(next.error);
             }
         });
         return () => void off.then((f) => f());

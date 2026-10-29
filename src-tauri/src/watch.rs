@@ -1,8 +1,8 @@
 use notify_debouncer_mini::notify::{PollWatcher, RecommendedWatcher, RecursiveMode, Watcher};
 use notify_debouncer_mini::{new_debouncer_opt, Config, DebounceEventResult, Debouncer};
 use std::collections::{BTreeSet, HashMap};
+use std::hash::{DefaultHasher, Hash, Hasher};
 use std::sync::{Arc, Mutex};
-use std::time::Instant;
 use std::path::{Path, PathBuf};
 use std::time::Duration;
 
@@ -41,22 +41,27 @@ fn start_with<W: Watcher + Send + 'static>(folder: &Path, notify: notify_debounc
     Ok(SetWatcher { _inner: Box::new(d) })
 }
 
-/// Pass each file on at most once in 500 ms, so a save that both watchers see reloads once.
-fn once_per_file(on_change: impl Fn(Vec<String>) + Send + Sync + 'static) -> impl Fn(Vec<String>) + Send + Sync + Clone + 'static {
-    let seen = Arc::new(Mutex::new(HashMap::<String, Instant>::new()));
+/// Pass a file on only when its content differs from the last content passed on. Both watchers
+/// see each save, and the second sees the same content, so a save reloads once. A later save
+/// always has new content, so the last save of a burst is never dropped.
+fn only_new_content(root: PathBuf, on_change: impl Fn(Vec<String>) + Send + Sync + 'static) -> impl Fn(Vec<String>) + Send + Sync + Clone + 'static {
+    let last = Arc::new(Mutex::new(HashMap::<String, Option<u64>>::new()));
     let on_change = Arc::new(on_change);
     move |files: Vec<String>| {
-        let now = Instant::now();
         let fresh: Vec<String> = {
-            let mut seen = seen.lock().unwrap_or_else(|e| e.into_inner());
-            let mut fresh = vec![];
-            for f in files {
-                if seen.get(&f).map(|t| now.duration_since(*t) > Duration::from_millis(500)).unwrap_or(true) {
-                    seen.insert(f.clone(), now);
-                    fresh.push(f);
-                }
-            }
-            fresh
+            let mut last = last.lock().unwrap_or_else(|e| e.into_inner());
+            files
+                .into_iter()
+                .filter(|f| {
+                    // A deleted file hashes to None, which is a change too.
+                    let now = std::fs::read(root.join(f)).ok().map(|b| {
+                        let mut h = DefaultHasher::new();
+                        b.hash(&mut h);
+                        h.finish()
+                    });
+                    last.insert(f.clone(), now) != Some(now)
+                })
+                .collect()
         };
         if !fresh.is_empty() {
             on_change(fresh);
@@ -68,7 +73,8 @@ impl SetWatcher {
     /// Watch with operating system file events, plus a 1-second poll as a safety net (ADR-005).
     /// File events can stop with no error, for example in a sandbox, and the poll keeps NFR-002.
     pub fn start(folder: &Path, on_change: impl Fn(Vec<String>) + Send + Sync + 'static) -> Result<SetWatcher, String> {
-        let on = once_per_file(on_change);
+        let root = std::fs::canonicalize(folder).map_err(|e| e.to_string())?;
+        let on = only_new_content(root, on_change);
         let events = start_with::<RecommendedWatcher>(folder, Default::default(), on.clone()).ok();
         let poll = Self::poll_every(folder, Duration::from_secs(1), on)?;
         Ok(SetWatcher { _inner: Box::new((events, poll)) })
@@ -109,6 +115,19 @@ mod tests {
     }
 
     #[test]
+    fn a_second_save_soon_after_the_first_is_passed_on() {
+        let d = set();
+        let (tx, rx) = channel();
+        let on = only_new_content(d.path().to_path_buf(), move |files| { let _ = tx.send(files); });
+        fs::write(d.path().join("04.md"), "first").unwrap();
+        on(vec!["04.md".into()]);
+        fs::write(d.path().join("04.md"), "second").unwrap();
+        on(vec!["04.md".into()]);
+        on(vec!["04.md".into()]); // the other watcher sees the same save
+        assert_eq!(rx.try_iter().count(), 2);
+    }
+
+    #[test]
     fn a_change_arrives_within_two_seconds() {
         let d = set();
         let (_w, rx) = watch(&d, false);
@@ -125,7 +144,7 @@ mod tests {
             std::thread::sleep(Duration::from_millis(20));
         }
         assert_eq!(rx.recv_timeout(Duration::from_secs(2)).unwrap(), vec!["04.md"]);
-        assert!(rx.recv_timeout(Duration::from_millis(700)).is_err());
+        assert!(rx.recv_timeout(Duration::from_millis(1500)).is_err(), "the last content is passed on once");
     }
 
     #[test]

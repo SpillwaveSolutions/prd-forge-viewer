@@ -1,5 +1,5 @@
 // Phase 3: US-013 (FR-009, all three criteria) and NFR-002, through the tauri MCP server.
-import { readFileSync, writeFileSync } from "fs";
+import { readdirSync, readFileSync, rmSync, writeFileSync } from "fs";
 import { join } from "path";
 import { copySet, expect, run, tmp } from "../harness.mjs";
 
@@ -17,6 +17,8 @@ const setField = (file, field, value) => writeFileSync(file, readFileSync(file, 
 await run(async (h) => {
   const set = copySet(join(tmp(), "live"));
   const personas = join(set, "04-personas.md");
+  const files = () => readdirSync(set, { recursive: true }).sort().join("\n");
+  const before = files();
   await h.launch(set);
   await h.waitText("Version");
   await h.click("//button[contains(., 'Users and personas')]", "xpath");
@@ -50,6 +52,16 @@ await run(async (h) => {
     expect(ms[18] < 2000, `p95 ${ms[18]} ms`);
   });
 
+  await h.check("FR-009 1: two saves 300 ms apart end on the second save", async () => {
+    setField(personas, "score", "90");
+    await new Promise((r) => setTimeout(r, 300));
+    setField(personas, "score", "91");
+    await until(h, "return document.querySelector('.section-page .version')?.innerText || ''", /\b91, 0 blocking/);
+    await new Promise((r) => setTimeout(r, 2500));
+    const v = await h.js("return document.querySelector('.section-page .version')?.innerText || ''");
+    expect(/\b91, 0 blocking/.test(v), `after 2.5 s: ${v}`);
+  });
+
   await h.check("FR-009 3: a section the author is not reading shows its new status and score in the grades", async () => {
     await h.click("//button[contains(., 'Back to the PRD set')]", "xpath");
     const objectives = join(set, "03-objectives-metrics.md");
@@ -58,5 +70,18 @@ await run(async (h) => {
     await until(h, "return [...document.querySelectorAll('table.grades tbody tr')].find(r => r.innerText.includes('Objectives'))?.innerText || ''", /draft[\s\S]*42/);
     const mark = await h.js("return [...document.querySelectorAll('ol.documents li')].find(l => l.innerText.includes('Objectives'))?.innerText || ''");
     expect(/changed/.test(mark), `list line: ${mark}`);
+  });
+
+  await h.check("A deleted open section goes back to the set with a message", async () => {
+    await h.click("//button[contains(., 'Users and personas')]", "xpath");
+    await until(h, "return document.querySelector('.section-page h1')?.innerText || ''", /Users and personas/);
+    rmSync(personas);
+    await until(h, "return document.body.innerText", /04-personas.md was removed/);
+    expect(!(await h.js("return String(!!document.querySelector('.section-page'))")).includes("true"), "section page still shown");
+  });
+
+  await h.check("OUT-001: the viewer adds no file to the set folder", async () => {
+    const after = files().split("\n").filter((f) => f !== "04-personas.md").join("\n");
+    expect(after === before.split("\n").filter((f) => f !== "04-personas.md").join("\n"), `new files: ${after}`);
   });
 });

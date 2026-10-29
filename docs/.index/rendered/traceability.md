@@ -2,6 +2,10 @@
 
 _The evidence chain: plan → item → ticket → code → release, forward and backward. Generated from `docs/.index/_graph.json`; do not edit._
 
+### Fix the phase 3 review findings
+`01M62HGSCA8H08GP2CEW69EZYN` · status: done
+- belongs-to: Plan 5: live updates from the authoring tools
+
 ### Task 4: MCP checks for phase 3
 `01M62GWASEB3E2HFZ9GR8K5WF5` · status: done
 - belongs-to: Plan 5: live updates from the authoring tools
@@ -28,6 +32,7 @@ _The evidence chain: plan → item → ticket → code → release, forward and 
 - contains: Task 2: the watch and reload commands
 - contains: Task 3: show changes in the window
 - contains: Task 4: MCP checks for phase 3
+- contains: Fix the phase 3 review findings
 - produced-by: [[Plan-plan-5-live]]
 
 ### Task 5: MCP checks for phase 2

@@ -1,5 +1,5 @@
 {
- "git_hash": "d4648e8",
+ "git_hash": "9805a4c",
  "pages": [
   {
    "frozen": false,
@@ -45,7 +45,7 @@
    "frozen": false,
    "page_name": "Index-Traceability",
    "render": "as-is",
-   "render_hash": "59a3124ff63a",
+   "render_hash": "ecef68348bfa",
    "source": "docs/.index/rendered/traceability.md",
    "title": "Traceability Index",
    "truth_state": "current",
@@ -1465,7 +1465,7 @@
    "frozen": false,
    "page_name": "Ticket-01M62GWAS1QA1XNBMNG3MPNGRD",
    "render": "as-is",
-   "render_hash": "ec095c51be2a",
+   "render_hash": "613973495be6",
    "source": "docs/.index/rendered/tickets/01M62GWAS1QA1XNBMNG3MPNGRD.md",
    "title": "Plan 5: live updates from the authoring tools",
    "truth_state": "open",
@@ -1510,6 +1510,16 @@
    "title": "Task 4: MCP checks for phase 3",
    "truth_state": "done",
    "wiki_key": "item/01M62GWASEB3E2HFZ9GR8K5WF5"
+  },
+  {
+   "frozen": false,
+   "page_name": "Ticket-01M62HGSCA8H08GP2CEW69EZYN",
+   "render": "as-is",
+   "render_hash": "f2a3baef3aca",
+   "source": "docs/.index/rendered/tickets/01M62HGSCA8H08GP2CEW69EZYN.md",
+   "title": "Fix the phase 3 review findings",
+   "truth_state": "done",
+   "wiki_key": "item/01M62HGSCA8H08GP2CEW69EZYN"
   },
   {
    "banner": "> **Current** \u2014 completed plan; plans are frozen once written, a changed design gets a new plan.",
@@ -1584,11 +1594,11 @@
    "wiki_key": "plan/2026-10-29-plan-5-live"
   },
   {
-   "banner": "> **Current** \u2014 this is the living version; regenerated at 2026-10-29T00:34:17Z. Historical snapshots are linked from [[Index-Releases]].",
+   "banner": "> **Current** \u2014 this is the living version; regenerated at 2026-10-29T00:44:12Z. Historical snapshots are linked from [[Index-Releases]].",
    "frozen": false,
    "page_name": "Roadmap",
    "render": "doc+banner",
-   "render_hash": "4964b72ab503",
+   "render_hash": "28a8d928a79e",
    "source": "docs/roadmap.md",
    "source_hash": "3f8e61520caa",
    "title": "Roadmap",

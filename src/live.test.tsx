@@ -1,6 +1,6 @@
 import { expect, test } from "bun:test";
 import { renderToStaticMarkup } from "react-dom/server";
-import { applyChange, keepSelection } from "./live";
+import { applyChange, keepSelection, reloadedPage } from "./live";
 import { SectionPage } from "./SectionPage";
 import { SetOverview } from "./SetOverview";
 import { doc, sampleSet } from "./fixtures";
@@ -32,4 +32,14 @@ test("changed_document_is_marked_in_the_list", () => {
     const html = renderToStaticMarkup(<SetOverview set={set} onOpen={() => {}} changed={new Set(["04.md"])} />);
     expect(html).toMatch(/Users and personas.*changed/s);
     expect((html.match(/class="changed"/g) || []).length).toBe(1);
+});
+
+test("reloaded_section_keeps_the_selection", () => {
+    expect(reloadedPage({ section: sec, selected: "PER-001" }, sec)).toEqual({ page: { section: sec, selected: "PER-001" } });
+});
+
+test("a_removed_section_goes_back_to_the_overview_with_a_message", () => {
+    const next = reloadedPage({ section: sec, selected: "PER-001" }, undefined);
+    expect(next.page).toBeUndefined();
+    expect(next.error).toContain("04.md");
 });
