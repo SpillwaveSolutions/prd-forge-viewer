@@ -70,3 +70,23 @@ them: IN-006 names the export formats, OUT-001 records the read-only rule, and
 OUT-003 records macOS only. The PRD owner revisits OUT-001 and OUT-003 at the
 release 2 review on 2026-11-06. The ids C-001, C-002, and C-004 are not used
 again.
+
+<!-- prd-forge:details -->
+
+## Details
+
+Every item in this document, with each of its fields.
+
+### C-003
+
+**Statement:** The viewer reads PRD sets in the document layout of the authoring tools, version 1: one root document and the section documents, with the headers and links that the prd-forge/*@1 schemas define.
+
+**Category:** standard
+
+**Authority:** The PRD Forge document format, version 1: the prd-forge/*@1 schemas in the schemas folder of https://github.com/SpillwaveSolutions/prd-forge. Release 0.9.0 of the authoring tools, read on 2026-10-28, uses them for 18 documents.
+
+**Applies to:** FR-001, FR-002, FR-003, FR-004, FR-005, FR-007, FR-008, FR-009, FR-023, FR-024
+
+**Verification:** Open a PRD set that passes the validator of the authoring tools, release 0.9.0. Every document and every grade shows in the viewer. Then change one section header so that it fails the schema, and open the set again. That section shows as unreadable, as FR-003 says.
+
+<!-- /prd-forge:details -->

@@ -417,3 +417,392 @@ score of 70 or more with 0 blocking defects, and to final when the sponsor
 approves the version. A change to an approved section returns it to review. The
 author makes each move in the authoring tools, and the sponsor (PER-004) makes
 the move to final. The viewer only shows the state.
+
+<!-- prd-forge:details -->
+
+## Details
+
+Every item in this document, with each of its fields.
+
+### Scenarios in detail
+
+#### SC-001
+
+**Context:** The PRD Forge Viewer PRD set has 18 documents. The root document and 4 sections are at draft, and 13 sections are at pending. Section 4 has a score of 61 and 0 blocking defects.
+
+**Journey:** J-001
+
+**Stage:** ST-001
+
+**Stages:** ST-001, ST-002, ST-003, ST-004, ST-005, ST-006, ST-007
+
+**Persona:** PER-001
+
+**Variant:** happy
+
+**Priority:** must
+
+**Trigger:** The author wants to send version 0.1.0 to the sponsor for early comments.
+
+**Course:**
+
+1. The author opens the PRD set and sees the product name, version 0.1.0, and the status of all 18 documents.
+2. The author sees that section 4 has a score of 61, the lowest of the graded sections.
+3. The author goes directly to section 4 and reads it.
+4. The author fixes section 4 in the authoring tools. The viewer shows the new text and the new score without any action from the author.
+5. The author exports the whole PRD set as one fixed-layout document with the Clay theme.
+6. The author sends the file to the product sponsor.
+7. The sponsor opens the file without the authoring tools and sees on the first page that version 0.1.0 is a draft.
+
+**Expected outcome:** The sponsor has one fixed-layout document that shows version 0.1.0, the word "Draft", every section in order, and the status and score of each section.
+
+#### SC-002
+
+**Context:** The PRD set has 18 files. Thirteen sections are at pending and fail the authoring tools' check because they have no content yet. One section has a header that cannot be read.
+
+**Journey:** J-001
+
+**Stage:** ST-001
+
+**Persona:** PER-001
+
+**Variant:** exception
+
+**Priority:** must
+
+**Trigger:** The author opens the PRD set.
+
+**Course:**
+
+1. The author opens the PRD set.
+2. The author sees all 18 documents in order, with the status of each.
+3. The author sees which section has a header that cannot be read, and the name of its file.
+4. The author reads the other 17 documents as usual.
+
+**Expected outcome:** The PRD set opens. All 18 documents are listed. The one unreadable section is marked as unreadable with its file name, and the 17 other documents can be read.
+
+#### SC-003
+
+**Context:** The author reads section 4 in the viewer. Section 4 shows a score of 61. At the same time, the authoring tools rewrite section 4 and grade it at 75.
+
+**Journey:** J-001
+
+**Stage:** ST-004
+
+**Persona:** PER-001
+
+**Variant:** exception
+
+**Priority:** must
+
+**Trigger:** The authoring tools save the new version of section 4.
+
+**Course:**
+
+1. The author reads section 4 in the viewer.
+2. The authoring tools save a new version of section 4.
+3. The author sees the new text and the score 75, without any action in the viewer.
+4. The author sees that section 4 changed.
+
+**Expected outcome:** The viewer shows score 75 and the new text of section 4, and the author did nothing to get it. Section 8 sets the time limit.
+
+**Situation:** concurrent
+
+#### SC-004
+
+**Context:** The PRD set has the root document and 4 sections at draft, and 13 sections at pending. The engineering lead wants an early copy.
+
+**Journey:** J-001
+
+**Stage:** ST-005
+
+**Persona:** PER-001
+
+**Variant:** alternate
+
+**Priority:** must
+
+**Trigger:** The author exports the PRD set before the interview covers all sections.
+
+**Course:**
+
+1. The author selects the whole PRD set, the editable document format, and the Ice Snowstorm theme.
+2. The author saves the file and sends it to the engineering lead.
+3. The engineering lead opens the file without the authoring tools.
+
+**Expected outcome:** The file shows the word "Draft" and version 0.1.0 on the first page. The contents list shows the status and score of every section. Each pending section says that it is not written yet.
+
+#### SC-005
+
+**Context:** The PRD set has its functional requirements and scenarios written. The developer starts work on the export feature.
+
+**Journey:** J-002
+
+**Stage:** ST-009
+
+**Persona:** PER-002
+
+**Variant:** happy
+
+**Priority:** should
+
+**Trigger:** The developer needs the requirements and scenarios about export.
+
+**Course:**
+
+1. The developer enters the search term "export" and selects the category "functional requirements".
+2. The developer sees the matching requirements, best match first, each with its id and section.
+3. The developer changes the category to "all" and sees the matching scenarios as well.
+4. The developer exports the user journeys and functional requirements sections as one editable document and sends it to the team.
+
+**Expected outcome:** The developer sees only the items that contain "export", best match first, each with its id and section. The team receives one file with only the two selected sections.
+
+#### SC-006
+
+**Context:** Yesterday the author read the PRD Forge Viewer PRD set and closed the viewer. Overnight the authoring tools changed section 6 from pending to draft.
+
+**Journey:** J-001
+
+**Stage:** ST-001
+
+**Persona:** PER-001
+
+**Variant:** alternate
+
+**Priority:** should
+
+**Trigger:** The author opens the viewer the next day.
+
+**Course:**
+
+1. The author opens the viewer.
+2. The author sees the same PRD set as yesterday, without selecting it again.
+3. The author sees section 6 at draft, with its new text.
+
+**Expected outcome:** The viewer opens the same PRD set as in the last session, and every section shows its current version, including section 6 at draft.
+
+**Situation:** return
+
+**Lifecycles:** LC-001
+
+#### SC-007
+
+**Context:** The PRD set has its functional requirements and scenarios written.
+
+**Journey:** J-002
+
+**Stage:** ST-009
+
+**Persona:** PER-002
+
+**Variant:** exception
+
+**Priority:** should
+
+**Trigger:** The developer searches for a term that no item contains.
+
+**Course:**
+
+1. The developer enters the search term "invoice" and selects the category "all".
+2. The viewer finds no item that contains "invoice".
+
+**Expected outcome:** The developer sees that no item contains "invoice", and sees no results.
+
+#### SC-008
+
+**Context:** The PRD set has 18 documents. The functional requirements section is at final, and the release plan section is still at pending.
+
+**Journey:** J-002
+
+**Stage:** ST-010
+
+**Persona:** PER-002
+
+**Variant:** alternate
+
+**Priority:** should
+
+**Trigger:** The developer needs both sections for the team.
+
+**Course:**
+
+1. The developer selects the functional requirements section and the release plan section.
+2. The developer exports them as one editable document.
+3. The developer opens the file and sees both sections. The release plan section says that it is not written yet.
+
+**Expected outcome:** The file has both selected sections, in reading order. The pending section shows its status and says that it is not written yet, and the export shows "Draft".
+
+**Branches from:**
+
+- **Scenario:** SC-005
+- **Step:** 4
+
+#### SC-009
+
+**Context:** The author has not used the viewer before. The docs/prd folder of the project holds two PRD sets.
+
+**Journey:** J-001
+
+**Stage:** ST-001
+
+**Persona:** PER-001
+
+**Variant:** alternate
+
+**Priority:** should
+
+**Trigger:** The author runs prdf in the project folder for the first time.
+
+**Course:**
+
+1. The author runs prdf in the project folder.
+2. The author sees the two PRD sets, each with its product name and folder, and sees that no set is open.
+3. The author selects one set.
+4. The author sees that set open, with its product name and version.
+
+**Expected outcome:** The viewer opens no set until the author selects one. After the author selects a set, the viewer shows that set with its product name and version.
+
+**Situation:** first-use
+
+**Branches from:**
+
+- **Scenario:** SC-001
+- **Step:** 1
+
+**Shown in:** screen
+
+**Wireframes:** WF-010
+
+#### SC-010
+
+**Context:** The author sent version 0.5.0 of the PRD Forge Viewer PRD as a fixed-layout document. Four sections are at review, and the others are at final.
+
+**Journey:** J-003
+
+**Stage:** ST-011
+
+**Stages:** ST-011, ST-012
+
+**Persona:** PER-004
+
+**Variant:** happy
+
+**Priority:** should
+
+**Trigger:** The sponsor opens the file to decide on version 0.5.0.
+
+**Course:**
+
+1. The sponsor opens the file without the authoring tools.
+2. The sponsor sees version 0.5.0 and the word "Draft" on the first page.
+3. The sponsor reads the executive summary and sees the status and score of every section in the contents.
+4. The sponsor approves the version and sends the decision and the reason to the author.
+
+**Expected outcome:** In the first two pages, the sponsor sees the version, the draft mark, the executive summary, and the status and score of every section. The author receives the decision and its reason.
+
+**Shown in:** report
+
+**Wireframes:** WF-009
+
+#### SC-011
+
+**Context:** The sponsor read version 0.5.0. Section 5 has a score of 72, the lowest in the set.
+
+**Journey:** J-003
+
+**Stage:** ST-012
+
+**Persona:** PER-004
+
+**Variant:** exception
+
+**Priority:** should
+
+**Trigger:** The sponsor decides that section 5 is not good enough to approve.
+
+**Course:**
+
+1. The sponsor rejects version 0.5.0, outside the viewer.
+2. The sponsor sends the decision and the reason, "section 5 scores 72", to the author.
+3. The author records the rejection and its reason in the change log.
+
+**Expected outcome:** The author has the rejection and its reason. The change log records the rejection with a note, and the next export of the set still shows "Draft".
+
+**Branches from:**
+
+- **Scenario:** SC-010
+- **Step:** 4
+
+#### SC-012
+
+**Context:** The author sent version 0.5.0. The sponsor is not available for a week.
+
+**Journey:** J-003
+
+**Stage:** ST-012
+
+**Persona:** PER-004
+
+**Variant:** alternate
+
+**Priority:** should
+
+**Trigger:** The author asks who else can approve the version.
+
+**Course:**
+
+1. The author sees that nobody else can approve (TR-007, Q-006).
+2. The approval waits until the sponsor is available.
+
+**Expected outcome:** Version 0.5.0 has no approval until the sponsor decides, and every export of it shows "Draft".
+
+**Branches from:**
+
+- **Scenario:** SC-010
+- **Step:** 4
+
+### Lifecycles in detail
+
+#### LC-001
+
+**Subject:** A section of the PRD set
+
+**States:**
+
+- **Name:** pending
+  - **Meaning:** The section is not written yet.
+- **Name:** draft
+  - **Meaning:** The section is written, and it is not graded high enough for review.
+- **Name:** review
+  - **Meaning:** The section has a score of 70 or more and no blocking defects.
+- **Name:** final
+  - **Meaning:** The sponsor approved the version that holds this section.
+
+**Initial:** pending
+
+**Final:** final
+
+**Transitions:**
+
+- **From:** pending
+  - **To:** draft
+  - **When:** The author writes the section in the authoring tools.
+  - **Rule:** The section has content that the authoring tools can read.
+  - **By:** PER-001
+- **From:** draft
+  - **To:** review
+  - **When:** A grading pass in the authoring tools gives the section its grade.
+  - **Rule:** A score of 70 or more and 0 blocking defects.
+  - **By:** PER-001
+- **From:** review
+  - **To:** final
+  - **When:** The sponsor approves the version.
+  - **Rule:** The change log records the approval.
+  - **By:** PER-004
+- **From:** final
+  - **To:** review
+  - **When:** The author changes an approved section.
+  - **Rule:** The section stays at review until the sponsor approves the new version.
+  - **By:** PER-001
+
+<!-- /prd-forge:details -->

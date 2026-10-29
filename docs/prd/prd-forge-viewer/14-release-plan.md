@@ -120,3 +120,58 @@ The author sees the findings behind each grade (FR-025). Release 2 comes second
 because release 1 is the golden thread J-001, and findings are useful only after
 the author sees all grades in one view (FR-004, release 1). Findings serve O-002.
 The authoring tools already record them (D-002). Editing in the viewer (OUT-001) has no release yet.
+
+<!-- prd-forge:details -->
+
+## Details
+
+Every item in this document, with each of its fields.
+
+### REL-001
+
+**Name:** Release 1, read and export
+
+**Outcomes:**
+
+- The author opens a PRD set, sees the grade of every section in one view, goes to any section, and sees changes from the authoring tools without any action.
+- The author sends stakeholders a PDF or Word export, in a theme the author selects, that shows the version and the draft mark.
+- A developer searches the PRD set by term and category and exports selected sections.
+
+**Journey stages:** ST-001, ST-002, ST-003, ST-004, ST-005, ST-006, ST-007
+
+**Requirements:** FR-001, FR-002, FR-003, FR-004, FR-005, FR-007, FR-008, FR-009, FR-010, FR-011, FR-012, FR-013, FR-014, FR-015, FR-016, FR-017, FR-018, FR-019, FR-020, FR-021, FR-022, FR-023, FR-024
+
+**Objectives:** O-001
+
+**Target date:** 2026-11-06
+
+**Date status:** committed
+
+**Exit criteria:**
+
+1. SC-001, the end-to-end acceptance test for release 1, passes.
+2. Every must requirement in this release passes its acceptance criteria.
+
+### REL-002
+
+**Name:** Release 2, grade findings
+
+**Outcomes:** The author sees, for each section, the findings behind its grade: what is missing and what to improve.
+
+**Journey stages:** ST-002, ST-003
+
+**Requirements:** FR-025
+
+**Objectives:** O-001, O-002
+
+**Target date:** 2026-11-06
+
+**Date status:** indicative
+
+**Exit criteria:**
+
+1. For each graded section, the author sees the findings behind its grade: what is missing and what to improve.
+
+**Depends on:** D-002
+
+<!-- /prd-forge:details -->

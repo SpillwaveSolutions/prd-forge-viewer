@@ -1,5 +1,5 @@
 {
- "git_hash": "693614f",
+ "git_hash": "a1d71ca",
  "pages": [
   {
    "frozen": false,
@@ -45,7 +45,7 @@
    "frozen": false,
    "page_name": "Index-Traceability",
    "render": "as-is",
-   "render_hash": "0866e2d80f37",
+   "render_hash": "bcee4efc7e69",
    "source": "docs/.index/rendered/traceability.md",
    "title": "Traceability Index",
    "truth_state": "current",
@@ -1822,6 +1822,16 @@
    "wiki_key": "item/01M64CZNVN13K32BT680E0S8VY"
   },
   {
+   "frozen": false,
+   "page_name": "Ticket-01M64SYER8ZQMX4H7TWA27XGBQ",
+   "render": "as-is",
+   "render_hash": "3294c1cc59d2",
+   "source": "docs/.index/rendered/tickets/01M64SYER8ZQMX4H7TWA27XGBQ.md",
+   "title": "Upgrade PRD Forge to 0.11.0 and generate the details blocks",
+   "truth_state": "done",
+   "wiki_key": "item/01M64SYER8ZQMX4H7TWA27XGBQ"
+  },
+  {
    "banner": "> **Snapshot** of release v0.1.0 (2026-10-29) \u2014 frozen record. The current version is [[Code-Walkthrough]].",
    "frozen": true,
    "page_name": "Design-Freeze-2026-10-29_v0.1.0-release",
@@ -2050,11 +2060,11 @@
    "wiki_key": "plan/2026-10-29-plan-8-closeout"
   },
   {
-   "banner": "> **Current** \u2014 this is the living version; regenerated at 2026-10-29T18:21:00Z. Historical snapshots are linked from [[Index-Releases]].",
+   "banner": "> **Current** \u2014 this is the living version; regenerated at 2026-10-29T21:44:44Z. Historical snapshots are linked from [[Index-Releases]].",
    "frozen": false,
    "page_name": "Roadmap",
    "render": "doc+banner",
-   "render_hash": "8338871c4026",
+   "render_hash": "0cad538869be",
    "source": "docs/roadmap.md",
    "source_hash": "95e2fd389c4b",
    "title": "Roadmap",

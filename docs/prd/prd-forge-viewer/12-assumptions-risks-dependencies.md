@@ -108,3 +108,117 @@ target date: 2026-11-06, set on 2026-10-26.
 
 D-002 was delivered in PRD Forge 0.2.0, which writes the reasons for each grade
 beside each section.
+
+<!-- prd-forge:details -->
+
+## Details
+
+Every item in this document, with each of its fields.
+
+### Assumptions in detail
+
+#### A-001
+
+**Assumption:** Stakeholders open PDF and Word files without installing anything.
+
+**If false:** IN-006 changes, and FR-010 and FR-011 need other formats.
+
+**Validated by:** Send the first export of this PRD to PER-003 and PER-004 and ask.
+
+**Owner:** Richard Hightower
+
+#### A-002
+
+**Assumption:** The PRD set is on the same computer as the viewer.
+
+**If false:** FR-001 and FR-002 change, and NFR-005 and NFR-006 need new targets.
+
+**Validated by:** Ask the first three authors where they keep their PRD sets.
+
+**Owner:** Richard Hightower
+
+#### A-003
+
+**Assumption:** The PRD Forge version 1 format stays the same until release 1 ships.
+
+**If false:** C-003 changes, and FR-001, FR-003, and FR-004 can fail on new files (R-001).
+
+**Validated by:** D-001.
+
+**Owner:** Richard Hightower
+
+#### A-004
+
+**Assumption:** Authors want a viewer, and the current command-line export is not enough for them.
+
+**If false:** O-001 does not move because of the viewer, and P-001 and P-002 need a different answer.
+
+**Validated by:** Measure O-001 on this PRD with and without the viewer (Q-001).
+
+**Owner:** Richard Hightower
+
+### Risks in detail
+
+#### R-001
+
+**Risk:** A change to the PRD Forge document format breaks the viewer.
+
+**Likelihood:** medium
+
+**Impact:** high
+
+**Mitigation:** C-003 fixes the format at version 1. FR-003 shows each unreadable document by name. D-001 keeps the format stable for release 1.
+
+**Owner:** Richard Hightower
+
+#### R-002
+
+**Risk:** Few teams use PRD Forge, so the viewer has few users.
+
+**Likelihood:** medium
+
+**Impact:** medium
+
+**Mitigation:** Measure O-001 on this PRD first, and report it by 2027-03-31.
+
+**Owner:** Richard Hightower
+
+#### R-003
+
+**Risk:** Nobody measures the baseline for O-001, so nobody can show success.
+
+**Likelihood:** medium
+
+**Impact:** medium
+
+**Mitigation:** Q-001, due 2026-11-30.
+
+**Owner:** Richard Hightower
+
+### Dependencies in detail
+
+#### D-001
+
+**Need:** PRD Forge keeps the version 1 document format stable until release 1 ships.
+
+**From:** PRD Forge maintainers, owned by Richard Hightower
+
+**By:** 2026-10-26
+
+**Status:** committed
+
+**Blocks:** C-003, FR-001, FR-003, FR-004
+
+#### D-002
+
+**Need:** PRD Forge records the findings behind each grade in the PRD set.
+
+**From:** PRD Forge maintainers, owned by Richard Hightower
+
+**By:** 2026-10-26
+
+**Status:** delivered
+
+**Blocks:** OUT-002
+
+<!-- /prd-forge:details -->

@@ -367,3 +367,195 @@ moved to final.
 
 The PRD owner moved the release 1 target date (REL-001) from 2026-10-27 to
 2026-11-06 on 2026-10-28. Sections 11 and 13 changed and returned to review.
+
+<!-- prd-forge:details -->
+
+## Details
+
+Every item in this document, with each of its fields.
+
+### 0.1.0
+
+**Summary:** First draft of all 15 sections from the PRD Forge interview. Decisions on 2026-10-26: editing is not in release 1 (Q-005); grade findings wait for a later release (Q-004); search and custom themes are in release 1; exports always show "Draft" until every section is final (TR-005); PDF and Word are a constraint (C-001); approval waits for the sponsor (Q-006); release 1 target date is 2027-01-31; the viewer is free and open source.
+
+**Date:** 2026-10-26
+
+**Author:** Richard Hightower
+
+**Sections:** 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15
+
+**Resolves:** Q-004, Q-005, Q-006
+
+### 0.2.0
+
+**Summary:** Engineering review fixes and new decisions. Added FR-021 (the prdf command) and FR-022 (remembered PRD set locations). Search results show a relevance score from 0 to 100 and open the item when selected. Custom themes use serif, sans-serif, or monospace fonts, embedded in exports. The test computer is an Apple silicon Mac with 16 GB. The author opens the viewer several times a day (Q-003). PRD Forge 0.2.0 delivers the grade findings (D-002); the viewer shows them in release 2. Ten sections moved to review. Added O-002 and four non-goals. Release 1 is 2026-10-26 and release 2 is 2026-11-06.
+
+**Date:** 2026-10-26
+
+**Author:** Richard Hightower
+
+**Sections:** 2, 4, 5, 6, 7, 8, 9, 11, 12, 13, 14
+
+**Resolves:** Q-003, Q-007
+
+### 0.3.0
+
+**Summary:** Updated to PRD Forge 0.5.1. Added persona short names, stage acceptance, scenario priorities, SC-007 (a search with no match), and Q-008. Added the wireframes section with WF-001 to WF-009, approved by the PRD owner, and shown_in on each requirement. Added FR-023 (expand a section in the tree and select an item). Dropped FR-006 (previous and next section) because the tree covers it.
+
+**Date:** 2026-10-26
+
+**Author:** Richard Hightower
+
+**Sections:** 4, 5, 7, 12
+
+**Approvals:**
+
+- **Name:** Richard Hightower
+  - **Role:** Sponsor (PER-004)
+  - **Date:** 2026-10-26
+  - **Decision:** approved
+
+### 0.3.1
+
+**Summary:** WF-009 shows a pending section in the contents, and sections 1 and 4 as final. The wireframes section returns to review until the sponsor approves this version.
+
+**Date:** 2026-10-26
+
+**Author:** Richard Hightower
+
+**Sections:** 7
+
+**Approvals:**
+
+- **Name:** Richard Hightower
+  - **Role:** Sponsor (PER-004)
+  - **Date:** 2026-10-26
+  - **Decision:** approved
+
+### 0.3.2
+
+**Summary:** Decisions from the HLD review. Release 1 moves to 2026-10-27. Release 1 runs on macOS only (C-004). FR-024 adds a choice of PRD set when docs/prd holds more than one. NFR-010 shows only local content. Six sections return to review until the sponsor approves this version.
+
+**Date:** 2026-10-26
+
+**Author:** Richard Hightower
+
+**Sections:** 6, 7, 8, 9, 13
+
+**Approvals:**
+
+- **Name:** Richard Hightower
+  - **Role:** Sponsor (PER-004)
+  - **Date:** 2026-10-26
+  - **Decision:** approved
+
+### 0.3.3
+
+**Summary:** FR-024 reopens the set that was open in the last session. The list of sets shows only when none of them was open before.
+
+**Date:** 2026-10-26
+
+**Author:** Richard Hightower
+
+**Sections:** 7
+
+**Approvals:**
+
+- **Name:** Richard Hightower
+  - **Role:** Sponsor (PER-004)
+  - **Date:** 2026-10-27
+  - **Decision:** approved
+
+### 0.3.4
+
+**Summary:** WF-006 uses neutral example folder names. The wireframes return to review until the sponsor approves this version.
+
+**Date:** 2026-10-27
+
+**Author:** Richard Hightower
+
+**Sections:** 7
+
+**Approvals:**
+
+- **Name:** Richard Hightower
+  - **Role:** Sponsor (PER-004)
+  - **Date:** 2026-10-27
+  - **Decision:** approved
+
+### 0.4.0
+
+**Summary:** Updated to PRD Forge 0.8.1. The release line is ST-001 to ST-007 of J-001. ST-006 and ST-007 are recorded as stages outside the viewer, with their workarounds. Search (IN-004) is part of ST-003, and the export of selected sections (IN-008) is part of ST-005. REL-001 lists ST-001 to ST-007, its date is committed, and it has exit criteria. REL-002 is indicative and depends on D-002. SC-005 and SC-007 are should. FR-008 and FR-012 stay must in release 1, and FR-007 stays should. FR-007 and FR-008 move to ST-003, and FR-012 moves to ST-005. FR-023 states the user need and no longer names a control. WF-010 is the state of WF-006 when docs/prd holds more than one PRD set. The front matter now records competitor kinds, the primary persona, the approver, the problems that each objective and persona serves, a persona id for each decision approver, and the questions that each change answers. The wireframes show version 0.4.0, and section 11 gives the correct release 1 date, 2026-10-27.
+
+**Date:** 2026-10-27
+
+**Author:** Richard Hightower
+
+**Sections:** 2, 3, 4, 5, 6, 7, 10, 11, 12, 13, 15
+
+**Approvals:**
+
+- **Name:** Richard Hightower
+  - **Role:** Sponsor (PER-004)
+  - **Date:** 2026-10-27
+  - **Decision:** approved
+
+### 0.5.0
+
+**Summary:** Answers from the open questions. Section 8 records scale, retention, and observability as not applicable, with reasons. Nine requirements move from must to should: FR-002, FR-011, FR-016, FR-017, FR-018, FR-019, FR-020, FR-022, and FR-024. They stay in release 1. SC-008 adds an export with a pending section to J-002 (Q-008). FR-025 shows the findings behind a grade. It is the only requirement of REL-002, so its priority is wont for release 1. WF-011 draws it. The release plan says why REL-002 comes second, and that the REL-001 date is committed to the sponsor. TR-012 and TR-013 record the developer's decisions at ST-008 and ST-010. SC-009 adds first use, SC-010 to SC-012 add J-003, and LC-001 records the lifecycle of a section. SC-006 is should. OUT-001 is revisited at the release 2 review. Each non-goal has its reason. FR-021 records why docs/prd stays.
+
+**Date:** 2026-10-27
+
+**Author:** Richard Hightower
+
+**Sections:** 5, 6, 7, 8, 10, 12, 13, 15
+
+**Resolves:** Q-008
+
+**Approvals:**
+
+- **Name:** Richard Hightower
+  - **Role:** Sponsor (PER-004)
+  - **Date:** 2026-10-27
+  - **Decision:** approved
+
+### 0.5.1
+
+**Summary:** PRD Forge 0.9.0 asks the glossary to cite the source of each standard term. MoSCoW priority cites the Agile Business Consortium and states how this set departs from it. The new term acceptance criterion cites Dan North for the Given, when, then form.
+
+**Date:** 2026-10-28
+
+**Author:** Richard Hightower
+
+**Sections:** 14
+
+### 0.6.0
+
+**Summary:** Raises sections 1, 2, 8, and 9 above a grade of 80 under PRD Forge 0.9.0. Section 1 gives P-001 a cost (about 10 searches of about 3 minutes in one review, Q-009) and states that this PRD does not count for review time, because it is for a new tool. The historic PRDs took about 10 days (Q-001). Section 2 sizes S-001 from the clone count of the authoring tools and adds two substitutes. Section 8 gives each NFR a source, cites the Nielsen response time limits and WCAG2ICT, and extends NFR-008 to the known locations and the last set. Section 9 keeps only C-003. C-001, C-002, and C-004 are retired, because the PRD owner can change them. Section 6 records them: IN-006 names the export formats, OUT-001 the read-only rule, and the new OUT-003 macOS only. Sections 7, 11, and 14 cite IN-006 in place of C-001.
+
+**Date:** 2026-10-28
+
+**Author:** Richard Hightower
+
+**Sections:** 1, 2, 3, 6, 7, 8, 9, 11, 12, 13, 14, 15
+
+**Resolves:** Q-001, Q-009
+
+**Approvals:**
+
+- **Name:** Richard Hightower
+  - **Role:** Sponsor (PER-004)
+  - **Date:** 2026-10-28
+  - **Decision:** approved
+
+### 0.6.1
+
+**Summary:** The PRD owner moved the release 1 target date (REL-001) from 2026-10-27 to 2026-11-06.
+
+**Date:** 2026-10-28
+
+**Author:** Richard Hightower
+
+**Sections:** 11, 13
+
+<!-- /prd-forge:details -->

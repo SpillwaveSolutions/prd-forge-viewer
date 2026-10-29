@@ -72,3 +72,45 @@ Target: 2 days or less by 2027-03-31. Owner: Richard Hightower, PRD owner.
 Metric: the count of blocking defects in a PRD version on the day the author
 sends it. Serves P-003. Baseline: 1, in version 0.2.0 of this PRD. Target: 0 in
 every version sent, by 2027-03-31.
+
+<!-- prd-forge:details -->
+
+## Details
+
+Every item in this document, with each of its fields.
+
+### O-001
+
+**Objective:** Stakeholders give feedback on a PRD version sooner.
+
+**Problems:** P-001, P-002
+
+**Metric:** Median calendar days from the day the author sends a PRD version to a stakeholder, to the day of the first written feedback from any stakeholder on that version.
+
+**Baseline:** About 10 calendar days, from the historic PRDs written before the authoring tools (PRD owner, 2026-10-26, confirmed 2026-10-28). This PRD does not count for review time, because it is for a new tool (Q-001).
+
+**Baseline question:** Q-001
+
+**Target:** 2 days or less
+
+**By:** 2027-03-31
+
+**Owner:** Richard Hightower, PRD owner
+
+### O-002
+
+**Objective:** Authors fix blocking defects before stakeholders see a version.
+
+**Problems:** P-003
+
+**Metric:** Count of blocking defects in a PRD version on the day the author sends it to a stakeholder, read from the grades in the export.
+
+**Baseline:** 1 blocking defect in version 0.2.0 of this PRD, sent on or after 2026-10-26.
+
+**Target:** 0 blocking defects in every version sent
+
+**By:** 2027-03-31
+
+**Owner:** Richard Hightower, PRD owner
+
+<!-- /prd-forge:details -->

@@ -197,3 +197,129 @@ review of this PRD, and the minutes of each, by 2026-11-30.
 
 Answered on 2026-10-28: about 10 searches in one review, about 3 minutes each
 (owner estimate). P-001 records the cost, about 30 minutes for each review.
+
+<!-- prd-forge:details -->
+
+## Details
+
+Every item in this document, with each of its fields.
+
+### Q-001
+
+**Question:** How long does it take today from a finished PRD to stakeholder feedback? The PRD owner estimates about 10 days. Measure it on this PRD to replace the estimate.
+
+**Decider:** Richard Hightower
+
+**By:** 2026-11-30
+
+**Answer:** The historic PRDs took about 10 calendar days. This PRD does not count for review time, because it is for a new tool. The 10 days stay the baseline of O-001.
+
+**Answered:** 2026-10-28
+
+**Blocks:** P-001, P-002
+
+### Q-002
+
+**Question:** How many stakeholders review a typical PRD, and how many of them have Claude Code and PRD Forge?
+
+**Decider:** Richard Hightower
+
+**By:** 2026-11-30
+
+**Blocks:** P-002
+
+### Q-003
+
+**Question:** How often do the PRD author (PER-001) and the developer who uses PRD Forge (PER-002) open a PRD in the viewer?
+
+**Decider:** Richard Hightower
+
+**By:** 2026-11-30
+
+**Answer:** Answered on 2026-10-26. The author opens the viewer several times a day while writing a PRD. The frequency for PER-002 is not known.
+
+**Answered:** 2026-10-26
+
+**Blocks:** PER-001, PER-002
+
+### Q-004
+
+**Question:** The findings behind each grade (what is missing and what to improve) are not kept in the PRD set today. Must release 1 show them, and if so, who records them so that the author can see them later?
+
+**Decider:** Richard Hightower
+
+**By:** 2026-11-30
+
+**Answer:** Answered on 2026-10-26. Release 1 does not show the findings behind each grade. That is a later feature, and it depends on a change to the authoring tools so that they record the findings in the PRD set. Release 1 shows the status, score, blocking count, and grade date that the authoring tools already record.
+
+**Answered:** 2026-10-26
+
+**Blocks:** ST-002, ST-003, P-003
+
+### Q-005
+
+**Question:** Is editing text in the viewer in release 1?
+
+**Decider:** Richard Hightower
+
+**By:** 2026-10-26
+
+**Answer:** No. Editing in the viewer is a later feature. In release 1 the author changes sections only in the authoring tools. Section 6 records this as a non-goal for release 1.
+
+**Answered:** 2026-10-26
+
+### Q-006
+
+**Question:** When the sponsor (PER-004) is not available to approve a version, who approves it, or does the approval wait?
+
+**Decider:** Richard Hightower
+
+**By:** 2026-11-30
+
+**Answer:** Answered on 2026-10-26. The approval waits until the sponsor is available. Nobody else approves.
+
+**Answered:** 2026-10-26
+
+**Blocks:** TR-007
+
+### Q-007
+
+**Question:** By what date must PRD Forge record the findings behind each grade (D-002), and in which release does the viewer show them (OUT-002)?
+
+**Decider:** Richard Hightower
+
+**By:** 2026-10-26
+
+**Answer:** Answered on 2026-10-26. PRD Forge 0.2.0 already writes the reasons for each grade to a grades file beside each section, so D-002 is delivered. The PRD owner decides when the viewer shows them.
+
+**Answered:** 2026-10-26
+
+**Blocks:** D-002, OUT-002
+
+### Q-008
+
+**Question:** J-002 has one happy scenario (SC-005) and one exception (SC-007). What other way can a developer's search or export of selected sections go wrong, and must release 1 handle it?
+
+**Decider:** Richard Hightower
+
+**By:** 2026-11-30
+
+**Answer:** A developer exports a section that is still pending. The export has every selected section, and the pending one says that it is not written yet (SC-008). Release 1 handles it as a should.
+
+**Answered:** 2026-10-27
+
+**Blocks:** J-002
+
+### Q-009
+
+**Question:** In one review of this PRD, how many times does the author or a developer search for an item before the discussion can start, and how many minutes does each search take? Measure it to give P-001 its evidence and cost.
+
+**Decider:** Richard Hightower
+
+**By:** 2026-11-30
+
+**Answer:** About 10 searches in one review of this PRD, about 3 minutes each, so about 30 minutes for each review (PRD owner estimate, 2026-10-28). P-001 records it.
+
+**Answered:** 2026-10-28
+
+<!-- /prd-forge:details -->

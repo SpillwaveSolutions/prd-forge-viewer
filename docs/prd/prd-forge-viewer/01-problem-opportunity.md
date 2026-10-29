@@ -225,3 +225,102 @@ blocking defects.
 - **Desired outcome.** The author knows which sections are weak without opening
   each one, and fixes blocking defects before stakeholders see a version
   (O-002).
+
+<!-- prd-forge:details -->
+
+## Details
+
+Every item in this document, with each of its fields.
+
+### P-001
+
+**Statement:** To discuss one requirement or one scenario, the author or a developer must first find which of the 18 files holds it. The files give no picture of the whole PRD, so each discussion starts with a search through them.
+
+**Who:** PRD author (PER-001), and a developer who uses the authoring tools (PER-002)
+
+**Persona:** PER-001
+
+**Evidence:**
+
+- **Claim:** A PRD set has 18 files: one index and 17 section documents.
+  - **Source:** The document layout of the authoring tools, version 1 (C-003)
+- **Claim:** This PRD set holds 25 functional requirements, 12 scenarios, and 10 non-functional requirements in 18 files, about 176 KB of text.
+  - **Source:** Count of this PRD set by the PRD owner
+  - **As of:** 2026-10-28
+- **Claim:** In one review of this PRD, the PRD owner searched the files for an item about 10 times, about 3 minutes each time.
+  - **Source:** PRD owner estimate, answer to Q-009
+  - **As of:** 2026-10-28
+
+**Status quo:** The author and the developers open the files one at a time and search them for the id.
+
+**Why now:** 126 people cloned the authoring tools in the 14 days to 2026-10-28 (public release and traffic pages of the repository of the authoring tools, read 2026-10-28). Each person who writes a PRD with them gets the same 18 files to search.
+
+**Cost of inaction:** About 30 minutes of searching in each review of a PRD: about 10 searches, about 3 minutes each (PRD owner estimate, 2026-10-28, Q-009).
+
+**Desired outcome:** The author and the developers find any item of a PRD set without knowing which file holds it (O-001).
+
+### P-002
+
+**Statement:** The author must package each PRD version by hand before a stakeholder without the authoring tools can read it, and the stakeholder's feedback waits for that copy.
+
+**Who:** PRD author (PER-001), and the readers of the copy (PER-003, PER-004, PER-005)
+
+**Persona:** PER-001
+
+**Evidence:**
+
+- **Claim:** A PRD set is plain-text files with machine-readable headers. A reader without the authoring tools sees raw text.
+  - **Source:** The document layout of the authoring tools, version 1 (C-003)
+- **Claim:** The only copy that the authoring tools make today comes from a command line inside them. It has one fixed appearance and holds the whole set.
+  - **Source:** The authoring tools, current release
+  - **As of:** 2026-10-28
+- **Claim:** The historic PRDs, written before the authoring tools, took about 10 calendar days to the first stakeholder feedback.
+  - **Source:** PRD owner, from the historic PRDs, confirmed 2026-10-28
+  - **As of:** 2026-10-28
+- **Claim:** To package one PRD version for stakeholders by hand takes the author 2 to 4 hours, about 3 hours.
+  - **Source:** PRD owner estimate
+  - **As of:** 2026-10-28
+- **Claim:** This PRD does not count for review time. It is for a new tool, and only the PRD owner has read it, as the author and as the sponsor.
+  - **Source:** PRD owner
+  - **As of:** 2026-10-28
+- **Claim:** The number of stakeholders for each PRD, and how many have the tools, is not known. See Q-002.
+  - **Source:** PRD owner
+  - **As of:** 2026-10-26
+
+**Status quo:** The author copies the sections into one document by hand, or runs the command-line copy and sends the whole set. A reader then gets every section, also the ones that the reader does not need.
+
+**Why now:** The authoring tools had 10 releases from 2026-10-26 to 2026-10-28 (public release and traffic pages of the repository of the authoring tools, read 2026-10-28). Versions 0.4.0 and 0.5.1 of this set followed two of those releases, and each new version needs a new copy for the stakeholders.
+
+**Cost of inaction:** About 3 hours of the author's time to package each PRD version (owner estimate, 2026-10-28), and about 10 calendar days to the first stakeholder feedback, as on the historic PRDs, against a target of 2 days (O-001).
+
+**Desired outcome:** Stakeholders read each PRD version without the authoring tools, and they give feedback within 2 days (O-001).
+
+### P-003
+
+**Statement:** To find the weak sections, the author must open each graded section and its grade note, 14 of each in this set. No single place shows which sections have blocking defects.
+
+**Who:** PRD author (PER-001)
+
+**Persona:** PER-001
+
+**Evidence:**
+
+- **Claim:** This set keeps a score, a count of blocking defects, and a grade date in 14 of its 17 section documents, and the findings for each of them in a separate grade note, 14 notes in all.
+  - **Source:** This PRD set
+  - **As of:** 2026-10-28
+- **Claim:** The sponsor approved version 0.3.2 while the functional requirements had 1 blocking defect (ST-008 had no must requirement). The defect stayed open in versions 0.3.2, 0.3.3, and 0.3.4, until version 0.4.0 changed the release line.
+  - **Source:** The change log of this PRD set (section 15), versions 0.3.2 to 0.4.0
+  - **As of:** 2026-10-27
+- **Claim:** Version 0.4.0 of this set changed 11 sections. 9 of them are graded sections.
+  - **Source:** The change log of this PRD set (section 15), version 0.4.0
+  - **As of:** 2026-10-27
+
+**Status quo:** The author opens each section and its grade note to find the weak sections.
+
+**Why now:** The authoring tools changed their checks twice in two days: release 0.8.1 on 2026-10-27 and release 0.9.0 on 2026-10-28 (change log, versions 0.4.0 and 0.5.1). The sponsor approved each of versions 0.3.0 to 0.5.0 within one day of the day it was written, so the author must know the weak sections within that day.
+
+**Cost of inaction:** 1 blocking defect stayed open in 3 versions over 2 days, 2026-10-26 to 2026-10-27, and all 3 versions (0.3.2, 0.3.3, and 0.3.4) were approved with it. The adversarial grade found it.
+
+**Desired outcome:** The author knows which sections are weak without opening each section, and fixes blocking defects before stakeholders see a version (O-002).
+
+<!-- /prd-forge:details -->

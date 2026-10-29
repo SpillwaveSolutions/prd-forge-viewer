@@ -86,3 +86,37 @@ days of sending a version, by 2027-03-31.
 | 13 | [Release plan](./14-release-plan.md) |
 | 14 | [Glossary](./15-glossary.md) |
 | 15 | [Change log](./16-change-log.md) |
+
+<!-- prd-forge:details -->
+
+## Details
+
+Every item in this document, with each of its fields.
+
+**Version:** 0.6.1
+
+**Owner:** Richard Hightower
+
+**Stakeholders:**
+
+- Engineering lead (PER-003)
+- Product sponsor (PER-004)
+- Developers (PER-002, PER-005)
+
+**Created:** 2026-10-26
+
+**Golden thread:** J-001
+
+**Primary persona:** PER-001
+
+**Approvers:** PER-004
+
+**Summary:**
+
+- **Problem:** A PRD Forge set is 18 linked files. Authors cannot read it as one document or see all grades at once, and stakeholders without the authoring tools cannot read it, so feedback waits.
+- **Users:** PRD authors and developers who use the authoring tools, and the engineering lead, sponsor, and developers who read the exported PRD.
+- **Why now:** The authoring tools had their first release in October 2026, and teams adopt them only if stakeholders can review a PRD without them.
+- **Bet:** The author reads the whole PRD and its grades in one place, sees changes as they happen, and sends stakeholders a themed export marked with its version and draft status.
+- **Measure:** Median days from sending a PRD version to the first stakeholder feedback: target 2 days or less by 2027-03-31; baseline about 10 days (owner estimate).
+
+<!-- /prd-forge:details -->

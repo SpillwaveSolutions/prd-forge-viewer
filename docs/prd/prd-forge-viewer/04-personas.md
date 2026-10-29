@@ -139,3 +139,126 @@ the only persona who approves.
 ## PER-005. Developer who does not use the authoring tools
 
 Goal: read the sections for the current work. Pain: P-002. Authority: none.
+
+<!-- prd-forge:details -->
+
+## Details
+
+Every item in this document, with each of its fields.
+
+### PER-001
+
+**Name:** PRD author, a senior consultant or product lead at a consulting firm, who uses the authoring tools
+
+**Short name:** Author
+
+**Primary:** yes
+
+**Problems:** P-001, P-002, P-003
+
+**Goals:**
+
+- Show me what is weak, then let me send it today.
+- See the whole PRD and go directly to the section under discussion
+- See which sections are weak and what to fix before anyone else reads them
+- Send the PRD to stakeholders quickly, in a form they can read without the tools
+
+**Pains:**
+
+- The PRD is 18 files, and finding one section or one item takes a search (P-001)
+- Stakeholders cannot read the files without the tools (P-002)
+- Grades and gaps are spread across 17 files (P-003)
+
+**Frequency:** Opens the viewer several times a day while writing a PRD (Q-003). Exports once for each version sent to stakeholders, including draft versions.
+
+**Authority:** Owns the PRD. Chooses which PRD set to open. Decides its content, which sections to fix, and the status of each section, which decides the draft mark. Chooses the format, theme, and sections of an export, and which version to send to whom. Cannot approve it.
+
+**Proficiency:** Expert in the business domain. Uses the authoring tools. Often not an experienced product manager.
+
+### PER-002
+
+**Name:** Developer on the consulting delivery team who uses the authoring tools but did not write the PRD
+
+**Short name:** ToolsDeveloper
+
+**Problems:** P-001
+
+**Goals:**
+
+- Give me the requirements for my story, nothing else.
+- Find the requirements, stories, and scenarios for the current work without reading the whole PRD
+- Export a part of the PRD to share with the team
+
+**Pains:** Finding one requirement or scenario across 18 files takes a search (P-001)
+
+**Frequency:** Not known (Q-003).
+
+**Authority:** Chooses which PRD set to open. Decides which items apply to own work, and the format, theme, and sections of an export to share. Cannot approve the PRD.
+
+**Proficiency:** Expert in software and in the authoring tools. May not know the business domain.
+
+### PER-003
+
+**Name:** Engineering lead on the client or delivery team that builds the product
+
+**Short name:** EngineeringLead
+
+**Problems:** P-002
+
+**Goals:**
+
+- Can my team build this, yes or no?
+- Decide if the team can build the product from this PRD
+- Find what is missing or unclear, and send it back to the author
+
+**Pains:** Does not use the authoring tools, so cannot read the set without an export (P-002)
+
+**Frequency:** Reads once for each version received, including drafts.
+
+**Authority:** Reviews and comments. Decides if the team can build from the PRD. Does not approve it.
+
+**Proficiency:** Expert in software. Usually does not use the authoring tools.
+
+### PER-004
+
+**Name:** Product sponsor, a client executive who approves the PRD
+
+**Short name:** Sponsor
+
+**Problems:** P-002
+
+**Goals:**
+
+- Two pages, then I decide.
+- Read a short summary and decide to approve or reject the PRD
+
+**Pains:** Cannot read the set without the authoring tools, and will not read 18 files (P-002)
+
+**Frequency:** Reads once for each version received, including drafts.
+
+**Authority:** Approves or rejects the PRD. The only persona who approves.
+
+**Proficiency:** Expert in the business. Does not use the authoring tools. Reads a few pages only.
+
+### PER-005
+
+**Name:** Developer on the client or delivery team who does not use the authoring tools
+
+**Short name:** TeamDeveloper
+
+**Problems:** P-002
+
+**Goals:**
+
+- Send me the part I need.
+- Read the sections that apply to the current work
+
+**Pains:** Cannot read the set without an export (P-002)
+
+**Frequency:** Reads once for each version received, including drafts.
+
+**Authority:** None for the PRD.
+
+**Proficiency:** Expert in software. Does not use the authoring tools.
+
+<!-- /prd-forge:details -->

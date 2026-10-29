@@ -39,6 +39,7 @@ P=~/.claude/plugins/cache/prd-forge/prd-forge/$(claude plugin list | awk '/prd-f
 SET=docs/prd/prd-forge-viewer
 
 node $P/scripts/prd-validate.mjs $SET          # schema, links, and id references
+node $P/scripts/prd-details.mjs $SET           # write the details block from front matter
 node $P/scripts/prd-diagrams.mjs $SET          # draw and render diagrams
 python3 $P/scripts/prd_export.py $SET          # write the PDF and .docx
 ```

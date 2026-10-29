@@ -4142,6 +4142,11 @@
    "status": "done",
    "title": "Cut release 0.1.0"
   },
+  "item/01M64SYER8ZQMX4H7TWA27XGBQ": {
+   "doc_type": "item",
+   "status": "done",
+   "title": "Upgrade PRD Forge to 0.11.0 and generate the details blocks"
+  },
   "plan/2026-10-28-plan-1-open-and-grades": {
    "doc_type": "plan",
    "source": "docs/plans/2026-10-28-plan-1-open-and-grades.md",
