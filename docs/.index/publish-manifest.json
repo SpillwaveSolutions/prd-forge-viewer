@@ -1,5 +1,5 @@
 {
- "git_hash": "af3e5e2",
+ "git_hash": "0803f9c",
  "pages": [
   {
    "frozen": false,
@@ -15,7 +15,7 @@
    "frozen": false,
    "page_name": "Index-Decisions",
    "render": "as-is",
-   "render_hash": "36821688f7a7",
+   "render_hash": "d38150d74bc7",
    "source": "docs/.index/rendered/decisions.md",
    "title": "Decisions Index",
    "truth_state": "current",
@@ -45,7 +45,7 @@
    "frozen": false,
    "page_name": "Index-Traceability",
    "render": "as-is",
-   "render_hash": "92921b20ccc8",
+   "render_hash": "71a1cd749192",
    "source": "docs/.index/rendered/traceability.md",
    "title": "Traceability Index",
    "truth_state": "current",
@@ -1465,7 +1465,7 @@
    "frozen": false,
    "page_name": "Ticket-01M62GWAS1QA1XNBMNG3MPNGRD",
    "render": "as-is",
-   "render_hash": "3de3990aa742",
+   "render_hash": "e537910ab1f5",
    "source": "docs/.index/rendered/tickets/01M62GWAS1QA1XNBMNG3MPNGRD.md",
    "title": "Plan 5: live updates from the authoring tools",
    "truth_state": "open",
@@ -1475,10 +1475,10 @@
    "frozen": false,
    "page_name": "Ticket-01M62GWASEB3E2HFZ9GR8K5WEZ",
    "render": "as-is",
-   "render_hash": "0263fe96f839",
+   "render_hash": "e9db327de6c1",
    "source": "docs/.index/rendered/tickets/01M62GWASEB3E2HFZ9GR8K5WEZ.md",
    "title": "Task 1: watch the set folder",
-   "truth_state": "open",
+   "truth_state": "done",
    "wiki_key": "item/01M62GWASEB3E2HFZ9GR8K5WEZ"
   },
   {
@@ -1572,11 +1572,11 @@
    "wiki_key": "plan/2026-10-28-release-1-completion"
   },
   {
-   "banner": "> **Current** \u2014 plan not yet started; plans are frozen once written, a changed design gets a new plan.",
+   "banner": "> **Current** \u2014 plan in flight; plans are frozen once written, a changed design gets a new plan.",
    "frozen": true,
    "page_name": "Plan-plan-5-live",
    "render": "doc+banner",
-   "render_hash": "24637db172e3",
+   "render_hash": "2a35fd0fb451",
    "source": "docs/plans/2026-10-29-plan-5-live.md",
    "source_hash": "385741724043",
    "title": "Plan 5: live updates from the authoring tools",
@@ -1584,13 +1584,13 @@
    "wiki_key": "plan/2026-10-29-plan-5-live"
   },
   {
-   "banner": "> **Current** \u2014 this is the living version; regenerated at 2026-10-29T00:27:40Z. Historical snapshots are linked from [[Index-Releases]].",
+   "banner": "> **Current** \u2014 this is the living version; regenerated at 2026-10-29T00:30:45Z. Historical snapshots are linked from [[Index-Releases]].",
    "frozen": false,
    "page_name": "Roadmap",
    "render": "doc+banner",
-   "render_hash": "c51a2d4c906f",
+   "render_hash": "ad1a44a43ed5",
    "source": "docs/roadmap.md",
-   "source_hash": "804738040207",
+   "source_hash": "8caf12ec3d7b",
    "title": "Roadmap",
    "truth_state": "current",
    "wiki_key": "roadmap"

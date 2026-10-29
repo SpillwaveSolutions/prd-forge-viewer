@@ -1,6 +1,6 @@
 # Task 1: watch the set folder
 
-`01M62GWASEB3E2HFZ9GR8K5WEZ` · task/feature · **open**
+`01M62GWASEB3E2HFZ9GR8K5WEZ` · task/feature · **done**
 
 `SetWatcher::start(folder, on_change)` calls `on_change` with the changed top-level `.md` file names, at most once for each 200 ms window.
 

@@ -137,7 +137,7 @@
    ],
    "slug": "plan-5-live",
    "source": "docs/plans/2026-10-29-plan-5-live.md",
-   "status": "planned",
+   "status": "active",
    "title": "Plan 5: live updates from the authoring tools",
    "truth_state": "current",
    "wiki_key": "plan/2026-10-29-plan-5-live"
@@ -145,11 +145,11 @@
   {
    "canonical_key": "roadmap",
    "doc_type": "roadmap",
-   "generated_at": "2026-10-29T00:27:40Z",
-   "git_hash": "af3e5e2",
+   "generated_at": "2026-10-29T00:30:45Z",
+   "git_hash": "0803f9c",
    "slug": "roadmap",
    "source": "docs/roadmap.md",
-   "source_hash": "19cfe6f8",
+   "source_hash": "fc415ec8",
    "title": "Roadmap",
    "truth_state": "current",
    "wiki_key": "roadmap"

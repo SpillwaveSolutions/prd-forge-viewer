@@ -1,3 +1,4 @@
+pub mod watch;
 pub mod search;
 pub mod launcher;
 pub mod start;
