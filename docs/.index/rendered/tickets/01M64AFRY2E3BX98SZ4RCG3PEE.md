@@ -1,6 +1,6 @@
 # Task 1: the export model and the first page
 
-`01M64AFRY2E3BX98SZ4RCG3PEE` · task/feature · **open**
+`01M64AFRY2E3BX98SZ4RCG3PEE` · task/feature · **done**
 
 `buildExport(set, sections, selected)` returns the markdown of the export.
 
