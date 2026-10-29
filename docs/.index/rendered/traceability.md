@@ -3,27 +3,32 @@
 _The evidence chain: plan → item → ticket → code → release, forward and backward. Generated from `docs/.index/_graph.json`; do not edit._
 
 ### Task 4: close and sync
-`01M64C03048SWRXRJ3A59AD9W6` · status: todo
+`01M64C03048SWRXRJ3A59AD9W6` · status: done
 - belongs-to: Plan 8: close out release 1
+- references: [github#177](https://github.com/SpillwaveSolutions/prd-forge-viewer/issues/177)
 - produced-by: [[Plan-plan-8-closeout]]
 
 ### Task 3: the build status in REQ and TRAC
 `01M64C03048SWRXRJ3A59AD9W4` · status: done
 - belongs-to: Plan 8: close out release 1
+- references: [github#176](https://github.com/SpillwaveSolutions/prd-forge-viewer/issues/176)
 - produced-by: [[Plan-plan-8-closeout]]
 
 ### Task 2: install the release build
-`01M64C03048SWRXRJ3A59AD9W2` · status: todo
+`01M64C03048SWRXRJ3A59AD9W2` · status: done
 - belongs-to: Plan 8: close out release 1
+- references: [github#175](https://github.com/SpillwaveSolutions/prd-forge-viewer/issues/175)
 - produced-by: [[Plan-plan-8-closeout]]
 
 ### Task 1: check the real print dialog
 `01M64C03048SWRXRJ3A59AD9W0` · status: done
 - belongs-to: Plan 8: close out release 1
+- references: [github#174](https://github.com/SpillwaveSolutions/prd-forge-viewer/issues/174)
 - produced-by: [[Plan-plan-8-closeout]]
 
 ### Plan 8: close out release 1
-`01M64C02ZSD81X83JWRWQDVYCH` · status: todo
+`01M64C02ZSD81X83JWRWQDVYCH` · status: done
+- references: [github#173](https://github.com/SpillwaveSolutions/prd-forge-viewer/issues/173)
 - contains: Task 1: check the real print dialog
 - contains: Task 2: install the release build
 - contains: Task 3: the build status in REQ and TRAC
@@ -33,39 +38,47 @@ _The evidence chain: plan → item → ticket → code → release, forward and 
 ### Fix the phase 5 review findings
 `01M64BCTQK4AN0YWKW7QS4V3FH` · status: done
 - belongs-to: Plan 7: PDF and Word export, print, and the Draft mark
+- references: [github#172](https://github.com/SpillwaveSolutions/prd-forge-viewer/issues/172)
 
 ### Task 6: MCP checks for phase 5
 `01M64AFRY2E3BX98SZ4RCG3PER` · status: done
 - belongs-to: Plan 7: PDF and Word export, print, and the Draft mark
+- references: [github#171](https://github.com/SpillwaveSolutions/prd-forge-viewer/issues/171)
 - produced-by: [[Plan-plan-7-export]]
 
 ### Task 5: the export dialog and print
 `01M64AFRY2E3BX98SZ4RCG3PEP` · status: done
 - belongs-to: Plan 7: PDF and Word export, print, and the Draft mark
+- references: [github#170](https://github.com/SpillwaveSolutions/prd-forge-viewer/issues/170)
 - produced-by: [[Plan-plan-7-export]]
 
 ### Task 4: write the files outside the set
 `01M64AFRY2E3BX98SZ4RCG3PEM` · status: done
 - belongs-to: Plan 7: PDF and Word export, print, and the Draft mark
+- references: [github#169](https://github.com/SpillwaveSolutions/prd-forge-viewer/issues/169)
 - produced-by: [[Plan-plan-7-export]]
 
 ### Task 3: the Word writer
 `01M64AFRY2E3BX98SZ4RCG3PEJ` · status: done
 - belongs-to: Plan 7: PDF and Word export, print, and the Draft mark
+- references: [github#168](https://github.com/SpillwaveSolutions/prd-forge-viewer/issues/168)
 - produced-by: [[Plan-plan-7-export]]
 
 ### Task 2: themed HTML with embedded fonts
 `01M64AFRY2E3BX98SZ4RCG3PEG` · status: done
 - belongs-to: Plan 7: PDF and Word export, print, and the Draft mark
+- references: [github#167](https://github.com/SpillwaveSolutions/prd-forge-viewer/issues/167)
 - produced-by: [[Plan-plan-7-export]]
 
 ### Task 1: the export model and the first page
 `01M64AFRY2E3BX98SZ4RCG3PEE` · status: done
 - belongs-to: Plan 7: PDF and Word export, print, and the Draft mark
+- references: [github#166](https://github.com/SpillwaveSolutions/prd-forge-viewer/issues/166)
 - produced-by: [[Plan-plan-7-export]]
 
 ### Plan 7: PDF and Word export, print, and the Draft mark
 `01M64AFRXQ04J5X7RQ0PC24VNC` · status: done
+- references: [github#165](https://github.com/SpillwaveSolutions/prd-forge-viewer/issues/165)
 - contains: Task 1: the export model and the first page
 - contains: Task 2: themed HTML with embedded fonts
 - contains: Task 3: the Word writer
@@ -78,10 +91,12 @@ _The evidence chain: plan → item → ticket → code → release, forward and 
 ### Fix the phase 4 review findings
 `01M64A1VY1P9GWWTW5H97Z8DY8` · status: done
 - belongs-to: Plan 6: export themes
+- references: [github#164](https://github.com/SpillwaveSolutions/prd-forge-viewer/issues/164)
 
 ### Check that reload_set writes no settings file
 `01M63F9FFKHCM00MBXPKDW6R1D` · status: done
 - belongs-to: Plan 6: export themes
+- references: [github#163](https://github.com/SpillwaveSolutions/prd-forge-viewer/issues/163)
 
 ### Task 4: MCP checks for phase 4
 `01M62PG5ADWD51YWCVTGKQ63YH` · status: done
@@ -276,7 +291,7 @@ _The evidence chain: plan → item → ticket → code → release, forward and 
 - produced-by: [[Plan-release-1-completion]]
 
 ### Phase 6: close out release 1
-`01M62C7REGCD2R415FMWFCZMV6` · status: in_progress
+`01M62C7REGCD2R415FMWFCZMV6` · status: done
 - belongs-to: Release 1 completion: build the 15 remaining requirements
 - references: [github#128](https://github.com/SpillwaveSolutions/prd-forge-viewer/issues/128)
 - contains: All e2e checks and unit tests pass on the release build
@@ -434,7 +449,7 @@ _The evidence chain: plan → item → ticket → code → release, forward and 
 - produced-by: [[Plan-release-1-completion]]
 
 ### Release 1 completion: build the 15 remaining requirements
-`01M62C7RE2CW1HN12H2T82VJ6C` · status: todo
+`01M62C7RE2CW1HN12H2T82VJ6C` · status: done
 - references: [github#105](https://github.com/SpillwaveSolutions/prd-forge-viewer/issues/105)
 - contains: Phase 0: merge the MCP tests and add a phase check runner
 - contains: Phase 1: read sections, items, and references (US-008, US-009, US-010)

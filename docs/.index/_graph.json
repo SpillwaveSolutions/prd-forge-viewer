@@ -1921,9 +1921,24 @@
    "type": "belongs-to"
   },
   {
+   "from": "item/01M63F9FFKHCM00MBXPKDW6R1D",
+   "to": "ticket/github#163",
+   "type": "references"
+  },
+  {
    "from": "item/01M64A1VY1P9GWWTW5H97Z8DY8",
    "to": "item/01M62PG5A0K6D0ZN6QHB51EG8W",
    "type": "belongs-to"
+  },
+  {
+   "from": "item/01M64A1VY1P9GWWTW5H97Z8DY8",
+   "to": "ticket/github#164",
+   "type": "references"
+  },
+  {
+   "from": "item/01M64AFRXQ04J5X7RQ0PC24VNC",
+   "to": "ticket/github#165",
+   "type": "references"
   },
   {
    "from": "item/01M64AFRY2E3BX98SZ4RCG3PEE",
@@ -1931,9 +1946,19 @@
    "type": "belongs-to"
   },
   {
+   "from": "item/01M64AFRY2E3BX98SZ4RCG3PEE",
+   "to": "ticket/github#166",
+   "type": "references"
+  },
+  {
    "from": "item/01M64AFRY2E3BX98SZ4RCG3PEG",
    "to": "item/01M64AFRXQ04J5X7RQ0PC24VNC",
    "type": "belongs-to"
+  },
+  {
+   "from": "item/01M64AFRY2E3BX98SZ4RCG3PEG",
+   "to": "ticket/github#167",
+   "type": "references"
   },
   {
    "from": "item/01M64AFRY2E3BX98SZ4RCG3PEJ",
@@ -1941,9 +1966,19 @@
    "type": "belongs-to"
   },
   {
+   "from": "item/01M64AFRY2E3BX98SZ4RCG3PEJ",
+   "to": "ticket/github#168",
+   "type": "references"
+  },
+  {
    "from": "item/01M64AFRY2E3BX98SZ4RCG3PEM",
    "to": "item/01M64AFRXQ04J5X7RQ0PC24VNC",
    "type": "belongs-to"
+  },
+  {
+   "from": "item/01M64AFRY2E3BX98SZ4RCG3PEM",
+   "to": "ticket/github#169",
+   "type": "references"
   },
   {
    "from": "item/01M64AFRY2E3BX98SZ4RCG3PEP",
@@ -1951,9 +1986,19 @@
    "type": "belongs-to"
   },
   {
+   "from": "item/01M64AFRY2E3BX98SZ4RCG3PEP",
+   "to": "ticket/github#170",
+   "type": "references"
+  },
+  {
    "from": "item/01M64AFRY2E3BX98SZ4RCG3PER",
    "to": "item/01M64AFRXQ04J5X7RQ0PC24VNC",
    "type": "belongs-to"
+  },
+  {
+   "from": "item/01M64AFRY2E3BX98SZ4RCG3PER",
+   "to": "ticket/github#171",
+   "type": "references"
   },
   {
    "from": "item/01M64BCTQK4AN0YWKW7QS4V3FH",
@@ -1961,9 +2006,24 @@
    "type": "belongs-to"
   },
   {
+   "from": "item/01M64BCTQK4AN0YWKW7QS4V3FH",
+   "to": "ticket/github#172",
+   "type": "references"
+  },
+  {
+   "from": "item/01M64C02ZSD81X83JWRWQDVYCH",
+   "to": "ticket/github#173",
+   "type": "references"
+  },
+  {
    "from": "item/01M64C03048SWRXRJ3A59AD9W0",
    "to": "item/01M64C02ZSD81X83JWRWQDVYCH",
    "type": "belongs-to"
+  },
+  {
+   "from": "item/01M64C03048SWRXRJ3A59AD9W0",
+   "to": "ticket/github#174",
+   "type": "references"
   },
   {
    "from": "item/01M64C03048SWRXRJ3A59AD9W2",
@@ -1971,14 +2031,29 @@
    "type": "belongs-to"
   },
   {
+   "from": "item/01M64C03048SWRXRJ3A59AD9W2",
+   "to": "ticket/github#175",
+   "type": "references"
+  },
+  {
    "from": "item/01M64C03048SWRXRJ3A59AD9W4",
    "to": "item/01M64C02ZSD81X83JWRWQDVYCH",
    "type": "belongs-to"
   },
   {
+   "from": "item/01M64C03048SWRXRJ3A59AD9W4",
+   "to": "ticket/github#176",
+   "type": "references"
+  },
+  {
    "from": "item/01M64C03048SWRXRJ3A59AD9W6",
    "to": "item/01M64C02ZSD81X83JWRWQDVYCH",
    "type": "belongs-to"
+  },
+  {
+   "from": "item/01M64C03048SWRXRJ3A59AD9W6",
+   "to": "ticket/github#177",
+   "type": "references"
   },
   {
    "from": "plan/2026-10-28-plan-1-open-and-grades",
@@ -2834,7 +2909,7 @@
   },
   "item/01M62C7RE2CW1HN12H2T82VJ6C": {
    "doc_type": "item",
-   "status": "todo",
+   "status": "done",
    "title": "Release 1 completion: build the 15 remaining requirements"
   },
   "item/01M62C7REFJRP4FVS9Z3JD5SB5": {
@@ -2949,7 +3024,7 @@
   },
   "item/01M62C7REGCD2R415FMWFCZMV6": {
    "doc_type": "item",
-   "status": "in_progress",
+   "status": "done",
    "title": "Phase 6: close out release 1"
   },
   "item/01M62C7REGCD2R415FMWFCZMV8": {
@@ -3149,7 +3224,7 @@
   },
   "item/01M64C02ZSD81X83JWRWQDVYCH": {
    "doc_type": "item",
-   "status": "todo",
+   "status": "done",
    "title": "Plan 8: close out release 1"
   },
   "item/01M64C03048SWRXRJ3A59AD9W0": {
@@ -3159,7 +3234,7 @@
   },
   "item/01M64C03048SWRXRJ3A59AD9W2": {
    "doc_type": "item",
-   "status": "todo",
+   "status": "done",
    "title": "Task 2: install the release build"
   },
   "item/01M64C03048SWRXRJ3A59AD9W4": {
@@ -3169,7 +3244,7 @@
   },
   "item/01M64C03048SWRXRJ3A59AD9W6": {
    "doc_type": "item",
-   "status": "todo",
+   "status": "done",
    "title": "Task 4: close and sync"
   },
   "plan/2026-10-28-plan-1-open-and-grades": {
@@ -3487,9 +3562,69 @@
    "doc_type": "ticket",
    "url": "https://github.com/SpillwaveSolutions/prd-forge-viewer/issues/160"
   },
+  "ticket/github#163": {
+   "doc_type": "ticket",
+   "url": "https://github.com/SpillwaveSolutions/prd-forge-viewer/issues/163"
+  },
+  "ticket/github#164": {
+   "doc_type": "ticket",
+   "url": "https://github.com/SpillwaveSolutions/prd-forge-viewer/issues/164"
+  },
+  "ticket/github#165": {
+   "doc_type": "ticket",
+   "url": "https://github.com/SpillwaveSolutions/prd-forge-viewer/issues/165"
+  },
+  "ticket/github#166": {
+   "doc_type": "ticket",
+   "url": "https://github.com/SpillwaveSolutions/prd-forge-viewer/issues/166"
+  },
+  "ticket/github#167": {
+   "doc_type": "ticket",
+   "url": "https://github.com/SpillwaveSolutions/prd-forge-viewer/issues/167"
+  },
+  "ticket/github#168": {
+   "doc_type": "ticket",
+   "url": "https://github.com/SpillwaveSolutions/prd-forge-viewer/issues/168"
+  },
+  "ticket/github#169": {
+   "doc_type": "ticket",
+   "url": "https://github.com/SpillwaveSolutions/prd-forge-viewer/issues/169"
+  },
   "ticket/github#17": {
    "doc_type": "ticket",
    "url": "https://github.com/SpillwaveSolutions/prd-forge-viewer/issues/17"
+  },
+  "ticket/github#170": {
+   "doc_type": "ticket",
+   "url": "https://github.com/SpillwaveSolutions/prd-forge-viewer/issues/170"
+  },
+  "ticket/github#171": {
+   "doc_type": "ticket",
+   "url": "https://github.com/SpillwaveSolutions/prd-forge-viewer/issues/171"
+  },
+  "ticket/github#172": {
+   "doc_type": "ticket",
+   "url": "https://github.com/SpillwaveSolutions/prd-forge-viewer/issues/172"
+  },
+  "ticket/github#173": {
+   "doc_type": "ticket",
+   "url": "https://github.com/SpillwaveSolutions/prd-forge-viewer/issues/173"
+  },
+  "ticket/github#174": {
+   "doc_type": "ticket",
+   "url": "https://github.com/SpillwaveSolutions/prd-forge-viewer/issues/174"
+  },
+  "ticket/github#175": {
+   "doc_type": "ticket",
+   "url": "https://github.com/SpillwaveSolutions/prd-forge-viewer/issues/175"
+  },
+  "ticket/github#176": {
+   "doc_type": "ticket",
+   "url": "https://github.com/SpillwaveSolutions/prd-forge-viewer/issues/176"
+  },
+  "ticket/github#177": {
+   "doc_type": "ticket",
+   "url": "https://github.com/SpillwaveSolutions/prd-forge-viewer/issues/177"
   },
   "ticket/github#18": {
    "doc_type": "ticket",
