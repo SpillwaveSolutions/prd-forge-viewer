@@ -1,6 +1,6 @@
 # Task 2: the watch and reload commands
 
-`01M62GWASEB3E2HFZ9GR8K5WF1` · task/feature · **open**
+`01M62GWASEB3E2HFZ9GR8K5WF1` · task/feature · **done**
 
 `watch_set(folder)` starts the watcher and emits `set-changed`.
 

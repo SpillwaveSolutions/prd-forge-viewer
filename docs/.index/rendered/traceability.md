@@ -13,7 +13,7 @@ _The evidence chain: plan → item → ticket → code → release, forward and 
 - produced-by: [[Plan-plan-5-live]]
 
 ### Task 2: the watch and reload commands
-`01M62GWASEB3E2HFZ9GR8K5WF1` · status: todo
+`01M62GWASEB3E2HFZ9GR8K5WF1` · status: done
 - belongs-to: Plan 5: live updates from the authoring tools
 - produced-by: [[Plan-plan-5-live]]
 

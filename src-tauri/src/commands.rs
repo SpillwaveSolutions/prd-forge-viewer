@@ -96,6 +96,28 @@ pub fn install_prdf() -> Result<String, String> {
     })
 }
 
+/// The watcher of the open set. A new watch replaces it, so the old set's events stop.
+#[derive(Default)]
+pub struct WatchState(Mutex<Option<crate::watch::SetWatcher>>);
+
+/// Watch the open set, and emit `set-changed` with the changed file names (FR-009, ADR-005).
+#[tauri::command(async)]
+pub fn watch_set(app: AppHandle, state: State<WatchState>, folder: String) -> Result<(), String> {
+    use tauri::Emitter;
+    let f = folder.clone();
+    let watcher = crate::watch::SetWatcher::start(Path::new(&folder), move |files| {
+        let _ = app.emit("set-changed", serde_json::json!({ "folder": f, "files": files }));
+    })?;
+    *state.0.lock().unwrap_or_else(|e| e.into_inner()) = Some(watcher);
+    Ok(())
+}
+
+/// Load the open set again after a change. Unlike open_set, it does not change the settings.
+#[tauri::command(async)]
+pub fn reload_set(folder: String) -> Result<PrdSet, String> {
+    load_set(Path::new(&folder)).map_err(|e| e.to_string())
+}
+
 #[cfg(test)]
 mod tests {
     use super::*;
@@ -143,6 +165,23 @@ mod tests {
         }
         let text = std::fs::read_to_string(&p).unwrap();
         assert!(serde_json::from_str::<crate::settings::Settings>(&text).is_ok(), "{text}");
+    }
+
+    #[test]
+    fn reload_reads_the_set_again() {
+        let d = TempDir::new().unwrap();
+        let set = d.path().join("set");
+        std::fs::create_dir_all(&set).unwrap();
+        for e in std::fs::read_dir(REAL).unwrap().flatten() {
+            if e.path().extension().is_some_and(|x| x == "md") {
+                std::fs::copy(e.path(), set.join(e.file_name())).unwrap();
+            }
+        }
+        let folder = set.display().to_string();
+        assert_eq!(reload_set(folder.clone()).unwrap().documents.len(), 18);
+        std::fs::write(set.join("04-personas.md"), "no front matter").unwrap();
+        let again = reload_set(folder).unwrap();
+        assert_eq!(again.documents.iter().find(|d| d.file == "04-personas.md").unwrap().status, "unreadable");
     }
 
     #[test]

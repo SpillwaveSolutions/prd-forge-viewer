@@ -26,6 +26,7 @@ pub fn run() {
         .plugin(tauri_plugin_dialog::init())
         .manage(commands::StartArg(std::sync::Mutex::new(first_arg)))
         .manage(search::SearchState::default())
+        .manage(commands::WatchState::default())
         .setup(|_app| {
             // The MCP bridge, only with `--features mcp-bridge`, as in Motion. Its capability is added
             // here and not in capabilities/, so builds without the feature still pass tauri-build.
@@ -37,7 +38,7 @@ pub fn run() {
             }
             Ok(())
         })
-        .invoke_handler(tauri::generate_handler![commands::open_set, commands::startup, commands::install_prdf, commands::start_for, commands::read_section, commands::item_index, commands::read_asset, commands::search, commands::categories])
+        .invoke_handler(tauri::generate_handler![commands::open_set, commands::startup, commands::install_prdf, commands::start_for, commands::read_section, commands::item_index, commands::read_asset, commands::search, commands::categories, commands::watch_set, commands::reload_set])
         .run(tauri::generate_context!())
         .expect("error while running the PRD Forge Viewer");
 }
