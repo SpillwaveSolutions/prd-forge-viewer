@@ -508,3 +508,4 @@
 {"actor":"richardhightower","ev":"01M64CEJEHZB0T0GB49Z4Y8JAA","git":"4d0e9ff","item":"01M62C7RE2CW1HN12H2T82VJ6C","op":"close","set":{"status":"done"},"ts":"2026-10-29T17:48:44Z"}
 {"actor":"richardhightower","ev":"01M64CZNVN13K32BT680E0S8VZ","git":"08f38c2","item":"01M64CZNVN13K32BT680E0S8VY","op":"create","set":{"body":"Commit the sync state and telemetry on a branch, merge on green, then tag and publish release 0.1.0 of the viewer.","level":"task","priority":"P0","status":"todo","title":"Cut release 0.1.0"},"ts":"2026-10-29T17:58:04Z"}
 {"actor":"richardhightower","ev":"01M64CZNY36XPH362NG2W2A26N","git":"08f38c2","item":"01M64CZNVN13K32BT680E0S8VY","op":"update","set":{"status":"in_progress"},"ts":"2026-10-29T17:58:04Z"}
+{"actor":"richardhightower","ev":"01M64E9NCSD5P5MYCTA91YQBE9","git":"693614f","item":"01M64CZNVN13K32BT680E0S8VY","op":"close","set":{"status":"done"},"ts":"2026-10-29T18:21:00Z"}
