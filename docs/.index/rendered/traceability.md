@@ -2,6 +2,34 @@
 
 _The evidence chain: plan → item → ticket → code → release, forward and backward. Generated from `docs/.index/_graph.json`; do not edit._
 
+### Task 4: close and sync
+`01M64C03048SWRXRJ3A59AD9W6` · status: todo
+- belongs-to: Plan 8: close out release 1
+- produced-by: [[Plan-plan-8-closeout]]
+
+### Task 3: the build status in REQ and TRAC
+`01M64C03048SWRXRJ3A59AD9W4` · status: todo
+- belongs-to: Plan 8: close out release 1
+- produced-by: [[Plan-plan-8-closeout]]
+
+### Task 2: install the release build
+`01M64C03048SWRXRJ3A59AD9W2` · status: todo
+- belongs-to: Plan 8: close out release 1
+- produced-by: [[Plan-plan-8-closeout]]
+
+### Task 1: check the real print dialog
+`01M64C03048SWRXRJ3A59AD9W0` · status: todo
+- belongs-to: Plan 8: close out release 1
+- produced-by: [[Plan-plan-8-closeout]]
+
+### Plan 8: close out release 1
+`01M64C02ZSD81X83JWRWQDVYCH` · status: todo
+- contains: Task 1: check the real print dialog
+- contains: Task 2: install the release build
+- contains: Task 3: the build status in REQ and TRAC
+- contains: Task 4: close and sync
+- produced-by: [[Plan-plan-8-closeout]]
+
 ### Fix the phase 5 review findings
 `01M64BCTQK4AN0YWKW7QS4V3FH` · status: done
 - belongs-to: Plan 7: PDF and Word export, print, and the Draft mark
@@ -37,7 +65,7 @@ _The evidence chain: plan → item → ticket → code → release, forward and 
 - produced-by: [[Plan-plan-7-export]]
 
 ### Plan 7: PDF and Word export, print, and the Draft mark
-`01M64AFRXQ04J5X7RQ0PC24VNC` · status: todo
+`01M64AFRXQ04J5X7RQ0PC24VNC` · status: done
 - contains: Task 1: the export model and the first page
 - contains: Task 2: themed HTML with embedded fonts
 - contains: Task 3: the Word writer
@@ -248,7 +276,7 @@ _The evidence chain: plan → item → ticket → code → release, forward and 
 - produced-by: [[Plan-release-1-completion]]
 
 ### Phase 6: close out release 1
-`01M62C7REGCD2R415FMWFCZMV6` · status: todo
+`01M62C7REGCD2R415FMWFCZMV6` · status: in_progress
 - belongs-to: Release 1 completion: build the 15 remaining requirements
 - references: [github#128](https://github.com/SpillwaveSolutions/prd-forge-viewer/issues/128)
 - contains: All e2e checks and unit tests pass on the release build
@@ -258,19 +286,19 @@ _The evidence chain: plan → item → ticket → code → release, forward and 
 - produced-by: [[Plan-release-1-completion]]
 
 ### NFR-004 within 10 s, and NFR-009 with zero checker errors
-`01M62C7REGCD2R415FMWFCZMV4` · status: todo
+`01M62C7REGCD2R415FMWFCZMV4` · status: done
 - belongs-to: Phase 5: PDF and Word export, print, and the Draft mark (US-014 to US-020)
 - references: [github#127](https://github.com/SpillwaveSolutions/prd-forge-viewer/issues/127)
 - produced-by: [[Plan-release-1-completion]]
 
 ### e2e/phase5.mjs passes: FR-010 to FR-014, FR-019, TR-005, TR-007, and TR-010, with file checks of each export
-`01M62C7REGCD2R415FMWFCZMV2` · status: todo
+`01M62C7REGCD2R415FMWFCZMV2` · status: done
 - belongs-to: Phase 5: PDF and Word export, print, and the Draft mark (US-014 to US-020)
 - references: [github#126](https://github.com/SpillwaveSolutions/prd-forge-viewer/issues/126)
 - produced-by: [[Plan-release-1-completion]]
 
 ### Built with TDD, and the review findings fixed
-`01M62C7REGCD2R415FMWFCZMV0` · status: todo
+`01M62C7REGCD2R415FMWFCZMV0` · status: done
 - belongs-to: Phase 5: PDF and Word export, print, and the Draft mark (US-014 to US-020)
 - references: [github#125](https://github.com/SpillwaveSolutions/prd-forge-viewer/issues/125)
 - produced-by: [[Plan-release-1-completion]]
@@ -282,7 +310,7 @@ _The evidence chain: plan → item → ticket → code → release, forward and 
 - produced-by: [[Plan-release-1-completion]]
 
 ### Phase 5: PDF and Word export, print, and the Draft mark (US-014 to US-020)
-`01M62C7REGCD2R415FMWFCZMTW` · status: in_progress
+`01M62C7REGCD2R415FMWFCZMTW` · status: done
 - belongs-to: Release 1 completion: build the 15 remaining requirements
 - references: [github#123](https://github.com/SpillwaveSolutions/prd-forge-viewer/issues/123)
 - contains: Plan 7 written and captured
@@ -892,7 +920,7 @@ _The evidence chain: plan → item → ticket → code → release, forward and 
 - targets: release/REL-001
 
 ### US-022 Make a custom export theme
-`01M61XNKY44E0TMA06D5YGBBCT` · status: todo
+`01M61XNKY44E0TMA06D5YGBBCT` · status: done
 - belongs-to: EPIC-005 Export the PRD: Export the selected sections, in a selected theme, as a file that a reader opens without the authoring tools.
 - references: [github#31](https://github.com/SpillwaveSolutions/prd-forge-viewer/issues/31)
 - targets: release/REL-001
@@ -904,43 +932,43 @@ _The evidence chain: plan → item → ticket → code → release, forward and 
 - targets: release/REL-001
 
 ### US-020 See the status and score of every section in an export
-`01M61XNKSH8CJ2NKNBEG5CVC7J` · status: todo
+`01M61XNKSH8CJ2NKNBEG5CVC7J` · status: done
 - belongs-to: EPIC-005 Export the PRD: Export the selected sections, in a selected theme, as a file that a reader opens without the authoring tools.
 - references: [github#29](https://github.com/SpillwaveSolutions/prd-forge-viewer/issues/29)
 - targets: release/REL-001
 
 ### US-019 See "Draft" on every export until every document of the PRD set is final, and see no claim that the PRD is approved
-`01M61XNKQC1ZHJPMYK5FW5N17N` · status: todo
+`01M61XNKQC1ZHJPMYK5FW5N17N` · status: done
 - belongs-to: EPIC-005 Export the PRD: Export the selected sections, in a selected theme, as a file that a reader opens without the authoring tools.
 - references: [github#28](https://github.com/SpillwaveSolutions/prd-forge-viewer/issues/28)
 - targets: release/REL-001
 
 ### US-018 See the version of the PRD, and if it is a draft, in an export
-`01M61XNKN3MT565WYVQJX63YTE` · status: todo
+`01M61XNKN3MT565WYVQJX63YTE` · status: done
 - belongs-to: EPIC-005 Export the PRD: Export the selected sections, in a selected theme, as a file that a reader opens without the authoring tools.
 - references: [github#27](https://github.com/SpillwaveSolutions/prd-forge-viewer/issues/27)
 - targets: release/REL-001
 
 ### US-017 Print the PRD set or selected sections
-`01M61XNKJS20P36A6GTVDDSJJC` · status: todo
+`01M61XNKJS20P36A6GTVDDSJJC` · status: done
 - belongs-to: EPIC-005 Export the PRD: Export the selected sections, in a selected theme, as a file that a reader opens without the authoring tools.
 - references: [github#26](https://github.com/SpillwaveSolutions/prd-forge-viewer/issues/26)
 - targets: release/REL-001
 
 ### US-016 Export only selected sections
-`01M61XNKGH9S4J40A909MN4KA2` · status: todo
+`01M61XNKGH9S4J40A909MN4KA2` · status: done
 - belongs-to: EPIC-005 Export the PRD: Export the selected sections, in a selected theme, as a file that a reader opens without the authoring tools.
 - references: [github#25](https://github.com/SpillwaveSolutions/prd-forge-viewer/issues/25)
 - targets: release/REL-001
 
 ### US-015 Export the PRD set as an editable document (IN-006)
-`01M61XNKE6PN209QVSMRS7ZMJB` · status: todo
+`01M61XNKE6PN209QVSMRS7ZMJB` · status: done
 - belongs-to: EPIC-005 Export the PRD: Export the selected sections, in a selected theme, as a file that a reader opens without the authoring tools.
 - references: [github#24](https://github.com/SpillwaveSolutions/prd-forge-viewer/issues/24)
 - targets: release/REL-001
 
 ### US-014 Export the PRD set as a fixed-layout document (IN-006)
-`01M61XNKBWWJM55QTR4QJJDQXS` · status: todo
+`01M61XNKBWWJM55QTR4QJJDQXS` · status: done
 - belongs-to: EPIC-005 Export the PRD: Export the selected sections, in a selected theme, as a file that a reader opens without the authoring tools.
 - references: [github#23](https://github.com/SpillwaveSolutions/prd-forge-viewer/issues/23)
 - targets: release/REL-001

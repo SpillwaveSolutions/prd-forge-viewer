@@ -1,11 +1,11 @@
 {
- "git_hash": "1bfc70a",
+ "git_hash": "27c246d",
  "pages": [
   {
    "frozen": false,
    "page_name": "Home",
    "render": "as-is",
-   "render_hash": "2f569509541c",
+   "render_hash": "1ab37f25f4e9",
    "source": "docs/.index/rendered/home.md",
    "title": "Home",
    "truth_state": "current",
@@ -15,7 +15,7 @@
    "frozen": false,
    "page_name": "Index-Decisions",
    "render": "as-is",
-   "render_hash": "a04113746ccc",
+   "render_hash": "aa0f443c3c92",
    "source": "docs/.index/rendered/decisions.md",
    "title": "Decisions Index",
    "truth_state": "current",
@@ -45,7 +45,7 @@
    "frozen": false,
    "page_name": "Index-Traceability",
    "render": "as-is",
-   "render_hash": "85124a9f0b16",
+   "render_hash": "72371fe27ea5",
    "source": "docs/.index/rendered/traceability.md",
    "title": "Traceability Index",
    "truth_state": "current",
@@ -55,7 +55,7 @@
    "frozen": false,
    "page_name": "Release-REL-001",
    "render": "as-is",
-   "render_hash": "8368b47856c4",
+   "render_hash": "2e0cb8faacca",
    "source": "docs/.index/rendered/releases/REL-001.md",
    "title": "Release REL-001",
    "truth_state": "shipped",
@@ -235,7 +235,7 @@
    "frozen": false,
    "page_name": "Ticket-01M61XNK9MPMV0RAEKPX0JC3K4",
    "render": "as-is",
-   "render_hash": "d020cc2bd164",
+   "render_hash": "db365bf31008",
    "source": "docs/.index/rendered/tickets/01M61XNK9MPMV0RAEKPX0JC3K4.md",
    "title": "EPIC-005 Export the PRD: Export the selected sections, in a selected theme, as a file that a reader opens without the authoring tools.",
    "truth_state": "open",
@@ -245,70 +245,70 @@
    "frozen": false,
    "page_name": "Ticket-01M61XNKBWWJM55QTR4QJJDQXS",
    "render": "as-is",
-   "render_hash": "a8e3e32ae834",
+   "render_hash": "7c490140d8fb",
    "source": "docs/.index/rendered/tickets/01M61XNKBWWJM55QTR4QJJDQXS.md",
    "title": "US-014 Export the PRD set as a fixed-layout document (IN-006)",
-   "truth_state": "open",
+   "truth_state": "done",
    "wiki_key": "item/01M61XNKBWWJM55QTR4QJJDQXS"
   },
   {
    "frozen": false,
    "page_name": "Ticket-01M61XNKE6PN209QVSMRS7ZMJB",
    "render": "as-is",
-   "render_hash": "aff61ebe011c",
+   "render_hash": "b88ac6418783",
    "source": "docs/.index/rendered/tickets/01M61XNKE6PN209QVSMRS7ZMJB.md",
    "title": "US-015 Export the PRD set as an editable document (IN-006)",
-   "truth_state": "open",
+   "truth_state": "done",
    "wiki_key": "item/01M61XNKE6PN209QVSMRS7ZMJB"
   },
   {
    "frozen": false,
    "page_name": "Ticket-01M61XNKGH9S4J40A909MN4KA2",
    "render": "as-is",
-   "render_hash": "d9efbcfc8194",
+   "render_hash": "d203e6a632bf",
    "source": "docs/.index/rendered/tickets/01M61XNKGH9S4J40A909MN4KA2.md",
    "title": "US-016 Export only selected sections",
-   "truth_state": "open",
+   "truth_state": "done",
    "wiki_key": "item/01M61XNKGH9S4J40A909MN4KA2"
   },
   {
    "frozen": false,
    "page_name": "Ticket-01M61XNKJS20P36A6GTVDDSJJC",
    "render": "as-is",
-   "render_hash": "8185dfd90e4a",
+   "render_hash": "763484dff0ac",
    "source": "docs/.index/rendered/tickets/01M61XNKJS20P36A6GTVDDSJJC.md",
    "title": "US-017 Print the PRD set or selected sections",
-   "truth_state": "open",
+   "truth_state": "done",
    "wiki_key": "item/01M61XNKJS20P36A6GTVDDSJJC"
   },
   {
    "frozen": false,
    "page_name": "Ticket-01M61XNKN3MT565WYVQJX63YTE",
    "render": "as-is",
-   "render_hash": "bdda58825fd8",
+   "render_hash": "81028a0baf3f",
    "source": "docs/.index/rendered/tickets/01M61XNKN3MT565WYVQJX63YTE.md",
    "title": "US-018 See the version of the PRD, and if it is a draft, in an export",
-   "truth_state": "open",
+   "truth_state": "done",
    "wiki_key": "item/01M61XNKN3MT565WYVQJX63YTE"
   },
   {
    "frozen": false,
    "page_name": "Ticket-01M61XNKQC1ZHJPMYK5FW5N17N",
    "render": "as-is",
-   "render_hash": "0da367fe5596",
+   "render_hash": "928a93840ab3",
    "source": "docs/.index/rendered/tickets/01M61XNKQC1ZHJPMYK5FW5N17N.md",
    "title": "US-019 See \"Draft\" on every export until every document of the PRD set is final, and see no claim that the PRD is approved",
-   "truth_state": "open",
+   "truth_state": "done",
    "wiki_key": "item/01M61XNKQC1ZHJPMYK5FW5N17N"
   },
   {
    "frozen": false,
    "page_name": "Ticket-01M61XNKSH8CJ2NKNBEG5CVC7J",
    "render": "as-is",
-   "render_hash": "d6ee716ca648",
+   "render_hash": "6f348662f7d6",
    "source": "docs/.index/rendered/tickets/01M61XNKSH8CJ2NKNBEG5CVC7J.md",
    "title": "US-020 See the status and score of every section in an export",
-   "truth_state": "open",
+   "truth_state": "done",
    "wiki_key": "item/01M61XNKSH8CJ2NKNBEG5CVC7J"
   },
   {
@@ -325,10 +325,10 @@
    "frozen": false,
    "page_name": "Ticket-01M61XNKY44E0TMA06D5YGBBCT",
    "render": "as-is",
-   "render_hash": "1594f4a2ff2b",
+   "render_hash": "ae74d48aeb5d",
    "source": "docs/.index/rendered/tickets/01M61XNKY44E0TMA06D5YGBBCT.md",
    "title": "US-022 Make a custom export theme",
-   "truth_state": "open",
+   "truth_state": "done",
    "wiki_key": "item/01M61XNKY44E0TMA06D5YGBBCT"
   },
   {
@@ -1045,7 +1045,7 @@
    "frozen": false,
    "page_name": "Ticket-01M62C7RE2CW1HN12H2T82VJ6C",
    "render": "as-is",
-   "render_hash": "dfea35dc9692",
+   "render_hash": "d539e56fbda1",
    "source": "docs/.index/rendered/tickets/01M62C7RE2CW1HN12H2T82VJ6C.md",
    "title": "Release 1 completion: build the 15 remaining requirements",
    "truth_state": "open",
@@ -1225,10 +1225,10 @@
    "frozen": false,
    "page_name": "Ticket-01M62C7REGCD2R415FMWFCZMTW",
    "render": "as-is",
-   "render_hash": "b4daec93c204",
+   "render_hash": "b638744bc947",
    "source": "docs/.index/rendered/tickets/01M62C7REGCD2R415FMWFCZMTW.md",
    "title": "Phase 5: PDF and Word export, print, and the Draft mark (US-014 to US-020)",
-   "truth_state": "in-progress",
+   "truth_state": "done",
    "wiki_key": "item/01M62C7REGCD2R415FMWFCZMTW"
   },
   {
@@ -1245,40 +1245,40 @@
    "frozen": false,
    "page_name": "Ticket-01M62C7REGCD2R415FMWFCZMV0",
    "render": "as-is",
-   "render_hash": "f3508181516e",
+   "render_hash": "8a45bfeac636",
    "source": "docs/.index/rendered/tickets/01M62C7REGCD2R415FMWFCZMV0.md",
    "title": "Built with TDD, and the review findings fixed",
-   "truth_state": "open",
+   "truth_state": "done",
    "wiki_key": "item/01M62C7REGCD2R415FMWFCZMV0"
   },
   {
    "frozen": false,
    "page_name": "Ticket-01M62C7REGCD2R415FMWFCZMV2",
    "render": "as-is",
-   "render_hash": "0be39d05e1d3",
+   "render_hash": "176da4097959",
    "source": "docs/.index/rendered/tickets/01M62C7REGCD2R415FMWFCZMV2.md",
    "title": "e2e/phase5.mjs passes: FR-010 to FR-014, FR-019, TR-005, TR-007, and TR-010, with file checks of each export",
-   "truth_state": "open",
+   "truth_state": "done",
    "wiki_key": "item/01M62C7REGCD2R415FMWFCZMV2"
   },
   {
    "frozen": false,
    "page_name": "Ticket-01M62C7REGCD2R415FMWFCZMV4",
    "render": "as-is",
-   "render_hash": "68caee5f0052",
+   "render_hash": "7a529e37caea",
    "source": "docs/.index/rendered/tickets/01M62C7REGCD2R415FMWFCZMV4.md",
    "title": "NFR-004 within 10 s, and NFR-009 with zero checker errors",
-   "truth_state": "open",
+   "truth_state": "done",
    "wiki_key": "item/01M62C7REGCD2R415FMWFCZMV4"
   },
   {
    "frozen": false,
    "page_name": "Ticket-01M62C7REGCD2R415FMWFCZMV6",
    "render": "as-is",
-   "render_hash": "379f67ec1135",
+   "render_hash": "e502e204ec24",
    "source": "docs/.index/rendered/tickets/01M62C7REGCD2R415FMWFCZMV6.md",
    "title": "Phase 6: close out release 1",
-   "truth_state": "open",
+   "truth_state": "in-progress",
    "wiki_key": "item/01M62C7REGCD2R415FMWFCZMV6"
   },
   {
@@ -1595,10 +1595,10 @@
    "frozen": false,
    "page_name": "Ticket-01M64AFRXQ04J5X7RQ0PC24VNC",
    "render": "as-is",
-   "render_hash": "4b7073203315",
+   "render_hash": "d7574ba0d541",
    "source": "docs/.index/rendered/tickets/01M64AFRXQ04J5X7RQ0PC24VNC.md",
    "title": "Plan 7: PDF and Word export, print, and the Draft mark",
-   "truth_state": "open",
+   "truth_state": "done",
    "wiki_key": "item/01M64AFRXQ04J5X7RQ0PC24VNC"
   },
   {
@@ -1670,6 +1670,56 @@
    "title": "Fix the phase 5 review findings",
    "truth_state": "done",
    "wiki_key": "item/01M64BCTQK4AN0YWKW7QS4V3FH"
+  },
+  {
+   "frozen": false,
+   "page_name": "Ticket-01M64C02ZSD81X83JWRWQDVYCH",
+   "render": "as-is",
+   "render_hash": "6ebe41bbe4e2",
+   "source": "docs/.index/rendered/tickets/01M64C02ZSD81X83JWRWQDVYCH.md",
+   "title": "Plan 8: close out release 1",
+   "truth_state": "open",
+   "wiki_key": "item/01M64C02ZSD81X83JWRWQDVYCH"
+  },
+  {
+   "frozen": false,
+   "page_name": "Ticket-01M64C03048SWRXRJ3A59AD9W0",
+   "render": "as-is",
+   "render_hash": "28916f74e34c",
+   "source": "docs/.index/rendered/tickets/01M64C03048SWRXRJ3A59AD9W0.md",
+   "title": "Task 1: check the real print dialog",
+   "truth_state": "open",
+   "wiki_key": "item/01M64C03048SWRXRJ3A59AD9W0"
+  },
+  {
+   "frozen": false,
+   "page_name": "Ticket-01M64C03048SWRXRJ3A59AD9W2",
+   "render": "as-is",
+   "render_hash": "edf7b4e0724b",
+   "source": "docs/.index/rendered/tickets/01M64C03048SWRXRJ3A59AD9W2.md",
+   "title": "Task 2: install the release build",
+   "truth_state": "open",
+   "wiki_key": "item/01M64C03048SWRXRJ3A59AD9W2"
+  },
+  {
+   "frozen": false,
+   "page_name": "Ticket-01M64C03048SWRXRJ3A59AD9W4",
+   "render": "as-is",
+   "render_hash": "1645a3eafe70",
+   "source": "docs/.index/rendered/tickets/01M64C03048SWRXRJ3A59AD9W4.md",
+   "title": "Task 3: the build status in REQ and TRAC",
+   "truth_state": "open",
+   "wiki_key": "item/01M64C03048SWRXRJ3A59AD9W4"
+  },
+  {
+   "frozen": false,
+   "page_name": "Ticket-01M64C03048SWRXRJ3A59AD9W6",
+   "render": "as-is",
+   "render_hash": "bae5049ea201",
+   "source": "docs/.index/rendered/tickets/01M64C03048SWRXRJ3A59AD9W6.md",
+   "title": "Task 4: close and sync",
+   "truth_state": "open",
+   "wiki_key": "item/01M64C03048SWRXRJ3A59AD9W6"
   },
   {
    "banner": "> **Current** \u2014 completed plan; plans are frozen once written, a changed design gets a new plan.",
@@ -1768,20 +1818,32 @@
    "wiki_key": "plan/2026-10-29-plan-7-export"
   },
   {
-   "banner": "> **Current** \u2014 this is the living version; regenerated at 2026-10-29T17:38:54Z. Historical snapshots are linked from [[Index-Releases]].",
+   "banner": "> **Current** \u2014 plan not yet started; plans are frozen once written, a changed design gets a new plan.",
+   "frozen": true,
+   "page_name": "Plan-plan-8-closeout",
+   "render": "doc+banner",
+   "render_hash": "78b29816df98",
+   "source": "docs/plans/2026-10-29-plan-8-closeout.md",
+   "source_hash": "85410b25f69f",
+   "title": "Plan 8: close out release 1",
+   "truth_state": "current",
+   "wiki_key": "plan/2026-10-29-plan-8-closeout"
+  },
+  {
+   "banner": "> **Current** \u2014 this is the living version; regenerated at 2026-10-29T17:40:49Z. Historical snapshots are linked from [[Index-Releases]].",
    "frozen": false,
    "page_name": "Roadmap",
    "render": "doc+banner",
-   "render_hash": "a9f34e8fd587",
+   "render_hash": "ee685a07b8c7",
    "source": "docs/roadmap.md",
-   "source_hash": "2e82f3e2cfe0",
+   "source_hash": "47f7271976c0",
    "title": "Roadmap",
    "truth_state": "current",
    "wiki_key": "roadmap"
   }
  ],
  "sidebar": {
-  "render_hash": "e6fad2ac0a2a",
+  "render_hash": "908cbc66a78f",
   "source": "docs/.index/rendered/_Sidebar.md"
  },
  "version": 1

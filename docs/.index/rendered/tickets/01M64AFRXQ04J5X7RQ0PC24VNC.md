@@ -1,6 +1,6 @@
 # Plan 7: PDF and Word export, print, and the Draft mark
 
-`01M64AFRXQ04J5X7RQ0PC24VNC` · epic/feature · **open**
+`01M64AFRXQ04J5X7RQ0PC24VNC` · epic/feature · **done**
 
 Phase 5 of the release 1 completion plan.
 

@@ -1,6 +1,6 @@
 # US-017 Print the PRD set or selected sections
 
-`01M61XNKJS20P36A6GTVDDSJJC` · story/feature · **open**
+`01M61XNKJS20P36A6GTVDDSJJC` · story/feature · **done**
 
 As a PRD author, I want to print the PRD set or selected sections, so that the author has a printed copy with the same content as the export.
 

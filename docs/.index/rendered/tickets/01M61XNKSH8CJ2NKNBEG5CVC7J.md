@@ -1,6 +1,6 @@
 # US-020 See the status and score of every section in an export
 
-`01M61XNKSH8CJ2NKNBEG5CVC7J` · story/feature · **open**
+`01M61XNKSH8CJ2NKNBEG5CVC7J` · story/feature · **done**
 
 As an engineering lead, I want to see the status and score of every section in an export, so that the engineering lead knows which sections are finished before reading them.
 

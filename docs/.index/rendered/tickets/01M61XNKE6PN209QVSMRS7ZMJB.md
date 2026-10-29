@@ -1,6 +1,6 @@
 # US-015 Export the PRD set as an editable document (IN-006)
 
-`01M61XNKE6PN209QVSMRS7ZMJB` · story/feature · **open**
+`01M61XNKE6PN209QVSMRS7ZMJB` · story/feature · **done**
 
 As a PRD author, I want to export the PRD set as an editable document (IN-006), so that the author has one editable document that a reader opens with software already on the computer, without the authoring tools.
 
