@@ -7,6 +7,7 @@
    "source": "docs/user_guide/01-open-a-set.md",
    "title": "Open a PRD set",
    "truth_state": "current",
+   "wiki": "https://github.com/SpillwaveSolutions/prd-forge-viewer/wiki/Open-a-PRD-set",
    "wiki_key": "guide/01-open-a-set"
   },
   {
@@ -16,6 +17,7 @@
    "source": "docs/user_guide/02-read-sections.md",
    "title": "Read sections and items",
    "truth_state": "current",
+   "wiki": "https://github.com/SpillwaveSolutions/prd-forge-viewer/wiki/Read-sections-and-items",
    "wiki_key": "guide/02-read-sections"
   },
   {
@@ -25,6 +27,7 @@
    "source": "docs/user_guide/03-grades.md",
    "title": "See the grades",
    "truth_state": "current",
+   "wiki": "https://github.com/SpillwaveSolutions/prd-forge-viewer/wiki/See-the-grades",
    "wiki_key": "guide/03-grades"
   },
   {
@@ -34,6 +37,7 @@
    "source": "docs/user_guide/04-search.md",
    "title": "Search a set",
    "truth_state": "current",
+   "wiki": "https://github.com/SpillwaveSolutions/prd-forge-viewer/wiki/Search-a-set",
    "wiki_key": "guide/04-search"
   },
   {
@@ -43,6 +47,7 @@
    "source": "docs/user_guide/05-live-updates.md",
    "title": "Live updates",
    "truth_state": "current",
+   "wiki": "https://github.com/SpillwaveSolutions/prd-forge-viewer/wiki/Live-updates",
    "wiki_key": "guide/05-live-updates"
   },
   {
@@ -52,6 +57,7 @@
    "source": "docs/user_guide/06-themes.md",
    "title": "Export themes",
    "truth_state": "current",
+   "wiki": "https://github.com/SpillwaveSolutions/prd-forge-viewer/wiki/Export-themes",
    "wiki_key": "guide/06-themes"
   },
   {
@@ -61,6 +67,7 @@
    "source": "docs/user_guide/07-export-and-print.md",
    "title": "Export and print",
    "truth_state": "current",
+   "wiki": "https://github.com/SpillwaveSolutions/prd-forge-viewer/wiki/Export-and-print",
    "wiki_key": "guide/07-export-and-print"
   },
   {
@@ -103,6 +110,7 @@
    "status": "completed",
    "title": "Plan 1, open a PRD set and see its grades",
    "truth_state": "current",
+   "wiki": "https://github.com/SpillwaveSolutions/prd-forge-viewer/wiki/Plan-plan-1-open-and-grades",
    "wiki_key": "plan/2026-10-28-plan-1-open-and-grades"
   },
   {
@@ -149,6 +157,7 @@
    "status": "completed",
    "title": "Plan 2, the prdf launcher, known locations, and the last set",
    "truth_state": "current",
+   "wiki": "https://github.com/SpillwaveSolutions/prd-forge-viewer/wiki/Plan-plan-2-launcher-and-settings",
    "wiki_key": "plan/2026-10-28-plan-2-launcher-and-settings"
   },
   {
@@ -170,6 +179,7 @@
    "status": "completed",
    "title": "Plan 3: read sections, items, and references",
    "truth_state": "current",
+   "wiki": "https://github.com/SpillwaveSolutions/prd-forge-viewer/wiki/Plan-plan-3-reading",
    "wiki_key": "plan/2026-10-28-plan-3-reading"
   },
   {
@@ -190,6 +200,7 @@
    "status": "completed",
    "title": "Plan 4: search with ranked results",
    "truth_state": "current",
+   "wiki": "https://github.com/SpillwaveSolutions/prd-forge-viewer/wiki/Plan-plan-4-search",
    "wiki_key": "plan/2026-10-28-plan-4-search"
   },
   {
@@ -244,6 +255,7 @@
    "status": "completed",
    "title": "Plan 5: live updates from the authoring tools",
    "truth_state": "current",
+   "wiki": "https://github.com/SpillwaveSolutions/prd-forge-viewer/wiki/Plan-plan-5-live",
    "wiki_key": "plan/2026-10-29-plan-5-live"
   },
   {
@@ -263,6 +275,7 @@
    "status": "completed",
    "title": "Plan 6: export themes",
    "truth_state": "current",
+   "wiki": "https://github.com/SpillwaveSolutions/prd-forge-viewer/wiki/Plan-plan-6-themes",
    "wiki_key": "plan/2026-10-29-plan-6-themes"
   },
   {
@@ -284,6 +297,7 @@
    "status": "completed",
    "title": "Plan 7: PDF and Word export, print, and the Draft mark",
    "truth_state": "current",
+   "wiki": "https://github.com/SpillwaveSolutions/prd-forge-viewer/wiki/Plan-plan-7-export",
    "wiki_key": "plan/2026-10-29-plan-7-export"
   },
   {
@@ -303,6 +317,7 @@
    "status": "completed",
    "title": "Plan 8: close out release 1",
    "truth_state": "current",
+   "wiki": "https://github.com/SpillwaveSolutions/prd-forge-viewer/wiki/Plan-plan-8-closeout",
    "wiki_key": "plan/2026-10-29-plan-8-closeout"
   },
   {
@@ -315,6 +330,7 @@
    "source_hash": "418f6a9b",
    "title": "Roadmap",
    "truth_state": "current",
+   "wiki": "https://github.com/SpillwaveSolutions/prd-forge-viewer/wiki/Roadmap",
    "wiki_key": "roadmap"
   },
   {
@@ -330,6 +346,7 @@
    "source_hash": "418f6a9b",
    "title": "Roadmap",
    "truth_state": "snapshot",
+   "wiki": "https://github.com/SpillwaveSolutions/prd-forge-viewer/wiki/Roadmap-2026-10-29_v0.1.0-release",
    "wiki_key": "roadmap-snapshot/2026-10-29_v0.1.0-release"
   }
  ],
