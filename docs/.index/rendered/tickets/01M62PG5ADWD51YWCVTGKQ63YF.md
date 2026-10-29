@@ -1,6 +1,6 @@
 # Task 3: the themes dialog
 
-`01M62PG5ADWD51YWCVTGKQ63YF` · task/feature · **open**
+`01M62PG5ADWD51YWCVTGKQ63YF` · task/feature · **done**
 
 A **Themes** button on the set page opens the dialog (WF-008).
 

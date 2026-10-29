@@ -9,6 +9,8 @@ import { SetOverview } from "./SetOverview";
 import { StartScreen } from "./StartScreen";
 import { applyResult, applyStart, openSet } from "./openSet";
 import { applyChange, reloadedPage } from "./live";
+import { ThemeDialog } from "./ThemeDialog";
+import { DEFAULT_EXPORT_THEME_ID, sanitizeCustomThemes, type ExportTheme } from "./themes";
 import type { Category, Hit, ItemRef, PrdSet, Section, StartView } from "./types";
 
 const pickFolder = async () => {
@@ -22,6 +24,9 @@ export function App() {
     const [error, setError] = useState<string>();
     const [start, setStart] = useState<Exclude<StartView, { kind: "open" }>>();
     const [notice, setNotice] = useState<string>();
+    // Custom export themes and the selected theme, from the settings file (FR-020).
+    const [themes, setThemes] = useState<{ custom: ExportTheme[]; selected: string }>({ custom: [], selected: DEFAULT_EXPORT_THEME_ID });
+    const [editThemes, setEditThemes] = useState(false);
     const [page, setPage] = useState<{ section: Section; selected: string | null }>();
     const [index, setIndex] = useState<ItemRef[]>([]);
     const [categories, setCategories] = useState<Category[]>([]);
@@ -103,6 +108,7 @@ export function App() {
     }, []);
 
     useEffect(() => {
+        void invoke<{ themes: unknown; selected: string | null }>("themes").then((t) => setThemes({ custom: sanitizeCustomThemes(t.themes), selected: t.selected ?? DEFAULT_EXPORT_THEME_ID }));
         void invoke<StartView>("startup").then(showStart);
         const unlisten = listen<StartView>("start", (e) => showStart(e.payload));
         return () => void unlisten.then((f) => f());
@@ -130,8 +136,27 @@ export function App() {
                 </button>{" "}
                 <button type="button" onClick={installPrdf}>
                     Install prdf command
+                </button>{" "}
+                <button type="button" onClick={() => setEditThemes(true)}>
+                    Themes
                 </button>
             </header>
+            {editThemes && (
+                <ThemeDialog
+                    themes={themes.custom}
+                    themeId={themes.selected}
+                    onClose={() => setEditThemes(false)}
+                    onSave={async (next) => {
+                        try {
+                            await invoke("save_themes", { themes: next.themes, selected: next.selected });
+                            setThemes({ custom: next.themes, selected: next.selected });
+                            setEditThemes(false);
+                        } catch (e) {
+                            setError(`Themes not saved: ${e}`);
+                        }
+                    }}
+                />
+            )}
             {notice && <p role="status">{notice}</p>}
             {error && <p role="alert" className="error">{error}</p>}
             {set && (

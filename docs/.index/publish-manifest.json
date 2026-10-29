@@ -1,5 +1,5 @@
 {
- "git_hash": "aa5105d",
+ "git_hash": "5cb790f",
  "pages": [
   {
    "frozen": false,
@@ -45,7 +45,7 @@
    "frozen": false,
    "page_name": "Index-Traceability",
    "render": "as-is",
-   "render_hash": "7a36d680e813",
+   "render_hash": "22e88d5345e9",
    "source": "docs/.index/rendered/traceability.md",
    "title": "Traceability Index",
    "truth_state": "current",
@@ -1525,7 +1525,7 @@
    "frozen": false,
    "page_name": "Ticket-01M62PG5A0K6D0ZN6QHB51EG8W",
    "render": "as-is",
-   "render_hash": "d285834e23af",
+   "render_hash": "f2ccd43686c9",
    "source": "docs/.index/rendered/tickets/01M62PG5A0K6D0ZN6QHB51EG8W.md",
    "title": "Plan 6: export themes",
    "truth_state": "open",
@@ -1555,17 +1555,17 @@
    "frozen": false,
    "page_name": "Ticket-01M62PG5ADWD51YWCVTGKQ63YF",
    "render": "as-is",
-   "render_hash": "9e4ec716c72b",
+   "render_hash": "79220a5c52ff",
    "source": "docs/.index/rendered/tickets/01M62PG5ADWD51YWCVTGKQ63YF.md",
    "title": "Task 3: the themes dialog",
-   "truth_state": "open",
+   "truth_state": "done",
    "wiki_key": "item/01M62PG5ADWD51YWCVTGKQ63YF"
   },
   {
    "frozen": false,
    "page_name": "Ticket-01M62PG5ADWD51YWCVTGKQ63YH",
    "render": "as-is",
-   "render_hash": "178e598f2b37",
+   "render_hash": "0ae4a0856c7d",
    "source": "docs/.index/rendered/tickets/01M62PG5ADWD51YWCVTGKQ63YH.md",
    "title": "Task 4: MCP checks for phase 4",
    "truth_state": "open",
@@ -1656,13 +1656,13 @@
    "wiki_key": "plan/2026-10-29-plan-6-themes"
   },
   {
-   "banner": "> **Current** \u2014 this is the living version; regenerated at 2026-10-29T04:41:56Z. Historical snapshots are linked from [[Index-Releases]].",
+   "banner": "> **Current** \u2014 this is the living version; regenerated at 2026-10-29T07:27:11Z. Historical snapshots are linked from [[Index-Releases]].",
    "frozen": false,
    "page_name": "Roadmap",
    "render": "doc+banner",
-   "render_hash": "01ef316bc0c5",
+   "render_hash": "96c0451e43e3",
    "source": "docs/roadmap.md",
-   "source_hash": "5916b10f7030",
+   "source_hash": "548c62354fca",
    "title": "Roadmap",
    "truth_state": "current",
    "wiki_key": "roadmap"

@@ -1911,6 +1911,11 @@
    "type": "belongs-to"
   },
   {
+   "from": "item/01M62PG5ADWD51YWCVTGKQ63YH",
+   "to": "ticket/github#160",
+   "type": "references"
+  },
+  {
    "from": "plan/2026-10-28-plan-1-open-and-grades",
    "to": "item/01M61XNJ3ME272NXHFN3BS3541",
    "type": "produces"
@@ -2959,7 +2964,7 @@
   },
   "item/01M62PG5ADWD51YWCVTGKQ63YF": {
    "doc_type": "item",
-   "status": "todo",
+   "status": "done",
    "title": "Task 3: the themes dialog"
   },
   "item/01M62PG5ADWD51YWCVTGKQ63YH": {
@@ -3265,6 +3270,10 @@
   "ticket/github#16": {
    "doc_type": "ticket",
    "url": "https://github.com/SpillwaveSolutions/prd-forge-viewer/issues/16"
+  },
+  "ticket/github#160": {
+   "doc_type": "ticket",
+   "url": "https://github.com/SpillwaveSolutions/prd-forge-viewer/issues/160"
   },
   "ticket/github#17": {
    "doc_type": "ticket",

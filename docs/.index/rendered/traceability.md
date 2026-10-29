@@ -5,10 +5,11 @@ _The evidence chain: plan → item → ticket → code → release, forward and 
 ### Task 4: MCP checks for phase 4
 `01M62PG5ADWD51YWCVTGKQ63YH` · status: todo
 - belongs-to: Plan 6: export themes
+- references: [github#160](https://github.com/SpillwaveSolutions/prd-forge-viewer/issues/160)
 - produced-by: [[Plan-plan-6-themes]]
 
 ### Task 3: the themes dialog
-`01M62PG5ADWD51YWCVTGKQ63YF` · status: todo
+`01M62PG5ADWD51YWCVTGKQ63YF` · status: done
 - belongs-to: Plan 6: export themes
 - references: [github#159](https://github.com/SpillwaveSolutions/prd-forge-viewer/issues/159)
 - produced-by: [[Plan-plan-6-themes]]

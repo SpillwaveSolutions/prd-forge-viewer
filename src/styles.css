@@ -42,3 +42,8 @@ button:focus-visible { outline: 3px solid #0a66d8; outline-offset: 2px; }
 .score { display: inline-block; min-width: 2.5em; font-variant-numeric: tabular-nums; color: #0a66d8; font-weight: 600; }
 .change-notice { background: #fff4ce; border: 1px solid #f0d58a; border-radius: 6px; padding: 6px 10px; }
 .changed { color: #8a6100; font-weight: 600; font-size: 0.85em; }
+.modal { position: fixed; inset: 5% 10%; overflow: auto; background: Canvas; border: 1px solid GrayText; padding: 16px 24px; z-index: 10; }
+.theme-layout { display: flex; gap: 24px; }
+.theme-list { list-style: none; padding: 0; }
+.theme-form label { display: block; margin: 6px 0; }
+.theme-swatch { display: inline-block; width: 12px; height: 12px; border: 2px solid; margin-right: 6px; }
