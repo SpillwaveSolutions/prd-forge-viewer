@@ -1,6 +1,6 @@
 # US-012 See the search results ranked by relevance, and open one result
 
-`01M61XNK2Q80TZ9MTV20FQGGZM` · story/feature · **open**
+`01M61XNK2Q80TZ9MTV20FQGGZM` · story/feature · **done**
 
 As a developer who uses the authoring tools, I want to see the search results ranked by relevance, and open one result, so that the developer sees the matching items, most relevant first, each with its id and section.
 

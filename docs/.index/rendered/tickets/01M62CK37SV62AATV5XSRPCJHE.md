@@ -14,3 +14,7 @@ Phase 1 of the release 1 completion plan.
 - [[Ticket-01M62CK387T88WGKEFSBY4483E]] Task 6: MCP checks for phase 1 — `e2e/checks/phase-1-reading.mjs` checks FR-005 in one action, FR-023 with PER-001, FR-007 from FR-004 to ST-002 in J-001, a diagram that loads, and a remote image that does not load. (done)
 
 Progress: 6/6 done
+
+## Related tickets
+
+- [github #134](https://github.com/SpillwaveSolutions/prd-forge-viewer/issues/134)

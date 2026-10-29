@@ -29,7 +29,8 @@ export async function run(body) {
     if (r.isError) throw new Error(`${name}: ${text}`);
     return text;
   };
-  const js = (script) => call("webview_execute_js", { script });
+  // The tool adds "[Executed in window: ...]" after the result; strip it so checks get the plain value.
+  const js = async (script) => (await call("webview_execute_js", { script })).replace(/\s*\[Executed in window: [^\]]*\]\s*$/, "");
   const h = {
     results, call, js,
     get app() { return app; },

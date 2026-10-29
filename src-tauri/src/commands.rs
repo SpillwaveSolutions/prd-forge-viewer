@@ -65,6 +65,23 @@ pub fn read_asset(folder: String, rel: String) -> Result<String, String> {
     crate::prdset::section::read_asset(Path::new(&folder), &rel)
 }
 
+fn index_file(app: &AppHandle, folder: &str) -> PathBuf {
+    let data = app.path().app_data_dir().unwrap_or_else(|_| PathBuf::from("."));
+    crate::search::index_path(&data, Path::new(folder))
+}
+
+/// Search the set by term, in one category or in "all" (FR-008).
+#[tauri::command(async)]
+pub fn search(app: AppHandle, state: State<crate::search::SearchState>, folder: String, term: String, category: String) -> Result<Vec<crate::search::Hit>, String> {
+    state.search(&index_file(&app, &folder), Path::new(&folder), &term, &category)
+}
+
+/// The search categories of the set, in reading order.
+#[tauri::command(async)]
+pub fn categories(app: AppHandle, state: State<crate::search::SearchState>, folder: String) -> Result<Vec<crate::search::Category>, String> {
+    state.categories(&index_file(&app, &folder), Path::new(&folder))
+}
+
 /// Install `prdf` in ~/.local/bin, after the author confirms in the UI (FR-021, ADR-004).
 #[tauri::command(async)]
 pub fn install_prdf() -> Result<String, String> {
