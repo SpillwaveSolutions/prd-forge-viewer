@@ -1,6 +1,6 @@
 # US-021 Select an export theme from the built-in themes
 
-`01M61XNKVTP7XDRC60FNYY6Z6Y` · story/feature · **open**
+`01M61XNKVTP7XDRC60FNYY6Z6Y` · story/feature · **done**
 
 As a PRD author, I want to select an export theme from the built-in themes, so that the export has the colors and fonts of the selected theme.
 

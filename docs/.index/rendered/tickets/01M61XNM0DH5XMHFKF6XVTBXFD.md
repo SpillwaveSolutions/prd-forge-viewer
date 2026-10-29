@@ -1,6 +1,6 @@
 # US-023 Change a custom export theme
 
-`01M61XNM0DH5XMHFKF6XVTBXFD` · story/feature · **open**
+`01M61XNM0DH5XMHFKF6XVTBXFD` · story/feature · **done**
 
 As a PRD author, I want to change a custom export theme, so that later exports use the changed colors and fonts.
 

@@ -108,6 +108,34 @@ pub fn store_themes(path: &Path, themes: Vec<serde_json::Value>, selected: Optio
     update_settings(path, |s| crate::settings::set_themes(s, themes, selected)).map_err(|e| e.to_string())
 }
 
+/// Save a Word export, sent as base64, outside the set folder (FR-011, OUT-001).
+#[tauri::command(async)]
+pub fn write_export(app: AppHandle, folder: String, path: String, data: String) -> Result<(), String> {
+    use base64::Engine;
+    let bytes = base64::engine::general_purpose::STANDARD.decode(data).map_err(|e| e.to_string())?;
+    crate::export::write_export(&known_sets(&app, &folder), Path::new(&path), &bytes)
+}
+
+/// The open set and every set in the settings file. An export may write into none of them.
+fn known_sets(app: &AppHandle, folder: &str) -> Vec<PathBuf> {
+    let s = load_settings(&settings_path(app));
+    std::iter::once(folder.to_string()).chain(s.known).chain(s.last).map(PathBuf::from).collect()
+}
+
+/// Print themed HTML to a PDF outside the set folder, with headless Chrome (FR-010, ADR-002).
+#[tauri::command(async)]
+pub fn export_pdf(app: AppHandle, folder: String, path: String, html: String) -> Result<(), String> {
+    let chrome = crate::export::find_chrome(&crate::export::chrome_candidates())?;
+    let work = app.path().app_cache_dir().map_err(|e| e.to_string())?.join("export");
+    crate::export::export_pdf(&chrome, &work, &known_sets(&app, &folder), Path::new(&path), &html)
+}
+
+/// Open the macOS print dialog for the window. The window shows only the export on paper (FR-013).
+#[tauri::command]
+pub fn print_page(window: tauri::WebviewWindow) -> Result<(), String> {
+    window.print().map_err(|e| e.to_string())
+}
+
 /// The watcher of the open set. A new watch replaces it, so the old set's events stop.
 #[derive(Default)]
 pub struct WatchState(Mutex<Option<crate::watch::SetWatcher>>);

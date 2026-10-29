@@ -1,3 +1,4 @@
+pub mod export;
 pub mod watch;
 pub mod search;
 pub mod launcher;
@@ -40,7 +41,10 @@ pub fn run() {
         })
         .invoke_handler(tauri::generate_handler![commands::open_set, commands::startup, commands::install_prdf, commands::start_for, commands::read_section, commands::item_index, commands::read_asset, commands::search, commands::categories, commands::watch_set, commands::reload_set,
             commands::themes,
-            commands::save_themes])
+            commands::save_themes,
+            commands::write_export,
+            commands::export_pdf,
+            commands::print_page])
         .run(tauri::generate_context!())
         .expect("error while running the PRD Forge Viewer");
 }

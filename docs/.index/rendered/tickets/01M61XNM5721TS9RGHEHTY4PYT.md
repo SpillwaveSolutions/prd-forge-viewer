@@ -1,6 +1,6 @@
 # US-025 Keep custom export themes from one session to the next
 
-`01M61XNM5721TS9RGHEHTY4PYT` · story/feature · **open**
+`01M61XNM5721TS9RGHEHTY4PYT` · story/feature · **done**
 
 As a PRD author, I want to keep custom export themes from one session to the next, so that the author uses the same custom themes after the viewer restarts.
 

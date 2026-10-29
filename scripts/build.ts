@@ -1,5 +1,5 @@
 // Bundle the UI into dist/ and write dist/index.html, as Motion's build does.
-import { rmSync, writeFileSync } from "fs";
+import { cpSync, rmSync, writeFileSync } from "fs";
 import { join } from "path";
 
 const ROOT = join(import.meta.dir, "..");
@@ -13,12 +13,14 @@ async function build() {
         target: "browser",
         format: "esm",
         minify: true,
-        define: { "process.env.NODE_ENV": '"production"' },
+        // The e2e hooks for the save and print dialogs exist only in the MCP test build.
+        define: { "process.env.NODE_ENV": '"production"', __PFV_E2E__: String(process.argv.includes("--e2e")) },
     });
     if (!result.success) {
         for (const log of result.logs) console.error(log);
         throw new Error("build failed");
     }
+    cpSync(join(ROOT, "public"), DIST, { recursive: true });
     const name = (p: string) => p.split("/").pop();
     const js = result.outputs.find((o) => o.path.endsWith(".js"));
     const css = result.outputs.find((o) => o.path.endsWith(".css"));

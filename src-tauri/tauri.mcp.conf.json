@@ -1,4 +1,7 @@
 {
+  "build": {
+    "beforeBuildCommand": "bun run scripts/build.ts --e2e"
+  },
   "app": {
     "withGlobalTauri": true,
     "security": {
