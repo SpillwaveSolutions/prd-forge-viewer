@@ -2,6 +2,9 @@
 
 _The evidence chain: plan → item → ticket → code → release, forward and backward. Generated from `docs/.index/_graph.json`; do not edit._
 
+### Cut release 0.1.0
+`01M64CZNVN13K32BT680E0S8VY` · status: in_progress
+
 ### Task 4: close and sync
 `01M64C03048SWRXRJ3A59AD9W6` · status: done
 - belongs-to: Plan 8: close out release 1
@@ -215,6 +218,7 @@ _The evidence chain: plan → item → ticket → code → release, forward and 
 ### Show a list of sentences one per line in the item view
 `01M62D1KA9KN53KDG1DBA8A232` · status: done
 - belongs-to: Task 6: MCP checks for phase 1
+- lands-in: pr/133
 - references: [github#141](https://github.com/SpillwaveSolutions/prd-forge-viewer/issues/141)
 - targets: release/REL-001
 
@@ -463,324 +467,430 @@ _The evidence chain: plan → item → ticket → code → release, forward and 
 ### MCP end-to-end tests of the app and the installed prdf
 `01M62AM3P77VBYWD0YJH3E32ZH` · status: done
 - belongs-to: US-001 Open a PRD set and see its contents
+- lands-in: pr/104
 - references: [github#103](https://github.com/SpillwaveSolutions/prd-forge-viewer/issues/103)
 - targets: release/REL-001
+- produced-by: [[Plan-release-1-completion]]
 
 ### Test welcome_empty
 `01M6237FVP5HFM46A7NKEVZYFJ` · status: done
 - belongs-to: Plan 2 task 6: The start screen and the app wiring
+- lands-in: pr/102
 - references: [github#101](https://github.com/SpillwaveSolutions/prd-forge-viewer/issues/101)
 - targets: release/REL-001
+- produced-by: [[Plan-plan-2-launcher-and-settings]]
 
 ### Test choose_lists_sets_above_known
 `01M6237FSCNN7DZHPNKQ995M5Z` · status: done
 - belongs-to: Plan 2 task 6: The start screen and the app wiring
+- lands-in: pr/102
 - references: [github#100](https://github.com/SpillwaveSolutions/prd-forge-viewer/issues/100)
 - targets: release/REL-001
+- produced-by: [[Plan-plan-2-launcher-and-settings]]
 
 ### Test missing_location_marked
 `01M6237FPM2DMWMFVZ9AG0CG69` · status: done
 - belongs-to: Plan 2 task 6: The start screen and the app wiring
+- lands-in: pr/102
 - references: [github#99](https://github.com/SpillwaveSolutions/prd-forge-viewer/issues/99)
 - targets: release/REL-001
+- produced-by: [[Plan-plan-2-launcher-and-settings]]
 
 ### Test not_found_lists_known
 `01M6237FMASYTC1W8KBSJTN67Y` · status: done
 - belongs-to: Plan 2 task 6: The start screen and the app wiring
+- lands-in: pr/102
 - references: [github#98](https://github.com/SpillwaveSolutions/prd-forge-viewer/issues/98)
 - targets: release/REL-001
+- produced-by: [[Plan-plan-2-launcher-and-settings]]
 
 ### Test replaces_own_prdf
 `01M6237FJ02XPE2SGN102JRMZC` · status: done
 - belongs-to: Plan 2 task 5: The prdf launcher
+- lands-in: pr/102
 - references: [github#97](https://github.com/SpillwaveSolutions/prd-forge-viewer/issues/97)
 - targets: release/REL-001
+- produced-by: [[Plan-plan-2-launcher-and-settings]]
 
 ### Test keeps_foreign_prdf
 `01M6237FFQW812JX5VYF5MNEJJ` · status: done
 - belongs-to: Plan 2 task 5: The prdf launcher
+- lands-in: pr/102
 - references: [github#96](https://github.com/SpillwaveSolutions/prd-forge-viewer/issues/96)
 - targets: release/REL-001
+- produced-by: [[Plan-plan-2-launcher-and-settings]]
 
 ### Test installs_executable
 `01M6237FDJX2P2501T3AG8738W` · status: done
 - belongs-to: Plan 2 task 5: The prdf launcher
+- lands-in: pr/102
 - references: [github#95](https://github.com/SpillwaveSolutions/prd-forge-viewer/issues/95)
 - targets: release/REL-001
+- produced-by: [[Plan-plan-2-launcher-and-settings]]
 
 ### Test relative_path_made_absolute
 `01M6237FBC27ZE5X5B9Q6XJVJ1` · status: done
 - belongs-to: Plan 2 task 5: The prdf launcher
+- lands-in: pr/102
 - references: [github#94](https://github.com/SpillwaveSolutions/prd-forge-viewer/issues/94)
 - targets: release/REL-001
+- produced-by: [[Plan-plan-2-launcher-and-settings]]
 
 ### Test script_has_marker_and_open
 `01M6237F968A34VX0CAY4JYGGG` · status: done
 - belongs-to: Plan 2 task 5: The prdf launcher
+- lands-in: pr/102
 - references: [github#93](https://github.com/SpillwaveSolutions/prd-forge-viewer/issues/93)
 - targets: release/REL-001
+- produced-by: [[Plan-plan-2-launcher-and-settings]]
 
 ### Test open_failure_remembers_nothing
 `01M6237F6TT4WB7WD4YT5B6NNV` · status: done
 - belongs-to: Plan 2 task 4: Commands, settings path, and the second launch
+- lands-in: pr/102
 - references: [github#92](https://github.com/SpillwaveSolutions/prd-forge-viewer/issues/92)
 - targets: release/REL-001
+- produced-by: [[Plan-plan-2-launcher-and-settings]]
 
 ### Test open_remembers_on_success
 `01M6237F4E8PXHEWRDKZ0BRHEQ` · status: done
 - belongs-to: Plan 2 task 4: Commands, settings path, and the second launch
+- lands-in: pr/102
 - references: [github#91](https://github.com/SpillwaveSolutions/prd-forge-viewer/issues/91)
 - targets: release/REL-001
+- produced-by: [[Plan-plan-2-launcher-and-settings]]
 
 ### Test two_sets_and_last_opens_last
 `01M6237F278PW4BQE0QWWK6NA1` · status: done
 - belongs-to: Plan 2 task 3: Decide what the window shows at start
+- lands-in: pr/102
 - references: [github#90](https://github.com/SpillwaveSolutions/prd-forge-viewer/issues/90)
 - targets: release/REL-001
+- produced-by: [[Plan-plan-2-launcher-and-settings]]
 
 ### Test two_sets_and_no_last_is_choose
 `01M6237F01GWHP5157S78GA32K` · status: done
 - belongs-to: Plan 2 task 3: Decide what the window shows at start
+- lands-in: pr/102
 - references: [github#89](https://github.com/SpillwaveSolutions/prd-forge-viewer/issues/89)
 - targets: release/REL-001
+- produced-by: [[Plan-plan-2-launcher-and-settings]]
 
 ### Test no_set_is_not_found_with_known
 `01M6237EXS0ZAZY6GB5A0NATXZ` · status: done
 - belongs-to: Plan 2 task 3: Decide what the window shows at start
+- lands-in: pr/102
 - references: [github#88](https://github.com/SpillwaveSolutions/prd-forge-viewer/issues/88)
 - targets: release/REL-001
+- produced-by: [[Plan-plan-2-launcher-and-settings]]
 
 ### Test one_set_in_docs_prd_opens
 `01M6237EVH03N8R1YYVPEP97AT` · status: done
 - belongs-to: Plan 2 task 3: Decide what the window shows at start
+- lands-in: pr/102
 - references: [github#87](https://github.com/SpillwaveSolutions/prd-forge-viewer/issues/87)
 - targets: release/REL-001
+- produced-by: [[Plan-plan-2-launcher-and-settings]]
 
 ### Test path_of_a_set_opens
 `01M6237ESA0GNXE2N5M65SZVQR` · status: done
 - belongs-to: Plan 2 task 3: Decide what the window shows at start
+- lands-in: pr/102
 - references: [github#86](https://github.com/SpillwaveSolutions/prd-forge-viewer/issues/86)
 - targets: release/REL-001
+- produced-by: [[Plan-plan-2-launcher-and-settings]]
 
 ### Test last_set_gone_is_welcome
 `01M6237EQ38JRFBAS201C5YAZ9` · status: done
 - belongs-to: Plan 2 task 3: Decide what the window shows at start
+- lands-in: pr/102
 - references: [github#85](https://github.com/SpillwaveSolutions/prd-forge-viewer/issues/85)
 - targets: release/REL-001
+- produced-by: [[Plan-plan-2-launcher-and-settings]]
 
 ### Test last_set_reopens
 `01M6237EMTCSTA9PP46GJQ07BM` · status: done
 - belongs-to: Plan 2 task 3: Decide what the window shows at start
+- lands-in: pr/102
 - references: [github#84](https://github.com/SpillwaveSolutions/prd-forge-viewer/issues/84)
 - targets: release/REL-001
+- produced-by: [[Plan-plan-2-launcher-and-settings]]
 
 ### Test ignores_clutter
 `01M6237EJG3HJ1ERZMHSB71W8B` · status: done
 - belongs-to: Plan 2 task 2: Find PRD sets in a folder and in docs/prd
+- lands-in: pr/102
 - references: [github#83](https://github.com/SpillwaveSolutions/prd-forge-viewer/issues/83)
 - targets: release/REL-001
+- produced-by: [[Plan-plan-2-launcher-and-settings]]
 
 ### Test finds_two_sets
 `01M6237EG63CZ3FSMKQQ3CFTYX` · status: done
 - belongs-to: Plan 2 task 2: Find PRD sets in a folder and in docs/prd
+- lands-in: pr/102
 - references: [github#82](https://github.com/SpillwaveSolutions/prd-forge-viewer/issues/82)
 - targets: release/REL-001
+- produced-by: [[Plan-plan-2-launcher-and-settings]]
 
 ### Test set_ref_missing_is_not_found
 `01M6237EE1QV3EVSW8FKWWF2HQ` · status: done
 - belongs-to: Plan 2 task 2: Find PRD sets in a folder and in docs/prd
+- lands-in: pr/102
 - references: [github#81](https://github.com/SpillwaveSolutions/prd-forge-viewer/issues/81)
 - targets: release/REL-001
+- produced-by: [[Plan-plan-2-launcher-and-settings]]
 
 ### Test set_ref_reads_product
 `01M6237EBTEPFRFFXA0EPKTVBE` · status: done
 - belongs-to: Plan 2 task 2: Find PRD sets in a folder and in docs/prd
+- lands-in: pr/102
 - references: [github#80](https://github.com/SpillwaveSolutions/prd-forge-viewer/issues/80)
 - targets: release/REL-001
+- produced-by: [[Plan-plan-2-launcher-and-settings]]
 
 ### Test trailing_slash_is_one_location
 `01M6237E9G5A3HZRVJMHWP0Y4E` · status: done
 - belongs-to: Plan 2 task 1: Settings store for known locations and the last set
+- lands-in: pr/102
 - references: [github#79](https://github.com/SpillwaveSolutions/prd-forge-viewer/issues/79)
 - targets: release/REL-001
+- produced-by: [[Plan-plan-2-launcher-and-settings]]
 
 ### Test remember_moves_to_front
 `01M6237E77SRTS4870PHZ2AZ34` · status: done
 - belongs-to: Plan 2 task 1: Settings store for known locations and the last set
+- lands-in: pr/102
 - references: [github#78](https://github.com/SpillwaveSolutions/prd-forge-viewer/issues/78)
 - targets: release/REL-001
+- produced-by: [[Plan-plan-2-launcher-and-settings]]
 
 ### Test survives_restart
 `01M6237E4V9M8G2EVBW523DWEB` · status: done
 - belongs-to: Plan 2 task 1: Settings store for known locations and the last set
+- lands-in: pr/102
 - references: [github#77](https://github.com/SpillwaveSolutions/prd-forge-viewer/issues/77)
 - targets: release/REL-001
+- produced-by: [[Plan-plan-2-launcher-and-settings]]
 
 ### Test bad_json_is_default
 `01M6237E2P88XMZZ0ZPBW8VTPY` · status: done
 - belongs-to: Plan 2 task 1: Settings store for known locations and the last set
+- lands-in: pr/102
 - references: [github#76](https://github.com/SpillwaveSolutions/prd-forge-viewer/issues/76)
 - targets: release/REL-001
+- produced-by: [[Plan-plan-2-launcher-and-settings]]
 
 ### Test missing_file_is_default
 `01M6237E0B906NVRY0073CFYEE` · status: done
 - belongs-to: Plan 2 task 1: Settings store for known locations and the last set
+- lands-in: pr/102
 - references: [github#75](https://github.com/SpillwaveSolutions/prd-forge-viewer/issues/75)
 - targets: release/REL-001
+- produced-by: [[Plan-plan-2-launcher-and-settings]]
 
 ### Test failure_gives_message
 `01M6237DY1TB38CDJ70D9Y7C9R` · status: done
 - belongs-to: Plan 1 task 7: Open a PRD set from the app
+- lands-in: pr/4
 - references: [github#74](https://github.com/SpillwaveSolutions/prd-forge-viewer/issues/74)
 - targets: release/REL-001
+- produced-by: [[Plan-plan-1-open-and-grades]]
 
 ### Test success_gives_set
 `01M6237DVP5C4MWR9DKMMZ6AXE` · status: done
 - belongs-to: Plan 1 task 7: Open a PRD set from the app
+- lands-in: pr/4
 - references: [github#73](https://github.com/SpillwaveSolutions/prd-forge-viewer/issues/73)
 - targets: release/REL-001
+- produced-by: [[Plan-plan-1-open-and-grades]]
 
 ### Test cancel_gives_nothing
 `01M6237DSGQAH8RFQVEB4DZG61` · status: done
 - belongs-to: Plan 1 task 7: Open a PRD set from the app
+- lands-in: pr/4
 - references: [github#72](https://github.com/SpillwaveSolutions/prd-forge-viewer/issues/72)
 - targets: release/REL-001
+- produced-by: [[Plan-plan-1-open-and-grades]]
 
 ### Test no_fix_marks
 `01M6237DQAE0D1ZPM0H5DFWD88` · status: done
 - belongs-to: Plan 1 task 6: Show the grades view
+- lands-in: pr/4
 - references: [github#71](https://github.com/SpillwaveSolutions/prd-forge-viewer/issues/71)
 - targets: release/REL-001
+- produced-by: [[Plan-plan-1-open-and-grades]]
 
 ### Test score_without_date
 `01M6237DN3TGSA2C680EBP9B29` · status: done
 - belongs-to: Plan 1 task 6: Show the grades view
+- lands-in: pr/4
 - references: [github#70](https://github.com/SpillwaveSolutions/prd-forge-viewer/issues/70)
 - targets: release/REL-001
+- produced-by: [[Plan-plan-1-open-and-grades]]
 
 ### Test ungraded_section
 `01M6237DJYXVG9EY31RNBW9FH7` · status: done
 - belongs-to: Plan 1 task 6: Show the grades view
+- lands-in: pr/4
 - references: [github#69](https://github.com/SpillwaveSolutions/prd-forge-viewer/issues/69)
 - targets: release/REL-001
+- produced-by: [[Plan-plan-1-open-and-grades]]
 
 ### Test shows_both_grades
 `01M6237DGPFKBC9J5RH26Z0GX9` · status: done
 - belongs-to: Plan 1 task 6: Show the grades view
+- lands-in: pr/4
 - references: [github#68](https://github.com/SpillwaveSolutions/prd-forge-viewer/issues/68)
 - targets: release/REL-001
+- produced-by: [[Plan-plan-1-open-and-grades]]
 
 ### Test title_markup_is_text
 `01M6237DEH2FKV5FHRCP057YF9` · status: done
 - belongs-to: Plan 1 task 5: Show the set overview
+- lands-in: pr/4
 - references: [github#67](https://github.com/SpillwaveSolutions/prd-forge-viewer/issues/67)
 - targets: release/REL-001
+- produced-by: [[Plan-plan-1-open-and-grades]]
 
 ### Test marks_unreadable_with_file_name
 `01M6237DC951Z80QE5B31YABM9` · status: done
 - belongs-to: Plan 1 task 5: Show the set overview
+- lands-in: pr/4
 - references: [github#66](https://github.com/SpillwaveSolutions/prd-forge-viewer/issues/66)
 - targets: release/REL-001
+- produced-by: [[Plan-plan-1-open-and-grades]]
 
 ### Test lists_documents_in_order
 `01M6237D9ZV4FH79AGW6ADEJMD` · status: done
 - belongs-to: Plan 1 task 5: Show the set overview
+- lands-in: pr/4
 - references: [github#65](https://github.com/SpillwaveSolutions/prd-forge-viewer/issues/65)
 - targets: release/REL-001
+- produced-by: [[Plan-plan-1-open-and-grades]]
 
 ### Test shows_product_version_and_summary
 `01M6237D7HT6F7WVNB31MACYXN` · status: done
 - belongs-to: Plan 1 task 5: Show the set overview
+- lands-in: pr/4
 - references: [github#64](https://github.com/SpillwaveSolutions/prd-forge-viewer/issues/64)
 - targets: release/REL-001
+- produced-by: [[Plan-plan-1-open-and-grades]]
 
 ### Test open_set_reports_no_root
 `01M6237D5BDY14EW5TK576ETGA` · status: done
 - belongs-to: Plan 1 task 4: Add the open_set command
+- lands-in: pr/4
 - references: [github#63](https://github.com/SpillwaveSolutions/prd-forge-viewer/issues/63)
 - targets: release/REL-001
+- produced-by: [[Plan-plan-1-open-and-grades]]
 
 ### Test open_set_returns_the_set
 `01M6237D36XS3238MBCKSCNNM0` · status: done
 - belongs-to: Plan 1 task 4: Add the open_set command
+- lands-in: pr/4
 - references: [github#62](https://github.com/SpillwaveSolutions/prd-forge-viewer/issues/62)
 - targets: release/REL-001
+- produced-by: [[Plan-plan-1-open-and-grades]]
 
 ### Test folder_without_root
 `01M6237D0XJATP1Q5G9YH7EG8F` · status: done
 - belongs-to: Plan 1 task 3: Load a PRD set with pending, unreadable, and missing documents
+- lands-in: pr/4
 - references: [github#61](https://github.com/SpillwaveSolutions/prd-forge-viewer/issues/61)
 - targets: release/REL-001
+- produced-by: [[Plan-plan-1-open-and-grades]]
 
 ### Test missing_section_marked
 `01M6237CYMPHNJFE811ZM8462C` · status: done
 - belongs-to: Plan 1 task 3: Load a PRD set with pending, unreadable, and missing documents
+- lands-in: pr/4
 - references: [github#60](https://github.com/SpillwaveSolutions/prd-forge-viewer/issues/60)
 - targets: release/REL-001
+- produced-by: [[Plan-plan-1-open-and-grades]]
 
 ### Test unreadable_section_marked
 `01M6237CW8791Z6NYQZ7531B8K` · status: done
 - belongs-to: Plan 1 task 3: Load a PRD set with pending, unreadable, and missing documents
+- lands-in: pr/4
 - references: [github#59](https://github.com/SpillwaveSolutions/prd-forge-viewer/issues/59)
 - targets: release/REL-001
+- produced-by: [[Plan-plan-1-open-and-grades]]
 
 ### Test pending_sections_listed
 `01M6237CSZ3ST3QQXQVEYH85PW` · status: done
 - belongs-to: Plan 1 task 3: Load a PRD set with pending, unreadable, and missing documents
+- lands-in: pr/4
 - references: [github#58](https://github.com/SpillwaveSolutions/prd-forge-viewer/issues/58)
 - targets: release/REL-001
+- produced-by: [[Plan-plan-1-open-and-grades]]
 
 ### Test loads_the_real_set
 `01M6237CQM60T90EQP6H0C2NA4` · status: done
 - belongs-to: Plan 1 task 3: Load a PRD set with pending, unreadable, and missing documents
+- lands-in: pr/4
 - references: [github#57](https://github.com/SpillwaveSolutions/prd-forge-viewer/issues/57)
 - targets: release/REL-001
+- produced-by: [[Plan-plan-1-open-and-grades]]
 
 ### Test bad_yaml_is_err
 `01M6237CN9MEZG65KSC062GGEB` · status: done
 - belongs-to: Plan 1 task 2: Read the header of one PRD document
+- lands-in: pr/4
 - references: [github#56](https://github.com/SpillwaveSolutions/prd-forge-viewer/issues/56)
 - targets: release/REL-001
+- produced-by: [[Plan-plan-1-open-and-grades]]
 
 ### Test parses_graded_section
 `01M6237CJZQT0TJWEEDBGZNKK7` · status: done
 - belongs-to: Plan 1 task 2: Read the header of one PRD document
+- lands-in: pr/4
 - references: [github#55](https://github.com/SpillwaveSolutions/prd-forge-viewer/issues/55)
 - targets: release/REL-001
+- produced-by: [[Plan-plan-1-open-and-grades]]
 
 ### Test crlf_front_matter
 `01M6237CGKZPPJQEGQHSR59RJ3` · status: done
 - belongs-to: Plan 1 task 2: Read the header of one PRD document
+- lands-in: pr/4
 - references: [github#54](https://github.com/SpillwaveSolutions/prd-forge-viewer/issues/54)
 - targets: release/REL-001
+- produced-by: [[Plan-plan-1-open-and-grades]]
 
 ### Test no_front_matter_is_none
 `01M6237CE6BEN0Y5VZ1HP2RB44` · status: done
 - belongs-to: Plan 1 task 2: Read the header of one PRD document
+- lands-in: pr/4
 - references: [github#53](https://github.com/SpillwaveSolutions/prd-forge-viewer/issues/53)
 - targets: release/REL-001
+- produced-by: [[Plan-plan-1-open-and-grades]]
 
 ### Test splits_front_matter
 `01M6237CBY2XBBRATDVEKA3NDF` · status: done
 - belongs-to: Plan 1 task 2: Read the header of one PRD document
+- lands-in: pr/4
 - references: [github#52](https://github.com/SpillwaveSolutions/prd-forge-viewer/issues/52)
 - targets: release/REL-001
+- produced-by: [[Plan-plan-1-open-and-grades]]
 
 ### Test csp_blocks_scripts_and_network
 `01M6237C9ST9D5W9S7M3WF7F06` · status: done
 - belongs-to: Plan 1 task 1: Scaffold the Tauri app with a CSP that blocks scripts
+- lands-in: pr/4
 - references: [github#51](https://github.com/SpillwaveSolutions/prd-forge-viewer/issues/51)
 - targets: release/REL-001
+- produced-by: [[Plan-plan-1-open-and-grades]]
 
 ### Plan 2 task 7: Check by hand with the installed app
 `01M622SKXHA54HD33GZZEZXWZD` · status: done
 - belongs-to: US-004 Start the viewer from a terminal with the command prdf
+- lands-in: pr/102
 - references: [github#50](https://github.com/SpillwaveSolutions/prd-forge-viewer/issues/50)
 - targets: release/REL-001
 
 ### Plan 2 task 6: The start screen and the app wiring
 `01M622SKVBZR53QNE96MSMKK19` · status: done
 - belongs-to: US-005 Choose a PRD set from the locations the viewer remembers
+- lands-in: pr/102
 - references: [github#49](https://github.com/SpillwaveSolutions/prd-forge-viewer/issues/49)
 - targets: release/REL-001
 - contains: Test not_found_lists_known
@@ -791,6 +901,7 @@ _The evidence chain: plan → item → ticket → code → release, forward and 
 ### Plan 2 task 5: The prdf launcher
 `01M622SKS4XVFQSAWJ4DHRTNXV` · status: done
 - belongs-to: US-004 Start the viewer from a terminal with the command prdf
+- lands-in: pr/102
 - references: [github#48](https://github.com/SpillwaveSolutions/prd-forge-viewer/issues/48)
 - targets: release/REL-001
 - contains: Test script_has_marker_and_open
@@ -802,6 +913,7 @@ _The evidence chain: plan → item → ticket → code → release, forward and 
 ### Plan 2 task 4: Commands, settings path, and the second launch
 `01M622SKPTT2KCA8P2DG8R0362` · status: done
 - belongs-to: US-002 Return to the same PRD set in the next session
+- lands-in: pr/102
 - references: [github#47](https://github.com/SpillwaveSolutions/prd-forge-viewer/issues/47)
 - targets: release/REL-001
 - contains: Test open_remembers_on_success
@@ -810,6 +922,7 @@ _The evidence chain: plan → item → ticket → code → release, forward and 
 ### Plan 2 task 3: Decide what the window shows at start
 `01M622SKMG2W0MCWFCT8K1GWS6` · status: done
 - belongs-to: US-004 Start the viewer from a terminal with the command prdf
+- lands-in: pr/102
 - references: [github#46](https://github.com/SpillwaveSolutions/prd-forge-viewer/issues/46)
 - targets: release/REL-001
 - contains: Test last_set_reopens
@@ -823,6 +936,7 @@ _The evidence chain: plan → item → ticket → code → release, forward and 
 ### Plan 2 task 2: Find PRD sets in a folder and in docs/prd
 `01M622SKJ5RRFD3YEH5CVN0WQ1` · status: done
 - belongs-to: US-006 Choose one PRD set when the docs/prd folder holds more than one
+- lands-in: pr/102
 - references: [github#45](https://github.com/SpillwaveSolutions/prd-forge-viewer/issues/45)
 - targets: release/REL-001
 - contains: Test set_ref_reads_product
@@ -833,6 +947,7 @@ _The evidence chain: plan → item → ticket → code → release, forward and 
 ### Plan 2 task 1: Settings store for known locations and the last set
 `01M622SKFTP6M4S53EFBAF06X9` · status: done
 - belongs-to: US-002 Return to the same PRD set in the next session
+- lands-in: pr/102
 - references: [github#44](https://github.com/SpillwaveSolutions/prd-forge-viewer/issues/44)
 - targets: release/REL-001
 - contains: Test missing_file_is_default
@@ -844,6 +959,7 @@ _The evidence chain: plan → item → ticket → code → release, forward and 
 ### Plan 1 task 7: Open a PRD set from the app
 `01M61XY6C9MH3WMNFJE2MT9Q69` · status: done
 - belongs-to: US-001 Open a PRD set and see its contents
+- lands-in: pr/4
 - references: [github#43](https://github.com/SpillwaveSolutions/prd-forge-viewer/issues/43)
 - targets: release/REL-001
 - contains: Test cancel_gives_nothing
@@ -853,6 +969,7 @@ _The evidence chain: plan → item → ticket → code → release, forward and 
 ### Plan 1 task 6: Show the grades view
 `01M61XY69X33PYC12EDYN486BY` · status: done
 - belongs-to: US-007 See the grades of all sections together
+- lands-in: pr/4
 - references: [github#42](https://github.com/SpillwaveSolutions/prd-forge-viewer/issues/42)
 - targets: release/REL-001
 - contains: Test shows_both_grades
@@ -863,6 +980,7 @@ _The evidence chain: plan → item → ticket → code → release, forward and 
 ### Plan 1 task 5: Show the set overview
 `01M61XY67GHYE00FHCT9Y885PQ` · status: done
 - belongs-to: US-001 Open a PRD set and see its contents
+- lands-in: pr/4
 - references: [github#41](https://github.com/SpillwaveSolutions/prd-forge-viewer/issues/41)
 - targets: release/REL-001
 - contains: Test shows_product_version_and_summary
@@ -873,6 +991,7 @@ _The evidence chain: plan → item → ticket → code → release, forward and 
 ### Plan 1 task 4: Add the open_set command
 `01M61XY654EX10AQWFN7EBJQV4` · status: done
 - belongs-to: US-001 Open a PRD set and see its contents
+- lands-in: pr/4
 - references: [github#40](https://github.com/SpillwaveSolutions/prd-forge-viewer/issues/40)
 - targets: release/REL-001
 - contains: Test open_set_returns_the_set
@@ -881,6 +1000,7 @@ _The evidence chain: plan → item → ticket → code → release, forward and 
 ### Plan 1 task 3: Load a PRD set with pending, unreadable, and missing documents
 `01M61XY62P8D6JAB1B2QZ28334` · status: done
 - belongs-to: US-003 Open a PRD set that has incomplete or unreadable documents
+- lands-in: pr/4
 - references: [github#39](https://github.com/SpillwaveSolutions/prd-forge-viewer/issues/39)
 - targets: release/REL-001
 - contains: Test loads_the_real_set
@@ -892,6 +1012,7 @@ _The evidence chain: plan → item → ticket → code → release, forward and 
 ### Plan 1 task 2: Read the header of one PRD document
 `01M61XY609YWC7RQ21MMQDCYVC` · status: done
 - belongs-to: US-001 Open a PRD set and see its contents
+- lands-in: pr/4
 - references: [github#38](https://github.com/SpillwaveSolutions/prd-forge-viewer/issues/38)
 - targets: release/REL-001
 - contains: Test splits_front_matter
@@ -903,6 +1024,7 @@ _The evidence chain: plan → item → ticket → code → release, forward and 
 ### Plan 1 task 1: Scaffold the Tauri app with a CSP that blocks scripts
 `01M61XY5XWQS30P8FD1209SDCJ` · status: done
 - belongs-to: US-001 Open a PRD set and see its contents
+- lands-in: pr/4
 - references: [github#37](https://github.com/SpillwaveSolutions/prd-forge-viewer/issues/37)
 - targets: release/REL-001
 - contains: Test csp_blocks_scripts_and_network
@@ -919,74 +1041,98 @@ _The evidence chain: plan → item → ticket → code → release, forward and 
 ### US-025 Keep custom export themes from one session to the next
 `01M61XNM5721TS9RGHEHTY4PYT` · status: done
 - belongs-to: EPIC-005 Export the PRD: Export the selected sections, in a selected theme, as a file that a reader opens without the authoring tools.
+- lands-in: pr/161
 - references: [github#34](https://github.com/SpillwaveSolutions/prd-forge-viewer/issues/34)
 - targets: release/REL-001
+- produced-by: [[Plan-release-1-completion]]
 
 ### US-024 Delete a custom export theme
 `01M61XNM2XG682DJC9R566BJ3K` · status: done
 - belongs-to: EPIC-005 Export the PRD: Export the selected sections, in a selected theme, as a file that a reader opens without the authoring tools.
+- lands-in: pr/161
 - references: [github#33](https://github.com/SpillwaveSolutions/prd-forge-viewer/issues/33)
 - targets: release/REL-001
+- produced-by: [[Plan-release-1-completion]]
 
 ### US-023 Change a custom export theme
 `01M61XNM0DH5XMHFKF6XVTBXFD` · status: done
 - belongs-to: EPIC-005 Export the PRD: Export the selected sections, in a selected theme, as a file that a reader opens without the authoring tools.
+- lands-in: pr/161
 - references: [github#32](https://github.com/SpillwaveSolutions/prd-forge-viewer/issues/32)
 - targets: release/REL-001
+- produced-by: [[Plan-release-1-completion]]
 
 ### US-022 Make a custom export theme
 `01M61XNKY44E0TMA06D5YGBBCT` · status: done
 - belongs-to: EPIC-005 Export the PRD: Export the selected sections, in a selected theme, as a file that a reader opens without the authoring tools.
+- lands-in: pr/161
 - references: [github#31](https://github.com/SpillwaveSolutions/prd-forge-viewer/issues/31)
 - targets: release/REL-001
+- produced-by: [[Plan-release-1-completion]]
 
 ### US-021 Select an export theme from the built-in themes
 `01M61XNKVTP7XDRC60FNYY6Z6Y` · status: done
 - belongs-to: EPIC-005 Export the PRD: Export the selected sections, in a selected theme, as a file that a reader opens without the authoring tools.
+- lands-in: pr/161
 - references: [github#30](https://github.com/SpillwaveSolutions/prd-forge-viewer/issues/30)
 - targets: release/REL-001
+- produced-by: [[Plan-release-1-completion]]
 
 ### US-020 See the status and score of every section in an export
 `01M61XNKSH8CJ2NKNBEG5CVC7J` · status: done
 - belongs-to: EPIC-005 Export the PRD: Export the selected sections, in a selected theme, as a file that a reader opens without the authoring tools.
+- lands-in: pr/162
 - references: [github#29](https://github.com/SpillwaveSolutions/prd-forge-viewer/issues/29)
 - targets: release/REL-001
+- produced-by: [[Plan-release-1-completion]]
 
 ### US-019 See "Draft" on every export until every document of the PRD set is final, and see no claim that the PRD is approved
 `01M61XNKQC1ZHJPMYK5FW5N17N` · status: done
 - belongs-to: EPIC-005 Export the PRD: Export the selected sections, in a selected theme, as a file that a reader opens without the authoring tools.
+- lands-in: pr/162
 - references: [github#28](https://github.com/SpillwaveSolutions/prd-forge-viewer/issues/28)
 - targets: release/REL-001
+- produced-by: [[Plan-release-1-completion]]
 
 ### US-018 See the version of the PRD, and if it is a draft, in an export
 `01M61XNKN3MT565WYVQJX63YTE` · status: done
 - belongs-to: EPIC-005 Export the PRD: Export the selected sections, in a selected theme, as a file that a reader opens without the authoring tools.
+- lands-in: pr/162
 - references: [github#27](https://github.com/SpillwaveSolutions/prd-forge-viewer/issues/27)
 - targets: release/REL-001
+- produced-by: [[Plan-release-1-completion]]
 
 ### US-017 Print the PRD set or selected sections
 `01M61XNKJS20P36A6GTVDDSJJC` · status: done
 - belongs-to: EPIC-005 Export the PRD: Export the selected sections, in a selected theme, as a file that a reader opens without the authoring tools.
+- lands-in: pr/162
 - references: [github#26](https://github.com/SpillwaveSolutions/prd-forge-viewer/issues/26)
 - targets: release/REL-001
+- produced-by: [[Plan-release-1-completion]]
 
 ### US-016 Export only selected sections
 `01M61XNKGH9S4J40A909MN4KA2` · status: done
 - belongs-to: EPIC-005 Export the PRD: Export the selected sections, in a selected theme, as a file that a reader opens without the authoring tools.
+- lands-in: pr/162
 - references: [github#25](https://github.com/SpillwaveSolutions/prd-forge-viewer/issues/25)
 - targets: release/REL-001
+- produced-by: [[Plan-release-1-completion]]
 
 ### US-015 Export the PRD set as an editable document (IN-006)
 `01M61XNKE6PN209QVSMRS7ZMJB` · status: done
 - belongs-to: EPIC-005 Export the PRD: Export the selected sections, in a selected theme, as a file that a reader opens without the authoring tools.
+- lands-in: pr/162
 - references: [github#24](https://github.com/SpillwaveSolutions/prd-forge-viewer/issues/24)
 - targets: release/REL-001
+- produced-by: [[Plan-release-1-completion]]
 
 ### US-014 Export the PRD set as a fixed-layout document (IN-006)
 `01M61XNKBWWJM55QTR4QJJDQXS` · status: done
 - belongs-to: EPIC-005 Export the PRD: Export the selected sections, in a selected theme, as a file that a reader opens without the authoring tools.
+- lands-in: pr/162
 - references: [github#23](https://github.com/SpillwaveSolutions/prd-forge-viewer/issues/23)
 - targets: release/REL-001
+- produced-by: [[Plan-release-1-completion]]
 
 ### EPIC-005 Export the PRD: Export the selected sections, in a selected theme, as a file that a reader opens without the authoring tools.
 `01M61XNK9MPMV0RAEKPX0JC3K4` · status: todo
@@ -1007,8 +1153,10 @@ _The evidence chain: plan → item → ticket → code → release, forward and 
 ### US-013 See changes that the authoring tools make, without any action
 `01M61XNK7A3WE67AVJFXNDZT2P` · status: done
 - belongs-to: EPIC-004 Fix the section: See each change from the authoring tools while the section is open.
+- lands-in: pr/149
 - references: [github#21](https://github.com/SpillwaveSolutions/prd-forge-viewer/issues/21)
 - targets: release/REL-001
+- produced-by: [[Plan-release-1-completion]]
 
 ### EPIC-004 Fix the section: See each change from the authoring tools while the section is open.
 `01M61XNK50616FWM0WZ4FGWGEB` · status: todo
@@ -1018,32 +1166,42 @@ _The evidence chain: plan → item → ticket → code → release, forward and 
 ### US-012 See the search results ranked by relevance, and open one result
 `01M61XNK2Q80TZ9MTV20FQGGZM` · status: done
 - belongs-to: EPIC-003 Go to a weak section: Go directly to a weak section or item, or find it by search.
+- lands-in: pr/142
 - references: [github#19](https://github.com/SpillwaveSolutions/prd-forge-viewer/issues/19)
 - targets: release/REL-001
+- produced-by: [[Plan-release-1-completion]]
 
 ### US-011 Search the PRD set by term, in one category or in all categories
 `01M61XNK0EWMYWDZNRXHB78SZ7` · status: done
 - belongs-to: EPIC-003 Go to a weak section: Go directly to a weak section or item, or find it by search.
+- lands-in: pr/142
 - references: [github#18](https://github.com/SpillwaveSolutions/prd-forge-viewer/issues/18)
 - targets: release/REL-001
+- produced-by: [[Plan-release-1-completion]]
 
 ### US-010 Follow a reference from one item to the item it names
 `01M61XNJY90VDMDZW16HAGY522` · status: done
 - belongs-to: EPIC-003 Go to a weak section: Go directly to a weak section or item, or find it by search.
+- lands-in: pr/133
 - references: [github#17](https://github.com/SpillwaveSolutions/prd-forge-viewer/issues/17)
 - targets: release/REL-001
+- produced-by: [[Plan-release-1-completion]]
 
 ### US-009 Select one item of a section and read it without the whole section
 `01M61XNJW2AZJVWS7GNVCDWE6J` · status: done
 - belongs-to: EPIC-003 Go to a weak section: Go directly to a weak section or item, or find it by search.
+- lands-in: pr/133
 - references: [github#16](https://github.com/SpillwaveSolutions/prd-forge-viewer/issues/16)
 - targets: release/REL-001
+- produced-by: [[Plan-release-1-completion]]
 
 ### US-008 Go directly to any section
 `01M61XNJSXCVG60KPJFNBC4GPT` · status: done
 - belongs-to: EPIC-003 Go to a weak section: Go directly to a weak section or item, or find it by search.
+- lands-in: pr/133
 - references: [github#15](https://github.com/SpillwaveSolutions/prd-forge-viewer/issues/15)
 - targets: release/REL-001
+- produced-by: [[Plan-release-1-completion]]
 
 ### EPIC-003 Go to a weak section: Go directly to a weak section or item, or find it by search.
 `01M61XNJQPA0F7H1BG56ERNJ3P` · status: todo
@@ -1057,6 +1215,7 @@ _The evidence chain: plan → item → ticket → code → release, forward and 
 ### US-007 See the grades of all sections together
 `01M61XNJNE8SY61J75A69S4TPA` · status: done
 - belongs-to: EPIC-002 Check the grades: See the grade of every section in one view.
+- lands-in: pr/4
 - references: [github#13](https://github.com/SpillwaveSolutions/prd-forge-viewer/issues/13)
 - targets: release/REL-001
 - contains: Plan 1 task 6: Show the grades view
@@ -1066,11 +1225,11 @@ _The evidence chain: plan → item → ticket → code → release, forward and 
 `01M61XNJK6H7BC7R6S80XR242E` · status: done
 - references: [github#12](https://github.com/SpillwaveSolutions/prd-forge-viewer/issues/12)
 - contains: US-007 See the grades of all sections together
-- produced-by: [[Plan-plan-1-open-and-grades]]
 
 ### US-006 Choose one PRD set when the docs/prd folder holds more than one
 `01M61XNJGZ7VDMBJZB37S0NA2P` · status: done
 - belongs-to: EPIC-001 Open the PRD: Open the right PRD set, from the viewer or the terminal, and see what it holds.
+- lands-in: pr/102
 - references: [github#11](https://github.com/SpillwaveSolutions/prd-forge-viewer/issues/11)
 - targets: release/REL-001
 - contains: Plan 2 task 2: Find PRD sets in a folder and in docs/prd
@@ -1079,6 +1238,7 @@ _The evidence chain: plan → item → ticket → code → release, forward and 
 ### US-005 Choose a PRD set from the locations the viewer remembers
 `01M61XNJEQ6EERZRJYVAH4FH1H` · status: done
 - belongs-to: EPIC-001 Open the PRD: Open the right PRD set, from the viewer or the terminal, and see what it holds.
+- lands-in: pr/102
 - references: [github#10](https://github.com/SpillwaveSolutions/prd-forge-viewer/issues/10)
 - targets: release/REL-001
 - contains: Plan 2 task 6: The start screen and the app wiring
@@ -1087,6 +1247,7 @@ _The evidence chain: plan → item → ticket → code → release, forward and 
 ### US-004 Start the viewer from a terminal with the command prdf
 `01M61XNJCGQ4NBRVQGV7FMCJ2V` · status: done
 - belongs-to: EPIC-001 Open the PRD: Open the right PRD set, from the viewer or the terminal, and see what it holds.
+- lands-in: pr/102
 - references: [github#9](https://github.com/SpillwaveSolutions/prd-forge-viewer/issues/9)
 - targets: release/REL-001
 - contains: Plan 2 task 3: Decide what the window shows at start
@@ -1097,6 +1258,7 @@ _The evidence chain: plan → item → ticket → code → release, forward and 
 ### US-003 Open a PRD set that has incomplete or unreadable documents
 `01M61XNJA9X5VBGWV3V2PKABB4` · status: done
 - belongs-to: EPIC-001 Open the PRD: Open the right PRD set, from the viewer or the terminal, and see what it holds.
+- lands-in: pr/4
 - references: [github#8](https://github.com/SpillwaveSolutions/prd-forge-viewer/issues/8)
 - targets: release/REL-001
 - contains: Plan 1 task 3: Load a PRD set with pending, unreadable, and missing documents
@@ -1105,6 +1267,7 @@ _The evidence chain: plan → item → ticket → code → release, forward and 
 ### US-002 Return to the same PRD set in the next session
 `01M61XNJ81PQF626SXP9WX3KVX` · status: done
 - belongs-to: EPIC-001 Open the PRD: Open the right PRD set, from the viewer or the terminal, and see what it holds.
+- lands-in: pr/102
 - references: [github#7](https://github.com/SpillwaveSolutions/prd-forge-viewer/issues/7)
 - targets: release/REL-001
 - contains: Plan 2 task 1: Settings store for known locations and the last set
@@ -1114,6 +1277,7 @@ _The evidence chain: plan → item → ticket → code → release, forward and 
 ### US-001 Open a PRD set and see its contents
 `01M61XNJ5TFSD53MNXM1XHBD57` · status: done
 - belongs-to: EPIC-001 Open the PRD: Open the right PRD set, from the viewer or the terminal, and see what it holds.
+- lands-in: pr/104
 - references: [github#6](https://github.com/SpillwaveSolutions/prd-forge-viewer/issues/6)
 - targets: release/REL-001
 - contains: Plan 1 task 1: Scaffold the Tauri app with a CSP that blocks scripts
@@ -1133,5 +1297,4 @@ _The evidence chain: plan → item → ticket → code → release, forward and 
 - contains: US-004 Start the viewer from a terminal with the command prdf
 - contains: US-005 Choose a PRD set from the locations the viewer remembers
 - contains: US-006 Choose one PRD set when the docs/prd folder holds more than one
-- produced-by: [[Plan-plan-1-open-and-grades]]
 

@@ -10,6 +10,10 @@ The test cancel_gives_nothing of plan 1 task 7 fails first, then passes.
 - story: [[Ticket-01M61XNJ5TFSD53MNXM1XHBD57]] US-001 Open a PRD set and see its contents — As a PRD author, I want to open a PRD set and see its contents, so that the author sees the product name, the version, the executive summary, and every document of the set in order, each with its status.
 - epic: [[Ticket-01M61XNJ3ME272NXHFN3BS3541]] EPIC-001 Open the PRD: Open the right PRD set, from the viewer or the terminal, and see what it holds. — Feature FEAT-001 (Open the PRD), stage ST-001.
 
+## Linked PRs
+
+- [[PR-4]]
+
 ## Release
 
 - [[Release-REL-001]]

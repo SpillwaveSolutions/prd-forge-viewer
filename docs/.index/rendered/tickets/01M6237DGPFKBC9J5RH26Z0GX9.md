@@ -10,6 +10,10 @@ The test shows_both_grades of plan 1 task 6 fails first, then passes.
 - story: [[Ticket-01M61XNJNE8SY61J75A69S4TPA]] US-007 See the grades of all sections together — As a PRD author, I want to see the grades of all sections together, so that the author sees the status, score, count of blocking defects, and grade date of every section at the same time.
 - epic: [[Ticket-01M61XNJK6H7BC7R6S80XR242E]] EPIC-002 Check the grades: See the grade of every section in one view. — Feature FEAT-002 (Check the grades), stage ST-002.
 
+## Linked PRs
+
+- [[PR-4]]
+
 ## Release
 
 - [[Release-REL-001]]

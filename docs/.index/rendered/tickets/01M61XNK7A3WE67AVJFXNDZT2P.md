@@ -8,6 +8,10 @@ As a PRD author, I want to see changes that the authoring tools make, without an
 
 - epic: [[Ticket-01M61XNK50616FWM0WZ4FGWGEB]] EPIC-004 Fix the section: See each change from the authoring tools while the section is open. — Feature FEAT-004 (Fix the section), stage ST-004.
 
+## Linked PRs
+
+- [[PR-149]]
+
 ## Release
 
 - [[Release-REL-001]]

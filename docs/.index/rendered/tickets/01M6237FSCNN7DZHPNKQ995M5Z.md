@@ -10,6 +10,10 @@ The test choose_lists_sets_above_known of plan 2 task 6 fails first, then passes
 - story: [[Ticket-01M61XNJEQ6EERZRJYVAH4FH1H]] US-005 Choose a PRD set from the locations the viewer remembers — As a PRD author, I want to choose a PRD set from the locations the viewer remembers, so that the author opens any PRD set opened before, without typing or finding its path.
 - epic: [[Ticket-01M61XNJ3ME272NXHFN3BS3541]] EPIC-001 Open the PRD: Open the right PRD set, from the viewer or the terminal, and see what it holds. — Feature FEAT-001 (Open the PRD), stage ST-001.
 
+## Linked PRs
+
+- [[PR-102]]
+
 ## Release
 
 - [[Release-REL-001]]

@@ -15,6 +15,10 @@ As a PRD author, I want to return to the same PRD set in the next session, so th
 
 Progress: 2/2 done
 
+## Linked PRs
+
+- [[PR-102]]
+
 ## Release
 
 - [[Release-REL-001]]

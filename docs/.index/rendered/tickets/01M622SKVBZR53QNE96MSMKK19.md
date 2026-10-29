@@ -18,6 +18,10 @@ Task 6 of docs/plans/2026-10-28-plan-2-launcher-and-settings.md, for US-005.
 
 Progress: 4/4 done
 
+## Linked PRs
+
+- [[PR-102]]
+
 ## Release
 
 - [[Release-REL-001]]

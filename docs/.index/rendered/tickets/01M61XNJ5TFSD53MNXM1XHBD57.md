@@ -19,6 +19,10 @@ As a PRD author, I want to open a PRD set and see its contents, so that the auth
 
 Progress: 6/6 done
 
+## Linked PRs
+
+- [[PR-104]]
+
 ## Release
 
 - [[Release-REL-001]]

@@ -14,6 +14,10 @@ As a PRD author, I want to choose one PRD set when the docs/prd folder holds mor
 
 Progress: 1/1 done
 
+## Linked PRs
+
+- [[PR-102]]
+
 ## Release
 
 - [[Release-REL-001]]

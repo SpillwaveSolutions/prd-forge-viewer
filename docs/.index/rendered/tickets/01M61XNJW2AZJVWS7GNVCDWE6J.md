@@ -8,6 +8,10 @@ As a PRD author, I want to select one item of a section and read it without the 
 
 - epic: [[Ticket-01M61XNJQPA0F7H1BG56ERNJ3P]] EPIC-003 Go to a weak section: Go directly to a weak section or item, or find it by search. — Feature FEAT-003 (Go to a weak section), stage ST-003.
 
+## Linked PRs
+
+- [[PR-133]]
+
 ## Release
 
 - [[Release-REL-001]]
