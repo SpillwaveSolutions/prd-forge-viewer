@@ -1,6 +1,6 @@
 # Task 4: MCP checks for phase 3
 
-`01M62GWASEB3E2HFZ9GR8K5WF5` · task/feature · **open**
+`01M62GWASEB3E2HFZ9GR8K5WF5` · task/feature · **done**
 
 `e2e/checks/phase-3-live.mjs` changes a copy of the set while the window shows it, and checks all three FR-009 criteria and NFR-002.
 

@@ -1,11 +1,11 @@
 {
- "git_hash": "0481db5",
+ "git_hash": "d4648e8",
  "pages": [
   {
    "frozen": false,
    "page_name": "Home",
    "render": "as-is",
-   "render_hash": "f783ff7a81be",
+   "render_hash": "2f569509541c",
    "source": "docs/.index/rendered/home.md",
    "title": "Home",
    "truth_state": "current",
@@ -15,7 +15,7 @@
    "frozen": false,
    "page_name": "Index-Decisions",
    "render": "as-is",
-   "render_hash": "d38150d74bc7",
+   "render_hash": "7699c62d2a26",
    "source": "docs/.index/rendered/decisions.md",
    "title": "Decisions Index",
    "truth_state": "current",
@@ -45,7 +45,7 @@
    "frozen": false,
    "page_name": "Index-Traceability",
    "render": "as-is",
-   "render_hash": "a1418d327cc9",
+   "render_hash": "59a3124ff63a",
    "source": "docs/.index/rendered/traceability.md",
    "title": "Traceability Index",
    "truth_state": "current",
@@ -1465,7 +1465,7 @@
    "frozen": false,
    "page_name": "Ticket-01M62GWAS1QA1XNBMNG3MPNGRD",
    "render": "as-is",
-   "render_hash": "5bb430a175b8",
+   "render_hash": "ec095c51be2a",
    "source": "docs/.index/rendered/tickets/01M62GWAS1QA1XNBMNG3MPNGRD.md",
    "title": "Plan 5: live updates from the authoring tools",
    "truth_state": "open",
@@ -1505,10 +1505,10 @@
    "frozen": false,
    "page_name": "Ticket-01M62GWASEB3E2HFZ9GR8K5WF5",
    "render": "as-is",
-   "render_hash": "022a15d13337",
+   "render_hash": "d277c3132bc7",
    "source": "docs/.index/rendered/tickets/01M62GWASEB3E2HFZ9GR8K5WF5.md",
    "title": "Task 4: MCP checks for phase 3",
-   "truth_state": "open",
+   "truth_state": "done",
    "wiki_key": "item/01M62GWASEB3E2HFZ9GR8K5WF5"
   },
   {
@@ -1572,11 +1572,11 @@
    "wiki_key": "plan/2026-10-28-release-1-completion"
   },
   {
-   "banner": "> **Current** \u2014 plan in flight; plans are frozen once written, a changed design gets a new plan.",
+   "banner": "> **Current** \u2014 completed plan; plans are frozen once written, a changed design gets a new plan.",
    "frozen": true,
    "page_name": "Plan-plan-5-live",
    "render": "doc+banner",
-   "render_hash": "2a35fd0fb451",
+   "render_hash": "19b3fcdcbe9e",
    "source": "docs/plans/2026-10-29-plan-5-live.md",
    "source_hash": "385741724043",
    "title": "Plan 5: live updates from the authoring tools",
@@ -1584,20 +1584,20 @@
    "wiki_key": "plan/2026-10-29-plan-5-live"
   },
   {
-   "banner": "> **Current** \u2014 this is the living version; regenerated at 2026-10-29T00:31:54Z. Historical snapshots are linked from [[Index-Releases]].",
+   "banner": "> **Current** \u2014 this is the living version; regenerated at 2026-10-29T00:34:17Z. Historical snapshots are linked from [[Index-Releases]].",
    "frozen": false,
    "page_name": "Roadmap",
    "render": "doc+banner",
-   "render_hash": "7f7df21de97d",
+   "render_hash": "4964b72ab503",
    "source": "docs/roadmap.md",
-   "source_hash": "8213293be62a",
+   "source_hash": "3f8e61520caa",
    "title": "Roadmap",
    "truth_state": "current",
    "wiki_key": "roadmap"
   }
  ],
  "sidebar": {
-  "render_hash": "3bc93cc15b8f",
+  "render_hash": "e6fad2ac0a2a",
   "source": "docs/.index/rendered/_Sidebar.md"
  },
  "version": 1
