@@ -16,6 +16,7 @@
    "tag": "v0.1.0",
    "title": "Design freeze for v0.1.0",
    "truth_state": "snapshot",
+   "wiki": "https://github.com/SpillwaveSolutions/prd-forge-viewer/wiki/Design-Freeze-2026-10-29_v0.1.0-release",
    "wiki_key": "design/2026-10-29_v0.1.0-release"
   },
   {
@@ -31,6 +32,7 @@
    "tag": "v0.1.0",
    "title": "PRD Forge Viewer code walkthrough",
    "truth_state": "current",
+   "wiki": "https://github.com/SpillwaveSolutions/prd-forge-viewer/wiki/Code-Walkthrough",
    "wiki_key": "design/current-code-walkthrough"
   },
   {
@@ -46,6 +48,7 @@
    "tag": "v0.1.0",
    "title": "PRD Forge Viewer design document",
    "truth_state": "current",
+   "wiki": "https://github.com/SpillwaveSolutions/prd-forge-viewer/wiki/Design-Doc",
    "wiki_key": "design/current-design-doc"
   },
   {
