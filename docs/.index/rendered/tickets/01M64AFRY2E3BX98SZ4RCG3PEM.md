@@ -1,6 +1,6 @@
 # Task 4: write the files outside the set
 
-`01M64AFRY2E3BX98SZ4RCG3PEM` · task/feature · **open**
+`01M64AFRY2E3BX98SZ4RCG3PEM` · task/feature · **done**
 
 `write_export` and `export_pdf` refuse paths in the set.
 

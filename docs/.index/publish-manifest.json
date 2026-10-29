@@ -1,5 +1,5 @@
 {
- "git_hash": "a242edf",
+ "git_hash": "1cf7496",
  "pages": [
   {
    "frozen": false,
@@ -45,7 +45,7 @@
    "frozen": false,
    "page_name": "Index-Traceability",
    "render": "as-is",
-   "render_hash": "63a792beb16b",
+   "render_hash": "ff4922506168",
    "source": "docs/.index/rendered/traceability.md",
    "title": "Traceability Index",
    "truth_state": "current",
@@ -1595,7 +1595,7 @@
    "frozen": false,
    "page_name": "Ticket-01M64AFRXQ04J5X7RQ0PC24VNC",
    "render": "as-is",
-   "render_hash": "cde7d9bd275e",
+   "render_hash": "54bd2a40a82b",
    "source": "docs/.index/rendered/tickets/01M64AFRXQ04J5X7RQ0PC24VNC.md",
    "title": "Plan 7: PDF and Word export, print, and the Draft mark",
    "truth_state": "open",
@@ -1635,10 +1635,10 @@
    "frozen": false,
    "page_name": "Ticket-01M64AFRY2E3BX98SZ4RCG3PEM",
    "render": "as-is",
-   "render_hash": "ddc49271d473",
+   "render_hash": "3cb89613c888",
    "source": "docs/.index/rendered/tickets/01M64AFRY2E3BX98SZ4RCG3PEM.md",
    "title": "Task 4: write the files outside the set",
-   "truth_state": "open",
+   "truth_state": "done",
    "wiki_key": "item/01M64AFRY2E3BX98SZ4RCG3PEM"
   },
   {
@@ -1758,13 +1758,13 @@
    "wiki_key": "plan/2026-10-29-plan-7-export"
   },
   {
-   "banner": "> **Current** \u2014 this is the living version; regenerated at 2026-10-29T17:18:06Z. Historical snapshots are linked from [[Index-Releases]].",
+   "banner": "> **Current** \u2014 this is the living version; regenerated at 2026-10-29T17:19:11Z. Historical snapshots are linked from [[Index-Releases]].",
    "frozen": false,
    "page_name": "Roadmap",
    "render": "doc+banner",
-   "render_hash": "4239c967901d",
+   "render_hash": "10f7d8f535be",
    "source": "docs/roadmap.md",
-   "source_hash": "ec010c6388b9",
+   "source_hash": "93d1c870137f",
    "title": "Roadmap",
    "truth_state": "current",
    "wiki_key": "roadmap"
