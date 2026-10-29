@@ -1,6 +1,6 @@
 # US-013 See changes that the authoring tools make, without any action
 
-`01M61XNK7A3WE67AVJFXNDZT2P` · story/feature · **open**
+`01M61XNK7A3WE67AVJFXNDZT2P` · story/feature · **done**
 
 As a PRD author, I want to see changes that the authoring tools make, without any action, so that the author sees the current version of each section without any action.
 

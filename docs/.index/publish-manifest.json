@@ -1,11 +1,11 @@
 {
- "git_hash": "9805a4c",
+ "git_hash": "a706740",
  "pages": [
   {
    "frozen": false,
    "page_name": "Home",
    "render": "as-is",
-   "render_hash": "2f569509541c",
+   "render_hash": "e2213c495465",
    "source": "docs/.index/rendered/home.md",
    "title": "Home",
    "truth_state": "current",
@@ -15,7 +15,7 @@
    "frozen": false,
    "page_name": "Index-Decisions",
    "render": "as-is",
-   "render_hash": "7699c62d2a26",
+   "render_hash": "9a4a75e0ad9f",
    "source": "docs/.index/rendered/decisions.md",
    "title": "Decisions Index",
    "truth_state": "current",
@@ -45,7 +45,7 @@
    "frozen": false,
    "page_name": "Index-Traceability",
    "render": "as-is",
-   "render_hash": "ecef68348bfa",
+   "render_hash": "629becb512ba",
    "source": "docs/.index/rendered/traceability.md",
    "title": "Traceability Index",
    "truth_state": "current",
@@ -55,7 +55,7 @@
    "frozen": false,
    "page_name": "Release-REL-001",
    "render": "as-is",
-   "render_hash": "aa51e9de4efd",
+   "render_hash": "3d531b5587ed",
    "source": "docs/.index/rendered/releases/REL-001.md",
    "title": "Release REL-001",
    "truth_state": "shipped",
@@ -215,7 +215,7 @@
    "frozen": false,
    "page_name": "Ticket-01M61XNK50616FWM0WZ4FGWGEB",
    "render": "as-is",
-   "render_hash": "c1f0da74adef",
+   "render_hash": "6d8080315320",
    "source": "docs/.index/rendered/tickets/01M61XNK50616FWM0WZ4FGWGEB.md",
    "title": "EPIC-004 Fix the section: See each change from the authoring tools while the section is open.",
    "truth_state": "open",
@@ -225,10 +225,10 @@
    "frozen": false,
    "page_name": "Ticket-01M61XNK7A3WE67AVJFXNDZT2P",
    "render": "as-is",
-   "render_hash": "bc809e5f1909",
+   "render_hash": "7b53cd9587bc",
    "source": "docs/.index/rendered/tickets/01M61XNK7A3WE67AVJFXNDZT2P.md",
    "title": "US-013 See changes that the authoring tools make, without any action",
-   "truth_state": "open",
+   "truth_state": "done",
    "wiki_key": "item/01M61XNK7A3WE67AVJFXNDZT2P"
   },
   {
@@ -1045,7 +1045,7 @@
    "frozen": false,
    "page_name": "Ticket-01M62C7RE2CW1HN12H2T82VJ6C",
    "render": "as-is",
-   "render_hash": "69694703f636",
+   "render_hash": "e53eaabca647",
    "source": "docs/.index/rendered/tickets/01M62C7RE2CW1HN12H2T82VJ6C.md",
    "title": "Release 1 completion: build the 15 remaining requirements",
    "truth_state": "open",
@@ -1145,60 +1145,60 @@
    "frozen": false,
    "page_name": "Ticket-01M62C7REFJRP4FVS9Z3JD5SBQ",
    "render": "as-is",
-   "render_hash": "7af9ebb0f697",
+   "render_hash": "1cc17d72179f",
    "source": "docs/.index/rendered/tickets/01M62C7REFJRP4FVS9Z3JD5SBQ.md",
    "title": "Phase 3: live updates from the authoring tools (US-013)",
-   "truth_state": "in-progress",
+   "truth_state": "done",
    "wiki_key": "item/01M62C7REFJRP4FVS9Z3JD5SBQ"
   },
   {
    "frozen": false,
    "page_name": "Ticket-01M62C7REFJRP4FVS9Z3JD5SBS",
    "render": "as-is",
-   "render_hash": "5271d56ac1d0",
+   "render_hash": "769567e33fb6",
    "source": "docs/.index/rendered/tickets/01M62C7REFJRP4FVS9Z3JD5SBS.md",
    "title": "Plan 5 written and captured",
-   "truth_state": "open",
+   "truth_state": "done",
    "wiki_key": "item/01M62C7REFJRP4FVS9Z3JD5SBS"
   },
   {
    "frozen": false,
    "page_name": "Ticket-01M62C7REGCD2R415FMWFCZMTG",
    "render": "as-is",
-   "render_hash": "26453c97b19d",
+   "render_hash": "edc922102e4c",
    "source": "docs/.index/rendered/tickets/01M62C7REGCD2R415FMWFCZMTG.md",
    "title": "Built with TDD, and the review findings fixed",
-   "truth_state": "open",
+   "truth_state": "done",
    "wiki_key": "item/01M62C7REGCD2R415FMWFCZMTG"
   },
   {
    "frozen": false,
    "page_name": "Ticket-01M62C7REGCD2R415FMWFCZMTJ",
    "render": "as-is",
-   "render_hash": "c127af050388",
+   "render_hash": "4b9548f9f123",
    "source": "docs/.index/rendered/tickets/01M62C7REGCD2R415FMWFCZMTJ.md",
    "title": "e2e/phase3.mjs passes: all three FR-009 criteria, and NFR-002 within 2 s",
-   "truth_state": "open",
+   "truth_state": "done",
    "wiki_key": "item/01M62C7REGCD2R415FMWFCZMTJ"
   },
   {
    "frozen": false,
    "page_name": "Ticket-01M62C7REGCD2R415FMWFCZMTM",
    "render": "as-is",
-   "render_hash": "89d1e91f8de5",
+   "render_hash": "a812f8bb900a",
    "source": "docs/.index/rendered/tickets/01M62C7REGCD2R415FMWFCZMTM.md",
    "title": "Phase 4: export themes (US-021 to US-025)",
-   "truth_state": "open",
+   "truth_state": "in-progress",
    "wiki_key": "item/01M62C7REGCD2R415FMWFCZMTM"
   },
   {
    "frozen": false,
    "page_name": "Ticket-01M62C7REGCD2R415FMWFCZMTP",
    "render": "as-is",
-   "render_hash": "7022b61e3802",
+   "render_hash": "162a05bec9ad",
    "source": "docs/.index/rendered/tickets/01M62C7REGCD2R415FMWFCZMTP.md",
    "title": "Plan 6 written and captured",
-   "truth_state": "open",
+   "truth_state": "done",
    "wiki_key": "item/01M62C7REGCD2R415FMWFCZMTP"
   },
   {
@@ -1465,10 +1465,10 @@
    "frozen": false,
    "page_name": "Ticket-01M62GWAS1QA1XNBMNG3MPNGRD",
    "render": "as-is",
-   "render_hash": "613973495be6",
+   "render_hash": "191b1d05973b",
    "source": "docs/.index/rendered/tickets/01M62GWAS1QA1XNBMNG3MPNGRD.md",
    "title": "Plan 5: live updates from the authoring tools",
-   "truth_state": "open",
+   "truth_state": "done",
    "wiki_key": "item/01M62GWAS1QA1XNBMNG3MPNGRD"
   },
   {
@@ -1520,6 +1520,56 @@
    "title": "Fix the phase 3 review findings",
    "truth_state": "done",
    "wiki_key": "item/01M62HGSCA8H08GP2CEW69EZYN"
+  },
+  {
+   "frozen": false,
+   "page_name": "Ticket-01M62PG5A0K6D0ZN6QHB51EG8W",
+   "render": "as-is",
+   "render_hash": "2f3751cd821a",
+   "source": "docs/.index/rendered/tickets/01M62PG5A0K6D0ZN6QHB51EG8W.md",
+   "title": "Plan 6: export themes",
+   "truth_state": "open",
+   "wiki_key": "item/01M62PG5A0K6D0ZN6QHB51EG8W"
+  },
+  {
+   "frozen": false,
+   "page_name": "Ticket-01M62PG5ADWD51YWCVTGKQ63YB",
+   "render": "as-is",
+   "render_hash": "8bf6d882fbf8",
+   "source": "docs/.index/rendered/tickets/01M62PG5ADWD51YWCVTGKQ63YB.md",
+   "title": "Task 1: the theme model",
+   "truth_state": "open",
+   "wiki_key": "item/01M62PG5ADWD51YWCVTGKQ63YB"
+  },
+  {
+   "frozen": false,
+   "page_name": "Ticket-01M62PG5ADWD51YWCVTGKQ63YD",
+   "render": "as-is",
+   "render_hash": "afebbd817825",
+   "source": "docs/.index/rendered/tickets/01M62PG5ADWD51YWCVTGKQ63YD.md",
+   "title": "Task 2: themes in the settings file",
+   "truth_state": "open",
+   "wiki_key": "item/01M62PG5ADWD51YWCVTGKQ63YD"
+  },
+  {
+   "frozen": false,
+   "page_name": "Ticket-01M62PG5ADWD51YWCVTGKQ63YF",
+   "render": "as-is",
+   "render_hash": "1b7620ff9308",
+   "source": "docs/.index/rendered/tickets/01M62PG5ADWD51YWCVTGKQ63YF.md",
+   "title": "Task 3: the themes dialog",
+   "truth_state": "open",
+   "wiki_key": "item/01M62PG5ADWD51YWCVTGKQ63YF"
+  },
+  {
+   "frozen": false,
+   "page_name": "Ticket-01M62PG5ADWD51YWCVTGKQ63YH",
+   "render": "as-is",
+   "render_hash": "178e598f2b37",
+   "source": "docs/.index/rendered/tickets/01M62PG5ADWD51YWCVTGKQ63YH.md",
+   "title": "Task 4: MCP checks for phase 4",
+   "truth_state": "open",
+   "wiki_key": "item/01M62PG5ADWD51YWCVTGKQ63YH"
   },
   {
    "banner": "> **Current** \u2014 completed plan; plans are frozen once written, a changed design gets a new plan.",
@@ -1594,20 +1644,32 @@
    "wiki_key": "plan/2026-10-29-plan-5-live"
   },
   {
-   "banner": "> **Current** \u2014 this is the living version; regenerated at 2026-10-29T00:44:12Z. Historical snapshots are linked from [[Index-Releases]].",
+   "banner": "> **Current** \u2014 plan not yet started; plans are frozen once written, a changed design gets a new plan.",
+   "frozen": true,
+   "page_name": "Plan-plan-6-themes",
+   "render": "doc+banner",
+   "render_hash": "41f75b871285",
+   "source": "docs/plans/2026-10-29-plan-6-themes.md",
+   "source_hash": "f6a9eda99bb3",
+   "title": "Plan 6: export themes",
+   "truth_state": "current",
+   "wiki_key": "plan/2026-10-29-plan-6-themes"
+  },
+  {
+   "banner": "> **Current** \u2014 this is the living version; regenerated at 2026-10-29T02:37:42Z. Historical snapshots are linked from [[Index-Releases]].",
    "frozen": false,
    "page_name": "Roadmap",
    "render": "doc+banner",
-   "render_hash": "28a8d928a79e",
+   "render_hash": "fc6bc1544b39",
    "source": "docs/roadmap.md",
-   "source_hash": "3f8e61520caa",
+   "source_hash": "103fbad246c4",
    "title": "Roadmap",
    "truth_state": "current",
    "wiki_key": "roadmap"
   }
  ],
  "sidebar": {
-  "render_hash": "e6fad2ac0a2a",
+  "render_hash": "5923a2ee23f8",
   "source": "docs/.index/rendered/_Sidebar.md"
  },
  "version": 1

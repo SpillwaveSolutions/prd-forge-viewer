@@ -1,6 +1,6 @@
 # Plan 5: live updates from the authoring tools
 
-`01M62GWAS1QA1XNBMNG3MPNGRD` · epic/feature · **open**
+`01M62GWAS1QA1XNBMNG3MPNGRD` · epic/feature · **done**
 
 Phase 3 of the release 1 completion plan.
 

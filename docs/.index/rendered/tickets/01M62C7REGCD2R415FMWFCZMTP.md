@@ -1,6 +1,6 @@
 # Plan 6 written and captured
 
-`01M62C7REGCD2R415FMWFCZMTP` · subtask/feature · **open**
+`01M62C7REGCD2R415FMWFCZMTP` · subtask/feature · **done**
 
 Plan 6 written and captured
 

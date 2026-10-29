@@ -1,6 +1,6 @@
 # Phase 3: live updates from the authoring tools (US-013)
 
-`01M62C7REFJRP4FVS9Z3JD5SBQ` · task/feature · **in-progress**
+`01M62C7REFJRP4FVS9Z3JD5SBQ` · task/feature · **done**
 
 Watch the set folder, reload changed documents, and show the new text, score, and a change notice without any action.
 
@@ -10,11 +10,11 @@ Watch the set folder, reload changed documents, and show the new text, score, an
 
 ## Subtasks
 
-- [[Ticket-01M62C7REFJRP4FVS9Z3JD5SBS]] Plan 5 written and captured — Plan 5 written and captured (open)
-- [[Ticket-01M62C7REGCD2R415FMWFCZMTG]] Built with TDD, and the review findings fixed — Built with TDD, and the review findings fixed (open)
-- [[Ticket-01M62C7REGCD2R415FMWFCZMTJ]] e2e/phase3.mjs passes: all three FR-009 criteria, and NFR-002 within 2 s — e2e/phase3.mjs passes: all three FR-009 criteria, and NFR-002 within 2 s (open)
+- [[Ticket-01M62C7REFJRP4FVS9Z3JD5SBS]] Plan 5 written and captured — Plan 5 written and captured (done)
+- [[Ticket-01M62C7REGCD2R415FMWFCZMTG]] Built with TDD, and the review findings fixed — Built with TDD, and the review findings fixed (done)
+- [[Ticket-01M62C7REGCD2R415FMWFCZMTJ]] e2e/phase3.mjs passes: all three FR-009 criteria, and NFR-002 within 2 s — e2e/phase3.mjs passes: all three FR-009 criteria, and NFR-002 within 2 s (done)
 
-Progress: 0/3 done
+Progress: 3/3 done
 
 ## Related tickets
 
