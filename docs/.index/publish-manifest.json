@@ -1,5 +1,5 @@
 {
- "git_hash": "7b40ee6",
+ "git_hash": "43d84d5",
  "pages": [
   {
    "frozen": false,
@@ -45,7 +45,7 @@
    "frozen": false,
    "page_name": "Index-Traceability",
    "render": "as-is",
-   "render_hash": "0524b34f04d5",
+   "render_hash": "7cdebb1cf141",
    "source": "docs/.index/rendered/traceability.md",
    "title": "Traceability Index",
    "truth_state": "current",
@@ -55,7 +55,7 @@
    "frozen": false,
    "page_name": "Release-REL-001",
    "render": "as-is",
-   "render_hash": "7baebe440240",
+   "render_hash": "aa51e9de4efd",
    "source": "docs/.index/rendered/releases/REL-001.md",
    "title": "Release REL-001",
    "truth_state": "shipped",
@@ -155,7 +155,7 @@
    "frozen": false,
    "page_name": "Ticket-01M61XNJQPA0F7H1BG56ERNJ3P",
    "render": "as-is",
-   "render_hash": "82d948ea6285",
+   "render_hash": "751ab52c185e",
    "source": "docs/.index/rendered/tickets/01M61XNJQPA0F7H1BG56ERNJ3P.md",
    "title": "EPIC-003 Go to a weak section: Go directly to a weak section or item, or find it by search.",
    "truth_state": "open",
@@ -195,20 +195,20 @@
    "frozen": false,
    "page_name": "Ticket-01M61XNK0EWMYWDZNRXHB78SZ7",
    "render": "as-is",
-   "render_hash": "58b92a5826e7",
+   "render_hash": "d6d394fbe2d3",
    "source": "docs/.index/rendered/tickets/01M61XNK0EWMYWDZNRXHB78SZ7.md",
    "title": "US-011 Search the PRD set by term, in one category or in all categories",
-   "truth_state": "open",
+   "truth_state": "done",
    "wiki_key": "item/01M61XNK0EWMYWDZNRXHB78SZ7"
   },
   {
    "frozen": false,
    "page_name": "Ticket-01M61XNK2Q80TZ9MTV20FQGGZM",
    "render": "as-is",
-   "render_hash": "1164e9cea251",
+   "render_hash": "3f5223a3f368",
    "source": "docs/.index/rendered/tickets/01M61XNK2Q80TZ9MTV20FQGGZM.md",
    "title": "US-012 See the search results ranked by relevance, and open one result",
-   "truth_state": "open",
+   "truth_state": "done",
    "wiki_key": "item/01M61XNK2Q80TZ9MTV20FQGGZM"
   },
   {
@@ -1045,7 +1045,7 @@
    "frozen": false,
    "page_name": "Ticket-01M62C7RE2CW1HN12H2T82VJ6C",
    "render": "as-is",
-   "render_hash": "657e25dc9c31",
+   "render_hash": "7a4bf2ef70d6",
    "source": "docs/.index/rendered/tickets/01M62C7RE2CW1HN12H2T82VJ6C.md",
    "title": "Release 1 completion: build the 15 remaining requirements",
    "truth_state": "open",
@@ -1105,40 +1105,40 @@
    "frozen": false,
    "page_name": "Ticket-01M62C7REFJRP4FVS9Z3JD5SBF",
    "render": "as-is",
-   "render_hash": "bc13eca58efd",
+   "render_hash": "ca7de1ea8ad0",
    "source": "docs/.index/rendered/tickets/01M62C7REFJRP4FVS9Z3JD5SBF.md",
    "title": "Phase 2: search with ranked results (US-011, US-012)",
-   "truth_state": "in-progress",
+   "truth_state": "done",
    "wiki_key": "item/01M62C7REFJRP4FVS9Z3JD5SBF"
   },
   {
    "frozen": false,
    "page_name": "Ticket-01M62C7REFJRP4FVS9Z3JD5SBH",
    "render": "as-is",
-   "render_hash": "a6a6a52787cd",
+   "render_hash": "43d63d3c8fd7",
    "source": "docs/.index/rendered/tickets/01M62C7REFJRP4FVS9Z3JD5SBH.md",
    "title": "Plan 4 written and captured",
-   "truth_state": "open",
+   "truth_state": "done",
    "wiki_key": "item/01M62C7REFJRP4FVS9Z3JD5SBH"
   },
   {
    "frozen": false,
    "page_name": "Ticket-01M62C7REFJRP4FVS9Z3JD5SBK",
    "render": "as-is",
-   "render_hash": "9e45c5b6a66a",
+   "render_hash": "f992ad72ab24",
    "source": "docs/.index/rendered/tickets/01M62C7REFJRP4FVS9Z3JD5SBK.md",
    "title": "Built with TDD, and the review findings fixed",
-   "truth_state": "open",
+   "truth_state": "done",
    "wiki_key": "item/01M62C7REFJRP4FVS9Z3JD5SBK"
   },
   {
    "frozen": false,
    "page_name": "Ticket-01M62C7REFJRP4FVS9Z3JD5SBN",
    "render": "as-is",
-   "render_hash": "124691d7467c",
+   "render_hash": "65d1b0ba54c4",
    "source": "docs/.index/rendered/tickets/01M62C7REFJRP4FVS9Z3JD5SBN.md",
    "title": "e2e/phase2.mjs passes: all six FR-008 criteria, and NFR-003 within 0.5 s",
-   "truth_state": "open",
+   "truth_state": "done",
    "wiki_key": "item/01M62C7REFJRP4FVS9Z3JD5SBN"
   },
   {
@@ -1405,10 +1405,10 @@
    "frozen": false,
    "page_name": "Ticket-01M62EBHYNFP9BW4QZRF310SYS",
    "render": "as-is",
-   "render_hash": "5a0c780ac369",
+   "render_hash": "a88e8407eb0a",
    "source": "docs/.index/rendered/tickets/01M62EBHYNFP9BW4QZRF310SYS.md",
    "title": "Plan 4: search with ranked results",
-   "truth_state": "open",
+   "truth_state": "done",
    "wiki_key": "item/01M62EBHYNFP9BW4QZRF310SYS"
   },
   {
@@ -1522,13 +1522,13 @@
    "wiki_key": "plan/2026-10-28-release-1-completion"
   },
   {
-   "banner": "> **Current** \u2014 this is the living version; regenerated at 2026-10-28T23:52:45Z. Historical snapshots are linked from [[Index-Releases]].",
+   "banner": "> **Current** \u2014 this is the living version; regenerated at 2026-10-29T00:22:54Z. Historical snapshots are linked from [[Index-Releases]].",
    "frozen": false,
    "page_name": "Roadmap",
    "render": "doc+banner",
-   "render_hash": "d6b1412531ea",
+   "render_hash": "d22770e74919",
    "source": "docs/roadmap.md",
-   "source_hash": "44dc4300ce8e",
+   "source_hash": "a601fe15b3d9",
    "title": "Roadmap",
    "truth_state": "current",
    "wiki_key": "roadmap"

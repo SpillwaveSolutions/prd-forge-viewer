@@ -28,7 +28,7 @@ _The evidence chain: plan → item → ticket → code → release, forward and 
 - produced-by: [[Plan-plan-4-search]]
 
 ### Plan 4: search with ranked results
-`01M62EBHYNFP9BW4QZRF310SYS` · status: todo
+`01M62EBHYNFP9BW4QZRF310SYS` · status: done
 - contains: Task 1: the per-set index with content hashes
 - contains: Task 2: ranked search with a category filter
 - contains: Task 3: the search command and its timing
@@ -213,25 +213,25 @@ _The evidence chain: plan → item → ticket → code → release, forward and 
 - produced-by: [[Plan-release-1-completion]]
 
 ### e2e/phase2.mjs passes: all six FR-008 criteria, and NFR-003 within 0.5 s
-`01M62C7REFJRP4FVS9Z3JD5SBN` · status: todo
+`01M62C7REFJRP4FVS9Z3JD5SBN` · status: done
 - belongs-to: Phase 2: search with ranked results (US-011, US-012)
 - references: [github#114](https://github.com/SpillwaveSolutions/prd-forge-viewer/issues/114)
 - produced-by: [[Plan-release-1-completion]]
 
 ### Built with TDD, and the review findings fixed
-`01M62C7REFJRP4FVS9Z3JD5SBK` · status: todo
+`01M62C7REFJRP4FVS9Z3JD5SBK` · status: done
 - belongs-to: Phase 2: search with ranked results (US-011, US-012)
 - references: [github#113](https://github.com/SpillwaveSolutions/prd-forge-viewer/issues/113)
 - produced-by: [[Plan-release-1-completion]]
 
 ### Plan 4 written and captured
-`01M62C7REFJRP4FVS9Z3JD5SBH` · status: todo
+`01M62C7REFJRP4FVS9Z3JD5SBH` · status: done
 - belongs-to: Phase 2: search with ranked results (US-011, US-012)
 - references: [github#112](https://github.com/SpillwaveSolutions/prd-forge-viewer/issues/112)
 - produced-by: [[Plan-release-1-completion]]
 
 ### Phase 2: search with ranked results (US-011, US-012)
-`01M62C7REFJRP4FVS9Z3JD5SBF` · status: in_progress
+`01M62C7REFJRP4FVS9Z3JD5SBF` · status: done
 - belongs-to: Release 1 completion: build the 15 remaining requirements
 - references: [github#111](https://github.com/SpillwaveSolutions/prd-forge-viewer/issues/111)
 - contains: Plan 4 written and captured
@@ -840,13 +840,13 @@ _The evidence chain: plan → item → ticket → code → release, forward and 
 - contains: US-013 See changes that the authoring tools make, without any action
 
 ### US-012 See the search results ranked by relevance, and open one result
-`01M61XNK2Q80TZ9MTV20FQGGZM` · status: todo
+`01M61XNK2Q80TZ9MTV20FQGGZM` · status: done
 - belongs-to: EPIC-003 Go to a weak section: Go directly to a weak section or item, or find it by search.
 - references: [github#19](https://github.com/SpillwaveSolutions/prd-forge-viewer/issues/19)
 - targets: release/REL-001
 
 ### US-011 Search the PRD set by term, in one category or in all categories
-`01M61XNK0EWMYWDZNRXHB78SZ7` · status: todo
+`01M61XNK0EWMYWDZNRXHB78SZ7` · status: done
 - belongs-to: EPIC-003 Go to a weak section: Go directly to a weak section or item, or find it by search.
 - references: [github#18](https://github.com/SpillwaveSolutions/prd-forge-viewer/issues/18)
 - targets: release/REL-001

@@ -1,6 +1,6 @@
 # Plan 4: search with ranked results
 
-`01M62EBHYNFP9BW4QZRF310SYS` · epic/feature · **open**
+`01M62EBHYNFP9BW4QZRF310SYS` · epic/feature · **done**
 
 Phase 2 of the release 1 completion plan.
 

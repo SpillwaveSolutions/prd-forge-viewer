@@ -2104,12 +2104,12 @@
   },
   "item/01M61XNK0EWMYWDZNRXHB78SZ7": {
    "doc_type": "item",
-   "status": "todo",
+   "status": "done",
    "title": "US-011 Search the PRD set by term, in one category or in all categories"
   },
   "item/01M61XNK2Q80TZ9MTV20FQGGZM": {
    "doc_type": "item",
-   "status": "todo",
+   "status": "done",
    "title": "US-012 See the search results ranked by relevance, and open one result"
   },
   "item/01M61XNK50616FWM0WZ4FGWGEB": {
@@ -2559,22 +2559,22 @@
   },
   "item/01M62C7REFJRP4FVS9Z3JD5SBF": {
    "doc_type": "item",
-   "status": "in_progress",
+   "status": "done",
    "title": "Phase 2: search with ranked results (US-011, US-012)"
   },
   "item/01M62C7REFJRP4FVS9Z3JD5SBH": {
    "doc_type": "item",
-   "status": "todo",
+   "status": "done",
    "title": "Plan 4 written and captured"
   },
   "item/01M62C7REFJRP4FVS9Z3JD5SBK": {
    "doc_type": "item",
-   "status": "todo",
+   "status": "done",
    "title": "Built with TDD, and the review findings fixed"
   },
   "item/01M62C7REFJRP4FVS9Z3JD5SBN": {
    "doc_type": "item",
-   "status": "todo",
+   "status": "done",
    "title": "e2e/phase2.mjs passes: all six FR-008 criteria, and NFR-003 within 0.5 s"
   },
   "item/01M62C7REFJRP4FVS9Z3JD5SBQ": {
@@ -2709,7 +2709,7 @@
   },
   "item/01M62EBHYNFP9BW4QZRF310SYS": {
    "doc_type": "item",
-   "status": "todo",
+   "status": "done",
    "title": "Plan 4: search with ranked results"
   },
   "item/01M62EBHZ3H52KPBDQCA3YYTVE": {

@@ -1,6 +1,6 @@
 # e2e/phase2.mjs passes: all six FR-008 criteria, and NFR-003 within 0.5 s
 
-`01M62C7REFJRP4FVS9Z3JD5SBN` · subtask/feature · **open**
+`01M62C7REFJRP4FVS9Z3JD5SBN` · subtask/feature · **done**
 
 e2e/phase2.mjs passes: all six FR-008 criteria, and NFR-003 within 0.5 s
 
