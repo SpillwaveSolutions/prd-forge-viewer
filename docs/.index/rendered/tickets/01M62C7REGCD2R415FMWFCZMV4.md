@@ -1,6 +1,6 @@
 # NFR-004 within 10 s, and NFR-009 with zero checker errors
 
-`01M62C7REGCD2R415FMWFCZMV4` · subtask/feature · **open**
+`01M62C7REGCD2R415FMWFCZMV4` · subtask/feature · **done**
 
 NFR-004 within 10 s, and NFR-009 with zero checker errors
 

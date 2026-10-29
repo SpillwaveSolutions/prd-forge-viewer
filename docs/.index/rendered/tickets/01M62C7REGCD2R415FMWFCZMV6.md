@@ -1,6 +1,6 @@
 # Phase 6: close out release 1
 
-`01M62C7REGCD2R415FMWFCZMV6` · task/feature · **open**
+`01M62C7REGCD2R415FMWFCZMV6` · task/feature · **done**
 
 Run every phase check and unit test, check NFR-001 to NFR-010, install the release build, and update REQ, TRAC, and the external README from the result.
 

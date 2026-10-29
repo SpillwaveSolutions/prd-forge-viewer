@@ -1,6 +1,6 @@
 # US-014 Export the PRD set as a fixed-layout document (IN-006)
 
-`01M61XNKBWWJM55QTR4QJJDQXS` · story/feature · **open**
+`01M61XNKBWWJM55QTR4QJJDQXS` · story/feature · **done**
 
 As a PRD author, I want to export the PRD set as a fixed-layout document (IN-006), so that the author has one fixed-layout document that a reader opens with software already on the computer, without the authoring tools.
 

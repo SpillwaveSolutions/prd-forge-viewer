@@ -1,6 +1,6 @@
 # e2e/phase5.mjs passes: FR-010 to FR-014, FR-019, TR-005, TR-007, and TR-010, with file checks of each export
 
-`01M62C7REGCD2R415FMWFCZMV2` · subtask/feature · **open**
+`01M62C7REGCD2R415FMWFCZMV2` · subtask/feature · **done**
 
 e2e/phase5.mjs passes: FR-010 to FR-014, FR-019, TR-005, TR-007, and TR-010, with file checks of each export
 

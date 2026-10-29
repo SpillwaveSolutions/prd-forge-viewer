@@ -1,6 +1,6 @@
 # Plan 7: PDF and Word export, print, and the Draft mark
 
-`01M64AFRXQ04J5X7RQ0PC24VNC` · epic/feature · **open**
+`01M64AFRXQ04J5X7RQ0PC24VNC` · epic/feature · **done**
 
 Phase 5 of the release 1 completion plan.
 
@@ -15,3 +15,7 @@ Phase 5 of the release 1 completion plan.
 - [[Ticket-01M64BCTQK4AN0YWKW7QS4V3FH]] Fix the phase 5 review findings — The export commands trust the set folder from the window and write any file type. (done)
 
 Progress: 7/7 done
+
+## Related tickets
+
+- [github #165](https://github.com/SpillwaveSolutions/prd-forge-viewer/issues/165)

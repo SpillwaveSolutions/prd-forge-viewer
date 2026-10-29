@@ -1,6 +1,6 @@
 # US-018 See the version of the PRD, and if it is a draft, in an export
 
-`01M61XNKN3MT565WYVQJX63YTE` · story/feature · **open**
+`01M61XNKN3MT565WYVQJX63YTE` · story/feature · **done**
 
 As a product sponsor, I want to see the version of the PRD, and if it is a draft, in an export, so that the sponsor knows which version is in the file, and if it is a draft.
 

@@ -183,13 +183,32 @@
    "wiki_key": "plan/2026-10-29-plan-7-export"
   },
   {
+   "canonical_key": "plan/2026-10-29-plan-8-closeout",
+   "date": "2026-10-29",
+   "doc_type": "plan",
+   "epic": "01M64C02ZSD81X83JWRWQDVYCH",
+   "git_hash": "27c246d30192bafcdec66f6725b7a328e256b61e",
+   "items": [
+    "01M64C03048SWRXRJ3A59AD9W0",
+    "01M64C03048SWRXRJ3A59AD9W2",
+    "01M64C03048SWRXRJ3A59AD9W4",
+    "01M64C03048SWRXRJ3A59AD9W6"
+   ],
+   "slug": "plan-8-closeout",
+   "source": "docs/plans/2026-10-29-plan-8-closeout.md",
+   "status": "completed",
+   "title": "Plan 8: close out release 1",
+   "truth_state": "current",
+   "wiki_key": "plan/2026-10-29-plan-8-closeout"
+  },
+  {
    "canonical_key": "roadmap",
    "doc_type": "roadmap",
-   "generated_at": "2026-10-29T17:38:54Z",
-   "git_hash": "1bfc70a",
+   "generated_at": "2026-10-29T17:48:44Z",
+   "git_hash": "4d0e9ff",
    "slug": "roadmap",
    "source": "docs/roadmap.md",
-   "source_hash": "65e1bc89",
+   "source_hash": "ac4a0257",
    "title": "Roadmap",
    "truth_state": "current",
    "wiki_key": "roadmap"
