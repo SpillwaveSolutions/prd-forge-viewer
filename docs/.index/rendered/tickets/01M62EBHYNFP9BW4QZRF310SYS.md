@@ -13,3 +13,7 @@ Phase 2 of the release 1 completion plan.
 - [[Ticket-01M62EBHZ3H52KPBDQCA3YYTVP]] Task 5: MCP checks for phase 2 — `e2e/checks/phase-2-search.mjs` checks the six FR-008 criteria and NFR-003 through the tauri MCP server. (done)
 
 Progress: 5/5 done
+
+## Related tickets
+
+- [github #143](https://github.com/SpillwaveSolutions/prd-forge-viewer/issues/143)

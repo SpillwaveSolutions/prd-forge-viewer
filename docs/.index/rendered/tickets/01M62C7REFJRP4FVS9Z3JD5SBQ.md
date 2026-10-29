@@ -1,6 +1,6 @@
 # Phase 3: live updates from the authoring tools (US-013)
 
-`01M62C7REFJRP4FVS9Z3JD5SBQ` · task/feature · **open**
+`01M62C7REFJRP4FVS9Z3JD5SBQ` · task/feature · **in-progress**
 
 Watch the set folder, reload changed documents, and show the new text, score, and a change notice without any action.
 

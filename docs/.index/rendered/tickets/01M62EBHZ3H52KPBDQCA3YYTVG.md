@@ -7,3 +7,7 @@
 ## Hierarchy
 
 - epic: [[Ticket-01M62EBHYNFP9BW4QZRF310SYS]] Plan 4: search with ranked results — Phase 2 of the release 1 completion plan.
+
+## Related tickets
+
+- [github #145](https://github.com/SpillwaveSolutions/prd-forge-viewer/issues/145)

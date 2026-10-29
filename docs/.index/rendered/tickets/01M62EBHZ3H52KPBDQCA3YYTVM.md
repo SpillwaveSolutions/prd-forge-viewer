@@ -7,3 +7,7 @@ A search box, a category filter, the number of matches, each result with its sco
 ## Hierarchy
 
 - epic: [[Ticket-01M62EBHYNFP9BW4QZRF310SYS]] Plan 4: search with ranked results — Phase 2 of the release 1 completion plan.
+
+## Related tickets
+
+- [github #147](https://github.com/SpillwaveSolutions/prd-forge-viewer/issues/147)

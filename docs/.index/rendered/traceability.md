@@ -2,33 +2,67 @@
 
 _The evidence chain: plan → item → ticket → code → release, forward and backward. Generated from `docs/.index/_graph.json`; do not edit._
 
+### Task 4: MCP checks for phase 3
+`01M62GWASEB3E2HFZ9GR8K5WF5` · status: todo
+- belongs-to: Plan 5: live updates from the authoring tools
+- produced-by: [[Plan-plan-5-live]]
+
+### Task 3: show changes in the window
+`01M62GWASEB3E2HFZ9GR8K5WF3` · status: todo
+- belongs-to: Plan 5: live updates from the authoring tools
+- produced-by: [[Plan-plan-5-live]]
+
+### Task 2: the watch and reload commands
+`01M62GWASEB3E2HFZ9GR8K5WF1` · status: todo
+- belongs-to: Plan 5: live updates from the authoring tools
+- produced-by: [[Plan-plan-5-live]]
+
+### Task 1: watch the set folder
+`01M62GWASEB3E2HFZ9GR8K5WEZ` · status: todo
+- belongs-to: Plan 5: live updates from the authoring tools
+- produced-by: [[Plan-plan-5-live]]
+
+### Plan 5: live updates from the authoring tools
+`01M62GWAS1QA1XNBMNG3MPNGRD` · status: todo
+- contains: Task 1: watch the set folder
+- contains: Task 2: the watch and reload commands
+- contains: Task 3: show changes in the window
+- contains: Task 4: MCP checks for phase 3
+- produced-by: [[Plan-plan-5-live]]
+
 ### Task 5: MCP checks for phase 2
 `01M62EBHZ3H52KPBDQCA3YYTVP` · status: done
 - belongs-to: Plan 4: search with ranked results
+- references: [github#148](https://github.com/SpillwaveSolutions/prd-forge-viewer/issues/148)
 - produced-by: [[Plan-plan-4-search]]
 
 ### Task 4: the search bar and the results list
 `01M62EBHZ3H52KPBDQCA3YYTVM` · status: done
 - belongs-to: Plan 4: search with ranked results
+- references: [github#147](https://github.com/SpillwaveSolutions/prd-forge-viewer/issues/147)
 - produced-by: [[Plan-plan-4-search]]
 
 ### Task 3: the search command and its timing
 `01M62EBHZ3H52KPBDQCA3YYTVJ` · status: done
 - belongs-to: Plan 4: search with ranked results
+- references: [github#146](https://github.com/SpillwaveSolutions/prd-forge-viewer/issues/146)
 - produced-by: [[Plan-plan-4-search]]
 
 ### Task 2: ranked search with a category filter
 `01M62EBHZ3H52KPBDQCA3YYTVG` · status: done
 - belongs-to: Plan 4: search with ranked results
+- references: [github#145](https://github.com/SpillwaveSolutions/prd-forge-viewer/issues/145)
 - produced-by: [[Plan-plan-4-search]]
 
 ### Task 1: the per-set index with content hashes
 `01M62EBHZ3H52KPBDQCA3YYTVE` · status: done
 - belongs-to: Plan 4: search with ranked results
+- references: [github#144](https://github.com/SpillwaveSolutions/prd-forge-viewer/issues/144)
 - produced-by: [[Plan-plan-4-search]]
 
 ### Plan 4: search with ranked results
 `01M62EBHYNFP9BW4QZRF310SYS` · status: done
+- references: [github#143](https://github.com/SpillwaveSolutions/prd-forge-viewer/issues/143)
 - contains: Task 1: the per-set index with content hashes
 - contains: Task 2: ranked search with a category filter
 - contains: Task 3: the search command and its timing
@@ -204,7 +238,7 @@ _The evidence chain: plan → item → ticket → code → release, forward and 
 - produced-by: [[Plan-release-1-completion]]
 
 ### Phase 3: live updates from the authoring tools (US-013)
-`01M62C7REFJRP4FVS9Z3JD5SBQ` · status: todo
+`01M62C7REFJRP4FVS9Z3JD5SBQ` · status: in_progress
 - belongs-to: Release 1 completion: build the 15 remaining requirements
 - references: [github#115](https://github.com/SpillwaveSolutions/prd-forge-viewer/issues/115)
 - contains: Plan 5 written and captured
