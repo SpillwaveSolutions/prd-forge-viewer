@@ -8,6 +8,7 @@
    "git_hash": "3c33b807ffd28da4ad0c3fd7d15c6396616c297c",
    "live_design": "docs/designs/current_design_doc.md",
    "live_walkthrough": "docs/designs/current_code_walkthrough.md",
+   "merged_in": "693614fc498a44a21f7110e1a688a6cc381b1212",
    "name": "v0.1.0-release",
    "release": "v0.1.0",
    "roadmap_snapshot": "docs/roadmap/2026-10-29_v0.1.0-release.md",
@@ -156,6 +157,7 @@
     "01M6237DVP5C4MWR9DKMMZ6AXE",
     "01M6237DY1TB38CDJ70D9Y7C9R"
    ],
+   "merged_in": "6d1aa4ed52c266a327c350e9c3038383087cc336",
    "slug": "plan-1-open-and-grades",
    "source": "docs/plans/2026-10-28-plan-1-open-and-grades.md",
    "status": "completed",
@@ -203,6 +205,7 @@
     "01M6237FSCNN7DZHPNKQ995M5Z",
     "01M6237FVP5HFM46A7NKEVZYFJ"
    ],
+   "merged_in": "1960f76dcff846b05b315f12bf62851b8acbcc72",
    "slug": "plan-2-launcher-and-settings",
    "source": "docs/plans/2026-10-28-plan-2-launcher-and-settings.md",
    "status": "completed",
@@ -225,6 +228,7 @@
     "01M62CK387T88WGKEFSBY4483C",
     "01M62CK387T88WGKEFSBY4483E"
    ],
+   "merged_in": "5ca9ad2cbc964d19c6431e739d73a399430cde41",
    "slug": "plan-3-reading",
    "source": "docs/plans/2026-10-28-plan-3-reading.md",
    "status": "completed",
@@ -246,6 +250,7 @@
     "01M62EBHZ3H52KPBDQCA3YYTVM",
     "01M62EBHZ3H52KPBDQCA3YYTVP"
    ],
+   "merged_in": "af3e5e2d7cc502f338ebf331f82b1f5547b62224",
    "slug": "plan-4-search",
    "source": "docs/plans/2026-10-28-plan-4-search.md",
    "status": "completed",
@@ -281,6 +286,7 @@
     "01M61XNM2XG682DJC9R566BJ3K",
     "01M61XNM5721TS9RGHEHTY4PYT"
    ],
+   "merged_in": "88025c36dfe68859df4a91c37ef3a56c555f8b0f",
    "slug": "release-1-completion",
    "source": "docs/plans/2026-10-28-release-1-completion.md",
    "status": "active",
@@ -301,6 +307,7 @@
     "01M62GWASEB3E2HFZ9GR8K5WF3",
     "01M62GWASEB3E2HFZ9GR8K5WF5"
    ],
+   "merged_in": "a706740026ef38423f9b5e5c5ff05de60ae34a30",
    "slug": "plan-5-live",
    "source": "docs/plans/2026-10-29-plan-5-live.md",
    "status": "completed",
@@ -321,6 +328,7 @@
     "01M62PG5ADWD51YWCVTGKQ63YF",
     "01M62PG5ADWD51YWCVTGKQ63YH"
    ],
+   "merged_in": "d1e25eaf8c191b49d62aeec9f3ab3f2b3c675d4f",
    "slug": "plan-6-themes",
    "source": "docs/plans/2026-10-29-plan-6-themes.md",
    "status": "completed",
@@ -343,6 +351,7 @@
     "01M64AFRY2E3BX98SZ4RCG3PEP",
     "01M64AFRY2E3BX98SZ4RCG3PER"
    ],
+   "merged_in": "27c246d30192bafcdec66f6725b7a328e256b61e",
    "slug": "plan-7-export",
    "source": "docs/plans/2026-10-29-plan-7-export.md",
    "status": "completed",
@@ -363,6 +372,7 @@
     "01M64C03048SWRXRJ3A59AD9W4",
     "01M64C03048SWRXRJ3A59AD9W6"
    ],
+   "merged_in": "08f38c29f8f1f9780979581e4c0034bb6ded0746",
    "slug": "plan-8-closeout",
    "source": "docs/plans/2026-10-29-plan-8-closeout.md",
    "status": "completed",
@@ -374,11 +384,11 @@
   {
    "canonical_key": "roadmap",
    "doc_type": "roadmap",
-   "generated_at": "2026-10-29T17:58:04Z",
-   "git_hash": "08f38c2",
+   "generated_at": "2026-10-29T18:21:00Z",
+   "git_hash": "693614f",
    "slug": "roadmap",
    "source": "docs/roadmap.md",
-   "source_hash": "418f6a9b",
+   "source_hash": "698fa1e0",
    "title": "Roadmap",
    "truth_state": "current",
    "wiki": "https://github.com/SpillwaveSolutions/prd-forge-viewer/wiki/Roadmap",
@@ -390,6 +400,7 @@
    "doc_type": "roadmap-snapshot",
    "generated_at": "2026-10-29T17:58:04Z",
    "git_hash": "08f38c2",
+   "merged_in": "3c33b807ffd28da4ad0c3fd7d15c6396616c297c",
    "name": "v0.1.0-release",
    "release": "v0.1.0",
    "slug": "2026-10-29_v0.1.0-release",

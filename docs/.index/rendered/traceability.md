@@ -3,7 +3,7 @@
 _The evidence chain: plan → item → ticket → code → release, forward and backward. Generated from `docs/.index/_graph.json`; do not edit._
 
 ### Cut release 0.1.0
-`01M64CZNVN13K32BT680E0S8VY` · status: in_progress
+`01M64CZNVN13K32BT680E0S8VY` · status: done
 
 ### Task 4: close and sync
 `01M64C03048SWRXRJ3A59AD9W6` · status: done

@@ -1,5 +1,5 @@
 {
- "git_hash": "08f38c2",
+ "git_hash": "693614f",
  "pages": [
   {
    "frozen": false,
@@ -45,7 +45,7 @@
    "frozen": false,
    "page_name": "Index-Traceability",
    "render": "as-is",
-   "render_hash": "97ec09bc8f20",
+   "render_hash": "0866e2d80f37",
    "source": "docs/.index/rendered/traceability.md",
    "title": "Traceability Index",
    "truth_state": "current",
@@ -1815,10 +1815,10 @@
    "frozen": false,
    "page_name": "Ticket-01M64CZNVN13K32BT680E0S8VY",
    "render": "as-is",
-   "render_hash": "3031ab34ca7f",
+   "render_hash": "ed8b92af9c06",
    "source": "docs/.index/rendered/tickets/01M64CZNVN13K32BT680E0S8VY.md",
    "title": "Cut release 0.1.0",
-   "truth_state": "in-progress",
+   "truth_state": "done",
    "wiki_key": "item/01M64CZNVN13K32BT680E0S8VY"
   },
   {
@@ -2050,13 +2050,13 @@
    "wiki_key": "plan/2026-10-29-plan-8-closeout"
   },
   {
-   "banner": "> **Current** \u2014 this is the living version; regenerated at 2026-10-29T17:58:04Z. Historical snapshots are linked from [[Index-Releases]].",
+   "banner": "> **Current** \u2014 this is the living version; regenerated at 2026-10-29T18:21:00Z. Historical snapshots are linked from [[Index-Releases]].",
    "frozen": false,
    "page_name": "Roadmap",
    "render": "doc+banner",
-   "render_hash": "8f901f0e4c52",
+   "render_hash": "8338871c4026",
    "source": "docs/roadmap.md",
-   "source_hash": "8a3db55a7dcd",
+   "source_hash": "95e2fd389c4b",
    "title": "Roadmap",
    "truth_state": "current",
    "wiki_key": "roadmap"
