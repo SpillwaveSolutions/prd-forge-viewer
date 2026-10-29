@@ -1,5 +1,5 @@
 {
- "git_hash": "a706740",
+ "git_hash": "78ae1b1",
  "pages": [
   {
    "frozen": false,
@@ -15,7 +15,7 @@
    "frozen": false,
    "page_name": "Index-Decisions",
    "render": "as-is",
-   "render_hash": "9a4a75e0ad9f",
+   "render_hash": "dd1c82b01111",
    "source": "docs/.index/rendered/decisions.md",
    "title": "Decisions Index",
    "truth_state": "current",
@@ -45,7 +45,7 @@
    "frozen": false,
    "page_name": "Index-Traceability",
    "render": "as-is",
-   "render_hash": "629becb512ba",
+   "render_hash": "7dc51b92252a",
    "source": "docs/.index/rendered/traceability.md",
    "title": "Traceability Index",
    "truth_state": "current",
@@ -1525,7 +1525,7 @@
    "frozen": false,
    "page_name": "Ticket-01M62PG5A0K6D0ZN6QHB51EG8W",
    "render": "as-is",
-   "render_hash": "2f3751cd821a",
+   "render_hash": "29b49b8519ce",
    "source": "docs/.index/rendered/tickets/01M62PG5A0K6D0ZN6QHB51EG8W.md",
    "title": "Plan 6: export themes",
    "truth_state": "open",
@@ -1535,10 +1535,10 @@
    "frozen": false,
    "page_name": "Ticket-01M62PG5ADWD51YWCVTGKQ63YB",
    "render": "as-is",
-   "render_hash": "8bf6d882fbf8",
+   "render_hash": "72c6ef0880f3",
    "source": "docs/.index/rendered/tickets/01M62PG5ADWD51YWCVTGKQ63YB.md",
    "title": "Task 1: the theme model",
-   "truth_state": "open",
+   "truth_state": "done",
    "wiki_key": "item/01M62PG5ADWD51YWCVTGKQ63YB"
   },
   {
@@ -1644,11 +1644,11 @@
    "wiki_key": "plan/2026-10-29-plan-5-live"
   },
   {
-   "banner": "> **Current** \u2014 plan not yet started; plans are frozen once written, a changed design gets a new plan.",
+   "banner": "> **Current** \u2014 plan in flight; plans are frozen once written, a changed design gets a new plan.",
    "frozen": true,
    "page_name": "Plan-plan-6-themes",
    "render": "doc+banner",
-   "render_hash": "41f75b871285",
+   "render_hash": "860a24dc414a",
    "source": "docs/plans/2026-10-29-plan-6-themes.md",
    "source_hash": "f6a9eda99bb3",
    "title": "Plan 6: export themes",
@@ -1656,13 +1656,13 @@
    "wiki_key": "plan/2026-10-29-plan-6-themes"
   },
   {
-   "banner": "> **Current** \u2014 this is the living version; regenerated at 2026-10-29T02:37:42Z. Historical snapshots are linked from [[Index-Releases]].",
+   "banner": "> **Current** \u2014 this is the living version; regenerated at 2026-10-29T03:48:19Z. Historical snapshots are linked from [[Index-Releases]].",
    "frozen": false,
    "page_name": "Roadmap",
    "render": "doc+banner",
-   "render_hash": "fc6bc1544b39",
+   "render_hash": "7b71e65f4297",
    "source": "docs/roadmap.md",
-   "source_hash": "103fbad246c4",
+   "source_hash": "08c9254d1cae",
    "title": "Roadmap",
    "truth_state": "current",
    "wiki_key": "roadmap"

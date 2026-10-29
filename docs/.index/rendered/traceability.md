@@ -18,7 +18,7 @@ _The evidence chain: plan → item → ticket → code → release, forward and 
 - produced-by: [[Plan-plan-6-themes]]
 
 ### Task 1: the theme model
-`01M62PG5ADWD51YWCVTGKQ63YB` · status: todo
+`01M62PG5ADWD51YWCVTGKQ63YB` · status: done
 - belongs-to: Plan 6: export themes
 - produced-by: [[Plan-plan-6-themes]]
 

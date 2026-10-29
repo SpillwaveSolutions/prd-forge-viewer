@@ -1,6 +1,6 @@
 # Task 1: the theme model
 
-`01M62PG5ADWD51YWCVTGKQ63YB` · task/feature · **open**
+`01M62PG5ADWD51YWCVTGKQ63YB` · task/feature · **done**
 
 Copy `themes.ts` from Motion.
 

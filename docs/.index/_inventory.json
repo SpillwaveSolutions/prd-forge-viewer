@@ -156,7 +156,7 @@
    ],
    "slug": "plan-6-themes",
    "source": "docs/plans/2026-10-29-plan-6-themes.md",
-   "status": "planned",
+   "status": "active",
    "title": "Plan 6: export themes",
    "truth_state": "current",
    "wiki_key": "plan/2026-10-29-plan-6-themes"
@@ -164,11 +164,11 @@
   {
    "canonical_key": "roadmap",
    "doc_type": "roadmap",
-   "generated_at": "2026-10-29T02:37:42Z",
-   "git_hash": "a706740",
+   "generated_at": "2026-10-29T03:48:19Z",
+   "git_hash": "78ae1b1",
    "slug": "roadmap",
    "source": "docs/roadmap.md",
-   "source_hash": "4b5cdda5",
+   "source_hash": "9e023b70",
    "title": "Roadmap",
    "truth_state": "current",
    "wiki_key": "roadmap"
