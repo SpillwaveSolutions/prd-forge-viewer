@@ -57,8 +57,9 @@ sections. The selected documents follow the first page, in reading order.
 - A section with the status `pending` shows "This section is not written yet."
 - A section that the viewer cannot read shows "This section cannot be read."
 - A diagram shows as a picture, with its alt text as a caption below it.
-- The details block and each text sketch of a wireframe that has a drawing do
-  not show.
+- The details block does not show.
+- The text sketch of a wireframe does not show when the export can read its
+  drawing. When the export cannot read the drawing, the text sketch shows.
 
 The export embeds the Source Serif 4, Source Sans 3, and Source Code Pro fonts.
 The export does not say that the PRD is approved. A blocking defect does not
@@ -73,9 +74,17 @@ to include them. Print uses the same setting.
 
 ## Diagrams in an export
 
-The export uses the PNG file of each diagram. For an SVG diagram, the PNG file
-must be next to the SVG file, with the same name. If the export cannot read
-the PNG file, it shows the alt text of the diagram.
+For an SVG diagram, the export uses the PNG file with the same name next to
+the SVG file. The export uses the SVG file in these cases:
+
+- There is no PNG file.
+- The PNG file is older than the SVG file. An export never shows an older
+  drawing than the viewer.
+
+The Word file embeds an SVG diagram as SVG. Word 2016 and later show it. An
+older Word shows a blank picture in its place.
+
+If the export cannot read the diagram, it shows the alt text of the diagram.
 
 The PDF and print scale each diagram to fit the page width. The Word file
 scales each diagram down to fit 6 by 8 inches.
