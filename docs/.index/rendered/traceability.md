@@ -9,7 +9,7 @@ _The evidence chain: plan → item → ticket → code → release, forward and 
 `01M675A4ZFVAXWB3KWCZFBCF24` · status: todo
 
 ### Make doc-verify check src, src-tauri, and e2e citations
-`01M675A4XBXJ7C22QNX9VMRARG` · status: todo
+`01M675A4XBXJ7C22QNX9VMRARG` · status: done
 
 ### Unit test for the diagram window
 `01M675A4V59MT3MMYHAV416XWK` · status: done

@@ -4395,7 +4395,7 @@
   },
   "item/01M675A4XBXJ7C22QNX9VMRARG": {
    "doc_type": "item",
-   "status": "todo",
+   "status": "done",
    "title": "Make doc-verify check src, src-tauri, and e2e citations"
   },
   "item/01M675A4ZFVAXWB3KWCZFBCF24": {
