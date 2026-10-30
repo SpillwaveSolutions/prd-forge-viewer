@@ -12,10 +12,13 @@ wiki_key: guide/02-read-sections
 When a set opens, the window shows its overview:
 
 - The product name.
-- The version, for example "Version 0.6.1".
+- The version, for example "Version 0.6.2".
 - The executive summary from the root document.
 - The **Documents** list. It shows each document in reading order, with its
-  status.
+  status. A colored mark next to each document shows its status.
+
+The executive summary and the **Documents** list show side by side. In a
+narrow window, the list shows below the summary.
 - The **Grades** table. For more information, see [See the grades](03-grades.md).
 
 A document that the viewer cannot read shows **Unreadable**, its file name, and
@@ -35,8 +38,9 @@ The section page shows:
 - A row of buttons, one for each item id in the section.
 - The body of the section.
 
-A list of all the documents is at the side of the page. Click a title in the
-list to open that document. The title of the open document is marked.
+A list of all the documents is at the side of the page. Each title has a
+colored mark for its status. Click a title in the list to open that document.
+The title of the open document is marked.
 
 To go back to the overview, click **Back to the PRD set**.
 
@@ -73,9 +77,40 @@ images to keep all content local:
 |---|---|
 | A link to a `.md` document | A button that opens the document. |
 | Any other link | The link text only. The viewer does not follow the link. |
-| A local image in the set folder | The image. The viewer loads SVG, PNG, JPEG, and GIF files. |
+| A local image in the set folder | The image, with its alt text as a caption. The viewer loads SVG, PNG, JPEG, and GIF files. |
 | A local image that is missing | "[image not found: *alt text*]". |
 | A remote image | "[image: *alt text*]". The image does not load. |
 
 The viewer does not load an image from outside the set folder. No script in a
 body runs.
+
+## Parts of a body that do not show
+
+The authoring tools add some parts to a body that the viewer does not show:
+
+- The details block. It repeats the front matter of the document.
+- The text sketch of a wireframe, when a drawing of the wireframe follows it.
+  The viewer shows the drawing only.
+
+The exports also leave out these parts.
+
+## Open a diagram
+
+A diagram fits the width of the reading column. To see a large diagram in
+more detail, open it in the diagram window.
+
+1. Click the diagram.
+
+The diagram window shows the diagram as large as fits. The top of the window
+shows the name of the diagram and the zoom level, for example "150%".
+
+| To do this | Use the pointer | Use the keyboard |
+|---|---|---|
+| Zoom in | Scroll up, pinch out, or click **+**. | Press `+`. |
+| Zoom out | Scroll down, pinch in, or click **-**. | Press `-`. |
+| Fit the diagram to the window | Click **Fit**. | Press `0`. |
+| Move the diagram | Drag it. | Press an arrow key. |
+| Close the window | Click **Close**. | Press **Escape**. |
+
+The zoom level is from 25% to 800%. When the window closes, the section page
+shows again.

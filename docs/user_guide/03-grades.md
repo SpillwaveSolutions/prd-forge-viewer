@@ -32,5 +32,9 @@ The status and grade of a section also show at the top of its section page and
 on each of its items. For more information, see
 [Read sections and items](02-read-sections.md).
 
+An export leaves out the score and the blocking defects, unless you select
+**Include grades** in the **Export** dialog. For more information, see
+[Export and print](07-export-and-print.md).
+
 When the authoring tools save a new grade, the table shows it with no action
 from you. For more information, see [Live updates](05-live-updates.md).
