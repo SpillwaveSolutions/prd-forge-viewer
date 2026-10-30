@@ -45,7 +45,7 @@
    "frozen": false,
    "page_name": "Index-Traceability",
    "render": "as-is",
-   "render_hash": "b039c077f619",
+   "render_hash": "206b524c90fc",
    "source": "docs/.index/rendered/traceability.md",
    "title": "Traceability Index",
    "truth_state": "current",
@@ -150,6 +150,16 @@
    "title": "PR #194",
    "truth_state": "not tracked",
    "wiki_key": "pr/194"
+  },
+  {
+   "frozen": false,
+   "page_name": "PR-197",
+   "render": "as-is",
+   "render_hash": "dc7ac9c9e205",
+   "source": "docs/.index/rendered/prs/197.md",
+   "title": "PR #197",
+   "truth_state": "not tracked",
+   "wiki_key": "pr/197"
   },
   {
    "frozen": false,
@@ -2055,7 +2065,7 @@
    "frozen": false,
    "page_name": "Ticket-01M677QK6YTWSKBMRNXRVHVYVR",
    "render": "as-is",
-   "render_hash": "6efbebb27a09",
+   "render_hash": "c6e9207ee4bc",
    "source": "docs/.index/rendered/tickets/01M677QK6YTWSKBMRNXRVHVYVR.md",
    "title": "Text zoom: make the text larger or smaller",
    "truth_state": "done",
@@ -2065,7 +2075,7 @@
    "frozen": false,
    "page_name": "Ticket-01M677QK9QD6ADPDAFYHH1ACV8",
    "render": "as-is",
-   "render_hash": "00a444519e19",
+   "render_hash": "31f5a9f0fe3b",
    "source": "docs/.index/rendered/tickets/01M677QK9QD6ADPDAFYHH1ACV8.md",
    "title": "Search in more than one category",
    "truth_state": "done",
