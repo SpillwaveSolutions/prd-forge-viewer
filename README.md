@@ -9,16 +9,18 @@ With the viewer, you can:
 
 - Open a PRD set from the app or with the `prdf` command in a terminal.
 - Read each section and each item, and follow an id to the item that it names.
+- Open a diagram in a diagram window, and zoom and pan it.
 - See the status, score, and blocking defects of every section in one table.
 - Search the set by term, in one category or in all categories.
 - See a save from the authoring tools in the window within 2 seconds.
-- Export the set to PDF or Word with a theme, or print it.
+- Export the set to PDF or Word with a theme, or print it. Diagrams show as
+  pictures with captions.
 
 The viewer shows only local content. No script in a document runs, and no
 remote image loads.
 
-Release 0.1.0 covers release 1 (REL-001) of the PRD: FR-001 to FR-024, except
-FR-006. For the full list of changes, see [CHANGELOG.md](CHANGELOG.md).
+Release 0.2.0 covers release 1 (REL-001) of the PRD: FR-001 to FR-024, except
+FR-006. It follows PRD 0.6.2. For the full list of changes, see [CHANGELOG.md](CHANGELOG.md).
 
 ## User guide
 
@@ -29,8 +31,8 @@ the viewer.
 
 The release has one disk image for Macs with Apple silicon.
 
-1. Download `PRD.Forge.Viewer_0.1.0_aarch64.dmg` from the
-   [v0.1.0 release](https://github.com/SpillwaveSolutions/prd-forge-viewer/releases/tag/v0.1.0).
+1. Download `PRD.Forge.Viewer_0.2.0_aarch64.dmg` from the
+   [v0.2.0 release](https://github.com/SpillwaveSolutions/prd-forge-viewer/releases/tag/v0.2.0).
 2. Open the disk image.
 3. Move **PRD Forge Viewer** to the **Applications** folder.
 4. Start **PRD Forge Viewer**.
@@ -88,7 +90,8 @@ exported file.
 ## Known limits
 
 - PDF export needs Google Chrome on the Mac. Word export does not.
-- Diagrams show as their alt text in exports.
+- An export shows a diagram as a picture only when a PNG file is next to its
+  SVG file. If not, the export shows the alt text of the diagram.
 - Some non-functional checks have no full run yet: the network-off run, the
   checksum test, the full hostile fixture, the full keyboard audit, and a
   reader's accessibility checker on the exports. See section 4.2 of
