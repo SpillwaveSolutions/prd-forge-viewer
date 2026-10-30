@@ -550,3 +550,5 @@
 {"actor":"richardhightower","ev":"01M675AB5R3SDH4FRSB6N4S117","git":"582f61a","item":"01M675AB5R3SDH4FRSB6N4S116","op":"create","set":{"kind":"feature","level":"task","priority":"P2","status":"todo","title":"A distinct app icon"},"ts":"2026-10-30T19:41:49Z"}
 {"actor":"richardhightower","ev":"01M675AGY7XACKT02ZKTHVZHQP","git":"582f61a","item":"01M675A4MB6Z9Z1AVKNEY5G60Y","op":"update","set":{"status":"in_progress"},"ts":"2026-10-30T19:41:55Z"}
 {"actor":"richardhightower","ev":"01M675AP6TF334KGG49611JBG8","git":"582f61a","item":"01M675A4MB6Z9Z1AVKNEY5G60Y","op":"close","set":{"status":"done"},"ts":"2026-10-30T19:42:00Z"}
+{"actor":"richardhightower","ev":"01M675BJBVE0Z4YDEY8PXMK17F","git":"576bc71","item":"01M675A4RX6SXQNCPH8CW4J91C","op":"update","set":{"status":"in_progress"},"ts":"2026-10-30T19:42:29Z"}
+{"actor":"richardhightower","ev":"01M675DAJN7WBTW293B56B9EWC","git":"576bc71","item":"01M675A4RX6SXQNCPH8CW4J91C","op":"close","set":{"status":"done"},"ts":"2026-10-30T19:43:26Z"}

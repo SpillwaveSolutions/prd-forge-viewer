@@ -15,7 +15,7 @@ _The evidence chain: plan → item → ticket → code → release, forward and 
 `01M675A4V59MT3MMYHAV416XWK` · status: todo
 
 ### Export the SVG when its PNG is older
-`01M675A4RX6SXQNCPH8CW4J91C` · status: todo
+`01M675A4RX6SXQNCPH8CW4J91C` · status: done
 
 ### Show a wireframe sketch when its drawing does not load
 `01M675A4PNMQ5VHJ9GBEJC3N0Q` · status: todo

@@ -75,15 +75,30 @@ export function fitImage(size: { width: number; height: number }): { width: numb
     return { width: Math.round(size.width * scale), height: Math.round(size.height * scale) };
 }
 
+/** Width and height from the viewBox of an SVG, or from its width and height. */
+export function svgSize(svg: string): { width: number; height: number } {
+    const box = /viewBox="[\d.-]+[ ,]+[\d.-]+[ ,]+([\d.]+)[ ,]+([\d.]+)"/.exec(svg);
+    if (box) return { width: Number(box[1]), height: Number(box[2]) };
+    const w = /\swidth="([\d.]+)/.exec(svg), h = /\sheight="([\d.]+)/.exec(svg);
+    return { width: Number(w?.[1] ?? 576), height: Number(h?.[1] ?? 432) };
+}
+
+// Word 2016 and later draw the SVG. An older Word shows this 1 by 1 PNG in its place.
+const BLANK_PNG = Uint8Array.from(atob("iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII="), (c) => c.charCodeAt(0));
+
 function image(block: ExportBlock & { type: "image" }, theme: ExportTheme, src = ""): FileChild[] {
-    const png = /^data:image\/png;base64,(.+)$/.exec(src);
-    if (!png?.[1]) return [paragraph(block.alt, theme, { italic: true, color: theme.muted })];
-    const data = Uint8Array.from(atob(png[1]), (c) => c.charCodeAt(0));
+    const m = /^data:image\/(png|svg\+xml);base64,(.+)$/.exec(src);
+    if (!m?.[2]) return [paragraph(block.alt, theme, { italic: true, color: theme.muted })];
+    const data = Uint8Array.from(atob(m[2]), (c) => c.charCodeAt(0));
+    const altText = { name: block.alt, title: block.alt, description: block.alt };
+    const run = m[1] === "png"
+        ? new ImageRun({ type: "png", data, transformation: fitImage(pngSize(data)), altText })
+        : new ImageRun({ type: "svg", data, fallback: { type: "png", data: BLANK_PNG }, transformation: fitImage(svgSize(new TextDecoder().decode(data))), altText });
     return [
         new Paragraph({
             alignment: AlignmentType.CENTER,
             keepNext: true,
-            children: [new ImageRun({ type: "png", data, transformation: fitImage(pngSize(data)), altText: { name: block.alt, title: block.alt, description: block.alt } })],
+            children: [run],
         }),
         new Paragraph({
             alignment: AlignmentType.CENTER,

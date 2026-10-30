@@ -1,5 +1,5 @@
 {
- "git_hash": "582f61a",
+ "git_hash": "576bc71",
  "pages": [
   {
    "frozen": false,
@@ -45,7 +45,7 @@
    "frozen": false,
    "page_name": "Index-Traceability",
    "render": "as-is",
-   "render_hash": "69f057e1d916",
+   "render_hash": "f0eaf10678b4",
    "source": "docs/.index/rendered/traceability.md",
    "title": "Traceability Index",
    "truth_state": "current",
@@ -1965,10 +1965,10 @@
    "frozen": false,
    "page_name": "Ticket-01M675A4RX6SXQNCPH8CW4J91C",
    "render": "as-is",
-   "render_hash": "20182c5d42de",
+   "render_hash": "438b77843d04",
    "source": "docs/.index/rendered/tickets/01M675A4RX6SXQNCPH8CW4J91C.md",
    "title": "Export the SVG when its PNG is older",
-   "truth_state": "open",
+   "truth_state": "done",
    "wiki_key": "item/01M675A4RX6SXQNCPH8CW4J91C"
   },
   {
@@ -2264,13 +2264,13 @@
    "wiki_key": "plan/2026-10-30-plan-9-diagrams-design"
   },
   {
-   "banner": "> **Current** \u2014 this is the living version; regenerated at 2026-10-30T19:42:00Z. Historical snapshots are linked from [[Index-Releases]].",
+   "banner": "> **Current** \u2014 this is the living version; regenerated at 2026-10-30T19:43:26Z. Historical snapshots are linked from [[Index-Releases]].",
    "frozen": false,
    "page_name": "Roadmap",
    "render": "doc+banner",
-   "render_hash": "bc2abf55fd1c",
+   "render_hash": "421d58b115c0",
    "source": "docs/roadmap.md",
-   "source_hash": "2e11f6e336f4",
+   "source_hash": "866e5070ca68",
    "title": "Roadmap",
    "truth_state": "current",
    "wiki_key": "roadmap"
