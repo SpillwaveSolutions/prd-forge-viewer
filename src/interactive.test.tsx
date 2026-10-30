@@ -16,6 +16,7 @@ const { DiagramViewer } = await import("./DiagramViewer");
 const { SectionPage } = await import("./SectionPage");
 const { renderBody } = await import("./renderBody");
 const { SearchPanel } = await import("./SearchPanel");
+const { SearchDrawer } = await import("./SearchDrawer");
 
 const mount = async (el: React.ReactElement) => {
     const host = document.createElement("div");
@@ -96,4 +97,36 @@ test("search_uses_every_selected_category_and_all_clears_them", async () => {
     await submit();
     expect(calls.at(-1)).toEqual([]);
     await unmount();
+});
+
+test("the_search_drawer_opens_with_focus_pins_and_closes_with_escape_only_when_unpinned", async () => {
+    let closed = 0, pinned: boolean | undefined;
+    const drawer = (open: boolean, pin: boolean) => (
+        <SearchDrawer open={open} pinned={pin} onClose={() => closed++} onPin={(p) => (pinned = p)}>
+            <input type="search" />
+        </SearchDrawer>
+    );
+    const host = document.createElement("div");
+    document.body.append(host);
+    const root = createRoot(host);
+    await act(async () => root.render(drawer(false, false)));
+    const aside = host.querySelector("aside")!;
+    expect(aside.hasAttribute("inert")).toBe(true);
+    expect(aside.classList.contains("open")).toBe(false);
+
+    await act(async () => root.render(drawer(true, false)));
+    expect(aside.hasAttribute("inert")).toBe(false);
+    expect(document.activeElement).toBe(host.querySelector("input[type=search]"));
+    const esc = () => act(async () => { window.dispatchEvent(new KeyboardEvent("keydown", { key: "Escape" })); });
+    await esc();
+    expect(closed).toBe(1);
+
+    await act(async () => { (host.querySelector("[aria-pressed]") as HTMLElement).click(); });
+    expect(pinned).toBe(true);
+    await act(async () => root.render(drawer(true, true)));
+    await esc();
+    expect(closed).toBe(1);
+    await act(async () => { (host.querySelector("[aria-label='Close search']") as HTMLElement).click(); });
+    expect(closed).toBe(2);
+    await act(async () => root.unmount());
 });

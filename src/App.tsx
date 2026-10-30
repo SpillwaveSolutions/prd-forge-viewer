@@ -4,6 +4,7 @@ import { listen } from "@tauri-apps/api/event";
 import { ask, open, save } from "@tauri-apps/plugin-dialog";
 import { GradesTable } from "./GradesTable";
 import { SearchPanel } from "./SearchPanel";
+import { SearchDrawer } from "./SearchDrawer";
 import { SectionPage } from "./SectionPage";
 import { SetOverview } from "./SetOverview";
 import { StartScreen } from "./StartScreen";
@@ -34,10 +35,28 @@ export function App() {
         document.documentElement.style.fontSize = `${15 * zoom}px`;
         try { localStorage.setItem("pfv.textZoom", String(zoom)); } catch { /* the size still applies for this session */ }
     }, [zoom]);
+    // The search drawer. The pin is kept in local storage, like the text size.
+    const [searchOpen, setSearchOpen] = useState(false);
+    const [searchPinned, setSearchPinned] = useState(() => { try { return localStorage.getItem("pfv.searchPinned") === "true"; } catch { return false; } });
+    const pinSearch = (pinned: boolean) => {
+        setSearchPinned(pinned);
+        try { localStorage.setItem("pfv.searchPinned", String(pinned)); } catch { /* the pin still applies for this session */ }
+    };
+    const closeSearch = useCallback(() => setSearchOpen(false), []);
+    // The drawer starts below the header. The header height changes with the text size and the window width.
+    const header = useRef<HTMLElement>(null);
+    useEffect(() => {
+        const el = header.current;
+        if (!el) return;
+        const ro = new ResizeObserver(() => document.documentElement.style.setProperty("--header-h", `${el.offsetHeight}px`));
+        ro.observe(el);
+        return () => ro.disconnect();
+    }, []);
     useEffect(() => {
         // Command-plus, Command-minus, and Command-0, as in a browser.
         const onKey = (e: KeyboardEvent) => {
             if (!e.metaKey || e.altKey || e.ctrlKey) return;
+            if (e.key === "f") { e.preventDefault(); setSearchOpen(true); return; }
             const dir = e.key === "=" || e.key === "+" ? 1 : e.key === "-" ? -1 : e.key === "0" ? 0 : null;
             if (dir === null) return;
             e.preventDefault();
@@ -164,8 +183,8 @@ export function App() {
     };
 
     return (
-        <main>
-            <header className="toolbar">
+        <main className={set && searchOpen && searchPinned ? "with-drawer" : undefined}>
+            <header ref={header} className="toolbar">
                 <button type="button" onClick={pickAndStart} autoFocus>
                     Open PRD set
                 </button>{" "}
@@ -180,6 +199,9 @@ export function App() {
                         {" "}
                         <button type="button" onClick={() => setExporting(true)}>
                             Export
+                        </button>{" "}
+                        <button type="button" aria-expanded={searchOpen} aria-controls="search-drawer" title="Search (Command-F)" onClick={() => setSearchOpen((o) => !o)}>
+                            Search
                         </button>
                     </>
                 )}
@@ -219,12 +241,14 @@ export function App() {
             {notice && <p role="status">{notice}</p>}
             {error && <p role="alert" className="error">{error}</p>}
             {set && (
-                <SearchPanel
-                    key={set.folder}
-                    categories={categories}
-                    onSearch={(term, categories) => invoke<Hit[]>("search", { folder: set.folder, term, categories })}
-                    onOpenHit={(hit) => openDoc(hit.file, hit.id)}
-                />
+                <SearchDrawer open={searchOpen} pinned={searchPinned} onClose={closeSearch} onPin={pinSearch}>
+                    <SearchPanel
+                        key={set.folder}
+                        categories={categories}
+                        onSearch={(term, categories) => invoke<Hit[]>("search", { folder: set.folder, term, categories })}
+                        onOpenHit={(hit) => { if (!searchPinned) setSearchOpen(false); openDoc(hit.file, hit.id); }}
+                    />
+                </SearchDrawer>
             )}
             {set && page ? (
                 <SectionPage
