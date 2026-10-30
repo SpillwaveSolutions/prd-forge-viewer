@@ -1,0 +1,5 @@
+# Remove the leftover agent worktrees
+
+`01M675A4ZFVAXWB3KWCZFBCF24` · task/bug · **open**
+
+Remove the leftover agent worktrees

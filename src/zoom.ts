@@ -6,9 +6,9 @@ export const MIN_SCALE = 0.25;
 export const MAX_SCALE = 8;
 const FILL = 0.95;
 
-/** The diagram as large as fits inside the window, with a margin, and centered. */
+/** The diagram as large as fits inside the window, with a margin, and centered. A very large diagram opens at the minimum scale. */
 export function fitView(image: Size, box: Size): View {
-    const scale = Math.min(MAX_SCALE, (box.width * FILL) / image.width, (box.height * FILL) / image.height);
+    const scale = Math.max(MIN_SCALE, Math.min(MAX_SCALE, (box.width * FILL) / image.width, (box.height * FILL) / image.height));
     return { scale, x: (box.width - image.width * scale) / 2, y: (box.height - image.height * scale) / 2 };
 }
 

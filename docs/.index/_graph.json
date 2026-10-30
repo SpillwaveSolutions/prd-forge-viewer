@@ -4373,6 +4373,41 @@
    "status": "done",
    "title": "Release 0.2.0"
   },
+  "item/01M675A4MB6Z9Z1AVKNEY5G60Y": {
+   "doc_type": "item",
+   "status": "done",
+   "title": "Clamp the diagram fit to the 25% minimum"
+  },
+  "item/01M675A4PNMQ5VHJ9GBEJC3N0Q": {
+   "doc_type": "item",
+   "status": "todo",
+   "title": "Show a wireframe sketch when its drawing does not load"
+  },
+  "item/01M675A4RX6SXQNCPH8CW4J91C": {
+   "doc_type": "item",
+   "status": "todo",
+   "title": "Export the SVG when its PNG is older"
+  },
+  "item/01M675A4V59MT3MMYHAV416XWK": {
+   "doc_type": "item",
+   "status": "todo",
+   "title": "Unit test for the diagram window"
+  },
+  "item/01M675A4XBXJ7C22QNX9VMRARG": {
+   "doc_type": "item",
+   "status": "todo",
+   "title": "Make doc-verify check src, src-tauri, and e2e citations"
+  },
+  "item/01M675A4ZFVAXWB3KWCZFBCF24": {
+   "doc_type": "item",
+   "status": "todo",
+   "title": "Remove the leftover agent worktrees"
+  },
+  "item/01M675AB5R3SDH4FRSB6N4S116": {
+   "doc_type": "item",
+   "status": "todo",
+   "title": "A distinct app icon"
+  },
   "plan/2026-10-28-plan-1-open-and-grades": {
    "doc_type": "plan",
    "source": "docs/plans/2026-10-28-plan-1-open-and-grades.md",

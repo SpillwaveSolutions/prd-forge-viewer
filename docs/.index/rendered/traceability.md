@@ -2,6 +2,27 @@
 
 _The evidence chain: plan → item → ticket → code → release, forward and backward. Generated from `docs/.index/_graph.json`; do not edit._
 
+### A distinct app icon
+`01M675AB5R3SDH4FRSB6N4S116` · status: todo
+
+### Remove the leftover agent worktrees
+`01M675A4ZFVAXWB3KWCZFBCF24` · status: todo
+
+### Make doc-verify check src, src-tauri, and e2e citations
+`01M675A4XBXJ7C22QNX9VMRARG` · status: todo
+
+### Unit test for the diagram window
+`01M675A4V59MT3MMYHAV416XWK` · status: todo
+
+### Export the SVG when its PNG is older
+`01M675A4RX6SXQNCPH8CW4J91C` · status: todo
+
+### Show a wireframe sketch when its drawing does not load
+`01M675A4PNMQ5VHJ9GBEJC3N0Q` · status: todo
+
+### Clamp the diagram fit to the 25% minimum
+`01M675A4MB6Z9Z1AVKNEY5G60Y` · status: done
+
 ### Release 0.2.0
 `01M671SCRSYHVMEY9M09JNM0XW` · status: done
 - belongs-to: Plan 9: diagrams as images, optional grades, and a better layout

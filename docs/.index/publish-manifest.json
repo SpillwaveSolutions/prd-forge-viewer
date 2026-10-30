@@ -1,5 +1,5 @@
 {
- "git_hash": "81fefbb",
+ "git_hash": "582f61a",
  "pages": [
   {
    "frozen": false,
@@ -45,7 +45,7 @@
    "frozen": false,
    "page_name": "Index-Traceability",
    "render": "as-is",
-   "render_hash": "6ae54533e4a8",
+   "render_hash": "69f057e1d916",
    "source": "docs/.index/rendered/traceability.md",
    "title": "Traceability Index",
    "truth_state": "current",
@@ -1942,6 +1942,76 @@
    "wiki_key": "item/01M671SCRSYHVMEY9M09JNM0XW"
   },
   {
+   "frozen": false,
+   "page_name": "Ticket-01M675A4MB6Z9Z1AVKNEY5G60Y",
+   "render": "as-is",
+   "render_hash": "a3e690ba3c81",
+   "source": "docs/.index/rendered/tickets/01M675A4MB6Z9Z1AVKNEY5G60Y.md",
+   "title": "Clamp the diagram fit to the 25% minimum",
+   "truth_state": "done",
+   "wiki_key": "item/01M675A4MB6Z9Z1AVKNEY5G60Y"
+  },
+  {
+   "frozen": false,
+   "page_name": "Ticket-01M675A4PNMQ5VHJ9GBEJC3N0Q",
+   "render": "as-is",
+   "render_hash": "6da50ca7cde1",
+   "source": "docs/.index/rendered/tickets/01M675A4PNMQ5VHJ9GBEJC3N0Q.md",
+   "title": "Show a wireframe sketch when its drawing does not load",
+   "truth_state": "open",
+   "wiki_key": "item/01M675A4PNMQ5VHJ9GBEJC3N0Q"
+  },
+  {
+   "frozen": false,
+   "page_name": "Ticket-01M675A4RX6SXQNCPH8CW4J91C",
+   "render": "as-is",
+   "render_hash": "20182c5d42de",
+   "source": "docs/.index/rendered/tickets/01M675A4RX6SXQNCPH8CW4J91C.md",
+   "title": "Export the SVG when its PNG is older",
+   "truth_state": "open",
+   "wiki_key": "item/01M675A4RX6SXQNCPH8CW4J91C"
+  },
+  {
+   "frozen": false,
+   "page_name": "Ticket-01M675A4V59MT3MMYHAV416XWK",
+   "render": "as-is",
+   "render_hash": "ea79aa6c03cd",
+   "source": "docs/.index/rendered/tickets/01M675A4V59MT3MMYHAV416XWK.md",
+   "title": "Unit test for the diagram window",
+   "truth_state": "open",
+   "wiki_key": "item/01M675A4V59MT3MMYHAV416XWK"
+  },
+  {
+   "frozen": false,
+   "page_name": "Ticket-01M675A4XBXJ7C22QNX9VMRARG",
+   "render": "as-is",
+   "render_hash": "06257fc71294",
+   "source": "docs/.index/rendered/tickets/01M675A4XBXJ7C22QNX9VMRARG.md",
+   "title": "Make doc-verify check src, src-tauri, and e2e citations",
+   "truth_state": "open",
+   "wiki_key": "item/01M675A4XBXJ7C22QNX9VMRARG"
+  },
+  {
+   "frozen": false,
+   "page_name": "Ticket-01M675A4ZFVAXWB3KWCZFBCF24",
+   "render": "as-is",
+   "render_hash": "00e9992e2193",
+   "source": "docs/.index/rendered/tickets/01M675A4ZFVAXWB3KWCZFBCF24.md",
+   "title": "Remove the leftover agent worktrees",
+   "truth_state": "open",
+   "wiki_key": "item/01M675A4ZFVAXWB3KWCZFBCF24"
+  },
+  {
+   "frozen": false,
+   "page_name": "Ticket-01M675AB5R3SDH4FRSB6N4S116",
+   "render": "as-is",
+   "render_hash": "b63f7dbed665",
+   "source": "docs/.index/rendered/tickets/01M675AB5R3SDH4FRSB6N4S116.md",
+   "title": "A distinct app icon",
+   "truth_state": "open",
+   "wiki_key": "item/01M675AB5R3SDH4FRSB6N4S116"
+  },
+  {
    "banner": "> **Snapshot** of release v0.1.0 (2026-10-29) \u2014 frozen record. The current version is [[Code-Walkthrough]].",
    "frozen": true,
    "page_name": "Design-Freeze-2026-10-29_v0.1.0-release",
@@ -2194,13 +2264,13 @@
    "wiki_key": "plan/2026-10-30-plan-9-diagrams-design"
   },
   {
-   "banner": "> **Current** \u2014 this is the living version; regenerated at 2026-10-30T18:40:59Z. Historical snapshots are linked from [[Index-Releases]].",
+   "banner": "> **Current** \u2014 this is the living version; regenerated at 2026-10-30T19:42:00Z. Historical snapshots are linked from [[Index-Releases]].",
    "frozen": false,
    "page_name": "Roadmap",
    "render": "doc+banner",
-   "render_hash": "2aac13ab4239",
+   "render_hash": "bc2abf55fd1c",
    "source": "docs/roadmap.md",
-   "source_hash": "95e2fd389c4b",
+   "source_hash": "2e11f6e336f4",
    "title": "Roadmap",
    "truth_state": "current",
    "wiki_key": "roadmap"
