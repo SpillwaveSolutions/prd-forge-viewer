@@ -1,5 +1,16 @@
 # Changelog
 
+## 0.3.0, unreleased
+
+### New
+
+- **Text size.** Make the text larger or smaller with the **A−** and **A+**
+  buttons in the header, or with Command-plus and Command-minus. Select the
+  percentage, or press Command-0, for the normal size. The viewer keeps the
+  size for the next time you open it.
+- **Search in more than one category.** The category list is now a row of
+  checkboxes. Select one or more categories, or **All categories**.
+
 ## 0.2.1, 2026-10-30
 
 ### New

@@ -1,5 +1,5 @@
 {
- "git_hash": "369f387",
+ "git_hash": "c1b5f0d",
  "pages": [
   {
    "frozen": false,
@@ -45,7 +45,7 @@
    "frozen": false,
    "page_name": "Index-Traceability",
    "render": "as-is",
-   "render_hash": "453955348cf2",
+   "render_hash": "206b524c90fc",
    "source": "docs/.index/rendered/traceability.md",
    "title": "Traceability Index",
    "truth_state": "current",
@@ -150,6 +150,16 @@
    "title": "PR #194",
    "truth_state": "not tracked",
    "wiki_key": "pr/194"
+  },
+  {
+   "frozen": false,
+   "page_name": "PR-197",
+   "render": "as-is",
+   "render_hash": "dc7ac9c9e205",
+   "source": "docs/.index/rendered/prs/197.md",
+   "title": "PR #197",
+   "truth_state": "not tracked",
+   "wiki_key": "pr/197"
   },
   {
    "frozen": false,
@@ -2052,6 +2062,26 @@
    "wiki_key": "item/01M676T35CQDJFPR5XKDD2CW3R"
   },
   {
+   "frozen": false,
+   "page_name": "Ticket-01M677QK6YTWSKBMRNXRVHVYVR",
+   "render": "as-is",
+   "render_hash": "c6e9207ee4bc",
+   "source": "docs/.index/rendered/tickets/01M677QK6YTWSKBMRNXRVHVYVR.md",
+   "title": "Text zoom: make the text larger or smaller",
+   "truth_state": "done",
+   "wiki_key": "item/01M677QK6YTWSKBMRNXRVHVYVR"
+  },
+  {
+   "frozen": false,
+   "page_name": "Ticket-01M677QK9QD6ADPDAFYHH1ACV8",
+   "render": "as-is",
+   "render_hash": "31f5a9f0fe3b",
+   "source": "docs/.index/rendered/tickets/01M677QK9QD6ADPDAFYHH1ACV8.md",
+   "title": "Search in more than one category",
+   "truth_state": "done",
+   "wiki_key": "item/01M677QK9QD6ADPDAFYHH1ACV8"
+  },
+  {
    "banner": "> **Snapshot** of release v0.1.0 (2026-10-29) \u2014 frozen record. The current version is [[Code-Walkthrough]].",
    "frozen": true,
    "page_name": "Design-Freeze-2026-10-29_v0.1.0-release",
@@ -2316,11 +2346,11 @@
    "wiki_key": "plan/2026-10-30-plan-9-diagrams-design"
   },
   {
-   "banner": "> **Current** \u2014 this is the living version; regenerated at 2026-10-30T20:08:13Z. Historical snapshots are linked from [[Index-Releases]].",
+   "banner": "> **Current** \u2014 this is the living version; regenerated at 2026-10-30T20:35:27Z. Historical snapshots are linked from [[Index-Releases]].",
    "frozen": false,
    "page_name": "Roadmap",
    "render": "doc+banner",
-   "render_hash": "2bcd2be53da7",
+   "render_hash": "3030282f034d",
    "source": "docs/roadmap.md",
    "source_hash": "95e2fd389c4b",
    "title": "Roadmap",

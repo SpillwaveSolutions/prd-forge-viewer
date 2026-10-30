@@ -16,7 +16,7 @@ test("an_image_line_is_an_image_block", () => {
     expect(markdownToBlocks("Text.\n\n![WF-001 drawing](diagrams/WF-001.svg)\n")).toContainEqual({ type: "image", alt: "WF-001 drawing", src: "diagrams/WF-001.svg" });
 });
 
-test("each_local_image_gets_the_data_of_its_png", async () => {
+test("each_local_image_is_asked_for_by_its_own_path", async () => {
     const asked: string[] = [];
     const images = await loadImages("![A](diagrams/A.svg)\n\n![B](https://x.test/b.png)\n", async (rel) => { asked.push(rel); return "data:image/png;base64,AAAA"; });
     expect(asked).toEqual(["diagrams/A.svg"]);

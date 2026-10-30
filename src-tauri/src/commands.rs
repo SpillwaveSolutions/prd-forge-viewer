@@ -71,10 +71,10 @@ fn index_file(app: &AppHandle, folder: &str) -> PathBuf {
     crate::search::index_path(&data, Path::new(folder))
 }
 
-/// Search the set by term, in one category or in "all" (FR-008).
+/// Search the set by term, in the given categories, or in all when the list is empty (FR-008).
 #[tauri::command(async)]
-pub fn search(app: AppHandle, state: State<crate::search::SearchState>, folder: String, term: String, category: String) -> Result<Vec<crate::search::Hit>, String> {
-    state.search(&index_file(&app, &folder), Path::new(&folder), &term, &category)
+pub fn search(app: AppHandle, state: State<crate::search::SearchState>, folder: String, term: String, categories: Vec<String>) -> Result<Vec<crate::search::Hit>, String> {
+    state.search(&index_file(&app, &folder), Path::new(&folder), &term, &categories)
 }
 
 /// The search categories of the set, in reading order.

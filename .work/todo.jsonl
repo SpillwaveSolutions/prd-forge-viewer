@@ -565,3 +565,9 @@
 {"actor":"richardhightower","ev":"01M676SS8CBZV03PZ046XX1S87","git":"7203697","item":"01M676SS4XCWHBNNNZRYE6D7FG","op":"close","set":{"status":"done"},"ts":"2026-10-30T20:07:43Z"}
 {"actor":"richardhightower","ev":"01M676T35CQDJFPR5XKDD2CW3S","git":"369f387","item":"01M676T35CQDJFPR5XKDD2CW3R","op":"create","set":{"kind":"ops","level":"task","priority":"P1","status":"todo","title":"Release 0.2.1"},"ts":"2026-10-30T20:07:53Z"}
 {"actor":"richardhightower","ev":"01M676TP47PSB6FXWWAP9YX19D","git":"369f387","item":"01M676T35CQDJFPR5XKDD2CW3R","op":"close","set":{"status":"done"},"ts":"2026-10-30T20:08:13Z"}
+{"actor":"richardhightower","ev":"01M677QK6ZYVCSFB9JZWTTRAVR","git":"0e83f78","item":"01M677QK6YTWSKBMRNXRVHVYVR","op":"create","set":{"kind":"feature","level":"task","priority":"P1","status":"todo","title":"Text zoom: make the text larger or smaller"},"ts":"2026-10-30T20:24:00Z"}
+{"actor":"richardhightower","ev":"01M677QK9QD6ADPDAFYHH1ACV9","git":"0e83f78","item":"01M677QK9QD6ADPDAFYHH1ACV8","op":"create","set":{"kind":"feature","level":"task","priority":"P1","status":"todo","title":"Search in more than one category"},"ts":"2026-10-30T20:24:00Z"}
+{"actor":"richardhightower","ev":"01M677QZYDBEZN91A5CBNC70CK","git":"0e83f78","item":"01M677QK9QD6ADPDAFYHH1ACV8","op":"update","set":{"status":"in_progress"},"ts":"2026-10-30T20:24:13Z"}
+{"actor":"richardhightower","ev":"01M677XDHK9GXTAR23ZNGGA0Y4","git":"0e83f78","item":"01M677QK9QD6ADPDAFYHH1ACV8","op":"close","set":{"status":"done"},"ts":"2026-10-30T20:27:11Z"}
+{"actor":"richardhightower","ev":"01M677XDN5XGJ1Z5C3473S312R","git":"0e83f78","item":"01M677QK6YTWSKBMRNXRVHVYVR","op":"update","set":{"status":"in_progress"},"ts":"2026-10-30T20:27:11Z"}
+{"actor":"richardhightower","ev":"01M678CHZPD6KCYE19WSNEFKN8","git":"c1b5f0d","item":"01M677QK6YTWSKBMRNXRVHVYVR","op":"close","set":{"status":"done"},"ts":"2026-10-30T20:35:27Z"}
