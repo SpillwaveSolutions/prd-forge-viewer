@@ -12,13 +12,13 @@ _The evidence chain: plan → item → ticket → code → release, forward and 
 `01M675A4XBXJ7C22QNX9VMRARG` · status: todo
 
 ### Unit test for the diagram window
-`01M675A4V59MT3MMYHAV416XWK` · status: todo
+`01M675A4V59MT3MMYHAV416XWK` · status: done
 
 ### Export the SVG when its PNG is older
 `01M675A4RX6SXQNCPH8CW4J91C` · status: done
 
 ### Show a wireframe sketch when its drawing does not load
-`01M675A4PNMQ5VHJ9GBEJC3N0Q` · status: todo
+`01M675A4PNMQ5VHJ9GBEJC3N0Q` · status: done
 
 ### Clamp the diagram fit to the 25% minimum
 `01M675A4MB6Z9Z1AVKNEY5G60Y` · status: done

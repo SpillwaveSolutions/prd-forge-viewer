@@ -49,8 +49,11 @@ export type Deps = {
 };
 
 async function themedExport(set: PrdSet, selected: ReadonlySet<string>, options: ExportOptions, deps: Pick<Deps, "read" | "asset">) {
-    const markdown = buildExport(set, await collectBodies(set, selected, deps.read), selected, options);
-    return { markdown, images: await loadImages(markdown, deps.asset), title: `${set.product} PRD`, fonts: await appFonts() };
+    const bodies = await collectBodies(set, selected, deps.read);
+    // The images first, so a sketch stays in the export when its drawing cannot be read.
+    const images = await loadImages([...bodies.values()].map((b) => b.body).join("\n"), deps.asset);
+    const markdown = buildExport(set, bodies, selected, { ...options, hasDrawing: (p) => images.has(p) });
+    return { markdown, images, title: `${set.product} PRD`, fonts: await appFonts() };
 }
 
 /** Export to PDF or Word, saved where the author picks (FR-010, FR-011, FR-012). Returns false when the author cancels. */

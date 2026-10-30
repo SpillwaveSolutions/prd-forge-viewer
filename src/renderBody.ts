@@ -1,6 +1,6 @@
 import DOMPurify from "dompurify";
 import { Marked, type Tokens } from "marked";
-import { cleanBody } from "./bodyClean";
+import { cleanForView } from "./bodyClean";
 
 const remote = (url: string) => /^[a-z][a-z0-9+.-]*:/i.test(url) && !url.startsWith("data:");
 const esc = (s: string) => s.replace(/[&<>"']/g, (c) => `&#${c.charCodeAt(0)};`);
@@ -49,7 +49,7 @@ export function renderBody(markdown: string, win: Window & typeof globalThis = w
         if (node.nodeName === "A") node.removeAttribute("href");
     });
     try {
-        return purify.sanitize(md.parse(cleanBody(markdown), { async: false }) as string, { USE_PROFILES: { html: true }, FORBID_TAGS, FORBID_ATTR });
+        return purify.sanitize(md.parse(cleanForView(markdown), { async: false }) as string, { USE_PROFILES: { html: true }, FORBID_TAGS, FORBID_ATTR });
     } finally {
         purify.removeAllHooks();
     }

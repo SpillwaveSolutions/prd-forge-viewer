@@ -4380,7 +4380,7 @@
   },
   "item/01M675A4PNMQ5VHJ9GBEJC3N0Q": {
    "doc_type": "item",
-   "status": "todo",
+   "status": "done",
    "title": "Show a wireframe sketch when its drawing does not load"
   },
   "item/01M675A4RX6SXQNCPH8CW4J91C": {
@@ -4390,7 +4390,7 @@
   },
   "item/01M675A4V59MT3MMYHAV416XWK": {
    "doc_type": "item",
-   "status": "todo",
+   "status": "done",
    "title": "Unit test for the diagram window"
   },
   "item/01M675A4XBXJ7C22QNX9VMRARG": {

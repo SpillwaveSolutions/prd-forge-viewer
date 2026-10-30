@@ -72,7 +72,12 @@ export function SectionPage({ section, known, selected, onSelect, onOpenItem, on
         for (const img of Array.from(el.querySelectorAll<HTMLImageElement>("img[data-asset]"))) {
             const rel = img.dataset.asset!;
             img.removeAttribute("data-asset");
-            loadAsset?.(rel).then((url) => (img.src = url)).catch(() => img.replaceWith(`[image not found: ${img.alt}]`));
+            loadAsset?.(rel).then((url) => (img.src = url)).catch(() => {
+                // Show the wireframe sketch that the drawing replaced, if there is one.
+                const p = img.closest(".diagram")?.parentElement;
+                if (p?.previousElementSibling?.matches("[data-sketch]")) p.previousElementSibling.removeAttribute("hidden");
+                img.replaceWith(`[image not found: ${img.alt}]`);
+            });
         }
         const onClick = (e: MouseEvent) => {
             const a = (e.target as HTMLElement).closest<HTMLElement>("[data-doc]");

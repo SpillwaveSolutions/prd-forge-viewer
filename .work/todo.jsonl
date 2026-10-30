@@ -552,3 +552,7 @@
 {"actor":"richardhightower","ev":"01M675AP6TF334KGG49611JBG8","git":"582f61a","item":"01M675A4MB6Z9Z1AVKNEY5G60Y","op":"close","set":{"status":"done"},"ts":"2026-10-30T19:42:00Z"}
 {"actor":"richardhightower","ev":"01M675BJBVE0Z4YDEY8PXMK17F","git":"576bc71","item":"01M675A4RX6SXQNCPH8CW4J91C","op":"update","set":{"status":"in_progress"},"ts":"2026-10-30T19:42:29Z"}
 {"actor":"richardhightower","ev":"01M675DAJN7WBTW293B56B9EWC","git":"576bc71","item":"01M675A4RX6SXQNCPH8CW4J91C","op":"close","set":{"status":"done"},"ts":"2026-10-30T19:43:26Z"}
+{"actor":"richardhightower","ev":"01M675DJX30Q38MV9Z4NFENX6A","git":"7a3b2e9","item":"01M675A4PNMQ5VHJ9GBEJC3N0Q","op":"update","set":{"status":"in_progress"},"ts":"2026-10-30T19:43:35Z"}
+{"actor":"richardhightower","ev":"01M675F5TEQZWYNJC2BG770NDS","git":"7a3b2e9","item":"01M675A4V59MT3MMYHAV416XWK","op":"update","set":{"status":"in_progress"},"ts":"2026-10-30T19:44:27Z"}
+{"actor":"richardhightower","ev":"01M675FK2XGF2HPHX3NBWV5HW7","git":"7a3b2e9","item":"01M675A4PNMQ5VHJ9GBEJC3N0Q","op":"close","set":{"status":"done"},"ts":"2026-10-30T19:44:41Z"}
+{"actor":"richardhightower","ev":"01M675FK56BJ6GPPT6A7E5WGE8","git":"7a3b2e9","item":"01M675A4V59MT3MMYHAV416XWK","op":"close","set":{"status":"done"},"ts":"2026-10-30T19:44:41Z"}
