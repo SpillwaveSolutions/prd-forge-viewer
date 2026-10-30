@@ -5,35 +5,42 @@ _The evidence chain: plan → item → ticket → code → release, forward and 
 ### Task 6: checks, release, and install
 `01M6700RYF3F05QEDN2V10MPTN` · status: todo
 - belongs-to: Plan 9: diagrams as images, optional grades, and a better layout
+- references: [github#190](https://github.com/SpillwaveSolutions/prd-forge-viewer/issues/190)
 - produced-by: [[Plan-plan-9-diagrams-design]]
 
 ### Task 5: a new visual design
 `01M6700RYF3F05QEDN2V10MPTK` · status: todo
 - belongs-to: Plan 9: diagrams as images, optional grades, and a better layout
+- references: [github#189](https://github.com/SpillwaveSolutions/prd-forge-viewer/issues/189)
 - produced-by: [[Plan-plan-9-diagrams-design]]
 
 ### Task 4: diagram size, zoom, and pan in the viewer
 `01M6700RYF3F05QEDN2V10MPTH` · status: in_progress
 - belongs-to: Plan 9: diagrams as images, optional grades, and a better layout
+- references: [github#188](https://github.com/SpillwaveSolutions/prd-forge-viewer/issues/188)
 - produced-by: [[Plan-plan-9-diagrams-design]]
 
 ### Task 3: optional grades in the export
 `01M6700RYEA5ZRFE6QYW3CRRKZ` · status: done
 - belongs-to: Plan 9: diagrams as images, optional grades, and a better layout
+- references: [github#187](https://github.com/SpillwaveSolutions/prd-forge-viewer/issues/187)
 - produced-by: [[Plan-plan-9-diagrams-design]]
 
 ### Task 2: diagrams in PDF, print, and Word
 `01M6700RYEA5ZRFE6QYW3CRRKX` · status: done
 - belongs-to: Plan 9: diagrams as images, optional grades, and a better layout
+- references: [github#186](https://github.com/SpillwaveSolutions/prd-forge-viewer/issues/186)
 - produced-by: [[Plan-plan-9-diagrams-design]]
 
 ### Task 1: one body cleaner for the viewer and the export
 `01M6700RYEA5ZRFE6QYW3CRRKV` · status: done
 - belongs-to: Plan 9: diagrams as images, optional grades, and a better layout
+- references: [github#185](https://github.com/SpillwaveSolutions/prd-forge-viewer/issues/185)
 - produced-by: [[Plan-plan-9-diagrams-design]]
 
 ### Plan 9: diagrams as images, optional grades, and a better layout
 `01M6700RY14BFZCYD4FGHJYB7Q` · status: todo
+- references: [github#184](https://github.com/SpillwaveSolutions/prd-forge-viewer/issues/184)
 - contains: Task 1: one body cleaner for the viewer and the export
 - contains: Task 2: diagrams in PDF, print, and Word
 - contains: Task 3: optional grades in the export

@@ -400,6 +400,7 @@
    "status": "active",
    "title": "Plan 9: diagrams as images, optional grades, and a better layout",
    "truth_state": "current",
+   "wiki": "https://github.com/SpillwaveSolutions/prd-forge-viewer/wiki/Plan-plan-9-diagrams-design",
    "wiki_key": "plan/2026-10-30-plan-9-diagrams-design"
   },
   {
@@ -409,7 +410,7 @@
    "git_hash": "b74ad9a",
    "slug": "roadmap",
    "source": "docs/roadmap.md",
-   "source_hash": "2e776366",
+   "source_hash": "c4bd9061",
    "title": "Roadmap",
    "truth_state": "current",
    "wiki": "https://github.com/SpillwaveSolutions/prd-forge-viewer/wiki/Roadmap",

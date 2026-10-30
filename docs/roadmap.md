@@ -2,7 +2,7 @@
 wiki_key: roadmap
 doc_type: roadmap
 truth_state: current
-source_hash: 2e776366
+source_hash: c4bd9061
 generated_at: 2026-10-30T18:13:40Z
 git_hash: "b74ad9a"
 ---
@@ -22,8 +22,8 @@ _2 epic(s) in flight, 8 open item(s), 0 blocked, 0 unclassified._
 
 | # | Item | Type | Priority | Status | Blocked by |
 |---|---|---|---|---|---|
-| 01M6700R | Task 6: checks, release, and install | task | P0 | todo | — |
-| 01M6700R | Task 4: diagram size, zoom, and pan in the viewer | task | P1 | in progress | — |
+| [190](https://github.com/SpillwaveSolutions/prd-forge-viewer/issues/190) | Task 6: checks, release, and install | task | P0 | todo | — |
+| [188](https://github.com/SpillwaveSolutions/prd-forge-viewer/issues/188) | Task 4: diagram size, zoom, and pan in the viewer | task | P1 | in progress | — |
 
 ## Next
 
@@ -41,7 +41,7 @@ Build the 15 release 1 requirements that plans 1 and 2 did not cover: reading se
 
 | # | Item | Type | Priority | Status | Blocked by |
 |---|---|---|---|---|---|
-| 01M6700R | Task 5: a new visual design | task | P1 | todo | — |
+| [189](https://github.com/SpillwaveSolutions/prd-forge-viewer/issues/189) | Task 5: a new visual design | task | P1 | todo | — |
 
 ### (no epic)
 
