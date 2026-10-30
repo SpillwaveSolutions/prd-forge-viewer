@@ -214,7 +214,7 @@ export function App() {
                     loadAsset={loadAsset}
                     changed={changed.has(page.section.file)}
                     nav={set.documents.filter((d) => !d.unreadable).map((d) => (
-                        <button key={d.file} type="button" className="doc-link" aria-current={d.file === page.section.file ? "page" : undefined} onClick={() => openDoc(d.file)}>
+                        <button key={d.file} type="button" className="doc-link" data-status={d.status} aria-current={d.file === page.section.file ? "page" : undefined} onClick={() => openDoc(d.file)}>
                             {d.title}
                         </button>
                     ))}

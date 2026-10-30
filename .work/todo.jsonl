@@ -534,3 +534,5 @@
 {"actor":"sync","ev":"01M6703804GXDRWCR5FCSC7C5B","git":"ff3401d","item":"01M6700RYF3F05QEDN2V10MPTN","op":"link","set":{"external":{"key":"190","rev":"2026-10-30T18:10:33Z","synced_at":"2026-10-30T18:10:33Z","system":"github","url":"https://github.com/SpillwaveSolutions/prd-forge-viewer/issues/190"}},"ts":"2026-10-30T18:10:33Z"}
 {"actor":"richardhightower","ev":"01M670HRG3JPCFN8TAKMDMZ3KF","git":"e03d767","item":"01M6700RYF3F05QEDN2V10MPTH","op":"close","set":{"status":"done"},"ts":"2026-10-30T18:18:29Z"}
 {"actor":"richardhightower","ev":"01M670HRJBZ22YMEK4SYST50QE","git":"e03d767","item":"01M6700RYF3F05QEDN2V10MPTK","op":"update","set":{"status":"in_progress"},"ts":"2026-10-30T18:18:29Z"}
+{"actor":"richardhightower","ev":"01M670KD3JPGEJZA9CXB8ZB8CS","git":"4e47d79","item":"01M6700RYF3F05QEDN2V10MPTK","op":"close","set":{"status":"done"},"ts":"2026-10-30T18:19:23Z"}
+{"actor":"richardhightower","ev":"01M670KD5Y0TZRTZ351YC7DD9K","git":"4e47d79","item":"01M6700RYF3F05QEDN2V10MPTN","op":"update","set":{"status":"in_progress"},"ts":"2026-10-30T18:19:23Z"}

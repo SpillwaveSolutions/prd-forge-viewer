@@ -3,13 +3,13 @@
 _The evidence chain: plan → item → ticket → code → release, forward and backward. Generated from `docs/.index/_graph.json`; do not edit._
 
 ### Task 6: checks, release, and install
-`01M6700RYF3F05QEDN2V10MPTN` · status: todo
+`01M6700RYF3F05QEDN2V10MPTN` · status: in_progress
 - belongs-to: Plan 9: diagrams as images, optional grades, and a better layout
 - references: [github#190](https://github.com/SpillwaveSolutions/prd-forge-viewer/issues/190)
 - produced-by: [[Plan-plan-9-diagrams-design]]
 
 ### Task 5: a new visual design
-`01M6700RYF3F05QEDN2V10MPTK` · status: in_progress
+`01M6700RYF3F05QEDN2V10MPTK` · status: done
 - belongs-to: Plan 9: diagrams as images, optional grades, and a better layout
 - references: [github#189](https://github.com/SpillwaveSolutions/prd-forge-viewer/issues/189)
 - produced-by: [[Plan-plan-9-diagrams-design]]

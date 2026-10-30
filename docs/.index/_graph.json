@@ -4274,12 +4274,12 @@
   },
   "item/01M6700RYF3F05QEDN2V10MPTK": {
    "doc_type": "item",
-   "status": "in_progress",
+   "status": "done",
    "title": "Task 5: a new visual design"
   },
   "item/01M6700RYF3F05QEDN2V10MPTN": {
    "doc_type": "item",
-   "status": "todo",
+   "status": "in_progress",
    "title": "Task 6: checks, release, and install"
   },
   "plan/2026-10-28-plan-1-open-and-grades": {
