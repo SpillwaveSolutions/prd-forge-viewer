@@ -5,45 +5,53 @@ _The evidence chain: plan → item → ticket → code → release, forward and 
 ### Release 0.2.0
 `01M671SCRSYHVMEY9M09JNM0XW` · status: done
 - belongs-to: Plan 9: diagrams as images, optional grades, and a better layout
+- lands-in: pr/191
 
 ### Task 6: checks, release, and install
 `01M6700RYF3F05QEDN2V10MPTN` · status: done
 - belongs-to: Plan 9: diagrams as images, optional grades, and a better layout
+- lands-in: pr/191
 - references: [github#190](https://github.com/SpillwaveSolutions/prd-forge-viewer/issues/190)
 - produced-by: [[Plan-plan-9-diagrams-design]]
 
 ### Task 5: a new visual design
 `01M6700RYF3F05QEDN2V10MPTK` · status: done
 - belongs-to: Plan 9: diagrams as images, optional grades, and a better layout
+- lands-in: pr/191
 - references: [github#189](https://github.com/SpillwaveSolutions/prd-forge-viewer/issues/189)
 - produced-by: [[Plan-plan-9-diagrams-design]]
 
 ### Task 4: diagram size, zoom, and pan in the viewer
 `01M6700RYF3F05QEDN2V10MPTH` · status: done
 - belongs-to: Plan 9: diagrams as images, optional grades, and a better layout
+- lands-in: pr/191
 - references: [github#188](https://github.com/SpillwaveSolutions/prd-forge-viewer/issues/188)
 - produced-by: [[Plan-plan-9-diagrams-design]]
 
 ### Task 3: optional grades in the export
 `01M6700RYEA5ZRFE6QYW3CRRKZ` · status: done
 - belongs-to: Plan 9: diagrams as images, optional grades, and a better layout
+- lands-in: pr/191
 - references: [github#187](https://github.com/SpillwaveSolutions/prd-forge-viewer/issues/187)
 - produced-by: [[Plan-plan-9-diagrams-design]]
 
 ### Task 2: diagrams in PDF, print, and Word
 `01M6700RYEA5ZRFE6QYW3CRRKX` · status: done
 - belongs-to: Plan 9: diagrams as images, optional grades, and a better layout
+- lands-in: pr/191
 - references: [github#186](https://github.com/SpillwaveSolutions/prd-forge-viewer/issues/186)
 - produced-by: [[Plan-plan-9-diagrams-design]]
 
 ### Task 1: one body cleaner for the viewer and the export
 `01M6700RYEA5ZRFE6QYW3CRRKV` · status: done
 - belongs-to: Plan 9: diagrams as images, optional grades, and a better layout
+- lands-in: pr/191
 - references: [github#185](https://github.com/SpillwaveSolutions/prd-forge-viewer/issues/185)
 - produced-by: [[Plan-plan-9-diagrams-design]]
 
 ### Plan 9: diagrams as images, optional grades, and a better layout
 `01M6700RY14BFZCYD4FGHJYB7Q` · status: done
+- lands-in: pr/191
 - references: [github#184](https://github.com/SpillwaveSolutions/prd-forge-viewer/issues/184)
 - contains: Task 1: one body cleaner for the viewer and the export
 - contains: Task 2: diagrams in PDF, print, and Word
@@ -56,6 +64,8 @@ _The evidence chain: plan → item → ticket → code → release, forward and 
 
 ### Upgrade PRD Forge to 0.11.0 and generate the details blocks
 `01M64SYER8ZQMX4H7TWA27XGBQ` · status: done
+- lands-in: pr/183
+- lands-in: pr/191
 
 ### Cut release 0.1.0
 `01M64CZNVN13K32BT680E0S8VY` · status: done

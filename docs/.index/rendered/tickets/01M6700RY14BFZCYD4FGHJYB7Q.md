@@ -16,6 +16,10 @@ Plan 9: diagrams as images, optional grades, and a better layout
 
 Progress: 7/7 done
 
+## Linked PRs
+
+- [[PR-191]]
+
 ## Related tickets
 
 - [github #184](https://github.com/SpillwaveSolutions/prd-forge-viewer/issues/184)

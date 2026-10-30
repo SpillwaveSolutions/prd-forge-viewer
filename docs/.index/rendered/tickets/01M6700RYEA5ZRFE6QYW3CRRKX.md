@@ -8,6 +8,10 @@ Add an `image` block to `ExportBlock` (`exportBlocks.ts`) for an image line.
 
 - epic: [[Ticket-01M6700RY14BFZCYD4FGHJYB7Q]] Plan 9: diagrams as images, optional grades, and a better layout — Plan 9: diagrams as images, optional grades, and a better layout
 
+## Linked PRs
+
+- [[PR-191]]
+
 ## Related tickets
 
 - [github #186](https://github.com/SpillwaveSolutions/prd-forge-viewer/issues/186)
