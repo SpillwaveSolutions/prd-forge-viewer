@@ -3,7 +3,7 @@
 _The evidence chain: plan → item → ticket → code → release, forward and backward. Generated from `docs/.index/_graph.json`; do not edit._
 
 ### A distinct app icon
-`01M675AB5R3SDH4FRSB6N4S116` · status: in_progress
+`01M675AB5R3SDH4FRSB6N4S116` · status: done
 
 ### Remove the leftover agent worktrees
 `01M675A4ZFVAXWB3KWCZFBCF24` · status: done

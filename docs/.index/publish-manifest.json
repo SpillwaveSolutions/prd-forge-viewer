@@ -1,5 +1,5 @@
 {
- "git_hash": "2297639",
+ "git_hash": "4ba73cf",
  "pages": [
   {
    "frozen": false,
@@ -45,7 +45,7 @@
    "frozen": false,
    "page_name": "Index-Traceability",
    "render": "as-is",
-   "render_hash": "79079a84f750",
+   "render_hash": "c71f550dda66",
    "source": "docs/.index/rendered/traceability.md",
    "title": "Traceability Index",
    "truth_state": "current",
@@ -2005,10 +2005,10 @@
    "frozen": false,
    "page_name": "Ticket-01M675AB5R3SDH4FRSB6N4S116",
    "render": "as-is",
-   "render_hash": "e7181ad682ca",
+   "render_hash": "fbf3d3c046bf",
    "source": "docs/.index/rendered/tickets/01M675AB5R3SDH4FRSB6N4S116.md",
    "title": "A distinct app icon",
-   "truth_state": "in-progress",
+   "truth_state": "done",
    "wiki_key": "item/01M675AB5R3SDH4FRSB6N4S116"
   },
   {
@@ -2264,13 +2264,13 @@
    "wiki_key": "plan/2026-10-30-plan-9-diagrams-design"
   },
   {
-   "banner": "> **Current** \u2014 this is the living version; regenerated at 2026-10-30T19:45:47Z. Historical snapshots are linked from [[Index-Releases]].",
+   "banner": "> **Current** \u2014 this is the living version; regenerated at 2026-10-30T19:46:45Z. Historical snapshots are linked from [[Index-Releases]].",
    "frozen": false,
    "page_name": "Roadmap",
    "render": "doc+banner",
-   "render_hash": "7a74f58f31f6",
+   "render_hash": "0fcee1715bca",
    "source": "docs/roadmap.md",
-   "source_hash": "b2f66e6cd7e4",
+   "source_hash": "95e2fd389c4b",
    "title": "Roadmap",
    "truth_state": "current",
    "wiki_key": "roadmap"
