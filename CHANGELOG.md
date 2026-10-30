@@ -1,6 +1,6 @@
 # Changelog
 
-## 0.3.0, unreleased
+## 0.3.0, 2026-10-30
 
 ### New
 
@@ -15,6 +15,12 @@
   right. Select **Pin** to keep it open beside the document while you open
   results. Unpinned, it closes when you open a result, press Escape, or
   select **Close**. The drawer keeps your last results.
+
+### Tests
+
+- 96 Rust tests and 111 UI tests.
+- 62 tauri MCP checks. New checks cover two categories at once, the text
+  size by button and by the Command keys, and the search drawer.
 
 ## 0.2.1, 2026-10-30
 

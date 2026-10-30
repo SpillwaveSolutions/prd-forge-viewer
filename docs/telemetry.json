@@ -1,6 +1,64 @@
 {
-  "generated": "2026-10-30T18:55:37.081Z",
+  "generated": "2026-10-30T20:58:49.194Z",
   "sessions": [
+    {
+      "ts": "2026-10-30T20:58:49.194Z",
+      "type": "general",
+      "isFailure": false,
+      "commits": 2,
+      "filesChanged": 15,
+      "artifacts": [],
+      "effort": "medium",
+      "telemetry": {
+        "toolCalls": 16,
+        "p50": 2880,
+        "p95": 343248
+      }
+    },
+    {
+      "ts": "2026-10-30T20:38:41.699Z",
+      "type": "general",
+      "isFailure": false,
+      "commits": 7,
+      "filesChanged": 38,
+      "artifacts": [],
+      "effort": "medium",
+      "telemetry": {
+        "toolCalls": 110,
+        "p50": 196,
+        "p95": 40273,
+        "byAgent": [
+          {
+            "agent": "general-purpose",
+            "toolCalls": 81,
+            "mcpCalls": 0,
+            "p50": 146,
+            "p95": 4212
+          },
+          {
+            "agent": "main",
+            "toolCalls": 29,
+            "mcpCalls": 0,
+            "p50": 983,
+            "p95": 79042
+          }
+        ]
+      }
+    },
+    {
+      "ts": "2026-10-30T20:16:59.331Z",
+      "type": "general",
+      "isFailure": false,
+      "commits": 9,
+      "filesChanged": 72,
+      "artifacts": [],
+      "effort": "medium",
+      "telemetry": {
+        "toolCalls": 48,
+        "p50": 1077,
+        "p95": 313558
+      }
+    },
     {
       "ts": "2026-10-30T18:55:37.081Z",
       "type": "general",
