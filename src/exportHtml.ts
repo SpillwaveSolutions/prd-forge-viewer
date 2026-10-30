@@ -14,9 +14,9 @@ const FONT_STACK: Record<ExportTheme["font"], string> = {
     mono: `'${FAMILY.mono}', Menlo, monospace`,
 };
 
-export function renderThemedHtml(markdown: string, theme: ExportTheme, title: string, fontCss = ""): string {
+export function renderThemedHtml(markdown: string, theme: ExportTheme, title: string, fontCss = "", images: ReadonlyMap<string, string> = new Map()): string {
     const blocks = markdownToBlocks(markdown);
-    const body = blocks.map((block) => renderBlock(block)).join("\n");
+    const body = blocks.map((block) => renderBlock(block, images)).join("\n");
     const safeTitle = escapeHtml(title);
     return `<!DOCTYPE html>
 <html lang="en">
@@ -58,7 +58,7 @@ ${body || `<p class="muted">Nothing to export.</p>`}
 </html>`;
 }
 
-function renderBlock(block: ExportBlock): string {
+function renderBlock(block: ExportBlock, images: ReadonlyMap<string, string>): string {
     if (block.type === "heading") {
         const tag = `h${block.level}`;
         return `<${tag}>${escapeHtml(block.text)}</${tag}>`;
@@ -74,8 +74,8 @@ function renderBlock(block: ExportBlock): string {
     if (block.type === "hr") return `<hr />`;
     // Only an image whose data is in the document is drawn, so nothing outside the set loads (NFR-010).
     if (block.type === "image")
-        return block.src.startsWith("data:image/")
-            ? `<figure class="diagram"><img src="${escapeHtml(block.src)}" alt="${escapeHtml(block.alt)}" /><figcaption>${escapeHtml(block.alt)}</figcaption></figure>`
+        return images.get(block.src)?.startsWith("data:image/")
+            ? `<figure class="diagram"><img src="${escapeHtml(images.get(block.src)!)}" alt="${escapeHtml(block.alt)}" /><figcaption>${escapeHtml(block.alt)}</figcaption></figure>`
             : `<p class="muted">${escapeHtml(block.alt)}</p>`;
     const head = block.header.map((cell) => `<th>${escapeHtml(cell)}</th>`).join("");
     const rows = block.rows

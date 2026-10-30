@@ -60,6 +60,48 @@ await run(async (h) => {
     }
     expect(loaded > 0, "no diagram image loaded");
   });
+
+  await h.check("Wireframes show only their drawings: no ASCII sketch and no details block", async () => {
+    await h.click("//button[contains(., 'Back to the PRD set')]", "xpath");
+    await h.click("//ol[contains(@class,'documents')]//button[.='Wireframes']", "xpath");
+    await h.waitText("WF-001");
+    const body = await h.js("return document.querySelector('.body').innerText");
+    expect(!/[┌└│]/.test(body), "an ASCII sketch shows");
+    expect(!/prd-forge:details|^Details$/m.test(body), "the details block shows");
+    const n = await h.num("return document.querySelectorAll('.body .diagram img').length");
+    expect(n >= 9, `${n} drawings`);
+  });
+
+  await h.check("Each diagram fits within 60% of the window height", async () => {
+    await until(h, "return String([...document.querySelectorAll('.body .diagram img')].every(i => i.complete && i.naturalWidth > 0))", /true/);
+    const tallest = await h.num("return Math.max(...[...document.querySelectorAll('.body .diagram img')].map(i => i.getBoundingClientRect().height))");
+    const limit = await h.num("return window.innerHeight * 0.6");
+    expect(tallest <= limit + 1, `tallest ${tallest} px, limit ${limit} px`);
+  });
+
+  await h.check("The diagram window opens fitted, zooms, pans, and closes with Escape", async () => {
+    await h.click("(//button[contains(@class,'diagram')])[1]", "xpath");
+    // The x offset and the scale of the diagram, from its CSS transform.
+    const view = async () => (await h.js("const m = /translate\\(([-\\d.]+)px.*scale\\(([\\d.]+)\\)/.exec(document.querySelector('.diagram-viewer[open] .stage img')?.style.transform || ''); return m ? m[1] + ' ' + m[2] : ''")).split(" ").map(Number);
+    const change = async (from, i) => {
+      for (const end = Date.now() + 4000; Date.now() < end; await new Promise((r) => setTimeout(r, 100))) {
+        const v = await view();
+        if (v.length === 2 && v[i] !== from[i]) return v;
+      }
+      throw new Error(`no change from ${from}`);
+    };
+    const fitted = await change([NaN, NaN], 1);
+    await h.realKey(24); // "=", zoom in
+    const zoomed = await change(fitted, 1);
+    expect(zoomed[1] > fitted[1], `zoom ${fitted[1]} -> ${zoomed[1]}`);
+    await h.realKey(124); // Right arrow, pan
+    await change(zoomed, 0);
+    await h.realKey(29); // "0", fit again
+    const refit = await change(zoomed, 1);
+    expect(Math.abs(refit[1] - fitted[1]) < 0.001, `fit ${refit[1]}, first ${fitted[1]}`);
+    await h.realKey(53); // Escape
+    await until(h, "return String(!!document.querySelector('.diagram-viewer'))", /false/);
+  });
   await h.quit();
 
   // NFR-010: a remote image and a script in a body do nothing.

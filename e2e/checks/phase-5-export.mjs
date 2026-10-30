@@ -22,7 +22,8 @@ const pageColor = (f) => {
 const order = (text, titles) => titles.map((t) => text.indexOf(t, text.indexOf("Executive summary") + 1));
 // The first plain line of body text of a section, from the file on disk. The contents table has
 // only titles, so a body line proves that the body itself is in the file, at that place.
-const bodyLine = (file) => readFileSync(file, "utf8").split(/\n---\n/).slice(1).join("\n").split("\n").map((l) => l.trim())
+// The details block is left out of the export, as in the PRD Forge exporter, so it is left out here too.
+const bodyLine = (file) => readFileSync(file, "utf8").replace(/<!-- prd-forge:details -->[\s\S]*?<!-- \/prd-forge:details -->/g, "").split(/\n---\n/).slice(1).join("\n").split("\n").map((l) => l.trim())
   .find((l) => /^[A-Z][a-z]/.test(l) && !/[[\]()|*_`<>]/.test(l) && l.length > 30)?.slice(0, 30);
 // The documents in reading order (the root, then the sections by file name), with a body line each.
 const bodies = (set) => ["prd.md", ...readdirSync(set).filter((f) => f.endsWith(".md") && f !== "prd.md").sort()]
@@ -65,7 +66,12 @@ await run(async (h) => {
     const runs = await h.js("return document.querySelector('dialog[aria-label=Export]').dataset.runs");
     const t0 = Date.now();
     await h.click("//dialog//button[.='Export']", "xpath");
-    await h.call("webview_wait_for", { type: "selector", value: `dialog[aria-label=Export]:not([data-runs="${runs}"])`, timeout: 30000 });
+    // Poll with short scripts. One long webview_wait_for can time out while the export data is in transit.
+    for (const end = Date.now() + 30000; ; await new Promise((r) => setTimeout(r, 250))) {
+      const now = await h.js("return document.querySelector('dialog[aria-label=Export]')?.dataset.runs ?? ''").catch(() => runs);
+      if (now !== runs) break;
+      if (Date.now() > end) throw new Error("the export did not finish in 30 s");
+    }
     const status = await h.js("return document.querySelector('dialog [role=status]').innerText");
     expect(status === "Export saved.", status);
     return Date.now() - t0;
@@ -80,6 +86,14 @@ await run(async (h) => {
     const bad = inOrder(text, set);
     expect(!bad, bad);
     h.results.push(["INFO", `PDF export ${pdfMs} ms, ${sh("pdfinfo", pdf).match(/Pages:\s+(\d+)/)[1]} pages`]);
+  });
+
+  await h.check("Diagrams are images in the PDF, with no ASCII sketch and no details block", async () => {
+    const images = sh("pdfimages", "-list", pdf).split("\n").slice(2).filter((l) => l.trim()).length;
+    expect(images >= 20, `${images} images in the PDF`);
+    const text = pdfText(pdf);
+    expect(!/[┌└│]/.test(text), "an ASCII sketch is in the PDF");
+    expect(!/prd-forge:details/.test(text), "a details marker is in the PDF");
   });
 
   await h.check("FR-014, TR-005: the first page shows the version and Draft", async () => {
@@ -122,7 +136,7 @@ await run(async (h) => {
   });
 
   await h.check("NFR-009: the PDF is tagged, with a language, a title, and an outline", async () => {
-    const raw = sh("qpdf", "--qdf", "--object-streams=disable", pdf, "-");
+    const raw = sh("qpdf", "--qdf", "--object-streams=disable", "--stream-data=preserve", pdf, "-");
     expect(raw.includes("/StructTreeRoot"), "no structure tree");
     expect(/\/Marked true/.test(raw), "not marked");
     expect(/\/Lang \(en\)/.test(raw), "no language");
@@ -141,6 +155,10 @@ await run(async (h) => {
     expect(xml.includes('w:ascii="Source Serif 4"') && xml.includes('w:ascii="Source Sans 3"'), "fonts");
     expect(/w:embedRegular/.test(docxPart(docx, "word/fontTable.xml")), "fonts not embedded");
     h.results.push(["INFO", `Word export ${docxMs} ms`]);
+    const media = sh("unzip", "-Z1", docx).split("\n").filter((f) => /^word\/media\/.+\.png$/.test(f)).length;
+    expect(media >= 20, `${media} images in the Word file`);
+    expect(!/[┌└│]/.test(text) && !/prd-forge:details/.test(text), "an ASCII sketch or a details marker is in the Word file");
+    expect(!/Score|Blocking defects/.test(text.slice(text.indexOf("Contents"), text.indexOf("Contents") + 3000)), "grades in the Word file by default");
   });
 
   await h.check("NFR-009: the Word file has a title, heading styles, and table header rows", async () => {
@@ -170,7 +188,12 @@ await run(async (h) => {
     await h.js("window.__printed = ''; window.__pfvPrint = () => { window.__printed = document.getElementById('print-root').innerText + '|' + getComputedStyle(document.getElementById('print-root')).display; }; return 'ok'");
     const runs = await h.js("return document.querySelector('dialog[aria-label=Export]').dataset.runs");
     await h.click("//dialog//button[.='Print']", "xpath");
-    await h.call("webview_wait_for", { type: "selector", value: `dialog[aria-label=Export]:not([data-runs="${runs}"])`, timeout: 30000 });
+    // Poll with short scripts. One long webview_wait_for can time out while the export data is in transit.
+    for (const end = Date.now() + 30000; ; await new Promise((r) => setTimeout(r, 250))) {
+      const now = await h.js("return document.querySelector('dialog[aria-label=Export]')?.dataset.runs ?? ''").catch(() => runs);
+      if (now !== runs) break;
+      if (Date.now() > end) throw new Error("the export did not finish in 30 s");
+    }
     const [printed, display] = (await h.js("return window.__printed")).split("|");
     expect(display === "none", "the print copy shows on screen");
     const p = printed.replace(/\s+/g, " ");
@@ -190,7 +213,12 @@ await run(async (h) => {
     }
     expect(panel === "true", "no print panel");
     await h.realKey(53); // Escape
-    await h.call("webview_wait_for", { type: "selector", value: `dialog[aria-label=Export]:not([data-runs="${runs}"])`, timeout: 30000 });
+    // Poll with short scripts. One long webview_wait_for can time out while the export data is in transit.
+    for (const end = Date.now() + 30000; ; await new Promise((r) => setTimeout(r, 250))) {
+      const now = await h.js("return document.querySelector('dialog[aria-label=Export]')?.dataset.runs ?? ''").catch(() => runs);
+      if (now !== runs) break;
+      if (Date.now() > end) throw new Error("the export did not finish in 30 s");
+    }
     const after = sh("osascript", "-e", `tell application "System Events" to tell (first process whose unix id is ${h.app.pid}) to return ((count of windows) > 1) or (exists sheet 1 of window 1)`).trim();
     expect(after === "false", "the print panel is still open");
   });

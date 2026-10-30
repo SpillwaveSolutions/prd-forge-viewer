@@ -42,8 +42,8 @@ const HEADING: Record<1 | 2 | 3 | 4 | 5 | 6, (typeof HeadingLevel)[keyof typeof 
     6: HeadingLevel.HEADING_6,
 };
 
-export async function exportDocx(markdown: string, theme: ExportTheme, title: string, fonts: FontData = {}): Promise<Blob> {
-    const children = blocksToChildren(markdownToBlocks(markdown), theme);
+export async function exportDocx(markdown: string, theme: ExportTheme, title: string, fonts: FontData = {}, images: ReadonlyMap<string, string> = new Map()): Promise<Blob> {
+    const children = blocksToChildren(markdownToBlocks(markdown), theme, images);
     if (children.length === 0) {
         children.push(paragraph(title || "Untitled", theme, { heading: true, size: 36 }));
     }
@@ -75,8 +75,8 @@ export function fitImage(size: { width: number; height: number }): { width: numb
     return { width: Math.round(size.width * scale), height: Math.round(size.height * scale) };
 }
 
-function image(block: ExportBlock & { type: "image" }, theme: ExportTheme): FileChild[] {
-    const png = /^data:image\/png;base64,(.+)$/.exec(block.src);
+function image(block: ExportBlock & { type: "image" }, theme: ExportTheme, src = ""): FileChild[] {
+    const png = /^data:image\/png;base64,(.+)$/.exec(src);
     if (!png?.[1]) return [paragraph(block.alt, theme, { italic: true, color: theme.muted })];
     const data = Uint8Array.from(atob(png[1]), (c) => c.charCodeAt(0));
     return [
@@ -105,7 +105,7 @@ const HEADING_SPACING: Record<1 | 2 | 3 | 4 | 5 | 6, { before: number; after: nu
     6: { before: 240, after: 80 },
 };
 
-function blocksToChildren(blocks: ExportBlock[], theme: ExportTheme): FileChild[] {
+function blocksToChildren(blocks: ExportBlock[], theme: ExportTheme, images: ReadonlyMap<string, string>): FileChild[] {
     const children: FileChild[] = [];
     for (const block of blocks) {
         if (block.type === "heading") {
@@ -171,7 +171,7 @@ function blocksToChildren(blocks: ExportBlock[], theme: ExportTheme): FileChild[
             continue;
         }
         if (block.type === "image") {
-            children.push(...image(block, theme));
+            children.push(...image(block, theme, images.get(block.src)));
             continue;
         }
         if (block.type === "hr") {
