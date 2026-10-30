@@ -90,9 +90,11 @@ The authoring tools add some parts to a body that the viewer does not show:
 
 - The details block. It repeats the front matter of the document.
 - The text sketch of a wireframe, when a drawing of the wireframe follows it.
-  The viewer shows the drawing only.
+  The viewer shows the drawing only. If the drawing cannot load, the viewer
+  shows the text sketch and "[image not found: *alt text*]".
 
-The exports also leave out these parts.
+The exports also leave out these parts. An export keeps a text sketch when
+it cannot read the drawing.
 
 ## Open a diagram
 
@@ -101,7 +103,8 @@ more detail, open it in the diagram window.
 
 1. Click the diagram.
 
-The diagram window shows the diagram as large as fits. The top of the window
+The diagram window shows the diagram as large as fits. A very large diagram
+opens at 25%, the minimum zoom level. The top of the window
 shows the name of the diagram and the zoom level, for example "150%".
 
 | To do this | Use the pointer | Use the keyboard |
