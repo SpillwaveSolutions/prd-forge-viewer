@@ -2666,6 +2666,51 @@
    "type": "lands-in"
   },
   {
+   "from": "item/01M675A4MB6Z9Z1AVKNEY5G60Y",
+   "to": "pr/194",
+   "type": "lands-in"
+  },
+  {
+   "from": "item/01M675A4PNMQ5VHJ9GBEJC3N0Q",
+   "to": "pr/194",
+   "type": "lands-in"
+  },
+  {
+   "from": "item/01M675A4RX6SXQNCPH8CW4J91C",
+   "to": "pr/194",
+   "type": "lands-in"
+  },
+  {
+   "from": "item/01M675A4V59MT3MMYHAV416XWK",
+   "to": "pr/194",
+   "type": "lands-in"
+  },
+  {
+   "from": "item/01M675A4XBXJ7C22QNX9VMRARG",
+   "to": "pr/194",
+   "type": "lands-in"
+  },
+  {
+   "from": "item/01M675A4ZFVAXWB3KWCZFBCF24",
+   "to": "pr/194",
+   "type": "lands-in"
+  },
+  {
+   "from": "item/01M675AB5R3SDH4FRSB6N4S116",
+   "to": "pr/194",
+   "type": "lands-in"
+  },
+  {
+   "from": "item/01M676SS4XCWHBNNNZRYE6D7FG",
+   "to": "pr/194",
+   "type": "lands-in"
+  },
+  {
+   "from": "item/01M676T35CQDJFPR5XKDD2CW3R",
+   "to": "pr/194",
+   "type": "lands-in"
+  },
+  {
    "from": "plan/2026-10-28-plan-1-open-and-grades",
    "to": "item/01M61XNJ5TFSD53MNXM1XHBD57",
    "type": "produces"
@@ -4518,6 +4563,9 @@
    "doc_type": "pr"
   },
   "pr/191": {
+   "doc_type": "pr"
+  },
+  "pr/194": {
    "doc_type": "pr"
   },
   "pr/4": {

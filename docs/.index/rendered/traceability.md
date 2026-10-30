@@ -4,30 +4,39 @@ _The evidence chain: plan → item → ticket → code → release, forward and 
 
 ### Release 0.2.1
 `01M676T35CQDJFPR5XKDD2CW3R` · status: done
+- lands-in: pr/194
 
 ### Make the e2e waits poll and retry a dropped Return key
 `01M676SS4XCWHBNNNZRYE6D7FG` · status: done
+- lands-in: pr/194
 
 ### A distinct app icon
 `01M675AB5R3SDH4FRSB6N4S116` · status: done
+- lands-in: pr/194
 
 ### Remove the leftover agent worktrees
 `01M675A4ZFVAXWB3KWCZFBCF24` · status: done
+- lands-in: pr/194
 
 ### Make doc-verify check src, src-tauri, and e2e citations
 `01M675A4XBXJ7C22QNX9VMRARG` · status: done
+- lands-in: pr/194
 
 ### Unit test for the diagram window
 `01M675A4V59MT3MMYHAV416XWK` · status: done
+- lands-in: pr/194
 
 ### Export the SVG when its PNG is older
 `01M675A4RX6SXQNCPH8CW4J91C` · status: done
+- lands-in: pr/194
 
 ### Show a wireframe sketch when its drawing does not load
 `01M675A4PNMQ5VHJ9GBEJC3N0Q` · status: done
+- lands-in: pr/194
 
 ### Clamp the diagram fit to the 25% minimum
 `01M675A4MB6Z9Z1AVKNEY5G60Y` · status: done
+- lands-in: pr/194
 
 ### Release 0.2.0
 `01M671SCRSYHVMEY9M09JNM0XW` · status: done
