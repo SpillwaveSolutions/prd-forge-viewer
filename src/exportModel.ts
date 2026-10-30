@@ -1,3 +1,4 @@
+import { cleanBody } from "./bodyClean";
 import type { DocEntry, PrdSet, Section } from "./types";
 
 const cell = (s: string) => s.replace(/\|/g, "\\|").replace(/\n/g, " ");
@@ -31,7 +32,7 @@ export function buildExport(set: PrdSet, bodies: ReadonlyMap<string, Section>, s
         .map((d) => {
             if (d.status === "pending") return `# ${d.title}\n\nThis section is not written yet.`;
             const s = bodies.get(d.file);
-            return s ? s.body.trim() : `# ${d.title}\n\nThis section cannot be read.`;
+            return s ? cleanBody(s.body).trim() : `# ${d.title}\n\nThis section cannot be read.`;
         });
     return [...first, ...parts].join("\n\n") + "\n";
 }

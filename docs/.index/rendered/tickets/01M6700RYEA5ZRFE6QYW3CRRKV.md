@@ -1,6 +1,6 @@
 # Task 1: one body cleaner for the viewer and the export
 
-`01M6700RYEA5ZRFE6QYW3CRRKV` · task/feature · **open**
+`01M6700RYEA5ZRFE6QYW3CRRKV` · task/feature · **done**
 
 Add `src/bodyClean.ts` with `cleanBody(md)`.
 

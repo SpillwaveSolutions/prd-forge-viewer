@@ -1,5 +1,5 @@
 {
- "git_hash": "6ce0282",
+ "git_hash": "ff3401d",
  "pages": [
   {
    "frozen": false,
@@ -15,7 +15,7 @@
    "frozen": false,
    "page_name": "Index-Decisions",
    "render": "as-is",
-   "render_hash": "2b1d79411061",
+   "render_hash": "2e82c1f9c3eb",
    "source": "docs/.index/rendered/decisions.md",
    "title": "Decisions Index",
    "truth_state": "current",
@@ -45,7 +45,7 @@
    "frozen": false,
    "page_name": "Index-Traceability",
    "render": "as-is",
-   "render_hash": "0d5321cae1b8",
+   "render_hash": "953b7c7cc2c5",
    "source": "docs/.index/rendered/traceability.md",
    "title": "Traceability Index",
    "truth_state": "current",
@@ -1835,7 +1835,7 @@
    "frozen": false,
    "page_name": "Ticket-01M6700RY14BFZCYD4FGHJYB7Q",
    "render": "as-is",
-   "render_hash": "41e828a53b59",
+   "render_hash": "049b7a2a6c28",
    "source": "docs/.index/rendered/tickets/01M6700RY14BFZCYD4FGHJYB7Q.md",
    "title": "Plan 9: diagrams as images, optional grades, and a better layout",
    "truth_state": "open",
@@ -1845,20 +1845,20 @@
    "frozen": false,
    "page_name": "Ticket-01M6700RYEA5ZRFE6QYW3CRRKV",
    "render": "as-is",
-   "render_hash": "5b59410df989",
+   "render_hash": "32d0b0257ebb",
    "source": "docs/.index/rendered/tickets/01M6700RYEA5ZRFE6QYW3CRRKV.md",
    "title": "Task 1: one body cleaner for the viewer and the export",
-   "truth_state": "open",
+   "truth_state": "done",
    "wiki_key": "item/01M6700RYEA5ZRFE6QYW3CRRKV"
   },
   {
    "frozen": false,
    "page_name": "Ticket-01M6700RYEA5ZRFE6QYW3CRRKX",
    "render": "as-is",
-   "render_hash": "5b7835decbb7",
+   "render_hash": "fb7708c75543",
    "source": "docs/.index/rendered/tickets/01M6700RYEA5ZRFE6QYW3CRRKX.md",
    "title": "Task 2: diagrams in PDF, print, and Word",
-   "truth_state": "open",
+   "truth_state": "in-progress",
    "wiki_key": "item/01M6700RYEA5ZRFE6QYW3CRRKX"
   },
   {
@@ -2130,11 +2130,11 @@
    "wiki_key": "plan/2026-10-29-plan-8-closeout"
   },
   {
-   "banner": "> **Current** \u2014 plan not yet started; plans are frozen once written, a changed design gets a new plan.",
+   "banner": "> **Current** \u2014 plan in flight; plans are frozen once written, a changed design gets a new plan.",
    "frozen": true,
    "page_name": "Plan-plan-9-diagrams-design",
    "render": "doc+banner",
-   "render_hash": "cbef3a3fb205",
+   "render_hash": "77399e19288f",
    "source": "docs/plans/2026-10-30-plan-9-diagrams-design.md",
    "source_hash": "c17373d5fb4b",
    "title": "Plan 9: diagrams as images, optional grades, and a better layout",
@@ -2142,13 +2142,13 @@
    "wiki_key": "plan/2026-10-30-plan-9-diagrams-design"
   },
   {
-   "banner": "> **Current** \u2014 this is the living version; regenerated at 2026-10-30T18:09:12Z. Historical snapshots are linked from [[Index-Releases]].",
+   "banner": "> **Current** \u2014 this is the living version; regenerated at 2026-10-30T18:10:06Z. Historical snapshots are linked from [[Index-Releases]].",
    "frozen": false,
    "page_name": "Roadmap",
    "render": "doc+banner",
-   "render_hash": "dcc60a3bd97f",
+   "render_hash": "5250cc25b653",
    "source": "docs/roadmap.md",
-   "source_hash": "9314efe715a1",
+   "source_hash": "54e8b145e0fc",
    "title": "Roadmap",
    "truth_state": "current",
    "wiki_key": "roadmap"

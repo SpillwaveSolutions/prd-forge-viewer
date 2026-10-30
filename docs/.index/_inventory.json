@@ -397,7 +397,7 @@
    ],
    "slug": "plan-9-diagrams-design",
    "source": "docs/plans/2026-10-30-plan-9-diagrams-design.md",
-   "status": "planned",
+   "status": "active",
    "title": "Plan 9: diagrams as images, optional grades, and a better layout",
    "truth_state": "current",
    "wiki_key": "plan/2026-10-30-plan-9-diagrams-design"
@@ -405,11 +405,11 @@
   {
    "canonical_key": "roadmap",
    "doc_type": "roadmap",
-   "generated_at": "2026-10-30T18:09:12Z",
-   "git_hash": "6ce0282",
+   "generated_at": "2026-10-30T18:10:06Z",
+   "git_hash": "ff3401d",
    "slug": "roadmap",
    "source": "docs/roadmap.md",
-   "source_hash": "c9fee8ae",
+   "source_hash": "a220b300",
    "title": "Roadmap",
    "truth_state": "current",
    "wiki": "https://github.com/SpillwaveSolutions/prd-forge-viewer/wiki/Roadmap",
