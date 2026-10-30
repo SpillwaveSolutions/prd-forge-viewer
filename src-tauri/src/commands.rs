@@ -54,6 +54,12 @@ pub fn item_index(folder: String) -> Vec<crate::prdset::section::ItemRef> {
     crate::prdset::section::item_index(Path::new(&folder))
 }
 
+/// The picture of a diagram for an export, as a data URL: its PNG, or its SVG when the PNG is older.
+#[tauri::command(async)]
+pub fn export_image(folder: String, rel: String) -> Result<String, String> {
+    crate::prdset::section::export_image(Path::new(&folder), &rel)
+}
+
 /// A local image of the set as a data URL. Paths outside the set are refused (NFR-010).
 #[tauri::command(async)]
 pub fn read_asset(folder: String, rel: String) -> Result<String, String> {

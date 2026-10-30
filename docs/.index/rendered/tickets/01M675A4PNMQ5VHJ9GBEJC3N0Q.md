@@ -1,0 +1,9 @@
+# Show a wireframe sketch when its drawing does not load
+
+`01M675A4PNMQ5VHJ9GBEJC3N0Q` · task/bug · **done**
+
+Show a wireframe sketch when its drawing does not load
+
+## Linked PRs
+
+- [[PR-194]]

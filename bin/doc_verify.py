@@ -35,7 +35,8 @@ import ia  # noqa: E402
 
 # The citation forms that actually occur in this repo's design docs. Ranges
 # use an EN-DASH, not a hyphen -- a regex written for "-" matches nothing.
-_PATH = r"(?:bin|tests|hooks|plugin|schema|docs|adapters)/[\w./-]+"
+# prd-forge-viewer: src, src-tauri, e2e, scripts, and projects added (SpillwaveSolutions/wiki_ticket_sdd issue 454).
+_PATH = r"(?:bin|tests|hooks|plugin|schema|docs|adapters|src|src-tauri|e2e|scripts|projects)/[\w./-]+"
 _DASH = r"[–—-]"
 
 CITE_RANGE = re.compile(

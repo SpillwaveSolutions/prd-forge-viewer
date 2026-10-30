@@ -1,6 +1,85 @@
 {
-  "generated": "2026-10-29T21:48:43.075Z",
+  "generated": "2026-10-30T18:55:37.081Z",
   "sessions": [
+    {
+      "ts": "2026-10-30T18:55:37.081Z",
+      "type": "general",
+      "isFailure": false,
+      "commits": 3,
+      "filesChanged": 14,
+      "artifacts": [],
+      "effort": "medium",
+      "telemetry": {
+        "toolCalls": 89,
+        "p50": 99,
+        "p95": 2923,
+        "byAgent": [
+          {
+            "agent": "general-purpose",
+            "toolCalls": 87,
+            "mcpCalls": 0,
+            "p50": 99,
+            "p95": 2923
+          },
+          {
+            "agent": "main",
+            "toolCalls": 2,
+            "mcpCalls": 0,
+            "p50": 613,
+            "p95": 613
+          }
+        ]
+      }
+    },
+    {
+      "ts": "2026-10-30T18:43:45.302Z",
+      "type": "governance",
+      "isFailure": false,
+      "commits": 11,
+      "filesChanged": 70,
+      "artifacts": [
+        {
+          "project": "001",
+          "categories": {
+            "Discovery": [
+              "Requirements"
+            ],
+            "Governance": [
+              "Traceability Matrix"
+            ]
+          }
+        }
+      ],
+      "effort": "medium",
+      "telemetry": {
+        "toolCalls": 158,
+        "p50": 86,
+        "p95": 24620,
+        "byAgent": [
+          {
+            "agent": "main",
+            "toolCalls": 126,
+            "mcpCalls": 0,
+            "p50": 111,
+            "p95": 29882
+          },
+          {
+            "agent": "Explore",
+            "toolCalls": 17,
+            "mcpCalls": 0,
+            "p50": 40,
+            "p95": 51
+          },
+          {
+            "agent": "general-purpose",
+            "toolCalls": 15,
+            "mcpCalls": 0,
+            "p50": 553,
+            "p95": 24620
+          }
+        ]
+      }
+    },
     {
       "ts": "2026-10-29T21:48:43.075Z",
       "type": "general",

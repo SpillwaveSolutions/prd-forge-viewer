@@ -3,7 +3,7 @@ import { readFileSync } from "node:fs";
 import { join } from "node:path";
 import JSZip from "jszip";
 import { markdownToBlocks } from "./exportBlocks";
-import { exportDocx, fitImage, pngSize } from "./exportDocx";
+import { exportDocx, fitImage, pngSize, svgSize } from "./exportDocx";
 import { loadFonts } from "./exportFonts";
 import { renderThemedHtml } from "./exportHtml";
 import { loadImages } from "./exportRun";
@@ -19,7 +19,7 @@ test("an_image_line_is_an_image_block", () => {
 test("each_local_image_gets_the_data_of_its_png", async () => {
     const asked: string[] = [];
     const images = await loadImages("![A](diagrams/A.svg)\n\n![B](https://x.test/b.png)\n", async (rel) => { asked.push(rel); return "data:image/png;base64,AAAA"; });
-    expect(asked).toEqual(["diagrams/A.png"]);
+    expect(asked).toEqual(["diagrams/A.svg"]);
     expect([...images]).toEqual([["diagrams/A.svg", "data:image/png;base64,AAAA"]]);
 });
 
@@ -48,4 +48,17 @@ test("the_word_file_embeds_the_png_with_a_caption", async () => {
     const zip = await JSZip.loadAsync(await exportDocx("![WF-001 drawing](diagrams/WF-001.svg)\n", CLAY, "T", fonts, new Map([["diagrams/WF-001.svg", dataUrl]])));
     expect(Object.keys(zip.files).some((f) => f.startsWith("word/media/") && f.endsWith(".png"))).toBe(true);
     expect(await zip.file("word/document.xml")!.async("string")).toContain("WF-001 drawing");
+});
+
+test("the_word_file_embeds_an_svg_when_its_png_is_stale", async () => {
+    const svg = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1152 400"><rect width="10" height="10"/></svg>';
+    const fonts = await loadFonts(async (f) => readFileSync(join(import.meta.dir, "../public/fonts", f)));
+    const url = `data:image/svg+xml;base64,${Buffer.from(svg).toString("base64")}`;
+    const zip = await JSZip.loadAsync(await exportDocx("![D](diagrams/D.svg)\n", CLAY, "T", fonts, new Map([["diagrams/D.svg", url]])));
+    expect(Object.keys(zip.files).some((f) => f.startsWith("word/media/") && f.endsWith(".svg"))).toBe(true);
+});
+
+test("the_svg_size_comes_from_its_view_box_or_its_width_and_height", () => {
+    expect(svgSize('<svg viewBox="0 0 300 150">')).toEqual({ width: 300, height: 150 });
+    expect(svgSize('<svg width="200px" height="100px">')).toEqual({ width: 200, height: 100 });
 });

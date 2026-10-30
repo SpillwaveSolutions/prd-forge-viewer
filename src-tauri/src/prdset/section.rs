@@ -97,6 +97,24 @@ pub fn read_asset(dir: &Path, rel: &str) -> Result<String, String> {
     Ok(format!("data:{mime};base64,{}", base64::engine::general_purpose::STANDARD.encode(bytes)))
 }
 
+/// The picture of a diagram for an export: the PNG next to the SVG, as the PRD Forge exporter uses,
+/// unless the PNG is missing or older than the SVG. Then the SVG itself, so an export never shows an
+/// older drawing than the viewer.
+pub fn export_image(dir: &Path, rel: &str) -> Result<String, String> {
+    let png = rel.strip_suffix(".svg").map(|base| format!("{base}.png"));
+    let modified = |r: &str| inside(dir, r).ok().and_then(|p| fs::metadata(p).ok()).and_then(|m| m.modified().ok());
+    // ponytail: 2 s of slack, because a git checkout writes the pair in any order.
+    let fresh = |png: &str| match (modified(png), modified(rel)) {
+        (Some(p), Some(s)) => p + std::time::Duration::from_secs(2) >= s,
+        (Some(_), None) => true,
+        _ => false,
+    };
+    match png {
+        Some(png) if fresh(&png) => read_asset(dir, &png),
+        _ => read_asset(dir, rel),
+    }
+}
+
 #[cfg(test)]
 mod tests {
     use super::*;
@@ -158,6 +176,29 @@ mod tests {
         assert!(read_section(&set, "../outside.md").is_err());
         assert!(read_section(&set, "linked.md").is_err());
         assert!(!item_index(&set).iter().any(|r| r.file.contains("outside") || r.file.contains("linked")));
+    }
+
+    #[test]
+    fn export_image_uses_the_png_unless_it_is_older_than_the_svg() {
+        use std::time::{Duration, SystemTime};
+        let d = tempfile::tempdir().unwrap();
+        let at = |f: &str, secs: u64| {
+            let p = d.path().join(f);
+            fs::write(&p, if f.ends_with(".png") { &b"png"[..] } else { &b"<svg/>"[..] }).unwrap();
+            fs::File::options().write(true).open(&p).unwrap().set_modified(SystemTime::UNIX_EPOCH + Duration::from_secs(secs)).unwrap();
+        };
+        at("new.svg", 100);
+        at("new.png", 200);
+        assert!(export_image(d.path(), "new.svg").unwrap().starts_with("data:image/png"));
+        at("old.svg", 200);
+        at("old.png", 100);
+        at("same.svg", 101);
+        at("same.png", 100);
+        assert!(export_image(d.path(), "same.svg").unwrap().starts_with("data:image/png"));
+        assert!(export_image(d.path(), "old.svg").unwrap().starts_with("data:image/svg+xml"));
+        at("only.svg", 100);
+        assert!(export_image(d.path(), "only.svg").unwrap().starts_with("data:image/svg+xml"));
+        assert!(export_image(d.path(), "../x.svg").is_err());
     }
 
     #[test]

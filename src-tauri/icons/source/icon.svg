@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1024" height="1024" viewBox="0 0 1024 1024">
+  <!-- PRD Forge Viewer: a PRD page with the status marks of the viewer (pending, draft, review, final). -->
+  <defs>
+    <linearGradient id="tile" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#2A3646"/>
+      <stop offset="1" stop-color="#161D27"/>
+    </linearGradient>
+    <linearGradient id="paper" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#FFFFFF"/>
+      <stop offset="1" stop-color="#E9ECE6"/>
+    </linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="18" stdDeviation="22" flood-color="#000" flood-opacity="0.35"/>
+    </filter>
+  </defs>
+  <!-- The macOS icon grid: an 824 px tile with 100 px of margin. -->
+  <rect x="100" y="100" width="824" height="824" rx="185" fill="url(#tile)"/>
+  <!-- The page behind: a set has many documents. -->
+  <rect x="318" y="214" width="420" height="560" rx="28" fill="#C9CFC6" transform="rotate(6 528 494)"/>
+  <!-- The front page, with a folded corner. -->
+  <g filter="url(#shadow)">
+    <path d="M286 236 h330 l110 110 v420 a28 28 0 0 1 -28 28 h-412 a28 28 0 0 1 -28 -28 v-502 a28 28 0 0 1 28 -28 z" fill="url(#paper)"/>
+    <path d="M616 236 v82 a28 28 0 0 0 28 28 h82 z" fill="#C9CFC6"/>
+  </g>
+  <!-- Text lines. -->
+  <g fill="#B8BFC7">
+    <rect x="356" y="300" width="200" height="22" rx="11" fill="#1C2430"/>
+    <rect x="356" y="380" width="300" height="16" rx="8"/>
+    <rect x="356" y="412" width="250" height="16" rx="8"/>
+    <rect x="356" y="484" width="300" height="16" rx="8"/>
+    <rect x="356" y="516" width="210" height="16" rx="8"/>
+    <rect x="356" y="588" width="300" height="16" rx="8"/>
+    <rect x="356" y="620" width="270" height="16" rx="8"/>
+    <rect x="356" y="692" width="190" height="16" rx="8"/>
+  </g>
+  <!-- The status marks in the margin, as in the viewer. -->
+  <rect x="290" y="372" width="36" height="64" rx="9" fill="#8A9096"/>
+  <rect x="290" y="476" width="36" height="64" rx="9" fill="#D08A12"/>
+  <rect x="290" y="580" width="36" height="64" rx="9" fill="#3C64C4"/>
+  <rect x="290" y="684" width="36" height="64" rx="9" fill="#2E8A50"/>
+</svg>

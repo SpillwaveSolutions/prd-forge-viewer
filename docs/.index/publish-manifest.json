@@ -1,5 +1,5 @@
 {
- "git_hash": "81fefbb",
+ "git_hash": "369f387",
  "pages": [
   {
    "frozen": false,
@@ -25,7 +25,7 @@
    "frozen": false,
    "page_name": "Index-Releases",
    "render": "as-is",
-   "render_hash": "29527868a945",
+   "render_hash": "7c6f7ab4570d",
    "source": "docs/.index/rendered/releases.md",
    "title": "Releases Index",
    "truth_state": "current",
@@ -45,7 +45,7 @@
    "frozen": false,
    "page_name": "Index-Traceability",
    "render": "as-is",
-   "render_hash": "6ae54533e4a8",
+   "render_hash": "453955348cf2",
    "source": "docs/.index/rendered/traceability.md",
    "title": "Traceability Index",
    "truth_state": "current",
@@ -143,6 +143,16 @@
   },
   {
    "frozen": false,
+   "page_name": "PR-194",
+   "render": "as-is",
+   "render_hash": "3d456afd1724",
+   "source": "docs/.index/rendered/prs/194.md",
+   "title": "PR #194",
+   "truth_state": "not tracked",
+   "wiki_key": "pr/194"
+  },
+  {
+   "frozen": false,
    "page_name": "PR-4",
    "render": "as-is",
    "render_hash": "279f389da017",
@@ -180,6 +190,16 @@
    "title": "Release v0.2.0",
    "truth_state": "shipped",
    "wiki_key": "release/v0.2.0"
+  },
+  {
+   "frozen": false,
+   "page_name": "Release-v0.2.1",
+   "render": "as-is",
+   "render_hash": "5196758e45af",
+   "source": "docs/.index/rendered/releases/v0.2.1.md",
+   "title": "Release v0.2.1",
+   "truth_state": "shipped",
+   "wiki_key": "release/v0.2.1"
   },
   {
    "frozen": false,
@@ -1942,6 +1962,96 @@
    "wiki_key": "item/01M671SCRSYHVMEY9M09JNM0XW"
   },
   {
+   "frozen": false,
+   "page_name": "Ticket-01M675A4MB6Z9Z1AVKNEY5G60Y",
+   "render": "as-is",
+   "render_hash": "91927b777788",
+   "source": "docs/.index/rendered/tickets/01M675A4MB6Z9Z1AVKNEY5G60Y.md",
+   "title": "Clamp the diagram fit to the 25% minimum",
+   "truth_state": "done",
+   "wiki_key": "item/01M675A4MB6Z9Z1AVKNEY5G60Y"
+  },
+  {
+   "frozen": false,
+   "page_name": "Ticket-01M675A4PNMQ5VHJ9GBEJC3N0Q",
+   "render": "as-is",
+   "render_hash": "0c4929a2db97",
+   "source": "docs/.index/rendered/tickets/01M675A4PNMQ5VHJ9GBEJC3N0Q.md",
+   "title": "Show a wireframe sketch when its drawing does not load",
+   "truth_state": "done",
+   "wiki_key": "item/01M675A4PNMQ5VHJ9GBEJC3N0Q"
+  },
+  {
+   "frozen": false,
+   "page_name": "Ticket-01M675A4RX6SXQNCPH8CW4J91C",
+   "render": "as-is",
+   "render_hash": "a69bb7b7fa51",
+   "source": "docs/.index/rendered/tickets/01M675A4RX6SXQNCPH8CW4J91C.md",
+   "title": "Export the SVG when its PNG is older",
+   "truth_state": "done",
+   "wiki_key": "item/01M675A4RX6SXQNCPH8CW4J91C"
+  },
+  {
+   "frozen": false,
+   "page_name": "Ticket-01M675A4V59MT3MMYHAV416XWK",
+   "render": "as-is",
+   "render_hash": "4a0fc7c414cc",
+   "source": "docs/.index/rendered/tickets/01M675A4V59MT3MMYHAV416XWK.md",
+   "title": "Unit test for the diagram window",
+   "truth_state": "done",
+   "wiki_key": "item/01M675A4V59MT3MMYHAV416XWK"
+  },
+  {
+   "frozen": false,
+   "page_name": "Ticket-01M675A4XBXJ7C22QNX9VMRARG",
+   "render": "as-is",
+   "render_hash": "f5c201e4c194",
+   "source": "docs/.index/rendered/tickets/01M675A4XBXJ7C22QNX9VMRARG.md",
+   "title": "Make doc-verify check src, src-tauri, and e2e citations",
+   "truth_state": "done",
+   "wiki_key": "item/01M675A4XBXJ7C22QNX9VMRARG"
+  },
+  {
+   "frozen": false,
+   "page_name": "Ticket-01M675A4ZFVAXWB3KWCZFBCF24",
+   "render": "as-is",
+   "render_hash": "8d200555904a",
+   "source": "docs/.index/rendered/tickets/01M675A4ZFVAXWB3KWCZFBCF24.md",
+   "title": "Remove the leftover agent worktrees",
+   "truth_state": "done",
+   "wiki_key": "item/01M675A4ZFVAXWB3KWCZFBCF24"
+  },
+  {
+   "frozen": false,
+   "page_name": "Ticket-01M675AB5R3SDH4FRSB6N4S116",
+   "render": "as-is",
+   "render_hash": "e5a39de4e4f9",
+   "source": "docs/.index/rendered/tickets/01M675AB5R3SDH4FRSB6N4S116.md",
+   "title": "A distinct app icon",
+   "truth_state": "done",
+   "wiki_key": "item/01M675AB5R3SDH4FRSB6N4S116"
+  },
+  {
+   "frozen": false,
+   "page_name": "Ticket-01M676SS4XCWHBNNNZRYE6D7FG",
+   "render": "as-is",
+   "render_hash": "280c7b9bd6ef",
+   "source": "docs/.index/rendered/tickets/01M676SS4XCWHBNNNZRYE6D7FG.md",
+   "title": "Make the e2e waits poll and retry a dropped Return key",
+   "truth_state": "done",
+   "wiki_key": "item/01M676SS4XCWHBNNNZRYE6D7FG"
+  },
+  {
+   "frozen": false,
+   "page_name": "Ticket-01M676T35CQDJFPR5XKDD2CW3R",
+   "render": "as-is",
+   "render_hash": "9b2a1d7ac614",
+   "source": "docs/.index/rendered/tickets/01M676T35CQDJFPR5XKDD2CW3R.md",
+   "title": "Release 0.2.1",
+   "truth_state": "done",
+   "wiki_key": "item/01M676T35CQDJFPR5XKDD2CW3R"
+  },
+  {
    "banner": "> **Snapshot** of release v0.1.0 (2026-10-29) \u2014 frozen record. The current version is [[Code-Walkthrough]].",
    "frozen": true,
    "page_name": "Design-Freeze-2026-10-29_v0.1.0-release",
@@ -2194,11 +2304,11 @@
    "wiki_key": "plan/2026-10-30-plan-9-diagrams-design"
   },
   {
-   "banner": "> **Current** \u2014 this is the living version; regenerated at 2026-10-30T18:40:59Z. Historical snapshots are linked from [[Index-Releases]].",
+   "banner": "> **Current** \u2014 this is the living version; regenerated at 2026-10-30T20:08:13Z. Historical snapshots are linked from [[Index-Releases]].",
    "frozen": false,
    "page_name": "Roadmap",
    "render": "doc+banner",
-   "render_hash": "2aac13ab4239",
+   "render_hash": "2bcd2be53da7",
    "source": "docs/roadmap.md",
    "source_hash": "95e2fd389c4b",
    "title": "Roadmap",
@@ -2228,10 +2338,22 @@
    "title": "Roadmap",
    "truth_state": "snapshot",
    "wiki_key": "roadmap-snapshot/2026-10-30_v0.2.0-release"
+  },
+  {
+   "banner": "> **Snapshot** of release v0.2.1 (2026-10-30) \u2014 frozen record. The current version is [[Roadmap]].",
+   "frozen": true,
+   "page_name": "Roadmap-2026-10-30_v0.2.1-release",
+   "render": "doc+banner",
+   "render_hash": "5b8bfbab3f22",
+   "source": "docs/roadmap/2026-10-30_v0.2.1-release.md",
+   "source_hash": "948bfaf1486d",
+   "title": "Roadmap",
+   "truth_state": "snapshot",
+   "wiki_key": "roadmap-snapshot/2026-10-30_v0.2.1-release"
   }
  ],
  "sidebar": {
-  "render_hash": "3169c4d1ee84",
+  "render_hash": "b29fe93c7da0",
   "source": "docs/.index/rendered/_Sidebar.md"
  },
  "version": 1

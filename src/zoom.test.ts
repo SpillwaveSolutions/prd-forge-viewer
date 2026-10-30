@@ -18,3 +18,7 @@ test("zoom_stops_at_0_25_and_8", () => {
     expect(zoomAt({ scale: 6, x: 0, y: 0 }, 4, 0, 0).scale).toBe(8);
     expect(zoomAt({ scale: 0.5, x: 0, y: 0 }, 0.1, 0, 0).scale).toBe(0.25);
 });
+
+test("a_very_large_diagram_opens_at_the_25_percent_minimum", () => {
+    expect(fitView({ width: 10000, height: 100 }, { width: 1000, height: 800 }).scale).toBe(0.25);
+});

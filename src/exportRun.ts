@@ -29,13 +29,13 @@ export function exportFileName(set: PrdSet, format: "pdf" | "docx"): string {
 const IMAGE = /!\[([^\]]*)\]\(([^)\s]+)\)/g;
 
 /**
- * The PNG of each local image, as a data URL by image path, as the PRD Forge exporter embeds the PNG
- * of each SVG. The data stays out of the markdown, which stays small to parse. An image that cannot
- * be read is not in the map, and exports as its alt text.
+ * The picture of each local image, as a data URL by image path. `image` returns the PNG of an SVG, as
+ * the PRD Forge exporter embeds, or the SVG when its PNG is older. The data stays out of the markdown,
+ * which stays small to parse. An image that cannot be read is not in the map, and exports as its alt text.
  */
 export async function loadImages(md: string, asset: (rel: string) => Promise<string>): Promise<Map<string, string>> {
     const local = [...new Set([...md.matchAll(IMAGE)].map((m) => m[2] ?? "").filter((p) => p && !/^[a-z][a-z0-9+.-]*:/i.test(p)))];
-    const pairs = await Promise.all(local.map(async (p) => [p, await asset(p.replace(/^\.\//, "").replace(/\.svg$/i, ".png")).catch(() => null)] as const));
+    const pairs = await Promise.all(local.map(async (p) => [p, await asset(p.replace(/^\.\//, "")).catch(() => null)] as const));
     return new Map(pairs.filter((x): x is readonly [string, string] => !!x[1]));
 }
 
@@ -49,8 +49,11 @@ export type Deps = {
 };
 
 async function themedExport(set: PrdSet, selected: ReadonlySet<string>, options: ExportOptions, deps: Pick<Deps, "read" | "asset">) {
-    const markdown = buildExport(set, await collectBodies(set, selected, deps.read), selected, options);
-    return { markdown, images: await loadImages(markdown, deps.asset), title: `${set.product} PRD`, fonts: await appFonts() };
+    const bodies = await collectBodies(set, selected, deps.read);
+    // The images first, so a sketch stays in the export when its drawing cannot be read.
+    const images = await loadImages([...bodies.values()].map((b) => b.body).join("\n"), deps.asset);
+    const markdown = buildExport(set, bodies, selected, { ...options, hasDrawing: (p) => images.has(p) });
+    return { markdown, images, title: `${set.product} PRD`, fonts: await appFonts() };
 }
 
 /** Export to PDF or Word, saved where the author picks (FR-010, FR-011, FR-012). Returns false when the author cancels. */

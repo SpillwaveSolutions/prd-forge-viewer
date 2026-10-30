@@ -1,4 +1,4 @@
-import { cleanBody } from "./bodyClean";
+import { cleanForExport } from "./bodyClean";
 import type { DocEntry, PrdSet, Section } from "./types";
 
 const cell = (s: string) => s.replace(/\|/g, "\\|").replace(/\n/g, " ");
@@ -15,7 +15,7 @@ export function draftReason(documents: readonly DocEntry[]): string | null {
  * says that the PRD is approved (TR-007), and a blocking defect never stops an export (TR-010).
  */
 /** What the author can change in an export. Grades are left out unless the author includes them (FR-019). */
-export type ExportOptions = { grades?: boolean };
+export type ExportOptions = { grades?: boolean; hasDrawing?: (path: string) => boolean };
 
 export function buildExport(set: PrdSet, bodies: ReadonlyMap<string, Section>, selected: ReadonlySet<string> | null, options: ExportOptions = {}): string {
     const docs = [...set.documents].sort((a, b) => a.order - b.order);
@@ -37,7 +37,7 @@ export function buildExport(set: PrdSet, bodies: ReadonlyMap<string, Section>, s
         .map((d) => {
             if (d.status === "pending") return `# ${d.title}\n\nThis section is not written yet.`;
             const s = bodies.get(d.file);
-            return s ? cleanBody(s.body).trim() : `# ${d.title}\n\nThis section cannot be read.`;
+            return s ? cleanForExport(s.body, options.hasDrawing).trim() : `# ${d.title}\n\nThis section cannot be read.`;
         });
     return [...first, ...parts].join("\n\n") + "\n";
 }
