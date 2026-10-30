@@ -1,11 +1,11 @@
 {
- "git_hash": "a1d71ca",
+ "git_hash": "6ce0282",
  "pages": [
   {
    "frozen": false,
    "page_name": "Home",
    "render": "as-is",
-   "render_hash": "2f569509541c",
+   "render_hash": "e1cd00c117c1",
    "source": "docs/.index/rendered/home.md",
    "title": "Home",
    "truth_state": "current",
@@ -15,7 +15,7 @@
    "frozen": false,
    "page_name": "Index-Decisions",
    "render": "as-is",
-   "render_hash": "e97691c27241",
+   "render_hash": "2b1d79411061",
    "source": "docs/.index/rendered/decisions.md",
    "title": "Decisions Index",
    "truth_state": "current",
@@ -45,7 +45,7 @@
    "frozen": false,
    "page_name": "Index-Traceability",
    "render": "as-is",
-   "render_hash": "bcee4efc7e69",
+   "render_hash": "0d5321cae1b8",
    "source": "docs/.index/rendered/traceability.md",
    "title": "Traceability Index",
    "truth_state": "current",
@@ -1832,6 +1832,76 @@
    "wiki_key": "item/01M64SYER8ZQMX4H7TWA27XGBQ"
   },
   {
+   "frozen": false,
+   "page_name": "Ticket-01M6700RY14BFZCYD4FGHJYB7Q",
+   "render": "as-is",
+   "render_hash": "41e828a53b59",
+   "source": "docs/.index/rendered/tickets/01M6700RY14BFZCYD4FGHJYB7Q.md",
+   "title": "Plan 9: diagrams as images, optional grades, and a better layout",
+   "truth_state": "open",
+   "wiki_key": "item/01M6700RY14BFZCYD4FGHJYB7Q"
+  },
+  {
+   "frozen": false,
+   "page_name": "Ticket-01M6700RYEA5ZRFE6QYW3CRRKV",
+   "render": "as-is",
+   "render_hash": "5b59410df989",
+   "source": "docs/.index/rendered/tickets/01M6700RYEA5ZRFE6QYW3CRRKV.md",
+   "title": "Task 1: one body cleaner for the viewer and the export",
+   "truth_state": "open",
+   "wiki_key": "item/01M6700RYEA5ZRFE6QYW3CRRKV"
+  },
+  {
+   "frozen": false,
+   "page_name": "Ticket-01M6700RYEA5ZRFE6QYW3CRRKX",
+   "render": "as-is",
+   "render_hash": "5b7835decbb7",
+   "source": "docs/.index/rendered/tickets/01M6700RYEA5ZRFE6QYW3CRRKX.md",
+   "title": "Task 2: diagrams in PDF, print, and Word",
+   "truth_state": "open",
+   "wiki_key": "item/01M6700RYEA5ZRFE6QYW3CRRKX"
+  },
+  {
+   "frozen": false,
+   "page_name": "Ticket-01M6700RYEA5ZRFE6QYW3CRRKZ",
+   "render": "as-is",
+   "render_hash": "ce8772d30480",
+   "source": "docs/.index/rendered/tickets/01M6700RYEA5ZRFE6QYW3CRRKZ.md",
+   "title": "Task 3: optional grades in the export",
+   "truth_state": "open",
+   "wiki_key": "item/01M6700RYEA5ZRFE6QYW3CRRKZ"
+  },
+  {
+   "frozen": false,
+   "page_name": "Ticket-01M6700RYF3F05QEDN2V10MPTH",
+   "render": "as-is",
+   "render_hash": "436db335af76",
+   "source": "docs/.index/rendered/tickets/01M6700RYF3F05QEDN2V10MPTH.md",
+   "title": "Task 4: diagram size, zoom, and pan in the viewer",
+   "truth_state": "open",
+   "wiki_key": "item/01M6700RYF3F05QEDN2V10MPTH"
+  },
+  {
+   "frozen": false,
+   "page_name": "Ticket-01M6700RYF3F05QEDN2V10MPTK",
+   "render": "as-is",
+   "render_hash": "539378b47c4d",
+   "source": "docs/.index/rendered/tickets/01M6700RYF3F05QEDN2V10MPTK.md",
+   "title": "Task 5: a new visual design",
+   "truth_state": "open",
+   "wiki_key": "item/01M6700RYF3F05QEDN2V10MPTK"
+  },
+  {
+   "frozen": false,
+   "page_name": "Ticket-01M6700RYF3F05QEDN2V10MPTN",
+   "render": "as-is",
+   "render_hash": "81c38617857c",
+   "source": "docs/.index/rendered/tickets/01M6700RYF3F05QEDN2V10MPTN.md",
+   "title": "Task 6: checks, release, and install",
+   "truth_state": "open",
+   "wiki_key": "item/01M6700RYF3F05QEDN2V10MPTN"
+  },
+  {
    "banner": "> **Snapshot** of release v0.1.0 (2026-10-29) \u2014 frozen record. The current version is [[Code-Walkthrough]].",
    "frozen": true,
    "page_name": "Design-Freeze-2026-10-29_v0.1.0-release",
@@ -2060,13 +2130,25 @@
    "wiki_key": "plan/2026-10-29-plan-8-closeout"
   },
   {
-   "banner": "> **Current** \u2014 this is the living version; regenerated at 2026-10-29T21:44:44Z. Historical snapshots are linked from [[Index-Releases]].",
+   "banner": "> **Current** \u2014 plan not yet started; plans are frozen once written, a changed design gets a new plan.",
+   "frozen": true,
+   "page_name": "Plan-plan-9-diagrams-design",
+   "render": "doc+banner",
+   "render_hash": "cbef3a3fb205",
+   "source": "docs/plans/2026-10-30-plan-9-diagrams-design.md",
+   "source_hash": "c17373d5fb4b",
+   "title": "Plan 9: diagrams as images, optional grades, and a better layout",
+   "truth_state": "current",
+   "wiki_key": "plan/2026-10-30-plan-9-diagrams-design"
+  },
+  {
+   "banner": "> **Current** \u2014 this is the living version; regenerated at 2026-10-30T18:09:12Z. Historical snapshots are linked from [[Index-Releases]].",
    "frozen": false,
    "page_name": "Roadmap",
    "render": "doc+banner",
-   "render_hash": "0cad538869be",
+   "render_hash": "dcc60a3bd97f",
    "source": "docs/roadmap.md",
-   "source_hash": "95e2fd389c4b",
+   "source_hash": "9314efe715a1",
    "title": "Roadmap",
    "truth_state": "current",
    "wiki_key": "roadmap"
@@ -2085,7 +2167,7 @@
   }
  ],
  "sidebar": {
-  "render_hash": "0fc7519a553f",
+  "render_hash": "00f2e71ec710",
   "source": "docs/.index/rendered/_Sidebar.md"
  },
  "version": 1

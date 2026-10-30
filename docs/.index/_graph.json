@@ -2536,6 +2536,36 @@
    "type": "references"
   },
   {
+   "from": "item/01M6700RYEA5ZRFE6QYW3CRRKV",
+   "to": "item/01M6700RY14BFZCYD4FGHJYB7Q",
+   "type": "belongs-to"
+  },
+  {
+   "from": "item/01M6700RYEA5ZRFE6QYW3CRRKX",
+   "to": "item/01M6700RY14BFZCYD4FGHJYB7Q",
+   "type": "belongs-to"
+  },
+  {
+   "from": "item/01M6700RYEA5ZRFE6QYW3CRRKZ",
+   "to": "item/01M6700RY14BFZCYD4FGHJYB7Q",
+   "type": "belongs-to"
+  },
+  {
+   "from": "item/01M6700RYF3F05QEDN2V10MPTH",
+   "to": "item/01M6700RY14BFZCYD4FGHJYB7Q",
+   "type": "belongs-to"
+  },
+  {
+   "from": "item/01M6700RYF3F05QEDN2V10MPTK",
+   "to": "item/01M6700RY14BFZCYD4FGHJYB7Q",
+   "type": "belongs-to"
+  },
+  {
+   "from": "item/01M6700RYF3F05QEDN2V10MPTN",
+   "to": "item/01M6700RY14BFZCYD4FGHJYB7Q",
+   "type": "belongs-to"
+  },
+  {
    "from": "plan/2026-10-28-plan-1-open-and-grades",
    "to": "item/01M61XNJ5TFSD53MNXM1XHBD57",
    "type": "produces"
@@ -3233,6 +3263,41 @@
   {
    "from": "plan/2026-10-29-plan-8-closeout",
    "to": "item/01M64C03048SWRXRJ3A59AD9W6",
+   "type": "produces"
+  },
+  {
+   "from": "plan/2026-10-30-plan-9-diagrams-design",
+   "to": "item/01M6700RY14BFZCYD4FGHJYB7Q",
+   "type": "produces"
+  },
+  {
+   "from": "plan/2026-10-30-plan-9-diagrams-design",
+   "to": "item/01M6700RYEA5ZRFE6QYW3CRRKV",
+   "type": "produces"
+  },
+  {
+   "from": "plan/2026-10-30-plan-9-diagrams-design",
+   "to": "item/01M6700RYEA5ZRFE6QYW3CRRKX",
+   "type": "produces"
+  },
+  {
+   "from": "plan/2026-10-30-plan-9-diagrams-design",
+   "to": "item/01M6700RYEA5ZRFE6QYW3CRRKZ",
+   "type": "produces"
+  },
+  {
+   "from": "plan/2026-10-30-plan-9-diagrams-design",
+   "to": "item/01M6700RYF3F05QEDN2V10MPTH",
+   "type": "produces"
+  },
+  {
+   "from": "plan/2026-10-30-plan-9-diagrams-design",
+   "to": "item/01M6700RYF3F05QEDN2V10MPTK",
+   "type": "produces"
+  },
+  {
+   "from": "plan/2026-10-30-plan-9-diagrams-design",
+   "to": "item/01M6700RYF3F05QEDN2V10MPTN",
    "type": "produces"
   },
   {
@@ -4147,6 +4212,41 @@
    "status": "done",
    "title": "Upgrade PRD Forge to 0.11.0 and generate the details blocks"
   },
+  "item/01M6700RY14BFZCYD4FGHJYB7Q": {
+   "doc_type": "item",
+   "status": "todo",
+   "title": "Plan 9: diagrams as images, optional grades, and a better layout"
+  },
+  "item/01M6700RYEA5ZRFE6QYW3CRRKV": {
+   "doc_type": "item",
+   "status": "todo",
+   "title": "Task 1: one body cleaner for the viewer and the export"
+  },
+  "item/01M6700RYEA5ZRFE6QYW3CRRKX": {
+   "doc_type": "item",
+   "status": "todo",
+   "title": "Task 2: diagrams in PDF, print, and Word"
+  },
+  "item/01M6700RYEA5ZRFE6QYW3CRRKZ": {
+   "doc_type": "item",
+   "status": "todo",
+   "title": "Task 3: optional grades in the export"
+  },
+  "item/01M6700RYF3F05QEDN2V10MPTH": {
+   "doc_type": "item",
+   "status": "todo",
+   "title": "Task 4: diagram size, zoom, and pan in the viewer"
+  },
+  "item/01M6700RYF3F05QEDN2V10MPTK": {
+   "doc_type": "item",
+   "status": "todo",
+   "title": "Task 5: a new visual design"
+  },
+  "item/01M6700RYF3F05QEDN2V10MPTN": {
+   "doc_type": "item",
+   "status": "todo",
+   "title": "Task 6: checks, release, and install"
+  },
   "plan/2026-10-28-plan-1-open-and-grades": {
    "doc_type": "plan",
    "source": "docs/plans/2026-10-28-plan-1-open-and-grades.md",
@@ -4199,6 +4299,12 @@
    "doc_type": "plan",
    "source": "docs/plans/2026-10-29-plan-8-closeout.md",
    "title": "Plan 8: close out release 1",
+   "truth_state": "current"
+  },
+  "plan/2026-10-30-plan-9-diagrams-design": {
+   "doc_type": "plan",
+   "source": "docs/plans/2026-10-30-plan-9-diagrams-design.md",
+   "title": "Plan 9: diagrams as images, optional grades, and a better layout",
    "truth_state": "current"
   },
   "pr/102": {

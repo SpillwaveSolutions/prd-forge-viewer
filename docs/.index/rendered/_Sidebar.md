@@ -2,6 +2,7 @@
 
 - [[Roadmap]]
 - [[Design-Doc]] · [[Code-Walkthrough]]
+- Plan: [[Plan-plan-9-diagrams-design]]
 - Plan: [[Plan-release-1-completion]]
 
 ### History

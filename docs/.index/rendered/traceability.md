@@ -2,6 +2,46 @@
 
 _The evidence chain: plan → item → ticket → code → release, forward and backward. Generated from `docs/.index/_graph.json`; do not edit._
 
+### Task 6: checks, release, and install
+`01M6700RYF3F05QEDN2V10MPTN` · status: todo
+- belongs-to: Plan 9: diagrams as images, optional grades, and a better layout
+- produced-by: [[Plan-plan-9-diagrams-design]]
+
+### Task 5: a new visual design
+`01M6700RYF3F05QEDN2V10MPTK` · status: todo
+- belongs-to: Plan 9: diagrams as images, optional grades, and a better layout
+- produced-by: [[Plan-plan-9-diagrams-design]]
+
+### Task 4: diagram size, zoom, and pan in the viewer
+`01M6700RYF3F05QEDN2V10MPTH` · status: todo
+- belongs-to: Plan 9: diagrams as images, optional grades, and a better layout
+- produced-by: [[Plan-plan-9-diagrams-design]]
+
+### Task 3: optional grades in the export
+`01M6700RYEA5ZRFE6QYW3CRRKZ` · status: todo
+- belongs-to: Plan 9: diagrams as images, optional grades, and a better layout
+- produced-by: [[Plan-plan-9-diagrams-design]]
+
+### Task 2: diagrams in PDF, print, and Word
+`01M6700RYEA5ZRFE6QYW3CRRKX` · status: todo
+- belongs-to: Plan 9: diagrams as images, optional grades, and a better layout
+- produced-by: [[Plan-plan-9-diagrams-design]]
+
+### Task 1: one body cleaner for the viewer and the export
+`01M6700RYEA5ZRFE6QYW3CRRKV` · status: todo
+- belongs-to: Plan 9: diagrams as images, optional grades, and a better layout
+- produced-by: [[Plan-plan-9-diagrams-design]]
+
+### Plan 9: diagrams as images, optional grades, and a better layout
+`01M6700RY14BFZCYD4FGHJYB7Q` · status: todo
+- contains: Task 1: one body cleaner for the viewer and the export
+- contains: Task 2: diagrams in PDF, print, and Word
+- contains: Task 3: optional grades in the export
+- contains: Task 4: diagram size, zoom, and pan in the viewer
+- contains: Task 5: a new visual design
+- contains: Task 6: checks, release, and install
+- produced-by: [[Plan-plan-9-diagrams-design]]
+
 ### Upgrade PRD Forge to 0.11.0 and generate the details blocks
 `01M64SYER8ZQMX4H7TWA27XGBQ` · status: done
 
