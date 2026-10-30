@@ -1,5 +1,30 @@
 # Changelog
 
+## 0.2.1, 2026-10-30
+
+### New
+
+- **App icon.** The viewer has its own icon: a PRD page with the four status
+  marks of the viewer in its margin.
+
+### Fixed
+
+- A very large diagram opens at the 25% minimum zoom. Before, it opened
+  smaller, and the first zoom step jumped.
+- A wireframe text sketch shows when its drawing cannot be read. An export
+  keeps such a sketch too, as the PRD Forge exporter does.
+- An export uses the SVG of a diagram when its PNG is older than the SVG, so
+  an export never shows an older drawing than the viewer.
+- The `doc-verify` release gate checks the citations in `src/`, `src-tauri/`,
+  `e2e/`, `scripts/`, and `projects/`.
+
+### Tests
+
+- 95 Rust tests and 106 UI tests. New interactive tests cover the diagram
+  window and the sketch fallback.
+- 58 tauri MCP checks. The text waits poll, and the NFR-007 check retries a
+  dropped Return key.
+
 ## 0.2.0, 2026-10-30
 
 This release shows diagrams as pictures everywhere, makes grades optional in

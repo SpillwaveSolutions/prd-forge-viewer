@@ -563,3 +563,5 @@
 {"actor":"richardhightower","ev":"01M675KCZ2ED37HVHE42RBWGFP","git":"4ba73cf","item":"01M675AB5R3SDH4FRSB6N4S116","op":"close","set":{"status":"done"},"ts":"2026-10-30T19:46:45Z"}
 {"actor":"richardhightower","ev":"01M676SS4XCWHBNNNZRYE6D7FH","git":"7203697","item":"01M676SS4XCWHBNNNZRYE6D7FG","op":"create","set":{"discovered_during":"01M675AB5R3SDH4FRSB6N4S116","kind":"bug","level":"task","priority":"P2","status":"todo","title":"Make the e2e waits poll and retry a dropped Return key","unplanned":true},"ts":"2026-10-30T20:07:43Z"}
 {"actor":"richardhightower","ev":"01M676SS8CBZV03PZ046XX1S87","git":"7203697","item":"01M676SS4XCWHBNNNZRYE6D7FG","op":"close","set":{"status":"done"},"ts":"2026-10-30T20:07:43Z"}
+{"actor":"richardhightower","ev":"01M676T35CQDJFPR5XKDD2CW3S","git":"369f387","item":"01M676T35CQDJFPR5XKDD2CW3R","op":"create","set":{"kind":"ops","level":"task","priority":"P1","status":"todo","title":"Release 0.2.1"},"ts":"2026-10-30T20:07:53Z"}
+{"actor":"richardhightower","ev":"01M676TP47PSB6FXWWAP9YX19D","git":"369f387","item":"01M676T35CQDJFPR5XKDD2CW3R","op":"close","set":{"status":"done"},"ts":"2026-10-30T20:08:13Z"}

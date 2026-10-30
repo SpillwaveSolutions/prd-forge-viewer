@@ -2,6 +2,9 @@
 
 _The evidence chain: plan → item → ticket → code → release, forward and backward. Generated from `docs/.index/_graph.json`; do not edit._
 
+### Release 0.2.1
+`01M676T35CQDJFPR5XKDD2CW3R` · status: done
+
 ### Make the e2e waits poll and retry a dropped Return key
 `01M676SS4XCWHBNNNZRYE6D7FG` · status: done
 

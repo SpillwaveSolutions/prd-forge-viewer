@@ -1,5 +1,5 @@
 {
- "git_hash": "7203697",
+ "git_hash": "369f387",
  "pages": [
   {
    "frozen": false,
@@ -25,7 +25,7 @@
    "frozen": false,
    "page_name": "Index-Releases",
    "render": "as-is",
-   "render_hash": "29527868a945",
+   "render_hash": "7c6f7ab4570d",
    "source": "docs/.index/rendered/releases.md",
    "title": "Releases Index",
    "truth_state": "current",
@@ -45,7 +45,7 @@
    "frozen": false,
    "page_name": "Index-Traceability",
    "render": "as-is",
-   "render_hash": "15ee121c8426",
+   "render_hash": "b716ea9bcb81",
    "source": "docs/.index/rendered/traceability.md",
    "title": "Traceability Index",
    "truth_state": "current",
@@ -180,6 +180,16 @@
    "title": "Release v0.2.0",
    "truth_state": "shipped",
    "wiki_key": "release/v0.2.0"
+  },
+  {
+   "frozen": false,
+   "page_name": "Release-v0.2.1",
+   "render": "as-is",
+   "render_hash": "5196758e45af",
+   "source": "docs/.index/rendered/releases/v0.2.1.md",
+   "title": "Release v0.2.1",
+   "truth_state": "shipped",
+   "wiki_key": "release/v0.2.1"
   },
   {
    "frozen": false,
@@ -2022,6 +2032,16 @@
    "wiki_key": "item/01M676SS4XCWHBNNNZRYE6D7FG"
   },
   {
+   "frozen": false,
+   "page_name": "Ticket-01M676T35CQDJFPR5XKDD2CW3R",
+   "render": "as-is",
+   "render_hash": "f5ea543814ba",
+   "source": "docs/.index/rendered/tickets/01M676T35CQDJFPR5XKDD2CW3R.md",
+   "title": "Release 0.2.1",
+   "truth_state": "done",
+   "wiki_key": "item/01M676T35CQDJFPR5XKDD2CW3R"
+  },
+  {
    "banner": "> **Snapshot** of release v0.1.0 (2026-10-29) \u2014 frozen record. The current version is [[Code-Walkthrough]].",
    "frozen": true,
    "page_name": "Design-Freeze-2026-10-29_v0.1.0-release",
@@ -2274,11 +2294,11 @@
    "wiki_key": "plan/2026-10-30-plan-9-diagrams-design"
   },
   {
-   "banner": "> **Current** \u2014 this is the living version; regenerated at 2026-10-30T20:07:43Z. Historical snapshots are linked from [[Index-Releases]].",
+   "banner": "> **Current** \u2014 this is the living version; regenerated at 2026-10-30T20:08:13Z. Historical snapshots are linked from [[Index-Releases]].",
    "frozen": false,
    "page_name": "Roadmap",
    "render": "doc+banner",
-   "render_hash": "c2839405df1a",
+   "render_hash": "2bcd2be53da7",
    "source": "docs/roadmap.md",
    "source_hash": "95e2fd389c4b",
    "title": "Roadmap",
@@ -2308,10 +2328,22 @@
    "title": "Roadmap",
    "truth_state": "snapshot",
    "wiki_key": "roadmap-snapshot/2026-10-30_v0.2.0-release"
+  },
+  {
+   "banner": "> **Snapshot** of release v0.2.1 (2026-10-30) \u2014 frozen record. The current version is [[Roadmap]].",
+   "frozen": true,
+   "page_name": "Roadmap-2026-10-30_v0.2.1-release",
+   "render": "doc+banner",
+   "render_hash": "5b8bfbab3f22",
+   "source": "docs/roadmap/2026-10-30_v0.2.1-release.md",
+   "source_hash": "948bfaf1486d",
+   "title": "Roadmap",
+   "truth_state": "snapshot",
+   "wiki_key": "roadmap-snapshot/2026-10-30_v0.2.1-release"
   }
  ],
  "sidebar": {
-  "render_hash": "3169c4d1ee84",
+  "render_hash": "b29fe93c7da0",
   "source": "docs/.index/rendered/_Sidebar.md"
  },
  "version": 1
