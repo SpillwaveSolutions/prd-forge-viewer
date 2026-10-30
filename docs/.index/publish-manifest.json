@@ -45,7 +45,7 @@
    "frozen": false,
    "page_name": "Index-Traceability",
    "render": "as-is",
-   "render_hash": "9a3ce2a7f212",
+   "render_hash": "30222df9fa16",
    "source": "docs/.index/rendered/traceability.md",
    "title": "Traceability Index",
    "truth_state": "current",
@@ -160,6 +160,16 @@
    "title": "PR #197",
    "truth_state": "not tracked",
    "wiki_key": "pr/197"
+  },
+  {
+   "frozen": false,
+   "page_name": "PR-198",
+   "render": "as-is",
+   "render_hash": "173b622868fd",
+   "source": "docs/.index/rendered/prs/198.md",
+   "title": "PR #198",
+   "truth_state": "not tracked",
+   "wiki_key": "pr/198"
   },
   {
    "frozen": false,
@@ -2085,7 +2095,7 @@
    "frozen": false,
    "page_name": "Ticket-01M6791SYHPKZQ0TH5S6VM92SS",
    "render": "as-is",
-   "render_hash": "9c2e52a1714e",
+   "render_hash": "f4f7e1b1b059",
    "source": "docs/.index/rendered/tickets/01M6791SYHPKZQ0TH5S6VM92SS.md",
    "title": "Search in a drawer that opens from a Search button and can be pinned",
    "truth_state": "done",

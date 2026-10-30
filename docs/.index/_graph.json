@@ -2731,6 +2731,11 @@
    "type": "lands-in"
   },
   {
+   "from": "item/01M6791SYHPKZQ0TH5S6VM92SS",
+   "to": "pr/198",
+   "type": "lands-in"
+  },
+  {
    "from": "plan/2026-10-28-plan-1-open-and-grades",
    "to": "item/01M61XNJ5TFSD53MNXM1XHBD57",
    "type": "produces"
@@ -4610,6 +4615,9 @@
    "doc_type": "pr"
   },
   "pr/197": {
+   "doc_type": "pr"
+  },
+  "pr/198": {
    "doc_type": "pr"
   },
   "pr/4": {
