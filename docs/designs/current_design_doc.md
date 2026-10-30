@@ -2,17 +2,17 @@
 wiki_key: design/current-design-doc
 doc_type: design
 truth_state: current
-generated_at: 2026-10-29T18:07:19Z
-tag: v0.1.0
-git_hash: 3c33b807ffd28da4ad0c3fd7d15c6396616c297c
-branch: main
+generated_at: 2026-10-30T18:47:02Z
+tag: v0.2.0
+git_hash: d91ffd3718d28c0ab4a2e1d72c573581d9854e38
+branch: docs-0.2.0-design
 roadmap: docs/roadmap.md
 ---
 
 # PRD Forge Viewer design document
 
-This document describes the PRD Forge Viewer as built at tag `v0.1.0`
-(commit `3c33b80`). Every code claim cites `path:line` at that commit. The PRD
+This document describes the PRD Forge Viewer as built at tag `v0.2.0`
+(commit `d91ffd3`). Every code claim cites `path:line` at that commit. The PRD
 in `docs/prd/prd-forge-viewer/` is the source of truth for intent. The ADRs in
 `projects/001-prd-forge-viewer/decisions/` are the source of truth for the
 technology choices. Where the code and those documents differ, this document
@@ -71,16 +71,20 @@ document, and stakeholders without the authoring tools cannot read it at all.
 The viewer opens a set, shows its documents and grades on one screen, lets the
 author read any section or one item of it, searches every item, shows changes
 from the authoring tools as they happen, and exports a themed PDF or Word file
-for stakeholders.
+for stakeholders. Release 0.2.0 shows each diagram as a drawing, in the viewer
+and in every export, opens a diagram in a window with zoom and pan, makes the
+grades in an export optional, and restyles the app.
 
 **Main workflows.**
 
 1. Open a set from the terminal (`prdf`), the folder picker, or a known
    location.
-2. Read the overview, the grades table, a section, or one item.
+2. Read the overview, the grades table, a section, or one item. Open a
+   diagram in the diagram window to zoom and pan.
 3. Search items by term, in one category or in all.
 4. See live changes while the authoring tools write the set.
-5. Export or print the whole set or selected sections with a theme.
+5. Export or print the whole set or selected sections with a theme, with
+   diagrams as images, and with or without the grades.
 
 **Components.** A React UI in a Tauri web view, a Rust core that reads the set
 and owns every file write, a SQLite FTS5 index for search, a file watcher, a
@@ -110,20 +114,20 @@ only local content (NFR-010).
 | FR-002, FR-021, FR-022, FR-024 | Start rules and known locations | Start view, settings | `src-tauri/src/start.rs:22-47` |
 | FR-004 | Grades table | `GradesTable` | `src/GradesTable.tsx:4-37` |
 | FR-005, FR-023 | Section page and item view | Section reader, `SectionPage` | `src-tauri/src/prdset/section.rs:57-73` |
-| FR-007 | Follow an ID reference | Item index, `linkify` | `src-tauri/src/prdset/section.rs:76-84`, `src/SectionPage.tsx:8-16` |
+| FR-007 | Follow an ID reference | Item index, `linkify` | `src-tauri/src/prdset/section.rs:76-84`, `src/SectionPage.tsx:9-17` |
 | FR-008 | Search by term and category | Search index | `src-tauri/src/search.rs:138-160` |
 | FR-009 | Live changes | Watcher, `set-changed` listener | `src-tauri/src/watch.rs:82-88`, `src/App.tsx:90-112` |
-| FR-010, FR-011, FR-012 | PDF, Word, selected sections | Export model and writers | `src/exportRun.ts:43-50` |
-| FR-013 | Print | `runPrint`, `print_page` | `src/exportRun.ts:61-78` |
-| FR-014, FR-019, TR-005 | Version, Draft mark, contents table | Export model | `src/exportModel.ts:16-37` |
+| FR-010, FR-011, FR-012 | PDF, Word, selected sections | Export model and writers | `src/exportRun.ts:57-64` |
+| FR-013 | Print | `runPrint`, `print_page` | `src/exportRun.ts:75-92` |
+| FR-014, FR-019, TR-005 | Version, Draft mark, contents table | Export model | `src/exportModel.ts:20-43` |
 | FR-015 to FR-018, FR-020 | Built-in and custom themes | Themes, settings | `src/themes.ts:161-173`, `src-tauri/src/settings.rs:26-30` |
 | FR-021 | `prdf` launcher | Launcher installer | `src-tauri/src/launcher.rs:21-35` |
 | NFR-002 | Change seen within 2 s | Watcher with 1 s poll | `src-tauri/src/watch.rs:80-88` |
 | NFR-003 | Results within 0.5 s | Incremental index refresh | `src-tauri/src/search.rs:90-135` |
-| NFR-007 | Keyboard only | Native `<dialog>` modals | `src/ExportDialog.tsx:30-35` |
+| NFR-007 | Keyboard only | Native `<dialog>` modals | `src/ExportDialog.tsx:31-36` |
 | NFR-008 | Durable settings | Atomic save under one lock | `src-tauri/src/settings.rs:38-56` |
 | NFR-009 | Accessible exports | Tagged PDF from Chrome | `src-tauri/src/export.rs:65-98` |
-| NFR-010 | Local content only | Sanitizer, path checks, CSP | `src/renderBody.ts:32-53`, `src-tauri/src/prdset/section.rs:35-39` |
+| NFR-010 | Local content only | Sanitizer, path checks, CSP | `src/renderBody.ts:35-56`, `src-tauri/src/prdset/section.rs:35-39` |
 | OUT-001 | Never write to a set | Export path check | `src-tauri/src/export.rs:10-21` |
 
 ### 3.2 Non-functional targets
@@ -191,7 +195,9 @@ flowchart TB
         app[App.tsx<br/>state and IPC calls]
         views[StartScreen, SetOverview,<br/>GradesTable, SectionPage, SearchPanel]
         dialogs[ExportDialog, ThemeDialog]
+        diagram[DiagramViewer.tsx<br/>zoom.ts]
         render[renderBody.ts<br/>marked + DOMPurify]
+        clean[bodyClean.ts<br/>details block, sketches]
         exp[exportModel, exportBlocks,<br/>exportHtml, exportDocx, exportFonts]
     end
     subgraph core[Rust core, src-tauri/src/]
@@ -207,7 +213,10 @@ flowchart TB
     app --> views
     app --> dialogs
     views --> render
+    views --> diagram
+    render --> clean
     dialogs --> exp
+    exp --> clean
     app -->|invoke| cmd
     cmd -.->|emit set-changed, start| app
     cmd --> start
@@ -226,7 +235,9 @@ asynchronous Tauri event. The UI never touches the file system. Every read and
 write goes through a command in `commands.rs`.
 
 The UI has two jobs that the Rust core does not do: Markdown rendering for the
-screen, and building the export document (Markdown, then HTML or Word). Rust
+screen, and building the export document (Markdown, then HTML or Word). Both
+jobs start with the same body cleaner, `cleanBody`, so the screen and the
+export hide the same parts of a body (`src/bodyClean.ts:6-10`). Rust
 does the writes, because only Rust can check that a path is outside every known
 set.
 
@@ -315,7 +326,7 @@ that the Rust core checks.
 
 **Error handling strategy.** Commands return `Result<T, String>`. The string is
 a sentence for the author, and the UI shows it in a `role="alert"` paragraph
-(`src/App.tsx:195`). Derived data (the index) is rebuilt on any failure.
+(`src/App.tsx:196`). Derived data (the index) is rebuilt on any failure.
 Settings fall back to empty on a broken file.
 
 ## 7. Component inventory
@@ -332,6 +343,8 @@ Settings fall back to empty on a broken file.
 | `launcher.rs` | Rust module | Write `~/.local/bin/prdf` | Folder | Path | `prdf` | A foreign `prdf` is kept, with a message. |
 | `App.tsx` | React component | App state, IPC, event listeners | Events, clicks | Views | none | Window-level. |
 | `renderBody.ts` | TS module | Markdown to safe HTML | Body | HTML string | none | Fails closed to plain text. |
+| `bodyClean.ts` | TS module | Remove the details block and each wireframe sketch that a drawing follows | Body Markdown | Body Markdown | none | A sketch or the details block shows. |
+| `DiagramViewer.tsx`, `zoom.ts` | React component, TS module | Show one diagram with zoom and pan | Image `src` and alt text | Dialog | none | The diagram stays in the page at its fitted size. |
 | Export pipeline | TS modules | Build and render the export | Set, sections, theme | HTML or Word bytes | none | The dialog shows "Not done". |
 
 ## 8. End-to-end workflows
@@ -416,11 +429,18 @@ UI handles it with the same `showStart` function (`src/App.tsx:117`).
 2. `read_section` refuses any file that the root does not list, then reads it
    through the `inside` path check (`src-tauri/src/prdset/section.rs:57-73`).
 3. `SectionPage` renders the body once per section with `useMemo`, then loads
-   each `img[data-asset]` through `read_asset` (`src/SectionPage.tsx:65-81`).
+   each `img[data-asset]` through `read_asset` (`src/SectionPage.tsx:66-85`).
+   Before Marked runs, `cleanBody` removes the details block and each
+   wireframe sketch that a drawing follows (`src/renderBody.ts:52`).
+   Each local image renders as a `button.diagram` with its alt text as a
+   caption (`src/renderBody.ts:13-17`).
 4. An item button shows `ItemView`. Each known ID in a field is a button
-   (`src/SectionPage.tsx:8-16`).
+   (`src/SectionPage.tsx:9-17`).
 5. A click on an ID finds the file in the item index and opens it with that
    item selected (`src/App.tsx:65-68`).
+6. A click on a diagram opens `DiagramViewer` with the image `src`, which is
+   already a `data:` URL, and its alt text (`src/SectionPage.tsx:80-81`,
+   `src/SectionPage.tsx:108`). Section 8.6 describes the window.
 
 ```mermaid
 ---
@@ -467,7 +487,7 @@ flowchart TD
 3. `Index::search` ranks with `bm25(items, 50.0, 10.0, 1.0)` and scales scores
    so the best hit is 100 (`src-tauri/src/search.rs:138-160`).
 4. A click on a hit opens its section with the item selected
-   (`src/App.tsx:201`).
+   (`src/App.tsx:202`).
 
 ```mermaid
 ---
@@ -570,20 +590,31 @@ flowchart TD
 
 ### 8.5 Export and print
 
-1. `ExportDialog` collects the format, theme, and sections
-   (`src/ExportDialog.tsx:9-92`).
+1. `ExportDialog` collects the format, theme, sections, and the **Include
+   grades** option, which is clear by default (`src/ExportDialog.tsx:9-94`,
+   `src/ExportDialog.tsx:22`, `src/ExportDialog.tsx:84`). The dialog passes `{ grades }` as
+   `ExportOptions` (`src/exportModel.ts:18`).
 2. `runExport` asks for the save path first. Cancel returns `false`
-   (`src/exportRun.ts:43-45`).
+   (`src/exportRun.ts:57-58`).
 3. `collectBodies` reads every selected document that is not `pending`
    (`src/exportRun.ts:12-16`).
 4. `buildExport` writes one Markdown document: first page, contents table,
-   then the sections in order (`src/exportModel.ts:16-37`).
-5. For PDF, `renderThemedHtml` builds HTML with the fonts inlined, and Rust
+   then the sections in order (`src/exportModel.ts:20-43`). The contents
+   table has Score and Blocking defects columns only when `options.grades` is
+   true (`src/exportModel.ts:30-33`). Each section body goes through
+   `cleanBody` (`src/exportModel.ts:40`).
+5. `loadImages` finds each local image in the Markdown and reads the `.png`
+   with the same name as each linked `.svg` through `read_asset`. The result
+   is a map from image path to `data:` URL. An image that cannot be read is
+   not in the map (`src/exportRun.ts:36-40`).
+6. For PDF, `renderThemedHtml` builds HTML with the fonts and images inlined, and Rust
    `export_pdf` prints it with headless Chrome
    (`src-tauri/src/export.rs:65-98`). For Word, `exportDocx` builds the bytes,
    and Rust `write_export` saves them (`src-tauri/src/export.rs:42-45`).
-6. Print puts the same HTML in a hidden `#print-root` and calls
-   `window.print()` through `print_page` (`src/exportRun.ts:61-78`).
+   Both writers draw an `image` block from the map, and use the alt text when
+   the map has no entry (section 9.7).
+7. Print puts the same HTML in a hidden `#print-root` and calls
+   `window.print()` through `print_page` (`src/exportRun.ts:75-92`).
 
 ```mermaid
 ---
@@ -593,13 +624,15 @@ sequenceDiagram
     participant D as ExportDialog
     participant X as exportRun.ts
     participant Dlg as Save dialog
-    participant R as Rust export_pdf
+    participant R as Rust commands
     participant C as Headless Chrome
-    D->>X: runExport("pdf", set, theme, selected)
+    D->>X: runExport("pdf", set, theme, selected, {grades})
     X->>Dlg: save(defaultPath)
     Dlg-->>X: path or null
     X->>R: read_section for each selected file
-    X->>X: buildExport, renderThemedHtml, fontFaceCss
+    X->>X: buildExport with cleanBody
+    X->>R: read_asset for the PNG of each local image
+    X->>X: renderThemedHtml with fonts and images
     X->>R: invoke export_pdf(folder, path, html)
     R->>R: outside_set(known sets, path)
     R->>R: write job/export.html in app cache
@@ -618,7 +651,12 @@ flowchart TD
     b -->|no| c[Export cancelled. Nothing was saved.]
     b -->|yes| d[Read selected bodies]
     d --> e[Build markdown with Draft mark if any doc not final]
-    e --> f{Format}
+    e --> e2{Include grades?}
+    e2 -->|no| e3[Contents: Section, Status]
+    e2 -->|yes| e4[Contents: Section, Status, Score, Blocking defects]
+    e3 --> e5[Load the PNG of each local image]
+    e4 --> e5
+    e5 --> f{Format}
     f -->|PDF| g{Chrome found?}
     g -->|no| h[Not done: install Chrome or export to Word]
     g -->|yes| i{Path inside a known set?}
@@ -628,6 +666,46 @@ flowchart TD
     k --> l{Chrome exit OK within 60 s?}
     l -->|no| m[Temp removed, earlier file kept]
     l -->|yes| n[Export saved.]
+```
+
+### 8.6 Open a diagram and zoom
+
+1. `SectionPage` keeps the open diagram in state. A click inside a
+   `[data-diagram]` button sets it to the image `src` and alt text
+   (`src/SectionPage.tsx:67`, `src/SectionPage.tsx:80-81`).
+2. `DiagramViewer` opens a native modal `<dialog>` and moves focus to the
+   stage. On close, focus goes back to the element that had it
+   (`src/DiagramViewer.tsx:15-20`).
+3. When the image loads, `fit` computes the start view with `fitView`. An SVG
+   with no natural size is treated as 1000 by 750 pixels
+   (`src/DiagramViewer.tsx:23-27`).
+4. The wheel, a pinch, the **+** and **-** buttons, and the `+`, `=`, `-`
+   keys call `zoomAt`. A pinch arrives as a wheel event with `ctrlKey`, and
+   it counts five times more per unit of `deltaY`
+   (`src/DiagramViewer.tsx:28-38`).
+5. A pointer drag and the arrow keys pan by changing `x` and `y`. The `0`
+   key and **Fit** fit again (`src/DiagramViewer.tsx:39-56`).
+6. Escape fires `cancel` on the dialog. The handler prevents the default
+   close and calls `onClose`, so React owns the close
+   (`src/DiagramViewer.tsx:59`).
+
+The view is one CSS `transform` on the image: `translate(x, y)
+scale(scale)` with the origin at the top left (`src/DiagramViewer.tsx:69-70`,
+`src/styles.css:204`). No library is used.
+
+```mermaid
+---
+title: Diagram window states
+---
+stateDiagram-v2
+    [*] --> Loading: click a diagram
+    Loading --> Fitted: img onLoad, fitView
+    Fitted --> Zoomed: wheel, pinch, +, -
+    Zoomed --> Zoomed: wheel, pinch, +, -, drag, arrows
+    Fitted --> Zoomed: drag, arrows
+    Zoomed --> Fitted: 0 or Fit
+    Fitted --> [*]: Escape or Close
+    Zoomed --> [*]: Escape or Close
 ```
 
 ## 9. Complex business logic
@@ -669,7 +747,7 @@ joined with `, ` when no element has a space, and one element per line
 otherwise (`src-tauri/src/prdset/items.rs:62-66`).
 
 The UI uses the same ID shape to find references in text
-(`src/SectionPage.tsx:5`).
+(`src/SectionPage.tsx:6`).
 
 ### 9.3 Search ranking
 
@@ -684,9 +762,9 @@ The UI uses the same ID shape to find references in text
 ### 9.4 Draft mark
 
 An export shows "Draft" when any document, the root included, is not `final`.
-The reason names the count (`src/exportModel.ts:6-9`). A `pending` section
+The reason names the count (`src/exportModel.ts:7-10`). A `pending` section
 exports as "This section is not written yet." A section that cannot be read
-exports as "This section cannot be read." (`src/exportModel.ts:29-35`). A
+exports as "This section cannot be read." (`src/exportModel.ts:35-41`). A
 blocking defect never stops an export (TR-010). The export text never says
 that the PRD is approved (TR-007).
 
@@ -714,6 +792,34 @@ stateDiagram-v2
 Only the authoring tools move a document between `pending`, `draft`, `review`,
 and `final`. The viewer reads these values. The `unreadable` state exists only
 in the viewer.
+
+### 9.6 Body cleaning
+
+`cleanBody` follows the rules of the PRD Forge exporter (`prd_export.py`), so
+the viewer and both exports hide the same parts of a body
+(`src/bodyClean.ts:1-10`).
+
+| Part | Rule | Pattern |
+|------|------|---------|
+| Details block | Remove everything from `<!-- prd-forge:details -->` to `<!-- /prd-forge:details -->`. The block repeats the front matter. | `DETAILS` (`src/bodyClean.ts:6`) |
+| Wireframe sketch | Remove a fenced `wireframe` block only when the next non-blank line is an image line. A sketch with no drawing stays. | `SKETCH` (`src/bodyClean.ts:8`) |
+
+**Confirmed difference.** `prd_export.py` also checks that the image file
+exists before it drops the sketch. `cleanBody` checks only the shape of the
+next line, as its `ponytail:` comment says (`src/bodyClean.ts:7`). A sketch
+followed by a link to a missing drawing is hidden in the viewer and kept by
+`prd_export.py`.
+
+### 9.7 Images in exports
+
+| Rule | Code |
+|------|------|
+| A paragraph that holds only one image, with blank text around it, becomes an `image` block. An image inside other text is not a block, and exports as its alt text. | `src/exportBlocks.ts:57-62`, `src/exportBlocks.ts:149-151` |
+| `loadImages` collects each image path with no URL scheme, asks for the `.png` of each `.svg`, and drops any path that fails. | `src/exportRun.ts:36-40` |
+| HTML draws a `figure.diagram` with a caption only when the map value starts with `data:image/`. Otherwise it writes the alt text, so nothing outside the set loads (NFR-010). | `src/exportHtml.ts:75-79` |
+| A diagram in the HTML is at most the page width and 215 mm high, and does not break across pages. | `src/exportHtml.ts:50-52` |
+| Word embeds only a `data:image/png` value. It reads the size from the PNG `IHDR` chunk and scales down, never up, to fit 6.0 by 8.0 inches at 96 pixels an inch. The alt text is the caption and the alt text of the image. | `src/exportDocx.ts:66-94` |
+| Without a PNG, Word writes the alt text in italics in the muted color. | `src/exportDocx.ts:80` |
 
 ## 10. Domain model
 
@@ -850,7 +956,7 @@ only on the standard library and their crates.
 | `src-tauri/src/prdset/` | Front matter, set, item, section parsing | `serde`, `serde_yaml`, `base64` | `tauri`. The package is pure and testable without an app. |
 | `src-tauri/src/` (other) | Commands, search, watch, export, settings, launcher | `prdset`, crates | The UI. |
 | `src/` components | React views and dialogs | `types.ts`, helpers | `@tauri-apps/*`, except in `App.tsx`. |
-| `src/` export modules | Model, blocks, HTML, Word, fonts, themes | `marked`, `docx`, `dompurify` | Tauri. `exportRun.ts` gets IPC through a `Deps` object (`src/exportRun.ts:29-35`). |
+| `src/` export modules | Model, blocks, HTML, Word, fonts, themes | `marked`, `docx`, `dompurify` | Tauri. `exportRun.ts` gets IPC through a `Deps` object (`src/exportRun.ts:42-49`). |
 | `e2e/` | MCP-driven checks of the debug build | MCP SDK | Production code. |
 
 **Confirmed.** Only `App.tsx` imports `@tauri-apps/api` and
@@ -930,12 +1036,47 @@ Bun with no Tauri runtime.
 
 - Marked renderer rewrites: a local image becomes `img[data-asset]`, a remote
   image becomes its alt text, a `.md` link becomes a `data-doc` button, and any
-  other link becomes text (`src/renderBody.ts:10-22`).
+  other link becomes text (`src/renderBody.ts:11-25`).
 - DOMPurify with the HTML profile and extra forbidden tags and attributes, plus
   a hook that strips `src` and `href` from raw HTML
-  (`src/renderBody.ts:24-53`).
+  (`src/renderBody.ts:27-56`).
 - Without a working sanitizer, the body shows as plain text in `<pre>`
-  (`src/renderBody.ts:35-39`).
+  (`src/renderBody.ts:38-42`).
+- A local image renders as `button.diagram[data-diagram]` that holds the
+  `img[data-asset]` and a caption span with the alt text. The button label is
+  "Open diagram: " and the alt text (`src/renderBody.ts:13-17`).
+- `cleanBody` runs on the Markdown before Marked parses it
+  (`src/renderBody.ts:52`).
+
+### 13.7 `DiagramViewer` and `zoom`
+
+- **Responsibility.** Show one diagram in a modal dialog with zoom and pan
+  (`src/DiagramViewer.tsx:7-8`).
+- **State.** `view` is `{ scale, x, y }` or `null` before the image loads.
+  While it is `null`, the image is hidden (`src/DiagramViewer.tsx:13`,
+  `src/DiagramViewer.tsx:69-70`).
+- **`fitView(image, box)`.** Scales the image to 95% of the stage, at most 8,
+  and centers it (`src/zoom.ts:10-13`).
+- **`zoomAt(v, factor, px, py)`.** Clamps the scale to 0.25 to 8, and moves
+  the offset so that the content point under `(px, py)` stays still
+  (`src/zoom.ts:16-20`).
+- **Constants.** `STEP` is 1.25 per button or key press. `PAN` is 40 pixels
+  per arrow key (`src/DiagramViewer.tsx:4-5`).
+- **Confirmed gap.** `fitView` does not apply `MIN_SCALE`. A diagram more
+  than about 3.8 times the stage size opens below 0.25, and the first zoom jumps to 0.25
+  (`src/zoom.ts:11`).
+
+### 13.8 Visual design (`styles.css`)
+
+- Color tokens on `:root`, with a dark set under `prefers-color-scheme: dark`
+  (`src/styles.css:9-34`, `src/styles.css:35`).
+- The bundled Source Sans 3, Source Serif 4, and Source Code Pro fonts load
+  with `@font-face` from `public/fonts` (`src/styles.css:2-6`).
+- The document list shows status as a colored left border, from the
+  `data-status` attribute that `App.tsx` sets on each link
+  (`src/styles.css:149-151`, `src/App.tsx:217`).
+- A diagram in a body is at most 60% of the window height, with
+  `object-fit: contain` (`src/styles.css:189`).
 
 ## 14. API design
 
@@ -1082,6 +1223,7 @@ flowchart LR
 |--------|-----------|------------|---------------|
 | Script in a body | `renderBody` | DOMPurify, plus CSP `script-src 'self'` (`src-tauri/tauri.conf.json:21`) | Low |
 | Remote image or link | `renderBody` | Rewritten to text. `img-src 'self' data:`. | Low |
+| Remote image in an export | `loadImages`, `renderBlock` | Paths with a URL scheme are not loaded. HTML draws only a `data:image/` value (`src/exportRun.ts:37`, `src/exportHtml.ts:75-79`) | Low |
 | `../` or symlink in a child path | `section::inside` | Canonical path must start with the set root (`src-tauri/src/prdset/section.rs:35-39`) | Low |
 | Image read of a non-image file | `read_asset` | Extension allow list: svg, png, jpg, gif (`src-tauri/src/prdset/section.rs:89-95`) | An SVG is loaded as a data URL in an `img`, where scripts do not run. |
 | Export overwrites a set file | `outside_set` | Refuses the open set, every known set, and the last set (`src-tauri/src/commands.rs:120-123`) | A set never opened is not known. |
@@ -1150,7 +1292,7 @@ There are no secrets.
   `.app` and `.dmg`.
 - **Install.** The author copies the app to `/Applications` and selects
   **Install prdf command**, which writes `~/.local/bin/prdf` after a confirm
-  dialog (`src/App.tsx:141-144`).
+  dialog (`src/App.tsx:142-145`).
 - **Rollback.** Install the earlier `.app`. The settings file format is
   backward compatible: a plan 2 file with no themes loads
   (`src-tauri/src/settings.rs:120-129`).
@@ -1164,7 +1306,7 @@ Should the unit tests and the e2e checks run in CI?
 |-------|--------|----------|----------------|
 | Rust unit | `cargo test` | `#[cfg(test)]` in each module | Parsing, path checks, search ranking, watcher timing, export guards, settings |
 | Rust integration | `cargo test` | `src-tauri/tests/` | `load_set`, start rules, config |
-| UI unit | `bun test src` | `src/*.test.ts(x)` | Components with `renderToStaticMarkup`, sanitizer with JSDOM, export model and writers |
+| UI unit | `bun test src` | `src/*.test.ts(x)` | Components with `renderToStaticMarkup`, sanitizer with JSDOM, export model and writers, body cleaning (`src/bodyClean.test.ts`), export images (`src/exportImages.test.ts`), zoom math (`src/zoom.test.ts`) |
 | End to end | `bun run test:e2e` | `e2e/checks/*.mjs` | The debug build driven through the Tauri MCP bridge |
 
 Many Rust tests read the real PRD set in `docs/prd/prd-forge-viewer/`, so a
@@ -1208,6 +1350,9 @@ after the run (`e2e/harness.mjs:78-89`). It needs macOS, the debug build with
 | `frontmatter.ts` comments describe a Motion editor | Export | Low | Confusion | **Recommendation.** Edit the comment. |
 | Many tests read the real PRD | Tests | Medium | Test breaks on PRD edits | Use fixtures for counts that the PRD can change. |
 | NFR-009 screen reader count not measured | Export | Medium | Accessibility claim unproven | ADR-002 note records it. Run a PDF checker. |
+| The body cleaner copies the `prd_export.py` rules by hand | Viewer, export | Medium | The viewer and the PRD Forge export differ after a PRD Forge change | Compare with `prd_export.py` at each PRD Forge release. |
+| Exports embed the PNG of each SVG, the viewer shows the SVG | Export | Medium | A stale PNG exports an old drawing | Run `prd-diagrams.mjs` before an export. |
+| `fitView` does not clamp to `MIN_SCALE` | Diagram window | Low | A very large diagram jumps on the first zoom | **Recommendation.** Clamp in `fitView`. |
 
 ## 32. Implementation plan (extension roadmap)
 
@@ -1230,7 +1375,9 @@ after the run (`e2e/harness.mjs:78-89`). It needs macOS, the debug build with
 | FR-007 | 8.2 | `prdset::section`, `linkify` | set | `item_index` | `index_finds_requirement_and_nested_stage` |
 | FR-008 | 8.3 | `search` | index | `search`, `categories` | `e2e/checks/phase-2-search.mjs` |
 | FR-009 | 8.4 | `watch`, `App` | none | `watch_set`, `reload_set` | `e2e/checks/phase-3-live.mjs` |
-| FR-010 to FR-014, FR-019 | 8.5 | export pipeline, `export` | export file | `export_pdf`, `write_export`, `print_page` | `e2e/checks/phase-5-export.mjs` |
+| FR-010 to FR-014, FR-019 | 8.5 | export pipeline, `export` | export file | `export_pdf`, `write_export`, `print_page`, `read_asset` | `e2e/checks/phase-5-export.mjs`, `src/exportImages.test.ts` |
+| FR-019 (grades optional) | 8.5 | `ExportDialog`, `buildExport` | none | none | `fr_019_grades_are_left_out_by_default` |
+| FR-005 (diagrams) | 8.2, 8.6 | `bodyClean`, `renderBody`, `DiagramViewer`, `zoom` | set | `read_asset` | `e2e/checks/phase-1-reading.mjs`, `src/bodyClean.test.ts`, `src/zoom.test.ts` |
 | FR-015 to FR-018, FR-020 | 8.5 | `themes`, `ThemeDialog`, `settings` | settings | `themes`, `save_themes` | `e2e/checks/phase-4-themes.mjs` |
 | FR-021 | 8.1 | `launcher` | `prdf` | `install_prdf` | `relative_path_made_absolute` |
 | FR-022, FR-024 | 8.1 | `start`, `locate` | settings | `start_for` | `e2e/checks/plans-1-2.mjs` |
@@ -1259,6 +1406,7 @@ after the run (`e2e/harness.mjs:78-89`). It needs macOS, the debug build with
 | 8.3 | Search request, search activity |
 | 8.4 | Live change sequence and activity |
 | 8.5 | PDF export, export activity |
+| 8.6 | Diagram window states |
 | 9.5 | Document status |
 | 10 | Domain model |
 | 11 | Rust module dependencies |
@@ -1277,7 +1425,9 @@ after the run (`e2e/harness.mjs:78-89`). It needs macOS, the debug build with
 ## Summary for decision makers
 
 1. **Top architectural risks.** PDF export needs an installed Chrome. The IPC
-   types are mirrored by hand.
+   types are mirrored by hand. The body cleaner and the image rules copy the
+   PRD Forge exporter by hand, so a PRD Forge change can make the two
+   exports differ.
 2. **Immediate decisions.** None block release 1. Section 34 lists the open
    ones.
 3. **Recommended order.** FR-025, then FR-006, then a type contract test and
