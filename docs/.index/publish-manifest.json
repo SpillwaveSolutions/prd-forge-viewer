@@ -1,5 +1,5 @@
 {
- "git_hash": "b74ad9a",
+ "git_hash": "e03d767",
  "pages": [
   {
    "frozen": false,
@@ -45,7 +45,7 @@
    "frozen": false,
    "page_name": "Index-Traceability",
    "render": "as-is",
-   "render_hash": "7aa1a623addf",
+   "render_hash": "0367aafb2996",
    "source": "docs/.index/rendered/traceability.md",
    "title": "Traceability Index",
    "truth_state": "current",
@@ -1835,7 +1835,7 @@
    "frozen": false,
    "page_name": "Ticket-01M6700RY14BFZCYD4FGHJYB7Q",
    "render": "as-is",
-   "render_hash": "4a6a7190ee1c",
+   "render_hash": "5671a5e8ed5d",
    "source": "docs/.index/rendered/tickets/01M6700RY14BFZCYD4FGHJYB7Q.md",
    "title": "Plan 9: diagrams as images, optional grades, and a better layout",
    "truth_state": "open",
@@ -1875,20 +1875,20 @@
    "frozen": false,
    "page_name": "Ticket-01M6700RYF3F05QEDN2V10MPTH",
    "render": "as-is",
-   "render_hash": "7a071851c1a2",
+   "render_hash": "865930a62178",
    "source": "docs/.index/rendered/tickets/01M6700RYF3F05QEDN2V10MPTH.md",
    "title": "Task 4: diagram size, zoom, and pan in the viewer",
-   "truth_state": "in-progress",
+   "truth_state": "done",
    "wiki_key": "item/01M6700RYF3F05QEDN2V10MPTH"
   },
   {
    "frozen": false,
    "page_name": "Ticket-01M6700RYF3F05QEDN2V10MPTK",
    "render": "as-is",
-   "render_hash": "d43d35e9579d",
+   "render_hash": "403497be3812",
    "source": "docs/.index/rendered/tickets/01M6700RYF3F05QEDN2V10MPTK.md",
    "title": "Task 5: a new visual design",
-   "truth_state": "open",
+   "truth_state": "in-progress",
    "wiki_key": "item/01M6700RYF3F05QEDN2V10MPTK"
   },
   {
@@ -2142,13 +2142,13 @@
    "wiki_key": "plan/2026-10-30-plan-9-diagrams-design"
   },
   {
-   "banner": "> **Current** \u2014 this is the living version; regenerated at 2026-10-30T18:13:40Z. Historical snapshots are linked from [[Index-Releases]].",
+   "banner": "> **Current** \u2014 this is the living version; regenerated at 2026-10-30T18:18:29Z. Historical snapshots are linked from [[Index-Releases]].",
    "frozen": false,
    "page_name": "Roadmap",
    "render": "doc+banner",
-   "render_hash": "f92fe45adb85",
+   "render_hash": "f260bd96c01d",
    "source": "docs/roadmap.md",
-   "source_hash": "dd4b9b1951a9",
+   "source_hash": "b5e7d0efc865",
    "title": "Roadmap",
    "truth_state": "current",
    "wiki_key": "roadmap"

@@ -1,4 +1,5 @@
-import { useEffect, useMemo, useRef, type ReactNode } from "react";
+import { useEffect, useMemo, useRef, useState, type ReactNode } from "react";
+import { DiagramViewer } from "./DiagramViewer";
 import { renderBody } from "./renderBody";
 import type { Item, Section } from "./types";
 
@@ -63,6 +64,7 @@ export function SectionPage({ section, known, selected, onSelect, onOpenItem, on
     const item = section.items.find((i) => i.id === selected);
     // Render the body once for each section, not on every item click.
     const html = useMemo(() => renderHtml(section.body), [section.body, renderHtml]);
+    const [diagram, setDiagram] = useState<{ src: string; alt: string } | null>(null);
 
     useEffect(() => {
         const el = body.current;
@@ -75,6 +77,8 @@ export function SectionPage({ section, known, selected, onSelect, onOpenItem, on
         const onClick = (e: MouseEvent) => {
             const a = (e.target as HTMLElement).closest<HTMLElement>("[data-doc]");
             if (a) { e.preventDefault(); onOpenDoc?.(a.dataset.doc!); }
+            const img = (e.target as HTMLElement).closest<HTMLElement>("[data-diagram]")?.querySelector("img");
+            if (img?.src) setDiagram({ src: img.src, alt: img.alt });
         };
         el.addEventListener("click", onClick);
         return () => el.removeEventListener("click", onClick);
@@ -101,6 +105,7 @@ export function SectionPage({ section, known, selected, onSelect, onOpenItem, on
             )}
             {item && <ItemView item={item} section={section} known={known} onOpenItem={onOpenItem} />}
             <div ref={body} className="body" dangerouslySetInnerHTML={{ __html: html }} />
+            {diagram && <DiagramViewer src={diagram.src} alt={diagram.alt} onClose={() => setDiagram(null)} />}
         </section>
         </div>
     );

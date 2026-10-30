@@ -1,6 +1,6 @@
 # Task 4: diagram size, zoom, and pan in the viewer
 
-`01M6700RYF3F05QEDN2V10MPTH` · task/feature · **in-progress**
+`01M6700RYF3F05QEDN2V10MPTH` · task/feature · **done**
 
 Show diagrams in a `figure` with a caption, at `max-height: 60vh` and `object-fit: contain`.
 

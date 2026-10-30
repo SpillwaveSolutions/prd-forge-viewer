@@ -1,6 +1,6 @@
 # Task 5: a new visual design
 
-`01M6700RYF3F05QEDN2V10MPTK` · task/feature · **open**
+`01M6700RYF3F05QEDN2V10MPTK` · task/feature · **in-progress**
 
 Use the `frontend-design` skill to restyle `styles.css`.
 

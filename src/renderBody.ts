@@ -11,7 +11,9 @@ const docOf = (href: string) => (/\.md(#.*)?$/.test(href) && !remote(href) ? hre
 const md = new Marked({ gfm: true }).use({
     renderer: {
         image({ href, text }: Tokens.Image) {
-            return remote(href) ? `<span class="image-blocked">[image: ${esc(text || "remote image")}]</span>` : `<img data-asset="${esc(href.replace(/^\.\//, ""))}" alt="${esc(text)}">`;
+            if (remote(href)) return `<span class="image-blocked">[image: ${esc(text || "remote image")}]</span>`;
+            // A local image is a button that opens it in the diagram window, with its alt text as a caption.
+            return `<button type="button" class="diagram" data-diagram aria-label="Open diagram: ${esc(text || "image")}"><img data-asset="${esc(href.replace(/^\.\//, ""))}" alt="${esc(text)}"><span class="caption">${esc(text)}</span></button>`;
         },
         link(this: { parser: { parseInline(t: Tokens.Generic[]): string } }, { href, tokens }: Tokens.Link) {
             const label = this.parser.parseInline(tokens);
