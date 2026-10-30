@@ -132,6 +132,7 @@ export function App() {
     const testHooks: { __pfvSavePath?: string; __pfvPrint?: () => void } = typeof __PFV_E2E__ !== "undefined" && __PFV_E2E__ ? (window as never) : {};
     const exportDeps = (folder: string): Deps => ({
         read: (file) => invoke<Section>("read_section", { folder, file }),
+        asset: (rel) => invoke<string>("read_asset", { folder, rel }),
         save: async (format, name) => testHooks.__pfvSavePath ?? (await save({ defaultPath: name, filters: [{ name: format === "pdf" ? "PDF" : "Word", extensions: [format] }] })),
         writeDocx: (path, data) => invoke("write_export", { folder, path, data }),
         writePdf: (path, html) => invoke("export_pdf", { folder, path, html }),
@@ -171,8 +172,8 @@ export function App() {
                     themeId={themes.selected}
                     onEditThemes={() => setEditThemes(true)}
                     onClose={() => setExporting(false)}
-                    onExport={(format, theme, selected) => runExport(format, set, theme, selected, exportDeps(set.folder))}
-                    onPrint={(theme, selected) => runPrint(set, theme, selected, exportDeps(set.folder))}
+                    onExport={(format, theme, selected, options) => runExport(format, set, theme, selected, exportDeps(set.folder), options)}
+                    onPrint={(theme, selected, options) => runPrint(set, theme, selected, exportDeps(set.folder), options)}
                 />
             )}
             {editThemes && (
@@ -213,7 +214,7 @@ export function App() {
                     loadAsset={loadAsset}
                     changed={changed.has(page.section.file)}
                     nav={set.documents.filter((d) => !d.unreadable).map((d) => (
-                        <button key={d.file} type="button" className="doc-link" aria-current={d.file === page.section.file ? "page" : undefined} onClick={() => openDoc(d.file)}>
+                        <button key={d.file} type="button" className="doc-link" data-status={d.status} aria-current={d.file === page.section.file ? "page" : undefined} onClick={() => openDoc(d.file)}>
                             {d.title}
                         </button>
                     ))}

@@ -1,6 +1,6 @@
 [package]
 name = "prd-forge-viewer"
-version = "0.1.0"
+version = "0.2.0"
 description = "PRD Forge Viewer: read, search, and export PRD Forge sets"
 authors = ["Spillwave Solutions"]
 license = "MIT"

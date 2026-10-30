@@ -1,7 +1,7 @@
 {
-  "adapter_path": "/Users/richardhightower/clients/kpmg/src/prd-forge-viewer/adapters/github/adapter",
+  "adapter_path": "/Users/richardhightower/clients/kpmg/src/prd-forge-viewer-plan9sync/adapters/github/adapter",
   "cursors": {
-    "github": "2026-10-28T23:09:09Z"
+    "github": "2026-10-30T18:10:30Z"
   },
   "items": {
     "01M61XNJ3ME272NXHFN3BS3541": {
@@ -667,6 +667,34 @@
     "01M64C03048SWRXRJ3A59AD9W6": {
       "last_pushed_hash": "e2b98bc72780f981",
       "last_pushed_key": "177"
+    },
+    "01M6700RY14BFZCYD4FGHJYB7Q": {
+      "last_pushed_hash": "d24c007d7ed6588c",
+      "last_pushed_key": "184"
+    },
+    "01M6700RYEA5ZRFE6QYW3CRRKV": {
+      "last_pushed_hash": "e17cbd745b30c6b4",
+      "last_pushed_key": "185"
+    },
+    "01M6700RYEA5ZRFE6QYW3CRRKX": {
+      "last_pushed_hash": "29c401be1545804f",
+      "last_pushed_key": "186"
+    },
+    "01M6700RYEA5ZRFE6QYW3CRRKZ": {
+      "last_pushed_hash": "2bacce2583fdb8bd",
+      "last_pushed_key": "187"
+    },
+    "01M6700RYF3F05QEDN2V10MPTH": {
+      "last_pushed_hash": "67ce70516b2716df",
+      "last_pushed_key": "188"
+    },
+    "01M6700RYF3F05QEDN2V10MPTK": {
+      "last_pushed_hash": "b24c9fdc4d936f27",
+      "last_pushed_key": "189"
+    },
+    "01M6700RYF3F05QEDN2V10MPTN": {
+      "last_pushed_hash": "e38b98fa4ba2b256",
+      "last_pushed_key": "190"
     }
   }
 }

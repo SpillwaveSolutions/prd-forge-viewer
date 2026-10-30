@@ -2,7 +2,7 @@ import DOMPurify from "dompurify";
 import { exportDocx } from "./exportDocx";
 import { fontFaceCss, loadFonts, toBase64, type FontData } from "./exportFonts";
 import { renderThemedHtml } from "./exportHtml";
-import { buildExport } from "./exportModel";
+import { buildExport, type ExportOptions } from "./exportModel";
 import type { ExportTheme } from "./themes";
 import type { PrdSet, Section } from "./types";
 
@@ -26,26 +26,40 @@ export function exportFileName(set: PrdSet, format: "pdf" | "docx"): string {
     return `${clean(set.product)}-PRD-${clean(set.version)}.${format}`;
 }
 
+const IMAGE = /!\[([^\]]*)\]\(([^)\s]+)\)/g;
+
+/**
+ * The PNG of each local image, as a data URL by image path, as the PRD Forge exporter embeds the PNG
+ * of each SVG. The data stays out of the markdown, which stays small to parse. An image that cannot
+ * be read is not in the map, and exports as its alt text.
+ */
+export async function loadImages(md: string, asset: (rel: string) => Promise<string>): Promise<Map<string, string>> {
+    const local = [...new Set([...md.matchAll(IMAGE)].map((m) => m[2] ?? "").filter((p) => p && !/^[a-z][a-z0-9+.-]*:/i.test(p)))];
+    const pairs = await Promise.all(local.map(async (p) => [p, await asset(p.replace(/^\.\//, "").replace(/\.svg$/i, ".png")).catch(() => null)] as const));
+    return new Map(pairs.filter((x): x is readonly [string, string] => !!x[1]));
+}
+
 export type Deps = {
     read: (file: string) => Promise<Section>;
+    asset: (rel: string) => Promise<string>;
     save: (format: "pdf" | "docx", name: string) => Promise<string | null>;
     writeDocx: (path: string, base64: string) => Promise<void>;
     writePdf: (path: string, html: string) => Promise<void>;
     print: () => Promise<void>;
 };
 
-async function themedExport(set: PrdSet, theme: ExportTheme, selected: ReadonlySet<string>, read: Deps["read"]) {
-    const markdown = buildExport(set, await collectBodies(set, selected, read), selected);
-    return { markdown, title: `${set.product} PRD`, fonts: await appFonts() };
+async function themedExport(set: PrdSet, selected: ReadonlySet<string>, options: ExportOptions, deps: Pick<Deps, "read" | "asset">) {
+    const markdown = buildExport(set, await collectBodies(set, selected, deps.read), selected, options);
+    return { markdown, images: await loadImages(markdown, deps.asset), title: `${set.product} PRD`, fonts: await appFonts() };
 }
 
 /** Export to PDF or Word, saved where the author picks (FR-010, FR-011, FR-012). Returns false when the author cancels. */
-export async function runExport(format: "pdf" | "docx", set: PrdSet, theme: ExportTheme, selected: ReadonlySet<string>, deps: Deps): Promise<boolean> {
+export async function runExport(format: "pdf" | "docx", set: PrdSet, theme: ExportTheme, selected: ReadonlySet<string>, deps: Deps, options: ExportOptions = {}): Promise<boolean> {
     const path = await deps.save(format, exportFileName(set, format));
     if (!path) return false;
-    const { markdown, title, fonts } = await themedExport(set, theme, selected, deps.read);
-    if (format === "pdf") await deps.writePdf(path, renderThemedHtml(markdown, theme, title, fontFaceCss(fonts)));
-    else await deps.writeDocx(path, toBase64(new Uint8Array(await (await exportDocx(markdown, theme, title, fonts)).arrayBuffer())));
+    const { markdown, images, title, fonts } = await themedExport(set, selected, options, deps);
+    if (format === "pdf") await deps.writePdf(path, renderThemedHtml(markdown, theme, title, fontFaceCss(fonts), images));
+    else await deps.writeDocx(path, toBase64(new Uint8Array(await (await exportDocx(markdown, theme, title, fonts, images)).arrayBuffer())));
     return true;
 }
 
@@ -58,9 +72,9 @@ export function printCss(html: string): string {
 }
 
 /** Print the same themed document as the PDF export (FR-013). */
-export async function runPrint(set: PrdSet, theme: ExportTheme, selected: ReadonlySet<string>, deps: Pick<Deps, "read" | "print">): Promise<void> {
-    const { markdown, title, fonts } = await themedExport(set, theme, selected, deps.read);
-    const html = renderThemedHtml(markdown, theme, title, fontFaceCss(fonts));
+export async function runPrint(set: PrdSet, theme: ExportTheme, selected: ReadonlySet<string>, deps: Pick<Deps, "read" | "asset" | "print">, options: ExportOptions = {}): Promise<void> {
+    const { markdown, images, title, fonts } = await themedExport(set, selected, options, deps);
+    const html = renderThemedHtml(markdown, theme, title, fontFaceCss(fonts), images);
     // The last print stays in the page, hidden on screen: the print dialog can read the page after print() returns.
     document.getElementById("print-style")?.remove();
     document.getElementById("print-root")?.remove();

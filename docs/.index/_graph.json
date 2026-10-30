@@ -2536,6 +2536,126 @@
    "type": "references"
   },
   {
+   "from": "item/01M64SYER8ZQMX4H7TWA27XGBQ",
+   "to": "pr/183",
+   "type": "lands-in"
+  },
+  {
+   "from": "item/01M64SYER8ZQMX4H7TWA27XGBQ",
+   "to": "pr/191",
+   "type": "lands-in"
+  },
+  {
+   "from": "item/01M6700RY14BFZCYD4FGHJYB7Q",
+   "to": "pr/191",
+   "type": "lands-in"
+  },
+  {
+   "from": "item/01M6700RY14BFZCYD4FGHJYB7Q",
+   "to": "ticket/github#184",
+   "type": "references"
+  },
+  {
+   "from": "item/01M6700RYEA5ZRFE6QYW3CRRKV",
+   "to": "item/01M6700RY14BFZCYD4FGHJYB7Q",
+   "type": "belongs-to"
+  },
+  {
+   "from": "item/01M6700RYEA5ZRFE6QYW3CRRKV",
+   "to": "pr/191",
+   "type": "lands-in"
+  },
+  {
+   "from": "item/01M6700RYEA5ZRFE6QYW3CRRKV",
+   "to": "ticket/github#185",
+   "type": "references"
+  },
+  {
+   "from": "item/01M6700RYEA5ZRFE6QYW3CRRKX",
+   "to": "item/01M6700RY14BFZCYD4FGHJYB7Q",
+   "type": "belongs-to"
+  },
+  {
+   "from": "item/01M6700RYEA5ZRFE6QYW3CRRKX",
+   "to": "pr/191",
+   "type": "lands-in"
+  },
+  {
+   "from": "item/01M6700RYEA5ZRFE6QYW3CRRKX",
+   "to": "ticket/github#186",
+   "type": "references"
+  },
+  {
+   "from": "item/01M6700RYEA5ZRFE6QYW3CRRKZ",
+   "to": "item/01M6700RY14BFZCYD4FGHJYB7Q",
+   "type": "belongs-to"
+  },
+  {
+   "from": "item/01M6700RYEA5ZRFE6QYW3CRRKZ",
+   "to": "pr/191",
+   "type": "lands-in"
+  },
+  {
+   "from": "item/01M6700RYEA5ZRFE6QYW3CRRKZ",
+   "to": "ticket/github#187",
+   "type": "references"
+  },
+  {
+   "from": "item/01M6700RYF3F05QEDN2V10MPTH",
+   "to": "item/01M6700RY14BFZCYD4FGHJYB7Q",
+   "type": "belongs-to"
+  },
+  {
+   "from": "item/01M6700RYF3F05QEDN2V10MPTH",
+   "to": "pr/191",
+   "type": "lands-in"
+  },
+  {
+   "from": "item/01M6700RYF3F05QEDN2V10MPTH",
+   "to": "ticket/github#188",
+   "type": "references"
+  },
+  {
+   "from": "item/01M6700RYF3F05QEDN2V10MPTK",
+   "to": "item/01M6700RY14BFZCYD4FGHJYB7Q",
+   "type": "belongs-to"
+  },
+  {
+   "from": "item/01M6700RYF3F05QEDN2V10MPTK",
+   "to": "pr/191",
+   "type": "lands-in"
+  },
+  {
+   "from": "item/01M6700RYF3F05QEDN2V10MPTK",
+   "to": "ticket/github#189",
+   "type": "references"
+  },
+  {
+   "from": "item/01M6700RYF3F05QEDN2V10MPTN",
+   "to": "item/01M6700RY14BFZCYD4FGHJYB7Q",
+   "type": "belongs-to"
+  },
+  {
+   "from": "item/01M6700RYF3F05QEDN2V10MPTN",
+   "to": "pr/191",
+   "type": "lands-in"
+  },
+  {
+   "from": "item/01M6700RYF3F05QEDN2V10MPTN",
+   "to": "ticket/github#190",
+   "type": "references"
+  },
+  {
+   "from": "item/01M671SCRSYHVMEY9M09JNM0XW",
+   "to": "item/01M6700RY14BFZCYD4FGHJYB7Q",
+   "type": "belongs-to"
+  },
+  {
+   "from": "item/01M671SCRSYHVMEY9M09JNM0XW",
+   "to": "pr/191",
+   "type": "lands-in"
+  },
+  {
    "from": "plan/2026-10-28-plan-1-open-and-grades",
    "to": "item/01M61XNJ5TFSD53MNXM1XHBD57",
    "type": "produces"
@@ -3236,6 +3356,41 @@
    "type": "produces"
   },
   {
+   "from": "plan/2026-10-30-plan-9-diagrams-design",
+   "to": "item/01M6700RY14BFZCYD4FGHJYB7Q",
+   "type": "produces"
+  },
+  {
+   "from": "plan/2026-10-30-plan-9-diagrams-design",
+   "to": "item/01M6700RYEA5ZRFE6QYW3CRRKV",
+   "type": "produces"
+  },
+  {
+   "from": "plan/2026-10-30-plan-9-diagrams-design",
+   "to": "item/01M6700RYEA5ZRFE6QYW3CRRKX",
+   "type": "produces"
+  },
+  {
+   "from": "plan/2026-10-30-plan-9-diagrams-design",
+   "to": "item/01M6700RYEA5ZRFE6QYW3CRRKZ",
+   "type": "produces"
+  },
+  {
+   "from": "plan/2026-10-30-plan-9-diagrams-design",
+   "to": "item/01M6700RYF3F05QEDN2V10MPTH",
+   "type": "produces"
+  },
+  {
+   "from": "plan/2026-10-30-plan-9-diagrams-design",
+   "to": "item/01M6700RYF3F05QEDN2V10MPTK",
+   "type": "produces"
+  },
+  {
+   "from": "plan/2026-10-30-plan-9-diagrams-design",
+   "to": "item/01M6700RYF3F05QEDN2V10MPTN",
+   "type": "produces"
+  },
+  {
    "from": "roadmap-snapshot/2026-10-29_v0.1.0-release",
    "to": "roadmap",
    "type": "snapshot-of"
@@ -3243,6 +3398,21 @@
   {
    "from": "roadmap-snapshot/2026-10-29_v0.1.0-release",
    "to": "release/v0.1.0",
+   "type": "targets"
+  },
+  {
+   "from": "roadmap-snapshot/2026-10-30_v0.2.0-release",
+   "to": "roadmap",
+   "type": "snapshot-of"
+  },
+  {
+   "from": "roadmap-snapshot/2026-10-30_v0.2.0-release",
+   "to": "roadmap-snapshot/2026-10-29_v0.1.0-release",
+   "type": "supersedes"
+  },
+  {
+   "from": "roadmap-snapshot/2026-10-30_v0.2.0-release",
+   "to": "release/v0.2.0",
    "type": "targets"
   }
  ],
@@ -4147,6 +4317,46 @@
    "status": "done",
    "title": "Upgrade PRD Forge to 0.11.0 and generate the details blocks"
   },
+  "item/01M6700RY14BFZCYD4FGHJYB7Q": {
+   "doc_type": "item",
+   "status": "done",
+   "title": "Plan 9: diagrams as images, optional grades, and a better layout"
+  },
+  "item/01M6700RYEA5ZRFE6QYW3CRRKV": {
+   "doc_type": "item",
+   "status": "done",
+   "title": "Task 1: one body cleaner for the viewer and the export"
+  },
+  "item/01M6700RYEA5ZRFE6QYW3CRRKX": {
+   "doc_type": "item",
+   "status": "done",
+   "title": "Task 2: diagrams in PDF, print, and Word"
+  },
+  "item/01M6700RYEA5ZRFE6QYW3CRRKZ": {
+   "doc_type": "item",
+   "status": "done",
+   "title": "Task 3: optional grades in the export"
+  },
+  "item/01M6700RYF3F05QEDN2V10MPTH": {
+   "doc_type": "item",
+   "status": "done",
+   "title": "Task 4: diagram size, zoom, and pan in the viewer"
+  },
+  "item/01M6700RYF3F05QEDN2V10MPTK": {
+   "doc_type": "item",
+   "status": "done",
+   "title": "Task 5: a new visual design"
+  },
+  "item/01M6700RYF3F05QEDN2V10MPTN": {
+   "doc_type": "item",
+   "status": "done",
+   "title": "Task 6: checks, release, and install"
+  },
+  "item/01M671SCRSYHVMEY9M09JNM0XW": {
+   "doc_type": "item",
+   "status": "done",
+   "title": "Release 0.2.0"
+  },
   "plan/2026-10-28-plan-1-open-and-grades": {
    "doc_type": "plan",
    "source": "docs/plans/2026-10-28-plan-1-open-and-grades.md",
@@ -4201,6 +4411,12 @@
    "title": "Plan 8: close out release 1",
    "truth_state": "current"
   },
+  "plan/2026-10-30-plan-9-diagrams-design": {
+   "doc_type": "plan",
+   "source": "docs/plans/2026-10-30-plan-9-diagrams-design.md",
+   "title": "Plan 9: diagrams as images, optional grades, and a better layout",
+   "truth_state": "current"
+  },
   "pr/102": {
    "doc_type": "pr"
   },
@@ -4222,6 +4438,12 @@
   "pr/162": {
    "doc_type": "pr"
   },
+  "pr/183": {
+   "doc_type": "pr"
+  },
+  "pr/191": {
+   "doc_type": "pr"
+  },
   "pr/4": {
    "doc_type": "pr"
   },
@@ -4229,6 +4451,9 @@
    "doc_type": "release"
   },
   "release/v0.1.0": {
+   "doc_type": "release"
+  },
+  "release/v0.2.0": {
    "doc_type": "release"
   },
   "roadmap": {
@@ -4240,6 +4465,12 @@
   "roadmap-snapshot/2026-10-29_v0.1.0-release": {
    "doc_type": "roadmap-snapshot",
    "source": "docs/roadmap/2026-10-29_v0.1.0-release.md",
+   "title": "Roadmap",
+   "truth_state": "snapshot"
+  },
+  "roadmap-snapshot/2026-10-30_v0.2.0-release": {
+   "doc_type": "roadmap-snapshot",
+   "source": "docs/roadmap/2026-10-30_v0.2.0-release.md",
    "title": "Roadmap",
    "truth_state": "snapshot"
   },
@@ -4563,9 +4794,37 @@
    "doc_type": "ticket",
    "url": "https://github.com/SpillwaveSolutions/prd-forge-viewer/issues/18"
   },
+  "ticket/github#184": {
+   "doc_type": "ticket",
+   "url": "https://github.com/SpillwaveSolutions/prd-forge-viewer/issues/184"
+  },
+  "ticket/github#185": {
+   "doc_type": "ticket",
+   "url": "https://github.com/SpillwaveSolutions/prd-forge-viewer/issues/185"
+  },
+  "ticket/github#186": {
+   "doc_type": "ticket",
+   "url": "https://github.com/SpillwaveSolutions/prd-forge-viewer/issues/186"
+  },
+  "ticket/github#187": {
+   "doc_type": "ticket",
+   "url": "https://github.com/SpillwaveSolutions/prd-forge-viewer/issues/187"
+  },
+  "ticket/github#188": {
+   "doc_type": "ticket",
+   "url": "https://github.com/SpillwaveSolutions/prd-forge-viewer/issues/188"
+  },
+  "ticket/github#189": {
+   "doc_type": "ticket",
+   "url": "https://github.com/SpillwaveSolutions/prd-forge-viewer/issues/189"
+  },
   "ticket/github#19": {
    "doc_type": "ticket",
    "url": "https://github.com/SpillwaveSolutions/prd-forge-viewer/issues/19"
+  },
+  "ticket/github#190": {
+   "doc_type": "ticket",
+   "url": "https://github.com/SpillwaveSolutions/prd-forge-viewer/issues/190"
   },
   "ticket/github#20": {
    "doc_type": "ticket",

@@ -14,9 +14,9 @@ const FONT_STACK: Record<ExportTheme["font"], string> = {
     mono: `'${FAMILY.mono}', Menlo, monospace`,
 };
 
-export function renderThemedHtml(markdown: string, theme: ExportTheme, title: string, fontCss = ""): string {
+export function renderThemedHtml(markdown: string, theme: ExportTheme, title: string, fontCss = "", images: ReadonlyMap<string, string> = new Map()): string {
     const blocks = markdownToBlocks(markdown);
-    const body = blocks.map((block) => renderBlock(block)).join("\n");
+    const body = blocks.map((block) => renderBlock(block, images)).join("\n");
     const safeTitle = escapeHtml(title);
     return `<!DOCTYPE html>
 <html lang="en">
@@ -47,6 +47,9 @@ ${fontCss}
   td { background: ${theme.tableRowBg}; }
   tbody tr:nth-child(even) td { background: ${theme.tableRowAltBg}; }
   .muted { color: ${theme.muted}; }
+  figure.diagram { margin: 1em 0; text-align: center; break-inside: avoid; }
+  figure.diagram img { max-width: 100%; max-height: 215mm; }
+  figure.diagram figcaption { font-size: 0.8em; color: ${theme.muted}; margin-top: 0.3em; }
 </style>
 </head>
 <body>
@@ -55,7 +58,7 @@ ${body || `<p class="muted">Nothing to export.</p>`}
 </html>`;
 }
 
-function renderBlock(block: ExportBlock): string {
+function renderBlock(block: ExportBlock, images: ReadonlyMap<string, string>): string {
     if (block.type === "heading") {
         const tag = `h${block.level}`;
         return `<${tag}>${escapeHtml(block.text)}</${tag}>`;
@@ -69,6 +72,11 @@ function renderBlock(block: ExportBlock): string {
     if (block.type === "quote") return `<blockquote>${escapeHtml(block.text)}</blockquote>`;
     if (block.type === "code") return `<pre><code>${escapeHtml(block.text)}</code></pre>`;
     if (block.type === "hr") return `<hr />`;
+    // Only an image whose data is in the document is drawn, so nothing outside the set loads (NFR-010).
+    if (block.type === "image")
+        return images.get(block.src)?.startsWith("data:image/")
+            ? `<figure class="diagram"><img src="${escapeHtml(images.get(block.src)!)}" alt="${escapeHtml(block.alt)}" /><figcaption>${escapeHtml(block.alt)}</figcaption></figure>`
+            : `<p class="muted">${escapeHtml(block.alt)}</p>`;
     const head = block.header.map((cell) => `<th>${escapeHtml(cell)}</th>`).join("");
     const rows = block.rows
         .map((row) => `<tr>${row.map((cell) => `<td>${escapeHtml(cell)}</td>`).join("")}</tr>`)

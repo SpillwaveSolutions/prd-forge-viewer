@@ -382,13 +382,35 @@
    "wiki_key": "plan/2026-10-29-plan-8-closeout"
   },
   {
+   "canonical_key": "plan/2026-10-30-plan-9-diagrams-design",
+   "date": "2026-10-30",
+   "doc_type": "plan",
+   "epic": "01M6700RY14BFZCYD4FGHJYB7Q",
+   "git_hash": "6ce028282a099bcfc241766f75dab25401ef3170",
+   "items": [
+    "01M6700RYEA5ZRFE6QYW3CRRKV",
+    "01M6700RYEA5ZRFE6QYW3CRRKX",
+    "01M6700RYEA5ZRFE6QYW3CRRKZ",
+    "01M6700RYF3F05QEDN2V10MPTH",
+    "01M6700RYF3F05QEDN2V10MPTK",
+    "01M6700RYF3F05QEDN2V10MPTN"
+   ],
+   "slug": "plan-9-diagrams-design",
+   "source": "docs/plans/2026-10-30-plan-9-diagrams-design.md",
+   "status": "completed",
+   "title": "Plan 9: diagrams as images, optional grades, and a better layout",
+   "truth_state": "current",
+   "wiki": "https://github.com/SpillwaveSolutions/prd-forge-viewer/wiki/Plan-plan-9-diagrams-design",
+   "wiki_key": "plan/2026-10-30-plan-9-diagrams-design"
+  },
+  {
    "canonical_key": "roadmap",
    "doc_type": "roadmap",
-   "generated_at": "2026-10-29T21:44:44Z",
-   "git_hash": "a1d71ca",
+   "generated_at": "2026-10-30T18:40:59Z",
+   "git_hash": "81fefbb",
    "slug": "roadmap",
    "source": "docs/roadmap.md",
-   "source_hash": "405196be",
+   "source_hash": "c61d2969",
    "title": "Roadmap",
    "truth_state": "current",
    "wiki": "https://github.com/SpillwaveSolutions/prd-forge-viewer/wiki/Roadmap",
@@ -406,10 +428,27 @@
    "slug": "2026-10-29_v0.1.0-release",
    "source": "docs/roadmap/2026-10-29_v0.1.0-release.md",
    "source_hash": "418f6a9b",
+   "superseded_by": "roadmap-snapshot/2026-10-30_v0.2.0-release",
    "title": "Roadmap",
    "truth_state": "snapshot",
    "wiki": "https://github.com/SpillwaveSolutions/prd-forge-viewer/wiki/Roadmap-2026-10-29_v0.1.0-release",
    "wiki_key": "roadmap-snapshot/2026-10-29_v0.1.0-release"
+  },
+  {
+   "canonical_key": "roadmap-snapshot/2026-10-30_v0.2.0-release",
+   "date": "2026-10-30",
+   "doc_type": "roadmap-snapshot",
+   "generated_at": "2026-10-30T18:40:47Z",
+   "git_hash": "81fefbb",
+   "name": "v0.2.0-release",
+   "release": "v0.2.0",
+   "slug": "2026-10-30_v0.2.0-release",
+   "source": "docs/roadmap/2026-10-30_v0.2.0-release.md",
+   "source_hash": "8ca7666d",
+   "supersedes": "roadmap-snapshot/2026-10-29_v0.1.0-release",
+   "title": "Roadmap",
+   "truth_state": "snapshot",
+   "wiki_key": "roadmap-snapshot/2026-10-30_v0.2.0-release"
   }
  ],
  "version": 1

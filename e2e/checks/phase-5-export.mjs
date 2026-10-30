@@ -22,7 +22,8 @@ const pageColor = (f) => {
 const order = (text, titles) => titles.map((t) => text.indexOf(t, text.indexOf("Executive summary") + 1));
 // The first plain line of body text of a section, from the file on disk. The contents table has
 // only titles, so a body line proves that the body itself is in the file, at that place.
-const bodyLine = (file) => readFileSync(file, "utf8").split(/\n---\n/).slice(1).join("\n").split("\n").map((l) => l.trim())
+// The details block is left out of the export, as in the PRD Forge exporter, so it is left out here too.
+const bodyLine = (file) => readFileSync(file, "utf8").replace(/<!-- prd-forge:details -->[\s\S]*?<!-- \/prd-forge:details -->/g, "").split(/\n---\n/).slice(1).join("\n").split("\n").map((l) => l.trim())
   .find((l) => /^[A-Z][a-z]/.test(l) && !/[[\]()|*_`<>]/.test(l) && l.length > 30)?.slice(0, 30);
 // The documents in reading order (the root, then the sections by file name), with a body line each.
 const bodies = (set) => ["prd.md", ...readdirSync(set).filter((f) => f.endsWith(".md") && f !== "prd.md").sort()]
@@ -54,15 +55,23 @@ await run(async (h) => {
     }
   };
   const pick = (re, val) => h.js(`const s = document.querySelector('[aria-label="Export theme"]'); const o = [...s.options].find(o => ${re}.test(o.text)); Object.getOwnPropertyDescriptor(HTMLSelectElement.prototype, 'value').set.call(s, o.value); s.dispatchEvent(new Event('change', { bubbles: true })); return 'ok'`);
-  const exportTo = async (path, format, theme) => {
+  // The Include grades box is set to `grades` on each export, so one export does not change the next.
+  const setGrades = (on) => h.js(`const b = [...document.querySelectorAll('dialog label')].find(l => /Include grades/.test(l.innerText)).querySelector('input'); if (b.checked !== ${!!on}) b.click(); return 'ok'`);
+  const exportTo = async (path, format, theme, grades = false) => {
     await openExport();
     await h.js(`window.__pfvSavePath = ${JSON.stringify(path)}; return 'ok'`);
     await h.click(`//dialog//label[contains(., '${format}')]`, "xpath");
     if (theme) await pick(theme);
+    await setGrades(grades);
     const runs = await h.js("return document.querySelector('dialog[aria-label=Export]').dataset.runs");
     const t0 = Date.now();
     await h.click("//dialog//button[.='Export']", "xpath");
-    await h.call("webview_wait_for", { type: "selector", value: `dialog[aria-label=Export]:not([data-runs="${runs}"])`, timeout: 30000 });
+    // Poll with short scripts. One long webview_wait_for can time out while the export data is in transit.
+    for (const end = Date.now() + 30000; ; await new Promise((r) => setTimeout(r, 250))) {
+      const now = await h.js("return document.querySelector('dialog[aria-label=Export]')?.dataset.runs ?? ''").catch(() => runs);
+      if (now !== runs) break;
+      if (Date.now() > end) throw new Error("the export did not finish in 30 s");
+    }
     const status = await h.js("return document.querySelector('dialog [role=status]').innerText");
     expect(status === "Export saved.", status);
     return Date.now() - t0;
@@ -79,19 +88,37 @@ await run(async (h) => {
     h.results.push(["INFO", `PDF export ${pdfMs} ms, ${sh("pdfinfo", pdf).match(/Pages:\s+(\d+)/)[1]} pages`]);
   });
 
+  await h.check("Diagrams are images in the PDF, with no ASCII sketch and no details block", async () => {
+    const images = sh("pdfimages", "-list", pdf).split("\n").slice(2).filter((l) => l.trim()).length;
+    expect(images >= 20, `${images} images in the PDF`);
+    const text = pdfText(pdf);
+    expect(!/[┌└│]/.test(text), "an ASCII sketch is in the PDF");
+    expect(!/prd-forge:details/.test(text), "a details marker is in the PDF");
+  });
+
   await h.check("FR-014, TR-005: the first page shows the version and Draft", async () => {
     const first = sh("pdftotext", "-f", "1", "-l", "1", pdf, "-");
     expect(first.includes(`Version ${version}`) && /Draft/.test(first), first.slice(0, 300));
   });
 
-  await h.check("FR-019: contents show status, score, and blocking of every section; a pending section says it is not written", async () => {
+  await h.check("FR-019: contents show the status of every section and no grades by default; a pending section says it is not written", async () => {
     const text = pdfText(pdf);
     const contents = text.slice(text.indexOf("Contents"), text.indexOf("Contents") + 4000);
     for (const t of titles) expect(contents.includes(t), `contents miss ${t}`);
-    expect(/Scope pending not graded|Scope pending \d+/.test(contents), "Scope row: " + contents.slice(contents.indexOf("Scope"), contents.indexOf("Scope") + 60));
-    expect(/Functional requirements (final|review|draft) \d+ \d+/.test(contents), "no score row");
+    expect(/Scope pending/.test(contents), "Scope row: " + contents.slice(contents.indexOf("Scope"), contents.indexOf("Scope") + 60));
+    expect(!/Score|Blocking defects|not graded/.test(contents), "grades shown by default");
     const scopeAt = order(text, titles)[titles.indexOf("Scope")];
     expect(text.indexOf("This section is not written yet.", scopeAt) > scopeAt, "pending text missing after the Scope heading");
+  });
+
+  await h.check("FR-019: with Include grades selected, contents show the score and blocking of every section", async () => {
+    const graded = join(out, "graded.pdf");
+    await exportTo(graded, "PDF", null, true);
+    const text = pdfText(graded);
+    const contents = text.slice(text.indexOf("Contents"), text.indexOf("Contents") + 4000);
+    expect(/Score/.test(contents) && /Blocking defects/.test(contents), "no grade columns");
+    expect(/Scope pending not graded|Scope pending \d+/.test(contents), "Scope row: " + contents.slice(contents.indexOf("Scope"), contents.indexOf("Scope") + 60));
+    expect(/Functional requirements (final|review|draft) \d+ \d+/.test(contents), "no score row");
   });
 
   await h.check("TR-007: the export does not say the PRD is approved", async () => {
@@ -109,7 +136,7 @@ await run(async (h) => {
   });
 
   await h.check("NFR-009: the PDF is tagged, with a language, a title, and an outline", async () => {
-    const raw = sh("qpdf", "--qdf", "--object-streams=disable", pdf, "-");
+    const raw = sh("qpdf", "--qdf", "--object-streams=disable", "--stream-data=preserve", pdf, "-");
     expect(raw.includes("/StructTreeRoot"), "no structure tree");
     expect(/\/Marked true/.test(raw), "not marked");
     expect(/\/Lang \(en\)/.test(raw), "no language");
@@ -128,6 +155,10 @@ await run(async (h) => {
     expect(xml.includes('w:ascii="Source Serif 4"') && xml.includes('w:ascii="Source Sans 3"'), "fonts");
     expect(/w:embedRegular/.test(docxPart(docx, "word/fontTable.xml")), "fonts not embedded");
     h.results.push(["INFO", `Word export ${docxMs} ms`]);
+    const media = sh("unzip", "-Z1", docx).split("\n").filter((f) => /^word\/media\/.+\.png$/.test(f)).length;
+    expect(media >= 20, `${media} images in the Word file`);
+    expect(!/[┌└│]/.test(text) && !/prd-forge:details/.test(text), "an ASCII sketch or a details marker is in the Word file");
+    expect(!/Score|Blocking defects/.test(text.slice(text.indexOf("Contents"), text.indexOf("Contents") + 3000)), "grades in the Word file by default");
   });
 
   await h.check("NFR-009: the Word file has a title, heading styles, and table header rows", async () => {
@@ -157,7 +188,12 @@ await run(async (h) => {
     await h.js("window.__printed = ''; window.__pfvPrint = () => { window.__printed = document.getElementById('print-root').innerText + '|' + getComputedStyle(document.getElementById('print-root')).display; }; return 'ok'");
     const runs = await h.js("return document.querySelector('dialog[aria-label=Export]').dataset.runs");
     await h.click("//dialog//button[.='Print']", "xpath");
-    await h.call("webview_wait_for", { type: "selector", value: `dialog[aria-label=Export]:not([data-runs="${runs}"])`, timeout: 30000 });
+    // Poll with short scripts. One long webview_wait_for can time out while the export data is in transit.
+    for (const end = Date.now() + 30000; ; await new Promise((r) => setTimeout(r, 250))) {
+      const now = await h.js("return document.querySelector('dialog[aria-label=Export]')?.dataset.runs ?? ''").catch(() => runs);
+      if (now !== runs) break;
+      if (Date.now() > end) throw new Error("the export did not finish in 30 s");
+    }
     const [printed, display] = (await h.js("return window.__printed")).split("|");
     expect(display === "none", "the print copy shows on screen");
     const p = printed.replace(/\s+/g, " ");
@@ -177,7 +213,12 @@ await run(async (h) => {
     }
     expect(panel === "true", "no print panel");
     await h.realKey(53); // Escape
-    await h.call("webview_wait_for", { type: "selector", value: `dialog[aria-label=Export]:not([data-runs="${runs}"])`, timeout: 30000 });
+    // Poll with short scripts. One long webview_wait_for can time out while the export data is in transit.
+    for (const end = Date.now() + 30000; ; await new Promise((r) => setTimeout(r, 250))) {
+      const now = await h.js("return document.querySelector('dialog[aria-label=Export]')?.dataset.runs ?? ''").catch(() => runs);
+      if (now !== runs) break;
+      if (Date.now() > end) throw new Error("the export did not finish in 30 s");
+    }
     const after = sh("osascript", "-e", `tell application "System Events" to tell (first process whose unix id is ${h.app.pid}) to return ((count of windows) > 1) or (exists sheet 1 of window 1)`).trim();
     expect(after === "false", "the print panel is still open");
   });
