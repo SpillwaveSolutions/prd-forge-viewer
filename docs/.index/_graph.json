@@ -4400,12 +4400,12 @@
   },
   "item/01M675A4ZFVAXWB3KWCZFBCF24": {
    "doc_type": "item",
-   "status": "todo",
+   "status": "done",
    "title": "Remove the leftover agent worktrees"
   },
   "item/01M675AB5R3SDH4FRSB6N4S116": {
    "doc_type": "item",
-   "status": "todo",
+   "status": "in_progress",
    "title": "A distinct app icon"
   },
   "plan/2026-10-28-plan-1-open-and-grades": {
