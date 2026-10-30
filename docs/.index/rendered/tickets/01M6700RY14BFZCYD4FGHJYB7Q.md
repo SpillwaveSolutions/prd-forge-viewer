@@ -14,3 +14,7 @@ Plan 9: diagrams as images, optional grades, and a better layout
 - [[Ticket-01M6700RYF3F05QEDN2V10MPTN]] Task 6: checks, release, and install — Extend `e2e/checks/phase-1-reading.mjs`: no `wireframe` code block shows, the diagram height is 60vh or less, and the diagram window zooms, pans, and closes with Escape. (open)
 
 Progress: 0/6 done
+
+## Related tickets
+
+- [github #184](https://github.com/SpillwaveSolutions/prd-forge-viewer/issues/184)
