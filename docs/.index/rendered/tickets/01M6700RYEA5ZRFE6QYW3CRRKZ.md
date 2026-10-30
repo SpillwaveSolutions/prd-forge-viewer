@@ -1,6 +1,6 @@
 # Task 3: optional grades in the export
 
-`01M6700RYEA5ZRFE6QYW3CRRKZ` · task/feature · **open**
+`01M6700RYEA5ZRFE6QYW3CRRKZ` · task/feature · **in-progress**
 
 Add an **Include grades** checkbox, clear by default, to `ExportDialog.tsx`.
 

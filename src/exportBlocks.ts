@@ -1,7 +1,8 @@
 /**
  * Markdown → a small block list shared by the HTML preview, PDF, and Word
  * exporters. GFM tables, lists, quotes, and inline marks survive. Custom
- * fenced blocks (mermaid, dataset, …) export as code.
+ * fenced blocks (mermaid, dataset, …) export as code. A paragraph that is only an image is an
+ * image block, which the exporters draw when its src is a data URL.
  */
 import { marked, type Token, type Tokens } from "marked";
 import { splitFrontmatter } from "./frontmatter";
@@ -21,6 +22,7 @@ export type ExportBlock =
     | { type: "quote"; text: string }
     | { type: "code"; text: string }
     | { type: "hr" }
+    | { type: "image"; alt: string; src: string }
     | { type: "table"; header: string[]; rows: string[][] };
 
 /**
@@ -52,6 +54,12 @@ function tokensToBlocks(tokens: Token[]): ExportBlock[] {
             continue;
         }
         if (token.type === "paragraph") {
+            const only = token.tokens?.filter((t) => !(t.type === "text" && !t.raw.trim()));
+            const img = only?.length === 1 && only[0]?.type === "image" ? (only[0] as Tokens.Image) : null;
+            if (img) {
+                blocks.push({ type: "image", alt: img.text, src: img.href });
+                continue;
+            }
             const runs = inlineRuns(token.tokens);
             if (runs.length) blocks.push({ type: "paragraph", runs });
             continue;
@@ -156,6 +164,7 @@ function blockPlain(block: ExportBlock): string {
     if (block.type === "paragraph") return block.runs.map((run) => run.text).join("");
     if (block.type === "list") return block.items.map((item) => item.map((run) => run.text).join("")).join("\n");
     if (block.type === "quote" || block.type === "code") return block.text;
+    if (block.type === "image") return block.alt;
     if (block.type === "table") return [...block.header, ...block.rows.flat()].join(" ");
     return "";
 }

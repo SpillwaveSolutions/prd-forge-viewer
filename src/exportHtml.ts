@@ -47,6 +47,9 @@ ${fontCss}
   td { background: ${theme.tableRowBg}; }
   tbody tr:nth-child(even) td { background: ${theme.tableRowAltBg}; }
   .muted { color: ${theme.muted}; }
+  figure.diagram { margin: 1em 0; text-align: center; break-inside: avoid; }
+  figure.diagram img { max-width: 100%; max-height: 215mm; }
+  figure.diagram figcaption { font-size: 0.8em; color: ${theme.muted}; margin-top: 0.3em; }
 </style>
 </head>
 <body>
@@ -69,6 +72,11 @@ function renderBlock(block: ExportBlock): string {
     if (block.type === "quote") return `<blockquote>${escapeHtml(block.text)}</blockquote>`;
     if (block.type === "code") return `<pre><code>${escapeHtml(block.text)}</code></pre>`;
     if (block.type === "hr") return `<hr />`;
+    // Only an image whose data is in the document is drawn, so nothing outside the set loads (NFR-010).
+    if (block.type === "image")
+        return block.src.startsWith("data:image/")
+            ? `<figure class="diagram"><img src="${escapeHtml(block.src)}" alt="${escapeHtml(block.alt)}" /><figcaption>${escapeHtml(block.alt)}</figcaption></figure>`
+            : `<p class="muted">${escapeHtml(block.alt)}</p>`;
     const head = block.header.map((cell) => `<th>${escapeHtml(cell)}</th>`).join("");
     const rows = block.rows
         .map((row) => `<tr>${row.map((cell) => `<td>${escapeHtml(cell)}</td>`).join("")}</tr>`)

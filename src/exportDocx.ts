@@ -5,7 +5,9 @@
 import {
     BorderStyle,
     Document,
+    AlignmentType,
     HeadingLevel,
+    ImageRun,
     Packer,
     Paragraph,
     ShadingType,
@@ -59,6 +61,36 @@ export async function exportDocx(markdown: string, theme: ExportTheme, title: st
         sections: [{ children }],
     });
     return Packer.toBlob(doc);
+}
+
+/** Width and height in pixels, from the IHDR chunk of a PNG file. */
+export function pngSize(png: Uint8Array): { width: number; height: number } {
+    const v = new DataView(png.buffer, png.byteOffset, png.byteLength);
+    return { width: v.getUint32(16), height: v.getUint32(20) };
+}
+
+/** Scale down only, to fit 6.0 by 8.0 inches at 96 pixels an inch, as the PRD Forge exporter does. */
+export function fitImage(size: { width: number; height: number }): { width: number; height: number } {
+    const scale = Math.min(1, 576 / size.width, 768 / size.height);
+    return { width: Math.round(size.width * scale), height: Math.round(size.height * scale) };
+}
+
+function image(block: ExportBlock & { type: "image" }, theme: ExportTheme): FileChild[] {
+    const png = /^data:image\/png;base64,(.+)$/.exec(block.src);
+    if (!png?.[1]) return [paragraph(block.alt, theme, { italic: true, color: theme.muted })];
+    const data = Uint8Array.from(atob(png[1]), (c) => c.charCodeAt(0));
+    return [
+        new Paragraph({
+            alignment: AlignmentType.CENTER,
+            keepNext: true,
+            children: [new ImageRun({ type: "png", data, transformation: fitImage(pngSize(data)), altText: { name: block.alt, title: block.alt, description: block.alt } })],
+        }),
+        new Paragraph({
+            alignment: AlignmentType.CENTER,
+            spacing: { after: AFTER },
+            children: [new TextRun({ text: block.alt, size: 16, font: FONT[theme.font], color: hexBare(theme.muted) })],
+        }),
+    ];
 }
 
 // Paragraph spacing in twips (1/20 pt). Word adds none by default, so headings
@@ -136,6 +168,10 @@ function blocksToChildren(blocks: ExportBlock[], theme: ExportTheme): FileChild[
                     ],
                 }),
             );
+            continue;
+        }
+        if (block.type === "image") {
+            children.push(...image(block, theme));
             continue;
         }
         if (block.type === "hr") {

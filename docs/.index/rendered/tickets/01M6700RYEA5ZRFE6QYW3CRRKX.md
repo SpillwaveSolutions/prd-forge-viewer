@@ -1,6 +1,6 @@
 # Task 2: diagrams in PDF, print, and Word
 
-`01M6700RYEA5ZRFE6QYW3CRRKX` · task/feature · **in-progress**
+`01M6700RYEA5ZRFE6QYW3CRRKX` · task/feature · **done**
 
 Add an `image` block to `ExportBlock` (`exportBlocks.ts`) for an image line.
 

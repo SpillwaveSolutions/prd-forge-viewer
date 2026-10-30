@@ -132,6 +132,7 @@ export function App() {
     const testHooks: { __pfvSavePath?: string; __pfvPrint?: () => void } = typeof __PFV_E2E__ !== "undefined" && __PFV_E2E__ ? (window as never) : {};
     const exportDeps = (folder: string): Deps => ({
         read: (file) => invoke<Section>("read_section", { folder, file }),
+        asset: (rel) => invoke<string>("read_asset", { folder, rel }),
         save: async (format, name) => testHooks.__pfvSavePath ?? (await save({ defaultPath: name, filters: [{ name: format === "pdf" ? "PDF" : "Word", extensions: [format] }] })),
         writeDocx: (path, data) => invoke("write_export", { folder, path, data }),
         writePdf: (path, html) => invoke("export_pdf", { folder, path, html }),
