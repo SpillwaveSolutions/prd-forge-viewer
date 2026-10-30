@@ -2601,6 +2601,11 @@
    "type": "references"
   },
   {
+   "from": "item/01M671SCRSYHVMEY9M09JNM0XW",
+   "to": "item/01M6700RY14BFZCYD4FGHJYB7Q",
+   "type": "belongs-to"
+  },
+  {
    "from": "plan/2026-10-28-plan-1-open-and-grades",
    "to": "item/01M61XNJ5TFSD53MNXM1XHBD57",
    "type": "produces"
@@ -3343,6 +3348,21 @@
   {
    "from": "roadmap-snapshot/2026-10-29_v0.1.0-release",
    "to": "release/v0.1.0",
+   "type": "targets"
+  },
+  {
+   "from": "roadmap-snapshot/2026-10-30_v0.2.0-release",
+   "to": "roadmap",
+   "type": "snapshot-of"
+  },
+  {
+   "from": "roadmap-snapshot/2026-10-30_v0.2.0-release",
+   "to": "roadmap-snapshot/2026-10-29_v0.1.0-release",
+   "type": "supersedes"
+  },
+  {
+   "from": "roadmap-snapshot/2026-10-30_v0.2.0-release",
+   "to": "release/v0.2.0",
    "type": "targets"
   }
  ],
@@ -4249,7 +4269,7 @@
   },
   "item/01M6700RY14BFZCYD4FGHJYB7Q": {
    "doc_type": "item",
-   "status": "todo",
+   "status": "done",
    "title": "Plan 9: diagrams as images, optional grades, and a better layout"
   },
   "item/01M6700RYEA5ZRFE6QYW3CRRKV": {
@@ -4279,8 +4299,13 @@
   },
   "item/01M6700RYF3F05QEDN2V10MPTN": {
    "doc_type": "item",
-   "status": "in_progress",
+   "status": "done",
    "title": "Task 6: checks, release, and install"
+  },
+  "item/01M671SCRSYHVMEY9M09JNM0XW": {
+   "doc_type": "item",
+   "status": "done",
+   "title": "Release 0.2.0"
   },
   "plan/2026-10-28-plan-1-open-and-grades": {
    "doc_type": "plan",
@@ -4372,6 +4397,9 @@
   "release/v0.1.0": {
    "doc_type": "release"
   },
+  "release/v0.2.0": {
+   "doc_type": "release"
+  },
   "roadmap": {
    "doc_type": "roadmap",
    "source": "docs/roadmap.md",
@@ -4381,6 +4409,12 @@
   "roadmap-snapshot/2026-10-29_v0.1.0-release": {
    "doc_type": "roadmap-snapshot",
    "source": "docs/roadmap/2026-10-29_v0.1.0-release.md",
+   "title": "Roadmap",
+   "truth_state": "snapshot"
+  },
+  "roadmap-snapshot/2026-10-30_v0.2.0-release": {
+   "doc_type": "roadmap-snapshot",
+   "source": "docs/roadmap/2026-10-30_v0.2.0-release.md",
    "title": "Roadmap",
    "truth_state": "snapshot"
   },

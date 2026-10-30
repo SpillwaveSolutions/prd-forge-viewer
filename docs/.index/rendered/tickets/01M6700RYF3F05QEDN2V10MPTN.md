@@ -1,6 +1,6 @@
 # Task 6: checks, release, and install
 
-`01M6700RYF3F05QEDN2V10MPTN` · task/feature · **in-progress**
+`01M6700RYF3F05QEDN2V10MPTN` · task/feature · **done**
 
 Extend `e2e/checks/phase-1-reading.mjs`: no `wireframe` code block shows, the diagram height is 60vh or less, and the diagram window zooms, pans, and closes with Escape.
 

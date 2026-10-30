@@ -11,7 +11,7 @@ _Why things are the way they are: ADRs (rules adopted) and plans (designs execut
 
 | Plan | Lifecycle | Truth | Date |
 |---|---|---|---|
-| [[Plan-plan-9-diagrams-design]] Plan 9: diagrams as images, optional grades, and a better layout | active | current | 2026-10-30 |
+| [[Plan-plan-9-diagrams-design]] Plan 9: diagrams as images, optional grades, and a better layout | completed | current | 2026-10-30 |
 | [[Plan-plan-8-closeout]] Plan 8: close out release 1 | completed | current | 2026-10-29 |
 | [[Plan-plan-7-export]] Plan 7: PDF and Word export, print, and the Draft mark | completed | current | 2026-10-29 |
 | [[Plan-plan-6-themes]] Plan 6: export themes | completed | current | 2026-10-29 |

@@ -1,5 +1,36 @@
 # Changelog
 
+## 0.2.0, 2026-10-30
+
+This release shows diagrams as pictures everywhere, makes grades optional in
+exports, and gives the viewer a new design. It follows PRD 0.6.2.
+
+### New
+
+- **Diagrams in exports.** PDF, print, and Word exports show each diagram as
+  its picture, with its name as a caption. Word scales each picture to fit
+  the page. The exports follow the PRD Forge exporter.
+- **No ASCII sketches.** The viewer and the exports leave out each text sketch
+  of a wireframe that has a drawing. They also leave out the details block
+  that PRD Forge 0.11.0 adds to each document.
+- **Optional grades.** An export leaves out the score and the blocking
+  defects of each section, unless you select **Include grades** in the
+  Export dialog. The status of each section always shows (FR-019).
+- **Diagram window.** Diagrams fit the reading column. Select a diagram to
+  open it in a large window. Scroll or pinch to zoom, drag to pan, and press
+  Escape to close. The **+**, **-**, and **Fit** buttons and the `+`, `-`,
+  `0`, and arrow keys also work.
+- **New design.** The viewer uses the bundled Source fonts, a light and a
+  dark mode, and a colored status mark next to each document. The overview
+  shows the summary and the documents side by side.
+
+### Tests
+
+- 94 Rust tests and 99 UI tests.
+- 58 tauri MCP checks in six check files. New checks cover the diagrams in
+  the viewer, the PDF, and the Word file, the diagram window, and the
+  **Include grades** option.
+
 ## 0.1.0, 2026-10-29
 
 The first release of PRD Forge Viewer. It covers release 1 (REL-001) of the PRD:

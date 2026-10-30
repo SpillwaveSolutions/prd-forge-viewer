@@ -536,3 +536,8 @@
 {"actor":"richardhightower","ev":"01M670HRJBZ22YMEK4SYST50QE","git":"e03d767","item":"01M6700RYF3F05QEDN2V10MPTK","op":"update","set":{"status":"in_progress"},"ts":"2026-10-30T18:18:29Z"}
 {"actor":"richardhightower","ev":"01M670KD3JPGEJZA9CXB8ZB8CS","git":"4e47d79","item":"01M6700RYF3F05QEDN2V10MPTK","op":"close","set":{"status":"done"},"ts":"2026-10-30T18:19:23Z"}
 {"actor":"richardhightower","ev":"01M670KD5Y0TZRTZ351YC7DD9K","git":"4e47d79","item":"01M6700RYF3F05QEDN2V10MPTN","op":"update","set":{"status":"in_progress"},"ts":"2026-10-30T18:19:23Z"}
+{"actor":"richardhightower","ev":"01M671SCRSYHVMEY9M09JNM0XX","git":"81fefbb","item":"01M671SCRSYHVMEY9M09JNM0XW","op":"create","set":{"kind":"ops","level":"task","parent":"01M6700RY14BFZCYD4FGHJYB7Q","priority":"P1","status":"todo","title":"Release 0.2.0"},"ts":"2026-10-30T18:40:07Z"}
+{"actor":"richardhightower","ev":"01M671TJZS9PZ991YVNB1WY9FE","git":"81fefbb","item":"01M671SCRSYHVMEY9M09JNM0XW","op":"update","set":{"status":"in_progress"},"ts":"2026-10-30T18:40:47Z"}
+{"actor":"richardhightower","ev":"01M671TYG2586D8S6115MNKJ8R","git":"81fefbb","item":"01M6700RYF3F05QEDN2V10MPTN","op":"close","set":{"status":"done"},"ts":"2026-10-30T18:40:58Z"}
+{"actor":"richardhightower","ev":"01M671TYJC9K19KR3C5VNA7PWR","git":"81fefbb","item":"01M671SCRSYHVMEY9M09JNM0XW","op":"close","set":{"status":"done"},"ts":"2026-10-30T18:40:58Z"}
+{"actor":"richardhightower","ev":"01M671TYMKJX4277P2G9A2VBRF","git":"81fefbb","item":"01M6700RY14BFZCYD4FGHJYB7Q","op":"close","set":{"status":"done"},"ts":"2026-10-30T18:40:59Z"}

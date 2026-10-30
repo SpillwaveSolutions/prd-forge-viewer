@@ -2,8 +2,12 @@
 
 _The evidence chain: plan → item → ticket → code → release, forward and backward. Generated from `docs/.index/_graph.json`; do not edit._
 
+### Release 0.2.0
+`01M671SCRSYHVMEY9M09JNM0XW` · status: done
+- belongs-to: Plan 9: diagrams as images, optional grades, and a better layout
+
 ### Task 6: checks, release, and install
-`01M6700RYF3F05QEDN2V10MPTN` · status: in_progress
+`01M6700RYF3F05QEDN2V10MPTN` · status: done
 - belongs-to: Plan 9: diagrams as images, optional grades, and a better layout
 - references: [github#190](https://github.com/SpillwaveSolutions/prd-forge-viewer/issues/190)
 - produced-by: [[Plan-plan-9-diagrams-design]]
@@ -39,7 +43,7 @@ _The evidence chain: plan → item → ticket → code → release, forward and 
 - produced-by: [[Plan-plan-9-diagrams-design]]
 
 ### Plan 9: diagrams as images, optional grades, and a better layout
-`01M6700RY14BFZCYD4FGHJYB7Q` · status: todo
+`01M6700RY14BFZCYD4FGHJYB7Q` · status: done
 - references: [github#184](https://github.com/SpillwaveSolutions/prd-forge-viewer/issues/184)
 - contains: Task 1: one body cleaner for the viewer and the export
 - contains: Task 2: diagrams in PDF, print, and Word
@@ -47,6 +51,7 @@ _The evidence chain: plan → item → ticket → code → release, forward and 
 - contains: Task 4: diagram size, zoom, and pan in the viewer
 - contains: Task 5: a new visual design
 - contains: Task 6: checks, release, and install
+- contains: Release 0.2.0
 - produced-by: [[Plan-plan-9-diagrams-design]]
 
 ### Upgrade PRD Forge to 0.11.0 and generate the details blocks
