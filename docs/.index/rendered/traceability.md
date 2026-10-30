@@ -6,7 +6,7 @@ _The evidence chain: plan → item → ticket → code → release, forward and 
 `01M677QK9QD6ADPDAFYHH1ACV8` · status: done
 
 ### Text zoom: make the text larger or smaller
-`01M677QK6YTWSKBMRNXRVHVYVR` · status: in_progress
+`01M677QK6YTWSKBMRNXRVHVYVR` · status: done
 
 ### Release 0.2.1
 `01M676T35CQDJFPR5XKDD2CW3R` · status: done

@@ -61,6 +61,27 @@ await run(async (h) => {
     expect(loaded > 0, "no diagram image loaded");
   });
 
+  await h.check("Text size: the buttons and Command-plus, Command-minus, and Command-0 change the text, and the size is kept", async () => {
+    const size = () => h.num("return parseFloat(getComputedStyle(document.querySelector('.body p')).fontSize)");
+    const normal = await size();
+    await h.click("//button[@aria-label='Larger text']", "xpath");
+    await h.click("//button[@aria-label='Larger text']", "xpath");
+    const larger = await size();
+    expect(Math.abs(larger / normal - 1.3) < 0.02, `normal ${normal}, after 2 steps ${larger}`);
+    expect((await h.js("return localStorage.getItem('pfv.textZoom')")).includes("1.3"), "the size is not kept");
+    // Real key presses: macOS can drop one while it brings the app to the front, so wait for each change.
+    const keyUntil = async (code, mods, test) => {
+      for (let i = 0; i < 3; i++) {
+        await h.realKey(code, mods);
+        for (let t = 0; t < 10; t++) { if (test(await size())) return; await new Promise((r) => setTimeout(r, 100)); }
+      }
+      throw new Error(`key ${code} did not change the text size`);
+    };
+    await keyUntil(24, "command down", (v) => v > larger + 0.5); // Command-plus
+    await keyUntil(27, "command down", (v) => Math.abs(v - larger) < 0.1); // Command-minus
+    await keyUntil(29, "command down", (v) => Math.abs(v - normal) < 0.1); // Command-0
+  });
+
   await h.check("Wireframes show only their drawings: no ASCII sketch and no details block", async () => {
     await h.click("//button[contains(., 'Back to the PRD set')]", "xpath");
     await h.click("//ol[contains(@class,'documents')]//button[.='Wireframes']", "xpath");

@@ -45,8 +45,9 @@ export async function run(body) {
     },
     click: (selector, strategy) => call("webview_interact", { action: "click", selector, ...(strategy ? { strategy } : {}) }),
     // Real key presses through macOS System Events. Synthetic DOM key events do not move the focus.
-    realKey: (code) => new Promise((res, rej) => {
-      const p = spawn("osascript", ["-e", `tell application "System Events" to tell (first process whose unix id is ${app.pid}) to set frontmost to true`, "-e", "delay 0.3", "-e", `tell application "System Events" to key code ${code}`]);
+    // `mods` is an AppleScript modifier list, for example "command down".
+    realKey: (code, mods) => new Promise((res, rej) => {
+      const p = spawn("osascript", ["-e", `tell application "System Events" to tell (first process whose unix id is ${app.pid}) to set frontmost to true`, "-e", "delay 0.3", "-e", `tell application "System Events" to key code ${code}${mods ? ` using {${mods}}` : ""}`]);
       let err = ""; p.stderr.on("data", (d) => (err += d)); p.on("exit", (c) => (c ? rej(new Error("osascript: " + err.trim())) : res()));
     }),
     async launch(arg) {

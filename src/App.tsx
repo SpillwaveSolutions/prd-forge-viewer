@@ -12,6 +12,7 @@ import { applyChange, reloadedPage } from "./live";
 import { ExportDialog } from "./ExportDialog";
 import { runExport, runPrint, type Deps } from "./exportRun";
 import { ThemeDialog } from "./ThemeDialog";
+import { nextZoom, readZoom } from "./textZoom";
 import { DEFAULT_EXPORT_THEME_ID, sanitizeCustomThemes, type ExportTheme } from "./themes";
 import type { Category, Hit, ItemRef, PrdSet, Section, StartView } from "./types";
 
@@ -27,6 +28,24 @@ export function App() {
     const [error, setError] = useState<string>();
     const [start, setStart] = useState<Exclude<StartView, { kind: "open" }>>();
     const [notice, setNotice] = useState<string>();
+    // The text size, kept in this window's local storage. The page sizes everything in rem, so one root size scales the text.
+    const [zoom, setZoom] = useState(() => { try { return readZoom(localStorage.getItem("pfv.textZoom")); } catch { return 1; } });
+    useEffect(() => {
+        document.documentElement.style.fontSize = `${15 * zoom}px`;
+        try { localStorage.setItem("pfv.textZoom", String(zoom)); } catch { /* the size still applies for this session */ }
+    }, [zoom]);
+    useEffect(() => {
+        // Command-plus, Command-minus, and Command-0, as in a browser.
+        const onKey = (e: KeyboardEvent) => {
+            if (!e.metaKey || e.altKey || e.ctrlKey) return;
+            const dir = e.key === "=" || e.key === "+" ? 1 : e.key === "-" ? -1 : e.key === "0" ? 0 : null;
+            if (dir === null) return;
+            e.preventDefault();
+            setZoom((z) => nextZoom(z, dir));
+        };
+        window.addEventListener("keydown", onKey);
+        return () => window.removeEventListener("keydown", onKey);
+    }, []);
     // Custom export themes and the selected theme, from the settings file (FR-020).
     const [themes, setThemes] = useState<{ custom: ExportTheme[]; selected: string }>({ custom: [], selected: DEFAULT_EXPORT_THEME_ID });
     const [editThemes, setEditThemes] = useState(false);
@@ -164,6 +183,11 @@ export function App() {
                         </button>
                     </>
                 )}
+                <span role="group" aria-label="Text size" className="text-size">
+                    <button type="button" aria-label="Smaller text" title="Smaller text (Command-minus)" disabled={nextZoom(zoom, -1) === zoom} onClick={() => setZoom((z) => nextZoom(z, -1))}>A−</button>
+                    <button type="button" aria-label="Normal text size" title="Normal text size (Command-0)" onClick={() => setZoom(1)}>{Math.round(zoom * 100)}%</button>
+                    <button type="button" aria-label="Larger text" title="Larger text (Command-plus)" disabled={nextZoom(zoom, 1) === zoom} onClick={() => setZoom((z) => nextZoom(z, 1))}>A+</button>
+                </span>
             </header>
             {exporting && set && (
                 <ExportDialog

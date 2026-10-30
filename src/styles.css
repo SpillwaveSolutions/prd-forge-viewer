@@ -68,6 +68,11 @@ h3 { font-size: 1.05rem; margin: 20px 0 6px; }
     border-bottom: 1px solid var(--rule);
 }
 
+.text-size { display: inline-flex; margin-left: auto; }
+.text-size button { border-radius: 0; margin-left: -1px; min-width: 2.6em; font-variant-numeric: tabular-nums; }
+.text-size button:first-child { border-radius: var(--radius) 0 0 var(--radius); }
+.text-size button:last-child { border-radius: 0 var(--radius) var(--radius) 0; }
+
 /* Controls */
 button {
     font: inherit; font-size: 0.93rem; color: var(--ink);
@@ -140,7 +145,7 @@ section[aria-label="PRD set"] > .documents { grid-column: 2; grid-row: 4; }
 .doc-link:hover, .ref:hover { text-decoration-thickness: 2px; }
 
 /* Section page: a sticky document nav with status marks, and a reading column */
-.section-layout { display: grid; grid-template-columns: 240px minmax(0, 1fr); gap: 40px; align-items: start; }
+.section-layout { display: grid; grid-template-columns: 16rem minmax(0, 1fr); gap: 40px; align-items: start; }
 .doc-nav { display: flex; flex-direction: column; position: sticky; top: 64px; max-height: calc(100vh - 80px); overflow: auto; padding: 16px 0; }
 .doc-nav .doc-link {
     text-align: left; text-decoration: none; color: var(--ink);
