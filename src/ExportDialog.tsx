@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from "react";
-import { draftReason } from "./exportModel";
+import { draftReason, type ExportOptions } from "./exportModel";
 import { findTheme, listThemes, type ExportTheme } from "./themes";
 import type { PrdSet } from "./types";
 
@@ -12,13 +12,14 @@ export function ExportDialog({ set, themes, themeId, onEditThemes, onClose, onEx
     themeId: string;
     onEditThemes: () => void;
     onClose: () => void;
-    onExport: (format: ExportFormat, theme: ExportTheme, selected: Set<string>) => Promise<boolean>;
-    onPrint: (theme: ExportTheme, selected: Set<string>) => Promise<void>;
+    onExport: (format: ExportFormat, theme: ExportTheme, selected: Set<string>, options: ExportOptions) => Promise<boolean>;
+    onPrint: (theme: ExportTheme, selected: Set<string>, options: ExportOptions) => Promise<void>;
 }) {
     const docs = [...set.documents].sort((a, b) => a.order - b.order);
     const [format, setFormat] = useState<ExportFormat>("pdf");
     const [id, setId] = useState(themeId);
     const [selected, setSelected] = useState(() => new Set(docs.map((d) => d.file)));
+    const [grades, setGrades] = useState(false);
     const [busy, setBusy] = useState(false);
     const [status, setStatus] = useState<string>();
     // Counts finished jobs, so a check can tell a new "Export saved." from the last one.
@@ -80,12 +81,13 @@ export function ExportDialog({ set, themes, themeId, onEditThemes, onClose, onEx
                     ))}
                 </ul>
             </fieldset>
+            <label className="option"><input type="checkbox" checked={grades} onChange={(e) => setGrades(e.target.checked)} /> Include grades (score and blocking defects)</label>
             {draft && <p className="draft-reason">Draft: {draft} The mark goes away when every document is final.</p>}
             {status && <p role="status">{status}</p>}
             <div className="actions">
                 <button type="button" disabled={busy} onClick={onClose}>Close</button>
-                <button type="button" disabled={busy || selected.size === 0} onClick={() => run(() => onPrint(theme, selected), "Sent to the printer.")}>Print</button>
-                <button type="button" disabled={busy || selected.size === 0} onClick={() => run(() => onExport(format, theme, selected), "Export saved.")}>Export</button>
+                <button type="button" disabled={busy || selected.size === 0} onClick={() => run(() => onPrint(theme, selected, { grades }), "Sent to the printer.")}>Print</button>
+                <button type="button" disabled={busy || selected.size === 0} onClick={() => run(() => onExport(format, theme, selected, { grades }), "Export saved.")}>Export</button>
             </div>
         </dialog>
     );

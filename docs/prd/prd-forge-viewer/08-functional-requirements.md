@@ -4,7 +4,7 @@ kind: functional-requirements
 schema: prd-forge/functional-requirements@1
 title: Functional requirements
 status: final
-updated: 2026-10-28
+updated: 2026-10-30
 domain: software product management
 section: 7
 order: 80
@@ -345,12 +345,20 @@ requirements:
   - id: FR-019
     shown_in: report
     user: PER-003
-    capability: See the status and score of every section in an export
+    capability: See the status of every section in an export, and the grades when the author includes them
     outcome: The engineering lead knows which sections are finished before reading them.
     acceptance:
       - >-
         Given 13 pending sections, when the engineering lead opens the export,
-        then the contents list shows the status and score of every section.
+        then the contents list shows the status of every section.
+      - >-
+        Given an export that the author made with no change to the options,
+        when the engineering lead opens it, then it shows no score and no
+        number of blocking defects.
+      - >-
+        Given that the author selected to include the grades, when the
+        engineering lead opens the export, then the contents list also shows
+        the score and the number of blocking defects of every section.
       - >-
         Given a pending section, when the engineering lead reaches it in the
         export, then the section says that it is not written yet.
@@ -515,7 +523,7 @@ Each requirement uses MoSCoW priority: must, should, could, or won't.
 | FR-016 | PER-001 | Make a custom export theme | should | ST-005 |
 | FR-017 | PER-001 | Change a custom export theme | should | ST-005 |
 | FR-018 | PER-001 | Delete a custom export theme | should | ST-005 |
-| FR-019 | PER-003 | See the status and score of every section in an export | should | ST-005 |
+| FR-019 | PER-003 | See the status of every section in an export, and the grades when included | should | ST-005 |
 | FR-020 | PER-001 | Keep custom themes from one session to the next | should | ST-005 |
 | FR-021 | PER-001 | Start the viewer from a terminal with prdf | must | ST-001 |
 | FR-022 | PER-001 | Choose a PRD set from remembered locations | should | ST-001 |
@@ -609,10 +617,11 @@ Later exports use the changed values. Built-in themes cannot change.
 
 The deleted theme is no longer available. Built-in themes cannot be deleted.
 
-## FR-019. See the status and score of every section in an export
+## FR-019. See the status of every section in an export
 
-The contents list shows the status and score of every section. Each pending
-section says that it is not written yet.
+The contents list shows the status of every section. Each pending section says
+that it is not written yet. An export leaves out the score and the blocking
+defects of each section, unless the author selects to include them.
 
 ## FR-020. Keep custom themes from one session to the next
 
@@ -1069,7 +1078,7 @@ Every item in this document, with each of its fields.
 
 ### FR-019
 
-**Capability:** See the status and score of every section in an export
+**Capability:** See the status of every section in an export, and the grades when the author includes them
 
 **Shown in:** report
 
@@ -1079,8 +1088,10 @@ Every item in this document, with each of its fields.
 
 **Acceptance:**
 
-1. Given 13 pending sections, when the engineering lead opens the export, then the contents list shows the status and score of every section.
-2. Given a pending section, when the engineering lead reaches it in the export, then the section says that it is not written yet.
+1. Given 13 pending sections, when the engineering lead opens the export, then the contents list shows the status of every section.
+2. Given an export that the author made with no change to the options, when the engineering lead opens it, then it shows no score and no number of blocking defects.
+3. Given that the author selected to include the grades, when the engineering lead opens the export, then the contents list also shows the score and the number of blocking defects of every section.
+4. Given a pending section, when the engineering lead reaches it in the export, then the section says that it is not written yet.
 
 **Priority:** should
 

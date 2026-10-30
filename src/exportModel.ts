@@ -14,7 +14,10 @@ export function draftReason(documents: readonly DocEntry[]): string | null {
  * reading order (FR-012). `selected` null means the whole set. The text that the viewer adds never
  * says that the PRD is approved (TR-007), and a blocking defect never stops an export (TR-010).
  */
-export function buildExport(set: PrdSet, bodies: ReadonlyMap<string, Section>, selected: ReadonlySet<string> | null): string {
+/** What the author can change in an export. Grades are left out unless the author includes them (FR-019). */
+export type ExportOptions = { grades?: boolean };
+
+export function buildExport(set: PrdSet, bodies: ReadonlyMap<string, Section>, selected: ReadonlySet<string> | null, options: ExportOptions = {}): string {
     const docs = [...set.documents].sort((a, b) => a.order - b.order);
     const draft = draftReason(docs);
     const first = [
@@ -24,8 +27,10 @@ export function buildExport(set: PrdSet, bodies: ReadonlyMap<string, Section>, s
         "## Executive summary",
         ...set.summary.map((s) => `**${s.label}.** ${s.text}`),
         "## Contents",
-        "| Section | Status | Score | Blocking defects |\n| --- | --- | --- | --- |\n" +
-            docs.map((d) => `| ${cell(d.title)} | ${d.status} | ${d.grade?.score ?? "not graded"} | ${d.grade?.blocking ?? "not graded"} |`).join("\n"),
+        options.grades
+            ? "| Section | Status | Score | Blocking defects |\n| --- | --- | --- | --- |\n" +
+              docs.map((d) => `| ${cell(d.title)} | ${d.status} | ${d.grade?.score ?? "not graded"} | ${d.grade?.blocking ?? "not graded"} |`).join("\n")
+            : "| Section | Status |\n| --- | --- |\n" + docs.map((d) => `| ${cell(d.title)} | ${d.status} |`).join("\n"),
     ];
     const parts = docs
         .filter((d) => !selected || selected.has(d.file))

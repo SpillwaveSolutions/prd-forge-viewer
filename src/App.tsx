@@ -172,8 +172,8 @@ export function App() {
                     themeId={themes.selected}
                     onEditThemes={() => setEditThemes(true)}
                     onClose={() => setExporting(false)}
-                    onExport={(format, theme, selected) => runExport(format, set, theme, selected, exportDeps(set.folder))}
-                    onPrint={(theme, selected) => runPrint(set, theme, selected, exportDeps(set.folder))}
+                    onExport={(format, theme, selected, options) => runExport(format, set, theme, selected, exportDeps(set.folder), options)}
+                    onPrint={(theme, selected, options) => runPrint(set, theme, selected, exportDeps(set.folder), options)}
                 />
             )}
             {editThemes && (

@@ -4,7 +4,7 @@ kind: change-log
 schema: prd-forge/change-log@1
 title: Change log
 status: draft
-updated: 2026-10-28
+updated: 2026-10-30
 domain: software product management
 section: 15
 order: 160
@@ -188,6 +188,19 @@ changes:
       The PRD owner moved the release 1 target date (REL-001) from 2026-10-27
       to 2026-11-06.
     sections: [11, 13]
+  - version: 0.6.2
+    date: 2026-10-30
+    author: Richard Hightower
+    summary: >-
+      An export leaves out the grades by default. FR-019 keeps the status of
+      every section in the contents list, and shows the score and the blocking
+      defects only when the author selects to include them.
+    sections: [7]
+    approvals:
+      - name: Richard Hightower
+        role: Sponsor (PER-004)
+        date: 2026-10-30
+        decision: approved
 links:
   parent: { id: prd-forge-viewer, kind: prd, path: ./prd.md, title: PRD Forge Viewer PRD }
   prev: { id: prd-forge-viewer-glossary, kind: glossary, path: ./15-glossary.md, title: Glossary }
@@ -210,6 +223,7 @@ links:
 | 0.5.1 | 2026-10-28 | Richard Hightower | Glossary sources for MoSCoW priority and acceptance criterion | None yet |
 | 0.6.0 | 2026-10-28 | Richard Hightower | Sections 1, 2, 8, and 9 above 80; C-001, C-002, and C-004 retired to IN-006, OUT-001, and OUT-003; Q-001 and Q-009 answered | Richard Hightower, sponsor, approved 2026-10-28 |
 | 0.6.1 | 2026-10-28 | Richard Hightower | Release 1 target date moves to 2026-11-06 | None yet |
+| 0.6.2 | 2026-10-30 | Richard Hightower | Grades in an export are optional and off by default (FR-019) | Richard Hightower, sponsor, approved 2026-10-30 |
 
 ## 0.1.0. First draft
 
@@ -557,5 +571,22 @@ Every item in this document, with each of its fields.
 **Author:** Richard Hightower
 
 **Sections:** 11, 13
+
+### 0.6.2
+
+**Summary:** An export leaves out the grades by default. FR-019 keeps the status of every section in the contents list, and shows the score and the blocking defects only when the author selects to include them.
+
+**Date:** 2026-10-30
+
+**Author:** Richard Hightower
+
+**Sections:** 7
+
+**Approvals:**
+
+- **Name:** Richard Hightower
+  - **Role:** Sponsor (PER-004)
+  - **Date:** 2026-10-30
+  - **Decision:** approved
 
 <!-- /prd-forge:details -->

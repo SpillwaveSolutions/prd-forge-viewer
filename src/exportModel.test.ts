@@ -35,8 +35,8 @@ test("tr_005_draft_unless_every_document_is_final", () => {
     expect(buildExport({ ...set, documents: oneReview }, bodies, null)).toContain("Draft");
 });
 
-test("fr_019_contents_show_status_score_and_blocking_of_every_section", () => {
-    const md = buildExport(set, bodies, new Set(["05-user-journeys.md"]));
+test("fr_019_with_grades_contents_show_status_score_and_blocking_of_every_section", () => {
+    const md = buildExport(set, bodies, new Set(["05-user-journeys.md"]), { grades: true });
     const contents = md.slice(md.indexOf("## Contents"));
     expect(contents).toContain("| User journeys | review | 82 | 0 |");
     expect(contents).toContain("| Scope | pending | not graded | not graded |");
@@ -78,4 +78,17 @@ test("tr_010_a_blocking_defect_does_not_stop_the_export", () => {
 test("an_unreadable_document_says_why", () => {
     const md = buildExport(set, new Map(), new Set(["05-user-journeys.md"]));
     expect(md).toContain("This section cannot be read.");
+});
+
+test("fr_019_grades_are_left_out_by_default", () => {
+    const md = buildExport(set, bodies, null);
+    const contents = md.slice(md.indexOf("## Contents"));
+    expect(contents).toContain("| Section | Status |");
+    expect(contents).not.toContain("Score");
+    expect(contents).not.toContain("Blocking");
+});
+
+test("fr_019_grades_show_when_the_author_includes_them", () => {
+    const contents = buildExport(set, bodies, null, { grades: true }).slice(0);
+    expect(contents).toContain("| Section | Status | Score | Blocking defects |");
 });

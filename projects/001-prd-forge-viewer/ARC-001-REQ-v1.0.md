@@ -741,7 +741,7 @@ There are 24 functional requirements. All text is copied from
 
 ---
 
-#### FR-019: See the status and score of every section in an export
+#### FR-019: See the status of every section in an export, and the grades when the author includes them
 
 **Description**: The engineering lead knows which sections are finished before reading them.
 
@@ -751,7 +751,9 @@ There are 24 functional requirements. All text is copied from
 
 **Acceptance Criteria**:
 
-- [x] Given 13 pending sections, when the engineering lead opens the export, then the contents list shows the status and score of every section.
+- [x] Given 13 pending sections, when the engineering lead opens the export, then the contents list shows the status of every section.
+- [x] Given an export that the author made with no change to the options, when the engineering lead opens it, then it shows no score and no number of blocking defects.
+- [x] Given that the author selected to include the grades, when the engineering lead opens the export, then the contents list also shows the score and the number of blocking defects of every section.
 - [x] Given a pending section, when the engineering lead reaches it in the export, then the section says that it is not written yet.
 
 **Shown In**: report
@@ -1829,7 +1831,7 @@ PRD does not have cites one of them.
 
 **Resolution Strategy**: PRIORITIZE
 
-**Decision**: Option 2. The author decides to fix now or send as a draft (TR-010). Each export shows the status, score, and blocking defects of every section (FR-019) and the "Draft" mark (FR-014, TR-005).
+**Decision**: Option 2. The author decides to fix now or send as a draft (TR-010). Each export shows the status of every section, and the score and blocking defects when the author includes them (FR-019, PRD 0.6.2) and the "Draft" mark (FR-014, TR-005).
 
 **Rationale**: The PRD gives TR-010 to the author. Exports never hide a defect.
 

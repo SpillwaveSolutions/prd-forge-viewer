@@ -13,12 +13,12 @@ _The evidence chain: plan → item → ticket → code → release, forward and 
 - produced-by: [[Plan-plan-9-diagrams-design]]
 
 ### Task 4: diagram size, zoom, and pan in the viewer
-`01M6700RYF3F05QEDN2V10MPTH` · status: todo
+`01M6700RYF3F05QEDN2V10MPTH` · status: in_progress
 - belongs-to: Plan 9: diagrams as images, optional grades, and a better layout
 - produced-by: [[Plan-plan-9-diagrams-design]]
 
 ### Task 3: optional grades in the export
-`01M6700RYEA5ZRFE6QYW3CRRKZ` · status: in_progress
+`01M6700RYEA5ZRFE6QYW3CRRKZ` · status: done
 - belongs-to: Plan 9: diagrams as images, optional grades, and a better layout
 - produced-by: [[Plan-plan-9-diagrams-design]]
 

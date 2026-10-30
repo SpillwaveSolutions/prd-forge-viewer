@@ -2,7 +2,7 @@ import DOMPurify from "dompurify";
 import { exportDocx } from "./exportDocx";
 import { fontFaceCss, loadFonts, toBase64, type FontData } from "./exportFonts";
 import { renderThemedHtml } from "./exportHtml";
-import { buildExport } from "./exportModel";
+import { buildExport, type ExportOptions } from "./exportModel";
 import type { ExportTheme } from "./themes";
 import type { PrdSet, Section } from "./types";
 
@@ -44,16 +44,16 @@ export type Deps = {
     print: () => Promise<void>;
 };
 
-async function themedExport(set: PrdSet, theme: ExportTheme, selected: ReadonlySet<string>, deps: Pick<Deps, "read" | "asset">) {
-    const markdown = await inlineImages(buildExport(set, await collectBodies(set, selected, deps.read), selected), deps.asset);
+async function themedExport(set: PrdSet, selected: ReadonlySet<string>, options: ExportOptions, deps: Pick<Deps, "read" | "asset">) {
+    const markdown = await inlineImages(buildExport(set, await collectBodies(set, selected, deps.read), selected, options), deps.asset);
     return { markdown, title: `${set.product} PRD`, fonts: await appFonts() };
 }
 
 /** Export to PDF or Word, saved where the author picks (FR-010, FR-011, FR-012). Returns false when the author cancels. */
-export async function runExport(format: "pdf" | "docx", set: PrdSet, theme: ExportTheme, selected: ReadonlySet<string>, deps: Deps): Promise<boolean> {
+export async function runExport(format: "pdf" | "docx", set: PrdSet, theme: ExportTheme, selected: ReadonlySet<string>, deps: Deps, options: ExportOptions = {}): Promise<boolean> {
     const path = await deps.save(format, exportFileName(set, format));
     if (!path) return false;
-    const { markdown, title, fonts } = await themedExport(set, theme, selected, deps);
+    const { markdown, title, fonts } = await themedExport(set, selected, options, deps);
     if (format === "pdf") await deps.writePdf(path, renderThemedHtml(markdown, theme, title, fontFaceCss(fonts)));
     else await deps.writeDocx(path, toBase64(new Uint8Array(await (await exportDocx(markdown, theme, title, fonts)).arrayBuffer())));
     return true;
@@ -68,8 +68,8 @@ export function printCss(html: string): string {
 }
 
 /** Print the same themed document as the PDF export (FR-013). */
-export async function runPrint(set: PrdSet, theme: ExportTheme, selected: ReadonlySet<string>, deps: Pick<Deps, "read" | "asset" | "print">): Promise<void> {
-    const { markdown, title, fonts } = await themedExport(set, theme, selected, deps);
+export async function runPrint(set: PrdSet, theme: ExportTheme, selected: ReadonlySet<string>, deps: Pick<Deps, "read" | "asset" | "print">, options: ExportOptions = {}): Promise<void> {
+    const { markdown, title, fonts } = await themedExport(set, selected, options, deps);
     const html = renderThemedHtml(markdown, theme, title, fontFaceCss(fonts));
     // The last print stays in the page, hidden on screen: the print dialog can read the page after print() returns.
     document.getElementById("print-style")?.remove();

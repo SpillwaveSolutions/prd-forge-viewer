@@ -4229,12 +4229,12 @@
   },
   "item/01M6700RYEA5ZRFE6QYW3CRRKZ": {
    "doc_type": "item",
-   "status": "in_progress",
+   "status": "done",
    "title": "Task 3: optional grades in the export"
   },
   "item/01M6700RYF3F05QEDN2V10MPTH": {
    "doc_type": "item",
-   "status": "todo",
+   "status": "in_progress",
    "title": "Task 4: diagram size, zoom, and pan in the viewer"
   },
   "item/01M6700RYF3F05QEDN2V10MPTK": {

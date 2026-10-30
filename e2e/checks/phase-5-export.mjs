@@ -54,11 +54,14 @@ await run(async (h) => {
     }
   };
   const pick = (re, val) => h.js(`const s = document.querySelector('[aria-label="Export theme"]'); const o = [...s.options].find(o => ${re}.test(o.text)); Object.getOwnPropertyDescriptor(HTMLSelectElement.prototype, 'value').set.call(s, o.value); s.dispatchEvent(new Event('change', { bubbles: true })); return 'ok'`);
-  const exportTo = async (path, format, theme) => {
+  // The Include grades box is set to `grades` on each export, so one export does not change the next.
+  const setGrades = (on) => h.js(`const b = [...document.querySelectorAll('dialog label')].find(l => /Include grades/.test(l.innerText)).querySelector('input'); if (b.checked !== ${!!on}) b.click(); return 'ok'`);
+  const exportTo = async (path, format, theme, grades = false) => {
     await openExport();
     await h.js(`window.__pfvSavePath = ${JSON.stringify(path)}; return 'ok'`);
     await h.click(`//dialog//label[contains(., '${format}')]`, "xpath");
     if (theme) await pick(theme);
+    await setGrades(grades);
     const runs = await h.js("return document.querySelector('dialog[aria-label=Export]').dataset.runs");
     const t0 = Date.now();
     await h.click("//dialog//button[.='Export']", "xpath");
@@ -84,14 +87,24 @@ await run(async (h) => {
     expect(first.includes(`Version ${version}`) && /Draft/.test(first), first.slice(0, 300));
   });
 
-  await h.check("FR-019: contents show status, score, and blocking of every section; a pending section says it is not written", async () => {
+  await h.check("FR-019: contents show the status of every section and no grades by default; a pending section says it is not written", async () => {
     const text = pdfText(pdf);
     const contents = text.slice(text.indexOf("Contents"), text.indexOf("Contents") + 4000);
     for (const t of titles) expect(contents.includes(t), `contents miss ${t}`);
-    expect(/Scope pending not graded|Scope pending \d+/.test(contents), "Scope row: " + contents.slice(contents.indexOf("Scope"), contents.indexOf("Scope") + 60));
-    expect(/Functional requirements (final|review|draft) \d+ \d+/.test(contents), "no score row");
+    expect(/Scope pending/.test(contents), "Scope row: " + contents.slice(contents.indexOf("Scope"), contents.indexOf("Scope") + 60));
+    expect(!/Score|Blocking defects|not graded/.test(contents), "grades shown by default");
     const scopeAt = order(text, titles)[titles.indexOf("Scope")];
     expect(text.indexOf("This section is not written yet.", scopeAt) > scopeAt, "pending text missing after the Scope heading");
+  });
+
+  await h.check("FR-019: with Include grades selected, contents show the score and blocking of every section", async () => {
+    const graded = join(out, "graded.pdf");
+    await exportTo(graded, "PDF", null, true);
+    const text = pdfText(graded);
+    const contents = text.slice(text.indexOf("Contents"), text.indexOf("Contents") + 4000);
+    expect(/Score/.test(contents) && /Blocking defects/.test(contents), "no grade columns");
+    expect(/Scope pending not graded|Scope pending \d+/.test(contents), "Scope row: " + contents.slice(contents.indexOf("Scope"), contents.indexOf("Scope") + 60));
+    expect(/Functional requirements (final|review|draft) \d+ \d+/.test(contents), "no score row");
   });
 
   await h.check("TR-007: the export does not say the PRD is approved", async () => {
