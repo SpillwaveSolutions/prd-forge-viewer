@@ -3509,6 +3509,21 @@
    "from": "roadmap-snapshot/2026-10-30_v0.2.1-release",
    "to": "release/v0.2.1",
    "type": "targets"
+  },
+  {
+   "from": "roadmap-snapshot/2026-10-30_v0.3.0-release",
+   "to": "roadmap",
+   "type": "snapshot-of"
+  },
+  {
+   "from": "roadmap-snapshot/2026-10-30_v0.3.0-release",
+   "to": "roadmap-snapshot/2026-10-30_v0.2.1-release",
+   "type": "supersedes"
+  },
+  {
+   "from": "roadmap-snapshot/2026-10-30_v0.3.0-release",
+   "to": "release/v0.3.0",
+   "type": "targets"
   }
  ],
  "nodes": {
@@ -4524,6 +4539,11 @@
    "status": "done",
    "title": "Search in a drawer that opens from a Search button and can be pinned"
   },
+  "item/01M67KYXCPJ5QGRGASS5KPSMMH": {
+   "doc_type": "item",
+   "status": "done",
+   "title": "Release 0.3.0"
+  },
   "plan/2026-10-28-plan-1-open-and-grades": {
    "doc_type": "plan",
    "source": "docs/plans/2026-10-28-plan-1-open-and-grades.md",
@@ -4635,6 +4655,9 @@
   "release/v0.2.1": {
    "doc_type": "release"
   },
+  "release/v0.3.0": {
+   "doc_type": "release"
+  },
   "roadmap": {
    "doc_type": "roadmap",
    "source": "docs/roadmap.md",
@@ -4656,6 +4679,12 @@
   "roadmap-snapshot/2026-10-30_v0.2.1-release": {
    "doc_type": "roadmap-snapshot",
    "source": "docs/roadmap/2026-10-30_v0.2.1-release.md",
+   "title": "Roadmap",
+   "truth_state": "snapshot"
+  },
+  "roadmap-snapshot/2026-10-30_v0.3.0-release": {
+   "doc_type": "roadmap-snapshot",
+   "source": "docs/roadmap/2026-10-30_v0.3.0-release.md",
    "title": "Roadmap",
    "truth_state": "snapshot"
   },

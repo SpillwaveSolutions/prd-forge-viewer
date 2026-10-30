@@ -444,11 +444,11 @@
   {
    "canonical_key": "roadmap",
    "doc_type": "roadmap",
-   "generated_at": "2026-10-30T20:56:30Z",
-   "git_hash": "87be575",
+   "generated_at": "2026-10-30T23:57:43Z",
+   "git_hash": "5f44b20",
    "slug": "roadmap",
    "source": "docs/roadmap.md",
-   "source_hash": "8df64dbf",
+   "source_hash": "daf9831b",
    "title": "Roadmap",
    "truth_state": "current",
    "wiki": "https://github.com/SpillwaveSolutions/prd-forge-viewer/wiki/Roadmap",
@@ -501,11 +501,28 @@
    "slug": "2026-10-30_v0.2.1-release",
    "source": "docs/roadmap/2026-10-30_v0.2.1-release.md",
    "source_hash": "d7b25454",
+   "superseded_by": "roadmap-snapshot/2026-10-30_v0.3.0-release",
    "supersedes": "roadmap-snapshot/2026-10-30_v0.2.0-release",
    "title": "Roadmap",
    "truth_state": "snapshot",
    "wiki": "https://github.com/SpillwaveSolutions/prd-forge-viewer/wiki/Roadmap-2026-10-30_v0.2.1-release",
    "wiki_key": "roadmap-snapshot/2026-10-30_v0.2.1-release"
+  },
+  {
+   "canonical_key": "roadmap-snapshot/2026-10-30_v0.3.0-release",
+   "date": "2026-10-30",
+   "doc_type": "roadmap-snapshot",
+   "generated_at": "2026-10-30T23:57:43Z",
+   "git_hash": "5f44b20",
+   "name": "v0.3.0-release",
+   "release": "v0.3.0",
+   "slug": "2026-10-30_v0.3.0-release",
+   "source": "docs/roadmap/2026-10-30_v0.3.0-release.md",
+   "source_hash": "1beebfd1",
+   "supersedes": "roadmap-snapshot/2026-10-30_v0.2.1-release",
+   "title": "Roadmap",
+   "truth_state": "snapshot",
+   "wiki_key": "roadmap-snapshot/2026-10-30_v0.3.0-release"
   }
  ],
  "version": 1
