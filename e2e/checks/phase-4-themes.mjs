@@ -62,9 +62,12 @@ await run(async (h) => {
     await h.realKey(53);
     await new Promise((r) => setTimeout(r, 400));
     // Open it again from the keyboard: focus on Themes, then Return. Then close it with Escape.
-    await h.js("document.evaluate(\"//header//button[.='Themes']\", document, null, 9, null).singleNodeValue.focus(); return 'ok'");
-    await h.realKey(36);
-    await h.waitText("Save themes");
+    // macOS can drop a real key press while it brings the app to the front, so try up to 3 times.
+    for (let i = 0; ; i++) {
+      await h.js("document.evaluate(\"//header//button[.='Themes']\", document, null, 9, null).singleNodeValue.focus(); return 'ok'");
+      await h.realKey(36);
+      try { await h.waitText("Save themes", 3000); break; } catch (e) { if (i === 2) throw e; }
+    }
     const inside = await h.js("return String(!!document.activeElement?.closest('dialog'))");
     expect(inside === "true", "focus is not in the dialog");
     await h.realKey(53);

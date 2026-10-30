@@ -36,7 +36,13 @@ export async function run(body) {
     get app() { return app; },
     bodyText: () => js("return document.body.innerText"),
     num: async (script) => Number((await js(script)).match(/-?\d+(\.\d+)?/)?.[0] ?? NaN),
-    waitText: (value, timeout = 10000) => call("webview_wait_for", { type: "text", value, timeout }),
+    // Poll with short scripts. One long webview_wait_for can time out while the webview is busy.
+    waitText: async (value, timeout = 10000) => {
+      for (const end = Date.now() + timeout; ; await new Promise((r) => setTimeout(r, 150))) {
+        if ((await js(`return String(document.body.innerText.includes(${JSON.stringify(value)}))`).catch(() => "")) === "true") return;
+        if (Date.now() > end) throw new Error(`text not shown in ${timeout} ms: ${value}`);
+      }
+    },
     click: (selector, strategy) => call("webview_interact", { action: "click", selector, ...(strategy ? { strategy } : {}) }),
     // Real key presses through macOS System Events. Synthetic DOM key events do not move the focus.
     realKey: (code) => new Promise((res, rej) => {

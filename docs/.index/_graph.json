@@ -4408,6 +4408,11 @@
    "status": "done",
    "title": "A distinct app icon"
   },
+  "item/01M676SS4XCWHBNNNZRYE6D7FG": {
+   "doc_type": "item",
+   "status": "done",
+   "title": "Make the e2e waits poll and retry a dropped Return key"
+  },
   "plan/2026-10-28-plan-1-open-and-grades": {
    "doc_type": "plan",
    "source": "docs/plans/2026-10-28-plan-1-open-and-grades.md",
