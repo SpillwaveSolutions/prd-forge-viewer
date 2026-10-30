@@ -2,17 +2,17 @@
 wiki_key: design/current-design-doc
 doc_type: design
 truth_state: current
-generated_at: 2026-10-30T18:47:02Z
-tag: v0.2.0
-git_hash: d91ffd3718d28c0ab4a2e1d72c573581d9854e38
-branch: docs-0.2.0-design
+generated_at: 2026-10-30T20:23:36Z
+tag: v0.2.1
+git_hash: 0e83f783aec709de9ef77eb22f9a6a287ff47b6d
+branch: docs-0.2.1-design
 roadmap: docs/roadmap.md
 ---
 
 # PRD Forge Viewer design document
 
-This document describes the PRD Forge Viewer as built at tag `v0.2.0`
-(commit `d91ffd3`). Every code claim cites `path:line` at that commit. The PRD
+This document describes the PRD Forge Viewer as built at tag `v0.2.1`
+(commit `0e83f78`). Every code claim cites `path:line` at that commit. The PRD
 in `docs/prd/prd-forge-viewer/` is the source of truth for intent. The ADRs in
 `projects/001-prd-forge-viewer/decisions/` are the source of truth for the
 technology choices. Where the code and those documents differ, this document
@@ -49,7 +49,7 @@ moves (FR-006, not in release 1).
 | Functional requirements | `docs/prd/prd-forge-viewer/08-functional-requirements.md` |
 | Non-functional requirements | `docs/prd/prd-forge-viewer/09-nonfunctional-requirements.md` |
 | ADR-001 to ADR-005 | `projects/001-prd-forge-viewer/decisions/` |
-| Plans 1 to 8 | `docs/plans/` |
+| Plans 1 to 9 | `docs/plans/` |
 | Code walkthrough | `docs/designs/current_code_walkthrough.md` |
 
 **Definitions.**
@@ -73,7 +73,10 @@ author read any section or one item of it, searches every item, shows changes
 from the authoring tools as they happen, and exports a themed PDF or Word file
 for stakeholders. Release 0.2.0 shows each diagram as a drawing, in the viewer
 and in every export, opens a diagram in a window with zoom and pan, makes the
-grades in an export optional, and restyles the app.
+grades in an export optional, and restyles the app. Release 0.2.1 is a fix
+release: an export never shows an older drawing than the viewer, a wireframe
+sketch comes back when its drawing cannot be read, and a very large diagram
+opens at the minimum zoom.
 
 **Main workflows.**
 
@@ -117,8 +120,8 @@ only local content (NFR-010).
 | FR-007 | Follow an ID reference | Item index, `linkify` | `src-tauri/src/prdset/section.rs:76-84`, `src/SectionPage.tsx:9-17` |
 | FR-008 | Search by term and category | Search index | `src-tauri/src/search.rs:138-160` |
 | FR-009 | Live changes | Watcher, `set-changed` listener | `src-tauri/src/watch.rs:82-88`, `src/App.tsx:90-112` |
-| FR-010, FR-011, FR-012 | PDF, Word, selected sections | Export model and writers | `src/exportRun.ts:57-64` |
-| FR-013 | Print | `runPrint`, `print_page` | `src/exportRun.ts:75-92` |
+| FR-010, FR-011, FR-012 | PDF, Word, selected sections | Export model and writers | `src/exportRun.ts:60-67` |
+| FR-013 | Print | `runPrint`, `print_page` | `src/exportRun.ts:78-95` |
 | FR-014, FR-019, TR-005 | Version, Draft mark, contents table | Export model | `src/exportModel.ts:20-43` |
 | FR-015 to FR-018, FR-020 | Built-in and custom themes | Themes, settings | `src/themes.ts:161-173`, `src-tauri/src/settings.rs:26-30` |
 | FR-021 | `prdf` launcher | Launcher installer | `src-tauri/src/launcher.rs:21-35` |
@@ -236,8 +239,11 @@ write goes through a command in `commands.rs`.
 
 The UI has two jobs that the Rust core does not do: Markdown rendering for the
 screen, and building the export document (Markdown, then HTML or Word). Both
-jobs start with the same body cleaner, `cleanBody`, so the screen and the
-export hide the same parts of a body (`src/bodyClean.ts:6-10`). Rust
+jobs start with the same body cleaner in `src/bodyClean.ts`, which has one
+function for each job. `cleanForExport` drops each wireframe sketch whose
+drawing the export has (`src/bodyClean.ts:11-12`). `cleanForView` keeps each
+such sketch, hidden, so the screen can show it when the drawing fails to load
+(`src/bodyClean.ts:18-19`). Both remove the details block. Rust
 does the writes, because only Rust can check that a path is outside every known
 set.
 
@@ -250,7 +256,7 @@ on a worker thread, so a slow folder does not freeze the window
 (`src-tauri/src/commands.rs:26-30`). `watch_set`, `themes`, `save_themes`, and
 `print_page` are sync commands. They run on the main thread in call order. For
 `watch_set`, the code depends on that order, so the last set opened is the one
-watched (`src-tauri/src/commands.rs:143-158`).
+watched (`src-tauri/src/commands.rs:149-164`).
 
 Shared state lives in three Tauri managed values (`src-tauri/src/lib.rs:28-30`):
 
@@ -429,9 +435,12 @@ UI handles it with the same `showStart` function (`src/App.tsx:117`).
 2. `read_section` refuses any file that the root does not list, then reads it
    through the `inside` path check (`src-tauri/src/prdset/section.rs:57-73`).
 3. `SectionPage` renders the body once per section with `useMemo`, then loads
-   each `img[data-asset]` through `read_asset` (`src/SectionPage.tsx:66-85`).
-   Before Marked runs, `cleanBody` removes the details block and each
-   wireframe sketch that a drawing follows (`src/renderBody.ts:52`).
+   each `img[data-asset]` through `read_asset` (`src/SectionPage.tsx:69-90`).
+   Before Marked runs, `cleanForView` removes the details block and wraps each
+   wireframe sketch that a drawing follows in a hidden `div[data-sketch]`
+   (`src/renderBody.ts:52`). When a drawing fails to load, `SectionPage`
+   removes `hidden` from the sketch just before it and shows
+   `[image not found: ...]` in place of the image (`src/SectionPage.tsx:75-80`).
    Each local image renders as a `button.diagram` with its alt text as a
    caption (`src/renderBody.ts:13-17`).
 4. An item button shows `ItemView`. Each known ID in a field is a button
@@ -439,8 +448,8 @@ UI handles it with the same `showStart` function (`src/App.tsx:117`).
 5. A click on an ID finds the file in the item index and opens it with that
    item selected (`src/App.tsx:65-68`).
 6. A click on a diagram opens `DiagramViewer` with the image `src`, which is
-   already a `data:` URL, and its alt text (`src/SectionPage.tsx:80-81`,
-   `src/SectionPage.tsx:108`). Section 8.6 describes the window.
+   already a `data:` URL, and its alt text (`src/SectionPage.tsx:85-86`,
+   `src/SectionPage.tsx:113`). Section 8.6 describes the window.
 
 ```mermaid
 ---
@@ -534,11 +543,11 @@ flowchart TD
 ### 8.4 Live changes
 
 1. `watch_set` drops the old watcher and starts a `SetWatcher` on the new
-   folder (`src-tauri/src/commands.rs:146-158`).
+   folder (`src-tauri/src/commands.rs:152-164`).
 2. The watcher passes on a top-level `.md` file only when its content hash
    differs from the last one passed on (`src-tauri/src/watch.rs:47-77`).
 3. Rust emits `set-changed` with the folder and the file names
-   (`src-tauri/src/commands.rs:153-155`).
+   (`src-tauri/src/commands.rs:159-161`).
 4. The UI listener marks the files as changed, reloads the set and the item
    index, and reloads the open section if it changed
    (`src/App.tsx:90-112`). A sequence number drops stale replies
@@ -593,20 +602,26 @@ flowchart TD
 1. `ExportDialog` collects the format, theme, sections, and the **Include
    grades** option, which is clear by default (`src/ExportDialog.tsx:9-94`,
    `src/ExportDialog.tsx:22`, `src/ExportDialog.tsx:84`). The dialog passes `{ grades }` as
-   `ExportOptions` (`src/exportModel.ts:18`).
+   `ExportOptions`. `ExportOptions` also has `hasDrawing`, which the export
+   run sets, not the dialog (`src/exportModel.ts:18`).
 2. `runExport` asks for the save path first. Cancel returns `false`
-   (`src/exportRun.ts:57-58`).
+   (`src/exportRun.ts:60-61`).
 3. `collectBodies` reads every selected document that is not `pending`
    (`src/exportRun.ts:12-16`).
-4. `buildExport` writes one Markdown document: first page, contents table,
+4. `loadImages` runs on the raw bodies, before `buildExport`, and finds each
+   local image. For each one it calls the `export_image` command with the
+   image path as written, usually an `.svg`. The result is a map from image
+   path to `data:` URL. An image that cannot be read is not in the map
+   (`src/exportRun.ts:36-40`, `src/exportRun.ts:51-57`). Section 9.7
+   describes how `export_image` picks the PNG or the SVG.
+5. `buildExport` writes one Markdown document: first page, contents table,
    then the sections in order (`src/exportModel.ts:20-43`). The contents
    table has Score and Blocking defects columns only when `options.grades` is
    true (`src/exportModel.ts:30-33`). Each section body goes through
-   `cleanBody` (`src/exportModel.ts:40`).
-5. `loadImages` finds each local image in the Markdown and reads the `.png`
-   with the same name as each linked `.svg` through `read_asset`. The result
-   is a map from image path to `data:` URL. An image that cannot be read is
-   not in the map (`src/exportRun.ts:36-40`).
+   `cleanForExport` with `hasDrawing` set to "the image map has this path"
+   (`src/exportModel.ts:40`, `src/exportRun.ts:55`). A wireframe sketch
+   whose drawing is not in the map stays in the export, as `prd_export.py`
+   does when the drawing file is missing.
 6. For PDF, `renderThemedHtml` builds HTML with the fonts and images inlined, and Rust
    `export_pdf` prints it with headless Chrome
    (`src-tauri/src/export.rs:65-98`). For Word, `exportDocx` builds the bytes,
@@ -614,7 +629,7 @@ flowchart TD
    Both writers draw an `image` block from the map, and use the alt text when
    the map has no entry (section 9.7).
 7. Print puts the same HTML in a hidden `#print-root` and calls
-   `window.print()` through `print_page` (`src/exportRun.ts:75-92`).
+   `window.print()` through `print_page` (`src/exportRun.ts:78-95`).
 
 ```mermaid
 ---
@@ -630,8 +645,8 @@ sequenceDiagram
     X->>Dlg: save(defaultPath)
     Dlg-->>X: path or null
     X->>R: read_section for each selected file
-    X->>X: buildExport with cleanBody
-    X->>R: read_asset for the PNG of each local image
+    X->>R: export_image for each local image
+    X->>X: buildExport, cleanForExport keeps a sketch with no image
     X->>X: renderThemedHtml with fonts and images
     X->>R: invoke export_pdf(folder, path, html)
     R->>R: outside_set(known sets, path)
@@ -650,11 +665,12 @@ flowchart TD
     a[Export] --> b{Save path picked?}
     b -->|no| c[Export cancelled. Nothing was saved.]
     b -->|yes| d[Read selected bodies]
-    d --> e[Build markdown with Draft mark if any doc not final]
+    d --> d2[Load the image of each local image, PNG or newer SVG]
+    d2 --> e[Draft mark if any doc not final]
     e --> e2{Include grades?}
     e2 -->|no| e3[Contents: Section, Status]
     e2 -->|yes| e4[Contents: Section, Status, Score, Blocking defects]
-    e3 --> e5[Load the PNG of each local image]
+    e3 --> e5[Build markdown, keep each sketch whose image is missing]
     e4 --> e5
     e5 --> f{Format}
     f -->|PDF| g{Chrome found?}
@@ -672,7 +688,7 @@ flowchart TD
 
 1. `SectionPage` keeps the open diagram in state. A click inside a
    `[data-diagram]` button sets it to the image `src` and alt text
-   (`src/SectionPage.tsx:67`, `src/SectionPage.tsx:80-81`).
+   (`src/SectionPage.tsx:67`, `src/SectionPage.tsx:85-86`).
 2. `DiagramViewer` opens a native modal `<dialog>` and moves focus to the
    stage. On close, focus goes back to the element that had it
    (`src/DiagramViewer.tsx:15-20`).
@@ -795,31 +811,43 @@ in the viewer.
 
 ### 9.6 Body cleaning
 
-`cleanBody` follows the rules of the PRD Forge exporter (`prd_export.py`), so
-the viewer and both exports hide the same parts of a body
-(`src/bodyClean.ts:1-10`).
+`src/bodyClean.ts` follows the rules of the PRD Forge exporter
+(`prd_export.py`), so the viewer and both exports hide the same parts of a
+body (`src/bodyClean.ts:1-19`). It has two entry points:
+
+- `cleanForExport(md, hasDrawing)` removes the details block, and removes each
+  wireframe sketch whose drawing `hasDrawing` reports as present. The default
+  `hasDrawing` returns `true` (`src/bodyClean.ts:11-12`).
+- `cleanForView(md)` removes the details block, and wraps each such sketch in
+  `<div class="sketch" data-sketch hidden>`. The blank lines inside the `div`
+  keep the sketch a Markdown code block (`src/bodyClean.ts:18-19`).
 
 | Part | Rule | Pattern |
 |------|------|---------|
 | Details block | Remove everything from `<!-- prd-forge:details -->` to `<!-- /prd-forge:details -->`. The block repeats the front matter. | `DETAILS` (`src/bodyClean.ts:6`) |
-| Wireframe sketch | Remove a fenced `wireframe` block only when the next non-blank line is an image line. A sketch with no drawing stays. | `SKETCH` (`src/bodyClean.ts:8`) |
+| Wireframe sketch | Match a fenced `wireframe` block only when the next non-blank line is an image line, and capture the image path. A sketch with no image line after it always stays. | `SKETCH` (`src/bodyClean.ts:8`) |
 
-**Confirmed difference.** `prd_export.py` also checks that the image file
-exists before it drops the sketch. `cleanBody` checks only the shape of the
-next line, as its `ponytail:` comment says (`src/bodyClean.ts:7`). A sketch
-followed by a link to a missing drawing is hidden in the viewer and kept by
-`prd_export.py`.
+**Closed in 0.2.1.** In 0.2.0, the cleaner checked only the shape of the next
+line, so a sketch followed by a link to a missing drawing was hidden. It now
+matches `prd_export.py`, which keeps the sketch when the drawing file is
+missing. The export passes `hasDrawing` from the image map
+(`src/exportRun.ts:55`). The viewer cannot know in advance, so it renders the
+sketch hidden and shows it when the image fails to load
+(`src/SectionPage.tsx:75-80`). `src/interactive.test.tsx:61-73` covers the
+viewer case.
 
 ### 9.7 Images in exports
 
 | Rule | Code |
 |------|------|
 | A paragraph that holds only one image, with blank text around it, becomes an `image` block. An image inside other text is not a block, and exports as its alt text. | `src/exportBlocks.ts:57-62`, `src/exportBlocks.ts:149-151` |
-| `loadImages` collects each image path with no URL scheme, asks for the `.png` of each `.svg`, and drops any path that fails. | `src/exportRun.ts:36-40` |
+| `loadImages` collects each image path with no URL scheme, passes it to the `asset` dependency unchanged (less a leading `./`), and drops any path that fails. In the app, `asset` calls `export_image`. | `src/exportRun.ts:36-40`, `src/App.tsx:135` |
+| `export_image` reads the `.png` next to an `.svg`, as `prd_export.py` embeds. It reads the `.svg` itself when the PNG is missing or older than the SVG by more than 2 s. The slack covers a git checkout, which writes the pair in any order. Both reads go through `read_asset`, so the `inside` path check and the extension allow list apply. | `src-tauri/src/prdset/section.rs:103-116` |
 | HTML draws a `figure.diagram` with a caption only when the map value starts with `data:image/`. Otherwise it writes the alt text, so nothing outside the set loads (NFR-010). | `src/exportHtml.ts:75-79` |
 | A diagram in the HTML is at most the page width and 215 mm high, and does not break across pages. | `src/exportHtml.ts:50-52` |
-| Word embeds only a `data:image/png` value. It reads the size from the PNG `IHDR` chunk and scales down, never up, to fit 6.0 by 8.0 inches at 96 pixels an inch. The alt text is the caption and the alt text of the image. | `src/exportDocx.ts:66-94` |
-| Without a PNG, Word writes the alt text in italics in the muted color. | `src/exportDocx.ts:80` |
+| Word embeds a `data:image/png` or a `data:image/svg+xml` value. For a PNG, it reads the size from the `IHDR` chunk. For an SVG, `svgSize` reads the `viewBox`, or else `width` and `height`, or else 576 by 432. Either way it scales down, never up, to fit 6.0 by 8.0 inches at 96 pixels an inch. The alt text is the caption and the alt text of the image. | `src/exportDocx.ts:66-109` |
+| An SVG is embedded with a 1 by 1 blank PNG as its fallback. Word 2016 and later draw the SVG; an older Word shows the blank PNG. | `src/exportDocx.ts:86-87`, `src/exportDocx.ts:96` |
+| Without an image, Word writes the alt text in italics in the muted color. | `src/exportDocx.ts:91` |
 
 ## 10. Domain model
 
@@ -933,7 +961,7 @@ only on the standard library and their crates.
 | `prdset::header` | `split_front_matter`, `parse_header` | `None` or YAML error text | BOM, CRLF, bad YAML (`src-tauri/src/prdset/header.rs:66-115`) |
 | `prdset::load` | `load_set` | `LoadError::NoRoot`, `UnreadableRoot` | `src-tauri/tests/load_set.rs` |
 | `prdset::items` | `items_of` | none, bad YAML gives `[]` | Real PRD files (`src-tauri/src/prdset/items.rs:115-163`) |
-| `prdset::section` | `read_section`, `item_index`, `read_asset`, crate-only `inside`, `read`, `listed` | Sentences for the author | Path escape tests (`src-tauri/src/prdset/section.rs:154-176`) |
+| `prdset::section` | `read_section`, `item_index`, `read_asset`, `export_image`, crate-only `inside`, `read`, `listed` | Sentences for the author | Path escape tests (`src-tauri/src/prdset/section.rs:172-217`) |
 | `search` | `Index`, `SearchState`, `index_path` | Rebuild once, then the error | 15 tests (`src-tauri/src/search.rs:208-373`) |
 | `watch` | `SetWatcher::start`, `start_polling` | Start error text | 7 timing tests (`src-tauri/src/watch.rs:101-191`) |
 | `export` | `outside_set`, `write_export`, `export_pdf`, `find_chrome`, `chrome_candidates` | Sentences for the author | 11 tests (`src-tauri/src/export.rs:110-209`) |
@@ -1045,8 +1073,9 @@ Bun with no Tauri runtime.
 - A local image renders as `button.diagram[data-diagram]` that holds the
   `img[data-asset]` and a caption span with the alt text. The button label is
   "Open diagram: " and the alt text (`src/renderBody.ts:13-17`).
-- `cleanBody` runs on the Markdown before Marked parses it
-  (`src/renderBody.ts:52`).
+- `cleanForView` runs on the Markdown before Marked parses it, so each
+  wireframe sketch with a drawing after it renders as a hidden
+  `div[data-sketch]` that holds a code block (`src/renderBody.ts:52`).
 
 ### 13.7 `DiagramViewer` and `zoom`
 
@@ -1055,16 +1084,16 @@ Bun with no Tauri runtime.
 - **State.** `view` is `{ scale, x, y }` or `null` before the image loads.
   While it is `null`, the image is hidden (`src/DiagramViewer.tsx:13`,
   `src/DiagramViewer.tsx:69-70`).
-- **`fitView(image, box)`.** Scales the image to 95% of the stage, at most 8,
-  and centers it (`src/zoom.ts:10-13`).
+- **`fitView(image, box)`.** Scales the image to 95% of the stage, clamped to
+  0.25 to 8, and centers it (`src/zoom.ts:10-13`).
 - **`zoomAt(v, factor, px, py)`.** Clamps the scale to 0.25 to 8, and moves
   the offset so that the content point under `(px, py)` stays still
   (`src/zoom.ts:16-20`).
 - **Constants.** `STEP` is 1.25 per button or key press. `PAN` is 40 pixels
   per arrow key (`src/DiagramViewer.tsx:4-5`).
-- **Confirmed gap.** `fitView` does not apply `MIN_SCALE`. A diagram more
-  than about 3.8 times the stage size opens below 0.25, and the first zoom jumps to 0.25
-  (`src/zoom.ts:11`).
+- **Closed in 0.2.1.** `fitView` now applies `MIN_SCALE`, so a diagram more
+  than about 3.8 times the stage size opens at 0.25 and the first zoom no
+  longer jumps (`src/zoom.ts:11`, `src/zoom.test.ts:22-24`).
 
 ### 13.8 Visual design (`styles.css`)
 
@@ -1092,6 +1121,7 @@ an error string.
 | `read_section` | `folder`, `file` | `Section` | yes | none |
 | `item_index` | `folder` | `ItemRef[]` | yes | none |
 | `read_asset` | `folder`, `rel` | data URL | yes | none |
+| `export_image` | `folder`, `rel` | data URL of the PNG, or of the SVG when the PNG is older | yes | none |
 | `search` | `folder`, `term`, `category` | `Hit[]` | yes | index |
 | `categories` | `folder` | `Category[]` | yes | index |
 | `watch_set` | `folder` or null | none | no | none |
@@ -1108,9 +1138,9 @@ an error string.
 | Event | Payload | Emitted by |
 |-------|---------|------------|
 | `start` | `StartView` | Second launch (`src-tauri/src/lib.rs:22`) |
-| `set-changed` | `{folder, files}` | Watcher (`src-tauri/src/commands.rs:154`) |
+| `set-changed` | `{folder, files}` | Watcher (`src-tauri/src/commands.rs:160`) |
 
-**Note.** `read_section`, `item_index`, `read_asset`, `search`, and
+**Note.** `read_section`, `item_index`, `read_asset`, `export_image`, `search`, and
 `reload_set` take the folder from the UI and do not check it against the known
 sets. The path checks keep every read inside that folder, but the folder can
 be any folder that the web view names. **Assumption.** This is acceptable
@@ -1226,7 +1256,7 @@ flowchart LR
 | Remote image in an export | `loadImages`, `renderBlock` | Paths with a URL scheme are not loaded. HTML draws only a `data:image/` value (`src/exportRun.ts:37`, `src/exportHtml.ts:75-79`) | Low |
 | `../` or symlink in a child path | `section::inside` | Canonical path must start with the set root (`src-tauri/src/prdset/section.rs:35-39`) | Low |
 | Image read of a non-image file | `read_asset` | Extension allow list: svg, png, jpg, gif (`src-tauri/src/prdset/section.rs:89-95`) | An SVG is loaded as a data URL in an `img`, where scripts do not run. |
-| Export overwrites a set file | `outside_set` | Refuses the open set, every known set, and the last set (`src-tauri/src/commands.rs:120-123`) | A set never opened is not known. |
+| Export overwrites a set file | `outside_set` | Refuses the open set, every known set, and the last set (`src-tauri/src/commands.rs:126-129`) | A set never opened is not known. |
 | Export through a symlink or hard link | `replace` | Temp file and rename (`src-tauri/src/export.rs:32-39`) | Low |
 | Chrome fetches remote content | `export_pdf` | Dead proxy, no background networking (`src-tauri/src/export.rs:74-75`) | Low |
 | `prdf` replaces another tool | `install_launcher` | Marker line required. A symlink, binary, or foreign script is kept (`src-tauri/src/launcher.rs:24-30`) | Low |
@@ -1272,7 +1302,7 @@ The app has no logging framework, metrics, or tracing. The only diagnostic
 output is one `eprintln!` when the settings save fails
 (`src-tauri/src/commands.rs:20-21`). Errors reach the author as UI messages.
 The e2e checks save a screenshot per check to `e2e/shots/`
-(`e2e/harness.mjs:71`).
+(`e2e/harness.mjs:77`).
 
 ## 26. Configuration and secrets
 
@@ -1290,6 +1320,10 @@ There are no secrets.
 - **Build.** `bun run build` bundles `src/main.tsx` into `dist/` and copies
   `public/` (the fonts) (`scripts/build.ts:8-46`). `tauri build` makes the
   `.app` and `.dmg`.
+- **App icon.** The source is `src-tauri/icons/source/icon.svg`: a PRD page on
+  a slate tile with the four status marks in its margin. `tauri icon` makes
+  every size in `src-tauri/icons/` from it, and `src-tauri/tauri.conf.json:28-34`
+  lists the sizes that the bundle uses. Edit the SVG, not the PNG files.
 - **Install.** The author copies the app to `/Applications` and selects
   **Install prdf command**, which writes `~/.local/bin/prdf` after a confirm
   dialog (`src/App.tsx:142-145`).
@@ -1307,17 +1341,22 @@ Should the unit tests and the e2e checks run in CI?
 | Rust unit | `cargo test` | `#[cfg(test)]` in each module | Parsing, path checks, search ranking, watcher timing, export guards, settings |
 | Rust integration | `cargo test` | `src-tauri/tests/` | `load_set`, start rules, config |
 | UI unit | `bun test src` | `src/*.test.ts(x)` | Components with `renderToStaticMarkup`, sanitizer with JSDOM, export model and writers, body cleaning (`src/bodyClean.test.ts`), export images (`src/exportImages.test.ts`), zoom math (`src/zoom.test.ts`) |
+| UI interactive | `bun test src` | `src/interactive.test.tsx` | React renders into a JSDOM document and the tests send real DOM events: the diagram window fits, zooms, pans, and closes, and a hidden sketch shows when its drawing fails to load (`src/interactive.test.tsx:28-59`, `src/interactive.test.tsx:61-73`) |
 | End to end | `bun run test:e2e` | `e2e/checks/*.mjs` | The debug build driven through the Tauri MCP bridge |
 
 Many Rust tests read the real PRD set in `docs/prd/prd-forge-viewer/`, so a
 change to the PRD can break a test. Example:
 `reads_functional_requirements` expects 25 `FR-` items
-(`src-tauri/src/prdset/section.rs:109-115`).
+(`src-tauri/src/prdset/section.rs:127-133`).
+
+The e2e `waitText` helper polls `document.body.innerText` every 150 ms with
+short scripts, in place of one long `webview_wait_for` call, which can time
+out while the web view is busy (`e2e/harness.mjs:39-45`).
 
 The e2e harness moves the author's real settings file aside and restores it
-after the run (`e2e/harness.mjs:78-89`). It needs macOS, the debug build with
+after the run (`e2e/harness.mjs:84-95`). It needs macOS, the debug build with
 `--features mcp-bridge`, and System Events access for real key presses
-(`e2e/harness.mjs:42-45`).
+(`e2e/harness.mjs:48-51`).
 
 ## 29. Local development
 
@@ -1327,7 +1366,7 @@ after the run (`e2e/harness.mjs:78-89`). It needs macOS, the debug build with
    the MCP bridge.
 4. Run `bun test src` and `cargo test --manifest-path src-tauri/Cargo.toml`.
 5. Run `bun run test:e2e` for the e2e checks. A viewer that is already open is
-   quit first (`e2e/harness.mjs:74-77`).
+   quit first (`e2e/harness.mjs:80-83`).
 
 ## 30. Operations and support
 
@@ -1351,8 +1390,9 @@ after the run (`e2e/harness.mjs:78-89`). It needs macOS, the debug build with
 | Many tests read the real PRD | Tests | Medium | Test breaks on PRD edits | Use fixtures for counts that the PRD can change. |
 | NFR-009 screen reader count not measured | Export | Medium | Accessibility claim unproven | ADR-002 note records it. Run a PDF checker. |
 | The body cleaner copies the `prd_export.py` rules by hand | Viewer, export | Medium | The viewer and the PRD Forge export differ after a PRD Forge change | Compare with `prd_export.py` at each PRD Forge release. |
-| Exports embed the PNG of each SVG, the viewer shows the SVG | Export | Medium | A stale PNG exports an old drawing | Run `prd-diagrams.mjs` before an export. |
-| `fitView` does not clamp to `MIN_SCALE` | Diagram window | Low | A very large diagram jumps on the first zoom | **Recommendation.** Clamp in `fitView`. |
+| Exports embed the PNG of each SVG, the viewer shows the SVG | Export | Low | A stale PNG exports an old drawing | **Closed in 0.2.1.** `export_image` uses the SVG when the PNG is older (section 9.7). |
+| An SVG in a Word file shows a blank fallback in a Word older than 2016 | Export | Low | The diagram is missing in an old Word | Only when the PNG is stale. Run `prd-diagrams.mjs` before an export. |
+| `fitView` does not clamp to `MIN_SCALE` | Diagram window | None | None | **Closed in 0.2.1.** `fitView` clamps (`src/zoom.ts:11`). |
 
 ## 32. Implementation plan (extension roadmap)
 
@@ -1375,9 +1415,9 @@ after the run (`e2e/harness.mjs:78-89`). It needs macOS, the debug build with
 | FR-007 | 8.2 | `prdset::section`, `linkify` | set | `item_index` | `index_finds_requirement_and_nested_stage` |
 | FR-008 | 8.3 | `search` | index | `search`, `categories` | `e2e/checks/phase-2-search.mjs` |
 | FR-009 | 8.4 | `watch`, `App` | none | `watch_set`, `reload_set` | `e2e/checks/phase-3-live.mjs` |
-| FR-010 to FR-014, FR-019 | 8.5 | export pipeline, `export` | export file | `export_pdf`, `write_export`, `print_page`, `read_asset` | `e2e/checks/phase-5-export.mjs`, `src/exportImages.test.ts` |
+| FR-010 to FR-014, FR-019 | 8.5 | export pipeline, `export` | export file | `export_pdf`, `write_export`, `print_page`, `export_image` | `e2e/checks/phase-5-export.mjs`, `src/exportImages.test.ts`, `export_image_uses_the_png_unless_it_is_older_than_the_svg` |
 | FR-019 (grades optional) | 8.5 | `ExportDialog`, `buildExport` | none | none | `fr_019_grades_are_left_out_by_default` |
-| FR-005 (diagrams) | 8.2, 8.6 | `bodyClean`, `renderBody`, `DiagramViewer`, `zoom` | set | `read_asset` | `e2e/checks/phase-1-reading.mjs`, `src/bodyClean.test.ts`, `src/zoom.test.ts` |
+| FR-005 (diagrams) | 8.2, 8.6 | `bodyClean`, `renderBody`, `DiagramViewer`, `zoom` | set | `read_asset` | `e2e/checks/phase-1-reading.mjs`, `src/bodyClean.test.ts`, `src/zoom.test.ts`, `src/interactive.test.tsx` |
 | FR-015 to FR-018, FR-020 | 8.5 | `themes`, `ThemeDialog`, `settings` | settings | `themes`, `save_themes` | `e2e/checks/phase-4-themes.mjs` |
 | FR-021 | 8.1 | `launcher` | `prdf` | `install_prdf` | `relative_path_made_absolute` |
 | FR-022, FR-024 | 8.1 | `start`, `locate` | settings | `start_for` | `e2e/checks/plans-1-2.mjs` |
