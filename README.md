@@ -19,7 +19,7 @@ With the viewer, you can:
 The viewer shows only local content. No script in a document runs, and no
 remote image loads.
 
-Release 0.2.0 covers release 1 (REL-001) of the PRD: FR-001 to FR-024, except
+Release 0.2.1 covers release 1 (REL-001) of the PRD: FR-001 to FR-024, except
 FR-006. It follows PRD 0.6.2. For the full list of changes, see [CHANGELOG.md](CHANGELOG.md).
 
 ## User guide
@@ -31,11 +31,12 @@ the viewer.
 
 The release has one disk image for Macs with Apple silicon.
 
-1. Download `PRD.Forge.Viewer_0.2.0_aarch64.dmg` from the
-   [v0.2.0 release](https://github.com/SpillwaveSolutions/prd-forge-viewer/releases/tag/v0.2.0).
+1. Download `PRD.Forge.Viewer_0.2.1_aarch64.dmg` from the
+   [v0.2.1 release](https://github.com/SpillwaveSolutions/prd-forge-viewer/releases/tag/v0.2.1).
 2. Open the disk image.
 3. Move **PRD Forge Viewer** to the **Applications** folder.
-4. Start **PRD Forge Viewer**.
+4. Start **PRD Forge Viewer**. Its icon is a PRD page with four colored
+   status marks in the margin.
 5. Click **Install prdf command** in the toolbar.
 6. Confirm the install in the **Install prdf command** dialog.
 
@@ -90,8 +91,10 @@ exported file.
 ## Known limits
 
 - PDF export needs Google Chrome on the Mac. Word export does not.
-- An export shows a diagram as a picture only when a PNG file is next to its
-  SVG file. If not, the export shows the alt text of the diagram.
+- An export uses the PNG file of a diagram when it is next to the SVG file
+  and is not older than the SVG file. If not, the export uses the SVG file.
+  Word 2016 and later show an SVG picture. An older Word shows a blank
+  picture in its place.
 - Some non-functional checks have no full run yet: the network-off run, the
   checksum test, the full hostile fixture, the full keyboard audit, and a
   reader's accessibility checker on the exports. See section 4.2 of
