@@ -208,6 +208,25 @@ section[aria-label="PRD set"] > .documents { grid-column: 2; grid-row: 4; }
 .stage:active { cursor: grabbing; }
 .stage img { position: absolute; top: 0; left: 0; transform-origin: 0 0; max-width: none; user-select: none; }
 
+/* Search drawer: slides out from the right. Pinned, the page makes room for it. */
+.search-drawer {
+    position: fixed; top: var(--header-h, 0px); right: 0; bottom: 0; z-index: 4; width: min(26rem, 92vw);
+    display: flex; flex-direction: column; overflow: auto; padding: 0 18px 24px;
+    background: var(--surface); border-left: 1px solid var(--rule);
+    box-shadow: -12px 0 32px rgb(10 14 20 / 0.18);
+    transform: translateX(100%); visibility: hidden;
+    transition: transform 180ms ease-out, visibility 0s linear 180ms;
+}
+.search-drawer.open { transform: none; visibility: visible; transition: transform 180ms ease-out; }
+.search-drawer.pinned { box-shadow: none; }
+.drawer-head { position: sticky; top: 0; display: flex; align-items: center; gap: 6px; padding: 12px 0 8px; background: var(--surface); }
+.drawer-head h2 { margin: 0 auto 0 0; font-size: 1.1rem; }
+.drawer-head button[aria-pressed="true"] { background: var(--accent-wash); border-color: var(--accent); }
+.search-drawer .search { margin: 4px 0 0; padding: 0; border: none; background: none; }
+.search-drawer form[role="search"] { display: flex; flex-wrap: wrap; gap: 6px; align-items: center; }
+.search-drawer input[type="search"] { min-width: 0; flex: 1; }
+main.with-drawer { padding-right: calc(min(26rem, 92vw) + 32px); }
+
 /* Search */
 .search { margin: 16px 0; padding: 10px 14px; border: 1px solid var(--rule); border-radius: var(--radius); background: var(--surface); }
 .search input[type="search"] { min-width: 18em; }
@@ -251,4 +270,4 @@ section[aria-label="PRD set"] > .documents { grid-column: 2; grid-row: 4; }
     .doc-nav { position: static; max-height: none; }
     .export-sections { columns: 1; }
 }
-@media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
+@media (prefers-reduced-motion: reduce) { *, .search-drawer, .search-drawer.open { transition: none !important; } }

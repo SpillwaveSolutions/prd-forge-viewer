@@ -571,3 +571,6 @@
 {"actor":"richardhightower","ev":"01M677XDHK9GXTAR23ZNGGA0Y4","git":"0e83f78","item":"01M677QK9QD6ADPDAFYHH1ACV8","op":"close","set":{"status":"done"},"ts":"2026-10-30T20:27:11Z"}
 {"actor":"richardhightower","ev":"01M677XDN5XGJ1Z5C3473S312R","git":"0e83f78","item":"01M677QK6YTWSKBMRNXRVHVYVR","op":"update","set":{"status":"in_progress"},"ts":"2026-10-30T20:27:11Z"}
 {"actor":"richardhightower","ev":"01M678CHZPD6KCYE19WSNEFKN8","git":"c1b5f0d","item":"01M677QK6YTWSKBMRNXRVHVYVR","op":"close","set":{"status":"done"},"ts":"2026-10-30T20:35:27Z"}
+{"actor":"richardhightower","ev":"01M6791SYHPKZQ0TH5S6VM92ST","git":"87be575","item":"01M6791SYHPKZQ0TH5S6VM92SS","op":"create","set":{"kind":"feature","level":"task","priority":"P1","status":"todo","title":"Search in a drawer that opens from a Search button and can be pinned"},"ts":"2026-10-30T20:47:03Z"}
+{"actor":"richardhightower","ev":"01M6792QQA1D9906NX20TTW426","git":"87be575","item":"01M6791SYHPKZQ0TH5S6VM92SS","op":"update","set":{"status":"in_progress"},"ts":"2026-10-30T20:47:34Z"}
+{"actor":"richardhightower","ev":"01M679K3XCTC11FDBXJ589G8N8","git":"87be575","item":"01M6791SYHPKZQ0TH5S6VM92SS","op":"close","set":{"status":"done"},"ts":"2026-10-30T20:56:30Z"}

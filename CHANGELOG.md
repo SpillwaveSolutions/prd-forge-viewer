@@ -10,6 +10,11 @@
   size for the next time you open it.
 - **Search in more than one category.** The category list is now a row of
   checkboxes. Select one or more categories, or **All categories**.
+- **Search drawer.** Search is no longer always open. Select **Search** next
+  to **Export**, or press Command-F, and the search panel slides out from the
+  right. Select **Pin** to keep it open beside the document while you open
+  results. Unpinned, it closes when you open a result, press Escape, or
+  select **Close**. The drawer keeps your last results.
 
 ## 0.2.1, 2026-10-30
 

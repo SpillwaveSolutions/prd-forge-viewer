@@ -2,6 +2,10 @@
 
 _The evidence chain: plan → item → ticket → code → release, forward and backward. Generated from `docs/.index/_graph.json`; do not edit._
 
+### Search in a drawer that opens from a Search button and can be pinned
+`01M6791SYHPKZQ0TH5S6VM92SS` · status: done
+- lands-in: pr/198
+
 ### Search in more than one category
 `01M677QK9QD6ADPDAFYHH1ACV8` · status: done
 - lands-in: pr/197

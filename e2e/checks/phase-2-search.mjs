@@ -14,6 +14,7 @@ const until = async (h, script, re, ms = 8000) => {
 
 // Type a term, pick categories (none means all), and submit. Returns the status text: "N matches" or "No matches".
 async function search(h, term, categories = []) {
+  await openDrawer(h);
   await h.js(`
     const set = (el, v) => { Object.getOwnPropertyDescriptor(Object.getPrototypeOf(el), 'value').set.call(el, v); el.dispatchEvent(new Event('input', { bubbles: true })); };
     set(document.querySelector('form[role=search] input[type=search]'), ${JSON.stringify(term)});
@@ -27,6 +28,13 @@ async function search(h, term, categories = []) {
     return 'ok';`);
   return until(h, `const s = document.querySelector('.search [role=status]'); return s && +s.dataset.seq > window.__seq ? s.innerText + '|' + (performance.now() - window.__searchT0) : ''`, /match/);
 }
+// Open the search drawer from the Search button in the header, if it is closed.
+const isOpen = (h) => h.js("return String(document.querySelector('#search-drawer').classList.contains('open'))");
+async function openDrawer(h) {
+  if ((await isOpen(h)) === "true") return;
+  await h.click("//header//button[.='Search']", "xpath");
+  await until(h, "return String(document.querySelector('#search-drawer').classList.contains('open'))", /true/);
+}
 // The MCP tool returns a script's result as text, sometimes JSON-encoded again; parse until it is a value.
 const value = (text) => { let v = text; for (let i = 0; i < 2 && typeof v === "string"; i++) { try { v = JSON.parse(v); } catch { break; } } return v; };
 const rows = async (h) => value(await h.js("return JSON.stringify([...document.querySelectorAll('.results li')].map(li => li.innerText))"));
@@ -35,6 +43,14 @@ await run(async (h) => {
   await h.launch(SET);
   await h.waitText("Version");
   await until(h, "return document.querySelectorAll('.categories input[type=checkbox]').length + ''", /^[2-9]|\d\d/);
+
+  await h.check("The Search button opens the drawer with the focus in the search box, and Escape closes it", async () => {
+    expect((await isOpen(h)) === "false", "the drawer is open at start");
+    await openDrawer(h);
+    expect((await h.js("return String(document.activeElement?.type === 'search')")) === "true", "the focus is not in the search box");
+    await h.realKey(53); // Escape
+    await until(h, "return String(document.querySelector('#search-drawer').classList.contains('open'))", /false/);
+  });
 
   await h.check("FR-008 1: export in functional requirements gives only functional requirements", async () => {
     await search(h, "export", ["functional-requirements"]);
@@ -59,10 +75,27 @@ await run(async (h) => {
     expect(scores[0] === 100 && scores.every((v, i) => v >= 0 && v <= 100 && (i === 0 || scores[i - 1] >= v)), JSON.stringify(scores));
   });
 
-  await h.check("FR-008 5: selecting a result shows that item in its section", async () => {
+  await h.check("FR-008 5: selecting a result shows that item in its section, and the unpinned drawer closes", async () => {
     const id = await h.js("return document.querySelector('.results li strong').innerText");
     await h.click(".results li button");
     await until(h, "return document.querySelector('article.item h3')?.innerText || ''", new RegExp("^" + id));
+    await until(h, "return String(document.querySelector('#search-drawer').classList.contains('open'))", /false/);
+  });
+
+  await h.check("A pinned drawer stays open beside the document after a result opens, and Close closes it", async () => {
+    await search(h, "export");
+    await h.click("//aside[@id='search-drawer']//button[.='Pin']", "xpath");
+    const ids = value(await h.js("return JSON.stringify([...document.querySelectorAll('.results li strong')].slice(0, 2).map(s => s.innerText))"));
+    for (const id of ids) {
+      await h.click(`//li[.//strong[.='${id}']]/button`, "xpath");
+      await until(h, "return document.querySelector('article.item h3')?.innerText || ''", new RegExp("^" + id));
+      expect((await isOpen(h)) === "true", `the pinned drawer closed after ${id}`);
+    }
+    const room = await h.js("return String(document.querySelector('main').classList.contains('with-drawer'))");
+    expect(room === "true", "the page does not make room for the pinned drawer");
+    await h.click("//aside[@id='search-drawer']//button[.='Pinned']", "xpath"); // unpin, so the next run starts the same
+    await h.click("//aside[@id='search-drawer']//button[@aria-label='Close search']", "xpath");
+    await until(h, "return String(document.querySelector('#search-drawer').classList.contains('open'))", /false/);
   });
 
   await h.check("FR-008 6: a term that no item contains says there are no matches", async () => {

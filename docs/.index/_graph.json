@@ -2731,6 +2731,11 @@
    "type": "lands-in"
   },
   {
+   "from": "item/01M6791SYHPKZQ0TH5S6VM92SS",
+   "to": "pr/198",
+   "type": "lands-in"
+  },
+  {
    "from": "plan/2026-10-28-plan-1-open-and-grades",
    "to": "item/01M61XNJ5TFSD53MNXM1XHBD57",
    "type": "produces"
@@ -4514,6 +4519,11 @@
    "status": "done",
    "title": "Search in more than one category"
   },
+  "item/01M6791SYHPKZQ0TH5S6VM92SS": {
+   "doc_type": "item",
+   "status": "done",
+   "title": "Search in a drawer that opens from a Search button and can be pinned"
+  },
   "plan/2026-10-28-plan-1-open-and-grades": {
    "doc_type": "plan",
    "source": "docs/plans/2026-10-28-plan-1-open-and-grades.md",
@@ -4605,6 +4615,9 @@
    "doc_type": "pr"
   },
   "pr/197": {
+   "doc_type": "pr"
+  },
+  "pr/198": {
    "doc_type": "pr"
   },
   "pr/4": {
