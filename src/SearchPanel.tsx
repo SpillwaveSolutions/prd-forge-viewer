@@ -23,14 +23,15 @@ export function SearchResults({ term, hits, onOpenHit, seq }: { term: string; hi
 
 interface Props {
     categories: Category[];
-    onSearch: (term: string, category: string) => Promise<Hit[]>;
+    onSearch: (term: string, categories: string[]) => Promise<Hit[]>;
     onOpenHit: (hit: Hit) => void;
 }
 
-/** Search the set by term, in one category or in all (FR-008). */
+/** Search the set by term, in the categories that the author picks, or in all (FR-008). */
 export function SearchPanel({ categories, onSearch, onOpenHit }: Props) {
     const [term, setTerm] = useState("");
-    const [category, setCategory] = useState("all");
+    // The selected category kinds. None selected means all categories.
+    const [picked, setPicked] = useState<string[]>([]);
     const [shown, setShown] = useState<{ term: string; hits: Hit[]; seq: number }>();
     const [error, setError] = useState<string>();
 
@@ -38,7 +39,7 @@ export function SearchPanel({ categories, onSearch, onOpenHit }: Props) {
         e.preventDefault();
         if (!term.trim()) return setShown(undefined);
         try {
-            const hits = await onSearch(term, category);
+            const hits = await onSearch(term, picked);
             setShown((s) => ({ term, hits, seq: (s?.seq ?? 0) + 1 }));
             setError(undefined);
         } catch (err) {
@@ -52,17 +53,21 @@ export function SearchPanel({ categories, onSearch, onOpenHit }: Props) {
                 <label>
                     Search <input type="search" value={term} onChange={(e) => setTerm(e.target.value)} placeholder="Term" />
                 </label>{" "}
-                <label>
-                    in{" "}
-                    <select value={category} onChange={(e) => setCategory(e.target.value)}>
-                        <option value="all">All categories</option>
-                        {categories.map((c) => (
-                            <option key={c.kind} value={c.kind}>{c.title}</option>
-                        ))}
-                    </select>
-                </label>{" "}
                 <button type="submit">Search</button>{" "}
                 {shown && <button type="button" onClick={() => setShown(undefined)}>Clear</button>}
+                <fieldset className="categories">
+                    <legend>Categories</legend>
+                    <label className="chip">
+                        <input type="checkbox" value="all" checked={picked.length === 0} onChange={() => setPicked([])} /> All categories
+                    </label>
+                    {categories.map((c) => (
+                        <label key={c.kind} className="chip">
+                            <input type="checkbox" value={c.kind} checked={picked.includes(c.kind)}
+                                onChange={() => setPicked((p) => (p.includes(c.kind) ? p.filter((k) => k !== c.kind) : categories.map((x) => x.kind).filter((k) => k === c.kind || p.includes(k))))} />{" "}
+                            {c.title}
+                        </label>
+                    ))}
+                </fieldset>
             </form>
             {error && <p role="alert" className="error">{error}</p>}
             {shown && <SearchResults term={shown.term} hits={shown.hits} seq={shown.seq} onOpenHit={onOpenHit} />}

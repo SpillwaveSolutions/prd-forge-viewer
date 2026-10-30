@@ -15,6 +15,7 @@ const { createRoot } = await import("react-dom/client");
 const { DiagramViewer } = await import("./DiagramViewer");
 const { SectionPage } = await import("./SectionPage");
 const { renderBody } = await import("./renderBody");
+const { SearchPanel } = await import("./SearchPanel");
 
 const mount = async (el: React.ReactElement) => {
     const host = document.createElement("div");
@@ -69,5 +70,30 @@ test("a_sketch_shows_when_its_drawing_does_not_load", async () => {
     const sketch = host.querySelector("[data-sketch]")!;
     expect(sketch.hasAttribute("hidden")).toBe(false);
     expect(host.textContent).toContain("[image not found: WF-001 drawing]");
+    await unmount();
+});
+
+test("search_uses_every_selected_category_and_all_clears_them", async () => {
+    const calls: string[][] = [];
+    const cats = [{ kind: "functional-requirements", title: "Functional requirements" }, { kind: "scenarios", title: "Scenarios" }, { kind: "glossary", title: "Glossary" }];
+    const { host, unmount } = await mount(<SearchPanel categories={cats} onSearch={async (_t, c) => { calls.push(c); return []; }} onOpenHit={() => {}} />);
+    const box = (v: string) => host.querySelector(`input[type=checkbox][value="${v}"]`) as HTMLInputElement;
+    const input = host.querySelector("input[type=search]") as HTMLInputElement;
+    await act(async () => {
+        Object.getOwnPropertyDescriptor(dom.window.HTMLInputElement.prototype, "value")!.set!.call(input, "export");
+        input.dispatchEvent(new Event("input", { bubbles: true }));
+    });
+    const submit = () => act(async () => { host.querySelector("form")!.dispatchEvent(new Event("submit", { bubbles: true, cancelable: true })); });
+
+    await act(async () => { box("functional-requirements").click(); });
+    await act(async () => { box("scenarios").click(); });
+    expect(box("all").checked).toBe(false);
+    await submit();
+    expect(calls.at(-1)).toEqual(["functional-requirements", "scenarios"]);
+
+    await act(async () => { box("all").click(); });
+    expect(box("functional-requirements").checked).toBe(false);
+    await submit();
+    expect(calls.at(-1)).toEqual([]);
     await unmount();
 });

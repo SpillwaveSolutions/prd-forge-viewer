@@ -198,7 +198,7 @@ export function App() {
                 <SearchPanel
                     key={set.folder}
                     categories={categories}
-                    onSearch={(term, category) => invoke<Hit[]>("search", { folder: set.folder, term, category })}
+                    onSearch={(term, categories) => invoke<Hit[]>("search", { folder: set.folder, term, categories })}
                     onOpenHit={(hit) => openDoc(hit.file, hit.id)}
                 />
             )}

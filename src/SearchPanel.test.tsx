@@ -22,10 +22,14 @@ test("no_match_message", () => {
     expect(html).toContain("No matches for “zzq”");
 });
 
-test("panel_has_a_labeled_box_and_categories_with_all_first", () => {
+test("panel_has_a_labeled_box_and_category_checkboxes_with_all_first_and_selected", () => {
     const html = renderToStaticMarkup(<SearchPanel categories={[{ kind: "functional-requirements", title: "Functional requirements" }]} onSearch={async () => []} onOpenHit={() => {}} />);
     expect(html).toMatch(/<label[^>]*>Search/);
-    expect(html.indexOf('value="all"')).toBeLessThan(html.indexOf('value="functional-requirements"'));
+    expect(html).toContain("<legend>Categories</legend>");
+    expect(html.indexOf("All categories")).toBeLessThan(html.indexOf('value="functional-requirements"'));
+    const box = (v: string) => html.match(new RegExp(`<input type="checkbox"[^>]*value="${v}"[^>]*>`))?.[0] ?? "";
+    expect(box("all")).toContain("checked");
+    expect(box("functional-requirements")).not.toContain("checked");
 });
 
 test("selecting_a_result_passes_its_file_and_id", () => {

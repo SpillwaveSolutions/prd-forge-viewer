@@ -1,5 +1,5 @@
 {
- "git_hash": "369f387",
+ "git_hash": "0e83f78",
  "pages": [
   {
    "frozen": false,
@@ -45,7 +45,7 @@
    "frozen": false,
    "page_name": "Index-Traceability",
    "render": "as-is",
-   "render_hash": "453955348cf2",
+   "render_hash": "6d1ff2969681",
    "source": "docs/.index/rendered/traceability.md",
    "title": "Traceability Index",
    "truth_state": "current",
@@ -2052,6 +2052,26 @@
    "wiki_key": "item/01M676T35CQDJFPR5XKDD2CW3R"
   },
   {
+   "frozen": false,
+   "page_name": "Ticket-01M677QK6YTWSKBMRNXRVHVYVR",
+   "render": "as-is",
+   "render_hash": "1fe276d9eec8",
+   "source": "docs/.index/rendered/tickets/01M677QK6YTWSKBMRNXRVHVYVR.md",
+   "title": "Text zoom: make the text larger or smaller",
+   "truth_state": "in-progress",
+   "wiki_key": "item/01M677QK6YTWSKBMRNXRVHVYVR"
+  },
+  {
+   "frozen": false,
+   "page_name": "Ticket-01M677QK9QD6ADPDAFYHH1ACV8",
+   "render": "as-is",
+   "render_hash": "00a444519e19",
+   "source": "docs/.index/rendered/tickets/01M677QK9QD6ADPDAFYHH1ACV8.md",
+   "title": "Search in more than one category",
+   "truth_state": "done",
+   "wiki_key": "item/01M677QK9QD6ADPDAFYHH1ACV8"
+  },
+  {
    "banner": "> **Snapshot** of release v0.1.0 (2026-10-29) \u2014 frozen record. The current version is [[Code-Walkthrough]].",
    "frozen": true,
    "page_name": "Design-Freeze-2026-10-29_v0.1.0-release",
@@ -2304,13 +2324,13 @@
    "wiki_key": "plan/2026-10-30-plan-9-diagrams-design"
   },
   {
-   "banner": "> **Current** \u2014 this is the living version; regenerated at 2026-10-30T20:08:13Z. Historical snapshots are linked from [[Index-Releases]].",
+   "banner": "> **Current** \u2014 this is the living version; regenerated at 2026-10-30T20:27:11Z. Historical snapshots are linked from [[Index-Releases]].",
    "frozen": false,
    "page_name": "Roadmap",
    "render": "doc+banner",
-   "render_hash": "2bcd2be53da7",
+   "render_hash": "c341b55f38ce",
    "source": "docs/roadmap.md",
-   "source_hash": "95e2fd389c4b",
+   "source_hash": "22de3174c4d7",
    "title": "Roadmap",
    "truth_state": "current",
    "wiki_key": "roadmap"

@@ -19,7 +19,7 @@ pub struct Hit {
     pub score: u8,
 }
 
-/// A search category: one for each kind of document that has items, plus "all" in the UI.
+/// A search category: one for each kind of document that has items.
 #[derive(Serialize, Debug, Clone, PartialEq)]
 pub struct Category {
     pub kind: String,
@@ -134,18 +134,20 @@ impl Index {
         Ok(changed)
     }
 
-    /// Items that match every word, best first. An id match weighs most, then the title, then the text (FR-008, criterion 3).
-    pub fn search(&self, term: &str, category: &str) -> Result<Vec<Hit>, String> {
+    /// Items that match every word, best first, in the given categories, or in all when there are none.
+    /// An id match weighs most, then the title, then the text (FR-008, criterion 3).
+    pub fn search(&self, term: &str, categories: &[String]) -> Result<Vec<Hit>, String> {
         let Some(q) = fts_query(term) else { return Ok(vec![]) };
         let mut st = self
             .conn
             .prepare(
                 "SELECT id, title, file, section, kind, bm25(items, 50.0, 10.0, 1.0) AS rank FROM items
-                 WHERE items MATCH ?1 AND (?2 = 'all' OR kind = ?2) ORDER BY rank, rowid LIMIT 200",
+                 WHERE items MATCH ?1 AND (?2 = '' OR instr(?2, ',' || kind || ',') > 0) ORDER BY rank, rowid LIMIT 200",
             )
             .map_err(|e| e.to_string())?;
         let rows: Vec<(Hit, f64)> = st
-            .query_map(params![q, category], |r| {
+            // ponytail: the kinds as ",a,b," for instr(). A kind is a slug, so it has no comma.
+            .query_map(params![q, if categories.is_empty() { String::new() } else { format!(",{},", categories.join(",")) }], |r| {
                 Ok((
                     Hit { id: r.get(0)?, title: r.get(1)?, file: r.get(2)?, section: r.get(3)?, category: r.get(4)?, score: 0 },
                     r.get::<_, f64>(5)?,
@@ -196,8 +198,8 @@ impl SearchState {
         v
     }
 
-    pub fn search(&self, db: &Path, set: &Path, term: &str, category: &str) -> Result<Vec<Hit>, String> {
-        self.with(db, set, |ix| ix.search(term, category))
+    pub fn search(&self, db: &Path, set: &Path, term: &str, categories: &[String]) -> Result<Vec<Hit>, String> {
+        self.with(db, set, |ix| ix.search(term, categories))
     }
 
     pub fn categories(&self, db: &Path, set: &Path) -> Result<Vec<Category>, String> {
@@ -233,15 +235,25 @@ mod tests {
     #[test]
     fn category_filter_gives_only_that_kind() {
         let d = TempDir::new().unwrap();
-        let hits = open_real(&d).search("export", "functional-requirements").unwrap();
+        let hits = open_real(&d).search("export", &["functional-requirements".to_string()]).unwrap();
         assert!(!hits.is_empty());
         assert!(hits.iter().all(|h| h.category == "functional-requirements" && h.id.starts_with("FR-")));
     }
 
     #[test]
+    fn two_categories_give_both_kinds_and_no_other() {
+        let d = TempDir::new().unwrap();
+        let cats = ["functional-requirements".to_string(), "scenarios".to_string()];
+        let hits = open_real(&d).search("export", &cats).unwrap();
+        assert!(hits.iter().any(|h| h.category == "functional-requirements"));
+        assert!(hits.iter().any(|h| h.category == "scenarios"));
+        assert!(hits.iter().all(|h| cats.contains(&h.category)));
+    }
+
+    #[test]
     fn all_categories_include_scenarios() {
         let d = TempDir::new().unwrap();
-        let hits = open_real(&d).search("export", "all").unwrap();
+        let hits = open_real(&d).search("export", &[]).unwrap();
         assert!(hits.iter().any(|h| h.category == "scenarios"));
     }
 
@@ -251,14 +263,14 @@ mod tests {
         small_set(&d.path().join("s"), "Mentions export once");
         let mut ix = Index::open(&d.path().join("ix.sqlite"), &d.path().join("s")).unwrap();
         ix.refresh().unwrap();
-        let ids: Vec<_> = ix.search("export", "all").unwrap().into_iter().map(|h| h.id).collect();
+        let ids: Vec<_> = ix.search("export", &[]).unwrap().into_iter().map(|h| h.id).collect();
         assert_eq!(ids, vec!["FR-002", "FR-001"]);
     }
 
     #[test]
     fn scores_run_from_100_down() {
         let d = TempDir::new().unwrap();
-        let hits = open_real(&d).search("export", "all").unwrap();
+        let hits = open_real(&d).search("export", &[]).unwrap();
         assert_eq!(hits[0].score, 100);
         assert!(hits.windows(2).all(|w| w[0].score >= w[1].score));
         assert!(hits.iter().all(|h| h.score <= 100));
@@ -267,7 +279,7 @@ mod tests {
     #[test]
     fn no_match_is_empty() {
         let d = TempDir::new().unwrap();
-        assert!(open_real(&d).search("zzqxnomatch", "all").unwrap().is_empty());
+        assert!(open_real(&d).search("zzqxnomatch", &[]).unwrap().is_empty());
     }
 
     #[test]
@@ -275,14 +287,14 @@ mod tests {
         let d = TempDir::new().unwrap();
         let ix = open_real(&d);
         for term in ["\"", "*", "(export", "NEAR export", "export AND", "a\"b", "-x", "export:"] {
-            assert!(ix.search(term, "all").is_ok(), "term {term}");
+            assert!(ix.search(term, &[]).is_ok(), "term {term}");
         }
     }
 
     #[test]
     fn empty_term_is_empty() {
         let d = TempDir::new().unwrap();
-        assert!(open_real(&d).search("   ", "all").unwrap().is_empty());
+        assert!(open_real(&d).search("   ", &[]).unwrap().is_empty());
     }
 
     #[test]
@@ -292,7 +304,7 @@ mod tests {
         fs::write(&db, b"not a database at all").unwrap();
         let mut ix = Index::open(&db, real()).unwrap();
         ix.refresh().unwrap();
-        assert!(!ix.search("export", "all").unwrap().is_empty());
+        assert!(!ix.search("export", &[]).unwrap().is_empty());
     }
 
     #[test]
@@ -305,7 +317,7 @@ mod tests {
         assert_eq!(ix.refresh().unwrap(), 0);
         small_set(&s, "Now with zebra");
         assert_eq!(ix.refresh().unwrap(), 1);
-        assert_eq!(ix.search("zebra", "all").unwrap()[0].id, "FR-001");
+        assert_eq!(ix.search("zebra", &[]).unwrap()[0].id, "FR-001");
     }
 
     #[test]
@@ -316,7 +328,7 @@ mod tests {
         for term in ["export", "grade", "theme", "search", "section", "draft", "sponsor", "PDF", "keyboard", "prdf",
                      "known", "stage", "journey", "score", "blocking", "persona", "release", "network", "script", "folder"] {
             let t0 = std::time::Instant::now();
-            state.search(&db, real(), term, "all").unwrap();
+            state.search(&db, real(), term, &[]).unwrap();
             assert!(t0.elapsed().as_millis() < 500, "{term}: {:?}", t0.elapsed());
         }
     }
@@ -328,14 +340,14 @@ mod tests {
         let mut ix = Index::open(&d.path().join("ix.sqlite"), &d.path().join("s")).unwrap();
         ix.refresh().unwrap();
         // "outcome" is only a field name in this set; "capability" is also a value ("Plain capability").
-        assert!(ix.search("outcome", "all").unwrap().is_empty());
-        assert_eq!(ix.search("capability", "all").unwrap().len(), 1);
+        assert!(ix.search("outcome", &[]).unwrap().is_empty());
+        assert_eq!(ix.search("capability", &[]).unwrap().len(), 1);
     }
 
     #[test]
     fn an_id_search_puts_that_item_first() {
         let d = TempDir::new().unwrap();
-        assert_eq!(open_real(&d).search("FR-008", "all").unwrap()[0].id, "FR-008");
+        assert_eq!(open_real(&d).search("FR-008", &[]).unwrap()[0].id, "FR-008");
     }
 
     #[test]
@@ -344,11 +356,11 @@ mod tests {
             let d = TempDir::new().unwrap();
             let db = d.path().join("ix.sqlite");
             let state = SearchState::default();
-            state.search(&db, real(), "export", "all").unwrap();
+            state.search(&db, real(), "export", &[]).unwrap();
             Connection::open(&db).unwrap().execute_batch(breakage).unwrap();
             let fresh = SearchState::default();
-            assert!(!fresh.search(&db, real(), "export", "all").unwrap().is_empty(), "{breakage}");
-            assert!(!state.search(&db, real(), "export", "all").unwrap().is_empty(), "{breakage} with an open index");
+            assert!(!fresh.search(&db, real(), "export", &[]).unwrap().is_empty(), "{breakage}");
+            assert!(!state.search(&db, real(), "export", &[]).unwrap().is_empty(), "{breakage} with an open index");
         }
     }
 
@@ -361,7 +373,7 @@ mod tests {
         fs::write(s.join("prd.md"), "---\nid: r\nkind: prd\ntitle: R\nstatus: draft\nlinks:\n  children:\n    - { path: ../outside.md, title: O }\n    - { path: /dev/zero, title: Z }\n---\n").unwrap();
         let mut ix = Index::open(&d.path().join("ix.sqlite"), &s).unwrap();
         ix.refresh().unwrap();
-        assert!(ix.search("zebraoutside", "all").unwrap().is_empty());
+        assert!(ix.search("zebraoutside", &[]).unwrap().is_empty());
     }
 
     #[test]
