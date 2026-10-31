@@ -1,7 +1,7 @@
 # PRD Forge Viewer user guide
 
 This guide is for the author of a PRD set. It tells you how to use PRD Forge
-Viewer 0.2.1 to read, search, and export a PRD set that the PRD Forge plugin
+Viewer 0.3.0 to read, search, and export a PRD set that the PRD Forge plugin
 makes.
 
 The viewer is read-only. You change a PRD set with the authoring tools, and the
@@ -12,10 +12,11 @@ viewer shows each change. The viewer never writes to a PRD set folder.
 1. [Open a PRD set](01-open-a-set.md): the app, the `prdf` command, known
    locations, and folders with more than one set.
 2. [Read sections and items](02-read-sections.md): the overview, a section, an
-   item, references between items, and the diagram window.
+   item, references between items, the diagram window, and the text size.
 3. [See the grades](03-grades.md): the status, score, and blocking defects of
    every section.
-4. [Search a set](04-search.md): terms, categories, and scores.
+4. [Search a set](04-search.md): the search drawer, terms, categories, and
+   scores.
 5. [Live updates](05-live-updates.md): what the window does when the authoring
    tools save a file.
 6. [Export themes](06-themes.md): the built-in themes and custom themes.
@@ -32,6 +33,13 @@ The toolbar is at the top of the window. It has these buttons:
 | **Install prdf command** | Installs the `prdf` command in `~/.local/bin`. |
 | **Themes** | Opens the **Themes** dialog. |
 | **Export** | Opens the **Export** dialog. The button shows only when a set is open. |
+| **Search** | Opens or closes the search drawer. The button shows only when a set is open. |
+| **A−** | Makes the text smaller. |
+| *percentage*, for example **100%** | Shows the text size. Click it to go back to the normal size. |
+| **A+** | Makes the text larger. |
+
+For more information about the text size, see
+[Read sections and items](02-read-sections.md#change-the-text-size).
 
 ## Before you start
 
