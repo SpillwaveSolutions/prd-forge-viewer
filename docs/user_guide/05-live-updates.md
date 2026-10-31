@@ -11,7 +11,8 @@ When the authoring tools save a document of the open set, the window shows the
 change within 2 seconds. You do not have to do anything.
 
 The viewer watches the documents in the set folder. It does not watch the
-files in subfolders, for example `grades/` or `diagrams/`.
+files in subfolders, for example `grades/` or `diagrams/`. It does not watch
+the backlog folder. To see a change to a backlog document, open the set again.
 
 ## What changes in the window
 

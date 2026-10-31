@@ -1,7 +1,14 @@
+---
+doc_type: guide
+slug: readme
+title: User Guide
+truth_state: current
+wiki_key: guide/readme
+---
 # PRD Forge Viewer user guide
 
 This guide is for the author of a PRD set. It tells you how to use PRD Forge
-Viewer 0.3.0 to read, search, and export a PRD set that the PRD Forge plugin
+Viewer 0.4.0 to read, search, and export a PRD set that the PRD Forge plugin
 makes.
 
 The viewer is read-only. You change a PRD set with the authoring tools, and the
@@ -12,9 +19,10 @@ viewer shows each change. The viewer never writes to a PRD set folder.
 1. [Open a PRD set](01-open-a-set.md): the app, the `prdf` command, known
    locations, and folders with more than one set.
 2. [Read sections and items](02-read-sections.md): the overview, a section, an
-   item, references between items, the diagram window, and the text size.
+   item, references between items, the backlog, the diagram window, and the
+   text size.
 3. [See the grades](03-grades.md): the status, score, and blocking defects of
-   every section.
+   every section, and the findings behind a grade.
 4. [Search a set](04-search.md): the search drawer, terms, categories, and
    scores.
 5. [Live updates](05-live-updates.md): what the window does when the authoring

@@ -18,6 +18,9 @@ functional requirement. The search is in a drawer at the right of the window.
 
 The drawer opens from the right. The cursor is in the search box.
 
+The **Search** button shows only when a set is open. When no set is open,
+Command-F does nothing.
+
 ## Close the search drawer
 
 Do one of these steps:
@@ -40,8 +43,8 @@ and the document moves to make space for it. You can open one result after
 another and read each one. **Escape** does not close a pinned drawer. Click
 **Close** or **Search** to close it.
 
-To unpin the drawer, click **Pinned**. The viewer keeps the pin for the next
-time you open it.
+To unpin the drawer, click **Pinned**. The viewer keeps the pin in the settings
+file for the next time you open it.
 
 ## Search for a term
 
