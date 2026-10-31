@@ -1,11 +1,11 @@
 {
- "git_hash": "b5a0688",
+ "git_hash": "915ce63",
  "pages": [
   {
    "frozen": false,
    "page_name": "Home",
    "render": "as-is",
-   "render_hash": "7a6e118df66d",
+   "render_hash": "5910236ca04b",
    "source": "docs/.index/rendered/home.md",
    "title": "Home",
    "truth_state": "current",
@@ -15,7 +15,7 @@
    "frozen": false,
    "page_name": "Index-Decisions",
    "render": "as-is",
-   "render_hash": "02a1bd9b482e",
+   "render_hash": "b90224237d40",
    "source": "docs/.index/rendered/decisions.md",
    "title": "Decisions Index",
    "truth_state": "current",
@@ -45,7 +45,7 @@
    "frozen": false,
    "page_name": "Index-Traceability",
    "render": "as-is",
-   "render_hash": "394f202602ed",
+   "render_hash": "5e8a95b37770",
    "source": "docs/.index/rendered/traceability.md",
    "title": "Traceability Index",
    "truth_state": "current",
@@ -2135,10 +2135,10 @@
    "frozen": false,
    "page_name": "Ticket-01M67N9KHR9BFVGGV7VCF908B6",
    "render": "as-is",
-   "render_hash": "dea3ce4d00d3",
+   "render_hash": "82d792818f59",
    "source": "docs/.index/rendered/tickets/01M67N9KHR9BFVGGV7VCF908B6.md",
    "title": "Bring the worklog and GitHub Issues up to date",
-   "truth_state": "open",
+   "truth_state": "done",
    "wiki_key": "item/01M67N9KHR9BFVGGV7VCF908B6"
   },
   {
@@ -2150,6 +2150,76 @@
    "title": "Add bidirectional navigation between PRD and backlog",
    "truth_state": "open",
    "wiki_key": "item/01M67NFZH5C1HWH4SBC22ZVXMS"
+  },
+  {
+   "frozen": false,
+   "page_name": "Ticket-01M67NH4X4JGDJB233B670SJFF",
+   "render": "as-is",
+   "render_hash": "e7e95cb67b83",
+   "source": "docs/.index/rendered/tickets/01M67NH4X4JGDJB233B670SJFF.md",
+   "title": "Plan 10: PRD catch-up, grade findings, backlog navigation, and release 0.4.0",
+   "truth_state": "open",
+   "wiki_key": "item/01M67NH4X4JGDJB233B670SJFF"
+  },
+  {
+   "frozen": false,
+   "page_name": "Ticket-01M67NH4XPWE52APES54MYFEV2",
+   "render": "as-is",
+   "render_hash": "c2104ad3e1aa",
+   "source": "docs/.index/rendered/tickets/01M67NH4XPWE52APES54MYFEV2.md",
+   "title": "Task 1: update the PRD for the new requirements",
+   "truth_state": "open",
+   "wiki_key": "item/01M67NH4XPWE52APES54MYFEV2"
+  },
+  {
+   "frozen": false,
+   "page_name": "Ticket-01M67NH4XPWE52APES54MYFEV4",
+   "render": "as-is",
+   "render_hash": "d20cb7507288",
+   "source": "docs/.index/rendered/tickets/01M67NH4XPWE52APES54MYFEV4.md",
+   "title": "Task 2: fix the nav top and Command-F with no set",
+   "truth_state": "open",
+   "wiki_key": "item/01M67NH4XPWE52APES54MYFEV4"
+  },
+  {
+   "frozen": false,
+   "page_name": "Ticket-01M67NH4XPWE52APES54MYFEV6",
+   "render": "as-is",
+   "render_hash": "4f4a103e5e5e",
+   "source": "docs/.index/rendered/tickets/01M67NH4XPWE52APES54MYFEV6.md",
+   "title": "Task 3: keep the text size and the search pin in settings.json",
+   "truth_state": "open",
+   "wiki_key": "item/01M67NH4XPWE52APES54MYFEV6"
+  },
+  {
+   "frozen": false,
+   "page_name": "Ticket-01M67NH4XPWE52APES54MYFEV8",
+   "render": "as-is",
+   "render_hash": "36c80e03d37b",
+   "source": "docs/.index/rendered/tickets/01M67NH4XPWE52APES54MYFEV8.md",
+   "title": "Task 4: see the findings behind a grade (FR-025, #35)",
+   "truth_state": "open",
+   "wiki_key": "item/01M67NH4XPWE52APES54MYFEV8"
+  },
+  {
+   "frozen": false,
+   "page_name": "Ticket-01M67NH4XPWE52APES54MYFEVA",
+   "render": "as-is",
+   "render_hash": "6616d520d67c",
+   "source": "docs/.index/rendered/tickets/01M67NH4XPWE52APES54MYFEVA.md",
+   "title": "Task 5: move between the PRD and its backlog (FR-028, #199)",
+   "truth_state": "open",
+   "wiki_key": "item/01M67NH4XPWE52APES54MYFEVA"
+  },
+  {
+   "frozen": false,
+   "page_name": "Ticket-01M67NH4XPWE52APES54MYFEVC",
+   "render": "as-is",
+   "render_hash": "963820f7dd51",
+   "source": "docs/.index/rendered/tickets/01M67NH4XPWE52APES54MYFEVC.md",
+   "title": "Task 6: checks, release 0.4.0, and install",
+   "truth_state": "open",
+   "wiki_key": "item/01M67NH4XPWE52APES54MYFEVC"
   },
   {
    "banner": "> **Snapshot** of release v0.1.0 (2026-10-29) \u2014 frozen record. The current version is [[Code-Walkthrough]].",
@@ -2428,13 +2498,25 @@
    "wiki_key": "plan/2026-10-30-plan-9-diagrams-design"
   },
   {
-   "banner": "> **Current** \u2014 this is the living version; regenerated at 2026-10-31T00:24:36Z. Historical snapshots are linked from [[Index-Releases]].",
+   "banner": "> **Current** \u2014 plan not yet started; plans are frozen once written, a changed design gets a new plan.",
+   "frozen": true,
+   "page_name": "Plan-plan-10-prd-findings-backlog",
+   "render": "doc+banner",
+   "render_hash": "30db66cdc2ee",
+   "source": "docs/plans/2026-10-31-plan-10-prd-findings-backlog.md",
+   "source_hash": "fec799a00371",
+   "title": "Plan 10: PRD catch-up, grade findings, backlog navigation, and release 0.4.0",
+   "truth_state": "current",
+   "wiki_key": "plan/2026-10-31-plan-10-prd-findings-backlog"
+  },
+  {
+   "banner": "> **Current** \u2014 this is the living version; regenerated at 2026-10-31T00:25:09Z. Historical snapshots are linked from [[Index-Releases]].",
    "frozen": false,
    "page_name": "Roadmap",
    "render": "doc+banner",
-   "render_hash": "70cc41aebee2",
+   "render_hash": "3d92ad92851c",
    "source": "docs/roadmap.md",
-   "source_hash": "8b6aa08d8a52",
+   "source_hash": "73986755897c",
    "title": "Roadmap",
    "truth_state": "current",
    "wiki_key": "roadmap"
@@ -2489,7 +2571,7 @@
   }
  ],
  "sidebar": {
-  "render_hash": "29365961b120",
+  "render_hash": "57b62ac7e0d5",
   "source": "docs/.index/rendered/_Sidebar.md"
  },
  "version": 1

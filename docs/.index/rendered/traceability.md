@@ -2,12 +2,52 @@
 
 _The evidence chain: plan → item → ticket → code → release, forward and backward. Generated from `docs/.index/_graph.json`; do not edit._
 
+### Task 6: checks, release 0.4.0, and install
+`01M67NH4XPWE52APES54MYFEVC` · status: todo
+- belongs-to: Plan 10: PRD catch-up, grade findings, backlog navigation, and release 0.4.0
+- produced-by: [[Plan-plan-10-prd-findings-backlog]]
+
+### Task 5: move between the PRD and its backlog (FR-028, #199)
+`01M67NH4XPWE52APES54MYFEVA` · status: todo
+- belongs-to: Plan 10: PRD catch-up, grade findings, backlog navigation, and release 0.4.0
+- produced-by: [[Plan-plan-10-prd-findings-backlog]]
+
+### Task 4: see the findings behind a grade (FR-025, #35)
+`01M67NH4XPWE52APES54MYFEV8` · status: todo
+- belongs-to: Plan 10: PRD catch-up, grade findings, backlog navigation, and release 0.4.0
+- produced-by: [[Plan-plan-10-prd-findings-backlog]]
+
+### Task 3: keep the text size and the search pin in settings.json
+`01M67NH4XPWE52APES54MYFEV6` · status: todo
+- belongs-to: Plan 10: PRD catch-up, grade findings, backlog navigation, and release 0.4.0
+- produced-by: [[Plan-plan-10-prd-findings-backlog]]
+
+### Task 2: fix the nav top and Command-F with no set
+`01M67NH4XPWE52APES54MYFEV4` · status: todo
+- belongs-to: Plan 10: PRD catch-up, grade findings, backlog navigation, and release 0.4.0
+- produced-by: [[Plan-plan-10-prd-findings-backlog]]
+
+### Task 1: update the PRD for the new requirements
+`01M67NH4XPWE52APES54MYFEV2` · status: todo
+- belongs-to: Plan 10: PRD catch-up, grade findings, backlog navigation, and release 0.4.0
+- produced-by: [[Plan-plan-10-prd-findings-backlog]]
+
+### Plan 10: PRD catch-up, grade findings, backlog navigation, and release 0.4.0
+`01M67NH4X4JGDJB233B670SJFF` · status: todo
+- contains: Task 1: update the PRD for the new requirements
+- contains: Task 2: fix the nav top and Command-F with no set
+- contains: Task 3: keep the text size and the search pin in settings.json
+- contains: Task 4: see the findings behind a grade (FR-025, #35)
+- contains: Task 5: move between the PRD and its backlog (FR-028, #199)
+- contains: Task 6: checks, release 0.4.0, and install
+- produced-by: [[Plan-plan-10-prd-findings-backlog]]
+
 ### Add bidirectional navigation between PRD and backlog
 `01M67NFZH5C1HWH4SBC22ZVXMS` · status: todo
 - references: [github#199](https://github.com/SpillwaveSolutions/prd-forge-viewer/issues/199)
 
 ### Bring the worklog and GitHub Issues up to date
-`01M67N9KHR9BFVGGV7VCF908B6` · status: todo
+`01M67N9KHR9BFVGGV7VCF908B6` · status: done
 - references: [github#203](https://github.com/SpillwaveSolutions/prd-forge-viewer/issues/203)
 
 ### Release 0.3.0

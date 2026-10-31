@@ -461,13 +461,34 @@
    "wiki_key": "plan/2026-10-30-plan-9-diagrams-design"
   },
   {
+   "canonical_key": "plan/2026-10-31-plan-10-prd-findings-backlog",
+   "date": "2026-10-31",
+   "doc_type": "plan",
+   "epic": "01M67NH4X4JGDJB233B670SJFF",
+   "git_hash": "915ce63cd1cf13862cc2eeb643f50ce030c5aa52",
+   "items": [
+    "01M67NH4XPWE52APES54MYFEV2",
+    "01M67NH4XPWE52APES54MYFEV4",
+    "01M67NH4XPWE52APES54MYFEV6",
+    "01M67NH4XPWE52APES54MYFEV8",
+    "01M67NH4XPWE52APES54MYFEVA",
+    "01M67NH4XPWE52APES54MYFEVC"
+   ],
+   "slug": "plan-10-prd-findings-backlog",
+   "source": "docs/plans/2026-10-31-plan-10-prd-findings-backlog.md",
+   "status": "planned",
+   "title": "Plan 10: PRD catch-up, grade findings, backlog navigation, and release 0.4.0",
+   "truth_state": "current",
+   "wiki_key": "plan/2026-10-31-plan-10-prd-findings-backlog"
+  },
+  {
    "canonical_key": "roadmap",
    "doc_type": "roadmap",
-   "generated_at": "2026-10-31T00:24:36Z",
-   "git_hash": "b5a0688",
+   "generated_at": "2026-10-31T00:25:09Z",
+   "git_hash": "915ce63",
    "slug": "roadmap",
    "source": "docs/roadmap.md",
-   "source_hash": "853a7a79",
+   "source_hash": "ce1bd300",
    "title": "Roadmap",
    "truth_state": "current",
    "wiki": "https://github.com/SpillwaveSolutions/prd-forge-viewer/wiki/Roadmap",

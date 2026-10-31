@@ -2761,6 +2761,36 @@
    "type": "references"
   },
   {
+   "from": "item/01M67NH4XPWE52APES54MYFEV2",
+   "to": "item/01M67NH4X4JGDJB233B670SJFF",
+   "type": "belongs-to"
+  },
+  {
+   "from": "item/01M67NH4XPWE52APES54MYFEV4",
+   "to": "item/01M67NH4X4JGDJB233B670SJFF",
+   "type": "belongs-to"
+  },
+  {
+   "from": "item/01M67NH4XPWE52APES54MYFEV6",
+   "to": "item/01M67NH4X4JGDJB233B670SJFF",
+   "type": "belongs-to"
+  },
+  {
+   "from": "item/01M67NH4XPWE52APES54MYFEV8",
+   "to": "item/01M67NH4X4JGDJB233B670SJFF",
+   "type": "belongs-to"
+  },
+  {
+   "from": "item/01M67NH4XPWE52APES54MYFEVA",
+   "to": "item/01M67NH4X4JGDJB233B670SJFF",
+   "type": "belongs-to"
+  },
+  {
+   "from": "item/01M67NH4XPWE52APES54MYFEVC",
+   "to": "item/01M67NH4X4JGDJB233B670SJFF",
+   "type": "belongs-to"
+  },
+  {
    "from": "plan/2026-10-28-plan-1-open-and-grades",
    "to": "item/01M61XNJ5TFSD53MNXM1XHBD57",
    "type": "produces"
@@ -3493,6 +3523,41 @@
   {
    "from": "plan/2026-10-30-plan-9-diagrams-design",
    "to": "item/01M6700RYF3F05QEDN2V10MPTN",
+   "type": "produces"
+  },
+  {
+   "from": "plan/2026-10-31-plan-10-prd-findings-backlog",
+   "to": "item/01M67NH4X4JGDJB233B670SJFF",
+   "type": "produces"
+  },
+  {
+   "from": "plan/2026-10-31-plan-10-prd-findings-backlog",
+   "to": "item/01M67NH4XPWE52APES54MYFEV2",
+   "type": "produces"
+  },
+  {
+   "from": "plan/2026-10-31-plan-10-prd-findings-backlog",
+   "to": "item/01M67NH4XPWE52APES54MYFEV4",
+   "type": "produces"
+  },
+  {
+   "from": "plan/2026-10-31-plan-10-prd-findings-backlog",
+   "to": "item/01M67NH4XPWE52APES54MYFEV6",
+   "type": "produces"
+  },
+  {
+   "from": "plan/2026-10-31-plan-10-prd-findings-backlog",
+   "to": "item/01M67NH4XPWE52APES54MYFEV8",
+   "type": "produces"
+  },
+  {
+   "from": "plan/2026-10-31-plan-10-prd-findings-backlog",
+   "to": "item/01M67NH4XPWE52APES54MYFEVA",
+   "type": "produces"
+  },
+  {
+   "from": "plan/2026-10-31-plan-10-prd-findings-backlog",
+   "to": "item/01M67NH4XPWE52APES54MYFEVC",
    "type": "produces"
   },
   {
@@ -4577,13 +4642,48 @@
   },
   "item/01M67N9KHR9BFVGGV7VCF908B6": {
    "doc_type": "item",
-   "status": "todo",
+   "status": "done",
    "title": "Bring the worklog and GitHub Issues up to date"
   },
   "item/01M67NFZH5C1HWH4SBC22ZVXMS": {
    "doc_type": "item",
    "status": "todo",
    "title": "Add bidirectional navigation between PRD and backlog"
+  },
+  "item/01M67NH4X4JGDJB233B670SJFF": {
+   "doc_type": "item",
+   "status": "todo",
+   "title": "Plan 10: PRD catch-up, grade findings, backlog navigation, and release 0.4.0"
+  },
+  "item/01M67NH4XPWE52APES54MYFEV2": {
+   "doc_type": "item",
+   "status": "todo",
+   "title": "Task 1: update the PRD for the new requirements"
+  },
+  "item/01M67NH4XPWE52APES54MYFEV4": {
+   "doc_type": "item",
+   "status": "todo",
+   "title": "Task 2: fix the nav top and Command-F with no set"
+  },
+  "item/01M67NH4XPWE52APES54MYFEV6": {
+   "doc_type": "item",
+   "status": "todo",
+   "title": "Task 3: keep the text size and the search pin in settings.json"
+  },
+  "item/01M67NH4XPWE52APES54MYFEV8": {
+   "doc_type": "item",
+   "status": "todo",
+   "title": "Task 4: see the findings behind a grade (FR-025, #35)"
+  },
+  "item/01M67NH4XPWE52APES54MYFEVA": {
+   "doc_type": "item",
+   "status": "todo",
+   "title": "Task 5: move between the PRD and its backlog (FR-028, #199)"
+  },
+  "item/01M67NH4XPWE52APES54MYFEVC": {
+   "doc_type": "item",
+   "status": "todo",
+   "title": "Task 6: checks, release 0.4.0, and install"
   },
   "plan/2026-10-28-plan-1-open-and-grades": {
    "doc_type": "plan",
@@ -4643,6 +4743,12 @@
    "doc_type": "plan",
    "source": "docs/plans/2026-10-30-plan-9-diagrams-design.md",
    "title": "Plan 9: diagrams as images, optional grades, and a better layout",
+   "truth_state": "current"
+  },
+  "plan/2026-10-31-plan-10-prd-findings-backlog": {
+   "doc_type": "plan",
+   "source": "docs/plans/2026-10-31-plan-10-prd-findings-backlog.md",
+   "title": "Plan 10: PRD catch-up, grade findings, backlog navigation, and release 0.4.0",
    "truth_state": "current"
   },
   "pr/102": {
