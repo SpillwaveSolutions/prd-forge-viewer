@@ -29,19 +29,26 @@ export function App() {
     const [error, setError] = useState<string>();
     const [start, setStart] = useState<Exclude<StartView, { kind: "open" }>>();
     const [notice, setNotice] = useState<string>();
-    // The text size, kept in this window's local storage. The page sizes everything in rem, so one root size scales the text.
-    const [zoom, setZoom] = useState(() => { try { return readZoom(localStorage.getItem("pfv.textZoom")); } catch { return 1; } });
-    useEffect(() => {
-        document.documentElement.style.fontSize = `${15 * zoom}px`;
-        try { localStorage.setItem("pfv.textZoom", String(zoom)); } catch { /* the size still applies for this session */ }
-    }, [zoom]);
-    // The search drawer. The pin is kept in local storage, like the text size.
+    // The text size (FR-026). The page sizes everything in rem, so one root size scales the text.
+    const [zoom, setZoom] = useState(1);
+    useEffect(() => { document.documentElement.style.fontSize = `${15 * zoom}px`; }, [zoom]);
+    // The search drawer (FR-027).
     const [searchOpen, setSearchOpen] = useState(false);
-    const [searchPinned, setSearchPinned] = useState(() => { try { return localStorage.getItem("pfv.searchPinned") === "true"; } catch { return false; } });
-    const pinSearch = (pinned: boolean) => {
-        setSearchPinned(pinned);
-        try { localStorage.setItem("pfv.searchPinned", String(pinned)); } catch { /* the pin still applies for this session */ }
-    };
+    const [searchPinned, setSearchPinned] = useState(false);
+    const pinSearch = (pinned: boolean) => setSearchPinned(pinned);
+    // The text size and the pin live in the settings file (ADR-004). Nothing is saved until the
+    // stored values are read, so a start never overwrites them with the defaults.
+    const prefsRead = useRef(false);
+    useEffect(() => {
+        void invoke<{ textZoom: number; searchPinned: boolean }>("view_prefs").then((p) => {
+            setZoom(readZoom(String(p.textZoom)));
+            setSearchPinned(p.searchPinned);
+            prefsRead.current = true;
+        }).catch(() => { prefsRead.current = true; });
+    }, []);
+    useEffect(() => {
+        if (prefsRead.current) void invoke("save_view_prefs", { textZoom: zoom, searchPinned }).catch(() => { /* the values still apply for this session */ });
+    }, [zoom, searchPinned]);
     const closeSearch = useCallback(() => setSearchOpen(false), []);
     const hasSet = useRef(false);
     hasSet.current = !!set;

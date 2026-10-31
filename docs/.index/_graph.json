@@ -4667,12 +4667,12 @@
   },
   "item/01M67NH4XPWE52APES54MYFEV6": {
    "doc_type": "item",
-   "status": "in_progress",
+   "status": "done",
    "title": "Task 3: keep the text size and the search pin in settings.json"
   },
   "item/01M67NH4XPWE52APES54MYFEV8": {
    "doc_type": "item",
-   "status": "todo",
+   "status": "in_progress",
    "title": "Task 4: see the findings behind a grade (FR-025, #35)"
   },
   "item/01M67NH4XPWE52APES54MYFEVA": {

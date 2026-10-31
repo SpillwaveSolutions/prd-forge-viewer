@@ -1,6 +1,6 @@
 # Task 3: keep the text size and the search pin in settings.json
 
-`01M67NH4XPWE52APES54MYFEV6` · task/feature · **in-progress**
+`01M67NH4XPWE52APES54MYFEV6` · task/feature · **done**
 
 Move both values from local storage into the settings file, with the same atomic save as the themes (ADR-004, NFR-008).
 

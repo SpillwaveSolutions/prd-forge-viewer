@@ -10,7 +10,7 @@ export const REPO = join(import.meta.dir, "..");
 export const BIN = join(REPO, "src-tauri/target/debug/prd-forge-viewer");
 export const SET = join(REPO, "docs/prd/prd-forge-viewer");
 export const SHOTS = join(import.meta.dir, "shots");
-const SETTINGS = join(homedir(), "Library/Application Support/com.spillwave.prd-forge-viewer/settings.json");
+export const SETTINGS = join(homedir(), "Library/Application Support/com.spillwave.prd-forge-viewer/settings.json");
 mkdirSync(SHOTS, { recursive: true });
 
 export const sleep = (ms) => new Promise((r) => setTimeout(r, ms));

@@ -114,6 +114,19 @@ pub fn store_themes(path: &Path, themes: Vec<serde_json::Value>, selected: Optio
     update_settings(path, |s| crate::settings::set_themes(s, themes, selected)).map_err(|e| e.to_string())
 }
 
+/// The text size and the search pin, from the settings file (FR-026, FR-027, ADR-004).
+#[tauri::command]
+pub fn view_prefs(app: AppHandle) -> serde_json::Value {
+    let s = load_settings(&settings_path(&app));
+    serde_json::json!({ "textZoom": s.text_zoom.unwrap_or(1.0), "searchPinned": s.search_pinned })
+}
+
+/// Save the text size and the search pin, with the atomic save (NFR-008).
+#[tauri::command]
+pub fn save_view_prefs(app: AppHandle, text_zoom: f64, search_pinned: bool) -> Result<(), String> {
+    update_settings(&settings_path(&app), |s| crate::settings::set_view(s, text_zoom, search_pinned)).map_err(|e| e.to_string())
+}
+
 /// Save a Word export, sent as base64, outside the set folder (FR-011, OUT-001).
 #[tauri::command(async)]
 pub fn write_export(app: AppHandle, folder: String, path: String, data: String) -> Result<(), String> {

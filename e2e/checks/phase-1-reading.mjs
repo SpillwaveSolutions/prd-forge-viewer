@@ -1,7 +1,7 @@
 // Phase 1: US-008 (FR-005), US-009 (FR-023), US-010 (FR-007), and NFR-010 for section bodies.
-import { appendFileSync } from "fs";
+import { appendFileSync, readFileSync } from "fs";
 import { join } from "path";
-import { SET, copySet, expect, run, tmp } from "../harness.mjs";
+import { SET, SETTINGS, copySet, expect, run, tmp } from "../harness.mjs";
 
 // Poll a script until it returns text that matches, so a check never reads a page that is still loading.
 const until = async (h, script, re, ms = 8000) => {
@@ -68,6 +68,10 @@ await run(async (h) => {
     await h.click("//button[@aria-label='Larger text']", "xpath");
     const larger = await size();
     expect(Math.abs(larger / normal - 1.3) < 0.02, `normal ${normal}, after 2 steps ${larger}`);
+    // The size is kept in the settings file (ADR-004).
+    let kept;
+    for (let i = 0; i < 20 && kept !== 1.3; i++) { await new Promise((r) => setTimeout(r, 100)); try { kept = JSON.parse(readFileSync(SETTINGS, "utf8")).text_zoom; } catch {} }
+    expect(kept === 1.3, `settings.json text_zoom is ${kept}`);
     // The document list starts below the header, whose height grows with the text.
     const navGap = await h.num("return document.querySelector('.doc-nav') ? parseFloat(getComputedStyle(document.querySelector('.doc-nav')).top) - document.querySelector('header').offsetHeight : 8");
     expect(navGap >= 0, `the header covers the document list by ${-navGap} px`);
@@ -122,8 +126,11 @@ await run(async (h) => {
     await h.realKey(29); // "0", fit again
     const refit = await change(zoomed, 1);
     expect(Math.abs(refit[1] - fitted[1]) < 0.001, `fit ${refit[1]}, first ${fitted[1]}`);
-    await h.realKey(53); // Escape
-    await until(h, "return String(!!document.querySelector('.diagram-viewer'))", /false/);
+    // macOS can drop a real key press, so press Escape up to 3 times.
+    for (let i = 0; ; i++) {
+      await h.realKey(53); // Escape
+      try { await until(h, "return String(!!document.querySelector('.diagram-viewer'))", /false/, 2000); break; } catch (e) { if (i === 2) throw e; }
+    }
   });
   await h.quit();
 

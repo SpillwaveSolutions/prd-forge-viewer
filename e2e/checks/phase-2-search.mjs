@@ -1,7 +1,7 @@
 // Phase 2: US-011 and US-012 (FR-008, all six criteria) and NFR-003, through the tauri MCP server.
-import { mkdirSync, writeFileSync } from "fs";
+import { mkdirSync, readFileSync, writeFileSync } from "fs";
 import { join } from "path";
-import { SET, expect, run, tmp } from "../harness.mjs";
+import { SET, SETTINGS, expect, run, tmp } from "../harness.mjs";
 
 const until = async (h, script, re, ms = 8000) => {
   let v = "";
@@ -85,6 +85,9 @@ await run(async (h) => {
   await h.check("A pinned drawer stays open beside the document after a result opens, and Close closes it", async () => {
     await search(h, "export");
     await h.click("//aside[@id='search-drawer']//button[.='Pin']", "xpath");
+    let pinned;
+    for (let i = 0; i < 20 && pinned !== true; i++) { await new Promise((r) => setTimeout(r, 100)); try { pinned = JSON.parse(readFileSync(SETTINGS, "utf8")).search_pinned; } catch {} }
+    expect(pinned === true, "the pin is not in settings.json");
     const ids = value(await h.js("return JSON.stringify([...document.querySelectorAll('.results li strong')].slice(0, 2).map(s => s.innerText))"));
     for (const id of ids) {
       await h.click(`//li[.//strong[.='${id}']]/button`, "xpath");
