@@ -20,7 +20,7 @@ function gradeText(s: Section) {
     return s.score === null ? "Not graded" : `${s.score}, ${s.blocking ?? 0} blocking, ${s.graded ?? "no date"}`;
 }
 
-function ItemView({ item, section, known, onOpenItem }: { item: Item; section: Section; known: Set<string>; onOpenItem: (id: string) => void }) {
+function ItemView({ item, section, known, onOpenItem, builtBy = [] }: { item: Item; section: Section; known: Set<string>; onOpenItem: (id: string) => void; builtBy?: string[] }) {
     return (
         <article className="item" aria-label={`Item ${item.id}`}>
             <h3>
@@ -31,6 +31,12 @@ function ItemView({ item, section, known, onOpenItem }: { item: Item; section: S
                 {section.title}: <span className={`status status-${section.status}`}>{section.status}</span> {gradeText(section)}
             </p>
             <dl>
+                {builtBy.length > 0 && (
+                    <div className="built-by">
+                        <dt>built by</dt>
+                        <dd>{linkify(builtBy.join(", "), known, onOpenItem)}</dd>
+                    </div>
+                )}
                 {item.fields.map((f) => (
                     <div key={f.name}>
                         <dt>{f.name.replace(/_/g, " ")}</dt>
@@ -56,6 +62,8 @@ interface Props {
     nav?: ReactNode;
     /** The authoring tools changed this document while it was open (FR-009, WF-002). */
     changed?: boolean;
+    /** The backlog stories that build a requirement, by requirement id (FR-028). */
+    builtBy?: (id: string) => string[];
     /** The findings behind the grade, as markdown, or null when the section has no grade note (FR-025). */
     loadFindings?: () => Promise<string | null>;
 }
@@ -78,7 +86,7 @@ function useFindings(load: (() => Promise<string | null>) | undefined, renderHtm
     return { button, panel, reset: () => setShown({ open: false }) };
 }
 
-export function SectionPage({ section, known, selected, onSelect, onOpenItem, onBack, onOpenDoc, loadAsset, renderHtml = renderBody, nav, changed, loadFindings }: Props) {
+export function SectionPage({ section, known, selected, onSelect, onOpenItem, onBack, onOpenDoc, loadAsset, renderHtml = renderBody, nav, changed, loadFindings, builtBy }: Props) {
     const body = useRef<HTMLDivElement>(null);
     const item = section.items.find((i) => i.id === selected);
     // Render the body once for each section, not on every item click.
@@ -131,7 +139,7 @@ export function SectionPage({ section, known, selected, onSelect, onOpenItem, on
                     ))}
                 </nav>
             )}
-            {item && <ItemView item={item} section={section} known={known} onOpenItem={onOpenItem} />}
+            {item && <ItemView item={item} section={section} known={known} onOpenItem={onOpenItem} builtBy={builtBy?.(item.id)} />}
             <div ref={body} className="body" dangerouslySetInnerHTML={{ __html: html }} />
             {diagram && <DiagramViewer src={diagram.src} alt={diagram.alt} onClose={() => setDiagram(null)} />}
         </section>

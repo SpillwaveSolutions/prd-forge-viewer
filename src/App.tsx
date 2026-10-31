@@ -15,7 +15,7 @@ import { runExport, runPrint, type Deps } from "./exportRun";
 import { ThemeDialog } from "./ThemeDialog";
 import { nextZoom, readZoom } from "./textZoom";
 import { DEFAULT_EXPORT_THEME_ID, sanitizeCustomThemes, type ExportTheme } from "./themes";
-import type { Category, Hit, ItemRef, PrdSet, Section, StartView } from "./types";
+import type { Backlog, Category, Hit, ItemRef, PrdSet, Section, StartView, StoryLink } from "./types";
 
 const pickFolder = async () => {
     const picked = await open({ directory: true, title: "Open PRD set" });
@@ -82,12 +82,17 @@ export function App() {
     const [themes, setThemes] = useState<{ custom: ExportTheme[]; selected: string }>({ custom: [], selected: DEFAULT_EXPORT_THEME_ID });
     const [editThemes, setEditThemes] = useState(false);
     const [exporting, setExporting] = useState(false);
-    const [page, setPage] = useState<{ section: Section; selected: string | null }>();
+    // `folder` is set only for a backlog document. With none, the page is a document of the PRD set.
+    const [page, setPage] = useState<{ section: Section; selected: string | null; folder?: string }>();
+    // The backlog next to the set, its items, and which requirements each story builds (FR-028).
+    const [backlog, setBacklog] = useState<Backlog | null>(null);
+    const [backlogIndex, setBacklogIndex] = useState<ItemRef[]>([]);
+    const [links, setLinks] = useState<StoryLink[]>([]);
     const [index, setIndex] = useState<ItemRef[]>([]);
     const [categories, setCategories] = useState<Category[]>([]);
     const [changed, setChanged] = useState<Set<string>>(new Set());
     // The listener for set-changed lives for the whole window, so it reads the current set and page from refs.
-    const current = useRef<{ set?: PrdSet; page?: { section: Section; selected: string | null } }>({});
+    const current = useRef<{ set?: PrdSet; page?: { section: Section; selected: string | null; folder?: string } }>({});
     current.current = { set, page };
 
     // Each new set gets a fresh item index and starts on its overview.
@@ -102,12 +107,23 @@ export function App() {
             void invoke<ItemRef[]>("item_index", { folder: set.folder }).then(setIndex).catch(() => setIndex([]));
             void invoke<Category[]>("categories", { folder: set.folder }).then(setCategories).catch(() => setCategories([]));
         }
+        setBacklog(null);
+        setBacklogIndex([]);
+        setLinks([]);
+        if (set) {
+            void invoke<Backlog | null>("backlog", { folder: set.folder }).then((b) => {
+                setBacklog(b);
+                if (!b) return;
+                void invoke<ItemRef[]>("item_index", { folder: b.folder }).then(setBacklogIndex).catch(() => {});
+                void invoke<StoryLink[]>("story_links", { folder: b.folder }).then(setLinks).catch(() => {});
+            }).catch(() => {});
+        }
     }, [set?.folder]);
 
-    const openDoc = useCallback(async (file: string, selected: string | null = null) => {
+    const openDoc = useCallback(async (file: string, selected: string | null = null, folder?: string) => {
         if (!set) return;
         try {
-            setPage({ section: await invoke<Section>("read_section", { folder: set.folder, file }), selected });
+            setPage({ section: await invoke<Section>("read_section", { folder: folder ?? set.folder, file }), selected, folder });
             setError(undefined);
         } catch (e) {
             setError(String(e));
@@ -115,10 +131,15 @@ export function App() {
     }, [set]);
     const openItem = useCallback((id: string) => {
         const ref = index.find((r) => r.id === id);
-        if (ref) void openDoc(ref.file, id);
-    }, [index, openDoc]);
+        if (ref) return void openDoc(ref.file, id);
+        const story = backlog && backlogIndex.find((r) => r.id === id);
+        if (story) void openDoc(story.file, id, backlog.folder);
+    }, [index, backlog, backlogIndex, openDoc]);
+    // The stories that build each requirement: FR-005 is built by US-008.
+    const builtBy = new Map<string, string[]>();
+    for (const l of links) for (const r of l.requirements) builtBy.set(r, [...(builtBy.get(r) ?? []), l.id]);
     const loadAsset = useCallback((rel: string) => invoke<string>("read_asset", { folder: set!.folder, rel }), [set]);
-    const known = new Set(index.map((r) => r.id));
+    const known = new Set([...index, ...backlogIndex].map((r) => r.id));
 
     const show = useCallback(async (pick: () => Promise<string | null>) => {
         const next = applyResult(set, await openSet(pick, loadSet));
@@ -151,7 +172,7 @@ export function App() {
             if (stale()) return;
             if (fresh) setSet(fresh);
             void invoke<ItemRef[]>("item_index", { folder: open.folder }).then((i) => stale() || setIndex(i)).catch(() => {});
-            if (shown && e.payload.files.includes(shown.section.file)) {
+            if (shown && !shown.folder && e.payload.files.includes(shown.section.file)) {
                 const section = await invoke<Section>("read_section", { folder: open.folder, file: shown.section.file }).catch(() => undefined);
                 if (stale() || current.current.page?.section.file !== shown.section.file) return;
                 const next = reloadedPage(shown, section);
@@ -270,20 +291,39 @@ export function App() {
                     selected={page.selected}
                     onSelect={(selected) => setPage({ ...page, selected })}
                     onOpenItem={openItem}
-                    onOpenDoc={openDoc}
+                    onOpenDoc={(file) => openDoc(file, null, page.folder)}
+                    builtBy={(id) => builtBy.get(id) ?? []}
                     onBack={() => { setPage(undefined); setError(undefined); }}
                     loadAsset={loadAsset}
-                    loadFindings={() => invoke<string | null>("read_grade", { folder: set.folder, file: page.section.file })}
-                    changed={changed.has(page.section.file)}
-                    nav={set.documents.filter((d) => !d.unreadable).map((d) => (
-                        <button key={d.file} type="button" className="doc-link" data-status={d.status} aria-current={d.file === page.section.file ? "page" : undefined} onClick={() => openDoc(d.file)}>
-                            {d.title}
-                        </button>
-                    ))}
+                    loadFindings={page.folder ? undefined : () => invoke<string | null>("read_grade", { folder: set.folder, file: page.section.file })}
+                    changed={!page.folder && changed.has(page.section.file)}
+                    nav={<>
+                        {set.documents.filter((d) => !d.unreadable).map((d) => (
+                            <button key={d.file} type="button" className="doc-link" data-status={d.status} aria-current={!page.folder && d.file === page.section.file ? "page" : undefined} onClick={() => openDoc(d.file)}>
+                                {d.title}
+                            </button>
+                        ))}
+                        {backlog && <h2 className="nav-group">Backlog</h2>}
+                        {backlog?.documents.map((d) => (
+                            <button key={`backlog/${d.file}`} type="button" className="doc-link backlog-link" aria-current={page.folder && d.file === page.section.file ? "page" : undefined} onClick={() => openDoc(d.file, null, backlog.folder)}>
+                                {d.title}
+                            </button>
+                        ))}
+                    </>}
                 />
             ) : set ? (
                 <>
                     <SetOverview set={set} onOpen={(file) => openDoc(file)} changed={changed} />
+                    {backlog && (
+                        <section aria-label="Backlog" className="backlog">
+                            <h2>Backlog</h2>
+                            <ol className="backlog-docs">
+                                {backlog.documents.map((d) => (
+                                    <li key={d.file}><button type="button" className="doc-link" onClick={() => openDoc(d.file, null, backlog.folder)}>{d.title}</button></li>
+                                ))}
+                            </ol>
+                        </section>
+                    )}
                     <GradesTable documents={set.documents} />
                 </>
             ) : start ? (

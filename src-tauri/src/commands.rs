@@ -54,6 +54,18 @@ pub fn item_index(folder: String) -> Vec<crate::prdset::section::ItemRef> {
     crate::prdset::section::item_index(Path::new(&folder))
 }
 
+/// The backlog next to the PRD set, or null when there is none (FR-028).
+#[tauri::command(async)]
+pub fn backlog(folder: String) -> Option<crate::prdset::section::Backlog> {
+    crate::prdset::section::backlog_of(Path::new(&folder))
+}
+
+/// Each backlog story with the requirement ids it builds (FR-028).
+#[tauri::command(async)]
+pub fn story_links(folder: String) -> Vec<crate::prdset::section::StoryLink> {
+    crate::prdset::section::story_links(Path::new(&folder))
+}
+
 /// The findings behind the grade of a section, as markdown, or null with no note (FR-025).
 #[tauri::command(async)]
 pub fn read_grade(folder: String, file: String) -> Result<Option<String>, String> {

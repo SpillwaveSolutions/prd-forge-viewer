@@ -1,6 +1,6 @@
 # Task 5: move between the PRD and its backlog (FR-028, #199)
 
-`01M67NH4XPWE52APES54MYFEVA` · task/feature · **in-progress**
+`01M67NH4XPWE52APES54MYFEVA` · task/feature · **done**
 
 The viewer finds the `<set>-backlog` folder next to the set, lists its documents on the overview, and opens them as sections.
 

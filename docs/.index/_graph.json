@@ -4647,7 +4647,7 @@
   },
   "item/01M67NFZH5C1HWH4SBC22ZVXMS": {
    "doc_type": "item",
-   "status": "todo",
+   "status": "done",
    "title": "Add bidirectional navigation between PRD and backlog"
   },
   "item/01M67NH4X4JGDJB233B670SJFF": {
@@ -4677,12 +4677,12 @@
   },
   "item/01M67NH4XPWE52APES54MYFEVA": {
    "doc_type": "item",
-   "status": "in_progress",
+   "status": "done",
    "title": "Task 5: move between the PRD and its backlog (FR-028, #199)"
   },
   "item/01M67NH4XPWE52APES54MYFEVC": {
    "doc_type": "item",
-   "status": "todo",
+   "status": "in_progress",
    "title": "Task 6: checks, release 0.4.0, and install"
   },
   "plan/2026-10-28-plan-1-open-and-grades": {

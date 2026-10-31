@@ -3,12 +3,12 @@
 _The evidence chain: plan → item → ticket → code → release, forward and backward. Generated from `docs/.index/_graph.json`; do not edit._
 
 ### Task 6: checks, release 0.4.0, and install
-`01M67NH4XPWE52APES54MYFEVC` · status: todo
+`01M67NH4XPWE52APES54MYFEVC` · status: in_progress
 - belongs-to: Plan 10: PRD catch-up, grade findings, backlog navigation, and release 0.4.0
 - produced-by: [[Plan-plan-10-prd-findings-backlog]]
 
 ### Task 5: move between the PRD and its backlog (FR-028, #199)
-`01M67NH4XPWE52APES54MYFEVA` · status: in_progress
+`01M67NH4XPWE52APES54MYFEVA` · status: done
 - belongs-to: Plan 10: PRD catch-up, grade findings, backlog navigation, and release 0.4.0
 - produced-by: [[Plan-plan-10-prd-findings-backlog]]
 
@@ -43,7 +43,7 @@ _The evidence chain: plan → item → ticket → code → release, forward and 
 - produced-by: [[Plan-plan-10-prd-findings-backlog]]
 
 ### Add bidirectional navigation between PRD and backlog
-`01M67NFZH5C1HWH4SBC22ZVXMS` · status: todo
+`01M67NFZH5C1HWH4SBC22ZVXMS` · status: done
 - references: [github#199](https://github.com/SpillwaveSolutions/prd-forge-viewer/issues/199)
 
 ### Bring the worklog and GitHub Issues up to date

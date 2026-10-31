@@ -102,6 +102,20 @@ await run(async (h) => {
     await until(h, has("No findings are recorded for this section"), /true/);
   });
 
+  await h.check("FR-028: FR-005 lists US-008, US-008 links back to FR-005, and the overview lists the backlog", async () => {
+    await h.click("//button[contains(., 'Back to the PRD set')]", "xpath");
+    await until(h, "return document.querySelector('section[aria-label=Backlog]')?.innerText || ''", /Stories/);
+    await h.click("//ol[contains(@class,'documents')]//button[.='Functional requirements']", "xpath");
+    await until(h, "return document.querySelector('section.section-page h1')?.innerText || ''", /^Functional requirements$/);
+    await h.click("//nav[@aria-label='Items']/button[.='FR-005']", "xpath");
+    await until(h, "return document.querySelector('article.item .built-by')?.innerText || ''", /US-008/);
+    await h.click("//article[contains(@class,'item')]//div[contains(@class,'built-by')]//button[.='US-008']", "xpath");
+    await until(h, "return document.querySelector('article.item h3')?.innerText || ''", /^US-008/);
+    expect(/^Stories$/.test(await h.js("return document.querySelector('section.section-page h1').innerText")), "US-008 did not open in the stories");
+    await h.click("//article[contains(@class,'item')]//button[contains(@class,'ref') and .='FR-005']", "xpath");
+    await until(h, "return document.querySelector('article.item h3')?.innerText || ''", /^FR-005/);
+  });
+
   await h.check("Wireframes show only their drawings: no ASCII sketch and no details block", async () => {
     await h.click("//button[contains(., 'Back to the PRD set')]", "xpath");
     await h.click("//ol[contains(@class,'documents')]//button[.='Wireframes']", "xpath");

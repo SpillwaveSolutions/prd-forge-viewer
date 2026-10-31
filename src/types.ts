@@ -87,3 +87,15 @@ export interface Category {
     kind: string;
     title: string;
 }
+
+/** The backlog next to a PRD set (FR-028). */
+export interface Backlog {
+    folder: string;
+    documents: { file: string; title: string }[];
+}
+
+/** A backlog story and the requirement ids it builds (FR-028). */
+export interface StoryLink {
+    id: string;
+    requirements: string[];
+}

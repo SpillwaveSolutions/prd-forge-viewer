@@ -44,10 +44,12 @@ pub(crate) fn read(dir: &Path, file: &str) -> Result<(Header, String, String), S
     Ok((parse_header(&yaml)?, yaml, body))
 }
 
-/// The root and the children it lists: the only documents the viewer opens.
+/// The root and the children it lists: the only documents the viewer opens. The root of a PRD set
+/// is prd.md. The root of a backlog, which has no prd.md, is backlog.md (FR-028).
 pub(crate) fn listed(dir: &Path) -> Vec<String> {
-    let mut files = vec!["prd.md".to_string()];
-    if let Ok((root, _, _)) = read(dir, "prd.md") {
+    let root_file = if dir.join("prd.md").exists() || !dir.join("backlog.md").exists() { "prd.md" } else { "backlog.md" };
+    let mut files = vec![root_file.to_string()];
+    if let Ok((root, _, _)) = read(dir, root_file) {
         files.extend(root.links.unwrap_or_default().children.into_iter().map(|c| c.path.trim_start_matches("./").to_string()));
     }
     files
@@ -70,6 +72,54 @@ pub fn read_section(dir: &Path, file: &str) -> Result<Section, String> {
         body,
         items: items_of(&yaml),
     })
+}
+
+/// The backlog next to a PRD set: the folder `<set>-backlog` with a backlog.md (FR-028).
+#[derive(Serialize, Debug, Clone, PartialEq)]
+pub struct Backlog {
+    pub folder: String,
+    pub documents: Vec<BacklogDoc>,
+}
+
+#[derive(Serialize, Debug, Clone, PartialEq)]
+pub struct BacklogDoc {
+    pub file: String,
+    pub title: String,
+}
+
+/// The backlog next to the set, or None when there is none.
+pub fn backlog_of(set: &Path) -> Option<Backlog> {
+    let name = set.file_name()?.to_str()?;
+    let dir = set.parent()?.join(format!("{name}-backlog"));
+    if !dir.join("backlog.md").is_file() {
+        return None;
+    }
+    let documents = listed(&dir)
+        .into_iter()
+        .filter_map(|file| read(&dir, &file).ok().map(|(h, _, _)| BacklogDoc { file, title: h.title }))
+        .collect();
+    Some(Backlog { folder: dir.to_string_lossy().into_owned(), documents })
+}
+
+/// Each backlog item that names requirements, with the ids it names: US-008 builds FR-005.
+#[derive(Serialize, Debug, Clone, PartialEq)]
+pub struct StoryLink {
+    pub id: String,
+    pub requirements: Vec<String>,
+}
+
+pub fn story_links(backlog: &Path) -> Vec<StoryLink> {
+    // An id is 1 to 4 capitals, a hyphen, and 3 digits, such as FR-005.
+    let is_id = |w: &&str| matches!(w.split_once('-'), Some((a, n)) if (1..=4).contains(&a.len()) && a.bytes().all(|b| b.is_ascii_uppercase()) && n.len() == 3 && n.bytes().all(|b| b.is_ascii_digit()));
+    listed(backlog)
+        .into_iter()
+        .filter_map(|file| read(backlog, &file).ok())
+        .flat_map(|(_, yaml, _)| items_of(&yaml))
+        .filter_map(|i| {
+            let reqs: Vec<String> = i.fields.iter().filter(|f| f.name == "requirements").flat_map(|f| f.text.split(|c: char| !(c.is_ascii_alphanumeric() || c == '-')).filter(is_id).map(String::from).collect::<Vec<_>>()).collect();
+            (!reqs.is_empty()).then_some(StoryLink { id: i.id, requirements: reqs })
+        })
+        .collect()
 }
 
 /// Every item of every readable document, with the file that holds it.
@@ -142,7 +192,7 @@ mod tests {
     #[test]
     fn reads_functional_requirements() {
         let s = read_section(real(), "08-functional-requirements.md").unwrap();
-        assert_eq!(s.items.iter().filter(|i| i.id.starts_with("FR-")).count(), 25);
+        assert_eq!(s.items.iter().filter(|i| i.id.starts_with("FR-")).count(), 28);
         assert!(s.body.contains("# Functional requirements"));
         assert_eq!(s.section, Some(7));
     }
@@ -191,6 +241,30 @@ mod tests {
         assert!(read_section(&set, "../outside.md").is_err());
         assert!(read_section(&set, "linked.md").is_err());
         assert!(!item_index(&set).iter().any(|r| r.file.contains("outside") || r.file.contains("linked")));
+    }
+
+    #[test]
+    fn the_backlog_next_to_the_set_is_found_and_read() {
+        let b = backlog_of(real()).unwrap();
+        assert!(b.folder.ends_with("prd-forge-viewer-backlog"));
+        assert_eq!(b.documents[0].file, "backlog.md");
+        assert!(b.documents.iter().any(|d| d.file == "03-stories.md" && d.title == "Stories"));
+        let stories = read_section(Path::new(&b.folder), "03-stories.md").unwrap();
+        assert!(stories.items.iter().any(|i| i.id == "US-008"));
+        assert!(item_index(Path::new(&b.folder)).iter().any(|r| r.id == "US-008" && r.file == "03-stories.md"));
+    }
+
+    #[test]
+    fn a_story_links_to_the_requirements_it_builds() {
+        let b = backlog_of(real()).unwrap();
+        let links = story_links(Path::new(&b.folder));
+        assert!(links.iter().any(|l| l.id == "US-008" && l.requirements == vec!["FR-005".to_string()]));
+    }
+
+    #[test]
+    fn a_set_with_no_backlog_next_to_it_has_none() {
+        let d = tempfile::TempDir::new().unwrap();
+        assert_eq!(backlog_of(d.path()), None);
     }
 
     #[test]
