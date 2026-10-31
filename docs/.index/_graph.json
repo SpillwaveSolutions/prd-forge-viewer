@@ -2791,6 +2791,11 @@
    "type": "belongs-to"
   },
   {
+   "from": "item/01M67QAJ3NDMPQ8G6QG8H78CFY",
+   "to": "item/01M67NH4X4JGDJB233B670SJFF",
+   "type": "belongs-to"
+  },
+  {
    "from": "plan/2026-10-28-plan-1-open-and-grades",
    "to": "item/01M61XNJ5TFSD53MNXM1XHBD57",
    "type": "produces"
@@ -3613,6 +3618,21 @@
   {
    "from": "roadmap-snapshot/2026-10-30_v0.3.0-release",
    "to": "release/v0.3.0",
+   "type": "targets"
+  },
+  {
+   "from": "roadmap-snapshot/2026-10-31_v0.4.0-release",
+   "to": "roadmap",
+   "type": "snapshot-of"
+  },
+  {
+   "from": "roadmap-snapshot/2026-10-31_v0.4.0-release",
+   "to": "roadmap-snapshot/2026-10-30_v0.3.0-release",
+   "type": "supersedes"
+  },
+  {
+   "from": "roadmap-snapshot/2026-10-31_v0.4.0-release",
+   "to": "release/v0.4.0",
    "type": "targets"
   }
  ],
@@ -4652,7 +4672,7 @@
   },
   "item/01M67NH4X4JGDJB233B670SJFF": {
    "doc_type": "item",
-   "status": "todo",
+   "status": "done",
    "title": "Plan 10: PRD catch-up, grade findings, backlog navigation, and release 0.4.0"
   },
   "item/01M67NH4XPWE52APES54MYFEV2": {
@@ -4682,8 +4702,13 @@
   },
   "item/01M67NH4XPWE52APES54MYFEVC": {
    "doc_type": "item",
-   "status": "in_progress",
+   "status": "done",
    "title": "Task 6: checks, release 0.4.0, and install"
+  },
+  "item/01M67QAJ3NDMPQ8G6QG8H78CFY": {
+   "doc_type": "item",
+   "status": "done",
+   "title": "Release 0.4.0"
   },
   "plan/2026-10-28-plan-1-open-and-grades": {
    "doc_type": "plan",
@@ -4808,6 +4833,9 @@
   "release/v0.3.0": {
    "doc_type": "release"
   },
+  "release/v0.4.0": {
+   "doc_type": "release"
+  },
   "roadmap": {
    "doc_type": "roadmap",
    "source": "docs/roadmap.md",
@@ -4835,6 +4863,12 @@
   "roadmap-snapshot/2026-10-30_v0.3.0-release": {
    "doc_type": "roadmap-snapshot",
    "source": "docs/roadmap/2026-10-30_v0.3.0-release.md",
+   "title": "Roadmap",
+   "truth_state": "snapshot"
+  },
+  "roadmap-snapshot/2026-10-31_v0.4.0-release": {
+   "doc_type": "roadmap-snapshot",
+   "source": "docs/roadmap/2026-10-31_v0.4.0-release.md",
    "title": "Roadmap",
    "truth_state": "snapshot"
   },

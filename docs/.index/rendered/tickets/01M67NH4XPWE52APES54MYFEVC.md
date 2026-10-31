@@ -1,6 +1,6 @@
 # Task 6: checks, release 0.4.0, and install
 
-`01M67NH4XPWE52APES54MYFEVC` · task/feature · **in-progress**
+`01M67NH4XPWE52APES54MYFEVC` · task/feature · **done**
 
 Unit tests and e2e checks for each task.
 

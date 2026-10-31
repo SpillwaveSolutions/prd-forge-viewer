@@ -1,5 +1,34 @@
 # Changelog
 
+## 0.4.0, 2026-10-31
+
+This release delivers release 2 of the PRD (REL-002): FR-025 to FR-028. It
+follows PRD 0.7.0.
+
+### New
+
+- **Findings behind a grade (FR-025).** Select **Findings** next to the grade
+  of a section to read the note from its last grading pass: the blocking
+  defects and how to raise the grade. A document with no note says that no
+  findings are recorded.
+- **Backlog links (FR-028).** When a backlog made from the PRD set is next to
+  it, the overview and the document list show its documents. A requirement
+  lists the stories that build it, and a story links back to its
+  requirements.
+- **Settings in one file.** The text size and the search pin are kept in the
+  settings file with the themes and the known locations (ADR-004).
+
+### Fixed
+
+- The document list starts below the header at every text size.
+- Command-F does nothing when no set is open.
+
+### Tests
+
+- 102 Rust tests and 113 UI tests.
+- 64 tauri MCP checks. New checks cover the findings, the backlog links, and
+  the settings file. The checks retry a dropped Escape key.
+
 ## 0.3.0, 2026-10-30
 
 ### New

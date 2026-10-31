@@ -895,8 +895,8 @@ There are 24 functional requirements. All text is copied from
 
 **Acceptance Criteria**:
 
-- [ ] Given section 7 has a grade with 1 blocking defect and 2 items to raise the grade, when the author views the findings of section 7, then the author sees the blocking defect and the 2 items.
-- [ ] Given a section with no recorded findings, when the author views its findings, then the author sees that no findings are recorded.
+- [x] Given section 7 has a grade with 1 blocking defect and 2 items to raise the grade, when the author views the findings of section 7, then the author sees the blocking defect and the 2 items.
+- [x] Given a section with no recorded findings, when the author views its findings, then the author sees that no findings are recorded.
 
 **Shown In**: screen
 
@@ -960,9 +960,9 @@ There are 24 functional requirements. All text is copied from
 
 **Acceptance Criteria**:
 
-- [ ] Given a backlog next to the PRD set in which US-008 builds FR-005, when the developer views FR-005, then the developer sees US-008 and can open it.
-- [ ] Given that backlog, when the developer views US-008, then the developer sees FR-005 and can open it.
-- [ ] Given a PRD set with no backlog next to it, when the developer views FR-005, then the viewer shows the requirement with no backlog links.
+- [x] Given a backlog next to the PRD set in which US-008 builds FR-005, when the developer views FR-005, then the developer sees US-008 and can open it.
+- [x] Given that backlog, when the developer views US-008, then the developer sees FR-005 and can open it.
+- [x] Given a PRD set with no backlog next to it, when the developer views FR-005, then the viewer shows the requirement with no backlog links.
 
 **Shown In**: screen
 

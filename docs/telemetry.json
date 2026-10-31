@@ -1,6 +1,36 @@
 {
-  "generated": "2026-10-30T20:58:49.194Z",
+  "generated": "2026-10-31T00:00:56.897Z",
   "sessions": [
+    {
+      "ts": "2026-10-31T00:00:56.897Z",
+      "type": "general",
+      "isFailure": false,
+      "commits": 2,
+      "filesChanged": 17,
+      "artifacts": [],
+      "effort": "medium",
+      "telemetry": {
+        "toolCalls": 25,
+        "p50": 107,
+        "p95": 40201,
+        "byAgent": [
+          {
+            "agent": "general-purpose",
+            "toolCalls": 15,
+            "mcpCalls": 0,
+            "p50": 97,
+            "p95": 932
+          },
+          {
+            "agent": "main",
+            "toolCalls": 10,
+            "mcpCalls": 0,
+            "p50": 1248,
+            "p95": 59391
+          }
+        ]
+      }
+    },
     {
       "ts": "2026-10-30T20:58:49.194Z",
       "type": "general",
