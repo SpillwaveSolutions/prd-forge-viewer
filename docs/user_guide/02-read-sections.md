@@ -117,3 +117,18 @@ shows the name of the diagram and the zoom level, for example "150%".
 
 The zoom level is from 25% to 800%. When the window closes, the section page
 shows again.
+
+## Change the text size
+
+You can make the text larger or smaller. The size applies to all text in the
+window.
+
+| To do this | Click | Or press |
+|---|---|---|
+| Make the text larger | **A+** | Command-plus |
+| Make the text smaller | **A−** | Command-minus |
+| Go back to the normal size | the percentage | Command-0 |
+
+The text size is from 80% to 200%. At 80%, **A−** is not available. At 200%,
+**A+** is not available. The viewer keeps the text size for the next time you
+open it.
