@@ -1,6 +1,6 @@
 # REQ and TRAC show each release 1 requirement as built and tested
 
-`01M62C7REHN9N2P8Z19K0EPA0F` · subtask/feature · **open**
+`01M62C7REHN9N2P8Z19K0EPA0F` · subtask/feature · **done**
 
 REQ and TRAC show each release 1 requirement as built and tested
 

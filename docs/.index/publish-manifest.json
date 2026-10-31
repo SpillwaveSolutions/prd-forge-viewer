@@ -1,11 +1,11 @@
 {
- "git_hash": "5f44b20",
+ "git_hash": "b5a0688",
  "pages": [
   {
    "frozen": false,
    "page_name": "Home",
    "render": "as-is",
-   "render_hash": "2f569509541c",
+   "render_hash": "7a6e118df66d",
    "source": "docs/.index/rendered/home.md",
    "title": "Home",
    "truth_state": "current",
@@ -15,7 +15,7 @@
    "frozen": false,
    "page_name": "Index-Decisions",
    "render": "as-is",
-   "render_hash": "bff936ccfc4f",
+   "render_hash": "02a1bd9b482e",
    "source": "docs/.index/rendered/decisions.md",
    "title": "Decisions Index",
    "truth_state": "current",
@@ -45,7 +45,7 @@
    "frozen": false,
    "page_name": "Index-Traceability",
    "render": "as-is",
-   "render_hash": "3c7522316ef6",
+   "render_hash": "394f202602ed",
    "source": "docs/.index/rendered/traceability.md",
    "title": "Traceability Index",
    "truth_state": "current",
@@ -335,10 +335,10 @@
    "frozen": false,
    "page_name": "Ticket-01M61XNJQPA0F7H1BG56ERNJ3P",
    "render": "as-is",
-   "render_hash": "751ab52c185e",
+   "render_hash": "533005b33f12",
    "source": "docs/.index/rendered/tickets/01M61XNJQPA0F7H1BG56ERNJ3P.md",
    "title": "EPIC-003 Go to a weak section: Go directly to a weak section or item, or find it by search.",
-   "truth_state": "open",
+   "truth_state": "done",
    "wiki_key": "item/01M61XNJQPA0F7H1BG56ERNJ3P"
   },
   {
@@ -395,10 +395,10 @@
    "frozen": false,
    "page_name": "Ticket-01M61XNK50616FWM0WZ4FGWGEB",
    "render": "as-is",
-   "render_hash": "6d8080315320",
+   "render_hash": "34de68193f3c",
    "source": "docs/.index/rendered/tickets/01M61XNK50616FWM0WZ4FGWGEB.md",
    "title": "EPIC-004 Fix the section: See each change from the authoring tools while the section is open.",
-   "truth_state": "open",
+   "truth_state": "done",
    "wiki_key": "item/01M61XNK50616FWM0WZ4FGWGEB"
   },
   {
@@ -415,10 +415,10 @@
    "frozen": false,
    "page_name": "Ticket-01M61XNK9MPMV0RAEKPX0JC3K4",
    "render": "as-is",
-   "render_hash": "db365bf31008",
+   "render_hash": "ea39b6f14b0a",
    "source": "docs/.index/rendered/tickets/01M61XNK9MPMV0RAEKPX0JC3K4.md",
    "title": "EPIC-005 Export the PRD: Export the selected sections, in a selected theme, as a file that a reader opens without the authoring tools.",
-   "truth_state": "open",
+   "truth_state": "done",
    "wiki_key": "item/01M61XNK9MPMV0RAEKPX0JC3K4"
   },
   {
@@ -1455,7 +1455,7 @@
    "frozen": false,
    "page_name": "Ticket-01M62C7REGCD2R415FMWFCZMV6",
    "render": "as-is",
-   "render_hash": "27aa1a6bb63d",
+   "render_hash": "c5a5ac729c99",
    "source": "docs/.index/rendered/tickets/01M62C7REGCD2R415FMWFCZMV6.md",
    "title": "Phase 6: close out release 1",
    "truth_state": "done",
@@ -1465,40 +1465,40 @@
    "frozen": false,
    "page_name": "Ticket-01M62C7REGCD2R415FMWFCZMV8",
    "render": "as-is",
-   "render_hash": "d5d24dd3d1c5",
+   "render_hash": "99e9f55d8d49",
    "source": "docs/.index/rendered/tickets/01M62C7REGCD2R415FMWFCZMV8.md",
    "title": "All e2e checks and unit tests pass on the release build",
-   "truth_state": "open",
+   "truth_state": "done",
    "wiki_key": "item/01M62C7REGCD2R415FMWFCZMV8"
   },
   {
    "frozen": false,
    "page_name": "Ticket-01M62C7REGCD2R415FMWFCZMVA",
    "render": "as-is",
-   "render_hash": "1b84ee27a347",
+   "render_hash": "e012ab9ae8de",
    "source": "docs/.index/rendered/tickets/01M62C7REGCD2R415FMWFCZMVA.md",
    "title": "The release build is installed in /Applications with no MCP bridge",
-   "truth_state": "open",
+   "truth_state": "done",
    "wiki_key": "item/01M62C7REGCD2R415FMWFCZMVA"
   },
   {
    "frozen": false,
    "page_name": "Ticket-01M62C7REHN9N2P8Z19K0EPA0F",
    "render": "as-is",
-   "render_hash": "fab911e747cf",
+   "render_hash": "a44f9009effe",
    "source": "docs/.index/rendered/tickets/01M62C7REHN9N2P8Z19K0EPA0F.md",
    "title": "REQ and TRAC show each release 1 requirement as built and tested",
-   "truth_state": "open",
+   "truth_state": "done",
    "wiki_key": "item/01M62C7REHN9N2P8Z19K0EPA0F"
   },
   {
    "frozen": false,
    "page_name": "Ticket-01M62C7REHN9N2P8Z19K0EPA0H",
    "render": "as-is",
-   "render_hash": "0a94b14a9876",
+   "render_hash": "f7dc8e9f33c9",
    "source": "docs/.index/rendered/tickets/01M62C7REHN9N2P8Z19K0EPA0H.md",
    "title": "All release 1 stories closed, the roadmap rendered, and GitHub Issues synced",
-   "truth_state": "open",
+   "truth_state": "done",
    "wiki_key": "item/01M62C7REHN9N2P8Z19K0EPA0H"
   },
   {
@@ -2132,6 +2132,26 @@
    "wiki_key": "item/01M67KYXCPJ5QGRGASS5KPSMMH"
   },
   {
+   "frozen": false,
+   "page_name": "Ticket-01M67N9KHR9BFVGGV7VCF908B6",
+   "render": "as-is",
+   "render_hash": "dea3ce4d00d3",
+   "source": "docs/.index/rendered/tickets/01M67N9KHR9BFVGGV7VCF908B6.md",
+   "title": "Bring the worklog and GitHub Issues up to date",
+   "truth_state": "open",
+   "wiki_key": "item/01M67N9KHR9BFVGGV7VCF908B6"
+  },
+  {
+   "frozen": false,
+   "page_name": "Ticket-01M67NFZH5C1HWH4SBC22ZVXMS",
+   "render": "as-is",
+   "render_hash": "20f3452e26ab",
+   "source": "docs/.index/rendered/tickets/01M67NFZH5C1HWH4SBC22ZVXMS.md",
+   "title": "Add bidirectional navigation between PRD and backlog",
+   "truth_state": "open",
+   "wiki_key": "item/01M67NFZH5C1HWH4SBC22ZVXMS"
+  },
+  {
    "banner": "> **Snapshot** of release v0.1.0 (2026-10-29) \u2014 frozen record. The current version is [[Code-Walkthrough]].",
    "frozen": true,
    "page_name": "Design-Freeze-2026-10-29_v0.1.0-release",
@@ -2336,11 +2356,11 @@
    "wiki_key": "plan/2026-10-28-plan-4-search"
   },
   {
-   "banner": "> **Current** \u2014 plan in flight; plans are frozen once written, a changed design gets a new plan.",
+   "banner": "> **Current** \u2014 completed plan; plans are frozen once written, a changed design gets a new plan.",
    "frozen": true,
    "page_name": "Plan-release-1-completion",
    "render": "doc+banner",
-   "render_hash": "4135bc7ed664",
+   "render_hash": "5fbb2b8f8314",
    "source": "docs/plans/2026-10-28-release-1-completion.md",
    "source_hash": "7b5163d2505c",
    "title": "Release 1 completion: build the 15 remaining requirements",
@@ -2408,13 +2428,13 @@
    "wiki_key": "plan/2026-10-30-plan-9-diagrams-design"
   },
   {
-   "banner": "> **Current** \u2014 this is the living version; regenerated at 2026-10-30T23:57:43Z. Historical snapshots are linked from [[Index-Releases]].",
+   "banner": "> **Current** \u2014 this is the living version; regenerated at 2026-10-31T00:24:36Z. Historical snapshots are linked from [[Index-Releases]].",
    "frozen": false,
    "page_name": "Roadmap",
    "render": "doc+banner",
-   "render_hash": "c703925359f9",
+   "render_hash": "70cc41aebee2",
    "source": "docs/roadmap.md",
-   "source_hash": "95e2fd389c4b",
+   "source_hash": "8b6aa08d8a52",
    "title": "Roadmap",
    "truth_state": "current",
    "wiki_key": "roadmap"
@@ -2469,7 +2489,7 @@
   }
  ],
  "sidebar": {
-  "render_hash": "e0411129e813",
+  "render_hash": "29365961b120",
   "source": "docs/.index/rendered/_Sidebar.md"
  },
  "version": 1

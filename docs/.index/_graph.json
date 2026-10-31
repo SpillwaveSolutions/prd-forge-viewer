@@ -2751,6 +2751,16 @@
    "type": "lands-in"
   },
   {
+   "from": "item/01M67N9KHR9BFVGGV7VCF908B6",
+   "to": "ticket/github#203",
+   "type": "references"
+  },
+  {
+   "from": "item/01M67NFZH5C1HWH4SBC22ZVXMS",
+   "to": "ticket/github#199",
+   "type": "references"
+  },
+  {
    "from": "plan/2026-10-28-plan-1-open-and-grades",
    "to": "item/01M61XNJ5TFSD53MNXM1XHBD57",
    "type": "produces"
@@ -3667,7 +3677,7 @@
   },
   "item/01M61XNJQPA0F7H1BG56ERNJ3P": {
    "doc_type": "item",
-   "status": "todo",
+   "status": "done",
    "title": "EPIC-003 Go to a weak section: Go directly to a weak section or item, or find it by search."
   },
   "item/01M61XNJSXCVG60KPJFNBC4GPT": {
@@ -3697,7 +3707,7 @@
   },
   "item/01M61XNK50616FWM0WZ4FGWGEB": {
    "doc_type": "item",
-   "status": "todo",
+   "status": "done",
    "title": "EPIC-004 Fix the section: See each change from the authoring tools while the section is open."
   },
   "item/01M61XNK7A3WE67AVJFXNDZT2P": {
@@ -3707,7 +3717,7 @@
   },
   "item/01M61XNK9MPMV0RAEKPX0JC3K4": {
    "doc_type": "item",
-   "status": "todo",
+   "status": "done",
    "title": "EPIC-005 Export the PRD: Export the selected sections, in a selected theme, as a file that a reader opens without the authoring tools."
   },
   "item/01M61XNKBWWJM55QTR4QJJDQXS": {
@@ -4232,22 +4242,22 @@
   },
   "item/01M62C7REGCD2R415FMWFCZMV8": {
    "doc_type": "item",
-   "status": "todo",
+   "status": "done",
    "title": "All e2e checks and unit tests pass on the release build"
   },
   "item/01M62C7REGCD2R415FMWFCZMVA": {
    "doc_type": "item",
-   "status": "todo",
+   "status": "done",
    "title": "The release build is installed in /Applications with no MCP bridge"
   },
   "item/01M62C7REHN9N2P8Z19K0EPA0F": {
    "doc_type": "item",
-   "status": "todo",
+   "status": "done",
    "title": "REQ and TRAC show each release 1 requirement as built and tested"
   },
   "item/01M62C7REHN9N2P8Z19K0EPA0H": {
    "doc_type": "item",
-   "status": "todo",
+   "status": "done",
    "title": "All release 1 stories closed, the roadmap rendered, and GitHub Issues synced"
   },
   "item/01M62CK37SV62AATV5XSRPCJHE": {
@@ -4564,6 +4574,16 @@
    "doc_type": "item",
    "status": "done",
    "title": "Release 0.3.0"
+  },
+  "item/01M67N9KHR9BFVGGV7VCF908B6": {
+   "doc_type": "item",
+   "status": "todo",
+   "title": "Bring the worklog and GitHub Issues up to date"
+  },
+  "item/01M67NFZH5C1HWH4SBC22ZVXMS": {
+   "doc_type": "item",
+   "status": "todo",
+   "title": "Add bidirectional navigation between PRD and backlog"
   },
   "plan/2026-10-28-plan-1-open-and-grades": {
    "doc_type": "plan",
@@ -5064,9 +5084,17 @@
    "doc_type": "ticket",
    "url": "https://github.com/SpillwaveSolutions/prd-forge-viewer/issues/190"
   },
+  "ticket/github#199": {
+   "doc_type": "ticket",
+   "url": "https://github.com/SpillwaveSolutions/prd-forge-viewer/issues/199"
+  },
   "ticket/github#20": {
    "doc_type": "ticket",
    "url": "https://github.com/SpillwaveSolutions/prd-forge-viewer/issues/20"
+  },
+  "ticket/github#203": {
+   "doc_type": "ticket",
+   "url": "https://github.com/SpillwaveSolutions/prd-forge-viewer/issues/203"
   },
   "ticket/github#21": {
    "doc_type": "ticket",

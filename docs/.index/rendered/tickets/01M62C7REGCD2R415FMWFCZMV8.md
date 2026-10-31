@@ -1,6 +1,6 @@
 # All e2e checks and unit tests pass on the release build
 
-`01M62C7REGCD2R415FMWFCZMV8` · subtask/feature · **open**
+`01M62C7REGCD2R415FMWFCZMV8` · subtask/feature · **done**
 
 All e2e checks and unit tests pass on the release build
 

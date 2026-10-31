@@ -1,6 +1,6 @@
 # All release 1 stories closed, the roadmap rendered, and GitHub Issues synced
 
-`01M62C7REHN9N2P8Z19K0EPA0H` · subtask/feature · **open**
+`01M62C7REHN9N2P8Z19K0EPA0H` · subtask/feature · **done**
 
 All release 1 stories closed, the roadmap rendered, and GitHub Issues synced
 

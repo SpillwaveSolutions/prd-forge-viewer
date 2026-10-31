@@ -2,6 +2,14 @@
 
 _The evidence chain: plan → item → ticket → code → release, forward and backward. Generated from `docs/.index/_graph.json`; do not edit._
 
+### Add bidirectional navigation between PRD and backlog
+`01M67NFZH5C1HWH4SBC22ZVXMS` · status: todo
+- references: [github#199](https://github.com/SpillwaveSolutions/prd-forge-viewer/issues/199)
+
+### Bring the worklog and GitHub Issues up to date
+`01M67N9KHR9BFVGGV7VCF908B6` · status: todo
+- references: [github#203](https://github.com/SpillwaveSolutions/prd-forge-viewer/issues/203)
+
 ### Release 0.3.0
 `01M67KYXCPJ5QGRGASS5KPSMMH` · status: done
 - lands-in: pr/200
@@ -388,25 +396,25 @@ _The evidence chain: plan → item → ticket → code → release, forward and 
 - produced-by: [[Plan-plan-3-reading]]
 
 ### All release 1 stories closed, the roadmap rendered, and GitHub Issues synced
-`01M62C7REHN9N2P8Z19K0EPA0H` · status: todo
+`01M62C7REHN9N2P8Z19K0EPA0H` · status: done
 - belongs-to: Phase 6: close out release 1
 - references: [github#132](https://github.com/SpillwaveSolutions/prd-forge-viewer/issues/132)
 - produced-by: [[Plan-release-1-completion]]
 
 ### REQ and TRAC show each release 1 requirement as built and tested
-`01M62C7REHN9N2P8Z19K0EPA0F` · status: todo
+`01M62C7REHN9N2P8Z19K0EPA0F` · status: done
 - belongs-to: Phase 6: close out release 1
 - references: [github#131](https://github.com/SpillwaveSolutions/prd-forge-viewer/issues/131)
 - produced-by: [[Plan-release-1-completion]]
 
 ### The release build is installed in /Applications with no MCP bridge
-`01M62C7REGCD2R415FMWFCZMVA` · status: todo
+`01M62C7REGCD2R415FMWFCZMVA` · status: done
 - belongs-to: Phase 6: close out release 1
 - references: [github#130](https://github.com/SpillwaveSolutions/prd-forge-viewer/issues/130)
 - produced-by: [[Plan-release-1-completion]]
 
 ### All e2e checks and unit tests pass on the release build
-`01M62C7REGCD2R415FMWFCZMV8` · status: todo
+`01M62C7REGCD2R415FMWFCZMV8` · status: done
 - belongs-to: Phase 6: close out release 1
 - references: [github#129](https://github.com/SpillwaveSolutions/prd-forge-viewer/issues/129)
 - produced-by: [[Plan-release-1-completion]]
@@ -1252,7 +1260,7 @@ _The evidence chain: plan → item → ticket → code → release, forward and 
 - produced-by: [[Plan-release-1-completion]]
 
 ### EPIC-005 Export the PRD: Export the selected sections, in a selected theme, as a file that a reader opens without the authoring tools.
-`01M61XNK9MPMV0RAEKPX0JC3K4` · status: todo
+`01M61XNK9MPMV0RAEKPX0JC3K4` · status: done
 - references: [github#22](https://github.com/SpillwaveSolutions/prd-forge-viewer/issues/22)
 - contains: US-014 Export the PRD set as a fixed-layout document (IN-006)
 - contains: US-015 Export the PRD set as an editable document (IN-006)
@@ -1276,7 +1284,7 @@ _The evidence chain: plan → item → ticket → code → release, forward and 
 - produced-by: [[Plan-release-1-completion]]
 
 ### EPIC-004 Fix the section: See each change from the authoring tools while the section is open.
-`01M61XNK50616FWM0WZ4FGWGEB` · status: todo
+`01M61XNK50616FWM0WZ4FGWGEB` · status: done
 - references: [github#20](https://github.com/SpillwaveSolutions/prd-forge-viewer/issues/20)
 - contains: US-013 See changes that the authoring tools make, without any action
 
@@ -1321,7 +1329,7 @@ _The evidence chain: plan → item → ticket → code → release, forward and 
 - produced-by: [[Plan-release-1-completion]]
 
 ### EPIC-003 Go to a weak section: Go directly to a weak section or item, or find it by search.
-`01M61XNJQPA0F7H1BG56ERNJ3P` · status: todo
+`01M61XNJQPA0F7H1BG56ERNJ3P` · status: done
 - references: [github#14](https://github.com/SpillwaveSolutions/prd-forge-viewer/issues/14)
 - contains: US-008 Go directly to any section
 - contains: US-009 Select one item of a section and read it without the whole section
