@@ -2220,9 +2220,9 @@
    "frozen": false,
    "page_name": "Read-sections-and-items",
    "render": "doc+banner",
-   "render_hash": "5c70ddbd3021",
+   "render_hash": "38fe72513473",
    "source": "docs/user_guide/02-read-sections.md",
-   "source_hash": "53eece1f06d8",
+   "source_hash": "4881545970ae",
    "title": "Read sections and items",
    "truth_state": "current",
    "wiki_key": "guide/02-read-sections"
@@ -2244,9 +2244,9 @@
    "frozen": false,
    "page_name": "Search-a-set",
    "render": "doc+banner",
-   "render_hash": "2d64234357b7",
+   "render_hash": "330a6236a3ad",
    "source": "docs/user_guide/04-search.md",
-   "source_hash": "f99b0b6fb4be",
+   "source_hash": "12fd04ba6ba8",
    "title": "Search a set",
    "truth_state": "current",
    "wiki_key": "guide/04-search"
