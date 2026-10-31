@@ -2,17 +2,17 @@
 wiki_key: design/current-code-walkthrough
 doc_type: design
 truth_state: current
-generated_at: 2026-10-30T20:23:36Z
-tag: v0.2.1
-git_hash: 0e83f783aec709de9ef77eb22f9a6a287ff47b6d
-branch: docs-0.2.1-design
+generated_at: 2026-10-31T00:04:20Z
+tag: v0.3.0
+git_hash: 343009469c1f13284093c3503e3a26a543291d75
+branch: docs-0.3.0-design
 roadmap: docs/roadmap.md
 ---
 
 # PRD Forge Viewer code walkthrough
 
-This walkthrough is the guided tour of the code at tag `v0.2.1` (commit
-`0e83f78`). Every listing is quoted from that commit and cites `path:line`.
+This walkthrough is the guided tour of the code at tag `v0.3.0` (commit
+`3430094`). Every listing is quoted from that commit and cites `path:line`.
 The design document in `docs/designs/current_design_doc.md` gives the
 architecture. Where the code and the design documents differ, the code wins and
 section 6 reports the gap.
@@ -22,10 +22,12 @@ section 6 reports the gap.
 ### 1.1 The system in three sentences
 
 The PRD Forge Viewer is a read-only macOS desktop app that opens a PRD Forge
-set, shows its documents, grades, and items, and searches them. A Rust core
+set, shows its documents, grades, and items, and searches them in one or more
+categories from a drawer at the right. A Rust core
 reads every file, checks every path, keeps a SQLite full-text index, and
 watches the set for changes. A React UI renders the content safely, shows each
-diagram as a drawing that opens in a zoom and pan window, and builds themed PDF
+diagram as a drawing that opens in a zoom and pan window, lets the author
+change the text size, and builds themed PDF
 and Word exports with the diagrams as images, which the Rust core writes outside
 the set.
 
@@ -46,6 +48,8 @@ the set.
 | `src/renderBody.ts` | Markdown to safe HTML | NFR-010. |
 | `src/bodyClean.ts` | Removes the details block and each wireframe sketch that a drawing follows | One rule set for the viewer and the export, copied from `prd_export.py`. |
 | `src/DiagramViewer.tsx`, `src/zoom.ts` | Diagram window and its zoom math | The math is pure, so a unit test covers it. |
+| `src/SearchDrawer.tsx`, `src/SearchPanel.tsx` | The search drawer, and the term box, category checkboxes, and results inside it | New in 0.3.0. The drawer has no Tauri import. `App.tsx` owns its open and pinned state. |
+| `src/textZoom.ts` | The text size steps | New in 0.3.0. Pure, so a unit test covers it. |
 | `src/styles.css` | Color tokens, dark mode, fonts, layout | The 0.2.0 visual design. |
 | `src/export*.ts`, `src/themes.ts` | Export model, Motion block model, HTML and Word writers, fonts, themes | ADR-002. |
 | `public/fonts/` | Source Serif 4, Source Sans 3, Source Code Pro | Embedded in every export. |
@@ -69,6 +73,9 @@ flowchart LR
         BC[bodyClean.ts]
         DV[DiagramViewer.tsx]
         Z[zoom.ts]
+        SD[SearchDrawer.tsx]
+        SPn[SearchPanel.tsx]
+        TZ[textZoom.ts]
         ER[exportRun.ts]
         EM[exportModel.ts]
         EH[exportHtml.ts]
@@ -88,6 +95,8 @@ flowchart LR
     App -->|invoke| C
     App --> SP --> RB --> BC
     SP --> DV --> Z
+    App --> SD --> SPn
+    App --> TZ
     App --> ER --> EM --> BC
     ER --> EH
     ER --> ED
@@ -135,14 +144,14 @@ to `127.0.0.1` (`src-tauri/src/lib.rs:35-39`).
 ### 2.2 The UI asks what to show
 
 On mount, `App` loads the themes and calls `startup`
-(`src/App.tsx:114-121`).
+(`src/App.tsx:152-159`).
 
 ```tsx
 void invoke<StartView>("startup").then(showStart);
 const unlisten = listen<StartView>("start", (e) => showStart(e.payload));
 ```
 
-`src/App.tsx:116-117`
+`src/App.tsx:154-155`
 
 `startup` takes the stored argument once, so a page reload does not reopen the
 launch folder (`src-tauri/src/commands.rs:33-37`).
@@ -188,7 +197,7 @@ match sets.len() {
   union in `src/types.ts:38-42`.
 
 In the UI, `showStart` either opens the folder or shows `StartScreen`
-(`src/App.tsx:79-87`).
+(`src/App.tsx:117-125`).
 
 ### 2.4 Open a set
 
@@ -243,7 +252,7 @@ fences (`src-tauri/src/prdset/header.rs:52-60`).
 ### 2.5 Per-set setup in the UI
 
 A change of `set.folder` resets the page and starts three calls
-(`src/App.tsx:43-54`).
+(`src/App.tsx:81-92`).
 
 ```tsx
 if (set) {
@@ -253,7 +262,7 @@ if (set) {
 }
 ```
 
-`src/App.tsx:49-53`
+`src/App.tsx:87-91`
 
 The overview shows `SetOverview` and `GradesTable`. `GradesTable` lists every
 document with a section number, and shows "Not graded" for a document with no
@@ -436,7 +445,7 @@ purify.addHook("afterSanitizeAttributes", (node) => {
 `linkify` splits text on the ID pattern. Each odd part is an ID, and it becomes
 a button only when the item index knows it (`src/SectionPage.tsx:9-17`). The
 click goes to `openItem`, which looks up the file in the index
-(`src/App.tsx:65-68`).
+(`src/App.tsx:103-106`).
 
 ```tsx
 const openItem = useCallback((id: string) => {
@@ -445,14 +454,14 @@ const openItem = useCallback((id: string) => {
 }, [index, openDoc]);
 ```
 
-`src/App.tsx:65-68`
+`src/App.tsx:103-106`
 
 ### 2.9 search
 
 The `search` command passes the index path and the set to `SearchState`
 (`src-tauri/src/commands.rs:75-78`). `SearchState::with` keeps one index open,
 refreshes it before every query, and rebuilds it once on any error
-(`src-tauri/src/search.rs:179-197`).
+(`src-tauri/src/search.rs:181-199`).
 
 ```rust
 let (_, ix) = slot.as_mut().unwrap();
@@ -467,7 +476,7 @@ let mut ix = Index::open(db, set)?;
 ix.refresh()?;
 ```
 
-`src-tauri/src/search.rs:184-193`
+`src-tauri/src/search.rs:186-195`
 
 `refresh` hashes front matter and body with FNV-1a and skips a document whose
 hash is unchanged (`src-tauri/src/search.rs:96-104`). The query quotes each
@@ -476,14 +485,104 @@ word, so `NEAR`, `AND`, `*`, and quotes in the term are plain text
 
 ```rust
 "SELECT id, title, file, section, kind, bm25(items, 50.0, 10.0, 1.0) AS rank FROM items
- WHERE items MATCH ?1 AND (?2 = 'all' OR kind = ?2) ORDER BY rank, rowid LIMIT 200",
+ WHERE items MATCH ?1 AND (?2 = '' OR instr(?2, ',' || kind || ',') > 0) ORDER BY rank, rowid LIMIT 200",
 ```
 
-`src-tauri/src/search.rs:143-144`
+`src-tauri/src/search.rs:144-145`
+
+Since 0.3.0 the command takes `categories: Vec<String>`, not one category
+string (`src-tauri/src/commands.rs:74-78`). `Index::search` joins the kinds
+into `,a,b,` and binds it as `?2`. `instr()` then keeps a row whose `,kind,`
+is in that string. An empty list binds `''`, which keeps every row
+(`src-tauri/src/search.rs:149-150`). A kind is a slug, so it has no comma, and
+the `ponytail:` comment on that line records the limit. The old `"all"` value
+is gone from Rust and from the UI.
 
 The weights make an ID match count most, then the title, then the text. This
 is FR-008 criterion 3. `bm25()` is lower for a better match, so the score is
-`|rank| / |best| * 100` (`src-tauri/src/search.rs:157-159`).
+`|rank| / |best| * 100` (`src-tauri/src/search.rs:159-161`).
+
+**The UI side.** `SearchPanel` keeps `picked`, the list of checked kinds. An
+empty list means all, and the **All categories** box is checked only then.
+Checking a kind rebuilds the list from `categories`, so the list stays in
+reading order (`src/SearchPanel.tsx:58-70`).
+
+```tsx
+<input type="checkbox" value={c.kind} checked={picked.includes(c.kind)}
+    onChange={() => setPicked((p) => (p.includes(c.kind) ? p.filter((k) => k !== c.kind) : categories.map((x) => x.kind).filter((k) => k === c.kind || p.includes(k))))} />{" "}
+```
+
+`src/SearchPanel.tsx:65-66`
+
+Unchecking the last kind leaves an empty list, which checks **All
+categories** again.
+
+`App` wraps the panel in `SearchDrawer` and passes the list to the command
+under the name `categories` (`src/App.tsx:243-252`). A click on a hit closes
+the drawer unless it is pinned, then opens the section:
+
+```tsx
+onOpenHit={(hit) => { if (!searchPinned) setSearchOpen(false); openDoc(hit.file, hit.id); }}
+```
+
+`src/App.tsx:249`
+
+`SearchDrawer` is always mounted. When closed it is `inert` and off screen,
+so the results stay for the next open and the keyboard cannot reach it
+(`src/SearchDrawer.tsx:32-33`). It moves the focus to the search box on open,
+and closes on Escape only when it is unpinned and no modal `<dialog>` is open
+(`src/SearchDrawer.tsx:17-30`).
+
+```tsx
+const onKey = (e: KeyboardEvent) => {
+    if (e.key === "Escape" && !document.querySelector("dialog[open]")) onClose();
+};
+```
+
+`src/SearchDrawer.tsx:25-27`
+
+The drawer is `position: fixed` at `top: var(--header-h)`. `App` measures the
+header with a `ResizeObserver` and writes that variable, because the header
+wraps and grows with the text size (`src/App.tsx:46-54`,
+`src/styles.css:212-220`). When the drawer is open and pinned, `main` gets the
+`with-drawer` class, which pads the page by the drawer width
+(`src/App.tsx:186`, `src/styles.css:228`).
+
+### 2.9a Text size and the Command keys
+
+`App` keeps the text size in `zoom`, read once from `localStorage` and written
+back on each change. One root font size scales the page, because the styles
+use `rem` (`src/App.tsx:32-37`).
+
+```tsx
+useEffect(() => {
+    document.documentElement.style.fontSize = `${15 * zoom}px`;
+    try { localStorage.setItem("pfv.textZoom", String(zoom)); } catch { /* the size still applies for this session */ }
+}, [zoom]);
+```
+
+`src/App.tsx:34-37`
+
+`readZoom` accepts a stored value only when it is one of `ZOOM_STEPS`, so a
+hand-edited value cannot set an odd size (`src/textZoom.ts:13-16`). `nextZoom`
+finds the next step with a small tolerance, and stops at 0.8 and 2:
+
+```ts
+export function nextZoom(zoom: number, dir: 1 | -1 | 0): number {
+    if (dir === 0) return 1;
+    const up = ZOOM_STEPS.find((s) => s > zoom + 1e-9);
+    const down = [...ZOOM_STEPS].reverse().find((s) => s < zoom - 1e-9);
+    return (dir === 1 ? up : down) ?? zoom;
+}
+```
+
+`src/textZoom.ts:5-10`
+
+One window `keydown` handler takes Command-plus (`=` or `+`), Command-minus,
+Command-0, and Command-F. It ignores a key with Option or Control
+(`src/App.tsx:55-67`). The header group **A−**, percent, **A+** calls the same
+function. The percent button resets to 100%, and each end button is disabled
+at its limit (`src/App.tsx:208-212`).
 
 ### 2.10 Live changes
 
@@ -518,7 +617,7 @@ let poll = Self::poll_every(folder, Duration::from_secs(1), on)?;
   that fails to start fails the command.
 
 In the UI, the listener drops a reply when a later event or another set has
-arrived (`src/App.tsx:95-100`).
+arrived (`src/App.tsx:133-138`).
 
 ```tsx
 const mine = ++seq;
@@ -529,7 +628,7 @@ const fresh = await invoke<PrdSet>("reload_set", { folder: open.folder }).catch(
 if (stale()) return;
 ```
 
-`src/App.tsx:95-100`
+`src/App.tsx:133-138`
 
 `reloadedPage` keeps the selected item when the new version still has it, and
 goes back to the overview with a message when the section is gone
@@ -591,7 +690,7 @@ export async function loadImages(md: string, asset: (rel: string) => Promise<str
 
 `src/exportRun.ts:36-40`
 
-In the app, `asset` is the `export_image` command (`src/App.tsx:135`). The
+In the app, `asset` is the `export_image` command (`src/App.tsx:173`). The
 Rust side picks the picture:
 
 ```rust
@@ -710,7 +809,7 @@ theme (`src/themes.ts:161-173`).
 
 ### 2.13 install `prdf`
 
-After a confirm dialog (`src/App.tsx:142-145`), `install_prdf` writes
+After a confirm dialog (`src/App.tsx:180-183`), `install_prdf` writes
 `~/.local/bin/prdf` and says whether that folder is on `PATH`
 (`src-tauri/src/commands.rs:88-98`). `install_launcher` replaces only a file
 that it wrote itself (`src-tauri/src/launcher.rs:21-35`).
@@ -746,7 +845,7 @@ There is no CI workflow in the repository at this tag. The automation is:
 The test build defines `__PFV_E2E__` as `true`
 (`src-tauri/tauri.mcp.conf.json:3`, `scripts/build.ts:17`). Only then does the
 UI read `window.__pfvSavePath` and `window.__pfvPrint`, because the checks
-cannot drive the macOS save and print dialogs (`src/App.tsx:130-140`).
+cannot drive the macOS save and print dialogs (`src/App.tsx:168-178`).
 
 ## 3. Load-bearing invariants
 
@@ -761,7 +860,7 @@ cannot drive the macOS save and print dialogs (`src/App.tsx:130-140`).
 | Only `App.tsx` calls Tauri. | `src/App.tsx:2-4` | Components stop being testable without Tauri. |
 | Settings change under one lock, with an atomic save. | `src-tauri/src/settings.rs:38-56` | A theme save and a set open could lose each other's change (NFR-008). |
 | A built-in theme ID is never stored. | `src-tauri/src/settings.rs:26-30`, `src/themes.ts:133-139` | A custom theme could replace Clay or Ice Snowstorm (FR-017, FR-018). |
-| The index is derived data. | `src-tauri/src/search.rs:189-196` | Do not store anything in it that cannot be rebuilt. |
+| The index is derived data. | `src-tauri/src/search.rs:191-198` | Do not store anything in it that cannot be rebuilt. |
 | One watcher at a time, and the last `watch_set` wins. | `src-tauri/src/commands.rs:149-164` | Events from an old set would reload the wrong set. |
 | The search term is never FTS syntax. | `src-tauri/src/search.rs:66-69` | A term such as `(export` would be a query error. |
 | `src/types.ts` matches the serde output of the Rust types. | By hand only | The UI reads `undefined` with no compile error. |
@@ -794,16 +893,16 @@ fn title_match_ranks_above_text_match() {
     small_set(&d.path().join("s"), "Mentions export once");
     let mut ix = Index::open(&d.path().join("ix.sqlite"), &d.path().join("s")).unwrap();
     ix.refresh().unwrap();
-    let ids: Vec<_> = ix.search("export", "all").unwrap().into_iter().map(|h| h.id).collect();
+    let ids: Vec<_> = ix.search("export", &[]).unwrap().into_iter().map(|h| h.id).collect();
     assert_eq!(ids, vec!["FR-002", "FR-001"]);
 }
 ```
 
-`src-tauri/src/search.rs:249-256`
+`src-tauri/src/search.rs:261-268`
 
 **Rule.** FR-008 criterion 3. **Catches.** A change to the `bm25()` weights.
 The companion test `an_id_search_puts_that_item_first` covers the ID column
-(`src-tauri/src/search.rs:336-339`).
+(`src-tauri/src/search.rs:348-351`).
 
 ### 4.3 A broken index is rebuilt, even when it is open
 
@@ -811,10 +910,10 @@ The companion test `an_id_search_puts_that_item_first` covers the ID column
 for breakage in ["DROP TABLE items", "DELETE FROM items_data WHERE id > 10"] {
 ```
 
-`src-tauri/src/search.rs:343`
+`src-tauri/src/search.rs:355`
 
 **Rule.** Search recovers from a damaged index in a fresh state and in a state
-that already holds the open index (`src-tauri/src/search.rs:342-353`).
+that already holds the open index (`src-tauri/src/search.rs:354-365`).
 **Catches.** A change that removes the retry in `SearchState::with`.
 
 ### 4.4 Two watchers, one reload, and no lost last save
@@ -913,7 +1012,7 @@ test("a_wireframe_sketch_with_no_drawing_stays", () => {
 ### 4.11 Only a local image is loaded, and the export picks the newer drawing
 
 ```ts
-test("each_local_image_gets_the_data_of_its_png", async () => {
+test("each_local_image_is_asked_for_by_its_own_path", async () => {
     const asked: string[] = [];
     const images = await loadImages("![A](diagrams/A.svg)\n\n![B](https://x.test/b.png)\n", async (rel) => { asked.push(rel); return "data:image/png;base64,AAAA"; });
     expect(asked).toEqual(["diagrams/A.svg"]);
@@ -924,8 +1023,8 @@ test("each_local_image_gets_the_data_of_its_png", async () => {
 `src/exportImages.test.ts:19-24`
 
 - **Rule.** A remote image is never requested (NFR-010). The local path goes
-  to `export_image` as written. The test name still says "png", from 0.2.0,
-  when the UI asked for the `.png` itself.
+  to `export_image` as written. Release 0.3.0 renamed the test, which in
+  0.2.1 still said "png" from 0.2.0.
 - **Catches.** A change that passes a URL to the image command. The HTML test
   in the same file proves that a missing image prints as its alt text and its
   path never reaches the HTML (`src/exportImages.test.ts:30-36`).
@@ -1008,21 +1107,60 @@ await act(async () => { (host.querySelector("[aria-label='Zoom in']") as HTMLEle
 expect(scale(img)).toBeCloseTo(fitted * 1.25);
 ```
 
-`src/interactive.test.tsx:40-41`
+`src/interactive.test.tsx:42-43`
 
 - **Rule.** The diagram window opens with focus on the stage, fits on load,
   zooms by 1.25 per button, pans with the arrow keys, fits again on `0`,
   zooms on the wheel, and calls `onClose` on `cancel`
-  (`src/interactive.test.tsx:28-59`). A `loadAsset` that rejects shows the
+  (`src/interactive.test.tsx:30-61`). A `loadAsset` that rejects shows the
   hidden sketch and the `[image not found: ...]` text
-  (`src/interactive.test.tsx:61-73`).
+  (`src/interactive.test.tsx:63-75`).
 - **Catches.** A handler that the static-markup tests cannot reach, such as a
   key binding that is lost, or a sketch that stays hidden after a failed load.
 
 The e2e checks for this release are "The diagram window opens fitted, zooms,
-pans, and closes with Escape" (`e2e/checks/phase-1-reading.mjs:82`) and
+pans, and closes with Escape" (`e2e/checks/phase-1-reading.mjs:103`) and
 "Diagrams are images in the PDF, with no ASCII sketch and no details block"
 (`e2e/checks/phase-5-export.mjs:91`).
+
+### 4.15 Two categories give both kinds, and the drawer pins
+
+```rust
+fn two_categories_give_both_kinds_and_no_other() {
+    let d = TempDir::new().unwrap();
+    let cats = ["functional-requirements".to_string(), "scenarios".to_string()];
+    let hits = open_real(&d).search("export", &cats).unwrap();
+    assert!(hits.iter().any(|h| h.category == "functional-requirements"));
+    assert!(hits.iter().any(|h| h.category == "scenarios"));
+    assert!(hits.iter().all(|h| cats.contains(&h.category)));
+}
+```
+
+`src-tauri/src/search.rs:244-251`
+
+- **Rule.** A list of kinds gives hits from each kind and from no other. An
+  empty list gives all kinds (`all_categories_include_scenarios`,
+  `src-tauri/src/search.rs:253-258`).
+- **Catches.** An `instr()` filter that matches part of a kind, or that drops
+  the empty-list case.
+
+In the UI, `search_uses_every_selected_category_and_all_clears_them` checks two
+boxes, submits, and expects both kinds, then checks **All categories** and
+expects an empty list (`src/interactive.test.tsx:77-100`).
+`the_search_drawer_opens_with_focus_pins_and_closes_with_escape_only_when_unpinned`
+proves that a closed drawer is `inert`, that opening it focuses the search box,
+and that Escape closes it only when unpinned
+(`src/interactive.test.tsx:102-132`). `src/textZoom.test.ts` pins the step
+math and the stored value check.
+
+The e2e checks are "The Search button opens the drawer with the focus in the
+search box, and Escape closes it" (`e2e/checks/phase-2-search.mjs:47`), "A
+pinned drawer stays open beside the document after a result opens, and Close
+closes it" (`e2e/checks/phase-2-search.mjs:85`), and "Text size: the buttons
+and Command-plus, Command-minus, and Command-0 change the text, and the size is
+kept" (`e2e/checks/phase-1-reading.mjs:64`). The last one needs
+`realKey(code, mods)`, which since 0.3.0 adds `using {command down}` to the
+System Events key press (`e2e/harness.mjs:47-52`).
 
 ## 5. Junior engineer orientation
 
@@ -1044,12 +1182,14 @@ pans, and closes with Escape" (`e2e/checks/phase-1-reading.mjs:82`) and
 | A set does not open | `load_set` (`src-tauri/src/prdset/load.rs:91-129`) |
 | The wrong start screen | `start_view` (`src-tauri/src/start.rs:22-47`) |
 | An item is missing or has the wrong parent | `walk` and `item_id` (`src-tauri/src/prdset/items.rs:38-97`) |
-| A search result is wrong | `Index::refresh` and `Index::search` (`src-tauri/src/search.rs:90-160`) |
-| A save does not show | `only_new_content` (`src-tauri/src/watch.rs:47-77`) and the listener (`src/App.tsx:90-112`) |
+| A search result is wrong | `Index::refresh` and `Index::search` (`src-tauri/src/search.rs:90-162`) |
+| A save does not show | `only_new_content` (`src-tauri/src/watch.rs:47-77`) and the listener (`src/App.tsx:128-150`) |
 | A body shows wrongly | `renderBody` (`src/renderBody.ts:35-56`), then `cleanForView` (`src/bodyClean.ts:18-19`) |
 | A wireframe sketch shows, or does not show, beside a drawing | The failed-load handler in `SectionPage` (`src/SectionPage.tsx:75-80`) |
 | A diagram is missing or old in an export | `loadImages` (`src/exportRun.ts:36-40`), then `export_image` (`src-tauri/src/prdset/section.rs:103-116`). Compare the times of the `.png` and the `.svg`. |
 | The diagram window zooms wrongly | `zoomAt` and `fitView` (`src/zoom.ts:10-20`) |
+| The search drawer does not open, close, or pin | `SearchDrawer` (`src/SearchDrawer.tsx:8-44`), then the drawer state in `App` (`src/App.tsx:38-54`) |
+| The text size does not change or is not kept | The `zoom` state and the key handler (`src/App.tsx:32-67`), then `nextZoom` (`src/textZoom.ts:5-10`) |
 | An export looks wrong | `buildExport` (`src/exportModel.ts:20-43`), then `markdownToBlocks` (`src/exportBlocks.ts:32-40`) |
 
 ### 5.3 Where common changes go
@@ -1064,6 +1204,8 @@ pans, and closes with Escape" (`e2e/checks/phase-1-reading.mjs:82`) and
 | A new export option | `ExportOptions` (`src/exportModel.ts:18`), the box in `src/ExportDialog.tsx`, and `buildExport` |
 | A color or font | The tokens on `:root` and the dark set (`src/styles.css:9-34`, `src/styles.css:35`). Keep every class name, role, and label that the e2e checks use. |
 | A new search column or weight | `create` and the `bm25()` call, then bump `SCHEMA` (`src-tauri/src/search.rs:8`) |
+| A new text size step | `ZOOM_STEPS` (`src/textZoom.ts:2`), with a test in `src/textZoom.test.ts`. `readZoom` then accepts the new value. |
+| A new Command-key shortcut | The `keydown` handler in `App` (`src/App.tsx:55-67`). Add a real key check with `realKey(code, "command down")`. |
 
 ### 5.4 Risky files
 
@@ -1077,7 +1219,7 @@ pans, and closes with Escape" (`e2e/checks/phase-1-reading.mjs:82`) and
 - `src/bodyClean.ts`: a wrong pattern hides content in the viewer and in
   every export.
 - `src/styles.css`: the e2e checks find elements by class name, and one check
-  measures the diagram height (`e2e/checks/phase-1-reading.mjs:75`).
+  measures the diagram height (`e2e/checks/phase-1-reading.mjs:96`).
 
 ## 6. Gaps and design drift
 
@@ -1097,7 +1239,12 @@ pans, and closes with Escape" (`e2e/checks/phase-1-reading.mjs:82`) and
 - An export of a `pending` section writes "This section is not written yet."
   (`src/exportModel.ts:38`).
 - The search category list is the set of document kinds that hold items, in
-  reading order (`src-tauri/src/search.rs:163-171`).
+  reading order (`src-tauri/src/search.rs:165-173`).
+- The text size and the search drawer pin live in the web view's
+  `localStorage` (`pfv.textZoom`, `pfv.searchPinned`), not in `settings.json`
+  (`src/App.tsx:33`, `src/App.tsx:40`). ADR-004 says settings live in one
+  file. No PRD item names the text size, the drawer, or multi-category
+  search; FR-008 asks for "one category or all".
 - An export can embed an SVG, not a PNG, when the PNG is stale
   (`src-tauri/src/prdset/section.rs:103-116`). `prd_export.py` always embeds
   the PNG. The two exports can differ until `prd-diagrams.mjs` runs again.
@@ -1138,13 +1285,22 @@ pans, and closes with Escape" (`e2e/checks/phase-1-reading.mjs:82`) and
 - `src/interactive.test.tsx` now covers the `DiagramViewer` key map, buttons,
   wheel, and close (section 4.14). Focus return on close and the pinch factor
   are still covered only by the e2e check
-  (`e2e/checks/phase-1-reading.mjs:82`).
+  (`e2e/checks/phase-1-reading.mjs:103`).
 - No test opens a Word file with an SVG in a Word older than 2016, where the
   1 by 1 fallback PNG shows in place of the diagram.
 - No test covers an image inside other text. It is not an `image` block, and
   `inlineRuns` writes its alt text (`src/exportBlocks.ts:57-62`,
   `src/exportBlocks.ts:149-151`).
 
+- No test checks that the sticky document list stays below the header at a
+  large text size. **Assumption.** At 175% and 200% the header is taller
+  than the fixed `top: 64px` of `.doc-nav` (`src/styles.css:149`), so the
+  header can cover the top of the list. The drawer already uses
+  `--header-h`, and the list can use it too.
+- No test covers Command-F when no set is open. The handler sets
+  `searchOpen`, but `App` renders the drawer only with a set
+  (`src/App.tsx:59`, `src/App.tsx:243`). Nothing shows, which is correct, but
+  the state stays `true`, so the drawer opens at once when a set opens.
 - No contract test between the Rust serde output and `src/types.ts`.
 - `the_pdf_is_tagged_for_screen_readers` returns early when Chrome is missing,
   so it can pass with no check (`src-tauri/src/export.rs:187-188`).
