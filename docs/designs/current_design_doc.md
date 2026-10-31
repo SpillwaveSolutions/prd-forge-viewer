@@ -2,17 +2,17 @@
 wiki_key: design/current-design-doc
 doc_type: design
 truth_state: current
-generated_at: 2026-10-31T00:04:20Z
-tag: v0.3.0
-git_hash: 343009469c1f13284093c3503e3a26a543291d75
-branch: docs-0.3.0-design
+generated_at: 2026-10-31T01:01:07Z
+tag: v0.4.0
+git_hash: 61a8643a2b7658e40105aade299de65591b342a7
+branch: docs-0.4.0-design
 roadmap: docs/roadmap.md
 ---
 
 # PRD Forge Viewer design document
 
-This document describes the PRD Forge Viewer as built at tag `v0.3.0`
-(commit `3430094`). Every code claim cites `path:line` at that commit. The PRD
+This document describes the PRD Forge Viewer as built at tag `v0.4.0`
+(commit `61a8643`). Every code claim cites `path:line` at that commit. The PRD
 in `docs/prd/prd-forge-viewer/` is the source of truth for intent. The ADRs in
 `projects/001-prd-forge-viewer/decisions/` are the source of truth for the
 technology choices. Where the code and those documents differ, this document
@@ -34,12 +34,14 @@ developer needs to know before a change.
 product sponsor who need the scope, risks, and dependencies.
 
 **Scope.** Release 1 (REL-001): FR-001 to FR-024 except FR-006, and NFR-001 to
-NFR-010. The code is a Tauri 2 desktop app with a Rust core in `src-tauri/src/`
-and a React UI in `src/`.
+NFR-010. PRD 0.7.0 adds FR-026 (text size), FR-027 (search drawer), and FR-028
+(backlog links) to release 2 (REL-002). Release 0.4.0 of the code builds FR-025
+(grade findings) and FR-028 early, and FR-026 and FR-027 shipped in 0.3.0. The
+code is a Tauri 2 desktop app with a Rust core in `src-tauri/src/` and a React
+UI in `src/`.
 
 **Out of scope.** Editing a PRD set (OUT-001), any OS other than macOS
-(OUT-003), grade findings (FR-025, release 2), and previous and next section
-moves (FR-006, not in release 1).
+(OUT-003), and previous and next section moves (FR-006, not in release 1).
 
 **Related documents.**
 
@@ -49,7 +51,7 @@ moves (FR-006, not in release 1).
 | Functional requirements | `docs/prd/prd-forge-viewer/08-functional-requirements.md` |
 | Non-functional requirements | `docs/prd/prd-forge-viewer/09-nonfunctional-requirements.md` |
 | ADR-001 to ADR-005 | `projects/001-prd-forge-viewer/decisions/` |
-| Plans 1 to 9 | `docs/plans/` |
+| Plans 1 to 10 | `docs/plans/` |
 | Code walkthrough | `docs/designs/current_code_walkthrough.md` |
 
 **Definitions.**
@@ -78,20 +80,26 @@ release: an export never shows an older drawing than the viewer, a wireframe
 sketch comes back when its drawing cannot be read, and a very large diagram
 opens at the minimum zoom. Release 0.3.0 adds a text size control, search in
 more than one category, and a search drawer that slides out from the right and
-can stay pinned beside the document.
+can stay pinned beside the document. Release 0.4.0 shows the findings behind
+the grade of a section (FR-025), reads the backlog next to a set and links each
+requirement to the stories that build it (FR-028), and keeps the text size and
+the drawer pin in the settings file.
 
 **Main workflows.**
 
 1. Open a set from the terminal (`prdf`), the folder picker, or a known
    location.
 2. Read the overview, the grades table, a section, or one item. Open a
-   diagram in the diagram window to zoom and pan.
-3. Search items by term, in the categories the author picks or in all, from
+   diagram in the diagram window to zoom and pan. Open the findings behind a
+   grade.
+3. Read the backlog next to the set, and move between a requirement and the
+   stories that build it.
+4. Search items by term, in the categories the author picks or in all, from
    the search drawer (Command-F).
-6. Make the text larger or smaller with the header buttons or Command-plus,
+5. Make the text larger or smaller with the header buttons or Command-plus,
    Command-minus, and Command-0.
-4. See live changes while the authoring tools write the set.
-5. Export or print the whole set or selected sections with a theme, with
+6. See live changes while the authoring tools write the set.
+7. Export or print the whole set or selected sections with a theme, with
    diagrams as images, and with or without the grades.
 
 **Components.** A React UI in a Tauri web view, a Rust core that reads the set
@@ -121,19 +129,23 @@ only local content (NFR-010).
 | FR-001, FR-003 | Open a set, mark unreadable documents | Set loader | `src-tauri/src/prdset/load.rs:91-129` |
 | FR-002, FR-021, FR-022, FR-024 | Start rules and known locations | Start view, settings | `src-tauri/src/start.rs:22-47` |
 | FR-004 | Grades table | `GradesTable` | `src/GradesTable.tsx:4-37` |
-| FR-005, FR-023 | Section page and item view | Section reader, `SectionPage` | `src-tauri/src/prdset/section.rs:57-73` |
-| FR-007 | Follow an ID reference | Item index, `linkify` | `src-tauri/src/prdset/section.rs:76-84`, `src/SectionPage.tsx:9-17` |
+| FR-005, FR-023 | Section page and item view | Section reader, `SectionPage` | `src-tauri/src/prdset/section.rs:59-75` |
+| FR-007 | Follow an ID reference | Item index, `linkify` | `src-tauri/src/prdset/section.rs:126-134`, `src/SectionPage.tsx:9-17` |
 | FR-008 | Search by term and categories | Search index, `SearchPanel`, `SearchDrawer` | `src-tauri/src/search.rs:139-162`, `src/SearchDrawer.tsx:8-44` |
-| FR-009 | Live changes | Watcher, `set-changed` listener | `src-tauri/src/watch.rs:82-88`, `src/App.tsx:128-150` |
+| FR-009 | Live changes | Watcher, `set-changed` listener | `src-tauri/src/watch.rs:82-88`, `src/App.tsx:162-184` |
 | FR-010, FR-011, FR-012 | PDF, Word, selected sections | Export model and writers | `src/exportRun.ts:60-67` |
 | FR-013 | Print | `runPrint`, `print_page` | `src/exportRun.ts:78-95` |
 | FR-014, FR-019, TR-005 | Version, Draft mark, contents table | Export model | `src/exportModel.ts:20-43` |
-| FR-015 to FR-018, FR-020 | Built-in and custom themes | Themes, settings | `src/themes.ts:161-173`, `src-tauri/src/settings.rs:26-30` |
+| FR-015 to FR-018, FR-020 | Built-in and custom themes | Themes, settings | `src/themes.ts:161-173`, `src-tauri/src/settings.rs:38-42` |
 | FR-021 | `prdf` launcher | Launcher installer | `src-tauri/src/launcher.rs:21-35` |
+| FR-025 | Findings behind a grade | `read_grade`, `useFindings` | `src-tauri/src/prdset/section.rs:150-163`, `src/SectionPage.tsx:71-87` |
+| FR-026 | Text size, kept across starts | `textZoom`, `view_prefs`, `save_view_prefs` | `src/App.tsx:32-51`, `src-tauri/src/settings.rs:28-32` |
+| FR-027 | Search drawer, pin kept across starts | `SearchDrawer`, settings | `src/SearchDrawer.tsx:8-44`, `src/App.tsx:35-51` |
+| FR-028 | Backlog next to the set, story links | `backlog_of`, `story_links`, `App` | `src-tauri/src/prdset/section.rs:90-123`, `src/App.tsx:110-140` |
 | NFR-002 | Change seen within 2 s | Watcher with 1 s poll | `src-tauri/src/watch.rs:80-88` |
 | NFR-003 | Results within 0.5 s | Incremental index refresh | `src-tauri/src/search.rs:90-135` |
 | NFR-007 | Keyboard only | Native `<dialog>` modals | `src/ExportDialog.tsx:31-36` |
-| NFR-008 | Durable settings | Atomic save under one lock | `src-tauri/src/settings.rs:38-56` |
+| NFR-008 | Durable settings | Atomic save under one lock | `src-tauri/src/settings.rs:50-68` |
 | NFR-009 | Accessible exports | Tagged PDF from Chrome | `src-tauri/src/export.rs:65-98` |
 | NFR-010 | Local content only | Sanitizer, path checks, CSP | `src/renderBody.ts:35-56`, `src-tauri/src/prdset/section.rs:35-39` |
 | OUT-001 | Never write to a set | Export path check | `src-tauri/src/export.rs:10-21` |
@@ -210,7 +222,7 @@ flowchart TB
         exp[exportModel, exportBlocks,<br/>exportHtml, exportDocx, exportFonts]
     end
     subgraph core[Rust core, src-tauri/src/]
-        cmd[commands.rs<br/>17 Tauri commands]
+        cmd[commands.rs<br/>22 Tauri commands]
         start[start.rs, locate.rs]
         prd[prdset/<br/>header, load, items, section]
         search[search.rs<br/>FTS5 index]
@@ -260,10 +272,10 @@ There is one process with one window (`main`). The single-instance plugin
 sends a second launch to the open window as a `start` event
 (`src-tauri/src/lib.rs:19-26`). Commands marked `#[tauri::command(async)]` run
 on a worker thread, so a slow folder does not freeze the window
-(`src-tauri/src/commands.rs:26-30`). `watch_set`, `themes`, `save_themes`, and
-`print_page` are sync commands. They run on the main thread in call order. For
+(`src-tauri/src/commands.rs:26-30`). `watch_set`, `themes`, `save_themes`,
+`view_prefs`, `save_view_prefs`, and `print_page` are sync commands. They run on the main thread in call order. For
 `watch_set`, the code depends on that order, so the last set opened is the one
-watched (`src-tauri/src/commands.rs:149-164`).
+watched (`src-tauri/src/commands.rs:180-195`).
 
 Shared state lives in three Tauri managed values (`src-tauri/src/lib.rs:28-30`):
 
@@ -339,7 +351,7 @@ that the Rust core checks.
 
 **Error handling strategy.** Commands return `Result<T, String>`. The string is
 a sentence for the author, and the UI shows it in a `role="alert"` paragraph
-(`src/App.tsx:242`). Derived data (the index) is rebuilt on any failure.
+(`src/App.tsx:276`). Derived data (the index) is rebuilt on any failure.
 Settings fall back to empty on a broken file.
 
 ## 7. Component inventory
@@ -352,7 +364,7 @@ Settings fall back to empty on a broken file.
 | `search.rs` | Rust module | Index and rank items | Set folder, term | `Hit` list | SQLite index | The index is rebuilt once, then the error shows. |
 | `watch.rs` | Rust module | Report changed documents | Set folder | file names | none | "Live updates are off" shows. |
 | `export.rs` | Rust module | Check export paths, write files, run Chrome | Path, bytes or HTML | File | export file, app cache | The export fails, an earlier file stays. |
-| `settings.rs` | Rust module | Known locations, last set, themes | Changes | `settings.json` | settings | Empty settings. The viewer still starts. |
+| `settings.rs` | Rust module | Known locations, last set, themes, text size, drawer pin | Changes | `settings.json` | settings | Empty settings. The viewer still starts. |
 | `launcher.rs` | Rust module | Write `~/.local/bin/prdf` | Folder | Path | `prdf` | A foreign `prdf` is kept, with a message. |
 | `App.tsx` | React component | App state, IPC, event listeners | Events, clicks | Views | none | Window-level. |
 | `renderBody.ts` | TS module | Markdown to safe HTML | Body | HTML string | none | Fails closed to plain text. |
@@ -360,7 +372,7 @@ Settings fall back to empty on a broken file.
 | `DiagramViewer.tsx`, `zoom.ts` | React component, TS module | Show one diagram with zoom and pan | Image `src` and alt text | Dialog | none | The diagram stays in the page at its fitted size. |
 | `SearchDrawer.tsx` | React component | Hold the search panel in a drawer at the right, pinned or not | Open and pinned flags | `aside#search-drawer` | none | Search is not reachable. |
 | `SearchPanel.tsx` | React component | Term box, category checkboxes, results | Categories, term | `search` call, `Hit` list | none | The error shows in the panel. |
-| `textZoom.ts` | TS module | The text size steps, and the stored size check | Size, direction | Next size | `localStorage` key `pfv.textZoom` (read by `App`) | The text stays at 100%. |
+| `textZoom.ts` | TS module | The text size steps, and the stored size check | Size, direction | Next size | none (`App` keeps the size in `settings.json`) | The text stays at 100%. |
 | Export pipeline | TS modules | Build and render the export | Set, sections, theme | HTML or Word bytes | none | The dialog shows "Not done". |
 
 ## 8. End-to-end workflows
@@ -374,13 +386,13 @@ Settings fall back to empty on a broken file.
 
 1. `run()` stores the first launch argument in `StartArg`
    (`src-tauri/src/lib.rs:16`, `src-tauri/src/lib.rs:28`).
-2. On mount, the UI calls `startup` (`src/App.tsx:154`).
+2. On mount, the UI calls `startup` (`src/App.tsx:188`).
 3. `start_view` decides the view (section 9.1).
 4. For `open`, the UI calls `open_set`. `open_and_remember` canonicalizes the
    folder, loads the set, and only on success records it in the settings
    (`src-tauri/src/commands.rs:16-24`).
 5. A new `set.folder` triggers the effect that starts the watcher and loads the
-   item index and the search categories (`src/App.tsx:81-92`).
+   item index and the search categories (`src/App.tsx:99-121`).
 
 **Failure flows.** A folder with no `prd.md` gives `No PRD set in <folder>`
 (`src-tauri/src/prdset/load.rs:53`). A failed settings save prints to stderr
@@ -436,30 +448,95 @@ flowchart TD
 **Second launch.** `prdf` uses `open -n`, which starts a new process. The
 single-instance plugin hands its argument to the first process, which computes
 a new `StartView` and emits it as `start` (`src-tauri/src/lib.rs:19-26`). The
-UI handles it with the same `showStart` function (`src/App.tsx:155`).
+UI handles it with the same `showStart` function (`src/App.tsx:189`).
 
 ### 8.2 Read a section and follow a reference
 
-1. The author clicks a document. `openDoc` calls `read_section`
-   (`src/App.tsx:94-102`).
+1. The author clicks a document. `openDoc` calls `read_section` on the set
+   folder, or on the backlog folder when the call passes one
+   (`src/App.tsx:123-131`).
 2. `read_section` refuses any file that the root does not list, then reads it
-   through the `inside` path check (`src-tauri/src/prdset/section.rs:57-73`).
+   through the `inside` path check (`src-tauri/src/prdset/section.rs:59-75`).
 3. `SectionPage` renders the body once per section with `useMemo`, then loads
-   each `img[data-asset]` through `read_asset` (`src/SectionPage.tsx:69-90`).
+   each `img[data-asset]` through `read_asset` (`src/SectionPage.tsx:99-120`).
    Before Marked runs, `cleanForView` removes the details block and wraps each
    wireframe sketch that a drawing follows in a hidden `div[data-sketch]`
    (`src/renderBody.ts:52`). When a drawing fails to load, `SectionPage`
    removes `hidden` from the sketch just before it and shows
-   `[image not found: ...]` in place of the image (`src/SectionPage.tsx:75-80`).
+   `[image not found: ...]` in place of the image (`src/SectionPage.tsx:105-110`).
    Each local image renders as a `button.diagram` with its alt text as a
    caption (`src/renderBody.ts:13-17`).
 4. An item button shows `ItemView`. Each known ID in a field is a button
    (`src/SectionPage.tsx:9-17`).
-5. A click on an ID finds the file in the item index and opens it with that
-   item selected (`src/App.tsx:103-106`).
+5. A click on an ID finds the file in the item index of the set and opens it
+   with that item selected. When the set index does not have the ID, `openItem`
+   looks in the backlog index and opens the story in the backlog folder
+   (`src/App.tsx:132-137`).
 6. A click on a diagram opens `DiagramViewer` with the image `src`, which is
-   already a `data:` URL, and its alt text (`src/SectionPage.tsx:85-86`,
-   `src/SectionPage.tsx:113`). Section 8.6 describes the window.
+   already a `data:` URL, and its alt text (`src/SectionPage.tsx:115-116`,
+   `src/SectionPage.tsx:144`). Section 8.6 describes the window.
+
+### 8.2a Show the findings behind a grade (FR-025)
+
+1. For a document of the PRD set, `App` passes `loadFindings`, which calls
+   `read_grade` with the section file. A backlog page gets no `loadFindings`,
+   so it has no **Findings** button (`src/App.tsx:298`).
+2. `useFindings` puts a **Findings** button after the grade text. A click
+   loads the note, renders it with the same `renderBody` sanitizer as a
+   section body, and shows it in `section#findings`. A second click closes it
+   (`src/SectionPage.tsx:71-87`, `src/SectionPage.tsx:129-132`).
+3. `read_grade` refuses a name with a `/` or without `.md`, resolves
+   `grades/<file>` through the `inside` path check, and returns the body
+   without its front matter. A missing note is `None`, and the panel says "No
+   findings are recorded for this section"
+   (`src-tauri/src/prdset/section.rs:150-163`).
+4. Another section closes the panel (`src/SectionPage.tsx:95-96`).
+
+### 8.2b Move between a requirement and its stories (FR-028)
+
+1. When a set opens, `App` calls `backlog`. `backlog_of` looks for a sibling
+   folder `<set>-backlog` with a `backlog.md`, and lists its documents
+   (`src/App.tsx:110-120`, `src-tauri/src/prdset/section.rs:90-102`).
+2. With a backlog, `App` loads its item index and calls `story_links`
+   (`src/App.tsx:117-118`). `story_links` reads the `requirements` field of
+   each backlog item and keeps each word that looks like an ID, 1 to 4
+   capitals, a hyphen, and 3 digits. It splits and tests the text by hand,
+   with no regex crate (`src-tauri/src/prdset/section.rs:111-123`).
+3. `App` inverts the links into `builtBy`, a map from a requirement ID to the
+   stories that build it. `known` holds the IDs of both indexes, so a story ID
+   in a field is a button (`src/App.tsx:138-142`).
+4. `ItemView` shows a **built by** row above the fields when the map has
+   stories for the item (`src/SectionPage.tsx:34-39`).
+5. The overview lists the backlog documents in a **Backlog** section, and the
+   document list on a section page has a **Backlog** group
+   (`src/App.tsx:306-311`, `src/App.tsx:317-326`). A backlog page sets
+   `page.folder`, which turns off the change notice, the findings, and the
+   live reload of that page (`src/App.tsx:175`, `src/App.tsx:298-299`).
+
+```mermaid
+---
+title: Move from FR-005 to the story that builds it
+---
+sequenceDiagram
+    participant A as Author
+    participant App as App.tsx
+    participant R as Rust commands
+    participant SP as SectionPage
+    App->>R: backlog(set folder)
+    R-->>App: Backlog {folder, documents} or null
+    App->>R: item_index(backlog folder)
+    App->>R: story_links(backlog folder)
+    R-->>App: [{id: US-008, requirements: [FR-005]}]
+    App->>App: builtBy FR-005 = [US-008]
+    A->>SP: select FR-005
+    SP-->>A: built by US-008
+    A->>SP: click US-008
+    SP->>App: onOpenItem("US-008")
+    App->>App: not in set index, found in backlog index
+    App->>R: read_section(backlog folder, 03-stories.md)
+    R-->>App: Section
+    App->>SP: page with folder = backlog folder
+```
 
 ```mermaid
 ---
@@ -500,7 +577,10 @@ flowchart TD
 ### 8.3 search
 
 1. The author opens the search drawer with the **Search** button next to
-   **Export**, or with Command-F (`src/App.tsx:203-205`, `src/App.tsx:59`).
+   **Export**, or with Command-F (`src/App.tsx:237-239`, `src/App.tsx:68-72`).
+   Both need an open set. With no set, the button is not shown and Command-F
+   does nothing. The key handler reads the `hasSet` ref, because it is bound
+   once for the life of the window (`src/App.tsx:53-54`).
    The drawer puts the focus in the search box (`src/SearchDrawer.tsx:18-20`).
 2. `SearchPanel` submits the term and the list of picked category kinds. An
    empty list means all categories (`src/SearchPanel.tsx:30-34`,
@@ -513,7 +593,7 @@ flowchart TD
    with `bm25(items, 50.0, 10.0, 1.0)` and scales scores so the best hit is 100
    (`src-tauri/src/search.rs:139-162`).
 5. A click on a hit opens its section with the item selected. An unpinned
-   drawer closes. A pinned drawer stays open (`src/App.tsx:249`).
+   drawer closes. A pinned drawer stays open (`src/App.tsx:283`).
 
 ```mermaid
 ---
@@ -560,15 +640,17 @@ flowchart TD
 ### 8.4 Live changes
 
 1. `watch_set` drops the old watcher and starts a `SetWatcher` on the new
-   folder (`src-tauri/src/commands.rs:152-164`).
+   folder (`src-tauri/src/commands.rs:183-195`).
 2. The watcher passes on a top-level `.md` file only when its content hash
    differs from the last one passed on (`src-tauri/src/watch.rs:47-77`).
 3. Rust emits `set-changed` with the folder and the file names
-   (`src-tauri/src/commands.rs:159-161`).
+   (`src-tauri/src/commands.rs:190-192`).
 4. The UI listener marks the files as changed, reloads the set and the item
    index, and reloads the open section if it changed
-   (`src/App.tsx:128-150`). A sequence number drops stale replies
-   (`src/App.tsx:133-135`).
+   (`src/App.tsx:162-184`). A sequence number drops stale replies
+   (`src/App.tsx:167-169`). The watcher covers only the set folder. An open
+   backlog page is never reloaded, and the backlog index and story links are
+   read only when the set opens (`src/App.tsx:175`).
 
 ```mermaid
 ---
@@ -705,7 +787,7 @@ flowchart TD
 
 1. `SectionPage` keeps the open diagram in state. A click inside a
    `[data-diagram]` button sets it to the image `src` and alt text
-   (`src/SectionPage.tsx:67`, `src/SectionPage.tsx:85-86`).
+   (`src/SectionPage.tsx:97`, `src/SectionPage.tsx:115-116`).
 2. `DiagramViewer` opens a native modal `<dialog>` and moves focus to the
    stage. On close, focus goes back to the element that had it
    (`src/DiagramViewer.tsx:15-20`).
@@ -724,7 +806,7 @@ flowchart TD
 
 The view is one CSS `transform` on the image: `translate(x, y)
 scale(scale)` with the origin at the top left (`src/DiagramViewer.tsx:69-70`,
-`src/styles.css:209`). No library is used.
+`src/styles.css:219`). No library is used.
 
 ```mermaid
 ---
@@ -743,24 +825,36 @@ stateDiagram-v2
 
 ### 8.7 Change the text size and use the search drawer
 
-1. On start, `App` reads `pfv.textZoom` from `localStorage` through
-   `readZoom`. A value that is not one of the steps gives 1
-   (`src/App.tsx:33`, `src/textZoom.ts:13-16`).
-2. Each size change sets the root font size to `15 * zoom` px and stores the
-   size again. The page sizes text and the document list in `rem`, so one
-   root value scales them (`src/App.tsx:34-37`, `src/styles.css:148`).
-3. The header **A−**, percent, and **A+** buttons, and Command-minus,
+1. On start, `App` uses size 1 and an unpinned drawer, then calls
+   `view_prefs`. The command returns `text_zoom` (1 when absent) and
+   `search_pinned` from `settings.json`. `readZoom` turns a value that is not
+   one of the steps into 1 (`src/App.tsx:33-48`,
+   `src-tauri/src/commands.rs:135-140`, `src/textZoom.ts:13-16`).
+2. Each size change sets the root font size to `15 * zoom` px. The page sizes
+   text and the document list in `rem`, so one root value scales them
+   (`src/App.tsx:34`, `src/styles.css:148`).
+3. An effect on `zoom` and `searchPinned` calls `save_view_prefs`, but only
+   after the `prefsRead` ref is true. A start therefore never overwrites the
+   stored values with the defaults. A failed read also sets the ref, so the
+   session still saves (`src/App.tsx:39-51`).
+4. `save_view_prefs` goes through `update_settings`, the same locked atomic
+   save as the themes and the known locations. `set_view` keeps a size only
+   in the range 0.5 to 3.0, and stores none outside it
+   (`src-tauri/src/commands.rs:142-146`, `src-tauri/src/settings.rs:28-32`).
+5. The header **A−**, percent, and **A+** buttons, and Command-minus,
    Command-0, and Command-plus (`=` or `+`), call `nextZoom`. The steps are
    0.8 to 2. The step buttons are disabled at the ends
-   (`src/App.tsx:55-67`, `src/App.tsx:208-212`, `src/textZoom.ts:2-10`).
-4. The drawer is fixed at the right, below the header. A `ResizeObserver` on
+   (`src/App.tsx:64-80`, `src/App.tsx:242-246`, `src/textZoom.ts:2-10`).
+6. The drawer is fixed at the right, below the header. A `ResizeObserver` on
    the header writes its height to `--header-h`, because the header height
-   changes with the text size and the window width (`src/App.tsx:46-54`,
-   `src/styles.css:212-220`).
-5. When the drawer is open and pinned, `main` gets the `with-drawer` class and
+   changes with the text size and the window width (`src/App.tsx:55-63`,
+   `src/styles.css:222-230`). The sticky document list uses the same
+   variable for its `top` and `max-height`, so a tall header does not cover
+   it (`src/styles.css:149`).
+7. When the drawer is open and pinned, `main` gets the `with-drawer` class and
    pads its right side by the drawer width, so the document stays readable
-   beside it (`src/App.tsx:186`, `src/styles.css:228`). The pin is stored in
-   `pfv.searchPinned` (`src/App.tsx:38-45`).
+   beside it (`src/App.tsx:220`, `src/styles.css:238`). The pin is kept in
+   `search_pinned` in `settings.json` (`src/App.tsx:36-38`).
 6. A closed drawer is `inert` and stays mounted, so the last results are still
    there when it opens again (`src/SearchDrawer.tsx:32-33`).
 
@@ -893,7 +987,7 @@ matches `prd_export.py`, which keeps the sketch when the drawing file is
 missing. The export passes `hasDrawing` from the image map
 (`src/exportRun.ts:55`). The viewer cannot know in advance, so it renders the
 sketch hidden and shows it when the image fails to load
-(`src/SectionPage.tsx:75-80`). `src/interactive.test.tsx:63-75` covers the
+(`src/SectionPage.tsx:105-110`). `src/interactive.test.tsx:63-75` covers the
 viewer case.
 
 ### 9.7 Images in exports
@@ -901,8 +995,8 @@ viewer case.
 | Rule | Code |
 |------|------|
 | A paragraph that holds only one image, with blank text around it, becomes an `image` block. An image inside other text is not a block, and exports as its alt text. | `src/exportBlocks.ts:57-62`, `src/exportBlocks.ts:149-151` |
-| `loadImages` collects each image path with no URL scheme, passes it to the `asset` dependency unchanged (less a leading `./`), and drops any path that fails. In the app, `asset` calls `export_image`. | `src/exportRun.ts:36-40`, `src/App.tsx:173` |
-| `export_image` reads the `.png` next to an `.svg`, as `prd_export.py` embeds. It reads the `.svg` itself when the PNG is missing or older than the SVG by more than 2 s. The slack covers a git checkout, which writes the pair in any order. Both reads go through `read_asset`, so the `inside` path check and the extension allow list apply. | `src-tauri/src/prdset/section.rs:103-116` |
+| `loadImages` collects each image path with no URL scheme, passes it to the `asset` dependency unchanged (less a leading `./`), and drops any path that fails. In the app, `asset` calls `export_image`. | `src/exportRun.ts:36-40`, `src/App.tsx:207` |
+| `export_image` reads the `.png` next to an `.svg`, as `prd_export.py` embeds. It reads the `.svg` itself when the PNG is missing or older than the SVG by more than 2 s. The slack covers a git checkout, which writes the pair in any order. Both reads go through `read_asset`, so the `inside` path check and the extension allow list apply. | `src-tauri/src/prdset/section.rs:168-181` |
 | HTML draws a `figure.diagram` with a caption only when the map value starts with `data:image/`. Otherwise it writes the alt text, so nothing outside the set loads (NFR-010). | `src/exportHtml.ts:75-79` |
 | A diagram in the HTML is at most the page width and 215 mm high, and does not break across pages. | `src/exportHtml.ts:50-52` |
 | Word embeds a `data:image/png` or a `data:image/svg+xml` value. For a PNG, it reads the size from the `IHDR` chunk. For an SVG, `svgSize` reads the `viewBox`, or else `width` and `height`, or else 576 by 432. Either way it scales down, never up, to fit 6.0 by 8.0 inches at 96 pixels an inch. The alt text is the caption and the alt text of the image. | `src/exportDocx.ts:66-109` |
@@ -963,6 +1057,18 @@ classDiagram
         category: String
         score: u8
     }
+    class Backlog {
+        folder: String
+        documents: BacklogDoc[]
+    }
+    class BacklogDoc {
+        file, title
+    }
+    class StoryLink {
+        id: String
+        requirements: String[]
+    }
+    Backlog "1" *-- "many" BacklogDoc
     PrdSet "1" *-- "many" DocEntry
     PrdSet "1" *-- "many" SummaryItem
     DocEntry "1" o-- "0..1" Grade
@@ -977,7 +1083,8 @@ classDiagram
 | `Section`, `ItemRef` | `src-tauri/src/prdset/section.rs:9-31` | Body is the Markdown after the front matter. |
 | `Item`, `Field` | `src-tauri/src/prdset/items.rs:6-19` | Fields keep document order. |
 | `Hit`, `Category` | `src-tauri/src/search.rs:11-27` | `Hit.section` holds the document title, not the section number. |
-| `Settings` | `src-tauri/src/settings.rs:9-20` | Every field has `#[serde(default)]`. |
+| `Backlog`, `BacklogDoc`, `StoryLink` | `src-tauri/src/prdset/section.rs:77-109` | `Backlog.folder` is the absolute path of the sibling `<set>-backlog` folder. `StoryLink` holds only stories that name at least one ID. |
+| `Settings` | `src-tauri/src/settings.rs:9-26` | Every field has `#[serde(default)]`. `text_zoom` is `Option<f64>`, and `search_pinned` is `bool`. |
 | `ExportTheme` | `src/themes.ts:9-29` | 13 colors and 2 fonts. |
 
 **Invariant.** `src/types.ts` mirrors the Rust types by hand, with
@@ -1021,18 +1128,18 @@ only on the standard library and their crates.
 | `prdset::header` | `split_front_matter`, `parse_header` | `None` or YAML error text | BOM, CRLF, bad YAML (`src-tauri/src/prdset/header.rs:66-115`) |
 | `prdset::load` | `load_set` | `LoadError::NoRoot`, `UnreadableRoot` | `src-tauri/tests/load_set.rs` |
 | `prdset::items` | `items_of` | none, bad YAML gives `[]` | Real PRD files (`src-tauri/src/prdset/items.rs:115-163`) |
-| `prdset::section` | `read_section`, `item_index`, `read_asset`, `export_image`, crate-only `inside`, `read`, `listed` | Sentences for the author | Path escape tests (`src-tauri/src/prdset/section.rs:172-217`) |
+| `prdset::section` | `read_section`, `item_index`, `read_asset`, `read_grade`, `backlog_of`, `story_links`, `export_image`, crate-only `inside`, `read`, `listed` | Sentences for the author | Path escape tests (`src-tauri/src/prdset/section.rs:237-321`) |
 | `search` | `Index`, `SearchState`, `index_path` | Rebuild once, then the error | 16 tests (`src-tauri/src/search.rs:210-385`) |
 | `watch` | `SetWatcher::start`, `start_polling` | Start error text | 7 timing tests (`src-tauri/src/watch.rs:101-191`) |
 | `export` | `outside_set`, `write_export`, `export_pdf`, `find_chrome`, `chrome_candidates` | Sentences for the author | 11 tests (`src-tauri/src/export.rs:110-209`) |
-| `settings` | `load_settings`, `save_settings`, `update_settings`, `remember`, `set_themes` | `io::Result` | `src-tauri/src/settings.rs:70-162` |
+| `settings` | `load_settings`, `save_settings`, `update_settings`, `remember`, `set_themes`, `set_view` | `io::Result` | `src-tauri/src/settings.rs:82-190` |
 | `launcher` | `launcher_script`, `install_launcher`, `MARKER` | Refuses a foreign `prdf` | `src-tauri/src/launcher.rs:37-113` |
 | `start`, `locate` | `start_view`, `find_sets`, `set_ref` | none | `src-tauri/tests/start.rs` |
 
 **Coupling notes.**
 
 - The list of built-in theme IDs exists twice: `BUILTIN_THEMES` in
-  `src-tauri/src/settings.rs:22` and in `src/themes.ts:72`. A new built-in
+  `src-tauri/src/settings.rs:34` and in `src/themes.ts:72`. A new built-in
   theme needs both.
 - The custom theme limit of 24 exists twice: `src/themes.ts:170` and
   `MAX_CUSTOM` in `src/ThemeDialog.tsx:20`.
@@ -1103,26 +1210,38 @@ Bun with no Tauri runtime.
 
 - **`update_settings(path, change)`.** Load, change, and save under one static
   mutex, so a theme save and a set open never lose each other's change
-  (`src-tauri/src/settings.rs:50-56`).
+  (`src-tauri/src/settings.rs:62-68`).
 - **`save_settings`.** Writes `settings.json.<pid>.<n>.tmp`, then renames
-  (`src-tauri/src/settings.rs:38-46`).
+  (`src-tauri/src/settings.rs:50-58`).
 - **`remember(s, folder)`.** Trims a trailing slash, moves the folder to the
-  front of `known`, and sets `last` (`src-tauri/src/settings.rs:59-68`).
+  front of `known`, and sets `last` (`src-tauri/src/settings.rs:71-80`).
 - **`set_themes`.** Drops any theme with a built-in ID and any selection that
-  names no theme (`src-tauri/src/settings.rs:26-30`).
+  names no theme (`src-tauri/src/settings.rs:38-42`).
+- **`set_view(s, text_zoom, search_pinned)`.** Stores the pin, and stores the
+  text size only when it is in 0.5 to 3.0. Outside that range it stores none,
+  which reads back as 1 (`src-tauri/src/settings.rs:28-32`).
 
 ### 13.5 `App` (react)
 
-- **State.** The open set, the page, the item index, categories, changed
-  files, themes, dialogs, and messages (`src/App.tsx:28-75`).
+- **State.** The open set, the page, the item index, the backlog, its index,
+  the story links, categories, changed files, themes, dialogs, and messages
+  (`src/App.tsx:28-96`). The page has an optional `folder`, set only for a
+  backlog document (`src/App.tsx:85-86`).
 - **Refs.** `current` gives the window-lifetime `set-changed` listener the
-  latest set and page (`src/App.tsx:77-78`).
-- **Effects.** Per set: watch, index, categories (`src/App.tsx:81-92`). Once:
-  live listener (`src/App.tsx:128-150`), and themes, startup, and `start`
-  listener (`src/App.tsx:152-159`).
+  latest set and page (`src/App.tsx:94-96`). `hasSet` gives the window-lifetime
+  key handler the open set (`src/App.tsx:53-54`). `prefsRead` holds back the
+  first save of the view settings (`src/App.tsx:41`).
+- **Effects.** Per set: watch, index, categories, backlog, backlog index, and
+  story links (`src/App.tsx:99-121`). Once: view settings read
+  (`src/App.tsx:42-48`), live listener (`src/App.tsx:162-184`), and themes,
+  startup, and `start` listener (`src/App.tsx:186-193`). On each size or pin
+  change: `save_view_prefs` (`src/App.tsx:49-51`).
+- **Derived values.** `builtBy` maps a requirement ID to the stories that build
+  it, and `known` holds the IDs of the set and the backlog
+  (`src/App.tsx:138-142`).
 - **Text size and drawer.** The `zoom`, `searchOpen`, and `searchPinned`
   state, the `--header-h` observer, and the Command-key handler for F, plus,
-  minus, and 0 (`src/App.tsx:32-67`). The Command-key handler ignores a key
+  minus, and 0 (`src/App.tsx:32-80`). The Command-key handler ignores a key
   with Option or Control.
 
 ### 13.6 `renderBody`
@@ -1168,16 +1287,20 @@ Bun with no Tauri runtime.
   with `@font-face` from `public/fonts` (`src/styles.css:2-6`).
 - The document list shows status as a colored left border, from the
   `data-status` attribute that `App.tsx` sets on each link
-  (`src/styles.css:154-156`, `src/App.tsx:265`).
+  (`src/styles.css:154-156`, `src/App.tsx:302`). A backlog link has a plain
+  rule border and sits under a **Backlog** group heading
+  (`src/styles.css:158-159`).
+- The **Findings** panel has a draft-colored left rule and smaller headings
+  (`src/styles.css:170-173`).
 - A diagram in a body is at most 60% of the window height, with
-  `object-fit: contain` (`src/styles.css:194`).
+  `object-fit: contain` (`src/styles.css:204`).
 - The text size group sits at the right of the header as one segmented
   control (`src/styles.css:71-74`).
 - The search drawer slides in over 180 ms, is `min(26rem, 92vw)` wide, and
   drops its shadow when pinned. Reduced motion turns the slide off
-  (`src/styles.css:212-228`, `src/styles.css:273`).
+  (`src/styles.css:222-238`, `src/styles.css:283`).
 - Category checkboxes show as chips. A checked chip uses the accent wash
-  (`src/styles.css:233-238`).
+  (`src/styles.css:243-248`).
 - The document list column is `16rem`, not `240px`, so it grows with the text
   size (`src/styles.css:148`).
 
@@ -1199,7 +1322,7 @@ Bun with no Tauri runtime.
 ## 14. API design
 
 The API is the set of Tauri commands registered in
-`src-tauri/src/lib.rs:42-47`. All take named JSON arguments and return JSON or
+`src-tauri/src/lib.rs:42-49`. All take named JSON arguments and return JSON or
 an error string.
 
 | Command | Args | Returns | Async | Writes |
@@ -1211,6 +1334,9 @@ an error string.
 | `item_index` | `folder` | `ItemRef[]` | yes | none |
 | `read_asset` | `folder`, `rel` | data URL | yes | none |
 | `export_image` | `folder`, `rel` | data URL of the PNG, or of the SVG when the PNG is older | yes | none |
+| `read_grade` | `folder`, `file` | Markdown body of `grades/<file>`, or null | yes | none |
+| `backlog` | `folder` (the set) | `Backlog` or null | yes | none |
+| `story_links` | `folder` (the backlog) | `StoryLink[]` | yes | none |
 | `search` | `folder`, `term`, `categories` (string array, empty for all) | `Hit[]` | yes | index |
 | `categories` | `folder` | `Category[]` | yes | index |
 | `watch_set` | `folder` or null | none | no | none |
@@ -1218,6 +1344,8 @@ an error string.
 | `install_prdf` | none | message | yes | `~/.local/bin/prdf` |
 | `themes` | none | `{themes, selected}` | no | none |
 | `save_themes` | `themes`, `selected` | none | no | settings |
+| `view_prefs` | none | `{textZoom, searchPinned}` | no | none |
+| `save_view_prefs` | `textZoom`, `searchPinned` | none | no | settings |
 | `write_export` | `folder`, `path`, `data` (base64) | none | yes | export file |
 | `export_pdf` | `folder`, `path`, `html` | none | yes | export file, app cache |
 | `print_page` | none | none | no | none |
@@ -1227,10 +1355,10 @@ an error string.
 | Event | Payload | Emitted by |
 |-------|---------|------------|
 | `start` | `StartView` | Second launch (`src-tauri/src/lib.rs:22`) |
-| `set-changed` | `{folder, files}` | Watcher (`src-tauri/src/commands.rs:160`) |
+| `set-changed` | `{folder, files}` | Watcher (`src-tauri/src/commands.rs:191`) |
 
-**Note.** `read_section`, `item_index`, `read_asset`, `export_image`, `search`, and
-`reload_set` take the folder from the UI and do not check it against the known
+**Note.** `read_section`, `item_index`, `read_asset`, `export_image`,
+`read_grade`, `backlog`, `story_links`, `search`, and `reload_set` take the folder from the UI and do not check it against the known
 sets. The path checks keep every read inside that folder, but the folder can
 be any folder that the web view names. **Assumption.** This is acceptable
 because only the app's own bundled UI can call commands.
@@ -1284,14 +1412,16 @@ table are both tested (`src-tauri/src/search.rs:300-308`,
 `src-tauri/src/search.rs:353-365`).
 
 **Settings file.** The other persistent store is `settings.json`, a single
-JSON object (`src-tauri/src/settings.rs:9-20`). Example:
+JSON object (`src-tauri/src/settings.rs:9-26`). Example:
 
 ```json
 {
   "known": ["/Users/me/project/docs/prd/prd-forge-viewer"],
   "last": "/Users/me/project/docs/prd/prd-forge-viewer",
   "themes": [{ "id": "acme", "name": "Acme", "accent": "#123456" }],
-  "export_theme": "acme"
+  "export_theme": "acme",
+  "text_zoom": 1.3,
+  "search_pinned": true
 }
 ```
 
@@ -1308,7 +1438,7 @@ There is no cache service. Two in-memory caches exist:
 
 The only events are the Tauri `start` and `set-changed` events (section 14).
 Delivery is in-process and best effort. The UI handles ordering with a
-sequence number and a stale check (`src/App.tsx:129-135`). There is no queue,
+sequence number and a stale check (`src/App.tsx:163-169`). There is no queue,
 retry, or dead-letter path. A missed event is covered by the next save or by
 the 1 s poll.
 
@@ -1344,8 +1474,10 @@ flowchart LR
 | Remote image or link | `renderBody` | Rewritten to text. `img-src 'self' data:`. | Low |
 | Remote image in an export | `loadImages`, `renderBlock` | Paths with a URL scheme are not loaded. HTML draws only a `data:image/` value (`src/exportRun.ts:37`, `src/exportHtml.ts:75-79`) | Low |
 | `../` or symlink in a child path | `section::inside` | Canonical path must start with the set root (`src-tauri/src/prdset/section.rs:35-39`) | Low |
-| Image read of a non-image file | `read_asset` | Extension allow list: svg, png, jpg, gif (`src-tauri/src/prdset/section.rs:89-95`) | An SVG is loaded as a data URL in an `img`, where scripts do not run. |
-| Export overwrites a set file | `outside_set` | Refuses the open set, every known set, and the last set (`src-tauri/src/commands.rs:126-129`) | A set never opened is not known. |
+| Grade note read outside `grades/` | `read_grade` | Refuses a name with `/` or without `.md`, then the `inside` check on `grades/<file>`. The note renders through the same `renderBody` sanitizer as a body (`src-tauri/src/prdset/section.rs:152-163`, `src/SectionPage.tsx:78`) | Low |
+| Backlog read outside its folder | `backlog_of`, `read_section` | Only the sibling `<set>-backlog` with a `backlog.md`. Its documents go through `listed` and `inside` like a set (`src-tauri/src/prdset/section.rs:91-102`) | Low |
+| Image read of a non-image file | `read_asset` | Extension allow list: svg, png, jpg, gif (`src-tauri/src/prdset/section.rs:139-145`) | An SVG is loaded as a data URL in an `img`, where scripts do not run. |
+| Export overwrites a set file | `outside_set` | Refuses the open set, every known set, and the last set (`src-tauri/src/commands.rs:157-160`) | A set never opened is not known. The backlog folder is not a known set, so an export can save a `.pdf` or `.docx` there. It cannot replace a `.md` file. |
 | Export through a symlink or hard link | `replace` | Temp file and rename (`src-tauri/src/export.rs:32-39`) | Low |
 | Chrome fetches remote content | `export_pdf` | Dead proxy, no background networking (`src-tauri/src/export.rs:74-75`) | Low |
 | `prdf` replaces another tool | `install_launcher` | Marker line required. A symlink, binary, or foreign script is kept (`src-tauri/src/launcher.rs:24-30`) | Low |
@@ -1362,6 +1494,9 @@ There is no authentication, no secret, and no network service.
 | Input data | Bad root `prd.md` | `The root document prd.md cannot be read: ...` |
 | Derived data | Broken index | Delete, rebuild, retry once. |
 | Local config | Broken `settings.json` | Empty settings. The viewer starts. |
+| Local config | `view_prefs` fails, or a stored size is not a step | Size 1 and an unpinned drawer. Saves still run for the session. |
+| Input data | No grade note for a section | The **Findings** panel says that no findings are recorded. |
+| Input data | No backlog next to the set | No **Backlog** section, nav group, or **built by** row. |
 | External tool | Chrome missing or slow | Clear message. 60 s limit. Earlier file kept. |
 | Event source | OS events stop | The 1 s poll still runs. |
 
@@ -1400,7 +1535,7 @@ The e2e checks save a screenshot per check to `e2e/shots/`
 | Window size, CSP, bundle | `src-tauri/tauri.conf.json` | 1200 x 800, minimum 720 x 480 |
 | Test build overrides | `src-tauri/tauri.mcp.conf.json` | Adds `withGlobalTauri`, loosens `script-src` for the bridge |
 | E2E hooks | `__PFV_E2E__` define in `scripts/build.ts:17` | `false` in a release build |
-| User settings | `settings.json` in the app config folder | Empty |
+| User settings | `settings.json` in the app config folder: known locations, last set, custom themes, export theme, `text_zoom`, `search_pinned` | Empty |
 
 There are no secrets.
 
@@ -1415,10 +1550,10 @@ There are no secrets.
   lists the sizes that the bundle uses. Edit the SVG, not the PNG files.
 - **Install.** The author copies the app to `/Applications` and selects
   **Install prdf command**, which writes `~/.local/bin/prdf` after a confirm
-  dialog (`src/App.tsx:180-183`).
+  dialog (`src/App.tsx:214-217`).
 - **Rollback.** Install the earlier `.app`. The settings file format is
   backward compatible: a plan 2 file with no themes loads
-  (`src-tauri/src/settings.rs:120-129`).
+  (`src-tauri/src/settings.rs:132-141`).
 
 There is no CI pipeline in the repository at this tag. **Open question.**
 Should the unit tests and the e2e checks run in CI?
@@ -1430,13 +1565,13 @@ Should the unit tests and the e2e checks run in CI?
 | Rust unit | `cargo test` | `#[cfg(test)]` in each module | Parsing, path checks, search ranking, watcher timing, export guards, settings |
 | Rust integration | `cargo test` | `src-tauri/tests/` | `load_set`, start rules, config |
 | UI unit | `bun test src` | `src/*.test.ts(x)` | Components with `renderToStaticMarkup`, sanitizer with JSDOM, export model and writers, body cleaning (`src/bodyClean.test.ts`), export images (`src/exportImages.test.ts`), zoom math (`src/zoom.test.ts`), text size steps (`src/textZoom.test.ts`), category checkboxes (`src/SearchPanel.test.tsx`) |
-| UI interactive | `bun test src` | `src/interactive.test.tsx` | React renders into a JSDOM document and the tests send real DOM events: the diagram window fits, zooms, pans, and closes, a hidden sketch shows when its drawing fails to load, a search sends every picked category and **All categories** clears them, and the search drawer focuses, pins, and closes with Escape only when unpinned (`src/interactive.test.tsx:30-61`, `src/interactive.test.tsx:63-75`, `src/interactive.test.tsx:77-100`, `src/interactive.test.tsx:102-132`) |
+| UI interactive | `bun test src` | `src/interactive.test.tsx` | React renders into a JSDOM document and the tests send real DOM events: the diagram window fits, zooms, pans, and closes, a hidden sketch shows when its drawing fails to load, a search sends every picked category and **All categories** clears them, the search drawer focuses, pins, and closes with Escape only when unpinned, and **Findings** shows the grade note or says that none is recorded (`src/interactive.test.tsx:30-61`, `src/interactive.test.tsx:63-75`, `src/interactive.test.tsx:77-100`, `src/interactive.test.tsx:102-132`, `src/interactive.test.tsx:134-155`) |
 | End to end | `bun run test:e2e` | `e2e/checks/*.mjs` | The debug build driven through the Tauri MCP bridge |
 
 Many Rust tests read the real PRD set in `docs/prd/prd-forge-viewer/`, so a
 change to the PRD can break a test. Example:
-`reads_functional_requirements` expects 25 `FR-` items
-(`src-tauri/src/prdset/section.rs:127-133`).
+`reads_functional_requirements` expects 28 `FR-` items
+(`src-tauri/src/prdset/section.rs:192-198`).
 
 The e2e `waitText` helper polls `document.body.innerText` every 150 ms with
 short scripts, in place of one long `webview_wait_for` call, which can time
@@ -1449,10 +1584,15 @@ after the run (`e2e/harness.mjs:85-96`). It needs macOS, the debug build with
 `"command down"`, so a check can press Command-plus or Command-F
 (`e2e/harness.mjs:47-52`). The reading checks press Command-plus,
 Command-minus, and Command-0, and retry a key that macOS drops while it brings
-the app to the front (`e2e/checks/phase-1-reading.mjs:64-83`). The search
-checks open the drawer from the header and cover two categories, the pin, and
-Escape (`e2e/checks/phase-2-search.mjs:47-53`,
-`e2e/checks/phase-2-search.mjs:85-99`).
+the app to the front (`e2e/checks/phase-1-reading.mjs:64-89`). The same check reads
+`settings.json` until `text_zoom` is 1.3, and checks that the header does not
+cover the document list. The search checks open the drawer from the header
+and cover two categories, the pin, and Escape, and read `search_pinned` from
+`settings.json` after a pin (`e2e/checks/phase-2-search.mjs:47-53`,
+`e2e/checks/phase-2-search.mjs:85-102`). The harness exports `SETTINGS` for
+these reads (`e2e/harness.mjs:13`). The FR-025 check opens **Findings** on
+Scenarios and on the root, which has no note. The FR-028 check moves from
+FR-005 to US-008 and back (`e2e/checks/phase-1-reading.mjs:91-117`).
 
 ## 29. Local development
 
@@ -1489,18 +1629,21 @@ Escape (`e2e/checks/phase-2-search.mjs:47-53`,
 | Exports embed the PNG of each SVG, the viewer shows the SVG | Export | Low | A stale PNG exports an old drawing | **Closed in 0.2.1.** `export_image` uses the SVG when the PNG is older (section 9.7). |
 | An SVG in a Word file shows a blank fallback in a Word older than 2016 | Export | Low | The diagram is missing in an old Word | Only when the PNG is stale. Run `prd-diagrams.mjs` before an export. |
 | `fitView` does not clamp to `MIN_SCALE` | Diagram window | None | None | **Closed in 0.2.1.** `fitView` clamps (`src/zoom.ts:11`). |
-| The text size and the drawer pin live in `localStorage`, not in `settings.json` | Settings | Low | They do not follow the other settings, and ADR-004 names one settings file | **Open question.** Move them to the settings file, or record the split in ADR-004. |
-| The sticky document list uses `top: 64px`, a fixed value | Section page | Medium | **Assumption.** At large text sizes the header is taller than 64 px and covers the top of the list | **Recommendation.** Use `top: var(--header-h)`, which the drawer already uses (`src/styles.css:149`). |
-| The text size, the drawer, and multi-category search have no PRD ID | Scope | Low | Not traced to a requirement | **Open question.** Add them to the PRD through the wizard, or record them as usability work under NFR-007. |
+| The text size and the drawer pin live in `localStorage`, not in `settings.json` | Settings | Low | They did not follow the other settings | **Closed in 0.4.0.** Both are in `settings.json` through `view_prefs` and `save_view_prefs` (section 8.7). |
+| The sticky document list uses `top: 64px`, a fixed value | Section page | Medium | At large text sizes the header covered the top of the list | **Closed in 0.4.0.** `top` and `max-height` use `--header-h`, and an e2e check measures the gap (`src/styles.css:149`). |
+| The text size, the drawer, and multi-category search have no PRD ID | Scope | Low | Not traced to a requirement | **Closed in 0.4.0.** PRD 0.7.0 adds FR-026 and FR-027, and FR-008 now reads "in one or more categories or in all categories". |
+| Command-F opened the drawer with no set open | Search | Low | An empty drawer with nothing to search | **Closed in 0.4.0.** The key handler checks `hasSet` (`src/App.tsx:68-72`). |
+| The size range differs: Rust keeps 0.5 to 3.0, the UI steps are 0.8 to 2 | Settings | Low | A hand-edited size such as 0.6 is stored, then read as 1 | `readZoom` is the final check. **Recommendation.** Keep the two ranges in step, or let Rust check only for a finite positive value. |
+| The backlog is read once when the set opens | Backlog | Low | A story added while the viewer is open shows only after the set opens again | **Recommendation.** Watch the backlog folder too, or reread it on `set-changed`. |
+| `story_links` and `linkify` find IDs with two different rules | Backlog | Low | The Rust rule splits on any character that is not a letter, digit, or `-`. `linkify` uses `\b[A-Z]{1,4}-\d{3}\b`. They agree on normal IDs | Keep the two in step. |
 
 ## 32. Implementation plan (extension roadmap)
 
-1. **FR-025, grade findings (REL-002).** Read `grades/<file>` through the
-   `inside` check, add a command, and open it from the grades table.
-2. **FR-006, previous and next.** Use `set.documents` order in `SectionPage`.
-3. **Contract test** between `src/types.ts` and the Rust types.
-4. **CI** for `cargo test` and `bun test src`.
-5. **Bundled Chromium** if Chrome as a prerequisite is a problem for authors.
+1. **FR-006, previous and next.** Use `set.documents` order in `SectionPage`.
+2. **Contract test** between `src/types.ts` and the Rust types.
+3. **CI** for `cargo test` and `bun test src`.
+4. **Bundled Chromium** if Chrome as a prerequisite is a problem for authors.
+5. **Live backlog.** Reread the backlog and the story links on a change.
 
 ## 33. Requirement-to-design traceability
 
@@ -1513,7 +1656,10 @@ Escape (`e2e/checks/phase-2-search.mjs:47-53`,
 | FR-005, FR-023 | 8.2 | `prdset::section`, `SectionPage` | set | `read_section` | `e2e/checks/phase-1-reading.mjs` |
 | FR-007 | 8.2 | `prdset::section`, `linkify` | set | `item_index` | `index_finds_requirement_and_nested_stage` |
 | FR-008 | 8.3, 8.7 | `search`, `SearchPanel`, `SearchDrawer` | index | `search`, `categories` | `e2e/checks/phase-2-search.mjs`, `two_categories_give_both_kinds_and_no_other`, `src/interactive.test.tsx` |
-| Text size (no PRD ID) | 8.7 | `App`, `textZoom` | `localStorage` | none | `src/textZoom.test.ts`, `e2e/checks/phase-1-reading.mjs` |
+| FR-026 | 8.7 | `App`, `textZoom`, `settings` | settings | `view_prefs`, `save_view_prefs` | `src/textZoom.test.ts`, `the_text_size_and_the_search_pin_survive_a_restart_and_keep_the_themes`, `e2e/checks/phase-1-reading.mjs` |
+| FR-027 | 8.3, 8.7 | `SearchDrawer`, `App`, `settings` | settings | `view_prefs`, `save_view_prefs` | `src/interactive.test.tsx`, `e2e/checks/phase-2-search.mjs` |
+| FR-025 | 8.2a | `prdset::section`, `SectionPage` | set (`grades/`) | `read_grade` | `read_grade_gives_the_findings_without_the_front_matter`, `read_grade_is_none_with_no_note_and_refuses_other_paths`, `fr_025_findings_show_the_grade_note_or_say_that_none_are_recorded`, `e2e/checks/phase-1-reading.mjs` |
+| FR-028 | 8.2b | `prdset::section`, `App`, `SectionPage` | backlog folder | `backlog`, `story_links`, `item_index`, `read_section` | `the_backlog_next_to_the_set_is_found_and_read`, `a_story_links_to_the_requirements_it_builds`, `a_set_with_no_backlog_next_to_it_has_none`, `fr_028_a_requirement_lists_the_stories_that_build_it_and_none_without_a_backlog`, `e2e/checks/phase-1-reading.mjs` |
 | FR-009 | 8.4 | `watch`, `App` | none | `watch_set`, `reload_set` | `e2e/checks/phase-3-live.mjs` |
 | FR-010 to FR-014, FR-019 | 8.5 | export pipeline, `export` | export file | `export_pdf`, `write_export`, `print_page`, `export_image` | `e2e/checks/phase-5-export.mjs`, `src/exportImages.test.ts`, `export_image_uses_the_png_unless_it_is_older_than_the_svg` |
 | FR-019 (grades optional) | 8.5 | `ExportDialog`, `buildExport` | none | none | `fr_019_grades_are_left_out_by_default` |
@@ -1531,7 +1677,18 @@ Escape (`e2e/checks/phase-2-search.mjs:47-53`,
 | Bundle Chromium for PDF? | Authors without Chrome cannot make a PDF. | Keep Chrome as a prerequisite, or bundle. | Engineering lead |
 | Add CI? | Tests run only on a developer's Mac. | GitHub Actions macOS runner, or keep local. | Engineering lead |
 | Check the `folder` argument against known sets? | Defense in depth for read commands. | Add a check, or rely on the bundled UI. | Engineering lead |
-| Keep the text size and the drawer pin in `localStorage`? | ADR-004 says settings live in one file. | Move them to `settings.json`, or amend ADR-004. | Engineering lead |
+| Watch the backlog folder for changes? | A story change shows only after the set opens again. | Add the backlog to `watch_set`, or reread on `set-changed`. | Engineering lead |
+
+**Closed in 0.4.0.** Four questions from the 0.3.0 edition are answered:
+
+- **Settings in one file.** The text size and the drawer pin moved from
+  `localStorage` to `settings.json` (section 8.7). ADR-004 holds without an
+  amendment.
+- **Document list top.** The sticky list uses `--header-h` (section 8.7).
+- **Command-F.** It does nothing until a set is open (section 8.3).
+- **PRD IDs.** PRD 0.7.0 adds FR-026 (text size), FR-027 (search drawer), and
+  FR-028 (backlog links) to release 2, and FR-008 covers more than one
+  category.
 
 ## 35. appendices
 
@@ -1544,6 +1701,7 @@ Escape (`e2e/checks/phase-2-search.mjs:47-53`,
 | 5.3 | Files on the author's Mac |
 | 8.1 | Start and open a set, start decision |
 | 8.2 | Follow a reference, read activity |
+| 8.2b | Backlog links |
 | 8.3 | Search request, search activity |
 | 8.4 | Live change sequence and activity |
 | 8.5 | PDF export, export activity |
@@ -1572,11 +1730,8 @@ Escape (`e2e/checks/phase-2-search.mjs:47-53`,
    exports differ.
 2. **Immediate decisions.** None block release 1. Section 34 lists the open
    ones.
-3. **Recommended order.** FR-025, then FR-006, then a type contract test and
-   CI.
-4. **Information still needed.** The NFR-009 screen reader checker count, and
-   an owner decision on where the text size and the drawer pin are stored
-   (section 34).
-5. **New in 0.3.0.** Text size, multi-category search, and the search drawer
-   ship without a PRD ID. FR-008 still reads "one category or all". The PRD
-   owner can add them through the wizard.
+3. **Recommended order.** FR-006, then a type contract test and CI.
+4. **Information still needed.** The NFR-009 screen reader checker count.
+5. **New in 0.4.0.** Grade findings (FR-025) and backlog links (FR-028) ship
+   ahead of release 2. The text size and the drawer pin now live in the one
+   settings file. Every feature in the build now has a PRD ID.
