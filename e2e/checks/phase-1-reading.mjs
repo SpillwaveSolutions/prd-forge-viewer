@@ -1,7 +1,7 @@
 // Phase 1: US-008 (FR-005), US-009 (FR-023), US-010 (FR-007), and NFR-010 for section bodies.
-import { appendFileSync } from "fs";
+import { appendFileSync, readFileSync } from "fs";
 import { join } from "path";
-import { SET, copySet, expect, run, tmp } from "../harness.mjs";
+import { SET, SETTINGS, copySet, expect, run, tmp } from "../harness.mjs";
 
 // Poll a script until it returns text that matches, so a check never reads a page that is still loading.
 const until = async (h, script, re, ms = 8000) => {
@@ -68,7 +68,13 @@ await run(async (h) => {
     await h.click("//button[@aria-label='Larger text']", "xpath");
     const larger = await size();
     expect(Math.abs(larger / normal - 1.3) < 0.02, `normal ${normal}, after 2 steps ${larger}`);
-    expect((await h.js("return localStorage.getItem('pfv.textZoom')")).includes("1.3"), "the size is not kept");
+    // The size is kept in the settings file (ADR-004).
+    let kept;
+    for (let i = 0; i < 20 && kept !== 1.3; i++) { await new Promise((r) => setTimeout(r, 100)); try { kept = JSON.parse(readFileSync(SETTINGS, "utf8")).text_zoom; } catch {} }
+    expect(kept === 1.3, `settings.json text_zoom is ${kept}`);
+    // The document list starts below the header, whose height grows with the text.
+    const navGap = await h.num("return document.querySelector('.doc-nav') ? parseFloat(getComputedStyle(document.querySelector('.doc-nav')).top) - document.querySelector('header').offsetHeight : 8");
+    expect(navGap >= 0, `the header covers the document list by ${-navGap} px`);
     // Real key presses: macOS can drop one while it brings the app to the front, so wait for each change.
     const keyUntil = async (code, mods, test) => {
       for (let i = 0; i < 3; i++) {
@@ -80,6 +86,34 @@ await run(async (h) => {
     await keyUntil(24, "command down", (v) => v > larger + 0.5); // Command-plus
     await keyUntil(27, "command down", (v) => Math.abs(v - larger) < 0.1); // Command-minus
     await keyUntil(29, "command down", (v) => Math.abs(v - normal) < 0.1); // Command-0
+  });
+
+  await h.check("FR-025: Findings shows the grade note of a section, and says when a document has none", async () => {
+    await h.click("//nav[@aria-label='Documents']//button[.='Scenarios']", "xpath");
+    await h.waitText("SC-001");
+    await h.click("//button[.='Findings']", "xpath");
+    // Test the text in the page. A long note can come back empty through the MCP call.
+    const has = (re) => `return String(/${re}/.test(document.querySelector('[aria-label=Findings]')?.innerText || ''))`;
+    await until(h, has("Blocking defects"), /true/);
+    expect((await h.js(has("How to raise the grade"))) === "true", "no items to raise the grade");
+    await h.click("(//nav[@aria-label='Documents']//button)[1]", "xpath"); // the root document, which has no grade note
+    await until(h, "return document.querySelector('section.section-page h1')?.innerText || ''", /PRD$/);
+    await h.click("//button[.='Findings']", "xpath");
+    await until(h, has("No findings are recorded for this section"), /true/);
+  });
+
+  await h.check("FR-028: FR-005 lists US-008, US-008 links back to FR-005, and the overview lists the backlog", async () => {
+    await h.click("//button[contains(., 'Back to the PRD set')]", "xpath");
+    await until(h, "return document.querySelector('section[aria-label=Backlog]')?.innerText || ''", /Stories/);
+    await h.click("//ol[contains(@class,'documents')]//button[.='Functional requirements']", "xpath");
+    await until(h, "return document.querySelector('section.section-page h1')?.innerText || ''", /^Functional requirements$/);
+    await h.click("//nav[@aria-label='Items']/button[.='FR-005']", "xpath");
+    await until(h, "return document.querySelector('article.item .built-by')?.innerText || ''", /US-008/);
+    await h.click("//article[contains(@class,'item')]//div[contains(@class,'built-by')]//button[.='US-008']", "xpath");
+    await until(h, "return document.querySelector('article.item h3')?.innerText || ''", /^US-008/);
+    expect(/^Stories$/.test(await h.js("return document.querySelector('section.section-page h1').innerText")), "US-008 did not open in the stories");
+    await h.click("//article[contains(@class,'item')]//button[contains(@class,'ref') and .='FR-005']", "xpath");
+    await until(h, "return document.querySelector('article.item h3')?.innerText || ''", /^FR-005/);
   });
 
   await h.check("Wireframes show only their drawings: no ASCII sketch and no details block", async () => {
@@ -120,8 +154,11 @@ await run(async (h) => {
     await h.realKey(29); // "0", fit again
     const refit = await change(zoomed, 1);
     expect(Math.abs(refit[1] - fitted[1]) < 0.001, `fit ${refit[1]}, first ${fitted[1]}`);
-    await h.realKey(53); // Escape
-    await until(h, "return String(!!document.querySelector('.diagram-viewer'))", /false/);
+    // macOS can drop a real key press, so press Escape up to 3 times.
+    for (let i = 0; ; i++) {
+      await h.realKey(53); // Escape
+      try { await until(h, "return String(!!document.querySelector('.diagram-viewer'))", /false/, 2000); break; } catch (e) { if (i === 2) throw e; }
+    }
   });
   await h.quit();
 

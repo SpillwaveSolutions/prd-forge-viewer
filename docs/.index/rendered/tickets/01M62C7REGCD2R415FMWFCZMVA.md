@@ -1,6 +1,6 @@
 # The release build is installed in /Applications with no MCP bridge
 
-`01M62C7REGCD2R415FMWFCZMVA` · subtask/feature · **open**
+`01M62C7REGCD2R415FMWFCZMVA` · subtask/feature · **done**
 
 The release build is installed in /Applications with no MCP bridge
 

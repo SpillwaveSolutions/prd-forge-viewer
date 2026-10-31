@@ -129,6 +129,28 @@ wireframes:
     shows:
       - The blocking defects of the section, or that it has none
       - The items to raise the grade, each with its dimension
+  - id: WF-012
+    title: Search kept in view beside a section, at a larger text size
+    type: screen
+    persona: PER-002
+    journey_stage: ST-003
+    illustrates: [FR-008, FR-026, FR-027]
+    shows:
+      - The text size, with a step down, the size, and a step up
+      - Search, kept in view beside the section
+      - The categories, two of them selected
+      - The results, which stay while the developer opens them
+      - The item that the developer opened from a result
+  - id: WF-013
+    title: A requirement with the backlog stories that build it
+    type: screen
+    persona: PER-002
+    journey_stage: ST-003
+    illustrates: [FR-028]
+    shows:
+      - The requirement, with its fields
+      - The stories in the backlog that build it, each one a link
+      - A story, with a link back to its requirements
 links:
   parent: { id: prd-forge-viewer, kind: prd, path: ./prd.md, title: PRD Forge Viewer PRD }
   prev: { id: prd-forge-viewer-functional-requirements, kind: functional-requirements, path: ./08-functional-requirements.md, title: Functional requirements }
@@ -150,7 +172,8 @@ the WF-006 change for FR-024 in version 0.3.2. Version 0.3.4 changes the example
 folder names in WF-006. Version 0.4.0 moves the list of PRD sets in docs/prd
 from WF-006 to WF-010, a state of WF-006. The sponsor approved both versions
 on 2026-10-27. Version 0.5.0 adds WF-011 for FR-025 (release 2), and the
-sketches show version 0.5.0.
+sketches show version 0.5.0. Version 0.7.0 adds WF-012 for FR-026 and FR-027, and
+WF-013 for FR-028, all in release 2.
 
 The numbered marks in each sketch are explained, in order, by its `shows` list.
 Each sketch is also drawn in PlantUML Salt for the printed PRD.
@@ -420,6 +443,49 @@ section 5 on 2026-10-27.
 
 ![WF-011 drawing](diagrams/WF-011.svg)
 
+## WF-012 Search kept in view beside a section, at a larger text size
+
+Illustration, not a design. Illustrates FR-008, FR-026, and FR-027. PER-002 sees it at ST-003. FR-026 and FR-027 are in release 2.
+
+The developer searches two categories for "export", keeps search in view, and
+opens one result after another at a larger text size.
+
+```wireframe
+┌─ PRD Forge Viewer ─ [Search] [Export] [A-]130%[A+] <1> ─┐
+│ FR-010 Export the set <5>│ Search [ export    ] <2>     │
+│ Given 18 documents, when │ [x] Functional requirements  │
+│ the author exports to    │ [x] Scenarios [ ] Scope <3>  │
+│ PDF, then …              │ 12 matches <4>               │
+│                          │ 100 FR-010 Export the set    │
+│                          │  96 SC-004 Send a version    │
+│                          │  91 FR-011 Export to Word    │
+└──────────────────────────┴──────────────────────────────┘
+```
+
+![WF-012 drawing](diagrams/WF-012.svg)
+
+## WF-013 A requirement with the backlog stories that build it
+
+Illustration, not a design. Illustrates FR-028. PER-002 sees it at ST-003. FR-028 is in release 2.
+
+The developer opens FR-005 and sees the backlog story that builds it, then opens
+the story and goes back to the requirement.
+
+```wireframe
+┌─ PRD Forge Viewer ─────────────── [ Search ] [ Export ] ─┐
+│ ▾ PRD, v0.7.0        │ FR-005 Open any section <1>       │
+│   ▸ 7 Functional req │ Given a PRD set, when the author  │
+│     FR-005           │ selects a section, then …         │
+│ ▾ Backlog            │ ───────────────────────────────── │
+│   ▸ Stories          │ Built by <2>                      │
+│     US-008           │ › US-008 Open a section and read  │
+│                      │ ───────────────────────────────── │
+│                      │ US-008 builds: › FR-005 <3>       │
+└──────────────────────┴───────────────────────────────────┘
+```
+
+![WF-013 drawing](diagrams/WF-013.svg)
+
 <!-- prd-forge:details -->
 
 ## Details
@@ -631,5 +697,43 @@ Every item in this document, with each of its fields.
 
 1. The blocking defects of the section, or that it has none
 2. The items to raise the grade, each with its dimension
+
+### WF-012
+
+**Title:** Search kept in view beside a section, at a larger text size
+
+**Type:** screen
+
+**Persona:** PER-002
+
+**Journey stage:** ST-003
+
+**Illustrates:** FR-008, FR-026, FR-027
+
+**Shows:**
+
+1. The text size, with a step down, the size, and a step up
+2. Search, kept in view beside the section
+3. The categories, two of them selected
+4. The results, which stay while the developer opens them
+5. The item that the developer opened from a result
+
+### WF-013
+
+**Title:** A requirement with the backlog stories that build it
+
+**Type:** screen
+
+**Persona:** PER-002
+
+**Journey stage:** ST-003
+
+**Illustrates:** FR-028
+
+**Shows:**
+
+1. The requirement, with its fields
+2. The stories in the backlog that build it, each one a link
+3. A story, with a link back to its requirements
 
 <!-- /prd-forge:details -->

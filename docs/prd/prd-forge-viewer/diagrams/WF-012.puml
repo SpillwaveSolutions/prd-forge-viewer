@@ -1,0 +1,23 @@
+@startsalt
+title WF-012 Search kept in view beside a section, at a larger text size
+{+
+  {/ <b>PRD Forge Viewer</b> | [Search] | [Export] | [A-] | 130% | [A+] <1> }
+  ==
+  {
+    {
+      <b>FR-010 Export the whole set <5>
+      Given 18 documents, when the author
+      exports to PDF, then …
+    } | {
+      <b>Search <2>
+      "export   "
+      [X] Functional requirements
+      [X] Scenarios | [ ] Scope <3>
+      12 matches <4>
+      100 FR-010 Export the set
+      96 SC-004 Send a version
+      91 FR-011 Export to Word
+    }
+  }
+}
+@endsalt

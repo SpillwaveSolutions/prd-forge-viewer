@@ -80,8 +80,11 @@ without the owner.
 
 - The viewer is read-only in release 1, and editing is out of scope (OUT-001).
   C-002 is retired. The PRD owner revisits editing on 2026-11-06.
-- Release 1 (REL-001, 2026-11-06) covers FR-001 to FR-024, except FR-006. Grade findings come
-  in release 2 (REL-002, 2026-11-06).
+- Release 1 (REL-001, 2026-11-06) covers FR-001 to FR-024, except FR-006. Release 2
+  (REL-002, 2026-11-06) covers FR-025 (grade findings), FR-026 (text size), FR-027
+  (search kept in view), and FR-028 (links between the PRD and its backlog). PRD 0.7.0.
+- Always update the PRD, through the prd-wizard skill, when the viewer gets a new
+  requirement.
 - Every export shows "Draft" until every document is `final` (TR-005).
 - The terminal command is `prdf` (FR-021). It remembers known PRD set locations
   (FR-022). When `docs/prd` holds more than one set, the viewer reopens the

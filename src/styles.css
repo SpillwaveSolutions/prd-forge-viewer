@@ -146,7 +146,7 @@ section[aria-label="PRD set"] > .documents { grid-column: 2; grid-row: 4; }
 
 /* Section page: a sticky document nav with status marks, and a reading column */
 .section-layout { display: grid; grid-template-columns: 16rem minmax(0, 1fr); gap: 40px; align-items: start; }
-.doc-nav { display: flex; flex-direction: column; position: sticky; top: 64px; max-height: calc(100vh - 80px); overflow: auto; padding: 16px 0; }
+.doc-nav { display: flex; flex-direction: column; position: sticky; top: calc(var(--header-h, 56px) + 8px); max-height: calc(100vh - var(--header-h, 56px) - 16px); overflow: auto; padding: 16px 0; }
 .doc-nav .doc-link {
     text-align: left; text-decoration: none; color: var(--ink);
     padding: 5px 10px; border-left: 3px solid var(--pending); border-radius: 0 var(--radius) var(--radius) 0;
@@ -155,12 +155,22 @@ section[aria-label="PRD set"] > .documents { grid-column: 2; grid-row: 4; }
 .doc-nav .doc-link[data-status="review"] { border-left-color: var(--review); }
 .doc-nav .doc-link[data-status="final"] { border-left-color: var(--final); }
 .doc-nav .doc-link:hover { background: var(--accent-wash); }
+.doc-nav .nav-group { font-size: 0.8rem; font-weight: 600; color: var(--ink-soft); margin: 16px 0 4px 10px; }
+.doc-nav .backlog-link { border-left-color: var(--rule); }
+.backlog { margin-top: 24px; max-width: 72ch; }
+.backlog-docs { list-style: none; padding: 0; margin: 0; }
+.backlog-docs li { padding: 6px 10px; border-left: 4px solid var(--rule); border-bottom: 1px solid var(--rule); }
+.built-by dd .ref { margin-right: 4px; }
 .doc-nav .doc-link[aria-current="page"] { background: var(--accent-wash); font-weight: 600; }
 .section-page { min-width: 0; padding-top: 16px; }
 .section-page > h1 { margin-top: 16px; }
 .section-page .items { display: flex; flex-wrap: wrap; gap: 6px; margin: 12px 0 16px; }
 .section-page .items button { font-family: var(--mono); font-size: 0.82rem; padding: 2px 8px; }
 .section-page .items button[aria-pressed="true"] { background: var(--accent); border-color: var(--accent); color: var(--surface); }
+.findings-toggle { margin-left: 8px; font-size: 0.82rem; padding: 1px 10px; }
+.findings { border-left: 3px solid var(--draft); background: var(--surface); padding: 4px 18px 8px; margin: 0 0 20px; max-width: 80ch; }
+.findings .body h1 { font-size: 1.15rem; margin: 10px 0 6px; }
+.findings .body h2 { font-size: 1rem; margin: 14px 0 4px; }
 .change-notice { background: var(--notice); border: 1px solid var(--notice-rule); border-radius: var(--radius); padding: 6px 10px; }
 
 /* One item: a margin rule, not a floating card */

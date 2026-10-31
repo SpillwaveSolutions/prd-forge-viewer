@@ -39,9 +39,11 @@ pub fn run() {
             }
             Ok(())
         })
-        .invoke_handler(tauri::generate_handler![commands::open_set, commands::startup, commands::install_prdf, commands::start_for, commands::read_section, commands::item_index, commands::read_asset, commands::export_image, commands::search, commands::categories, commands::watch_set, commands::reload_set,
+        .invoke_handler(tauri::generate_handler![commands::open_set, commands::startup, commands::install_prdf, commands::start_for, commands::read_section, commands::item_index, commands::read_asset, commands::export_image, commands::read_grade, commands::backlog, commands::story_links, commands::search, commands::categories, commands::watch_set, commands::reload_set,
             commands::themes,
             commands::save_themes,
+            commands::view_prefs,
+            commands::save_view_prefs,
             commands::write_export,
             commands::export_pdf,
             commands::print_page])

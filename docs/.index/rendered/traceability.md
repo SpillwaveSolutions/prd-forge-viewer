@@ -2,6 +2,69 @@
 
 _The evidence chain: plan → item → ticket → code → release, forward and backward. Generated from `docs/.index/_graph.json`; do not edit._
 
+### Release 0.4.0
+`01M67QAJ3NDMPQ8G6QG8H78CFY` · status: done
+- belongs-to: Plan 10: PRD catch-up, grade findings, backlog navigation, and release 0.4.0
+- lands-in: pr/204
+
+### Task 6: checks, release 0.4.0, and install
+`01M67NH4XPWE52APES54MYFEVC` · status: done
+- belongs-to: Plan 10: PRD catch-up, grade findings, backlog navigation, and release 0.4.0
+- lands-in: pr/204
+- produced-by: [[Plan-plan-10-prd-findings-backlog]]
+
+### Task 5: move between the PRD and its backlog (FR-028, #199)
+`01M67NH4XPWE52APES54MYFEVA` · status: done
+- belongs-to: Plan 10: PRD catch-up, grade findings, backlog navigation, and release 0.4.0
+- lands-in: pr/204
+- produced-by: [[Plan-plan-10-prd-findings-backlog]]
+
+### Task 4: see the findings behind a grade (FR-025, #35)
+`01M67NH4XPWE52APES54MYFEV8` · status: done
+- belongs-to: Plan 10: PRD catch-up, grade findings, backlog navigation, and release 0.4.0
+- lands-in: pr/204
+- produced-by: [[Plan-plan-10-prd-findings-backlog]]
+
+### Task 3: keep the text size and the search pin in settings.json
+`01M67NH4XPWE52APES54MYFEV6` · status: done
+- belongs-to: Plan 10: PRD catch-up, grade findings, backlog navigation, and release 0.4.0
+- lands-in: pr/204
+- produced-by: [[Plan-plan-10-prd-findings-backlog]]
+
+### Task 2: fix the nav top and Command-F with no set
+`01M67NH4XPWE52APES54MYFEV4` · status: done
+- belongs-to: Plan 10: PRD catch-up, grade findings, backlog navigation, and release 0.4.0
+- lands-in: pr/204
+- produced-by: [[Plan-plan-10-prd-findings-backlog]]
+
+### Task 1: update the PRD for the new requirements
+`01M67NH4XPWE52APES54MYFEV2` · status: done
+- belongs-to: Plan 10: PRD catch-up, grade findings, backlog navigation, and release 0.4.0
+- lands-in: pr/204
+- produced-by: [[Plan-plan-10-prd-findings-backlog]]
+
+### Plan 10: PRD catch-up, grade findings, backlog navigation, and release 0.4.0
+`01M67NH4X4JGDJB233B670SJFF` · status: done
+- lands-in: pr/204
+- contains: Task 1: update the PRD for the new requirements
+- contains: Task 2: fix the nav top and Command-F with no set
+- contains: Task 3: keep the text size and the search pin in settings.json
+- contains: Task 4: see the findings behind a grade (FR-025, #35)
+- contains: Task 5: move between the PRD and its backlog (FR-028, #199)
+- contains: Task 6: checks, release 0.4.0, and install
+- contains: Release 0.4.0
+- produced-by: [[Plan-plan-10-prd-findings-backlog]]
+
+### Add bidirectional navigation between PRD and backlog
+`01M67NFZH5C1HWH4SBC22ZVXMS` · status: done
+- lands-in: pr/204
+- references: [github#199](https://github.com/SpillwaveSolutions/prd-forge-viewer/issues/199)
+
+### Bring the worklog and GitHub Issues up to date
+`01M67N9KHR9BFVGGV7VCF908B6` · status: done
+- lands-in: pr/204
+- references: [github#203](https://github.com/SpillwaveSolutions/prd-forge-viewer/issues/203)
+
 ### Release 0.3.0
 `01M67KYXCPJ5QGRGASS5KPSMMH` · status: done
 - lands-in: pr/200
@@ -388,25 +451,25 @@ _The evidence chain: plan → item → ticket → code → release, forward and 
 - produced-by: [[Plan-plan-3-reading]]
 
 ### All release 1 stories closed, the roadmap rendered, and GitHub Issues synced
-`01M62C7REHN9N2P8Z19K0EPA0H` · status: todo
+`01M62C7REHN9N2P8Z19K0EPA0H` · status: done
 - belongs-to: Phase 6: close out release 1
 - references: [github#132](https://github.com/SpillwaveSolutions/prd-forge-viewer/issues/132)
 - produced-by: [[Plan-release-1-completion]]
 
 ### REQ and TRAC show each release 1 requirement as built and tested
-`01M62C7REHN9N2P8Z19K0EPA0F` · status: todo
+`01M62C7REHN9N2P8Z19K0EPA0F` · status: done
 - belongs-to: Phase 6: close out release 1
 - references: [github#131](https://github.com/SpillwaveSolutions/prd-forge-viewer/issues/131)
 - produced-by: [[Plan-release-1-completion]]
 
 ### The release build is installed in /Applications with no MCP bridge
-`01M62C7REGCD2R415FMWFCZMVA` · status: todo
+`01M62C7REGCD2R415FMWFCZMVA` · status: done
 - belongs-to: Phase 6: close out release 1
 - references: [github#130](https://github.com/SpillwaveSolutions/prd-forge-viewer/issues/130)
 - produced-by: [[Plan-release-1-completion]]
 
 ### All e2e checks and unit tests pass on the release build
-`01M62C7REGCD2R415FMWFCZMV8` · status: todo
+`01M62C7REGCD2R415FMWFCZMV8` · status: done
 - belongs-to: Phase 6: close out release 1
 - references: [github#129](https://github.com/SpillwaveSolutions/prd-forge-viewer/issues/129)
 - produced-by: [[Plan-release-1-completion]]
@@ -1152,7 +1215,8 @@ _The evidence chain: plan → item → ticket → code → release, forward and 
 - targets: release/REL-001
 
 ### EPIC-006 Check the grades: See the findings behind the grade of each section.
-`01M61XNM7GHPSJ1B96BCHA59ZE` · status: todo
+`01M61XNM7GHPSJ1B96BCHA59ZE` · status: done
+- lands-in: pr/204
 - references: [github#35](https://github.com/SpillwaveSolutions/prd-forge-viewer/issues/35)
 
 ### US-025 Keep custom export themes from one session to the next
@@ -1252,7 +1316,7 @@ _The evidence chain: plan → item → ticket → code → release, forward and 
 - produced-by: [[Plan-release-1-completion]]
 
 ### EPIC-005 Export the PRD: Export the selected sections, in a selected theme, as a file that a reader opens without the authoring tools.
-`01M61XNK9MPMV0RAEKPX0JC3K4` · status: todo
+`01M61XNK9MPMV0RAEKPX0JC3K4` · status: done
 - references: [github#22](https://github.com/SpillwaveSolutions/prd-forge-viewer/issues/22)
 - contains: US-014 Export the PRD set as a fixed-layout document (IN-006)
 - contains: US-015 Export the PRD set as an editable document (IN-006)
@@ -1276,7 +1340,7 @@ _The evidence chain: plan → item → ticket → code → release, forward and 
 - produced-by: [[Plan-release-1-completion]]
 
 ### EPIC-004 Fix the section: See each change from the authoring tools while the section is open.
-`01M61XNK50616FWM0WZ4FGWGEB` · status: todo
+`01M61XNK50616FWM0WZ4FGWGEB` · status: done
 - references: [github#20](https://github.com/SpillwaveSolutions/prd-forge-viewer/issues/20)
 - contains: US-013 See changes that the authoring tools make, without any action
 
@@ -1321,7 +1385,7 @@ _The evidence chain: plan → item → ticket → code → release, forward and 
 - produced-by: [[Plan-release-1-completion]]
 
 ### EPIC-003 Go to a weak section: Go directly to a weak section or item, or find it by search.
-`01M61XNJQPA0F7H1BG56ERNJ3P` · status: todo
+`01M61XNJQPA0F7H1BG56ERNJ3P` · status: done
 - references: [github#14](https://github.com/SpillwaveSolutions/prd-forge-viewer/issues/14)
 - contains: US-008 Go directly to any section
 - contains: US-009 Select one item of a section and read it without the whole section

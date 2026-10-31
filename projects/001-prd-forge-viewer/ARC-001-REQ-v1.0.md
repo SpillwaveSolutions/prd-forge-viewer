@@ -488,7 +488,7 @@ There are 24 functional requirements. All text is copied from
 
 ---
 
-#### FR-008: Search the PRD set by term, in one category or in all categories
+#### FR-008: Search the PRD set by term, in one or more categories or in all categories
 
 **Description**: The developer sees the matching items, most relevant first, each with its id and section.
 
@@ -499,6 +499,7 @@ There are 24 functional requirements. All text is copied from
 **Acceptance Criteria**:
 
 - [x] Given the term "export" and the category functional requirements, when the developer searches, then the developer sees only the functional requirements that contain "export", each with its id and section.
+- [x] Given the term "export" and the categories functional requirements and scenarios, when the developer searches, then the developer sees only functional requirements and scenarios that contain "export".
 - [x] Given the same term and the category "all", when the developer searches, then the developer sees matching items from every section, including scenarios.
 - [x] Given item A has "export" in its title and item B has "export" only once in its text, when the developer searches for "export", then item A is above item B.
 - [x] Given a search with matches, when the developer views the results, then each result shows its id, its title, its section, and a relevance score from 0 to 100, highest first.
@@ -894,12 +895,78 @@ There are 24 functional requirements. All text is copied from
 
 **Acceptance Criteria**:
 
-- [ ] Given section 7 has a grade with 1 blocking defect and 2 items to raise the grade, when the author views the findings of section 7, then the author sees the blocking defect and the 2 items.
-- [ ] Given a section with no recorded findings, when the author views its findings, then the author sees that no findings are recorded.
+- [x] Given section 7 has a grade with 1 blocking defect and 2 items to raise the grade, when the author views the findings of section 7, then the author sees the blocking defect and the 2 items.
+- [x] Given a section with no recorded findings, when the author views its findings, then the author sees that no findings are recorded.
 
 **Shown In**: screen
 
-**Priority**: WONT_HAVE (release 1). It is the only requirement of release 2.
+**Priority**: WONT_HAVE (release 1). It is in release 2 with FR-026 to FR-028.
+
+**Release**: REL-002
+
+---
+
+#### FR-026: Make the text larger or smaller
+
+**Description**: The author reads the PRD set at a text size that suits the author, and the viewer keeps that size for the next session.
+
+**Relates To**: BR-001, UC-1 (J-001), ST-003
+
+**Rationale**: Author (PER-001) needs this at ST-003 (Go to a weak section). It serves O-001. PRD source: PRD owner decision, 2026-10-30 (PRD 0.7.0).
+
+**Acceptance Criteria**:
+
+- [x] Given a section is open at the normal text size, when the author makes the text larger two times, then the text of the section is larger than before.
+- [x] Given a larger text size, when the author returns to the normal size, then the text is at the normal size again.
+- [x] Given the author made the text larger and closed the viewer, when the author opens the viewer again, then the text has the same larger size.
+
+**Shown In**: screen
+
+**Priority**: SHOULD_HAVE
+
+**Release**: REL-002
+
+---
+
+#### FR-027: Keep search results in view while reading the items they find
+
+**Description**: The developer opens one search result after another without searching again, and hides search when it is not needed.
+
+**Relates To**: BR-001, UC-1 (J-001), ST-003
+
+**Rationale**: ToolsDeveloper (PER-002) needs this at ST-003 (Go to a weak section). It serves O-001. PRD source: PRD owner decision, 2026-10-30 (PRD 0.7.0).
+
+**Acceptance Criteria**:
+
+- [x] Given search is hidden, when the developer asks for search, then the developer sees the search box, ready for a term.
+- [x] Given search is kept in view and shows the results of "export", when the developer opens two results one after the other, then the results of "export" stay in view the whole time.
+- [x] Given search is not kept in view, when the developer opens a result, then search is hidden and the item is shown.
+
+**Shown In**: screen
+
+**Priority**: SHOULD_HAVE
+
+**Release**: REL-002
+
+---
+
+#### FR-028: Move between a requirement and the backlog stories that build it
+
+**Description**: The developer goes from a requirement to the stories that build it, and from a story back to its requirements, without losing context.
+
+**Relates To**: BR-001, UC-1 (J-001), ST-003
+
+**Rationale**: ToolsDeveloper (PER-002) needs this at ST-003 (Go to a weak section). It serves O-001. PRD source: PRD owner decision, 2026-10-30 (PRD 0.7.0).
+
+**Acceptance Criteria**:
+
+- [x] Given a backlog next to the PRD set in which US-008 builds FR-005, when the developer views FR-005, then the developer sees US-008 and can open it.
+- [x] Given that backlog, when the developer views US-008, then the developer sees FR-005 and can open it.
+- [x] Given a PRD set with no backlog next to it, when the developer views FR-005, then the viewer shows the requirement with no backlog links.
+
+**Shown In**: screen
+
+**Priority**: SHOULD_HAVE
 
 **Release**: REL-002
 
@@ -1899,7 +1966,7 @@ PRD does not have cites one of them.
 | Milestone | Description | Target Date | Dependencies |
 |---|---|---|---|
 | REL-001 | Release 1, read and export | 2026-11-06 | FR-001, FR-002, FR-003, FR-004, FR-005, FR-007, FR-008, FR-0... |
-| REL-002 | Release 2, grade findings | 2026-11-06 | FR-025 (depends on D-002) |
+| REL-002 | Release 2, grade findings and reading | 2026-11-06 | FR-025 (depends on D-002), FR-026, FR-027, FR-028 |
 
 ---
 
@@ -1989,6 +2056,8 @@ The wireframes are in section 7 of the PRD.
 | [WF-008](../../docs/prd/prd-forge-viewer/diagrams/WF-008.svg) | Themes | PER-001 | ST-005 | FR-015, FR-016, FR-017, FR-018, FR-020 |
 | [WF-009](../../docs/prd/prd-forge-viewer/diagrams/WF-009.svg) | First page of an export | PER-004 | ST-011 | FR-014, FR-019, FR-010 |
 | [WF-011](../../docs/prd/prd-forge-viewer/diagrams/WF-011.svg) | The findings behind a grade (release 2) | PER-001 | ST-002 | FR-025 |
+| [WF-012](../../docs/prd/prd-forge-viewer/diagrams/WF-012.svg) | Search kept in view beside a section, at a larger text size (release 2) | PER-002 | ST-003 | FR-008, FR-026, FR-027 |
+| [WF-013](../../docs/prd/prd-forge-viewer/diagrams/WF-013.svg) | A requirement with the backlog stories that build it (release 2) | PER-002 | ST-003 | FR-028 |
 | [WF-010](../../docs/prd/prd-forge-viewer/diagrams/WF-010.svg) | More than one PRD set in docs/prd (a state of WF-006) | PER-001 | ST-001 | FR-024, FR-022 |
 
 ### Appendix D: requirements traceability
@@ -2020,6 +2089,9 @@ The wireframes are in section 7 of the PRD.
 | FR-023 | PER-001 | ST-003 | BR-001 | G-1 | REL-001 |
 | FR-024 | PER-001 | ST-001 | BR-001 | G-1 | REL-001 |
 | FR-025 | PER-001 | ST-002 | BR-002 | G-1 | REL-002 |
+| FR-026 | PER-001 | ST-003 | BR-001 | G-1 | REL-002 |
+| FR-027 | PER-002 | ST-003 | BR-001 | G-1 | REL-002 |
+| FR-028 | PER-002 | ST-003 | BR-001 | G-1 | REL-002 |
 
 ---
 

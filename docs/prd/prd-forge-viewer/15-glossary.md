@@ -4,7 +4,7 @@ kind: glossary
 schema: prd-forge/glossary@1
 title: Glossary
 status: draft
-updated: 2026-10-28
+updated: 2026-10-31
 domain: software product management
 section: 14
 order: 150
@@ -120,13 +120,21 @@ terms:
   - term: category
     meaning: >-
       A filter for search: one category for each kind of section, such as
-      functional requirements or scenarios, plus "all".
+      functional requirements or scenarios. A search uses one or more
+      categories, or all of them.
   - term: relevance score
     meaning: >-
       A number from 0 to 100 on each search result. Matches in the item title
       score higher than matches in the text, and more matches score higher.
   - term: known location
     meaning: A folder where the viewer opened a PRD set before. The viewer remembers it.
+  - term: backlog
+    meaning: >-
+      The features, epics, stories, and spikes that the authoring tools derive
+      from an approved PRD set. It is a separate set of documents next to the
+      PRD set, and each story names the requirements that it builds.
+  - term: text size
+    meaning: The size of the text in the viewer, which the author can make larger or smaller.
 links:
   parent: { id: prd-forge-viewer, kind: prd, path: ./prd.md, title: PRD Forge Viewer PRD }
   prev: { id: prd-forge-viewer-release-plan, kind: release-plan, path: ./14-release-plan.md, title: Release plan }
@@ -283,7 +291,7 @@ Every item in this document, with each of its fields.
 
 ### category
 
-**Meaning:** A filter for search: one category for each kind of section, such as functional requirements or scenarios, plus "all".
+**Meaning:** A filter for search: one category for each kind of section, such as functional requirements or scenarios. A search uses one or more categories, or all of them.
 
 ### relevance score
 
@@ -292,5 +300,13 @@ Every item in this document, with each of its fields.
 ### known location
 
 **Meaning:** A folder where the viewer opened a PRD set before. The viewer remembers it.
+
+### backlog
+
+**Meaning:** The features, epics, stories, and spikes that the authoring tools derive from an approved PRD set. It is a separate set of documents next to the PRD set, and each story names the requirements that it builds.
+
+### text size
+
+**Meaning:** The size of the text in the viewer, which the author can make larger or smaller.
 
 <!-- /prd-forge:details -->

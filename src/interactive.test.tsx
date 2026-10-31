@@ -130,3 +130,26 @@ test("the_search_drawer_opens_with_focus_pins_and_closes_with_escape_only_when_u
     expect(closed).toBe(2);
     await act(async () => root.unmount());
 });
+
+test("fr_025_findings_show_the_grade_note_or_say_that_none_are_recorded", async () => {
+    const section = { file: "06-scenarios.md", title: "Scenarios", status: "review", section: 6, score: 72, blocking: 0, graded: "2026-10-27", body: "# Scenarios", items: [] };
+    const page = (load: () => Promise<string | null>) => (
+        <SectionPage section={section} known={new Set()} selected={null} onSelect={() => {}} onOpenItem={() => {}} onBack={() => {}}
+            renderHtml={(md) => renderBody(md, dom.window as unknown as Window & typeof globalThis)} loadFindings={load} />
+    );
+    const open = async (host: HTMLElement) => {
+        const btn = [...host.querySelectorAll("button")].find((b) => b.textContent === "Findings")!;
+        expect(btn.getAttribute("aria-expanded")).toBe("false");
+        await act(async () => { btn.click(); await new Promise((r) => setTimeout(r, 0)); });
+        expect(btn.getAttribute("aria-expanded")).toBe("true");
+        return host.querySelector("[aria-label='Findings']")?.textContent ?? "";
+    };
+    const a = await mount(page(async () => "# Why scenarios scored 72\n\n## Blocking defects\n\nNone.\n\n## How to raise the grade\n\n- Add the section lifecycle\n"));
+    const text = await open(a.host);
+    expect(text).toContain("Blocking defects");
+    expect(text).toContain("Add the section lifecycle");
+    await a.unmount();
+    const b = await mount(page(async () => null));
+    expect(await open(b.host)).toContain("No findings are recorded for this section.");
+    await b.unmount();
+});

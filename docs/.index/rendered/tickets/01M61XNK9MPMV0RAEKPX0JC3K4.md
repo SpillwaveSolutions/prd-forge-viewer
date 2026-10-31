@@ -1,6 +1,6 @@
 # EPIC-005 Export the PRD: Export the selected sections, in a selected theme, as a file that a reader opens without the authoring tools.
 
-`01M61XNK9MPMV0RAEKPX0JC3K4` · epic/feature · **open**
+`01M61XNK9MPMV0RAEKPX0JC3K4` · epic/feature · **done**
 
 Feature FEAT-005 (Export the PRD), stage ST-005.
 

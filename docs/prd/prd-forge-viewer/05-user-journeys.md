@@ -257,6 +257,8 @@ end.
 
 ![J-001 journey diagram](diagrams/J-001.svg)
 
+![J-001 overview with its main alternate and exception paths](diagrams/J-001-overview.svg)
+
 Trigger: the authoring tools finish or regrade sections, and the author wants to
 send a version for review.
 
@@ -281,6 +283,8 @@ and the sponsor's decision.
 
 ![J-002 journey diagram](diagrams/J-002.svg)
 
+![J-002 overview with its main alternate and exception paths](diagrams/J-002-overview.svg)
+
 Trigger: the developer starts work on a part of the product.
 
 | Stage | Actor | Decision |
@@ -295,6 +299,8 @@ file with those items.
 ## J-003. The sponsor approves or rejects a version
 
 ![J-003 journey diagram](diagrams/J-003.svg)
+
+![J-003 overview with its main alternate and exception paths](diagrams/J-003-overview.svg)
 
 Trigger: the sponsor receives an export of a PRD version.
 

@@ -1,6 +1,6 @@
 # EPIC-003 Go to a weak section: Go directly to a weak section or item, or find it by search.
 
-`01M61XNJQPA0F7H1BG56ERNJ3P` · epic/feature · **open**
+`01M61XNJQPA0F7H1BG56ERNJ3P` · epic/feature · **done**
 
 Feature FEAT-003 (Go to a weak section), stage ST-003.
 

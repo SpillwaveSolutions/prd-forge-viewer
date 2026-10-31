@@ -1,0 +1,35 @@
++----------------------------------------------------------+
+| SC-006 alternate path, should                            |
+| Given: Yesterday the author read the PRD Forge Viewer    |
+| PRD set and closed the viewer. Overnight the authoring   |
+| tools changed section 6 from pending to draft.           |
++----------------------------------------------------------+
+    |
+    v
++----------------------------------------------------------+
+| When: The author opens the viewer the next day.          |
++----------------------------------------------------------+
+    |
+    v
++----------------------------------------------------------+
+| Does: The author opens the viewer.                       |
++----------------------------------------------------------+
+    |
+    v
++----------------------------------------------------------+
+| Sees: The author sees the same PRD set as yesterday,     |
+| without selecting it again.                              |
++----------------------------------------------------------+
+    |
+    v
++----------------------------------------------------------+
+| Sees: The author sees section 6 at draft, with its new   |
+| text.                                                    |
++----------------------------------------------------------+
+    |
+    v
++----------------------------------------------------------+
+| Then: The viewer opens the same PRD set as in the last   |
+| session, and every section shows its current version,    |
+| including section 6 at draft.                            |
++----------------------------------------------------------+

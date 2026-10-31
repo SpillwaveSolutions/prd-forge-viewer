@@ -17,6 +17,18 @@ pub struct Settings {
     pub themes: Vec<serde_json::Value>,
     #[serde(default)]
     pub export_theme: Option<String>,
+    /// The text size as a factor of the normal size (FR-026). None means normal.
+    #[serde(default)]
+    pub text_zoom: Option<f64>,
+    /// Search stays in view beside the document (FR-027).
+    #[serde(default)]
+    pub search_pinned: bool,
+}
+
+/// Keep a text size only inside the range that the viewer offers.
+pub fn set_view(s: &mut Settings, text_zoom: f64, search_pinned: bool) {
+    s.text_zoom = (0.5..=3.0).contains(&text_zoom).then_some(text_zoom);
+    s.search_pinned = search_pinned;
 }
 
 const BUILTIN_THEMES: [&str; 2] = ["clay", "ice-snowstorm"];
@@ -141,6 +153,22 @@ mod tests {
         assert_eq!(back.known, vec!["/a"]);
         assert_eq!(back.themes, vec![acme]);
         assert_eq!(back.export_theme.as_deref(), Some("acme"));
+    }
+
+    #[test]
+    fn the_text_size_and_the_search_pin_survive_a_restart_and_keep_the_themes() {
+        let d = TempDir::new().unwrap();
+        let p = d.path().join("settings.json");
+        let mut s = Settings::default();
+        set_themes(&mut s, vec![serde_json::json!({"id": "acme"})], Some("acme".into()));
+        set_view(&mut s, 1.3, true);
+        save_settings(&p, &s).unwrap();
+        let back = load_settings(&p);
+        assert_eq!(back.text_zoom, Some(1.3));
+        assert!(back.search_pinned);
+        assert_eq!(back.export_theme.as_deref(), Some("acme"));
+        set_view(&mut s, 40.0, false);
+        assert_eq!(s.text_zoom, None);
     }
 
     #[test]

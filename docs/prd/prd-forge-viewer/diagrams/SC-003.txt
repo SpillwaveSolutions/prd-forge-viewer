@@ -1,0 +1,41 @@
++----------------------------------------------------------+
+| SC-003 exception, must                                   |
+| Given: The author reads section 4 in the viewer. Section |
+| 4 shows a score of 61. At the same time, the authoring   |
+| tools rewrite section 4 and grade it at 75.              |
++----------------------------------------------------------+
+    |
+    v
++----------------------------------------------------------+
+| When: The authoring tools save the new version of        |
+| section 4.                                               |
++----------------------------------------------------------+
+    |
+    v
++----------------------------------------------------------+
+| Sees: The author reads section 4 in the viewer.          |
++----------------------------------------------------------+
+    |
+    v
++----------------------------------------------------------+
+| Does: The authoring tools save a new version of section  |
+| 4.                                                       |
++----------------------------------------------------------+
+    |
+    v
++----------------------------------------------------------+
+| Sees: The author sees the new text and the score 75,     |
+| without any action in the viewer.                        |
++----------------------------------------------------------+
+    |
+    v
++----------------------------------------------------------+
+| Sees: The author sees that section 4 changed.            |
++----------------------------------------------------------+
+    |
+    v
++----------------------------------------------------------+
+| Then: The viewer shows score 75 and the new text of      |
+| section 4, and the author did nothing to get it. Section |
+| 8 sets the time limit.                                   |
++----------------------------------------------------------+

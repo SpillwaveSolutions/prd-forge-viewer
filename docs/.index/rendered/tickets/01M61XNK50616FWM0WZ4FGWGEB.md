@@ -1,6 +1,6 @@
 # EPIC-004 Fix the section: See each change from the authoring tools while the section is open.
 
-`01M61XNK50616FWM0WZ4FGWGEB` · epic/feature · **open**
+`01M61XNK50616FWM0WZ4FGWGEB` · epic/feature · **done**
 
 Feature FEAT-004 (Fix the section), stage ST-004.
 

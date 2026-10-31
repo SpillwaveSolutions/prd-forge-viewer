@@ -4,7 +4,7 @@ kind: release-plan
 schema: prd-forge/release-plan@1
 title: Release plan
 status: review
-updated: 2026-10-28
+updated: 2026-10-31
 domain: software product management
 section: 13
 order: 140
@@ -63,16 +63,23 @@ releases:
       - SC-001, the end-to-end acceptance test for release 1, passes.
       - Every must requirement in this release passes its acceptance criteria.
   - id: REL-002
-    name: Release 2, grade findings
+    name: Release 2, grade findings and reading
     outcomes:
       - >-
         The author sees, for each section, the findings behind its grade: what is
         missing and what to improve.
+      - >-
+        The author and the developers read at a text size that suits them, keep
+        search results in view, and move between requirements and the backlog
+        stories that build them.
     journey_stages:
       - ST-002
       - ST-003
     requirements:
       - FR-025
+      - FR-026
+      - FR-027
+      - FR-028
     objectives:
       - O-001
       - O-002
@@ -99,7 +106,7 @@ links:
 | ID | Release | Target date | Stages | Requirements |
 | --- | --- | --- | --- | --- |
 | REL-001 | Release 1, read and export | 2026-11-06, committed | ST-001 to ST-007 | FR-001 to FR-024, except FR-006 |
-| REL-002 | Release 2, grade findings | 2026-11-06, indicative | ST-002, ST-003 | FR-025 |
+| REL-002 | Release 2, grade findings and reading | 2026-11-06, indicative | ST-002, ST-003 | FR-025 to FR-028 |
 
 ## REL-001. Release 1, read and export
 
@@ -114,7 +121,7 @@ target date from 2026-10-26 to 2026-10-27 on 2026-10-26, and to 2026-11-06 on
 2026-10-28. Release 1 runs on
 macOS only (OUT-003).
 
-## REL-002. Release 2, grade findings
+## REL-002. Release 2, grade findings and reading
 
 The author sees the findings behind each grade (FR-025). Release 2 comes second
 because release 1 is the golden thread J-001, and findings are useful only after
@@ -154,13 +161,16 @@ Every item in this document, with each of its fields.
 
 ### REL-002
 
-**Name:** Release 2, grade findings
+**Name:** Release 2, grade findings and reading
 
-**Outcomes:** The author sees, for each section, the findings behind its grade: what is missing and what to improve.
+**Outcomes:**
+
+- The author sees, for each section, the findings behind its grade: what is missing and what to improve.
+- The author and the developers read at a text size that suits them, keep search results in view, and move between requirements and the backlog stories that build them.
 
 **Journey stages:** ST-002, ST-003
 
-**Requirements:** FR-025
+**Requirements:** FR-025, FR-026, FR-027, FR-028
 
 **Objectives:** O-001, O-002
 

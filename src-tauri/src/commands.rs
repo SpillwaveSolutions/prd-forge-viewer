@@ -54,6 +54,24 @@ pub fn item_index(folder: String) -> Vec<crate::prdset::section::ItemRef> {
     crate::prdset::section::item_index(Path::new(&folder))
 }
 
+/// The backlog next to the PRD set, or null when there is none (FR-028).
+#[tauri::command(async)]
+pub fn backlog(folder: String) -> Option<crate::prdset::section::Backlog> {
+    crate::prdset::section::backlog_of(Path::new(&folder))
+}
+
+/// Each backlog story with the requirement ids it builds (FR-028).
+#[tauri::command(async)]
+pub fn story_links(folder: String) -> Vec<crate::prdset::section::StoryLink> {
+    crate::prdset::section::story_links(Path::new(&folder))
+}
+
+/// The findings behind the grade of a section, as markdown, or null with no note (FR-025).
+#[tauri::command(async)]
+pub fn read_grade(folder: String, file: String) -> Result<Option<String>, String> {
+    crate::prdset::section::read_grade(Path::new(&folder), &file)
+}
+
 /// The picture of a diagram for an export, as a data URL: its PNG, or its SVG when the PNG is older.
 #[tauri::command(async)]
 pub fn export_image(folder: String, rel: String) -> Result<String, String> {
@@ -112,6 +130,19 @@ pub fn save_themes(app: AppHandle, themes: Vec<serde_json::Value>, selected: Opt
 
 pub fn store_themes(path: &Path, themes: Vec<serde_json::Value>, selected: Option<String>) -> Result<(), String> {
     update_settings(path, |s| crate::settings::set_themes(s, themes, selected)).map_err(|e| e.to_string())
+}
+
+/// The text size and the search pin, from the settings file (FR-026, FR-027, ADR-004).
+#[tauri::command]
+pub fn view_prefs(app: AppHandle) -> serde_json::Value {
+    let s = load_settings(&settings_path(&app));
+    serde_json::json!({ "textZoom": s.text_zoom.unwrap_or(1.0), "searchPinned": s.search_pinned })
+}
+
+/// Save the text size and the search pin, with the atomic save (NFR-008).
+#[tauri::command]
+pub fn save_view_prefs(app: AppHandle, text_zoom: f64, search_pinned: bool) -> Result<(), String> {
+    update_settings(&settings_path(&app), |s| crate::settings::set_view(s, text_zoom, search_pinned)).map_err(|e| e.to_string())
 }
 
 /// Save a Word export, sent as base64, outside the set folder (FR-011, OUT-001).

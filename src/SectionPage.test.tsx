@@ -47,3 +47,13 @@ test("section_page_shows_the_document_list_for_one_action", () => {
     const html = page({ nav: <button type="button">Functional requirements</button> });
     expect(html).toMatch(/<nav[^>]*aria-label="Documents"[^>]*>.*Functional requirements/s);
 });
+
+test("fr_028_a_requirement_lists_the_stories_that_build_it_and_none_without_a_backlog", () => {
+    const fr: Section = { ...personas, file: "08.md", title: "Functional requirements", items: [{ id: "FR-005", title: "Open any section", parent: null, fields: [] }] };
+    const k = new Set(["FR-005", "US-008"]);
+    const withBacklog = renderToStaticMarkup(<SectionPage section={fr} known={k} selected="FR-005" onSelect={() => {}} onOpenItem={() => {}} onBack={() => {}} renderHtml={(md) => md} builtBy={(id) => (id === "FR-005" ? ["US-008"] : [])} />);
+    expect(withBacklog).toContain("built by");
+    expect(withBacklog).toMatch(/<button[^>]*>US-008<\/button>/);
+    const without = renderToStaticMarkup(<SectionPage section={fr} known={k} selected="FR-005" onSelect={() => {}} onOpenItem={() => {}} onBack={() => {}} renderHtml={(md) => md} />);
+    expect(without).not.toContain("built by");
+});
