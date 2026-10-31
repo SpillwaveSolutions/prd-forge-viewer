@@ -11,6 +11,10 @@ With the viewer, you can:
 - Read each section and each item, and follow an id to the item that it names.
 - Open a diagram in a diagram window, and zoom and pan it.
 - See the status, score, and blocking defects of every section in one table.
+- Read the findings behind the grade of a section: the blocking defects and
+  how to raise the grade.
+- Read the backlog that is next to the set, and move between a requirement
+  and the stories that build it.
 - Search the set by term, in one or more categories or in all categories.
   The search opens in a drawer at the right of the window.
 - Make the text larger or smaller, from 80% to 200%.
@@ -21,8 +25,8 @@ With the viewer, you can:
 The viewer shows only local content. No script in a document runs, and no
 remote image loads.
 
-Release 0.3.0 covers release 1 (REL-001) of the PRD: FR-001 to FR-024, except
-FR-006. It follows PRD 0.6.2. For the full list of changes, see [CHANGELOG.md](CHANGELOG.md).
+Release 0.4.0 covers release 1 (REL-001) of the PRD, FR-001 to FR-024 except
+FR-006, and release 2 (REL-002), FR-025 to FR-028. It follows PRD 0.7.0. For the full list of changes, see [CHANGELOG.md](CHANGELOG.md).
 
 ## User guide
 
@@ -33,8 +37,8 @@ the viewer.
 
 The release has one disk image for Macs with Apple silicon.
 
-1. Download `PRD.Forge.Viewer_0.3.0_aarch64.dmg` from the
-   [v0.3.0 release](https://github.com/SpillwaveSolutions/prd-forge-viewer/releases/tag/v0.3.0).
+1. Download `PRD.Forge.Viewer_0.4.0_aarch64.dmg` from the
+   [v0.4.0 release](https://github.com/SpillwaveSolutions/prd-forge-viewer/releases/tag/v0.4.0).
 2. Open the disk image.
 3. Move **PRD Forge Viewer** to the **Applications** folder.
 4. Start **PRD Forge Viewer**. Its icon is a PRD page with four colored

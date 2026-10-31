@@ -33,7 +33,7 @@ The viewer looks for sets only in the direct subfolders of `docs/prd`. A
 subfolder must hold a `prd.md` file.
 
 When a set opens, the window shows the overview of the set. For more
-information, see [Read sections and items](02-read-sections.md).
+information, see [[Read sections and items|Read-sections-and-items]].
 
 ## Install the prdf command
 
@@ -96,8 +96,8 @@ list shows "No known locations yet".
 
 ## The settings file
 
-The known locations, the last set, and your custom themes are in one settings
-file:
+The known locations, the last set, your custom themes, the text size, and the
+pin of the search drawer are in one settings file:
 
 ```text
 ~/Library/Application Support/com.spillwave.prd-forge-viewer/settings.json

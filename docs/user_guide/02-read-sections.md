@@ -16,10 +16,12 @@ When a set opens, the window shows its overview:
 - The executive summary from the root document.
 - The **Documents** list. It shows each document in reading order, with its
   status. A colored mark next to each document shows its status.
+- The **Backlog** list, when the set has a backlog. For more information, see
+  [Read the backlog](#read-the-backlog).
+- The **Grades** table. For more information, see [[See the grades|See-the-grades]].
 
 The executive summary and the **Documents** list show side by side. In a
 narrow window, the list shows below the summary.
-- The **Grades** table. For more information, see [See the grades](03-grades.md).
 
 A document that the viewer cannot read shows **Unreadable**, its file name, and
 the reason. You cannot open it.
@@ -35,12 +37,16 @@ The section page shows:
 - The status and the grade of the section. The grade has the score, the number
   of blocking defects, and the date of the grade. A section with no grade shows
   "Not graded".
+- The **Findings** button, next to the grade. For more information, see
+  [[See the grades|See-the-grades#read-the-findings-behind-a-grade]].
 - A row of buttons, one for each item id in the section.
 - The body of the section.
 
 A list of all the documents is at the side of the page. Each title has a
 colored mark for its status. Click a title in the list to open that document.
-The title of the open document is marked.
+The title of the open document is marked. When the set has a backlog, the
+backlog documents show below the **Backlog** heading at the end of the list.
+The list starts below the toolbar at all text sizes.
 
 To go back to the overview, click **Back to the PRD set**.
 
@@ -54,6 +60,8 @@ The item shows above the body of the section. It has:
 - The item that holds it, when it has one. For example, a stage shows "in
   J-001".
 - The title, status, and grade of its section.
+- **built by**, when the item is a requirement and stories in the backlog
+  build it. Each story id is a button. Click it to open the story.
 - Each field of the item.
 
 To close the item, click its button again.
@@ -67,6 +75,37 @@ set has an item with that id, the id is a button.
 
 The viewer opens the section that holds the item and shows the item. An id
 that names no item in the set stays as text.
+
+## Read the backlog
+
+A backlog is a set of documents, for example epics and stories, that the
+authoring tools make from a PRD set. The viewer shows the backlog when it is
+in a folder next to the set folder, with the name of the set folder and
+`-backlog`. For example, the backlog of `docs/prd/prd-forge-viewer` is in
+`docs/prd/prd-forge-viewer-backlog`. The backlog folder must hold a
+`backlog.md` file.
+
+When the set has a backlog:
+
+- The overview shows the **Backlog** list below the **Documents** list.
+- The list at the side of a section page has a **Backlog** group.
+
+1. Click the title of a backlog document in one of the two lists.
+
+The backlog document opens like a section. You can open its items and follow
+the ids in it. A backlog document has no **Findings** button.
+
+### Move between a requirement and its stories
+
+A story names the requirements that it builds, for example FR-005. The viewer
+links the two in both directions:
+
+- On a story, each requirement id is a button. Click it to open the
+  requirement.
+- On a requirement, **built by** shows each story that builds it. Click a story
+  id to open the story.
+
+A requirement that no story builds shows no **built by** field.
 
 ## Links and images in a body
 
@@ -130,5 +169,6 @@ window.
 | Go back to the normal size | the percentage | Command-0 |
 
 The text size is from 80% to 200%. At 80%, **A−** is not available. At 200%,
-**A+** is not available. The viewer keeps the text size for the next time you
-open it.
+**A+** is not available. The viewer keeps the text size in the settings file
+for the next time you open it. For more information, see
+[[Open a PRD set|Open-a-PRD-set#the-settings-file]].
