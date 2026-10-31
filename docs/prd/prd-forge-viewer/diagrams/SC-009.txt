@@ -1,0 +1,40 @@
++----------------------------------------------------------+
+| SC-009 alternate path, should                            |
+| Given: The author has not used the viewer before. The    |
+| docs/prd folder of the project holds two PRD sets.       |
++----------------------------------------------------------+
+    |
+    v
++----------------------------------------------------------+
+| When: The author runs prdf in the project folder for the |
+| first time.                                              |
++----------------------------------------------------------+
+    |
+    v
++----------------------------------------------------------+
+| Does: The author runs prdf in the project folder.        |
++----------------------------------------------------------+
+    |
+    v
++----------------------------------------------------------+
+| Sees: The author sees the two PRD sets, each with its    |
+| product name and folder, and sees that no set is open.   |
++----------------------------------------------------------+
+    |
+    v
++----------------------------------------------------------+
+| Does: The author selects one set.                        |
++----------------------------------------------------------+
+    |
+    v
++----------------------------------------------------------+
+| Sees: The author sees that set open, with its product    |
+| name and version.                                        |
++----------------------------------------------------------+
+    |
+    v
++----------------------------------------------------------+
+| Then: The viewer opens no set until the author selects   |
+| one. After the author selects a set, the viewer shows    |
+| that set with its product name and version.              |
++----------------------------------------------------------+

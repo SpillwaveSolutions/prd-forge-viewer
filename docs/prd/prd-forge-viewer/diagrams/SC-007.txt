@@ -1,0 +1,28 @@
++----------------------------------------------------------+
+| SC-007 exception, should                                 |
+| Given: The PRD set has its functional requirements and   |
+| scenarios written.                                       |
++----------------------------------------------------------+
+    |
+    v
++----------------------------------------------------------+
+| When: The developer searches for a term that no item     |
+| contains.                                                |
++----------------------------------------------------------+
+    |
+    v
++----------------------------------------------------------+
+| Does: The developer enters the search term "invoice" and |
+| selects the category "all".                              |
++----------------------------------------------------------+
+    |
+    v
++----------------------------------------------------------+
+| Sees: The viewer finds no item that contains "invoice".  |
++----------------------------------------------------------+
+    |
+    v
++----------------------------------------------------------+
+| Then: The developer sees that no item contains           |
+| "invoice", and sees no results.                          |
++----------------------------------------------------------+

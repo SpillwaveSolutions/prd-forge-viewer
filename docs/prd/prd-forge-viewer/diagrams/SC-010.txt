@@ -1,0 +1,44 @@
++----------------------------------------------------------+
+| SC-010 happy path, should                                |
+| Given: The author sent version 0.5.0 of the PRD Forge    |
+| Viewer PRD as a fixed-layout document. Four sections are |
+| at review, and the others are at final.                  |
++----------------------------------------------------------+
+    |
+    v
++----------------------------------------------------------+
+| When: The sponsor opens the file to decide on version    |
+| 0.5.0.                                                   |
++----------------------------------------------------------+
+    |
+    v
++----------------------------------------------------------+
+| Does: The sponsor opens the file without the authoring   |
+| tools.                                                   |
++----------------------------------------------------------+
+    |
+    v
++----------------------------------------------------------+
+| Sees: The sponsor sees version 0.5.0 and the word        |
+| "Draft" on the first page.                               |
++----------------------------------------------------------+
+    |
+    v
++----------------------------------------------------------+
+| Sees: The sponsor reads the executive summary and sees   |
+| the status and score of every section in the contents.   |
++----------------------------------------------------------+
+    |
+    v
++----------------------------------------------------------+
+| Does: The sponsor approves the version and sends the     |
+| decision and the reason to the author.                   |
++----------------------------------------------------------+
+    |
+    v
++----------------------------------------------------------+
+| Then: In the first two pages, the sponsor sees the       |
+| version, the draft mark, the executive summary, and the  |
+| status and score of every section. The author receives   |
+| the decision and its reason.                             |
++----------------------------------------------------------+

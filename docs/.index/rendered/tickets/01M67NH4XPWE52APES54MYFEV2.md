@@ -1,6 +1,6 @@
 # Task 1: update the PRD for the new requirements
 
-`01M67NH4XPWE52APES54MYFEV2` · task/feature · **open**
+`01M67NH4XPWE52APES54MYFEV2` · task/feature · **done**
 
 Use the prd-wizard skill.
 

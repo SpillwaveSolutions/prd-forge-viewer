@@ -1,0 +1,73 @@
++----------------------------------------------------------+
+| J-001 trigger                                            |
++----------------------------------------------------------+
+    |
+    v
++----------------------------------------------------------+
+| ST-001 Open the PRD                                      |
++----------------------------------------------------------+
+    |
+    |-- SC-002? yes: exception, must
+    |       The author opens the PRD set.
+    |       -> ends at its outcome
+    | no
+    |
+    |-- SC-006? yes: alternate path, should
+    |       The author opens the viewer the next day.
+    |       -> ends at its outcome
+    | no
+    |
+    |-- SC-009? yes: alternate path, should
+    |       The author runs prdf in the project folder for
+    |       the first time.
+    |       -> ends at its outcome
+    | no
+    |
+    v
++----------------------------------------------------------+
+| ST-002 Check the grades                                  |
++----------------------------------------------------------+
+    |
+    v
++----------------------------------------------------------+
+| ST-003 Go to a weak section                              |
++----------------------------------------------------------+
+    |
+    v
++----------------------------------------------------------+
+| ST-004 Fix the section                                   |
++----------------------------------------------------------+
+    |
+    |-- SC-003? yes: exception, must
+    |       The authoring tools save the new version of
+    |       section 4.
+    |       -> ends at its outcome
+    | no
+    |
+    v
++----------------------------------------------------------+
+| ST-005 Export the PRD                                    |
++----------------------------------------------------------+
+    |
+    |-- SC-004? yes: alternate path, must
+    |       The author exports the PRD set before the
+    |       interview covers all sections.
+    |       -> ends at its outcome
+    | no
+    |
+    v
++----------------------------------------------------------+
+| ST-006 Send the export                                   |
++----------------------------------------------------------+
+    |
+    | hand-off to Product sponsor (PER-004), engineering
+    | lead (PER-003), and developers (PER-005)
+    v
++----------------------------------------------------------+
+| ST-007 Read and respond                                  |
++----------------------------------------------------------+
+    |
+    v
++----------------------------------------------------------+
+| End state                                                |
++----------------------------------------------------------+

@@ -1,0 +1,26 @@
+@startsalt
+title WF-013 A requirement with the backlog stories that build it
+{+
+  {/ <b>PRD Forge Viewer</b> | [Search] | [Export] }
+  ==
+  {
+    {T
+     + PRD, v0.7.0
+     ++ 7 Functional requirements
+     +++ FR-005
+     + Backlog
+     ++ Stories
+     +++ US-008
+    } | {
+      <b>FR-005 Open any section <1>
+      Given a PRD set, when the author
+      selects a section, then …
+      --
+      <b>Built by <2>
+      › US-008 Open a section and read it
+      --
+      US-008 builds: › FR-005 <3>
+    }
+  }
+}
+@endsalt

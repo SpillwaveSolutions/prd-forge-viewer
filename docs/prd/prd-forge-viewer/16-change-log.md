@@ -4,7 +4,7 @@ kind: change-log
 schema: prd-forge/change-log@1
 title: Change log
 status: draft
-updated: 2026-10-30
+updated: 2026-10-31
 domain: software product management
 section: 15
 order: 160
@@ -201,6 +201,21 @@ changes:
         role: Sponsor (PER-004)
         date: 2026-10-30
         decision: approved
+  - version: 0.7.0
+    date: 2026-10-31
+    author: Richard Hightower
+    summary: >-
+      The PRD catches up with the viewer. FR-008 searches one or more
+      categories. FR-026 adds the text size, FR-027 keeps search results in
+      view, and FR-028 moves between a requirement and the backlog stories that
+      build it (GitHub issue 199). The three new requirements join FR-025 in
+      release 2 (REL-002). The glossary adds backlog and text size.
+    sections: [7, 13, 14]
+    approvals:
+      - name: Richard Hightower
+        role: Sponsor (PER-004)
+        date: 2026-10-31
+        decision: approved
 links:
   parent: { id: prd-forge-viewer, kind: prd, path: ./prd.md, title: PRD Forge Viewer PRD }
   prev: { id: prd-forge-viewer-glossary, kind: glossary, path: ./15-glossary.md, title: Glossary }
@@ -224,6 +239,7 @@ links:
 | 0.6.0 | 2026-10-28 | Richard Hightower | Sections 1, 2, 8, and 9 above 80; C-001, C-002, and C-004 retired to IN-006, OUT-001, and OUT-003; Q-001 and Q-009 answered | Richard Hightower, sponsor, approved 2026-10-28 |
 | 0.6.1 | 2026-10-28 | Richard Hightower | Release 1 target date moves to 2026-11-06 | None yet |
 | 0.6.2 | 2026-10-30 | Richard Hightower | Grades in an export are optional and off by default (FR-019) | Richard Hightower, sponsor, approved 2026-10-30 |
+| 0.7.0 | 2026-10-31 | Richard Hightower | FR-008 in more than one category; FR-026 to FR-028 added to release 2 | Richard Hightower, sponsor, approved 2026-10-31 |
 
 ## 0.1.0. First draft
 
@@ -587,6 +603,23 @@ Every item in this document, with each of its fields.
 - **Name:** Richard Hightower
   - **Role:** Sponsor (PER-004)
   - **Date:** 2026-10-30
+  - **Decision:** approved
+
+### 0.7.0
+
+**Summary:** The PRD catches up with the viewer. FR-008 searches one or more categories. FR-026 adds the text size, FR-027 keeps search results in view, and FR-028 moves between a requirement and the backlog stories that build it (GitHub issue 199). The three new requirements join FR-025 in release 2 (REL-002). The glossary adds backlog and text size.
+
+**Date:** 2026-10-31
+
+**Author:** Richard Hightower
+
+**Sections:** 7, 13, 14
+
+**Approvals:**
+
+- **Name:** Richard Hightower
+  - **Role:** Sponsor (PER-004)
+  - **Date:** 2026-10-31
   - **Decision:** approved
 
 <!-- /prd-forge:details -->

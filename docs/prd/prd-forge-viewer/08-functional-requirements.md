@@ -4,7 +4,7 @@ kind: functional-requirements
 schema: prd-forge/functional-requirements@1
 title: Functional requirements
 status: final
-updated: 2026-10-30
+updated: 2026-10-31
 domain: software product management
 section: 7
 order: 80
@@ -144,7 +144,7 @@ requirements:
   - id: FR-008
     shown_in: screen
     user: PER-002
-    capability: Search the PRD set by term, in one category or in all categories
+    capability: Search the PRD set by term, in one or more categories or in all categories
     outcome: >-
       The developer sees the matching items, most relevant first, each with its
       id and section.
@@ -153,6 +153,10 @@ requirements:
         Given the term "export" and the category functional requirements, when
         the developer searches, then the developer sees only the functional
         requirements that contain "export", each with its id and section.
+      - >-
+        Given the term "export" and the categories functional requirements and
+        scenarios, when the developer searches, then the developer sees only
+        functional requirements and scenarios that contain "export".
       - >-
         Given the same term and the category "all", when the developer searches,
         then the developer sees matching items from every section, including
@@ -489,6 +493,72 @@ requirements:
     journey_stage: ST-002
     objective: O-002
     source: PRD owner decision, 2026-10-27; OUT-002, D-002
+  - id: FR-026
+    shown_in: screen
+    user: PER-001
+    capability: Make the text larger or smaller
+    outcome: >-
+      The author reads the PRD set at a text size that suits the author, and the
+      viewer keeps that size for the next session.
+    acceptance:
+      - >-
+        Given a section is open at the normal text size, when the author makes
+        the text larger two times, then the text of the section is larger than
+        before.
+      - >-
+        Given a larger text size, when the author returns to the normal size,
+        then the text is at the normal size again.
+      - >-
+        Given the author made the text larger and closed the viewer, when the
+        author opens the viewer again, then the text has the same larger size.
+    priority: should
+    journey_stage: ST-003
+    objective: O-001
+    source: PRD owner decision, 2026-10-30
+  - id: FR-027
+    shown_in: screen
+    user: PER-002
+    capability: Keep search results in view while reading the items they find
+    outcome: >-
+      The developer opens one search result after another without searching
+      again, and hides search when it is not needed.
+    acceptance:
+      - >-
+        Given search is hidden, when the developer asks for search, then the
+        developer sees the search box, ready for a term.
+      - >-
+        Given search is kept in view and shows the results of "export", when
+        the developer opens two results one after the other, then the results
+        of "export" stay in view the whole time.
+      - >-
+        Given search is not kept in view, when the developer opens a result,
+        then search is hidden and the item is shown.
+    priority: should
+    journey_stage: ST-003
+    objective: O-001
+    source: PRD owner decision, 2026-10-30
+  - id: FR-028
+    shown_in: screen
+    user: PER-002
+    capability: Move between a requirement and the backlog stories that build it
+    outcome: >-
+      The developer goes from a requirement to the stories that build it, and
+      from a story back to its requirements, without losing context.
+    acceptance:
+      - >-
+        Given a backlog next to the PRD set in which US-008 builds FR-005, when
+        the developer views FR-005, then the developer sees US-008 and can open
+        it.
+      - >-
+        Given that backlog, when the developer views US-008, then the developer
+        sees FR-005 and can open it.
+      - >-
+        Given a PRD set with no backlog next to it, when the developer views
+        FR-005, then the viewer shows the requirement with no backlog links.
+    priority: should
+    journey_stage: ST-003
+    objective: O-001
+    source: PRD owner decision, 2026-10-30 (GitHub issue 199)
 links:
   parent: { id: prd-forge-viewer, kind: prd, path: ./prd.md, title: PRD Forge Viewer PRD }
   prev: { id: prd-forge-viewer-scope, kind: scope, path: ./07-scope.md, title: Scope }
@@ -530,6 +600,9 @@ Each requirement uses MoSCoW priority: must, should, could, or won't.
 | FR-023 | PER-001 | Select one item of a section and read it | must | ST-003 |
 | FR-024 | PER-001 | Choose one PRD set when docs/prd holds more than one | should | ST-001 |
 | FR-025 | PER-001 | See the findings behind the grade of a section, in release 2 | wont | ST-002 |
+| FR-026 | PER-001 | Make the text larger or smaller, in release 2 | should | ST-003 |
+| FR-027 | PER-002 | Keep search results in view while reading, in release 2 | should | ST-003 |
+| FR-028 | PER-002 | Move between a requirement and its backlog stories, in release 2 | should | ST-003 |
 
 ## FR-001. Open a PRD set and see its contents
 
@@ -656,6 +729,24 @@ The author sees the blocking defects and the items to raise the grade of a
 section. The authoring tools record these findings (D-002). FR-025 is the
 only requirement of release 2 (REL-002). Its priority is wont, because the priority
 says what release 1 must handle, and release 1 does not have it.
+
+## FR-026. Make the text larger or smaller
+
+The author changes the text size in steps and returns to the normal size in one
+action. The viewer keeps the size for the next session. The PRD owner added this
+on 2026-10-30.
+
+## FR-027. Keep search results in view while reading
+
+Search is hidden until the developer asks for it. The developer can keep it in
+view beside the document, so that the results stay while the developer opens one
+result after another. The PRD owner added this on 2026-10-30.
+
+## FR-028. Move between a requirement and its backlog stories
+
+When a backlog made from the PRD set is next to it, a requirement shows the
+stories that build it, and a story shows its requirements. Each link opens its
+item. The PRD owner added this on 2026-10-30 (GitHub issue 199).
 
 <!-- prd-forge:details -->
 
@@ -825,7 +916,7 @@ Every item in this document, with each of its fields.
 
 ### FR-008
 
-**Capability:** Search the PRD set by term, in one category or in all categories
+**Capability:** Search the PRD set by term, in one or more categories or in all categories
 
 **Shown in:** screen
 
@@ -836,11 +927,12 @@ Every item in this document, with each of its fields.
 **Acceptance:**
 
 1. Given the term "export" and the category functional requirements, when the developer searches, then the developer sees only the functional requirements that contain "export", each with its id and section.
-2. Given the same term and the category "all", when the developer searches, then the developer sees matching items from every section, including scenarios.
-3. Given item A has "export" in its title and item B has "export" only once in its text, when the developer searches for "export", then item A is above item B.
-4. Given a search with matches, when the developer views the results, then each result shows its id, its title, its section, and a relevance score from 0 to 100, highest first.
-5. Given a list of results, when the developer selects one result, then the developer sees that item in its section.
-6. Given a term that no item contains, when the developer searches, then the developer sees that there are no matches.
+2. Given the term "export" and the categories functional requirements and scenarios, when the developer searches, then the developer sees only functional requirements and scenarios that contain "export".
+3. Given the same term and the category "all", when the developer searches, then the developer sees matching items from every section, including scenarios.
+4. Given item A has "export" in its title and item B has "export" only once in its text, when the developer searches for "export", then item A is above item B.
+5. Given a search with matches, when the developer views the results, then each result shows its id, its title, its section, and a relevance score from 0 to 100, highest first.
+6. Given a list of results, when the developer selects one result, then the developer sees that item in its section.
+7. Given a term that no item contains, when the developer searches, then the developer sees that there are no matches.
 
 **Priority:** must
 
@@ -1240,5 +1332,77 @@ Every item in this document, with each of its fields.
 **Objective:** O-002
 
 **Source:** PRD owner decision, 2026-10-27; OUT-002, D-002
+
+### FR-026
+
+**Capability:** Make the text larger or smaller
+
+**Shown in:** screen
+
+**User:** PER-001
+
+**Outcome:** The author reads the PRD set at a text size that suits the author, and the viewer keeps that size for the next session.
+
+**Acceptance:**
+
+1. Given a section is open at the normal text size, when the author makes the text larger two times, then the text of the section is larger than before.
+2. Given a larger text size, when the author returns to the normal size, then the text is at the normal size again.
+3. Given the author made the text larger and closed the viewer, when the author opens the viewer again, then the text has the same larger size.
+
+**Priority:** should
+
+**Journey stage:** ST-003
+
+**Objective:** O-001
+
+**Source:** PRD owner decision, 2026-10-30
+
+### FR-027
+
+**Capability:** Keep search results in view while reading the items they find
+
+**Shown in:** screen
+
+**User:** PER-002
+
+**Outcome:** The developer opens one search result after another without searching again, and hides search when it is not needed.
+
+**Acceptance:**
+
+1. Given search is hidden, when the developer asks for search, then the developer sees the search box, ready for a term.
+2. Given search is kept in view and shows the results of "export", when the developer opens two results one after the other, then the results of "export" stay in view the whole time.
+3. Given search is not kept in view, when the developer opens a result, then search is hidden and the item is shown.
+
+**Priority:** should
+
+**Journey stage:** ST-003
+
+**Objective:** O-001
+
+**Source:** PRD owner decision, 2026-10-30
+
+### FR-028
+
+**Capability:** Move between a requirement and the backlog stories that build it
+
+**Shown in:** screen
+
+**User:** PER-002
+
+**Outcome:** The developer goes from a requirement to the stories that build it, and from a story back to its requirements, without losing context.
+
+**Acceptance:**
+
+1. Given a backlog next to the PRD set in which US-008 builds FR-005, when the developer views FR-005, then the developer sees US-008 and can open it.
+2. Given that backlog, when the developer views US-008, then the developer sees FR-005 and can open it.
+3. Given a PRD set with no backlog next to it, when the developer views FR-005, then the viewer shows the requirement with no backlog links.
+
+**Priority:** should
+
+**Journey stage:** ST-003
+
+**Objective:** O-001
+
+**Source:** PRD owner decision, 2026-10-30 (GitHub issue 199)
 
 <!-- /prd-forge:details -->

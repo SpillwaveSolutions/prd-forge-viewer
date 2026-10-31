@@ -28,7 +28,7 @@ _The evidence chain: plan → item → ticket → code → release, forward and 
 - produced-by: [[Plan-plan-10-prd-findings-backlog]]
 
 ### Task 1: update the PRD for the new requirements
-`01M67NH4XPWE52APES54MYFEV2` · status: todo
+`01M67NH4XPWE52APES54MYFEV2` · status: done
 - belongs-to: Plan 10: PRD catch-up, grade findings, backlog navigation, and release 0.4.0
 - produced-by: [[Plan-plan-10-prd-findings-backlog]]
 

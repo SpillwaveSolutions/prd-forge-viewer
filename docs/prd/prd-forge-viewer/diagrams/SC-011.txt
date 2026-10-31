@@ -1,0 +1,36 @@
++----------------------------------------------------------+
+| SC-011 exception, should                                 |
+| Given: The sponsor read version 0.5.0. Section 5 has a   |
+| score of 72, the lowest in the set.                      |
++----------------------------------------------------------+
+    |
+    v
++----------------------------------------------------------+
+| When: The sponsor decides that section 5 is not good     |
+| enough to approve.                                       |
++----------------------------------------------------------+
+    |
+    v
++----------------------------------------------------------+
+| Does: The sponsor rejects version 0.5.0, outside the     |
+| viewer.                                                  |
++----------------------------------------------------------+
+    |
+    v
++----------------------------------------------------------+
+| Does: The sponsor sends the decision and the reason,     |
+| "section 5 scores 72", to the author.                    |
++----------------------------------------------------------+
+    |
+    v
++----------------------------------------------------------+
+| Does: The author records the rejection and its reason in |
+| the change log.                                          |
++----------------------------------------------------------+
+    |
+    v
++----------------------------------------------------------+
+| Then: The author has the rejection and its reason. The   |
+| change log records the rejection with a note, and the    |
+| next export of the set still shows "Draft".              |
++----------------------------------------------------------+

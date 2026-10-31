@@ -1,0 +1,38 @@
++----------------------------------------------------------+
+| SC-008 alternate path, should                            |
+| Given: The PRD set has 18 documents. The functional      |
+| requirements section is at final, and the release plan   |
+| section is still at pending.                             |
++----------------------------------------------------------+
+    |
+    v
++----------------------------------------------------------+
+| When: The developer needs both sections for the team.    |
++----------------------------------------------------------+
+    |
+    v
++----------------------------------------------------------+
+| Does: The developer selects the functional requirements  |
+| section and the release plan section.                    |
++----------------------------------------------------------+
+    |
+    v
++----------------------------------------------------------+
+| Does: The developer exports them as one editable         |
+| document.                                                |
++----------------------------------------------------------+
+    |
+    v
++----------------------------------------------------------+
+| Sees: The developer opens the file and sees both         |
+| sections. The release plan section says that it is not   |
+| written yet.                                             |
++----------------------------------------------------------+
+    |
+    v
++----------------------------------------------------------+
+| Then: The file has both selected sections, in reading    |
+| order. The pending section shows its status and says     |
+| that it is not written yet, and the export shows         |
+| "Draft".                                                 |
++----------------------------------------------------------+

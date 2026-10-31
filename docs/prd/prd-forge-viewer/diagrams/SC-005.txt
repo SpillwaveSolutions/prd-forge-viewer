@@ -1,0 +1,45 @@
++----------------------------------------------------------+
+| SC-005 happy path, should                                |
+| Given: The PRD set has its functional requirements and   |
+| scenarios written. The developer starts work on the      |
+| export feature.                                          |
++----------------------------------------------------------+
+    |
+    v
++----------------------------------------------------------+
+| When: The developer needs the requirements and scenarios |
+| about export.                                            |
++----------------------------------------------------------+
+    |
+    v
++----------------------------------------------------------+
+| Does: The developer enters the search term "export" and  |
+| selects the category "functional requirements".          |
++----------------------------------------------------------+
+    |
+    v
++----------------------------------------------------------+
+| Sees: The developer sees the matching requirements, best |
+| match first, each with its id and section.               |
++----------------------------------------------------------+
+    |
+    v
++----------------------------------------------------------+
+| Does: The developer changes the category to "all" and    |
+| sees the matching scenarios as well.                     |
++----------------------------------------------------------+
+    |
+    v
++----------------------------------------------------------+
+| Does: The developer exports the user journeys and        |
+| functional requirements sections as one editable         |
+| document and sends it to the team.                       |
++----------------------------------------------------------+
+    |
+    v
++----------------------------------------------------------+
+| Then: The developer sees only the items that contain     |
+| "export", best match first, each with its id and         |
+| section. The team receives one file with only the two    |
+| selected sections.                                       |
++----------------------------------------------------------+

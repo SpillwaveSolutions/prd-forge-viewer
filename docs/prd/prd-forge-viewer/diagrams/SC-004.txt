@@ -1,0 +1,38 @@
++----------------------------------------------------------+
+| SC-004 alternate path, must                              |
+| Given: The PRD set has the root document and 4 sections  |
+| at draft, and 13 sections at pending. The engineering    |
+| lead wants an early copy.                                |
++----------------------------------------------------------+
+    |
+    v
++----------------------------------------------------------+
+| When: The author exports the PRD set before the          |
+| interview covers all sections.                           |
++----------------------------------------------------------+
+    |
+    v
++----------------------------------------------------------+
+| Does: The author selects the whole PRD set, the editable |
+| document format, and the Ice Snowstorm theme.            |
++----------------------------------------------------------+
+    |
+    v
++----------------------------------------------------------+
+| Does: The author saves the file and sends it to the      |
+| engineering lead.                                        |
++----------------------------------------------------------+
+    |
+    v
++----------------------------------------------------------+
+| Does: The engineering lead opens the file without the    |
+| authoring tools.                                         |
++----------------------------------------------------------+
+    |
+    v
++----------------------------------------------------------+
+| Then: The file shows the word "Draft" and version 0.1.0  |
+| on the first page. The contents list shows the status    |
+| and score of every section. Each pending section says    |
+| that it is not written yet.                              |
++----------------------------------------------------------+

@@ -1,0 +1,27 @@
++----------------------------------------------------------+
+| REL-001 Release 1, read and export                       |
+| by 2026-11-06                                            |
++----------------------------------------------------------+
+  ST-001 Open the PRD (3 must requirements)
+  ST-002 Check the grades (1 must requirement)
+  ST-003 Go to a weak section (3 must requirements)
+  ST-004 Fix the section (1 must requirement)
+  ST-005 Export the PRD (4 must requirements)
+  ST-006 Send the export (0 must requirements)
+  ST-007 Read and respond (0 must requirements)
+
++----------------------------------------------------------+
+| REL-002 Release 2, grade findings and reading            |
+| by 2026-11-06                                            |
++----------------------------------------------------------+
+  ST-002 Check the grades (1 must requirement)
+  ST-003 Go to a weak section (3 must requirements)
+
++----------------------------------------------------------+
+| In no release                                            |
++----------------------------------------------------------+
+  ST-008 Open the PRD (0 must requirements)
+  ST-009 Search for the work (0 must requirements)
+  ST-010 Share the items (0 must requirements)
+  ST-011 Read the export (0 must requirements)
+  ST-012 Decide and reply (0 must requirements)

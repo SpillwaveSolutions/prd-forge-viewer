@@ -1,0 +1,29 @@
++----------------------------------------------------------+
+| Trigger: The developer starts work on a part of the      |
+| product.                                                 |
++----------------------------------------------------------+
+    |
+    v
++----------------------------------------------------------+
+| ST-008 Open the PRD                                      |
+| Actor: Developer who uses the authoring tools (PER-002)  |
++----------------------------------------------------------+
+    |
+    v
++----------------------------------------------------------+
+| ST-009 Search for the work                               |
+| Actor: Developer who uses the authoring tools (PER-002)  |
++----------------------------------------------------------+
+    |
+    v
++----------------------------------------------------------+
+| ST-010 Share the items                                   |
+| Actor: Developer who uses the authoring tools (PER-002)  |
++----------------------------------------------------------+
+    |
+    v
++----------------------------------------------------------+
+| End state: The developer has the items for the current   |
+| work, and the team has a file with the sections that     |
+| hold those items.                                        |
++----------------------------------------------------------+

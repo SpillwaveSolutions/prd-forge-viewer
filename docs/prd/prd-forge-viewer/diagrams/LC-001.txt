@@ -1,0 +1,27 @@
+LC-001 A section of the PRD set
+States: pending, draft, review, final
+Starts at pending. Ends at final.
+
+pending --> draft
+  When: The author writes the section in the authoring
+        tools.
+  Rule: The section has content that the authoring tools can
+        read.
+  By: Author
+
+draft --> review
+  When: A grading pass in the authoring tools gives the
+        section its grade.
+  Rule: A score of 70 or more and 0 blocking defects.
+  By: Author
+
+review --> final
+  When: The sponsor approves the version.
+  Rule: The change log records the approval.
+  By: Sponsor
+
+final --> review
+  When: The author changes an approved section.
+  Rule: The section stays at review until the sponsor
+        approves the new version.
+  By: Author

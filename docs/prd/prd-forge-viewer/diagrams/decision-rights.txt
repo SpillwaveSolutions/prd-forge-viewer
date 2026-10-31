@@ -1,0 +1,37 @@
+Author decides:
+  - TR-001 Is this the correct PRD set and version (ST-001)
+           (delegable to an agent)
+  - TR-002 Which sections the author fixes before anyone
+           else reads the PRD (ST-002, ST-003) (never
+           delegated)
+  - TR-003 If a section is good enough to send (ST-004)
+           (never delegated)
+  - TR-004 The format, the theme, and the sections of an
+           export (ST-005) (delegable to a person)
+  - TR-005 If an export shows the word "Draft" (ST-005)
+           (delegable to an agent)
+  - TR-006 Who receives a version of the PRD (ST-006) (never
+           delegated)
+  - TR-010 Fix a section now, or send the PRD as a draft
+           (ST-003) (never delegated)
+
+Sponsor decides:
+  - TR-007 Approve or reject a version of the PRD (ST-007,
+           ST-012) (never delegated)
+  - TR-011 If the export has enough for a decision, or the
+           author must answer questions first (ST-011)
+           (never delegated)
+
+EngineeringLead decides:
+  - TR-008 If the team can build the product from the PRD
+           (ST-007) (never delegated)
+
+ToolsDeveloper decides:
+  - TR-009 Which items apply to the current work (ST-009)
+           (delegable to a person)
+  - TR-012 Is this the correct PRD set and version, in the
+           developer's session (ST-008) (delegable to an
+           agent)
+  - TR-013 The format, the theme, and the sections of a
+           developer's export (ST-010) (delegable to a
+           person)

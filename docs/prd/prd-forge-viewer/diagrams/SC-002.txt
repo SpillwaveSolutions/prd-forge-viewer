@@ -1,0 +1,41 @@
++----------------------------------------------------------+
+| SC-002 exception, must                                   |
+| Given: The PRD set has 18 files. Thirteen sections are   |
+| at pending and fail the authoring tools' check because   |
+| they have no content yet. One section has a header that  |
+| cannot be read.                                          |
++----------------------------------------------------------+
+    |
+    v
++----------------------------------------------------------+
+| When: The author opens the PRD set.                      |
++----------------------------------------------------------+
+    |
+    v
++----------------------------------------------------------+
+| Does: The author opens the PRD set.                      |
++----------------------------------------------------------+
+    |
+    v
++----------------------------------------------------------+
+| Sees: The author sees all 18 documents in order, with    |
+| the status of each.                                      |
++----------------------------------------------------------+
+    |
+    v
++----------------------------------------------------------+
+| Sees: The author sees which section has a header that    |
+| cannot be read, and the name of its file.                |
++----------------------------------------------------------+
+    |
+    v
++----------------------------------------------------------+
+| Sees: The author reads the other 17 documents as usual.  |
++----------------------------------------------------------+
+    |
+    v
++----------------------------------------------------------+
+| Then: The PRD set opens. All 18 documents are listed.    |
+| The one unreadable section is marked as unreadable with  |
+| its file name, and the 17 other documents can be read.   |
++----------------------------------------------------------+

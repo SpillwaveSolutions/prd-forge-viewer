@@ -4,11 +4,11 @@ kind: prd
 schema: prd-forge/prd-root@1
 title: PRD Forge Viewer PRD
 status: draft
-updated: 2026-10-30
+updated: 2026-10-31
 domain: software product management
 product: PRD Forge Viewer
 slug: prd-forge-viewer
-version: 0.6.2
+version: 0.7.0
 owner: Richard Hightower
 stakeholders:
   - Engineering lead (PER-003)
@@ -93,7 +93,7 @@ days of sending a version, by 2027-03-31.
 
 Every item in this document, with each of its fields.
 
-**Version:** 0.6.2
+**Version:** 0.7.0
 
 **Owner:** Richard Hightower
 
