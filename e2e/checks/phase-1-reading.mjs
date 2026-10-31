@@ -88,6 +88,20 @@ await run(async (h) => {
     await keyUntil(29, "command down", (v) => Math.abs(v - normal) < 0.1); // Command-0
   });
 
+  await h.check("FR-025: Findings shows the grade note of a section, and says when a document has none", async () => {
+    await h.click("//nav[@aria-label='Documents']//button[.='Scenarios']", "xpath");
+    await h.waitText("SC-001");
+    await h.click("//button[.='Findings']", "xpath");
+    // Test the text in the page. A long note can come back empty through the MCP call.
+    const has = (re) => `return String(/${re}/.test(document.querySelector('[aria-label=Findings]')?.innerText || ''))`;
+    await until(h, has("Blocking defects"), /true/);
+    expect((await h.js(has("How to raise the grade"))) === "true", "no items to raise the grade");
+    await h.click("(//nav[@aria-label='Documents']//button)[1]", "xpath"); // the root document, which has no grade note
+    await until(h, "return document.querySelector('section.section-page h1')?.innerText || ''", /PRD$/);
+    await h.click("//button[.='Findings']", "xpath");
+    await until(h, has("No findings are recorded for this section"), /true/);
+  });
+
   await h.check("Wireframes show only their drawings: no ASCII sketch and no details block", async () => {
     await h.click("//button[contains(., 'Back to the PRD set')]", "xpath");
     await h.click("//ol[contains(@class,'documents')]//button[.='Wireframes']", "xpath");

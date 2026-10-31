@@ -1,5 +1,5 @@
 {
- "git_hash": "3f6891f",
+ "git_hash": "083f296",
  "pages": [
   {
    "frozen": false,
@@ -45,7 +45,7 @@
    "frozen": false,
    "page_name": "Index-Traceability",
    "render": "as-is",
-   "render_hash": "1da6593e919e",
+   "render_hash": "e5edaf21bd41",
    "source": "docs/.index/rendered/traceability.md",
    "title": "Traceability Index",
    "truth_state": "current",
@@ -545,10 +545,10 @@
    "frozen": false,
    "page_name": "Ticket-01M61XNM7GHPSJ1B96BCHA59ZE",
    "render": "as-is",
-   "render_hash": "c21acbbff225",
+   "render_hash": "9bde2060c0a6",
    "source": "docs/.index/rendered/tickets/01M61XNM7GHPSJ1B96BCHA59ZE.md",
    "title": "EPIC-006 Check the grades: See the findings behind the grade of each section.",
-   "truth_state": "open",
+   "truth_state": "done",
    "wiki_key": "item/01M61XNM7GHPSJ1B96BCHA59ZE"
   },
   {
@@ -2155,7 +2155,7 @@
    "frozen": false,
    "page_name": "Ticket-01M67NH4X4JGDJB233B670SJFF",
    "render": "as-is",
-   "render_hash": "e7a96c2a4961",
+   "render_hash": "d02670fd352d",
    "source": "docs/.index/rendered/tickets/01M67NH4X4JGDJB233B670SJFF.md",
    "title": "Plan 10: PRD catch-up, grade findings, backlog navigation, and release 0.4.0",
    "truth_state": "open",
@@ -2195,20 +2195,20 @@
    "frozen": false,
    "page_name": "Ticket-01M67NH4XPWE52APES54MYFEV8",
    "render": "as-is",
-   "render_hash": "1a59f9ef8059",
+   "render_hash": "9c0a4a4c5ea8",
    "source": "docs/.index/rendered/tickets/01M67NH4XPWE52APES54MYFEV8.md",
    "title": "Task 4: see the findings behind a grade (FR-025, #35)",
-   "truth_state": "in-progress",
+   "truth_state": "done",
    "wiki_key": "item/01M67NH4XPWE52APES54MYFEV8"
   },
   {
    "frozen": false,
    "page_name": "Ticket-01M67NH4XPWE52APES54MYFEVA",
    "render": "as-is",
-   "render_hash": "6616d520d67c",
+   "render_hash": "8e27f2683b52",
    "source": "docs/.index/rendered/tickets/01M67NH4XPWE52APES54MYFEVA.md",
    "title": "Task 5: move between the PRD and its backlog (FR-028, #199)",
-   "truth_state": "open",
+   "truth_state": "in-progress",
    "wiki_key": "item/01M67NH4XPWE52APES54MYFEVA"
   },
   {
@@ -2510,13 +2510,13 @@
    "wiki_key": "plan/2026-10-31-plan-10-prd-findings-backlog"
   },
   {
-   "banner": "> **Current** \u2014 this is the living version; regenerated at 2026-10-31T00:34:29Z. Historical snapshots are linked from [[Index-Releases]].",
+   "banner": "> **Current** \u2014 this is the living version; regenerated at 2026-10-31T00:43:38Z. Historical snapshots are linked from [[Index-Releases]].",
    "frozen": false,
    "page_name": "Roadmap",
    "render": "doc+banner",
-   "render_hash": "0d8233e11bae",
+   "render_hash": "2fb0bb55cb16",
    "source": "docs/roadmap.md",
-   "source_hash": "cbfe5e12ddf3",
+   "source_hash": "69bcc52b9433",
    "title": "Roadmap",
    "truth_state": "current",
    "wiki_key": "roadmap"

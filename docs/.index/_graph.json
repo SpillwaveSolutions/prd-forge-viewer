@@ -3847,7 +3847,7 @@
   },
   "item/01M61XNM7GHPSJ1B96BCHA59ZE": {
    "doc_type": "item",
-   "status": "todo",
+   "status": "done",
    "title": "EPIC-006 Check the grades: See the findings behind the grade of each section."
   },
   "item/01M61XNM9NY7F4D4V7400J56X9": {
@@ -4672,12 +4672,12 @@
   },
   "item/01M67NH4XPWE52APES54MYFEV8": {
    "doc_type": "item",
-   "status": "in_progress",
+   "status": "done",
    "title": "Task 4: see the findings behind a grade (FR-025, #35)"
   },
   "item/01M67NH4XPWE52APES54MYFEVA": {
    "doc_type": "item",
-   "status": "todo",
+   "status": "in_progress",
    "title": "Task 5: move between the PRD and its backlog (FR-028, #199)"
   },
   "item/01M67NH4XPWE52APES54MYFEVC": {

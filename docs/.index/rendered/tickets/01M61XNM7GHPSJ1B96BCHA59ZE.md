@@ -1,6 +1,6 @@
 # EPIC-006 Check the grades: See the findings behind the grade of each section.
 
-`01M61XNM7GHPSJ1B96BCHA59ZE` · epic/feature · **open**
+`01M61XNM7GHPSJ1B96BCHA59ZE` · epic/feature · **done**
 
 Feature FEAT-002 (Check the grades), stage ST-002.
 

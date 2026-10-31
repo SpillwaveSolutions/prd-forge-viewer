@@ -161,6 +161,10 @@ section[aria-label="PRD set"] > .documents { grid-column: 2; grid-row: 4; }
 .section-page .items { display: flex; flex-wrap: wrap; gap: 6px; margin: 12px 0 16px; }
 .section-page .items button { font-family: var(--mono); font-size: 0.82rem; padding: 2px 8px; }
 .section-page .items button[aria-pressed="true"] { background: var(--accent); border-color: var(--accent); color: var(--surface); }
+.findings-toggle { margin-left: 8px; font-size: 0.82rem; padding: 1px 10px; }
+.findings { border-left: 3px solid var(--draft); background: var(--surface); padding: 4px 18px 8px; margin: 0 0 20px; max-width: 80ch; }
+.findings .body h1 { font-size: 1.15rem; margin: 10px 0 6px; }
+.findings .body h2 { font-size: 1rem; margin: 14px 0 4px; }
 .change-notice { background: var(--notice); border: 1px solid var(--notice-rule); border-radius: var(--radius); padding: 6px 10px; }
 
 /* One item: a margin rule, not a floating card */

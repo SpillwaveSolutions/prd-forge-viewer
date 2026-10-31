@@ -54,6 +54,12 @@ pub fn item_index(folder: String) -> Vec<crate::prdset::section::ItemRef> {
     crate::prdset::section::item_index(Path::new(&folder))
 }
 
+/// The findings behind the grade of a section, as markdown, or null with no note (FR-025).
+#[tauri::command(async)]
+pub fn read_grade(folder: String, file: String) -> Result<Option<String>, String> {
+    crate::prdset::section::read_grade(Path::new(&folder), &file)
+}
+
 /// The picture of a diagram for an export, as a data URL: its PNG, or its SVG when the PNG is older.
 #[tauri::command(async)]
 pub fn export_image(folder: String, rel: String) -> Result<String, String> {

@@ -97,6 +97,21 @@ pub fn read_asset(dir: &Path, rel: &str) -> Result<String, String> {
     Ok(format!("data:{mime};base64,{}", base64::engine::general_purpose::STANDARD.encode(bytes)))
 }
 
+/// The findings behind the grade of a section: the body of its note in `grades/` (FR-025).
+/// None when the section has no note. A path outside the set is refused.
+pub fn read_grade(dir: &Path, file: &str) -> Result<Option<String>, String> {
+    if file.contains('/') || !file.ends_with(".md") {
+        return Err(format!("{file} is not a section file"));
+    }
+    let path = match inside(dir, &format!("grades/{file}")) {
+        Ok(p) => p,
+        Err(_) if !dir.join("grades").join(file).exists() => return Ok(None),
+        Err(e) => return Err(e),
+    };
+    let text = fs::read_to_string(&path).map_err(|e| e.to_string())?;
+    Ok(Some(split_front_matter(&text).map(|(_, body)| body).unwrap_or(text).trim().to_string()))
+}
+
 /// The picture of a diagram for an export: the PNG next to the SVG, as the PRD Forge exporter uses,
 /// unless the PNG is missing or older than the SVG. Then the SVG itself, so an export never shows an
 /// older drawing than the viewer.
@@ -176,6 +191,21 @@ mod tests {
         assert!(read_section(&set, "../outside.md").is_err());
         assert!(read_section(&set, "linked.md").is_err());
         assert!(!item_index(&set).iter().any(|r| r.file.contains("outside") || r.file.contains("linked")));
+    }
+
+    #[test]
+    fn read_grade_gives_the_findings_without_the_front_matter() {
+        let body = read_grade(real(), "06-scenarios.md").unwrap().unwrap();
+        assert!(body.starts_with("# "));
+        assert!(body.contains("## Blocking defects"));
+        assert!(!body.contains("grader:"));
+    }
+
+    #[test]
+    fn read_grade_is_none_with_no_note_and_refuses_other_paths() {
+        assert_eq!(read_grade(real(), "prd.md").unwrap(), None);
+        assert!(read_grade(real(), "../x.md").is_err());
+        assert!(read_grade(real(), "grades.txt").is_err());
     }
 
     #[test]

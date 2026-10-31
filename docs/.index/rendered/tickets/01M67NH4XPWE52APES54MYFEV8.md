@@ -1,6 +1,6 @@
 # Task 4: see the findings behind a grade (FR-025, #35)
 
-`01M67NH4XPWE52APES54MYFEV8` · task/feature · **in-progress**
+`01M67NH4XPWE52APES54MYFEV8` · task/feature · **done**
 
 A Rust command reads `grades/<file>` inside the set.
 

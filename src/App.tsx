@@ -273,6 +273,7 @@ export function App() {
                     onOpenDoc={openDoc}
                     onBack={() => { setPage(undefined); setError(undefined); }}
                     loadAsset={loadAsset}
+                    loadFindings={() => invoke<string | null>("read_grade", { folder: set.folder, file: page.section.file })}
                     changed={changed.has(page.section.file)}
                     nav={set.documents.filter((d) => !d.unreadable).map((d) => (
                         <button key={d.file} type="button" className="doc-link" data-status={d.status} aria-current={d.file === page.section.file ? "page" : undefined} onClick={() => openDoc(d.file)}>

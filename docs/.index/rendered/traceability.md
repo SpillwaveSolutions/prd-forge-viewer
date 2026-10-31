@@ -8,12 +8,12 @@ _The evidence chain: plan → item → ticket → code → release, forward and 
 - produced-by: [[Plan-plan-10-prd-findings-backlog]]
 
 ### Task 5: move between the PRD and its backlog (FR-028, #199)
-`01M67NH4XPWE52APES54MYFEVA` · status: todo
+`01M67NH4XPWE52APES54MYFEVA` · status: in_progress
 - belongs-to: Plan 10: PRD catch-up, grade findings, backlog navigation, and release 0.4.0
 - produced-by: [[Plan-plan-10-prd-findings-backlog]]
 
 ### Task 4: see the findings behind a grade (FR-025, #35)
-`01M67NH4XPWE52APES54MYFEV8` · status: in_progress
+`01M67NH4XPWE52APES54MYFEV8` · status: done
 - belongs-to: Plan 10: PRD catch-up, grade findings, backlog navigation, and release 0.4.0
 - produced-by: [[Plan-plan-10-prd-findings-backlog]]
 
@@ -1200,7 +1200,7 @@ _The evidence chain: plan → item → ticket → code → release, forward and 
 - targets: release/REL-001
 
 ### EPIC-006 Check the grades: See the findings behind the grade of each section.
-`01M61XNM7GHPSJ1B96BCHA59ZE` · status: todo
+`01M61XNM7GHPSJ1B96BCHA59ZE` · status: done
 - references: [github#35](https://github.com/SpillwaveSolutions/prd-forge-viewer/issues/35)
 
 ### US-025 Keep custom export themes from one session to the next

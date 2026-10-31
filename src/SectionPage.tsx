@@ -56,14 +56,36 @@ interface Props {
     nav?: ReactNode;
     /** The authoring tools changed this document while it was open (FR-009, WF-002). */
     changed?: boolean;
+    /** The findings behind the grade, as markdown, or null when the section has no grade note (FR-025). */
+    loadFindings?: () => Promise<string | null>;
 }
 
-/** One document: its status and grade, its items, the selected item (WF-002), and its body (FR-005, FR-023). */
-export function SectionPage({ section, known, selected, onSelect, onOpenItem, onBack, onOpenDoc, loadAsset, renderHtml = renderBody, nav, changed }: Props) {
+/** The findings behind a grade (FR-025, WF-011): the note that the grading pass wrote, shown on request. */
+function useFindings(load: (() => Promise<string | null>) | undefined, renderHtml: (md: string) => string) {
+    // undefined: not loaded yet; null: the section has no grade note.
+    const [shown, setShown] = useState<{ open: boolean; html?: string | null }>({ open: false });
+    const toggle = async () => {
+        if (shown.open || !load) return setShown({ open: false });
+        const md = await load().catch(() => null);
+        setShown({ open: true, html: md ? renderHtml(md) : null });
+    };
+    const button = load && <button type="button" className="findings-toggle" aria-expanded={shown.open} aria-controls="findings" onClick={toggle}>Findings</button>;
+    const panel = shown.open && (
+        <section id="findings" aria-label="Findings" className="findings">
+            {shown.html ? <div className="body" dangerouslySetInnerHTML={{ __html: shown.html }} /> : <p>No findings are recorded for this section.</p>}
+        </section>
+    );
+    return { button, panel, reset: () => setShown({ open: false }) };
+}
+
+export function SectionPage({ section, known, selected, onSelect, onOpenItem, onBack, onOpenDoc, loadAsset, renderHtml = renderBody, nav, changed, loadFindings }: Props) {
     const body = useRef<HTMLDivElement>(null);
     const item = section.items.find((i) => i.id === selected);
     // Render the body once for each section, not on every item click.
     const html = useMemo(() => renderHtml(section.body), [section.body, renderHtml]);
+    const findings = useFindings(loadFindings, renderHtml);
+    // Another section closes the findings of the last one.
+    useEffect(() => findings.reset(), [section.file]); // eslint-disable-line react-hooks/exhaustive-deps
     const [diagram, setDiagram] = useState<{ src: string; alt: string } | null>(null);
 
     useEffect(() => {
@@ -97,8 +119,9 @@ export function SectionPage({ section, known, selected, onSelect, onOpenItem, on
             <h1>{section.title}</h1>
             {changed && <p role="status" className="change-notice">This section changed. You see the current version.</p>}
             <p className="version">
-                <span className={`status status-${section.status}`}>{section.status}</span> {gradeText(section)}
+                <span className={`status status-${section.status}`}>{section.status}</span> {gradeText(section)} {findings.button}
             </p>
+            {findings.panel}
             {section.items.length > 0 && (
                 <nav aria-label="Items" className="items">
                     {section.items.map((i) => (
