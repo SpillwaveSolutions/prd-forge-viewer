@@ -4,6 +4,10 @@
 
 Feature FEAT-002 (Check the grades), stage ST-002.
 
+## Linked PRs
+
+- [[PR-204]]
+
 ## Related tickets
 
 - [github #35](https://github.com/SpillwaveSolutions/prd-forge-viewer/issues/35)

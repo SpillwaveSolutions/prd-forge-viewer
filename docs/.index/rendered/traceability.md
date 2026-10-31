@@ -5,39 +5,47 @@ _The evidence chain: plan → item → ticket → code → release, forward and 
 ### Release 0.4.0
 `01M67QAJ3NDMPQ8G6QG8H78CFY` · status: done
 - belongs-to: Plan 10: PRD catch-up, grade findings, backlog navigation, and release 0.4.0
+- lands-in: pr/204
 
 ### Task 6: checks, release 0.4.0, and install
 `01M67NH4XPWE52APES54MYFEVC` · status: done
 - belongs-to: Plan 10: PRD catch-up, grade findings, backlog navigation, and release 0.4.0
+- lands-in: pr/204
 - produced-by: [[Plan-plan-10-prd-findings-backlog]]
 
 ### Task 5: move between the PRD and its backlog (FR-028, #199)
 `01M67NH4XPWE52APES54MYFEVA` · status: done
 - belongs-to: Plan 10: PRD catch-up, grade findings, backlog navigation, and release 0.4.0
+- lands-in: pr/204
 - produced-by: [[Plan-plan-10-prd-findings-backlog]]
 
 ### Task 4: see the findings behind a grade (FR-025, #35)
 `01M67NH4XPWE52APES54MYFEV8` · status: done
 - belongs-to: Plan 10: PRD catch-up, grade findings, backlog navigation, and release 0.4.0
+- lands-in: pr/204
 - produced-by: [[Plan-plan-10-prd-findings-backlog]]
 
 ### Task 3: keep the text size and the search pin in settings.json
 `01M67NH4XPWE52APES54MYFEV6` · status: done
 - belongs-to: Plan 10: PRD catch-up, grade findings, backlog navigation, and release 0.4.0
+- lands-in: pr/204
 - produced-by: [[Plan-plan-10-prd-findings-backlog]]
 
 ### Task 2: fix the nav top and Command-F with no set
 `01M67NH4XPWE52APES54MYFEV4` · status: done
 - belongs-to: Plan 10: PRD catch-up, grade findings, backlog navigation, and release 0.4.0
+- lands-in: pr/204
 - produced-by: [[Plan-plan-10-prd-findings-backlog]]
 
 ### Task 1: update the PRD for the new requirements
 `01M67NH4XPWE52APES54MYFEV2` · status: done
 - belongs-to: Plan 10: PRD catch-up, grade findings, backlog navigation, and release 0.4.0
+- lands-in: pr/204
 - produced-by: [[Plan-plan-10-prd-findings-backlog]]
 
 ### Plan 10: PRD catch-up, grade findings, backlog navigation, and release 0.4.0
 `01M67NH4X4JGDJB233B670SJFF` · status: done
+- lands-in: pr/204
 - contains: Task 1: update the PRD for the new requirements
 - contains: Task 2: fix the nav top and Command-F with no set
 - contains: Task 3: keep the text size and the search pin in settings.json
@@ -49,10 +57,12 @@ _The evidence chain: plan → item → ticket → code → release, forward and 
 
 ### Add bidirectional navigation between PRD and backlog
 `01M67NFZH5C1HWH4SBC22ZVXMS` · status: done
+- lands-in: pr/204
 - references: [github#199](https://github.com/SpillwaveSolutions/prd-forge-viewer/issues/199)
 
 ### Bring the worklog and GitHub Issues up to date
 `01M67N9KHR9BFVGGV7VCF908B6` · status: done
+- lands-in: pr/204
 - references: [github#203](https://github.com/SpillwaveSolutions/prd-forge-viewer/issues/203)
 
 ### Release 0.3.0
@@ -1206,6 +1216,7 @@ _The evidence chain: plan → item → ticket → code → release, forward and 
 
 ### EPIC-006 Check the grades: See the findings behind the grade of each section.
 `01M61XNM7GHPSJ1B96BCHA59ZE` · status: done
+- lands-in: pr/204
 - references: [github#35](https://github.com/SpillwaveSolutions/prd-forge-viewer/issues/35)
 
 ### US-025 Keep custom export themes from one session to the next

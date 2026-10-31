@@ -15,3 +15,7 @@ Plan 10: PRD catch-up, grade findings, backlog navigation, and release 0.4.0
 - [[Ticket-01M67QAJ3NDMPQ8G6QG8H78CFY]] Release 0.4.0 — Release 0.4.0 (done)
 
 Progress: 7/7 done
+
+## Linked PRs
+
+- [[PR-204]]

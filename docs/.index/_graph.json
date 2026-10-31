@@ -577,6 +577,11 @@
   },
   {
    "from": "item/01M61XNM7GHPSJ1B96BCHA59ZE",
+   "to": "pr/204",
+   "type": "lands-in"
+  },
+  {
+   "from": "item/01M61XNM7GHPSJ1B96BCHA59ZE",
    "to": "ticket/github#35",
    "type": "references"
   },
@@ -2752,8 +2757,18 @@
   },
   {
    "from": "item/01M67N9KHR9BFVGGV7VCF908B6",
+   "to": "pr/204",
+   "type": "lands-in"
+  },
+  {
+   "from": "item/01M67N9KHR9BFVGGV7VCF908B6",
    "to": "ticket/github#203",
    "type": "references"
+  },
+  {
+   "from": "item/01M67NFZH5C1HWH4SBC22ZVXMS",
+   "to": "pr/204",
+   "type": "lands-in"
   },
   {
    "from": "item/01M67NFZH5C1HWH4SBC22ZVXMS",
@@ -2761,9 +2776,19 @@
    "type": "references"
   },
   {
+   "from": "item/01M67NH4X4JGDJB233B670SJFF",
+   "to": "pr/204",
+   "type": "lands-in"
+  },
+  {
    "from": "item/01M67NH4XPWE52APES54MYFEV2",
    "to": "item/01M67NH4X4JGDJB233B670SJFF",
    "type": "belongs-to"
+  },
+  {
+   "from": "item/01M67NH4XPWE52APES54MYFEV2",
+   "to": "pr/204",
+   "type": "lands-in"
   },
   {
    "from": "item/01M67NH4XPWE52APES54MYFEV4",
@@ -2771,9 +2796,19 @@
    "type": "belongs-to"
   },
   {
+   "from": "item/01M67NH4XPWE52APES54MYFEV4",
+   "to": "pr/204",
+   "type": "lands-in"
+  },
+  {
    "from": "item/01M67NH4XPWE52APES54MYFEV6",
    "to": "item/01M67NH4X4JGDJB233B670SJFF",
    "type": "belongs-to"
+  },
+  {
+   "from": "item/01M67NH4XPWE52APES54MYFEV6",
+   "to": "pr/204",
+   "type": "lands-in"
   },
   {
    "from": "item/01M67NH4XPWE52APES54MYFEV8",
@@ -2781,9 +2816,19 @@
    "type": "belongs-to"
   },
   {
+   "from": "item/01M67NH4XPWE52APES54MYFEV8",
+   "to": "pr/204",
+   "type": "lands-in"
+  },
+  {
    "from": "item/01M67NH4XPWE52APES54MYFEVA",
    "to": "item/01M67NH4X4JGDJB233B670SJFF",
    "type": "belongs-to"
+  },
+  {
+   "from": "item/01M67NH4XPWE52APES54MYFEVA",
+   "to": "pr/204",
+   "type": "lands-in"
   },
   {
    "from": "item/01M67NH4XPWE52APES54MYFEVC",
@@ -2791,9 +2836,19 @@
    "type": "belongs-to"
   },
   {
+   "from": "item/01M67NH4XPWE52APES54MYFEVC",
+   "to": "pr/204",
+   "type": "lands-in"
+  },
+  {
    "from": "item/01M67QAJ3NDMPQ8G6QG8H78CFY",
    "to": "item/01M67NH4X4JGDJB233B670SJFF",
    "type": "belongs-to"
+  },
+  {
+   "from": "item/01M67QAJ3NDMPQ8G6QG8H78CFY",
+   "to": "pr/204",
+   "type": "lands-in"
   },
   {
    "from": "plan/2026-10-28-plan-1-open-and-grades",
@@ -4813,6 +4868,9 @@
    "doc_type": "pr"
   },
   "pr/200": {
+   "doc_type": "pr"
+  },
+  "pr/204": {
    "doc_type": "pr"
   },
   "pr/4": {
