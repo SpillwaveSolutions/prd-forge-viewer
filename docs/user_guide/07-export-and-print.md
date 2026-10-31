@@ -36,7 +36,7 @@ click **Select all**. To clear all selections, click **Select none**.
 **Export** and **Print** are not available when no document is selected.
 
 To make or change a theme, click **Edit themes**. For more information, see
-[Export themes](06-themes.md).
+[[Export themes|Export-themes]].
 
 The default file name has the product name and the version, for example
 `PRD-Forge-Viewer-PRD-0.6.2.pdf`.

@@ -30,11 +30,32 @@ authoring tools.
 
 The status and grade of a section also show at the top of its section page and
 on each of its items. For more information, see
-[Read sections and items](02-read-sections.md).
+[[Read sections and items|Read-sections-and-items]].
+
+When the authoring tools save a new grade, the table shows it with no action
+from you. For more information, see [[Live updates|Live-updates]].
+
+## Read the findings behind a grade
+
+A grading pass writes a note for each section that it grades. The note gives
+the blocking defects and tells you how to raise the grade. The authoring tools
+keep each note in the `grades/` folder of the set, with the same file name as
+its section.
+
+1. Open a section.
+2. Click **Findings**, next to the grade at the top of the section page.
+
+The note shows below the grade. If the section has no note, the viewer shows
+"No findings are recorded for this section."
+
+To close the note, click **Findings** again. The note also closes when you
+open a different document.
+
+The viewer does not change a note. To grade a section again, use the
+authoring tools. A backlog document has no **Findings** button.
+
+## Grades in an export
 
 An export leaves out the score and the blocking defects, unless you select
 **Include grades** in the **Export** dialog. For more information, see
-[Export and print](07-export-and-print.md).
-
-When the authoring tools save a new grade, the table shows it with no action
-from you. For more information, see [Live updates](05-live-updates.md).
+[[Export and print|Export-and-print]].
