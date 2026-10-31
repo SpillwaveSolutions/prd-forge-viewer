@@ -11,7 +11,9 @@ With the viewer, you can:
 - Read each section and each item, and follow an id to the item that it names.
 - Open a diagram in a diagram window, and zoom and pan it.
 - See the status, score, and blocking defects of every section in one table.
-- Search the set by term, in one category or in all categories.
+- Search the set by term, in one or more categories or in all categories.
+  The search opens in a drawer at the right of the window.
+- Make the text larger or smaller, from 80% to 200%.
 - See a save from the authoring tools in the window within 2 seconds.
 - Export the set to PDF or Word with a theme, or print it. Diagrams show as
   pictures with captions.
@@ -19,7 +21,7 @@ With the viewer, you can:
 The viewer shows only local content. No script in a document runs, and no
 remote image loads.
 
-Release 0.2.1 covers release 1 (REL-001) of the PRD: FR-001 to FR-024, except
+Release 0.3.0 covers release 1 (REL-001) of the PRD: FR-001 to FR-024, except
 FR-006. It follows PRD 0.6.2. For the full list of changes, see [CHANGELOG.md](CHANGELOG.md).
 
 ## User guide
@@ -31,8 +33,8 @@ the viewer.
 
 The release has one disk image for Macs with Apple silicon.
 
-1. Download `PRD.Forge.Viewer_0.2.1_aarch64.dmg` from the
-   [v0.2.1 release](https://github.com/SpillwaveSolutions/prd-forge-viewer/releases/tag/v0.2.1).
+1. Download `PRD.Forge.Viewer_0.3.0_aarch64.dmg` from the
+   [v0.3.0 release](https://github.com/SpillwaveSolutions/prd-forge-viewer/releases/tag/v0.3.0).
 2. Open the disk image.
 3. Move **PRD Forge Viewer** to the **Applications** folder.
 4. Start **PRD Forge Viewer**. Its icon is a PRD page with four colored

@@ -7,13 +7,47 @@ wiki_key: guide/04-search
 ---
 # Search a set
 
-The search bar shows below the toolbar when a set is open. The search finds
-items, for example a persona, a journey stage, or a functional requirement.
+The search finds items, for example a persona, a journey stage, or a
+functional requirement. The search is in a drawer at the right of the window.
+
+## Open the search drawer
+
+1. Open a set.
+2. Click **Search** in the toolbar, next to **Export**. You can also press
+   Command-F.
+
+The drawer opens from the right. The cursor is in the search box.
+
+## Close the search drawer
+
+Do one of these steps:
+
+- Click **Close** in the drawer.
+- Press **Escape**.
+- Click **Search** in the toolbar.
+
+When the drawer is not pinned, it also closes when you open a result.
+
+The drawer keeps your last results. When you open the drawer again, the
+results show.
+
+## Pin the drawer
+
+1. Click **Pin** in the drawer.
+
+The button changes to **Pinned**. The drawer stays open beside the document,
+and the document moves to make space for it. You can open one result after
+another and read each one. **Escape** does not close a pinned drawer. Click
+**Close** or **Search** to close it.
+
+To unpin the drawer, click **Pinned**. The viewer keeps the pin for the next
+time you open it.
 
 ## Search for a term
 
 1. Type one or more words in the **Search** box.
-2. In the **in** list, select a category or **All categories**.
+2. Below **Categories**, select one or more categories, or select
+   **All categories**.
 3. Click **Search**. You can also press **Return**.
 
 The viewer shows the number of matches, for example "3 matches". Each result
@@ -40,15 +74,22 @@ If no item matches, the viewer shows "No matches for *term*".
 
 ## Categories
 
-The **in** list has one category for each section that holds items, in
-reading order. Each category has the title of its section. Select
-**All categories** to search every section.
+The categories are a row of checkboxes below **Categories**. There is one
+category for each section that holds items, in reading order. Each category
+has the title of its section.
+
+- Select one or more categories to search only those sections.
+- Select **All categories** to search every section. This clears the other
+  categories.
+- If you clear the last selected category, the viewer selects
+  **All categories** again.
 
 ## Open a result
 
 1. Click a result.
 
-The viewer opens the section of the item and shows the item.
+The viewer opens the section of the item and shows the item. If the drawer is
+not pinned, it closes.
 
 ## Clear the results
 
