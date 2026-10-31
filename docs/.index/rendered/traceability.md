@@ -18,12 +18,12 @@ _The evidence chain: plan → item → ticket → code → release, forward and 
 - produced-by: [[Plan-plan-10-prd-findings-backlog]]
 
 ### Task 3: keep the text size and the search pin in settings.json
-`01M67NH4XPWE52APES54MYFEV6` · status: todo
+`01M67NH4XPWE52APES54MYFEV6` · status: in_progress
 - belongs-to: Plan 10: PRD catch-up, grade findings, backlog navigation, and release 0.4.0
 - produced-by: [[Plan-plan-10-prd-findings-backlog]]
 
 ### Task 2: fix the nav top and Command-F with no set
-`01M67NH4XPWE52APES54MYFEV4` · status: todo
+`01M67NH4XPWE52APES54MYFEV4` · status: done
 - belongs-to: Plan 10: PRD catch-up, grade findings, backlog navigation, and release 0.4.0
 - produced-by: [[Plan-plan-10-prd-findings-backlog]]
 

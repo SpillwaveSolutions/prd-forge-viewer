@@ -1,6 +1,6 @@
 # Task 2: fix the nav top and Command-F with no set
 
-`01M67NH4XPWE52APES54MYFEV4` · task/feature · **open**
+`01M67NH4XPWE52APES54MYFEV4` · task/feature · **done**
 
 The document nav uses the measured header height.
 

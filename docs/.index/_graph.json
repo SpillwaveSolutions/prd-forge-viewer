@@ -4662,12 +4662,12 @@
   },
   "item/01M67NH4XPWE52APES54MYFEV4": {
    "doc_type": "item",
-   "status": "todo",
+   "status": "done",
    "title": "Task 2: fix the nav top and Command-F with no set"
   },
   "item/01M67NH4XPWE52APES54MYFEV6": {
    "doc_type": "item",
-   "status": "todo",
+   "status": "in_progress",
    "title": "Task 3: keep the text size and the search pin in settings.json"
   },
   "item/01M67NH4XPWE52APES54MYFEV8": {

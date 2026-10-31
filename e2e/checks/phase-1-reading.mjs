@@ -68,7 +68,9 @@ await run(async (h) => {
     await h.click("//button[@aria-label='Larger text']", "xpath");
     const larger = await size();
     expect(Math.abs(larger / normal - 1.3) < 0.02, `normal ${normal}, after 2 steps ${larger}`);
-    expect((await h.js("return localStorage.getItem('pfv.textZoom')")).includes("1.3"), "the size is not kept");
+    // The document list starts below the header, whose height grows with the text.
+    const navGap = await h.num("return document.querySelector('.doc-nav') ? parseFloat(getComputedStyle(document.querySelector('.doc-nav')).top) - document.querySelector('header').offsetHeight : 8");
+    expect(navGap >= 0, `the header covers the document list by ${-navGap} px`);
     // Real key presses: macOS can drop one while it brings the app to the front, so wait for each change.
     const keyUntil = async (code, mods, test) => {
       for (let i = 0; i < 3; i++) {

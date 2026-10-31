@@ -1,5 +1,5 @@
 {
- "git_hash": "577290a",
+ "git_hash": "1cdf1ec",
  "pages": [
   {
    "frozen": false,
@@ -45,7 +45,7 @@
    "frozen": false,
    "page_name": "Index-Traceability",
    "render": "as-is",
-   "render_hash": "92f52b32eddf",
+   "render_hash": "e86ab1fc0cc7",
    "source": "docs/.index/rendered/traceability.md",
    "title": "Traceability Index",
    "truth_state": "current",
@@ -2155,7 +2155,7 @@
    "frozen": false,
    "page_name": "Ticket-01M67NH4X4JGDJB233B670SJFF",
    "render": "as-is",
-   "render_hash": "15adcaeb10ef",
+   "render_hash": "d94634024502",
    "source": "docs/.index/rendered/tickets/01M67NH4X4JGDJB233B670SJFF.md",
    "title": "Plan 10: PRD catch-up, grade findings, backlog navigation, and release 0.4.0",
    "truth_state": "open",
@@ -2175,20 +2175,20 @@
    "frozen": false,
    "page_name": "Ticket-01M67NH4XPWE52APES54MYFEV4",
    "render": "as-is",
-   "render_hash": "d20cb7507288",
+   "render_hash": "9677469f04bc",
    "source": "docs/.index/rendered/tickets/01M67NH4XPWE52APES54MYFEV4.md",
    "title": "Task 2: fix the nav top and Command-F with no set",
-   "truth_state": "open",
+   "truth_state": "done",
    "wiki_key": "item/01M67NH4XPWE52APES54MYFEV4"
   },
   {
    "frozen": false,
    "page_name": "Ticket-01M67NH4XPWE52APES54MYFEV6",
    "render": "as-is",
-   "render_hash": "4f4a103e5e5e",
+   "render_hash": "0c917d2c9f72",
    "source": "docs/.index/rendered/tickets/01M67NH4XPWE52APES54MYFEV6.md",
    "title": "Task 3: keep the text size and the search pin in settings.json",
-   "truth_state": "open",
+   "truth_state": "in-progress",
    "wiki_key": "item/01M67NH4XPWE52APES54MYFEV6"
   },
   {
@@ -2510,13 +2510,13 @@
    "wiki_key": "plan/2026-10-31-plan-10-prd-findings-backlog"
   },
   {
-   "banner": "> **Current** \u2014 this is the living version; regenerated at 2026-10-31T00:28:10Z. Historical snapshots are linked from [[Index-Releases]].",
+   "banner": "> **Current** \u2014 this is the living version; regenerated at 2026-10-31T00:28:35Z. Historical snapshots are linked from [[Index-Releases]].",
    "frozen": false,
    "page_name": "Roadmap",
    "render": "doc+banner",
-   "render_hash": "3fd3c6a90aeb",
+   "render_hash": "8900680ce415",
    "source": "docs/roadmap.md",
-   "source_hash": "955d7c6441bc",
+   "source_hash": "ea2c644c83de",
    "title": "Roadmap",
    "truth_state": "current",
    "wiki_key": "roadmap"

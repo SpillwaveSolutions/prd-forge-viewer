@@ -146,7 +146,7 @@ section[aria-label="PRD set"] > .documents { grid-column: 2; grid-row: 4; }
 
 /* Section page: a sticky document nav with status marks, and a reading column */
 .section-layout { display: grid; grid-template-columns: 16rem minmax(0, 1fr); gap: 40px; align-items: start; }
-.doc-nav { display: flex; flex-direction: column; position: sticky; top: 64px; max-height: calc(100vh - 80px); overflow: auto; padding: 16px 0; }
+.doc-nav { display: flex; flex-direction: column; position: sticky; top: calc(var(--header-h, 56px) + 8px); max-height: calc(100vh - var(--header-h, 56px) - 16px); overflow: auto; padding: 16px 0; }
 .doc-nav .doc-link {
     text-align: left; text-decoration: none; color: var(--ink);
     padding: 5px 10px; border-left: 3px solid var(--pending); border-radius: 0 var(--radius) var(--radius) 0;

@@ -43,6 +43,8 @@ export function App() {
         try { localStorage.setItem("pfv.searchPinned", String(pinned)); } catch { /* the pin still applies for this session */ }
     };
     const closeSearch = useCallback(() => setSearchOpen(false), []);
+    const hasSet = useRef(false);
+    hasSet.current = !!set;
     // The drawer starts below the header. The header height changes with the text size and the window width.
     const header = useRef<HTMLElement>(null);
     useEffect(() => {
@@ -56,7 +58,11 @@ export function App() {
         // Command-plus, Command-minus, and Command-0, as in a browser.
         const onKey = (e: KeyboardEvent) => {
             if (!e.metaKey || e.altKey || e.ctrlKey) return;
-            if (e.key === "f") { e.preventDefault(); setSearchOpen(true); return; }
+            if (e.key === "f") {
+                // Search needs an open set. With none, Command-F does nothing.
+                if (hasSet.current) { e.preventDefault(); setSearchOpen(true); }
+                return;
+            }
             const dir = e.key === "=" || e.key === "+" ? 1 : e.key === "-" ? -1 : e.key === "0" ? 0 : null;
             if (dir === null) return;
             e.preventDefault();
