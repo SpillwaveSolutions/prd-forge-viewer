@@ -2,17 +2,17 @@
 wiki_key: design/current-design-doc
 doc_type: design
 truth_state: current
-generated_at: 2026-10-30T20:23:36Z
-tag: v0.2.1
-git_hash: 0e83f783aec709de9ef77eb22f9a6a287ff47b6d
-branch: docs-0.2.1-design
+generated_at: 2026-10-31T00:04:20Z
+tag: v0.3.0
+git_hash: 343009469c1f13284093c3503e3a26a543291d75
+branch: docs-0.3.0-design
 roadmap: docs/roadmap.md
 ---
 
 # PRD Forge Viewer design document
 
-This document describes the PRD Forge Viewer as built at tag `v0.2.1`
-(commit `0e83f78`). Every code claim cites `path:line` at that commit. The PRD
+This document describes the PRD Forge Viewer as built at tag `v0.3.0`
+(commit `3430094`). Every code claim cites `path:line` at that commit. The PRD
 in `docs/prd/prd-forge-viewer/` is the source of truth for intent. The ADRs in
 `projects/001-prd-forge-viewer/decisions/` are the source of truth for the
 technology choices. Where the code and those documents differ, this document
@@ -76,7 +76,9 @@ and in every export, opens a diagram in a window with zoom and pan, makes the
 grades in an export optional, and restyles the app. Release 0.2.1 is a fix
 release: an export never shows an older drawing than the viewer, a wireframe
 sketch comes back when its drawing cannot be read, and a very large diagram
-opens at the minimum zoom.
+opens at the minimum zoom. Release 0.3.0 adds a text size control, search in
+more than one category, and a search drawer that slides out from the right and
+can stay pinned beside the document.
 
 **Main workflows.**
 
@@ -84,7 +86,10 @@ opens at the minimum zoom.
    location.
 2. Read the overview, the grades table, a section, or one item. Open a
    diagram in the diagram window to zoom and pan.
-3. Search items by term, in one category or in all.
+3. Search items by term, in the categories the author picks or in all, from
+   the search drawer (Command-F).
+6. Make the text larger or smaller with the header buttons or Command-plus,
+   Command-minus, and Command-0.
 4. See live changes while the authoring tools write the set.
 5. Export or print the whole set or selected sections with a theme, with
    diagrams as images, and with or without the grades.
@@ -118,8 +123,8 @@ only local content (NFR-010).
 | FR-004 | Grades table | `GradesTable` | `src/GradesTable.tsx:4-37` |
 | FR-005, FR-023 | Section page and item view | Section reader, `SectionPage` | `src-tauri/src/prdset/section.rs:57-73` |
 | FR-007 | Follow an ID reference | Item index, `linkify` | `src-tauri/src/prdset/section.rs:76-84`, `src/SectionPage.tsx:9-17` |
-| FR-008 | Search by term and category | Search index | `src-tauri/src/search.rs:138-160` |
-| FR-009 | Live changes | Watcher, `set-changed` listener | `src-tauri/src/watch.rs:82-88`, `src/App.tsx:90-112` |
+| FR-008 | Search by term and categories | Search index, `SearchPanel`, `SearchDrawer` | `src-tauri/src/search.rs:139-162`, `src/SearchDrawer.tsx:8-44` |
+| FR-009 | Live changes | Watcher, `set-changed` listener | `src-tauri/src/watch.rs:82-88`, `src/App.tsx:128-150` |
 | FR-010, FR-011, FR-012 | PDF, Word, selected sections | Export model and writers | `src/exportRun.ts:60-67` |
 | FR-013 | Print | `runPrint`, `print_page` | `src/exportRun.ts:78-95` |
 | FR-014, FR-019, TR-005 | Version, Draft mark, contents table | Export model | `src/exportModel.ts:20-43` |
@@ -196,15 +201,16 @@ title: Logical architecture
 flowchart TB
     subgraph ui[Web view: React UI, src/]
         app[App.tsx<br/>state and IPC calls]
-        views[StartScreen, SetOverview,<br/>GradesTable, SectionPage, SearchPanel]
+        views[StartScreen, SetOverview,<br/>GradesTable, SectionPage,<br/>SearchDrawer, SearchPanel]
         dialogs[ExportDialog, ThemeDialog]
         diagram[DiagramViewer.tsx<br/>zoom.ts]
+        tz[textZoom.ts<br/>text size steps]
         render[renderBody.ts<br/>marked + DOMPurify]
         clean[bodyClean.ts<br/>details block, sketches]
         exp[exportModel, exportBlocks,<br/>exportHtml, exportDocx, exportFonts]
     end
     subgraph core[Rust core, src-tauri/src/]
-        cmd[commands.rs<br/>16 Tauri commands]
+        cmd[commands.rs<br/>17 Tauri commands]
         start[start.rs, locate.rs]
         prd[prdset/<br/>header, load, items, section]
         search[search.rs<br/>FTS5 index]
@@ -214,6 +220,7 @@ flowchart TB
         launcher[launcher.rs]
     end
     app --> views
+    app --> tz
     app --> dialogs
     views --> render
     views --> diagram
@@ -332,7 +339,7 @@ that the Rust core checks.
 
 **Error handling strategy.** Commands return `Result<T, String>`. The string is
 a sentence for the author, and the UI shows it in a `role="alert"` paragraph
-(`src/App.tsx:196`). Derived data (the index) is rebuilt on any failure.
+(`src/App.tsx:242`). Derived data (the index) is rebuilt on any failure.
 Settings fall back to empty on a broken file.
 
 ## 7. Component inventory
@@ -351,6 +358,9 @@ Settings fall back to empty on a broken file.
 | `renderBody.ts` | TS module | Markdown to safe HTML | Body | HTML string | none | Fails closed to plain text. |
 | `bodyClean.ts` | TS module | Remove the details block and each wireframe sketch that a drawing follows | Body Markdown | Body Markdown | none | A sketch or the details block shows. |
 | `DiagramViewer.tsx`, `zoom.ts` | React component, TS module | Show one diagram with zoom and pan | Image `src` and alt text | Dialog | none | The diagram stays in the page at its fitted size. |
+| `SearchDrawer.tsx` | React component | Hold the search panel in a drawer at the right, pinned or not | Open and pinned flags | `aside#search-drawer` | none | Search is not reachable. |
+| `SearchPanel.tsx` | React component | Term box, category checkboxes, results | Categories, term | `search` call, `Hit` list | none | The error shows in the panel. |
+| `textZoom.ts` | TS module | The text size steps, and the stored size check | Size, direction | Next size | `localStorage` key `pfv.textZoom` (read by `App`) | The text stays at 100%. |
 | Export pipeline | TS modules | Build and render the export | Set, sections, theme | HTML or Word bytes | none | The dialog shows "Not done". |
 
 ## 8. End-to-end workflows
@@ -364,13 +374,13 @@ Settings fall back to empty on a broken file.
 
 1. `run()` stores the first launch argument in `StartArg`
    (`src-tauri/src/lib.rs:16`, `src-tauri/src/lib.rs:28`).
-2. On mount, the UI calls `startup` (`src/App.tsx:116`).
+2. On mount, the UI calls `startup` (`src/App.tsx:154`).
 3. `start_view` decides the view (section 9.1).
 4. For `open`, the UI calls `open_set`. `open_and_remember` canonicalizes the
    folder, loads the set, and only on success records it in the settings
    (`src-tauri/src/commands.rs:16-24`).
 5. A new `set.folder` triggers the effect that starts the watcher and loads the
-   item index and the search categories (`src/App.tsx:43-54`).
+   item index and the search categories (`src/App.tsx:81-92`).
 
 **Failure flows.** A folder with no `prd.md` gives `No PRD set in <folder>`
 (`src-tauri/src/prdset/load.rs:53`). A failed settings save prints to stderr
@@ -426,12 +436,12 @@ flowchart TD
 **Second launch.** `prdf` uses `open -n`, which starts a new process. The
 single-instance plugin hands its argument to the first process, which computes
 a new `StartView` and emits it as `start` (`src-tauri/src/lib.rs:19-26`). The
-UI handles it with the same `showStart` function (`src/App.tsx:117`).
+UI handles it with the same `showStart` function (`src/App.tsx:155`).
 
 ### 8.2 Read a section and follow a reference
 
 1. The author clicks a document. `openDoc` calls `read_section`
-   (`src/App.tsx:56-64`).
+   (`src/App.tsx:94-102`).
 2. `read_section` refuses any file that the root does not list, then reads it
    through the `inside` path check (`src-tauri/src/prdset/section.rs:57-73`).
 3. `SectionPage` renders the body once per section with `useMemo`, then loads
@@ -446,7 +456,7 @@ UI handles it with the same `showStart` function (`src/App.tsx:117`).
 4. An item button shows `ItemView`. Each known ID in a field is a button
    (`src/SectionPage.tsx:9-17`).
 5. A click on an ID finds the file in the item index and opens it with that
-   item selected (`src/App.tsx:65-68`).
+   item selected (`src/App.tsx:103-106`).
 6. A click on a diagram opens `DiagramViewer` with the image `src`, which is
    already a `data:` URL, and its alt text (`src/SectionPage.tsx:85-86`,
    `src/SectionPage.tsx:113`). Section 8.6 describes the window.
@@ -489,14 +499,21 @@ flowchart TD
 
 ### 8.3 search
 
-1. `SearchPanel` submits the term and category (`src/SearchPanel.tsx:37-47`).
-2. `SearchState::with` opens the index for this set if needed, refreshes it,
+1. The author opens the search drawer with the **Search** button next to
+   **Export**, or with Command-F (`src/App.tsx:203-205`, `src/App.tsx:59`).
+   The drawer puts the focus in the search box (`src/SearchDrawer.tsx:18-20`).
+2. `SearchPanel` submits the term and the list of picked category kinds. An
+   empty list means all categories (`src/SearchPanel.tsx:30-34`,
+   `src/SearchPanel.tsx:38-48`).
+3. `SearchState::with` opens the index for this set if needed, refreshes it,
    and runs the query. On any error it deletes the index, rebuilds it, and
-   tries once more (`src-tauri/src/search.rs:179-197`).
-3. `Index::search` ranks with `bm25(items, 50.0, 10.0, 1.0)` and scales scores
-   so the best hit is 100 (`src-tauri/src/search.rs:138-160`).
-4. A click on a hit opens its section with the item selected
-   (`src/App.tsx:202`).
+   tries once more (`src-tauri/src/search.rs:181-199`).
+4. `Index::search` passes the kinds as one string `,a,b,` and keeps a row when
+   `instr()` finds `,kind,` in it. An empty string keeps every row. It ranks
+   with `bm25(items, 50.0, 10.0, 1.0)` and scales scores so the best hit is 100
+   (`src-tauri/src/search.rs:139-162`).
+5. A click on a hit opens its section with the item selected. An unpinned
+   drawer closes. A pinned drawer stays open (`src/App.tsx:249`).
 
 ```mermaid
 ---
@@ -508,13 +525,13 @@ sequenceDiagram
     participant St as SearchState
     participant Ix as Index (SQLite)
     participant FS as Set folder
-    UI->>C: invoke search(folder, term, category)
-    C->>St: search(db, set, term, category)
+    UI->>C: invoke search(folder, term, categories)
+    C->>St: search(db, set, term, categories)
     St->>St: lock, open index if set differs
     St->>Ix: refresh()
     Ix->>FS: read each listed document
     Ix->>Ix: re-index documents whose hash changed
-    St->>Ix: search(term, category)
+    St->>Ix: search(term, categories)
     Ix-->>St: rows with bm25 rank
     alt any error
         St->>St: remove index files, rebuild, retry once
@@ -531,7 +548,7 @@ flowchart TD
     b -->|yes| clear[Clear results]
     b -->|no| c[Refresh index]
     c --> d[Quote each word as a prefix]
-    d --> e[MATCH with category filter]
+    d --> e[MATCH, then keep kinds in the list,<br/>or all when the list is empty]
     e --> f{Error?}
     f -->|yes| g[Delete and rebuild index, retry once]
     f -->|no| h{Rows?}
@@ -550,8 +567,8 @@ flowchart TD
    (`src-tauri/src/commands.rs:159-161`).
 4. The UI listener marks the files as changed, reloads the set and the item
    index, and reloads the open section if it changed
-   (`src/App.tsx:90-112`). A sequence number drops stale replies
-   (`src/App.tsx:95-97`).
+   (`src/App.tsx:128-150`). A sequence number drops stale replies
+   (`src/App.tsx:133-135`).
 
 ```mermaid
 ---
@@ -707,7 +724,7 @@ flowchart TD
 
 The view is one CSS `transform` on the image: `translate(x, y)
 scale(scale)` with the origin at the top left (`src/DiagramViewer.tsx:69-70`,
-`src/styles.css:204`). No library is used.
+`src/styles.css:209`). No library is used.
 
 ```mermaid
 ---
@@ -723,6 +740,48 @@ stateDiagram-v2
     Fitted --> [*]: Escape or Close
     Zoomed --> [*]: Escape or Close
 ```
+
+### 8.7 Change the text size and use the search drawer
+
+1. On start, `App` reads `pfv.textZoom` from `localStorage` through
+   `readZoom`. A value that is not one of the steps gives 1
+   (`src/App.tsx:33`, `src/textZoom.ts:13-16`).
+2. Each size change sets the root font size to `15 * zoom` px and stores the
+   size again. The page sizes text and the document list in `rem`, so one
+   root value scales them (`src/App.tsx:34-37`, `src/styles.css:148`).
+3. The header **A−**, percent, and **A+** buttons, and Command-minus,
+   Command-0, and Command-plus (`=` or `+`), call `nextZoom`. The steps are
+   0.8 to 2. The step buttons are disabled at the ends
+   (`src/App.tsx:55-67`, `src/App.tsx:208-212`, `src/textZoom.ts:2-10`).
+4. The drawer is fixed at the right, below the header. A `ResizeObserver` on
+   the header writes its height to `--header-h`, because the header height
+   changes with the text size and the window width (`src/App.tsx:46-54`,
+   `src/styles.css:212-220`).
+5. When the drawer is open and pinned, `main` gets the `with-drawer` class and
+   pads its right side by the drawer width, so the document stays readable
+   beside it (`src/App.tsx:186`, `src/styles.css:228`). The pin is stored in
+   `pfv.searchPinned` (`src/App.tsx:38-45`).
+6. A closed drawer is `inert` and stays mounted, so the last results are still
+   there when it opens again (`src/SearchDrawer.tsx:32-33`).
+
+```mermaid
+---
+title: Search drawer states
+---
+stateDiagram-v2
+    [*] --> Closed
+    Closed --> OpenUnpinned: Search button or Command-F, not pinned
+    Closed --> OpenPinned: Search button or Command-F, pinned
+    OpenUnpinned --> OpenPinned: Pin
+    OpenPinned --> OpenUnpinned: Pinned (unpin)
+    OpenUnpinned --> Closed: Escape, Close, Search button, or open a result
+    OpenPinned --> Closed: Close or Search button
+    OpenPinned --> OpenPinned: open a result
+```
+
+Escape closes only an unpinned drawer, and only when no modal `<dialog>` is
+open, so the export and diagram dialogs keep their own Escape
+(`src/SearchDrawer.tsx:23-30`).
 
 ## 9. Complex business logic
 
@@ -770,10 +829,11 @@ The UI uses the same ID shape to find references in text
 | Rule | Code |
 |------|------|
 | Each word becomes a quoted prefix (`"word"*`), so FTS syntax in the term is plain text. | `src-tauri/src/search.rs:66-69` |
-| Columns `id`, `title`, `text` weigh 50, 10, and 1. | `src-tauri/src/search.rs:143` |
+| Columns `id`, `title`, `text` weigh 50, 10, and 1. | `src-tauri/src/search.rs:144` |
 | Field names are not indexed, and a field whose text equals the title is skipped. | `src-tauri/src/search.rs:109-110` |
-| At most 200 hits, ordered by rank then row ID. | `src-tauri/src/search.rs:143-144` |
-| Score = `|rank| / |best| * 100`, rounded and clamped to 0 to 100. | `src-tauri/src/search.rs:157-159` |
+| At most 200 hits, ordered by rank then row ID. | `src-tauri/src/search.rs:144-145` |
+| A row is kept when its kind is in the picked list, or when the list is empty. The list goes to SQL as `,a,b,`, and a kind is a slug with no comma. | `src-tauri/src/search.rs:145`, `src-tauri/src/search.rs:149-150` |
+| Score = `|rank| / |best| * 100`, rounded and clamped to 0 to 100. | `src-tauri/src/search.rs:159-161` |
 
 ### 9.4 Draft mark
 
@@ -833,7 +893,7 @@ matches `prd_export.py`, which keeps the sketch when the drawing file is
 missing. The export passes `hasDrawing` from the image map
 (`src/exportRun.ts:55`). The viewer cannot know in advance, so it renders the
 sketch hidden and shows it when the image fails to load
-(`src/SectionPage.tsx:75-80`). `src/interactive.test.tsx:61-73` covers the
+(`src/SectionPage.tsx:75-80`). `src/interactive.test.tsx:63-75` covers the
 viewer case.
 
 ### 9.7 Images in exports
@@ -841,7 +901,7 @@ viewer case.
 | Rule | Code |
 |------|------|
 | A paragraph that holds only one image, with blank text around it, becomes an `image` block. An image inside other text is not a block, and exports as its alt text. | `src/exportBlocks.ts:57-62`, `src/exportBlocks.ts:149-151` |
-| `loadImages` collects each image path with no URL scheme, passes it to the `asset` dependency unchanged (less a leading `./`), and drops any path that fails. In the app, `asset` calls `export_image`. | `src/exportRun.ts:36-40`, `src/App.tsx:135` |
+| `loadImages` collects each image path with no URL scheme, passes it to the `asset` dependency unchanged (less a leading `./`), and drops any path that fails. In the app, `asset` calls `export_image`. | `src/exportRun.ts:36-40`, `src/App.tsx:173` |
 | `export_image` reads the `.png` next to an `.svg`, as `prd_export.py` embeds. It reads the `.svg` itself when the PNG is missing or older than the SVG by more than 2 s. The slack covers a git checkout, which writes the pair in any order. Both reads go through `read_asset`, so the `inside` path check and the extension allow list apply. | `src-tauri/src/prdset/section.rs:103-116` |
 | HTML draws a `figure.diagram` with a caption only when the map value starts with `data:image/`. Otherwise it writes the alt text, so nothing outside the set loads (NFR-010). | `src/exportHtml.ts:75-79` |
 | A diagram in the HTML is at most the page width and 215 mm high, and does not break across pages. | `src/exportHtml.ts:50-52` |
@@ -962,7 +1022,7 @@ only on the standard library and their crates.
 | `prdset::load` | `load_set` | `LoadError::NoRoot`, `UnreadableRoot` | `src-tauri/tests/load_set.rs` |
 | `prdset::items` | `items_of` | none, bad YAML gives `[]` | Real PRD files (`src-tauri/src/prdset/items.rs:115-163`) |
 | `prdset::section` | `read_section`, `item_index`, `read_asset`, `export_image`, crate-only `inside`, `read`, `listed` | Sentences for the author | Path escape tests (`src-tauri/src/prdset/section.rs:172-217`) |
-| `search` | `Index`, `SearchState`, `index_path` | Rebuild once, then the error | 15 tests (`src-tauri/src/search.rs:208-373`) |
+| `search` | `Index`, `SearchState`, `index_path` | Rebuild once, then the error | 16 tests (`src-tauri/src/search.rs:210-385`) |
 | `watch` | `SetWatcher::start`, `start_polling` | Start error text | 7 timing tests (`src-tauri/src/watch.rs:101-191`) |
 | `export` | `outside_set`, `write_export`, `export_pdf`, `find_chrome`, `chrome_candidates` | Sentences for the author | 11 tests (`src-tauri/src/export.rs:110-209`) |
 | `settings` | `load_settings`, `save_settings`, `update_settings`, `remember`, `set_themes` | `io::Result` | `src-tauri/src/settings.rs:70-162` |
@@ -1006,9 +1066,10 @@ Bun with no Tauri runtime.
 - **`refresh()`.** In one transaction, re-indexes each listed document whose
   FNV-1a hash of front matter and body changed, and drops documents no longer
   listed. Returns the count re-indexed (`src-tauri/src/search.rs:90-135`).
-- **`search(term, category)`.** See section 9.3.
+- **`search(term, categories)`.** Takes a slice of category kinds. An empty
+  slice searches all. See section 9.3.
 - **`categories()`.** Document kinds that hold items, sorted in reading order
-  (`src-tauri/src/search.rs:163-171`).
+  (`src-tauri/src/search.rs:165-173`).
 - **Concurrency.** `SearchState` holds the only `Index` behind a mutex.
 
 ### 13.2 `watch::SetWatcher`
@@ -1053,12 +1114,16 @@ Bun with no Tauri runtime.
 ### 13.5 `App` (react)
 
 - **State.** The open set, the page, the item index, categories, changed
-  files, themes, dialogs, and messages (`src/App.tsx:26-37`).
+  files, themes, dialogs, and messages (`src/App.tsx:28-75`).
 - **Refs.** `current` gives the window-lifetime `set-changed` listener the
-  latest set and page (`src/App.tsx:39-40`).
-- **Effects.** Per set: watch, index, categories (`src/App.tsx:43-54`). Once:
-  live listener (`src/App.tsx:90-112`), and themes, startup, and `start`
-  listener (`src/App.tsx:114-121`).
+  latest set and page (`src/App.tsx:77-78`).
+- **Effects.** Per set: watch, index, categories (`src/App.tsx:81-92`). Once:
+  live listener (`src/App.tsx:128-150`), and themes, startup, and `start`
+  listener (`src/App.tsx:152-159`).
+- **Text size and drawer.** The `zoom`, `searchOpen`, and `searchPinned`
+  state, the `--header-h` observer, and the Command-key handler for F, plus,
+  minus, and 0 (`src/App.tsx:32-67`). The Command-key handler ignores a key
+  with Option or Control.
 
 ### 13.6 `renderBody`
 
@@ -1103,9 +1168,33 @@ Bun with no Tauri runtime.
   with `@font-face` from `public/fonts` (`src/styles.css:2-6`).
 - The document list shows status as a colored left border, from the
   `data-status` attribute that `App.tsx` sets on each link
-  (`src/styles.css:149-151`, `src/App.tsx:217`).
+  (`src/styles.css:154-156`, `src/App.tsx:265`).
 - A diagram in a body is at most 60% of the window height, with
-  `object-fit: contain` (`src/styles.css:189`).
+  `object-fit: contain` (`src/styles.css:194`).
+- The text size group sits at the right of the header as one segmented
+  control (`src/styles.css:71-74`).
+- The search drawer slides in over 180 ms, is `min(26rem, 92vw)` wide, and
+  drops its shadow when pinned. Reduced motion turns the slide off
+  (`src/styles.css:212-228`, `src/styles.css:273`).
+- Category checkboxes show as chips. A checked chip uses the accent wash
+  (`src/styles.css:233-238`).
+- The document list column is `16rem`, not `240px`, so it grows with the text
+  size (`src/styles.css:148`).
+
+### 13.9 `SearchDrawer`, `SearchPanel`, and `textZoom`
+
+- **`SearchDrawer`.** An `aside#search-drawer` with a **Pin** toggle
+  (`aria-pressed`) and **Close**. It focuses the search box on open and handles
+  Escape when unpinned (`src/SearchDrawer.tsx:8-44`).
+- **`SearchPanel`.** Holds `picked`, the selected category kinds. **All
+  categories** is checked when `picked` is empty, and clicking it clears the
+  list. Clicking a category toggles it and keeps the list in reading order
+  (`src/SearchPanel.tsx:58-70`).
+- **`nextZoom(zoom, dir)`.** Returns the next step up or down, or 1 for
+  `dir = 0`. It stops at 0.8 and 2. A value between steps moves to the next
+  step (`src/textZoom.ts:5-10`).
+- **`readZoom(stored)`.** Returns the stored size only when it is a step
+  (`src/textZoom.ts:13-16`).
 
 ## 14. API design
 
@@ -1122,7 +1211,7 @@ an error string.
 | `item_index` | `folder` | `ItemRef[]` | yes | none |
 | `read_asset` | `folder`, `rel` | data URL | yes | none |
 | `export_image` | `folder`, `rel` | data URL of the PNG, or of the SVG when the PNG is older | yes | none |
-| `search` | `folder`, `term`, `category` | `Hit[]` | yes | index |
+| `search` | `folder`, `term`, `categories` (string array, empty for all) | `Hit[]` | yes | index |
 | `categories` | `folder` | `Category[]` | yes | index |
 | `watch_set` | `folder` or null | none | no | none |
 | `reload_set` | `folder` | `PrdSet` | yes | none |
@@ -1190,9 +1279,9 @@ erDiagram
 inserts them again. `docs` uses `INSERT OR REPLACE`.
 
 **Recovery.** Any error in a refresh or a query leads to delete, rebuild, and
-one retry (`src-tauri/src/search.rs:189-196`). A damaged file and a dropped
-table are both tested (`src-tauri/src/search.rs:288-296`,
-`src-tauri/src/search.rs:341-353`).
+one retry (`src-tauri/src/search.rs:191-198`). A damaged file and a dropped
+table are both tested (`src-tauri/src/search.rs:300-308`,
+`src-tauri/src/search.rs:353-365`).
 
 **Settings file.** The other persistent store is `settings.json`, a single
 JSON object (`src-tauri/src/settings.rs:9-20`). Example:
@@ -1212,14 +1301,14 @@ There is no cache service. Two in-memory caches exist:
 
 | Cache | Holds | Invalidation | Code |
 |-------|-------|--------------|------|
-| `SearchState` | The open `Index` | A search on another set replaces it. An error drops it. | `src-tauri/src/search.rs:176-197` |
+| `SearchState` | The open `Index` | A search on another set replaces it. An error drops it. | `src-tauri/src/search.rs:178-199` |
 | Export fonts | The five font files, about 1.6 MB | Once per window. A failed load is tried again next time. | `src/exportRun.ts:18-20` |
 
 ## 21. Event-driven and asynchronous processing
 
 The only events are the Tauri `start` and `set-changed` events (section 14).
 Delivery is in-process and best effort. The UI handles ordering with a
-sequence number and a stale check (`src/App.tsx:91-97`). There is no queue,
+sequence number and a stale check (`src/App.tsx:129-135`). There is no queue,
 retry, or dead-letter path. A missed event is covered by the next save or by
 the 1 s poll.
 
@@ -1287,13 +1376,13 @@ A PRD set is about 18 files. The main costs and their controls:
   section.
 - **Search.** The index refreshes on every search, but only changed documents
   are re-indexed, by content hash. The unit test runs 20 searches, each under
-  500 ms (`src-tauri/src/search.rs:311-322`).
+  500 ms (`src-tauri/src/search.rs:323-334`).
 - **Live.** 200 ms debounce (`src-tauri/src/watch.rs:9`) and a 1 s poll.
 - **Export.** Fonts load once. Each section body is read in parallel with
   `Promise.all` (`src/exportRun.ts:14`).
 
 **Likely bottleneck.** `categories()` runs one query per category and listed
-file while sorting (`src-tauri/src/search.rs:167-169`). With 18 files this is
+file while sorting (`src-tauri/src/search.rs:169-171`). With 18 files this is
 not measurable. **Recommendation.** Leave it until a set is much larger.
 
 ## 25. observability
@@ -1302,7 +1391,7 @@ The app has no logging framework, metrics, or tracing. The only diagnostic
 output is one `eprintln!` when the settings save fails
 (`src-tauri/src/commands.rs:20-21`). Errors reach the author as UI messages.
 The e2e checks save a screenshot per check to `e2e/shots/`
-(`e2e/harness.mjs:77`).
+(`e2e/harness.mjs:78`).
 
 ## 26. Configuration and secrets
 
@@ -1326,7 +1415,7 @@ There are no secrets.
   lists the sizes that the bundle uses. Edit the SVG, not the PNG files.
 - **Install.** The author copies the app to `/Applications` and selects
   **Install prdf command**, which writes `~/.local/bin/prdf` after a confirm
-  dialog (`src/App.tsx:142-145`).
+  dialog (`src/App.tsx:180-183`).
 - **Rollback.** Install the earlier `.app`. The settings file format is
   backward compatible: a plan 2 file with no themes loads
   (`src-tauri/src/settings.rs:120-129`).
@@ -1340,8 +1429,8 @@ Should the unit tests and the e2e checks run in CI?
 |-------|--------|----------|----------------|
 | Rust unit | `cargo test` | `#[cfg(test)]` in each module | Parsing, path checks, search ranking, watcher timing, export guards, settings |
 | Rust integration | `cargo test` | `src-tauri/tests/` | `load_set`, start rules, config |
-| UI unit | `bun test src` | `src/*.test.ts(x)` | Components with `renderToStaticMarkup`, sanitizer with JSDOM, export model and writers, body cleaning (`src/bodyClean.test.ts`), export images (`src/exportImages.test.ts`), zoom math (`src/zoom.test.ts`) |
-| UI interactive | `bun test src` | `src/interactive.test.tsx` | React renders into a JSDOM document and the tests send real DOM events: the diagram window fits, zooms, pans, and closes, and a hidden sketch shows when its drawing fails to load (`src/interactive.test.tsx:28-59`, `src/interactive.test.tsx:61-73`) |
+| UI unit | `bun test src` | `src/*.test.ts(x)` | Components with `renderToStaticMarkup`, sanitizer with JSDOM, export model and writers, body cleaning (`src/bodyClean.test.ts`), export images (`src/exportImages.test.ts`), zoom math (`src/zoom.test.ts`), text size steps (`src/textZoom.test.ts`), category checkboxes (`src/SearchPanel.test.tsx`) |
+| UI interactive | `bun test src` | `src/interactive.test.tsx` | React renders into a JSDOM document and the tests send real DOM events: the diagram window fits, zooms, pans, and closes, a hidden sketch shows when its drawing fails to load, a search sends every picked category and **All categories** clears them, and the search drawer focuses, pins, and closes with Escape only when unpinned (`src/interactive.test.tsx:30-61`, `src/interactive.test.tsx:63-75`, `src/interactive.test.tsx:77-100`, `src/interactive.test.tsx:102-132`) |
 | End to end | `bun run test:e2e` | `e2e/checks/*.mjs` | The debug build driven through the Tauri MCP bridge |
 
 Many Rust tests read the real PRD set in `docs/prd/prd-forge-viewer/`, so a
@@ -1354,9 +1443,16 @@ short scripts, in place of one long `webview_wait_for` call, which can time
 out while the web view is busy (`e2e/harness.mjs:39-45`).
 
 The e2e harness moves the author's real settings file aside and restores it
-after the run (`e2e/harness.mjs:84-95`). It needs macOS, the debug build with
-`--features mcp-bridge`, and System Events access for real key presses
-(`e2e/harness.mjs:48-51`).
+after the run (`e2e/harness.mjs:85-96`). It needs macOS, the debug build with
+`--features mcp-bridge`, and System Events access for real key presses.
+`realKey(code, mods)` takes an optional AppleScript modifier list, such as
+`"command down"`, so a check can press Command-plus or Command-F
+(`e2e/harness.mjs:47-52`). The reading checks press Command-plus,
+Command-minus, and Command-0, and retry a key that macOS drops while it brings
+the app to the front (`e2e/checks/phase-1-reading.mjs:64-83`). The search
+checks open the drawer from the header and cover two categories, the pin, and
+Escape (`e2e/checks/phase-2-search.mjs:47-53`,
+`e2e/checks/phase-2-search.mjs:85-99`).
 
 ## 29. Local development
 
@@ -1366,7 +1462,7 @@ after the run (`e2e/harness.mjs:84-95`). It needs macOS, the debug build with
    the MCP bridge.
 4. Run `bun test src` and `cargo test --manifest-path src-tauri/Cargo.toml`.
 5. Run `bun run test:e2e` for the e2e checks. A viewer that is already open is
-   quit first (`e2e/harness.mjs:80-83`).
+   quit first (`e2e/harness.mjs:81-84`).
 
 ## 30. Operations and support
 
@@ -1393,6 +1489,9 @@ after the run (`e2e/harness.mjs:84-95`). It needs macOS, the debug build with
 | Exports embed the PNG of each SVG, the viewer shows the SVG | Export | Low | A stale PNG exports an old drawing | **Closed in 0.2.1.** `export_image` uses the SVG when the PNG is older (section 9.7). |
 | An SVG in a Word file shows a blank fallback in a Word older than 2016 | Export | Low | The diagram is missing in an old Word | Only when the PNG is stale. Run `prd-diagrams.mjs` before an export. |
 | `fitView` does not clamp to `MIN_SCALE` | Diagram window | None | None | **Closed in 0.2.1.** `fitView` clamps (`src/zoom.ts:11`). |
+| The text size and the drawer pin live in `localStorage`, not in `settings.json` | Settings | Low | They do not follow the other settings, and ADR-004 names one settings file | **Open question.** Move them to the settings file, or record the split in ADR-004. |
+| The sticky document list uses `top: 64px`, a fixed value | Section page | Medium | **Assumption.** At large text sizes the header is taller than 64 px and covers the top of the list | **Recommendation.** Use `top: var(--header-h)`, which the drawer already uses (`src/styles.css:149`). |
+| The text size, the drawer, and multi-category search have no PRD ID | Scope | Low | Not traced to a requirement | **Open question.** Add them to the PRD through the wizard, or record them as usability work under NFR-007. |
 
 ## 32. Implementation plan (extension roadmap)
 
@@ -1413,7 +1512,8 @@ after the run (`e2e/harness.mjs:84-95`). It needs macOS, the debug build with
 | FR-004 | 8.2 | `GradesTable` | set | `open_set` | `src/GradesTable.test.tsx` |
 | FR-005, FR-023 | 8.2 | `prdset::section`, `SectionPage` | set | `read_section` | `e2e/checks/phase-1-reading.mjs` |
 | FR-007 | 8.2 | `prdset::section`, `linkify` | set | `item_index` | `index_finds_requirement_and_nested_stage` |
-| FR-008 | 8.3 | `search` | index | `search`, `categories` | `e2e/checks/phase-2-search.mjs` |
+| FR-008 | 8.3, 8.7 | `search`, `SearchPanel`, `SearchDrawer` | index | `search`, `categories` | `e2e/checks/phase-2-search.mjs`, `two_categories_give_both_kinds_and_no_other`, `src/interactive.test.tsx` |
+| Text size (no PRD ID) | 8.7 | `App`, `textZoom` | `localStorage` | none | `src/textZoom.test.ts`, `e2e/checks/phase-1-reading.mjs` |
 | FR-009 | 8.4 | `watch`, `App` | none | `watch_set`, `reload_set` | `e2e/checks/phase-3-live.mjs` |
 | FR-010 to FR-014, FR-019 | 8.5 | export pipeline, `export` | export file | `export_pdf`, `write_export`, `print_page`, `export_image` | `e2e/checks/phase-5-export.mjs`, `src/exportImages.test.ts`, `export_image_uses_the_png_unless_it_is_older_than_the_svg` |
 | FR-019 (grades optional) | 8.5 | `ExportDialog`, `buildExport` | none | none | `fr_019_grades_are_left_out_by_default` |
@@ -1431,6 +1531,7 @@ after the run (`e2e/harness.mjs:84-95`). It needs macOS, the debug build with
 | Bundle Chromium for PDF? | Authors without Chrome cannot make a PDF. | Keep Chrome as a prerequisite, or bundle. | Engineering lead |
 | Add CI? | Tests run only on a developer's Mac. | GitHub Actions macOS runner, or keep local. | Engineering lead |
 | Check the `folder` argument against known sets? | Defense in depth for read commands. | Add a check, or rely on the bundled UI. | Engineering lead |
+| Keep the text size and the drawer pin in `localStorage`? | ADR-004 says settings live in one file. | Move them to `settings.json`, or amend ADR-004. | Engineering lead |
 
 ## 35. appendices
 
@@ -1447,6 +1548,7 @@ after the run (`e2e/harness.mjs:84-95`). It needs macOS, the debug build with
 | 8.4 | Live change sequence and activity |
 | 8.5 | PDF export, export activity |
 | 8.6 | Diagram window states |
+| 8.7 | Search drawer states |
 | 9.5 | Document status |
 | 10 | Domain model |
 | 11 | Rust module dependencies |
@@ -1472,4 +1574,9 @@ after the run (`e2e/harness.mjs:84-95`). It needs macOS, the debug build with
    ones.
 3. **Recommended order.** FR-025, then FR-006, then a type contract test and
    CI.
-4. **Information still needed.** The NFR-009 screen reader checker count.
+4. **Information still needed.** The NFR-009 screen reader checker count, and
+   an owner decision on where the text size and the drawer pin are stored
+   (section 34).
+5. **New in 0.3.0.** Text size, multi-category search, and the search drawer
+   ship without a PRD ID. FR-008 still reads "one category or all". The PRD
+   owner can add them through the wizard.
