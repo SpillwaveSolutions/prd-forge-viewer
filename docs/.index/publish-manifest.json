@@ -1,5 +1,5 @@
 {
- "git_hash": "3ac4195",
+ "git_hash": "a8f376a",
  "pages": [
   {
    "frozen": false,
@@ -45,7 +45,7 @@
    "frozen": false,
    "page_name": "Index-Traceability",
    "render": "as-is",
-   "render_hash": "430c5eeb49bd",
+   "render_hash": "a84ad3507fd2",
    "source": "docs/.index/rendered/traceability.md",
    "title": "Traceability Index",
    "truth_state": "current",
@@ -205,7 +205,7 @@
    "frozen": false,
    "page_name": "Release-REL-001",
    "render": "as-is",
-   "render_hash": "78ce83ac5173",
+   "render_hash": "53b5c5cd2a55",
    "source": "docs/.index/rendered/releases/REL-001.md",
    "title": "Release REL-001",
    "truth_state": "shipped",
@@ -575,10 +575,10 @@
    "frozen": false,
    "page_name": "Ticket-01M61XNM9NY7F4D4V7400J56X9",
    "render": "as-is",
-   "render_hash": "0b36d4704d9c",
+   "render_hash": "54966a30a980",
    "source": "docs/.index/rendered/tickets/01M61XNM9NY7F4D4V7400J56X9.md",
    "title": "SPK-001 Spike: How many stakeholders review a typical PRD, and how many of them have Claude Code and PRD Forge?",
-   "truth_state": "open",
+   "truth_state": "done",
    "wiki_key": "item/01M61XNM9NY7F4D4V7400J56X9"
   },
   {
@@ -2252,6 +2252,86 @@
    "wiki_key": "item/01M67QAJ3NDMPQ8G6QG8H78CFY"
   },
   {
+   "frozen": false,
+   "page_name": "Ticket-01M6CD2T4X865526TGXVQKB04H",
+   "render": "as-is",
+   "render_hash": "a48e9eb3f581",
+   "source": "docs/.index/rendered/tickets/01M6CD2T4X865526TGXVQKB04H.md",
+   "title": "Plan 11: 0.4.0 doc findings, section 7 grade, and SPK-001 answer",
+   "truth_state": "open",
+   "wiki_key": "item/01M6CD2T4X865526TGXVQKB04H"
+  },
+  {
+   "frozen": false,
+   "page_name": "Ticket-01M6CD2T72NWPZNCQE152XGDF1",
+   "render": "as-is",
+   "render_hash": "943a99cb40d1",
+   "source": "docs/.index/rendered/tickets/01M6CD2T72NWPZNCQE152XGDF1.md",
+   "title": "The backlog list updates when a backlog file changes",
+   "truth_state": "open",
+   "wiki_key": "item/01M6CD2T72NWPZNCQE152XGDF1"
+  },
+  {
+   "frozen": false,
+   "page_name": "Ticket-01M6CD2T95Y68V8JHECMVED6WN",
+   "render": "as-is",
+   "render_hash": "ea01acd2632e",
+   "source": "docs/.index/rendered/tickets/01M6CD2T95Y68V8JHECMVED6WN.md",
+   "title": "One text size range in the UI and in settings.json",
+   "truth_state": "open",
+   "wiki_key": "item/01M6CD2T95Y68V8JHECMVED6WN"
+  },
+  {
+   "frozen": false,
+   "page_name": "Ticket-01M6CD2TBCVFV3GHHQB71WMC1T",
+   "render": "as-is",
+   "render_hash": "50e1527dc4bc",
+   "source": "docs/.index/rendered/tickets/01M6CD2TBCVFV3GHHQB71WMC1T.md",
+   "title": "Checks for Command-F with no set and the header at 200 percent text",
+   "truth_state": "open",
+   "wiki_key": "item/01M6CD2TBCVFV3GHHQB71WMC1T"
+  },
+  {
+   "frozen": false,
+   "page_name": "Ticket-01M6CD2TDP9AHWDF99TTFVA6W3",
+   "render": "as-is",
+   "render_hash": "9e9430a1be65",
+   "source": "docs/.index/rendered/tickets/01M6CD2TDP9AHWDF99TTFVA6W3.md",
+   "title": "Rename the user guide README to index so the wiki finds it",
+   "truth_state": "open",
+   "wiki_key": "item/01M6CD2TDP9AHWDF99TTFVA6W3"
+  },
+  {
+   "frozen": false,
+   "page_name": "Ticket-01M6CD2TG1505EW0WSEVQ0FKBG",
+   "render": "as-is",
+   "render_hash": "74520079349b",
+   "source": "docs/.index/rendered/tickets/01M6CD2TG1505EW0WSEVQ0FKBG.md",
+   "title": "Grade section 7 again for release 2",
+   "truth_state": "done",
+   "wiki_key": "item/01M6CD2TG1505EW0WSEVQ0FKBG"
+  },
+  {
+   "frozen": false,
+   "page_name": "Ticket-01M6CDER7F638J5X58BARRP8KK",
+   "render": "as-is",
+   "render_hash": "ad444086aaab",
+   "source": "docs/.index/rendered/tickets/01M6CDER7F638J5X58BARRP8KK.md",
+   "title": "Run the e2e checks in the background without focus or real keys",
+   "truth_state": "open",
+   "wiki_key": "item/01M6CDER7F638J5X58BARRP8KK"
+  },
+  {
+   "frozen": false,
+   "page_name": "Ticket-01M6CDNVQNTQCPDD3W83FGQSBC",
+   "render": "as-is",
+   "render_hash": "7daf22cea0a0",
+   "source": "docs/.index/rendered/tickets/01M6CDNVQNTQCPDD3W83FGQSBC.md",
+   "title": "Fix the section 7 grader notes: WF-012 title, release 2 exit criteria, and error cases",
+   "truth_state": "done",
+   "wiki_key": "item/01M6CDNVQNTQCPDD3W83FGQSBC"
+  },
+  {
    "banner": "> **Snapshot** of release v0.1.0 (2026-10-29) \u2014 frozen record. The current version is [[Code-Walkthrough]].",
    "frozen": true,
    "page_name": "Design-Freeze-2026-10-29_v0.1.0-release",
@@ -2420,6 +2500,18 @@
    "wiki_key": "guide/07-export-and-print"
   },
   {
+   "banner": "> **Current** \u2014 this is the living version. Historical snapshots are linked from [[Index-Releases]].",
+   "frozen": false,
+   "page_name": "User-Guide",
+   "render": "doc+banner",
+   "render_hash": "3db4f016231b",
+   "source": "docs/user_guide/index.md",
+   "source_hash": "242a335717ed",
+   "title": "User Guide",
+   "truth_state": "current",
+   "wiki_key": "guide/index"
+  },
+  {
    "banner": "> **Current** \u2014 completed plan; plans are frozen once written, a changed design gets a new plan.",
    "frozen": true,
    "page_name": "Plan-plan-1-open-and-grades",
@@ -2552,13 +2644,13 @@
    "wiki_key": "plan/2026-10-31-plan-10-prd-findings-backlog"
   },
   {
-   "banner": "> **Current** \u2014 this is the living version; regenerated at 2026-10-31T00:56:30Z. Historical snapshots are linked from [[Index-Releases]].",
+   "banner": "> **Current** \u2014 this is the living version; regenerated at 2026-11-01T20:46:30Z. Historical snapshots are linked from [[Index-Releases]].",
    "frozen": false,
    "page_name": "Roadmap",
    "render": "doc+banner",
-   "render_hash": "d58e45f8d29c",
+   "render_hash": "71089a5d3a02",
    "source": "docs/roadmap.md",
-   "source_hash": "56f0ef8507a1",
+   "source_hash": "155812dc416d",
    "title": "Roadmap",
    "truth_state": "current",
    "wiki_key": "roadmap"

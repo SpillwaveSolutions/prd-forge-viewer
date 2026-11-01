@@ -4,7 +4,7 @@ kind: wireframes
 schema: prd-forge/wireframes@1
 title: Wireframes
 status: final
-updated: 2026-10-28
+updated: 2026-11-01
 domain: software product management
 section: 7
 order: 85
@@ -130,7 +130,7 @@ wireframes:
       - The blocking defects of the section, or that it has none
       - The items to raise the grade, each with its dimension
   - id: WF-012
-    title: Search kept in view beside a section, at a larger text size
+    title: Search kept in view while reading a section, at a larger text size
     type: screen
     persona: PER-002
     journey_stage: ST-003
@@ -443,7 +443,7 @@ section 5 on 2026-10-27.
 
 ![WF-011 drawing](diagrams/WF-011.svg)
 
-## WF-012 Search kept in view beside a section, at a larger text size
+## WF-012 Search kept in view while reading a section, at a larger text size
 
 Illustration, not a design. Illustrates FR-008, FR-026, and FR-027. PER-002 sees it at ST-003. FR-026 and FR-027 are in release 2.
 
@@ -700,7 +700,7 @@ Every item in this document, with each of its fields.
 
 ### WF-012
 
-**Title:** Search kept in view beside a section, at a larger text size
+**Title:** Search kept in view while reading a section, at a larger text size
 
 **Type:** screen
 

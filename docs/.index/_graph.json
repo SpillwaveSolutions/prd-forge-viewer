@@ -2861,6 +2861,41 @@
    "type": "lands-in"
   },
   {
+   "from": "item/01M6CD2T72NWPZNCQE152XGDF1",
+   "to": "item/01M6CD2T4X865526TGXVQKB04H",
+   "type": "belongs-to"
+  },
+  {
+   "from": "item/01M6CD2T95Y68V8JHECMVED6WN",
+   "to": "item/01M6CD2T4X865526TGXVQKB04H",
+   "type": "belongs-to"
+  },
+  {
+   "from": "item/01M6CD2TBCVFV3GHHQB71WMC1T",
+   "to": "item/01M6CD2T4X865526TGXVQKB04H",
+   "type": "belongs-to"
+  },
+  {
+   "from": "item/01M6CD2TDP9AHWDF99TTFVA6W3",
+   "to": "item/01M6CD2T4X865526TGXVQKB04H",
+   "type": "belongs-to"
+  },
+  {
+   "from": "item/01M6CD2TG1505EW0WSEVQ0FKBG",
+   "to": "item/01M6CD2T4X865526TGXVQKB04H",
+   "type": "belongs-to"
+  },
+  {
+   "from": "item/01M6CDER7F638J5X58BARRP8KK",
+   "to": "item/01M6CD2T4X865526TGXVQKB04H",
+   "type": "belongs-to"
+  },
+  {
+   "from": "item/01M6CDNVQNTQCPDD3W83FGQSBC",
+   "to": "item/01M6CD2T4X865526TGXVQKB04H",
+   "type": "belongs-to"
+  },
+  {
    "from": "plan/2026-10-28-plan-1-open-and-grades",
    "to": "item/01M61XNJ5TFSD53MNXM1XHBD57",
    "type": "produces"
@@ -3786,6 +3821,12 @@
    "title": "Export and print",
    "truth_state": "current"
   },
+  "guide/index": {
+   "doc_type": "guide",
+   "source": "docs/user_guide/index.md",
+   "title": "User Guide",
+   "truth_state": "current"
+  },
   "item/01M61XNJ3ME272NXHFN3BS3541": {
    "doc_type": "item",
    "status": "done",
@@ -3943,7 +3984,7 @@
   },
   "item/01M61XNM9NY7F4D4V7400J56X9": {
    "doc_type": "item",
-   "status": "todo",
+   "status": "done",
    "title": "SPK-001 Spike: How many stakeholders review a typical PRD, and how many of them have Claude Code and PRD Forge?"
   },
   "item/01M61XY5XWQS30P8FD1209SDCJ": {
@@ -4780,6 +4821,46 @@
    "doc_type": "item",
    "status": "done",
    "title": "Release 0.4.0"
+  },
+  "item/01M6CD2T4X865526TGXVQKB04H": {
+   "doc_type": "item",
+   "status": "todo",
+   "title": "Plan 11: 0.4.0 doc findings, section 7 grade, and SPK-001 answer"
+  },
+  "item/01M6CD2T72NWPZNCQE152XGDF1": {
+   "doc_type": "item",
+   "status": "todo",
+   "title": "The backlog list updates when a backlog file changes"
+  },
+  "item/01M6CD2T95Y68V8JHECMVED6WN": {
+   "doc_type": "item",
+   "status": "todo",
+   "title": "One text size range in the UI and in settings.json"
+  },
+  "item/01M6CD2TBCVFV3GHHQB71WMC1T": {
+   "doc_type": "item",
+   "status": "todo",
+   "title": "Checks for Command-F with no set and the header at 200 percent text"
+  },
+  "item/01M6CD2TDP9AHWDF99TTFVA6W3": {
+   "doc_type": "item",
+   "status": "todo",
+   "title": "Rename the user guide README to index so the wiki finds it"
+  },
+  "item/01M6CD2TG1505EW0WSEVQ0FKBG": {
+   "doc_type": "item",
+   "status": "done",
+   "title": "Grade section 7 again for release 2"
+  },
+  "item/01M6CDER7F638J5X58BARRP8KK": {
+   "doc_type": "item",
+   "status": "todo",
+   "title": "Run the e2e checks in the background without focus or real keys"
+  },
+  "item/01M6CDNVQNTQCPDD3W83FGQSBC": {
+   "doc_type": "item",
+   "status": "done",
+   "title": "Fix the section 7 grader notes: WF-012 title, release 2 exit criteria, and error cases"
   },
   "plan/2026-10-28-plan-1-open-and-grades": {
    "doc_type": "plan",

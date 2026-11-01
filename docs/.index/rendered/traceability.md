@@ -2,6 +2,44 @@
 
 _The evidence chain: plan → item → ticket → code → release, forward and backward. Generated from `docs/.index/_graph.json`; do not edit._
 
+### Fix the section 7 grader notes: WF-012 title, release 2 exit criteria, and error cases
+`01M6CDNVQNTQCPDD3W83FGQSBC` · status: done
+- belongs-to: Plan 11: 0.4.0 doc findings, section 7 grade, and SPK-001 answer
+
+### Run the e2e checks in the background without focus or real keys
+`01M6CDER7F638J5X58BARRP8KK` · status: todo
+- belongs-to: Plan 11: 0.4.0 doc findings, section 7 grade, and SPK-001 answer
+
+### Grade section 7 again for release 2
+`01M6CD2TG1505EW0WSEVQ0FKBG` · status: done
+- belongs-to: Plan 11: 0.4.0 doc findings, section 7 grade, and SPK-001 answer
+
+### Rename the user guide README to index so the wiki finds it
+`01M6CD2TDP9AHWDF99TTFVA6W3` · status: todo
+- belongs-to: Plan 11: 0.4.0 doc findings, section 7 grade, and SPK-001 answer
+
+### Checks for Command-F with no set and the header at 200 percent text
+`01M6CD2TBCVFV3GHHQB71WMC1T` · status: todo
+- belongs-to: Plan 11: 0.4.0 doc findings, section 7 grade, and SPK-001 answer
+
+### One text size range in the UI and in settings.json
+`01M6CD2T95Y68V8JHECMVED6WN` · status: todo
+- belongs-to: Plan 11: 0.4.0 doc findings, section 7 grade, and SPK-001 answer
+
+### The backlog list updates when a backlog file changes
+`01M6CD2T72NWPZNCQE152XGDF1` · status: todo
+- belongs-to: Plan 11: 0.4.0 doc findings, section 7 grade, and SPK-001 answer
+
+### Plan 11: 0.4.0 doc findings, section 7 grade, and SPK-001 answer
+`01M6CD2T4X865526TGXVQKB04H` · status: todo
+- contains: The backlog list updates when a backlog file changes
+- contains: One text size range in the UI and in settings.json
+- contains: Checks for Command-F with no set and the header at 200 percent text
+- contains: Rename the user guide README to index so the wiki finds it
+- contains: Grade section 7 again for release 2
+- contains: Run the e2e checks in the background without focus or real keys
+- contains: Fix the section 7 grader notes: WF-012 title, release 2 exit criteria, and error cases
+
 ### Release 0.4.0
 `01M67QAJ3NDMPQ8G6QG8H78CFY` · status: done
 - belongs-to: Plan 10: PRD catch-up, grade findings, backlog navigation, and release 0.4.0
@@ -1210,7 +1248,7 @@ _The evidence chain: plan → item → ticket → code → release, forward and 
 - contains: Test csp_blocks_scripts_and_network
 
 ### SPK-001 Spike: How many stakeholders review a typical PRD, and how many of them have Claude Code and PRD Forge?
-`01M61XNM9NY7F4D4V7400J56X9` · status: todo
+`01M61XNM9NY7F4D4V7400J56X9` · status: done
 - references: [github#36](https://github.com/SpillwaveSolutions/prd-forge-viewer/issues/36)
 - targets: release/REL-001
 

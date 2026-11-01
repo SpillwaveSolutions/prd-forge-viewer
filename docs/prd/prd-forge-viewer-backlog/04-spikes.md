@@ -32,6 +32,8 @@ spikes:
 
 Q-002 is the only open question in the PRD. It blocks no release 1 story. Its answer sizes S-002 and lets O-001 be measured.
 
+SPK-001 is done. The PRD owner answered Q-002 on 2026-11-01: two of the stakeholders who review a typical PRD have the tools. The others read the export, or a stakeholder with the tools reviews for them as a proxy.
+
 | ID | Source | Question | Ends in | Time box | Decider |
 | --- | --- | --- | --- | --- | --- |
 | SPK-001 | Q-002 | How many stakeholders review a typical PRD, and how many of them have Claude Code and PRD Forge? | answer | 5 days | Richard Hightower |

@@ -4,13 +4,13 @@ kind: functional-requirements
 schema: prd-forge/functional-requirements@1
 title: Functional requirements
 status: final
-updated: 2026-10-31
+updated: 2026-11-01
 domain: software product management
 section: 7
 order: 80
-score: 88
+score: 81
 blocking: 0
-graded: 2026-10-27
+graded: 2026-11-01
 requirements:
   - id: FR-001
     shown_in: screen
@@ -24,6 +24,9 @@ requirements:
         Given a PRD set with 18 documents, when the author opens it, then the
         author sees the product name, the version, the executive summary, and
         all 18 documents in order, each with its status.
+      - >-
+        Given a folder that holds no PRD set, when the author opens it, then the
+        author sees that the folder holds no PRD set, with the folder name.
     priority: must
     journey_stage: ST-001
     objective: O-001
@@ -95,6 +98,10 @@ requirements:
         Given the author is reading the problem and opportunity section, when
         the author selects the functional requirements section, then the author
         sees it in one action.
+      - >-
+        Given a section at pending that has not been interviewed, when the
+        author selects it, then the author sees the section with its status
+        pending.
     priority: must
     journey_stage: ST-003
     objective: O-001
@@ -137,6 +144,10 @@ requirements:
       - >-
         Given requirement FR-004 names stage ST-002, when the developer follows
         that reference, then the developer sees stage ST-002 in J-001.
+      - >-
+        Given an item names an id that is in no section of the PRD set, when the
+        developer reads that item, then the id shows as plain text that the
+        developer cannot follow.
     priority: should
     journey_stage: ST-003
     objective: O-001
@@ -190,8 +201,8 @@ requirements:
         save section 4 with score 75, then the author sees score 75 and the new
         text without any action, within the time limit in NFR-002.
       - >-
-        Given the author reads section 4 when the authoring tools save it, when
-        the new version shows, then the author sees that section 4 changed.
+        Given the author reads section 4, when the authoring tools save a new
+        version of it, then the author sees that section 4 changed.
       - >-
         Given the authoring tools change a section the author is not reading,
         when the author views the grades, then that section shows its new status
@@ -213,6 +224,10 @@ requirements:
         as a fixed-layout document, then one file in the format that IN-006 names
         contains every document in order, and the sponsor opens it without the
         authoring tools.
+      - >-
+        Given the author picks a folder where the file cannot be written, when
+        the author exports the whole set as a fixed-layout document, then the
+        author sees that the export was not done, with the reason.
     priority: must
     journey_stage: ST-005
     objective: O-001
@@ -230,6 +245,10 @@ requirements:
         as an editable document, then one file in the format that IN-006 names
         contains every document in order, and the
         engineering lead opens it in a word processor without the authoring tools.
+      - >-
+        Given the author picks a folder where the file cannot be written, when
+        the author exports the whole set as an editable document, then the
+        author sees that the export was not done, with the reason.
     priority: should
     journey_stage: ST-005
     objective: O-001
@@ -244,6 +263,10 @@ requirements:
         Given the user journeys section and the functional requirements section
         are the only sections selected, when the developer exports them, then the file
         contains only those two sections, in reading order.
+      - >-
+        Given no section is selected, when the developer tries to export, then
+        the export does not start until the developer selects at least one
+        section.
     priority: must
     journey_stage: ST-005
     objective: O-001
@@ -258,6 +281,12 @@ requirements:
         Given the whole PRD set is selected, when the author prints it,
         then the printed copy has the same documents, order, and draft mark as
         the fixed-layout export.
+      - >-
+        Given the scope section is the only section selected, when the author
+        prints, then the printed copy contains only the scope section.
+      - >-
+        Given no section is selected, when the author tries to print, then
+        printing does not start until the author selects at least one section.
     priority: should
     journey_stage: ST-005
     objective: O-001
@@ -271,6 +300,10 @@ requirements:
       - >-
         Given version 0.1.0 with sections at draft, when the sponsor opens the
         export, then the first page shows version 0.1.0 and the word "Draft".
+      - >-
+        Given version 1.0.0 with the root and every section at final, when the
+        sponsor opens the export, then the first page shows version 1.0.0 and
+        does not show the word "Draft".
     priority: must
     journey_stage: ST-005
     objective: O-001
@@ -291,6 +324,9 @@ requirements:
         then the file has page color F3F6FB, text color 111111, heading color
         0B1F4B, accent color 1D4E89, and a sans-serif font for headings and
         text.
+      - >-
+        Given the author has not selected a theme, when the author exports, then
+        the file uses the built-in theme Ice Snowstorm.
     priority: must
     journey_stage: ST-005
     objective: O-001
@@ -310,6 +346,10 @@ requirements:
         Given an export with the theme "Acme", when a reader opens it on a
         computer that does not have those fonts installed, then the reader sees
         the same fonts as the author.
+      - >-
+        Given a theme with a blank name, or a color that is not six hexadecimal
+        digits, when the author saves it, then the theme is not saved and the
+        author sees the reason.
     priority: should
     journey_stage: ST-005
     objective: O-001
@@ -380,6 +420,9 @@ requirements:
         Given the author made the custom theme "Acme", when the author closes and
         reopens the viewer, then "Acme" is available to select, with the same
         colors and fonts.
+      - >-
+        Given the saved settings of the viewer cannot be read, when the author
+        opens the viewer, then the built-in themes are available to select.
     priority: should
     journey_stage: ST-005
     objective: O-001
@@ -447,6 +490,9 @@ requirements:
         Given the five persona ids of that section are in view, when the author
         selects PER-001, then the author sees PER-001 with the status and grade
         of its section.
+      - >-
+        Given a section with no items, when the author opens it, then the author
+        sees the whole section and no list of items.
     priority: must
     journey_stage: ST-003
     objective: O-001
@@ -498,8 +544,8 @@ requirements:
     user: PER-001
     capability: Make the text larger or smaller
     outcome: >-
-      The author reads the PRD set at a text size that suits the author, and the
-      viewer keeps that size for the next session.
+      The author reads the PRD set at the text size that the author picked, and
+      the next session opens at that size.
     acceptance:
       - >-
         Given a section is open at the normal text size, when the author makes
@@ -511,7 +557,7 @@ requirements:
       - >-
         Given the author made the text larger and closed the viewer, when the
         author opens the viewer again, then the text has the same larger size.
-    priority: should
+    priority: wont
     journey_stage: ST-003
     objective: O-001
     source: PRD owner decision, 2026-10-30
@@ -525,7 +571,7 @@ requirements:
     acceptance:
       - >-
         Given search is hidden, when the developer asks for search, then the
-        developer sees the search box, ready for a term.
+        developer can type a term at once.
       - >-
         Given search is kept in view and shows the results of "export", when
         the developer opens two results one after the other, then the results
@@ -533,7 +579,7 @@ requirements:
       - >-
         Given search is not kept in view, when the developer opens a result,
         then search is hidden and the item is shown.
-    priority: should
+    priority: wont
     journey_stage: ST-003
     objective: O-001
     source: PRD owner decision, 2026-10-30
@@ -543,7 +589,7 @@ requirements:
     capability: Move between a requirement and the backlog stories that build it
     outcome: >-
       The developer goes from a requirement to the stories that build it, and
-      from a story back to its requirements, without losing context.
+      from a story back to its requirements, in one action each way.
     acceptance:
       - >-
         Given a backlog next to the PRD set in which US-008 builds FR-005, when
@@ -555,10 +601,10 @@ requirements:
       - >-
         Given a PRD set with no backlog next to it, when the developer views
         FR-005, then the viewer shows the requirement with no backlog links.
-    priority: should
+    priority: wont
     journey_stage: ST-003
     objective: O-001
-    source: PRD owner decision, 2026-10-30 (GitHub issue 199)
+    source: PRD owner decision, 2026-10-30 (owner request 199)
 links:
   parent: { id: prd-forge-viewer, kind: prd, path: ./prd.md, title: PRD Forge Viewer PRD }
   prev: { id: prd-forge-viewer-scope, kind: scope, path: ./07-scope.md, title: Scope }
@@ -600,9 +646,9 @@ Each requirement uses MoSCoW priority: must, should, could, or won't.
 | FR-023 | PER-001 | Select one item of a section and read it | must | ST-003 |
 | FR-024 | PER-001 | Choose one PRD set when docs/prd holds more than one | should | ST-001 |
 | FR-025 | PER-001 | See the findings behind the grade of a section, in release 2 | wont | ST-002 |
-| FR-026 | PER-001 | Make the text larger or smaller, in release 2 | should | ST-003 |
-| FR-027 | PER-002 | Keep search results in view while reading, in release 2 | should | ST-003 |
-| FR-028 | PER-002 | Move between a requirement and its backlog stories, in release 2 | should | ST-003 |
+| FR-026 | PER-001 | Make the text larger or smaller, in release 2 | wont | ST-003 |
+| FR-027 | PER-002 | Keep search results in view while reading, in release 2 | wont | ST-003 |
+| FR-028 | PER-002 | Move between a requirement and its backlog stories, in release 2 | wont | ST-003 |
 
 ## FR-001. Open a PRD set and see its contents
 
@@ -726,8 +772,8 @@ sets it found, and the author selects one. The PRD owner decided this on
 ## FR-025. See the findings behind the grade of a section
 
 The author sees the blocking defects and the items to raise the grade of a
-section. The authoring tools record these findings (D-002). FR-025 is the
-only requirement of release 2 (REL-002). Its priority is wont, because the priority
+section. The authoring tools record these findings (D-002). FR-025 is in
+release 2 (REL-002) with FR-026 to FR-028. All four have priority wont, because the priority
 says what release 1 must handle, and release 1 does not have it.
 
 ## FR-026. Make the text larger or smaller
@@ -739,14 +785,14 @@ on 2026-10-30.
 ## FR-027. Keep search results in view while reading
 
 Search is hidden until the developer asks for it. The developer can keep it in
-view beside the document, so that the results stay while the developer opens one
+view, so that the results stay while the developer opens one
 result after another. The PRD owner added this on 2026-10-30.
 
 ## FR-028. Move between a requirement and its backlog stories
 
 When a backlog made from the PRD set is next to it, a requirement shows the
 stories that build it, and a story shows its requirements. Each link opens its
-item. The PRD owner added this on 2026-10-30 (GitHub issue 199).
+item. The PRD owner added this on 2026-10-30 (owner request 199).
 
 <!-- prd-forge:details -->
 
@@ -767,6 +813,7 @@ Every item in this document, with each of its fields.
 **Acceptance:**
 
 1. Given a PRD set with 18 documents, when the author opens it, then the author sees the product name, the version, the executive summary, and all 18 documents in order, each with its status.
+2. Given a folder that holds no PRD set, when the author opens it, then the author sees that the folder holds no PRD set, with the folder name.
 
 **Priority:** must
 
@@ -858,6 +905,7 @@ Every item in this document, with each of its fields.
 **Acceptance:**
 
 1. Given the author is reading the problem and opportunity section, when the author selects the functional requirements section, then the author sees it in one action.
+2. Given a section at pending that has not been interviewed, when the author selects it, then the author sees the section with its status pending.
 
 **Priority:** must
 
@@ -905,6 +953,7 @@ Every item in this document, with each of its fields.
 **Acceptance:**
 
 1. Given requirement FR-004 names stage ST-002, when the developer follows that reference, then the developer sees stage ST-002 in J-001.
+2. Given an item names an id that is in no section of the PRD set, when the developer reads that item, then the id shows as plain text that the developer cannot follow.
 
 **Priority:** should
 
@@ -955,7 +1004,7 @@ Every item in this document, with each of its fields.
 **Acceptance:**
 
 1. Given the author reads section 4 with score 61, when the authoring tools save section 4 with score 75, then the author sees score 75 and the new text without any action, within the time limit in NFR-002.
-2. Given the author reads section 4 when the authoring tools save it, when the new version shows, then the author sees that section 4 changed.
+2. Given the author reads section 4, when the authoring tools save a new version of it, then the author sees that section 4 changed.
 3. Given the authoring tools change a section the author is not reading, when the author views the grades, then that section shows its new status and score.
 
 **Priority:** must
@@ -979,6 +1028,7 @@ Every item in this document, with each of its fields.
 **Acceptance:**
 
 1. Given a PRD set with 18 documents, when the author exports the whole set as a fixed-layout document, then one file in the format that IN-006 names contains every document in order, and the sponsor opens it without the authoring tools.
+2. Given the author picks a folder where the file cannot be written, when the author exports the whole set as a fixed-layout document, then the author sees that the export was not done, with the reason.
 
 **Priority:** must
 
@@ -1001,6 +1051,7 @@ Every item in this document, with each of its fields.
 **Acceptance:**
 
 1. Given a PRD set with 18 documents, when the author exports the whole set as an editable document, then one file in the format that IN-006 names contains every document in order, and the engineering lead opens it in a word processor without the authoring tools.
+2. Given the author picks a folder where the file cannot be written, when the author exports the whole set as an editable document, then the author sees that the export was not done, with the reason.
 
 **Priority:** should
 
@@ -1023,6 +1074,7 @@ Every item in this document, with each of its fields.
 **Acceptance:**
 
 1. Given the user journeys section and the functional requirements section are the only sections selected, when the developer exports them, then the file contains only those two sections, in reading order.
+2. Given no section is selected, when the developer tries to export, then the export does not start until the developer selects at least one section.
 
 **Priority:** must
 
@@ -1045,6 +1097,8 @@ Every item in this document, with each of its fields.
 **Acceptance:**
 
 1. Given the whole PRD set is selected, when the author prints it, then the printed copy has the same documents, order, and draft mark as the fixed-layout export.
+2. Given the scope section is the only section selected, when the author prints, then the printed copy contains only the scope section.
+3. Given no section is selected, when the author tries to print, then printing does not start until the author selects at least one section.
 
 **Priority:** should
 
@@ -1067,6 +1121,7 @@ Every item in this document, with each of its fields.
 **Acceptance:**
 
 1. Given version 0.1.0 with sections at draft, when the sponsor opens the export, then the first page shows version 0.1.0 and the word "Draft".
+2. Given version 1.0.0 with the root and every section at final, when the sponsor opens the export, then the first page shows version 1.0.0 and does not show the word "Draft".
 
 **Priority:** must
 
@@ -1090,6 +1145,7 @@ Every item in this document, with each of its fields.
 
 1. Given the built-in theme Clay, when the author exports with Clay, then the file has page color FAF9F5, text color 3D3D3A, heading color 141413, accent color D97757, a serif font for headings, and a sans-serif font for text.
 2. Given the built-in theme Ice Snowstorm, when the author exports with it, then the file has page color F3F6FB, text color 111111, heading color 0B1F4B, accent color 1D4E89, and a sans-serif font for headings and text.
+3. Given the author has not selected a theme, when the author exports, then the file uses the built-in theme Ice Snowstorm.
 
 **Priority:** must
 
@@ -1113,6 +1169,7 @@ Every item in this document, with each of its fields.
 
 1. Given the author makes a theme named "Acme" with a page color, a text color, a heading color, an accent color, a text font, and a heading font, each font chosen from serif, sans-serif, and monospace, when the author exports with "Acme", then the file uses those colors and fonts.
 2. Given an export with the theme "Acme", when a reader opens it on a computer that does not have those fonts installed, then the reader sees the same fonts as the author.
+3. Given a theme with a blank name, or a color that is not six hexadecimal digits, when the author saves it, then the theme is not saved and the author sees the reason.
 
 **Priority:** should
 
@@ -1206,6 +1263,7 @@ Every item in this document, with each of its fields.
 **Acceptance:**
 
 1. Given the author made the custom theme "Acme", when the author closes and reopens the viewer, then "Acme" is available to select, with the same colors and fonts.
+2. Given the saved settings of the viewer cannot be read, when the author opens the viewer, then the built-in themes are available to select.
 
 **Priority:** should
 
@@ -1277,6 +1335,7 @@ Every item in this document, with each of its fields.
 
 1. Given the users and personas section with PER-001 to PER-005, when the author asks for the items of that section, then the author sees the five persona ids.
 2. Given the five persona ids of that section are in view, when the author selects PER-001, then the author sees PER-001 with the status and grade of its section.
+3. Given a section with no items, when the author opens it, then the author sees the whole section and no list of items.
 
 **Priority:** must
 
@@ -1341,7 +1400,7 @@ Every item in this document, with each of its fields.
 
 **User:** PER-001
 
-**Outcome:** The author reads the PRD set at a text size that suits the author, and the viewer keeps that size for the next session.
+**Outcome:** The author reads the PRD set at the text size that the author picked, and the next session opens at that size.
 
 **Acceptance:**
 
@@ -1349,7 +1408,7 @@ Every item in this document, with each of its fields.
 2. Given a larger text size, when the author returns to the normal size, then the text is at the normal size again.
 3. Given the author made the text larger and closed the viewer, when the author opens the viewer again, then the text has the same larger size.
 
-**Priority:** should
+**Priority:** wont
 
 **Journey stage:** ST-003
 
@@ -1369,11 +1428,11 @@ Every item in this document, with each of its fields.
 
 **Acceptance:**
 
-1. Given search is hidden, when the developer asks for search, then the developer sees the search box, ready for a term.
+1. Given search is hidden, when the developer asks for search, then the developer can type a term at once.
 2. Given search is kept in view and shows the results of "export", when the developer opens two results one after the other, then the results of "export" stay in view the whole time.
 3. Given search is not kept in view, when the developer opens a result, then search is hidden and the item is shown.
 
-**Priority:** should
+**Priority:** wont
 
 **Journey stage:** ST-003
 
@@ -1389,7 +1448,7 @@ Every item in this document, with each of its fields.
 
 **User:** PER-002
 
-**Outcome:** The developer goes from a requirement to the stories that build it, and from a story back to its requirements, without losing context.
+**Outcome:** The developer goes from a requirement to the stories that build it, and from a story back to its requirements, in one action each way.
 
 **Acceptance:**
 
@@ -1397,12 +1456,12 @@ Every item in this document, with each of its fields.
 2. Given that backlog, when the developer views US-008, then the developer sees FR-005 and can open it.
 3. Given a PRD set with no backlog next to it, when the developer views FR-005, then the viewer shows the requirement with no backlog links.
 
-**Priority:** should
+**Priority:** wont
 
 **Journey stage:** ST-003
 
 **Objective:** O-001
 
-**Source:** PRD owner decision, 2026-10-30 (GitHub issue 199)
+**Source:** PRD owner decision, 2026-10-30 (owner request 199)
 
 <!-- /prd-forge:details -->
