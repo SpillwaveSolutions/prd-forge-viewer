@@ -4,7 +4,7 @@ kind: scope
 schema: prd-forge/scope@1
 title: Scope
 status: final
-updated: 2026-10-28
+updated: 2026-11-01
 domain: software product management
 section: 6
 order: 70
@@ -57,8 +57,8 @@ in_scope:
       - FR-023
   - id: IN-004
     summary: >-
-      Search the PRD set by term, in one category or in all, and see the best
-      matches first.
+      Search the PRD set by term, in one or more categories or in all, and see
+      the best matches first.
     journey_stage: ST-003
     requirements:
       - FR-008
@@ -123,6 +123,12 @@ out_of_scope:
     revisit: >-
       The PRD owner decides at the release 2 review, on 2026-11-06, if another
       operating system goes into a release.
+  - id: OUT-004
+    summary: >-
+      A larger or smaller text size, search results kept in view while reading,
+      and links between a requirement and the backlog stories that build it.
+    revisit: >-
+      Release 2 delivers them (FR-026, FR-027, and FR-028), on 2026-11-06.
 non_goals:
   - statement: We are not building a tool that writes or grades a PRD.
     reason: >-
@@ -163,7 +169,7 @@ of ST-005.
 | IN-001 | Open a PRD set and see every document's status; reopen the same set next time | ST-001 |
 | IN-002 | See status, score, blocking count, and grade date of every section | ST-002 |
 | IN-003 | Go directly to any section and read it | ST-003 |
-| IN-004 | Search by term and category, best matches first | ST-003 |
+| IN-004 | Search by term in one or more categories, best matches first | ST-003 |
 | IN-005 | See changes from the authoring tools without any action | ST-004 |
 | IN-006 | Export the whole set or selected sections as a fixed-layout document (PDF) or an editable document (.docx), or print, with version and status | ST-005 |
 | IN-007 | Select a built-in theme, or make, change, and delete custom themes | ST-005 |
@@ -176,6 +182,7 @@ of ST-005.
 | OUT-001 | Editing section text in the viewer | The PRD owner decides at the release 2 review, on 2026-11-06 |
 | OUT-002 | The findings behind each grade | Release 2, on 2026-11-06, with FR-025 (D-002 delivered). |
 | OUT-003 | Operating systems other than macOS. The only test computer is an Apple silicon Mac with 16 GB of memory | The PRD owner decides at the release 2 review, on 2026-11-06 |
+| OUT-004 | Text size, search results kept in view, and links to backlog stories | Release 2, on 2026-11-06, with FR-026 to FR-028. |
 
 ## Non-goals
 
@@ -248,7 +255,7 @@ Every item in this document, with each of its fields.
 
 #### IN-004
 
-**Summary:** Search the PRD set by term, in one category or in all, and see the best matches first.
+**Summary:** Search the PRD set by term, in one or more categories or in all, and see the best matches first.
 
 **Journey stage:** ST-003
 
@@ -305,5 +312,11 @@ Every item in this document, with each of its fields.
 **Summary:** Operating systems other than macOS. Release 1 runs on macOS only, on the only test computer, an Apple silicon Mac with 16 GB of memory. The PRD owner decided this on item ADV-03 of the HLD review (change log, version 0.3.2).
 
 **Revisit:** The PRD owner decides at the release 2 review, on 2026-11-06, if another operating system goes into a release.
+
+#### OUT-004
+
+**Summary:** A larger or smaller text size, search results kept in view while reading, and links between a requirement and the backlog stories that build it.
+
+**Revisit:** Release 2 delivers them (FR-026, FR-027, and FR-028), on 2026-11-06.
 
 <!-- /prd-forge:details -->

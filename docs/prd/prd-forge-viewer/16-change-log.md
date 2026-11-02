@@ -4,7 +4,7 @@ kind: change-log
 schema: prd-forge/change-log@1
 title: Change log
 status: draft
-updated: 2026-10-31
+updated: 2026-11-01
 domain: software product management
 section: 15
 order: 160
@@ -215,6 +215,27 @@ changes:
       - name: Richard Hightower
         role: Sponsor (PER-004)
         date: 2026-10-31
+        decision: approved
+  - version: 0.7.1
+    date: 2026-11-01
+    author: Richard Hightower
+    summary: >-
+      The owner answers Q-002. Two of the stakeholders who review a typical PRD
+      have the authoring tools. The others read the export, or review through a
+      stakeholder with the tools. P-002 cites the answer. A new grading pass
+      on section 7 removes "the search box" from FR-027, makes the outcomes of
+      FR-026 and FR-028 observable, and drops a stale sentence from FR-025.
+      The grade is 81 with no blocking defect. FR-026 to FR-028 become wont, the
+      same as FR-025, and OUT-004 holds them for release 2. Twelve requirements
+      get an error or empty case, FR-009 criterion 2 has one When, and FR-013
+      covers selected sections. REL-002 gets exit criteria for FR-026 to FR-028.
+      WF-012 no longer says "beside a section".
+    sections: [1, 6, 7, 12, 13]
+    resolves: [Q-002]
+    approvals:
+      - name: Richard Hightower
+        role: Sponsor (PER-004)
+        date: 2026-11-01
         decision: approved
 links:
   parent: { id: prd-forge-viewer, kind: prd, path: ./prd.md, title: PRD Forge Viewer PRD }
@@ -620,6 +641,25 @@ Every item in this document, with each of its fields.
 - **Name:** Richard Hightower
   - **Role:** Sponsor (PER-004)
   - **Date:** 2026-10-31
+  - **Decision:** approved
+
+### 0.7.1
+
+**Summary:** The owner answers Q-002. Two of the stakeholders who review a typical PRD have the authoring tools. The others read the export, or review through a stakeholder with the tools. P-002 cites the answer. A new grading pass on section 7 removes "the search box" from FR-027, makes the outcomes of FR-026 and FR-028 observable, and drops a stale sentence from FR-025. The grade is 81 with no blocking defect. FR-026 to FR-028 become wont, the same as FR-025, and OUT-004 holds them for release 2. Twelve requirements get an error or empty case, FR-009 criterion 2 has one When, and FR-013 covers selected sections. REL-002 gets exit criteria for FR-026 to FR-028. WF-012 no longer says "beside a section".
+
+**Date:** 2026-11-01
+
+**Author:** Richard Hightower
+
+**Sections:** 1, 6, 7, 12, 13
+
+**Resolves:** Q-002
+
+**Approvals:**
+
+- **Name:** Richard Hightower
+  - **Role:** Sponsor (PER-004)
+  - **Date:** 2026-11-01
   - **Decision:** approved
 
 <!-- /prd-forge:details -->

@@ -103,6 +103,7 @@ desktop app with no server (A-002, NFR-006).
 - OUT-001: Editing the text of a section in the viewer (Q-005). Revisit: The PRD owner decides at the release 2 review, on 2026-11-06, if editing goes into a release.
 - OUT-002: Showing the findings behind each grade, such as what is missing and what to improve (Q-004). Revisit: The authoring tools now record the findings (D-002 delivered). Release 2 shows them (FR-025), on 2026-11-06.
 - OUT-003: Operating systems other than macOS. Release 1 runs on macOS only, on the only test computer, an Apple silicon Mac with 16 GB of memory. The PRD owner decided this on item ADV-03 of the HLD review (change log, version 0.3.2). Revisit: The PRD owner decides at the release 2 review, on 2026-11-06, if another operating system goes into a release.
+- OUT-004: A larger or smaller text size, search results kept in view while reading, and links between a requirement and the backlog stories that build it. Revisit: Release 2 delivers them (FR-026, FR-027, and FR-028), on 2026-11-06.
 
 ---
 
@@ -922,7 +923,7 @@ There are 24 functional requirements. All text is copied from
 
 **Shown In**: screen
 
-**Priority**: SHOULD_HAVE
+**Priority**: WONT_HAVE (release 1). It is in release 2 (REL-002).
 
 **Release**: REL-002
 
@@ -944,7 +945,7 @@ There are 24 functional requirements. All text is copied from
 
 **Shown In**: screen
 
-**Priority**: SHOULD_HAVE
+**Priority**: WONT_HAVE (release 1). It is in release 2 (REL-002).
 
 **Release**: REL-002
 
@@ -966,7 +967,7 @@ There are 24 functional requirements. All text is copied from
 
 **Shown In**: screen
 
-**Priority**: SHOULD_HAVE
+**Priority**: WONT_HAVE (release 1). It is in release 2 (REL-002).
 
 **Release**: REL-002
 
@@ -1858,7 +1859,7 @@ PRD does not have cites one of them.
 | ID | Question | Decider | By | Blocks |
 |---|---|---|---|---|
 | Q-001 | How long does it take today from a finished PRD to stakeholder feedback? The PRD owner estimates about 10 days. Measure it on this PRD to replace the estimate. Answered 2026-10-28: The historic PRDs took about 10 calendar days. This PRD does not count for review time, because it is for a new tool. The 10 days stay the baseline of O-001. | Richard Hightower | 2026-11-30 | P-001, P-002 |
-| Q-002 | How many stakeholders review a typical PRD, and how many of them have Claude Code and PRD Forge? | Richard Hightower | 2026-11-30 | P-002 |
+| Q-002 | How many stakeholders review a typical PRD, and how many of them have Claude Code and PRD Forge? Answered 2026-11-01: Two of the stakeholders who review a typical PRD have the tools. The others read the export, or a stakeholder with the tools reviews for them as a proxy. | Richard Hightower | 2026-11-30 | P-002 |
 | Q-003 | How often do the PRD author (PER-001) and the developer who uses PRD Forge (PER-002) open a PRD in the viewer? Answered 2026-10-26: Answered on 2026-10-26. The author opens the viewer several times a day while writing a PRD. The frequency for PER-002 is not known. | Richard Hightower | 2026-11-30 | PER-001, PER-002 |
 | Q-004 | The findings behind each grade (what is missing and what to improve) are not kept in the PRD set today. Must release 1 show them, and if so, who records them so that the author can see them later? Answered 2026-10-26: Answered on 2026-10-26. Release 1 does not show the findings behind each grade. That is a later feature, and it depends on a change to the authoring tools so that they record the findings in the PRD set. Release 1 shows the status, score, blocking count, and grade date that the authoring tools already record. | Richard Hightower | 2026-11-30 | ST-002, ST-003, P-003 |
 | Q-005 | Is editing text in the viewer in release 1? Answered 2026-10-26: No. Editing in the viewer is a later feature. In release 1 the author changes sections only in the authoring tools. Section 6 records this as a non-goal for release 1. | Richard Hightower | 2026-10-26 | None |
@@ -2056,7 +2057,7 @@ The wireframes are in section 7 of the PRD.
 | [WF-008](../../docs/prd/prd-forge-viewer/diagrams/WF-008.svg) | Themes | PER-001 | ST-005 | FR-015, FR-016, FR-017, FR-018, FR-020 |
 | [WF-009](../../docs/prd/prd-forge-viewer/diagrams/WF-009.svg) | First page of an export | PER-004 | ST-011 | FR-014, FR-019, FR-010 |
 | [WF-011](../../docs/prd/prd-forge-viewer/diagrams/WF-011.svg) | The findings behind a grade (release 2) | PER-001 | ST-002 | FR-025 |
-| [WF-012](../../docs/prd/prd-forge-viewer/diagrams/WF-012.svg) | Search kept in view beside a section, at a larger text size (release 2) | PER-002 | ST-003 | FR-008, FR-026, FR-027 |
+| [WF-012](../../docs/prd/prd-forge-viewer/diagrams/WF-012.svg) | Search kept in view while reading a section, at a larger text size (release 2) | PER-002 | ST-003 | FR-008, FR-026, FR-027 |
 | [WF-013](../../docs/prd/prd-forge-viewer/diagrams/WF-013.svg) | A requirement with the backlog stories that build it (release 2) | PER-002 | ST-003 | FR-028 |
 | [WF-010](../../docs/prd/prd-forge-viewer/diagrams/WF-010.svg) | More than one PRD set in docs/prd (a state of WF-006) | PER-001 | ST-001 | FR-024, FR-022 |
 

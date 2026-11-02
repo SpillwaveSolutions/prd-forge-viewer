@@ -18,6 +18,26 @@ export const tmp = () => realpathSync(mkdtempSync(join(tmpdir(), "pfv-")));
 export const copySet = (to) => { mkdirSync(to, { recursive: true }); cpSync(SET, to, { recursive: true }); return realpathSync(to); };
 export const expect = (cond, msg) => { if (!cond) throw new Error(msg); };
 
+// Real keys need the app in front. Without them, the app runs in the background (PFV_E2E_BACKGROUND).
+export const REAL_KEYS = process.env.PFV_E2E_KEYS === "real";
+// macOS key codes to DOM key names.
+const KEYS = { 3: "f", 24: "=", 27: "-", 29: "0", 36: "Enter", 48: "Tab", 53: "Escape", 124: "ArrowRight" };
+// Runs in the page. It must stay self-contained, because it is sent as source text.
+function pageKey(key, meta) {
+  const t = document.activeElement && document.activeElement !== document.body ? document.activeElement : document.body;
+  if (!t.dispatchEvent(new KeyboardEvent("keydown", { key, metaKey: meta, bubbles: true, cancelable: true }))) return;
+  if (key === "Escape") {
+    const d = [...document.querySelectorAll("dialog[open]")].pop();
+    if (d && d.dispatchEvent(new Event("cancel", { cancelable: true }))) d.close();
+  } else if (key === "Enter" && t.matches("button, a[href]")) t.click();
+  else if (key === "Enter" && t.form && t.matches("input")) t.form.requestSubmit();
+  else if (key === "Tab") {
+    const all = [...document.querySelectorAll("button, a[href], input, select, textarea, [tabindex]:not([tabindex='-1'])")]
+      .filter((e) => !e.disabled && e.getClientRects().length && !e.closest("[inert]"));
+    all[(all.indexOf(t) + 1) % all.length]?.focus();
+  }
+}
+
 /** Run `body(h)` with a connected MCP client and fresh settings, then print results and exit. */
 export async function run(body) {
   const results = [];
@@ -44,15 +64,18 @@ export async function run(body) {
       }
     },
     click: (selector, strategy) => call("webview_interact", { action: "click", selector, ...(strategy ? { strategy } : {}) }),
-    // Real key presses through macOS System Events. Synthetic DOM key events do not move the focus.
-    // `mods` is an AppleScript modifier list, for example "command down".
-    realKey: (code, mods) => new Promise((res, rej) => {
+    // A key press. By default it is emulated in the page, so the checks never take the screen or
+    // type into another app: a keydown on the focused element, then the browser default for
+    // Escape (cancel the open dialog), Return (click the focused button), and Tab (focus the next
+    // control). With PFV_E2E_KEYS=real, it is a real key press through macOS System Events, which
+    // brings the app to the front. `mods` is an AppleScript modifier list, for example "command down".
+    realKey: (code, mods) => REAL_KEYS ? new Promise((res, rej) => {
       const p = spawn("osascript", ["-e", `tell application "System Events" to tell (first process whose unix id is ${app.pid}) to set frontmost to true`, "-e", "delay 0.3", "-e", `tell application "System Events" to key code ${code}${mods ? ` using {${mods}}` : ""}`]);
       let err = ""; p.stderr.on("data", (d) => (err += d)); p.on("exit", (c) => (c ? rej(new Error("osascript: " + err.trim())) : res()));
-    }),
+    }) : js(`(${pageKey})(${JSON.stringify(KEYS[code])}, ${JSON.stringify(/command/.test(mods ?? ""))}); return 'ok'`),
     async launch(arg) {
       const t0 = Date.now();
-      app = spawn(BIN, arg === undefined ? [] : [arg], { stdio: ["ignore", "pipe", "pipe"] });
+      app = spawn(BIN, arg === undefined ? [] : [arg], { stdio: ["ignore", "pipe", "pipe"], env: REAL_KEYS ? process.env : { ...process.env, PFV_E2E_BACKGROUND: "1" } });
       // The bridge takes the first free port from 9223; read it from the app's log line.
       const port = await new Promise((resolve, reject) => {
         const timer = setTimeout(() => reject(new Error("no bridge port in app log")), 15000);
@@ -65,6 +88,11 @@ export async function run(body) {
       }
       if (!connected) throw new Error(`no MCP session on port ${port}`);
       await call("webview_wait_for", { type: "selector", value: "main", timeout: 10000 });
+      // In background mode the window must stay hidden. Stop at once if it shows.
+      if (!REAL_KEYS && (await js("return document.visibilityState")) !== "hidden") {
+        this.quit();
+        throw new Error("the test window shows on a display");
+      }
       return t0;
     },
     async quit() {

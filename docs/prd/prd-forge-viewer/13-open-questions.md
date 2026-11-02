@@ -4,7 +4,7 @@ kind: open-questions
 schema: prd-forge/open-questions@1
 title: Open questions
 status: draft
-updated: 2026-10-28
+updated: 2026-11-01
 domain: software product management
 section: 12
 order: 130
@@ -30,6 +30,11 @@ questions:
       Claude Code and PRD Forge?
     decider: Richard Hightower
     by: 2026-11-30
+    answer: >-
+      Two of the stakeholders who review a typical PRD have Claude Code and PRD
+      Forge. The other stakeholders read the export, or a stakeholder with the
+      tools reviews for them as a proxy.
+    answered: 2026-11-01
     blocks:
       - P-002
   - id: Q-003
@@ -137,7 +142,7 @@ Questions are collected during the interview and consolidated later.
 | ID | Question | Decider | By |
 | --- | --- | --- | --- |
 | Q-001 | How long from a finished PRD to stakeholder feedback today? Answered: about 10 days on the historic PRDs. | Richard Hightower | 2026-11-30 |
-| Q-002 | How many stakeholders review a PRD, and how many have the tools? | Richard Hightower | 2026-11-30 |
+| Q-002 | How many stakeholders review a PRD, and how many have the tools? Answered: two have the tools, the others read the export or review through a proxy. | Richard Hightower | 2026-11-30 |
 | Q-003 | How often do PER-001 and PER-002 open a PRD in the viewer? Answered: the author, several times a day. | Richard Hightower | 2026-11-30 |
 | Q-004 | Must release 1 show the findings behind each grade? Answered: no, later, after a change to the authoring tools. | Richard Hightower | 2026-11-30 |
 | Q-005 | Is editing text in the viewer in release 1? Answered: no, it is a later feature. | Richard Hightower | 2026-10-26 |
@@ -156,7 +161,10 @@ does not count for review time, because it is for a new tool.
 
 ## Q-002. Stakeholders per PRD, and how many have the tools
 
-Blocks the evidence for P-002.
+Answered on 2026-11-01: two of the stakeholders who review a typical PRD have
+Claude Code and PRD Forge. The other stakeholders read the export, or a
+stakeholder with the tools reviews for them as a proxy. The export stays the
+main way to reach most reviewers (P-002).
 
 ## Q-003. How often PER-001 and PER-002 open a PRD in the viewer
 
@@ -225,6 +233,10 @@ Every item in this document, with each of its fields.
 **Decider:** Richard Hightower
 
 **By:** 2026-11-30
+
+**Answer:** Two of the stakeholders who review a typical PRD have Claude Code and PRD Forge. The other stakeholders read the export, or a stakeholder with the tools reviews for them as a proxy.
+
+**Answered:** 2026-11-01
 
 **Blocks:** P-002
 

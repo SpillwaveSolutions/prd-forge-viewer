@@ -4,7 +4,7 @@ kind: problem-opportunity
 schema: prd-forge/problem-opportunity@1
 title: Problem and opportunity
 status: final
-updated: 2026-10-28
+updated: 2026-11-01
 domain: software product management
 section: 1
 order: 10
@@ -79,10 +79,11 @@ problems:
         source: PRD owner
         as_of: 2026-10-28
       - claim: >-
-          The number of stakeholders for each PRD, and how many have the tools,
-          is not known. See Q-002.
+          Two of the stakeholders who review a typical PRD have the authoring
+          tools. The others read the export, or review through a stakeholder
+          with the tools. See Q-002.
         source: PRD owner
-        as_of: 2026-10-26
+        as_of: 2026-11-01
     status_quo: >-
       The author copies the sections into one document by hand, or runs the
       command-line copy and sends the whole set. A reader then gets every
@@ -191,7 +192,9 @@ the author packages the PRD and sends it.
   PRDs took about 10 calendar days to the first stakeholder feedback. To package
   one version by hand takes 2 to 4 hours (owner estimate, 2026-10-28). This PRD
   does not count for review time, because it is for a new tool and only the PRD
-  owner has read it. The number of stakeholders per PRD is not known (Q-002).
+  owner has read it. Two of the stakeholders who review a typical PRD have the
+  authoring tools. The others read the export, or review through a stakeholder
+  with the tools (Q-002).
 - **Status quo.** The author copies the sections into one document by hand, or
   sends the whole set from the command line. A reader gets every section, also
   the ones that the reader does not need.
@@ -283,9 +286,9 @@ Every item in this document, with each of its fields.
 - **Claim:** This PRD does not count for review time. It is for a new tool, and only the PRD owner has read it, as the author and as the sponsor.
   - **Source:** PRD owner
   - **As of:** 2026-10-28
-- **Claim:** The number of stakeholders for each PRD, and how many have the tools, is not known. See Q-002.
+- **Claim:** Two of the stakeholders who review a typical PRD have the authoring tools. The others read the export, or review through a stakeholder with the tools. See Q-002.
   - **Source:** PRD owner
-  - **As of:** 2026-10-26
+  - **As of:** 2026-11-01
 
 **Status quo:** The author copies the sections into one document by hand, or runs the command-line copy and sends the whole set. A reader then gets every section, also the ones that the reader does not need.
 

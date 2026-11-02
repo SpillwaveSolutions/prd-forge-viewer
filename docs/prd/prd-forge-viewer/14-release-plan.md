@@ -4,7 +4,7 @@ kind: release-plan
 schema: prd-forge/release-plan@1
 title: Release plan
 status: review
-updated: 2026-10-31
+updated: 2026-11-01
 domain: software product management
 section: 13
 order: 140
@@ -91,6 +91,16 @@ releases:
       - >-
         For each graded section, the author sees the findings behind its grade:
         what is missing and what to improve.
+      - >-
+        The author changes the text size from 80% to 200% in steps, and the next
+        session opens at the size the author picked.
+      - >-
+        The developer opens three search results one after another without
+        searching again.
+      - >-
+        When a backlog made from the PRD set is next to it, each requirement that
+        a story builds shows that story, and the story links back to the
+        requirement.
 links:
   parent: { id: prd-forge-viewer, kind: prd, path: ./prd.md, title: PRD Forge Viewer PRD }
   prev: { id: prd-forge-viewer-open-questions, kind: open-questions, path: ./13-open-questions.md, title: Open questions }
@@ -123,7 +133,10 @@ macOS only (OUT-003).
 
 ## REL-002. Release 2, grade findings and reading
 
-The author sees the findings behind each grade (FR-025). Release 2 comes second
+The author sees the findings behind each grade (FR-025). The author and the
+developers also read at a larger or smaller text size (FR-026), keep search
+results in view (FR-027), and move between requirements and the backlog stories
+that build them (FR-028). Release 2 comes second
 because release 1 is the golden thread J-001, and findings are useful only after
 the author sees all grades in one view (FR-004, release 1). Findings serve O-002.
 The authoring tools already record them (D-002). Editing in the viewer (OUT-001) has no release yet.
@@ -181,6 +194,9 @@ Every item in this document, with each of its fields.
 **Exit criteria:**
 
 1. For each graded section, the author sees the findings behind its grade: what is missing and what to improve.
+2. The author changes the text size from 80% to 200% in steps, and the next session opens at the size the author picked.
+3. The developer opens three search results one after another without searching again.
+4. When a backlog made from the PRD set is next to it, each requirement that a story builds shows that story, and the story links back to the requirement.
 
 **Depends on:** D-002
 

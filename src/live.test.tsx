@@ -36,6 +36,8 @@ test("changed_document_is_marked_in_the_list", () => {
 
 test("reloaded_section_keeps_the_selection", () => {
     expect(reloadedPage({ section: sec, selected: "PER-001" }, sec)).toEqual({ page: { section: sec, selected: "PER-001" } });
+    // A backlog page keeps its folder, so it reloads from the backlog (FR-028).
+    expect(reloadedPage({ section: sec, selected: null, folder: "/b" }, sec).page?.folder).toBe("/b");
 });
 
 test("a_removed_section_goes_back_to_the_overview_with_a_message", () => {

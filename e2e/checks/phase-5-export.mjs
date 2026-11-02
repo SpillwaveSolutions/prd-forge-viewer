@@ -3,7 +3,7 @@
 import { execFileSync } from "child_process";
 import { existsSync, readdirSync, readFileSync, rmSync, writeFileSync } from "fs";
 import { join } from "path";
-import { copySet, expect, run, tmp } from "../harness.mjs";
+import { REAL_KEYS, copySet, expect, run, tmp } from "../harness.mjs";
 
 const sh = (cmd, ...args) => execFileSync(cmd, args, { encoding: "utf8", maxBuffer: 64 << 20 });
 const pdfText = (f) => sh("pdftotext", "-layout", f, "-").replace(/\s+/g, " ");
@@ -201,7 +201,9 @@ await run(async (h) => {
     expect(/Draft/.test(p) && !bad, `print: ${bad}`);
   });
 
-  await h.check("FR-013: Print opens the macOS print panel, and Escape closes it", async () => {
+  // The native print panel needs a window on a display and a real Escape, so this check runs only with real keys.
+  if (!REAL_KEYS) h.results.push(["SKIP", "FR-013: Print opens the macOS print panel (run with PFV_E2E_KEYS=real)"]);
+  else await h.check("FR-013: Print opens the macOS print panel, and Escape closes it", async () => {
     await h.js("delete window.__pfvPrint; return 'ok'");
     const runs = await h.js("return document.querySelector('dialog[aria-label=Export]').dataset.runs");
     await h.click("//dialog//button[.='Print']", "xpath");

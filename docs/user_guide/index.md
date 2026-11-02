@@ -1,9 +1,9 @@
 ---
 doc_type: guide
-slug: readme
+slug: index
 title: User Guide
 truth_state: current
-wiki_key: guide/readme
+wiki_key: guide/index
 ---
 # PRD Forge Viewer user guide
 

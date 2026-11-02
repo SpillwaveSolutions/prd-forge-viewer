@@ -1,5 +1,38 @@
 # Changelog
 
+## 0.4.1, unreleased
+
+This release fixes the faults that the 0.4.0 documentation review found. It
+follows PRD 0.7.1.
+
+### Fixed
+
+- **The backlog updates live.** A save in the backlog folder next to the set
+  updates the backlog list on the overview and the open backlog document, with
+  no reopen (FR-028 with FR-009).
+- **One text size range.** The settings file keeps a text size only from 80% to
+  200%, the same range as the text size buttons (FR-026).
+- **User guide in the wiki.** The user guide index is now
+  `docs/user_guide/index.md`, so the wiki publishes it as the **User-Guide**
+  page that Home links to.
+
+### Checks
+
+- An e2e check saves a backlog document and checks the overview and the open
+  page.
+- An e2e check sets the text to 200% and checks that the header does not cover
+  the document list.
+- An e2e check presses Command-F with no open set and checks that no search
+  opens.
+- The e2e checks run on a hidden window, with keys sent in the page, so they
+  never take your screen or your keyboard. The check of the native print panel
+  runs only with `PFV_E2E_KEYS=real`. The app window now starts hidden and shows
+  when the app is ready.
+
+### PRD
+
+- PRD 0.7.1 records the answer to Q-002 (spike SPK-001, issue 36).
+
 ## 0.4.0, 2026-10-31
 
 This release delivers release 2 of the PRD (REL-002): FR-025 to FR-028. It

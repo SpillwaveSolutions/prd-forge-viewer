@@ -25,9 +25,9 @@ pub struct Settings {
     pub search_pinned: bool,
 }
 
-/// Keep a text size only inside the range that the viewer offers.
+/// Keep a text size only inside the range that the viewer offers, 0.8 to 2 (`src/textZoom.ts`).
 pub fn set_view(s: &mut Settings, text_zoom: f64, search_pinned: bool) {
-    s.text_zoom = (0.5..=3.0).contains(&text_zoom).then_some(text_zoom);
+    s.text_zoom = (0.8..=2.0).contains(&text_zoom).then_some(text_zoom);
     s.search_pinned = search_pinned;
 }
 
@@ -167,8 +167,10 @@ mod tests {
         assert_eq!(back.text_zoom, Some(1.3));
         assert!(back.search_pinned);
         assert_eq!(back.export_theme.as_deref(), Some("acme"));
-        set_view(&mut s, 40.0, false);
-        assert_eq!(s.text_zoom, None);
+        for out in [40.0, 0.5, 2.5] {
+            set_view(&mut s, out, false);
+            assert_eq!(s.text_zoom, None, "{out}");
+        }
     }
 
     #[test]

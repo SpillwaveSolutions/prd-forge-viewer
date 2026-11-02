@@ -21,7 +21,9 @@ pub fn run() {
             let view = start::start_view(argv.get(1).map(std::path::Path::new), &settings);
             let _ = app.emit("start", view);
             if let Some(w) = app.get_webview_window("main") {
-                let _ = w.set_focus();
+                if std::env::var_os("PFV_E2E_BACKGROUND").is_none() {
+                    let _ = w.set_focus();
+                }
             }
         }))
         .plugin(tauri_plugin_dialog::init())
@@ -29,6 +31,8 @@ pub fn run() {
         .manage(search::SearchState::default())
         .manage(commands::WatchState::default())
         .setup(|_app| {
+            // The window starts hidden (tauri.conf.json), so the e2e checks can keep it hidden.
+            let main = _app.get_webview_window("main").expect("the main window");
             // The MCP bridge, only with `--features mcp-bridge`, as in Motion. Its capability is added
             // here and not in capabilities/, so builds without the feature still pass tauri-build.
             // Bound to 127.0.0.1 because it can drive the app.
@@ -36,7 +40,16 @@ pub fn run() {
             {
                 _app.handle().add_capability(include_str!("../mcp-bridge.capability.json"))?;
                 _app.handle().plugin(tauri_plugin_mcp_bridge::Builder::new().bind_address("127.0.0.1").build())?;
+                // The e2e checks run while a person uses the same Mac. With PFV_E2E_BACKGROUND set, the
+                // app never becomes the front app, has no Dock icon, and its window never shows. macOS
+                // pulls a window that is off every display back onto one, so hidden is the only safe place.
+                if std::env::var_os("PFV_E2E_BACKGROUND").is_some() {
+                    #[cfg(target_os = "macos")]
+                    _app.set_activation_policy(tauri::ActivationPolicy::Prohibited);
+                    return Ok(());
+                }
             }
+            main.show()?;
             Ok(())
         })
         .invoke_handler(tauri::generate_handler![commands::open_set, commands::startup, commands::install_prdf, commands::start_for, commands::read_section, commands::item_index, commands::read_asset, commands::export_image, commands::read_grade, commands::backlog, commands::story_links, commands::search, commands::categories, commands::watch_set, commands::reload_set,

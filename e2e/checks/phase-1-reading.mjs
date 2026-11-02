@@ -88,6 +88,17 @@ await run(async (h) => {
     await keyUntil(29, "command down", (v) => Math.abs(v - normal) < 0.1); // Command-0
   });
 
+  await h.check("Text size: at 200% the header still does not cover the document list", async () => {
+    for (let i = 0; i < 8 && (await h.js("return String(document.querySelector('button[aria-label=\"Larger text\"]').disabled)")) === "false"; i++) {
+      await h.click("//button[@aria-label='Larger text']", "xpath");
+    }
+    expect((await h.js("return document.querySelector('button[aria-label=\"Normal text size\"]').innerText")) === "200%", "the largest size is not 200%");
+    // The header height is measured after a resize, which in a hidden window can take a second.
+    const gap = "return String(parseFloat(getComputedStyle(document.querySelector('.doc-nav')).top) - document.querySelector('header').offsetHeight)";
+    await until(h, gap, /^\d/, 3000).catch(async () => { throw new Error(`the header covers the document list by ${-(await h.num(gap))} px`); });
+    await h.click("//button[@aria-label='Normal text size']", "xpath");
+  });
+
   await h.check("FR-025: Findings shows the grade note of a section, and says when a document has none", async () => {
     await h.click("//nav[@aria-label='Documents']//button[.='Scenarios']", "xpath");
     await h.waitText("SC-001");
