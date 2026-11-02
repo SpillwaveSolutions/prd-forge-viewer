@@ -2861,9 +2861,19 @@
    "type": "lands-in"
   },
   {
+   "from": "item/01M6CD2T4X865526TGXVQKB04H",
+   "to": "ticket/github#207",
+   "type": "references"
+  },
+  {
    "from": "item/01M6CD2T72NWPZNCQE152XGDF1",
    "to": "item/01M6CD2T4X865526TGXVQKB04H",
    "type": "belongs-to"
+  },
+  {
+   "from": "item/01M6CD2T72NWPZNCQE152XGDF1",
+   "to": "ticket/github#208",
+   "type": "references"
   },
   {
    "from": "item/01M6CD2T95Y68V8JHECMVED6WN",
@@ -2871,14 +2881,29 @@
    "type": "belongs-to"
   },
   {
+   "from": "item/01M6CD2T95Y68V8JHECMVED6WN",
+   "to": "ticket/github#209",
+   "type": "references"
+  },
+  {
    "from": "item/01M6CD2TBCVFV3GHHQB71WMC1T",
    "to": "item/01M6CD2T4X865526TGXVQKB04H",
    "type": "belongs-to"
   },
   {
+   "from": "item/01M6CD2TBCVFV3GHHQB71WMC1T",
+   "to": "ticket/github#210",
+   "type": "references"
+  },
+  {
    "from": "item/01M6CD2TDP9AHWDF99TTFVA6W3",
    "to": "item/01M6CD2T4X865526TGXVQKB04H",
    "type": "belongs-to"
+  },
+  {
+   "from": "item/01M6CD2TDP9AHWDF99TTFVA6W3",
+   "to": "ticket/github#211",
+   "type": "references"
   },
   {
    "from": "item/01M6CD2TG1505EW0WSEVQ0FKBG",
@@ -2889,6 +2914,11 @@
    "from": "item/01M6CDER7F638J5X58BARRP8KK",
    "to": "item/01M6CD2T4X865526TGXVQKB04H",
    "type": "belongs-to"
+  },
+  {
+   "from": "item/01M6CDER7F638J5X58BARRP8KK",
+   "to": "ticket/github#212",
+   "type": "references"
   },
   {
    "from": "item/01M6CDNVQNTQCPDD3W83FGQSBC",
@@ -4824,27 +4854,27 @@
   },
   "item/01M6CD2T4X865526TGXVQKB04H": {
    "doc_type": "item",
-   "status": "todo",
+   "status": "in_progress",
    "title": "Plan 11: 0.4.0 doc findings, section 7 grade, and SPK-001 answer"
   },
   "item/01M6CD2T72NWPZNCQE152XGDF1": {
    "doc_type": "item",
-   "status": "todo",
+   "status": "in_progress",
    "title": "The backlog list updates when a backlog file changes"
   },
   "item/01M6CD2T95Y68V8JHECMVED6WN": {
    "doc_type": "item",
-   "status": "todo",
+   "status": "in_progress",
    "title": "One text size range in the UI and in settings.json"
   },
   "item/01M6CD2TBCVFV3GHHQB71WMC1T": {
    "doc_type": "item",
-   "status": "todo",
+   "status": "in_progress",
    "title": "Checks for Command-F with no set and the header at 200 percent text"
   },
   "item/01M6CD2TDP9AHWDF99TTFVA6W3": {
    "doc_type": "item",
-   "status": "todo",
+   "status": "in_progress",
    "title": "Rename the user guide README to index so the wiki finds it"
   },
   "item/01M6CD2TG1505EW0WSEVQ0FKBG": {
@@ -4854,7 +4884,7 @@
   },
   "item/01M6CDER7F638J5X58BARRP8KK": {
    "doc_type": "item",
-   "status": "todo",
+   "status": "in_progress",
    "title": "Run the e2e checks in the background without focus or real keys"
   },
   "item/01M6CDNVQNTQCPDD3W83FGQSBC": {
@@ -5391,9 +5421,33 @@
    "doc_type": "ticket",
    "url": "https://github.com/SpillwaveSolutions/prd-forge-viewer/issues/203"
   },
+  "ticket/github#207": {
+   "doc_type": "ticket",
+   "url": "https://github.com/SpillwaveSolutions/prd-forge-viewer/issues/207"
+  },
+  "ticket/github#208": {
+   "doc_type": "ticket",
+   "url": "https://github.com/SpillwaveSolutions/prd-forge-viewer/issues/208"
+  },
+  "ticket/github#209": {
+   "doc_type": "ticket",
+   "url": "https://github.com/SpillwaveSolutions/prd-forge-viewer/issues/209"
+  },
   "ticket/github#21": {
    "doc_type": "ticket",
    "url": "https://github.com/SpillwaveSolutions/prd-forge-viewer/issues/21"
+  },
+  "ticket/github#210": {
+   "doc_type": "ticket",
+   "url": "https://github.com/SpillwaveSolutions/prd-forge-viewer/issues/210"
+  },
+  "ticket/github#211": {
+   "doc_type": "ticket",
+   "url": "https://github.com/SpillwaveSolutions/prd-forge-viewer/issues/211"
+  },
+  "ticket/github#212": {
+   "doc_type": "ticket",
+   "url": "https://github.com/SpillwaveSolutions/prd-forge-viewer/issues/212"
   },
   "ticket/github#22": {
    "doc_type": "ticket",
