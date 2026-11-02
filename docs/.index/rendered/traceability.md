@@ -41,7 +41,7 @@ _The evidence chain: plan → item → ticket → code → release, forward and 
 - references: [github#208](https://github.com/SpillwaveSolutions/prd-forge-viewer/issues/208)
 
 ### Plan 11: 0.4.0 doc findings, section 7 grade, and SPK-001 answer
-`01M6CD2T4X865526TGXVQKB04H` · status: in_progress
+`01M6CD2T4X865526TGXVQKB04H` · status: done
 - lands-in: pr/213
 - references: [github#207](https://github.com/SpillwaveSolutions/prd-forge-viewer/issues/207)
 - contains: The backlog list updates when a backlog file changes
