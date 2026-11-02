@@ -9,6 +9,7 @@ _The evidence chain: plan → item → ticket → code → release, forward and 
 ### Run the e2e checks in the background without focus or real keys
 `01M6CDER7F638J5X58BARRP8KK` · status: done
 - belongs-to: Plan 11: 0.4.0 doc findings, section 7 grade, and SPK-001 answer
+- lands-in: pr/213
 - references: [github#212](https://github.com/SpillwaveSolutions/prd-forge-viewer/issues/212)
 
 ### Grade section 7 again for release 2
@@ -18,25 +19,30 @@ _The evidence chain: plan → item → ticket → code → release, forward and 
 ### Rename the user guide README to index so the wiki finds it
 `01M6CD2TDP9AHWDF99TTFVA6W3` · status: done
 - belongs-to: Plan 11: 0.4.0 doc findings, section 7 grade, and SPK-001 answer
+- lands-in: pr/213
 - references: [github#211](https://github.com/SpillwaveSolutions/prd-forge-viewer/issues/211)
 
 ### Checks for Command-F with no set and the header at 200 percent text
 `01M6CD2TBCVFV3GHHQB71WMC1T` · status: done
 - belongs-to: Plan 11: 0.4.0 doc findings, section 7 grade, and SPK-001 answer
+- lands-in: pr/213
 - references: [github#210](https://github.com/SpillwaveSolutions/prd-forge-viewer/issues/210)
 
 ### One text size range in the UI and in settings.json
 `01M6CD2T95Y68V8JHECMVED6WN` · status: done
 - belongs-to: Plan 11: 0.4.0 doc findings, section 7 grade, and SPK-001 answer
+- lands-in: pr/213
 - references: [github#209](https://github.com/SpillwaveSolutions/prd-forge-viewer/issues/209)
 
 ### The backlog list updates when a backlog file changes
 `01M6CD2T72NWPZNCQE152XGDF1` · status: done
 - belongs-to: Plan 11: 0.4.0 doc findings, section 7 grade, and SPK-001 answer
+- lands-in: pr/213
 - references: [github#208](https://github.com/SpillwaveSolutions/prd-forge-viewer/issues/208)
 
 ### Plan 11: 0.4.0 doc findings, section 7 grade, and SPK-001 answer
 `01M6CD2T4X865526TGXVQKB04H` · status: in_progress
+- lands-in: pr/213
 - references: [github#207](https://github.com/SpillwaveSolutions/prd-forge-viewer/issues/207)
 - contains: The backlog list updates when a backlog file changes
 - contains: One text size range in the UI and in settings.json
