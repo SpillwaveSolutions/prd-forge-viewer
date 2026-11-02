@@ -1,6 +1,6 @@
 # Run the e2e checks in the background without focus or real keys
 
-`01M6CDER7F638J5X58BARRP8KK` · task/ops · **in-progress**
+`01M6CDER7F638J5X58BARRP8KK` · task/ops · **done**
 
 The e2e checks bring the test app to the front and send real key presses through osascript.
 

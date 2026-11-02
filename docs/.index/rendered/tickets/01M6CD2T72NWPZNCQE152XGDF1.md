@@ -1,6 +1,6 @@
 # The backlog list updates when a backlog file changes
 
-`01M6CD2T72NWPZNCQE152XGDF1` · task/bug · **in-progress**
+`01M6CD2T72NWPZNCQE152XGDF1` · task/bug · **done**
 
 The viewer reads the backlog only when the set opens.
 

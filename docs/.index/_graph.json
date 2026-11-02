@@ -4859,22 +4859,22 @@
   },
   "item/01M6CD2T72NWPZNCQE152XGDF1": {
    "doc_type": "item",
-   "status": "in_progress",
+   "status": "done",
    "title": "The backlog list updates when a backlog file changes"
   },
   "item/01M6CD2T95Y68V8JHECMVED6WN": {
    "doc_type": "item",
-   "status": "in_progress",
+   "status": "done",
    "title": "One text size range in the UI and in settings.json"
   },
   "item/01M6CD2TBCVFV3GHHQB71WMC1T": {
    "doc_type": "item",
-   "status": "in_progress",
+   "status": "done",
    "title": "Checks for Command-F with no set and the header at 200 percent text"
   },
   "item/01M6CD2TDP9AHWDF99TTFVA6W3": {
    "doc_type": "item",
-   "status": "in_progress",
+   "status": "done",
    "title": "Rename the user guide README to index so the wiki finds it"
   },
   "item/01M6CD2TG1505EW0WSEVQ0FKBG": {
@@ -4884,7 +4884,7 @@
   },
   "item/01M6CDER7F638J5X58BARRP8KK": {
    "doc_type": "item",
-   "status": "in_progress",
+   "status": "done",
    "title": "Run the e2e checks in the background without focus or real keys"
   },
   "item/01M6CDNVQNTQCPDD3W83FGQSBC": {

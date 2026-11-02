@@ -1,6 +1,6 @@
 # Rename the user guide README to index so the wiki finds it
 
-`01M6CD2TDP9AHWDF99TTFVA6W3` · task/bug · **in-progress**
+`01M6CD2TDP9AHWDF99TTFVA6W3` · task/bug · **done**
 
 ia.py classify() skips every README.md, so the Home page links to a missing User-Guide page.
 

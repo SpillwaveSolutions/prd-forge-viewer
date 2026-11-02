@@ -1,6 +1,6 @@
 # Checks for Command-F with no set and the header at 200 percent text
 
-`01M6CD2TBCVFV3GHHQB71WMC1T` · task/ops · **in-progress**
+`01M6CD2TBCVFV3GHHQB71WMC1T` · task/ops · **done**
 
 Add the e2e checks that the 0.4.0 doc review found missing.
 

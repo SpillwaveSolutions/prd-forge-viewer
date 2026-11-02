@@ -1,6 +1,6 @@
 # One text size range in the UI and in settings.json
 
-`01M6CD2T95Y68V8JHECMVED6WN` · task/bug · **in-progress**
+`01M6CD2T95Y68V8JHECMVED6WN` · task/bug · **done**
 
 Rust accepts a text size from 0.5 to 3.0.
 

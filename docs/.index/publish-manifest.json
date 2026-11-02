@@ -1,5 +1,5 @@
 {
- "git_hash": "b98ef36",
+ "git_hash": "9761660",
  "pages": [
   {
    "frozen": false,
@@ -45,7 +45,7 @@
    "frozen": false,
    "page_name": "Index-Traceability",
    "render": "as-is",
-   "render_hash": "997dfbea041b",
+   "render_hash": "cf5978ff4e88",
    "source": "docs/.index/rendered/traceability.md",
    "title": "Traceability Index",
    "truth_state": "current",
@@ -2255,7 +2255,7 @@
    "frozen": false,
    "page_name": "Ticket-01M6CD2T4X865526TGXVQKB04H",
    "render": "as-is",
-   "render_hash": "36632569af0a",
+   "render_hash": "4d4ae1606170",
    "source": "docs/.index/rendered/tickets/01M6CD2T4X865526TGXVQKB04H.md",
    "title": "Plan 11: 0.4.0 doc findings, section 7 grade, and SPK-001 answer",
    "truth_state": "in-progress",
@@ -2265,40 +2265,40 @@
    "frozen": false,
    "page_name": "Ticket-01M6CD2T72NWPZNCQE152XGDF1",
    "render": "as-is",
-   "render_hash": "c6a793ab2ffc",
+   "render_hash": "bff24f503dcd",
    "source": "docs/.index/rendered/tickets/01M6CD2T72NWPZNCQE152XGDF1.md",
    "title": "The backlog list updates when a backlog file changes",
-   "truth_state": "in-progress",
+   "truth_state": "done",
    "wiki_key": "item/01M6CD2T72NWPZNCQE152XGDF1"
   },
   {
    "frozen": false,
    "page_name": "Ticket-01M6CD2T95Y68V8JHECMVED6WN",
    "render": "as-is",
-   "render_hash": "03e90c439d3e",
+   "render_hash": "b5fbdd8158b5",
    "source": "docs/.index/rendered/tickets/01M6CD2T95Y68V8JHECMVED6WN.md",
    "title": "One text size range in the UI and in settings.json",
-   "truth_state": "in-progress",
+   "truth_state": "done",
    "wiki_key": "item/01M6CD2T95Y68V8JHECMVED6WN"
   },
   {
    "frozen": false,
    "page_name": "Ticket-01M6CD2TBCVFV3GHHQB71WMC1T",
    "render": "as-is",
-   "render_hash": "c48665b9eec5",
+   "render_hash": "407e5984f9b7",
    "source": "docs/.index/rendered/tickets/01M6CD2TBCVFV3GHHQB71WMC1T.md",
    "title": "Checks for Command-F with no set and the header at 200 percent text",
-   "truth_state": "in-progress",
+   "truth_state": "done",
    "wiki_key": "item/01M6CD2TBCVFV3GHHQB71WMC1T"
   },
   {
    "frozen": false,
    "page_name": "Ticket-01M6CD2TDP9AHWDF99TTFVA6W3",
    "render": "as-is",
-   "render_hash": "73b1c7119745",
+   "render_hash": "d444e4f08391",
    "source": "docs/.index/rendered/tickets/01M6CD2TDP9AHWDF99TTFVA6W3.md",
    "title": "Rename the user guide README to index so the wiki finds it",
-   "truth_state": "in-progress",
+   "truth_state": "done",
    "wiki_key": "item/01M6CD2TDP9AHWDF99TTFVA6W3"
   },
   {
@@ -2315,10 +2315,10 @@
    "frozen": false,
    "page_name": "Ticket-01M6CDER7F638J5X58BARRP8KK",
    "render": "as-is",
-   "render_hash": "94353d91b0ab",
+   "render_hash": "ef148874ce76",
    "source": "docs/.index/rendered/tickets/01M6CDER7F638J5X58BARRP8KK.md",
    "title": "Run the e2e checks in the background without focus or real keys",
-   "truth_state": "in-progress",
+   "truth_state": "done",
    "wiki_key": "item/01M6CDER7F638J5X58BARRP8KK"
   },
   {
@@ -2644,13 +2644,13 @@
    "wiki_key": "plan/2026-10-31-plan-10-prd-findings-backlog"
   },
   {
-   "banner": "> **Current** \u2014 this is the living version; regenerated at 2026-11-02T00:03:50Z. Historical snapshots are linked from [[Index-Releases]].",
+   "banner": "> **Current** \u2014 this is the living version; regenerated at 2026-11-02T20:46:27Z. Historical snapshots are linked from [[Index-Releases]].",
    "frozen": false,
    "page_name": "Roadmap",
    "render": "doc+banner",
-   "render_hash": "aeda02a2d78d",
+   "render_hash": "53812bfebd86",
    "source": "docs/roadmap.md",
-   "source_hash": "e0823efbd0dd",
+   "source_hash": "b013e8eef8e6",
    "title": "Roadmap",
    "truth_state": "current",
    "wiki_key": "roadmap"

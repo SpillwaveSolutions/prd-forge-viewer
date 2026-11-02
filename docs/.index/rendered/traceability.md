@@ -7,7 +7,7 @@ _The evidence chain: plan → item → ticket → code → release, forward and 
 - belongs-to: Plan 11: 0.4.0 doc findings, section 7 grade, and SPK-001 answer
 
 ### Run the e2e checks in the background without focus or real keys
-`01M6CDER7F638J5X58BARRP8KK` · status: in_progress
+`01M6CDER7F638J5X58BARRP8KK` · status: done
 - belongs-to: Plan 11: 0.4.0 doc findings, section 7 grade, and SPK-001 answer
 - references: [github#212](https://github.com/SpillwaveSolutions/prd-forge-viewer/issues/212)
 
@@ -16,22 +16,22 @@ _The evidence chain: plan → item → ticket → code → release, forward and 
 - belongs-to: Plan 11: 0.4.0 doc findings, section 7 grade, and SPK-001 answer
 
 ### Rename the user guide README to index so the wiki finds it
-`01M6CD2TDP9AHWDF99TTFVA6W3` · status: in_progress
+`01M6CD2TDP9AHWDF99TTFVA6W3` · status: done
 - belongs-to: Plan 11: 0.4.0 doc findings, section 7 grade, and SPK-001 answer
 - references: [github#211](https://github.com/SpillwaveSolutions/prd-forge-viewer/issues/211)
 
 ### Checks for Command-F with no set and the header at 200 percent text
-`01M6CD2TBCVFV3GHHQB71WMC1T` · status: in_progress
+`01M6CD2TBCVFV3GHHQB71WMC1T` · status: done
 - belongs-to: Plan 11: 0.4.0 doc findings, section 7 grade, and SPK-001 answer
 - references: [github#210](https://github.com/SpillwaveSolutions/prd-forge-viewer/issues/210)
 
 ### One text size range in the UI and in settings.json
-`01M6CD2T95Y68V8JHECMVED6WN` · status: in_progress
+`01M6CD2T95Y68V8JHECMVED6WN` · status: done
 - belongs-to: Plan 11: 0.4.0 doc findings, section 7 grade, and SPK-001 answer
 - references: [github#209](https://github.com/SpillwaveSolutions/prd-forge-viewer/issues/209)
 
 ### The backlog list updates when a backlog file changes
-`01M6CD2T72NWPZNCQE152XGDF1` · status: in_progress
+`01M6CD2T72NWPZNCQE152XGDF1` · status: done
 - belongs-to: Plan 11: 0.4.0 doc findings, section 7 grade, and SPK-001 answer
 - references: [github#208](https://github.com/SpillwaveSolutions/prd-forge-viewer/issues/208)
 
