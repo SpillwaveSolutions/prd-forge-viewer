@@ -1,8 +1,8 @@
 // Phase 3: US-013 (FR-009, all three criteria) and NFR-002, through the tauri MCP server.
-import { readdirSync, readFileSync, rmSync, writeFileSync } from "fs";
+import { cpSync, readdirSync, readFileSync, rmSync, writeFileSync } from "fs";
 import { join } from "path";
 import { homedir } from "os";
-import { copySet, expect, run, tmp } from "../harness.mjs";
+import { SET, copySet, expect, run, tmp } from "../harness.mjs";
 
 const SETTINGS = join(homedir(), "Library/Application Support/com.spillwave.prd-forge-viewer/settings.json");
 
@@ -91,5 +91,27 @@ await run(async (h) => {
   await h.check("OUT-001: the viewer adds no file to the set folder", async () => {
     const after = files().split("\n").filter((f) => f !== "04-personas.md").join("\n");
     expect(after === before.split("\n").filter((f) => f !== "04-personas.md").join("\n"), `new files: ${after}`);
+  });
+  await h.quit();
+
+  // FR-028 with FR-009: a save in the backlog next to the set shows with no action.
+  const root = tmp();
+  const withBacklog = copySet(join(root, "prd-forge-viewer"));
+  cpSync(SET + "-backlog", join(root, "prd-forge-viewer-backlog"), { recursive: true });
+  const stories = join(root, "prd-forge-viewer-backlog", "03-stories.md");
+  await h.launch(withBacklog);
+  await until(h, "return document.querySelector('section[aria-label=Backlog]')?.innerText || ''", /Stories/, 8000);
+  await new Promise((r) => setTimeout(r, 800)); // let the watcher start
+
+  await h.check("FR-028: a save of a backlog document updates the backlog list with no action", async () => {
+    setField(stories, "title", "Stories LIVE-BACKLOG");
+    await until(h, "return document.querySelector('section[aria-label=Backlog]')?.innerText || ''", /Stories LIVE-BACKLOG/);
+  });
+
+  await h.check("FR-028: a save of the open backlog document shows the new text", async () => {
+    await h.click("//section[@aria-label='Backlog']//button[contains(., 'Stories LIVE-BACKLOG')]", "xpath");
+    await until(h, "return document.querySelector('.section-page h1')?.innerText || ''", /Stories LIVE-BACKLOG/);
+    setField(stories, "title", "Stories AGAIN");
+    await until(h, "return document.querySelector('.section-page h1')?.innerText || ''", /Stories AGAIN/);
   });
 });

@@ -37,6 +37,13 @@ await run(async (h) => {
   // FR-021 criterion 3, FR-022 criteria 1 and 2, WF-006: no set here, known locations listed and openable.
   const empty = tmp();
   await h.launch(empty);
+  await h.check("Command-F with no open set opens no search", async () => {
+    await h.call("webview_wait_for", { type: "text", value: "Known locations", timeout: 10000 });
+    await h.realKey(3, "command down"); // Command-F
+    await new Promise((r) => setTimeout(r, 500));
+    expect((await h.js("return String(!!document.querySelector('#search-drawer.open'))")) === "false", "a search drawer opened");
+    expect((await h.bodyText()).includes("Known locations"), "the known locations went away");
+  });
   await h.check("FR-021/FR-022 no set here shows known locations, and one opens", async () => {
     await h.call("webview_wait_for", { type: "text", value: "Known locations", timeout: 10000 });
     const t = await h.bodyText();
