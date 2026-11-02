@@ -30,7 +30,7 @@ FR-006, and release 2 (REL-002), FR-025 to FR-028. It follows PRD 0.7.0. For the
 
 ## User guide
 
-The [user guide](docs/user_guide/README.md) tells you how to use each part of
+The [user guide](docs/user_guide/index.md) tells you how to use each part of
 the viewer.
 
 ## Install
