@@ -173,24 +173,26 @@ pub fn print_page(window: tauri::WebviewWindow) -> Result<(), String> {
     window.print().map_err(|e| e.to_string())
 }
 
-/// The watcher of the open set. A new watch replaces it, so the old set's events stop.
+/// The watchers of the open set and its backlog. A new watch replaces them, so the old set's events stop.
 #[derive(Default)]
-pub struct WatchState(Mutex<Option<crate::watch::SetWatcher>>);
+pub struct WatchState(Mutex<Vec<crate::watch::SetWatcher>>);
 
-/// Watch the open set, and emit `set-changed` with the changed file names (FR-009, ADR-005).
-/// With no folder, stop watching. A sync command runs on the main thread in the order of the calls,
+/// Watch the open set and its backlog, and emit `set-changed` with the changed file names (FR-009,
+/// FR-028, ADR-005). A change in the backlog sets `backlog`. With no folder, stop watching. A sync command runs on the main thread in the order of the calls,
 /// so the last set opened is always the one watched.
 #[tauri::command]
 pub fn watch_set(app: AppHandle, state: State<WatchState>, folder: Option<String>) -> Result<(), String> {
     use tauri::Emitter;
     let mut slot = state.0.lock().unwrap_or_else(|e| e.into_inner());
-    *slot = None;
+    slot.clear();
     let Some(folder) = folder else { return Ok(()) };
-    let f = folder.clone();
-    let watcher = crate::watch::SetWatcher::start(Path::new(&folder), move |files| {
-        let _ = app.emit("set-changed", serde_json::json!({ "folder": f, "files": files }));
-    })?;
-    *slot = Some(watcher);
+    let backlog = crate::prdset::section::backlog_of(Path::new(&folder)).map(|b| b.folder);
+    for (dir, is_backlog) in std::iter::once((folder.clone(), false)).chain(backlog.map(|b| (b, true))) {
+        let (f, app) = (folder.clone(), app.clone());
+        slot.push(crate::watch::SetWatcher::start(Path::new(&dir), move |files| {
+            let _ = app.emit("set-changed", serde_json::json!({ "folder": f, "files": files, "backlog": is_backlog }));
+        })?);
+    }
     Ok(())
 }
 

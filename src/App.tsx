@@ -94,6 +94,16 @@ export function App() {
     // The listener for set-changed lives for the whole window, so it reads the current set and page from refs.
     const current = useRef<{ set?: PrdSet; page?: { section: Section; selected: string | null; folder?: string } }>({});
     current.current = { set, page };
+    // The backlog next to the set, its stories, and the requirements they build (FR-028).
+    const loadBacklog = (folder: string, stale: () => boolean) => {
+        void invoke<Backlog | null>("backlog", { folder }).then((b) => {
+            if (stale()) return;
+            setBacklog(b);
+            if (!b) return setBacklogIndex([]), setLinks([]);
+            void invoke<ItemRef[]>("item_index", { folder: b.folder }).then((i) => stale() || setBacklogIndex(i)).catch(() => {});
+            void invoke<StoryLink[]>("story_links", { folder: b.folder }).then((l) => stale() || setLinks(l)).catch(() => {});
+        }).catch(() => {});
+    };
 
     // Each new set gets a fresh item index and starts on its overview.
     useEffect(() => {
@@ -110,14 +120,7 @@ export function App() {
         setBacklog(null);
         setBacklogIndex([]);
         setLinks([]);
-        if (set) {
-            void invoke<Backlog | null>("backlog", { folder: set.folder }).then((b) => {
-                setBacklog(b);
-                if (!b) return;
-                void invoke<ItemRef[]>("item_index", { folder: b.folder }).then(setBacklogIndex).catch(() => {});
-                void invoke<StoryLink[]>("story_links", { folder: b.folder }).then(setLinks).catch(() => {});
-            }).catch(() => {});
-        }
+        if (set) loadBacklog(set.folder, () => current.current.set?.folder !== set.folder);
     }, [set?.folder]);
 
     const openDoc = useCallback(async (file: string, selected: string | null = null, folder?: string) => {
@@ -161,12 +164,23 @@ export function App() {
     // FR-009: a change from the authoring tools shows with no action from the author.
     useEffect(() => {
         let seq = 0;
-        const off = listen<{ folder: string; files: string[] }>("set-changed", async (e) => {
+        const off = listen<{ folder: string; files: string[]; backlog?: boolean }>("set-changed", async (e) => {
             const { set: open, page: shown } = current.current;
             if (!open || e.payload.folder !== open.folder) return;
             const mine = ++seq;
             // A later change, or another set, wins over this one.
             const stale = () => mine !== seq || current.current.set?.folder !== open.folder;
+            if (e.payload.backlog) {
+                loadBacklog(open.folder, stale);
+                if (shown?.folder && e.payload.files.includes(shown.section.file)) {
+                    const section = await invoke<Section>("read_section", { folder: shown.folder, file: shown.section.file }).catch(() => undefined);
+                    if (stale() || current.current.page?.section.file !== shown.section.file) return;
+                    const next = reloadedPage(shown, section);
+                    setPage(next.page);
+                    if (next.error) setError(next.error);
+                }
+                return;
+            }
             setChanged((c) => applyChange(c, e.payload.files));
             const fresh = await invoke<PrdSet>("reload_set", { folder: open.folder }).catch(() => undefined);
             if (stale()) return;

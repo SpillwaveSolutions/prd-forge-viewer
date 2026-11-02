@@ -10,10 +10,10 @@ export function keepSelection(selected: string | null, section: Section): string
     return selected && section.items.some((i) => i.id === selected) ? selected : null;
 }
 
-type Page = { section: Section; selected: string | null };
+type Page = { section: Section; selected: string | null; folder?: string };
 
 /** The page after a reload of the open section. A section that cannot be read goes back to the overview. */
 export function reloadedPage(shown: Page, section: Section | undefined): { page?: Page; error?: string } {
     if (!section) return { error: `${shown.section.file} was removed or cannot be read. You see the current set.` };
-    return { page: { section, selected: keepSelection(shown.selected, section) } };
+    return { page: { ...shown, section, selected: keepSelection(shown.selected, section) } };
 }
