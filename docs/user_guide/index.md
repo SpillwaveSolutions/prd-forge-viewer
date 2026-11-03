@@ -8,7 +8,7 @@ wiki_key: guide/index
 # PRD Forge Viewer user guide
 
 This guide is for the author of a PRD set. It tells you how to use PRD Forge
-Viewer 0.4.0 to read, search, and export a PRD set that the PRD Forge plugin
+Viewer 0.4.1 to read, search, and export a PRD set that the PRD Forge plugin
 makes.
 
 The viewer is read-only. You change a PRD set with the authoring tools, and the
