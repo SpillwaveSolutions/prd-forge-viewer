@@ -1,5 +1,5 @@
 {
- "git_hash": "6cb6fa9",
+ "git_hash": "1c70632",
  "pages": [
   {
    "frozen": false,
@@ -45,7 +45,7 @@
    "frozen": false,
    "page_name": "Index-Traceability",
    "render": "as-is",
-   "render_hash": "54d75b9e3720",
+   "render_hash": "965b09ffe28a",
    "source": "docs/.index/rendered/traceability.md",
    "title": "Traceability Index",
    "truth_state": "current",
@@ -220,6 +220,16 @@
    "title": "PR #218",
    "truth_state": "not tracked",
    "wiki_key": "pr/218"
+  },
+  {
+   "frozen": false,
+   "page_name": "PR-221",
+   "render": "as-is",
+   "render_hash": "d19d15bed356",
+   "source": "docs/.index/rendered/prs/221.md",
+   "title": "PR #221",
+   "truth_state": "not tracked",
+   "wiki_key": "pr/221"
   },
   {
    "frozen": false,
@@ -2395,10 +2405,10 @@
    "frozen": false,
    "page_name": "Ticket-01M6HSF2R3GJX2PD58QDQQQSFQ",
    "render": "as-is",
-   "render_hash": "1ea2509075e9",
+   "render_hash": "4153faa6c520",
    "source": "docs/.index/rendered/tickets/01M6HSF2R3GJX2PD58QDQQQSFQ.md",
    "title": "Release 0.4.1",
-   "truth_state": "in-progress",
+   "truth_state": "done",
    "wiki_key": "item/01M6HSF2R3GJX2PD58QDQQQSFQ"
   },
   {
@@ -2714,13 +2724,13 @@
    "wiki_key": "plan/2026-10-31-plan-10-prd-findings-backlog"
   },
   {
-   "banner": "> **Current** \u2014 this is the living version; regenerated at 2026-11-03T22:46:29Z. Historical snapshots are linked from [[Index-Releases]].",
+   "banner": "> **Current** \u2014 this is the living version; regenerated at 2026-11-03T22:47:58Z. Historical snapshots are linked from [[Index-Releases]].",
    "frozen": false,
    "page_name": "Roadmap",
    "render": "doc+banner",
-   "render_hash": "7f15e7383020",
+   "render_hash": "f14f60a14e2c",
    "source": "docs/roadmap.md",
-   "source_hash": "2847440c4102",
+   "source_hash": "65538697716e",
    "title": "Roadmap",
    "truth_state": "current",
    "wiki_key": "roadmap"
