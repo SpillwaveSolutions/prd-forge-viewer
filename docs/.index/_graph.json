@@ -4922,6 +4922,11 @@
    "status": "done",
    "title": "Fix the section 7 grader notes: WF-012 title, release 2 exit criteria, and error cases"
   },
+  "item/01M6HJFNDDQ696ZQJ2NSKF89DN": {
+   "doc_type": "item",
+   "status": "in_progress",
+   "title": "Soft line breaks print as hard breaks in PDF and Word"
+  },
   "plan/2026-10-28-plan-1-open-and-grades": {
    "doc_type": "plan",
    "source": "docs/plans/2026-10-28-plan-1-open-and-grades.md",

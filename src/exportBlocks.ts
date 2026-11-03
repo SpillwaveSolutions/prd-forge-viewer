@@ -31,7 +31,8 @@ export type ExportBlock =
  */
 export function markdownToBlocks(markdown: string): ExportBlock[] {
     const { frontmatter, body } = splitFrontmatter(markdown);
-    const blocks = tokensToBlocks(marked.lexer(body, { gfm: true }));
+    // A single newline stays a soft break. `breaks: true` would print each wrapped source line on its own line.
+    const blocks = tokensToBlocks(marked.lexer(body, { gfm: true, breaks: false }));
     const title = frontMatterTitle(frontmatter ?? "");
     if (title && !blocks.some((block) => block.type === "heading" && block.level === 1)) {
         blocks.unshift({ type: "heading", level: 1, text: title });
@@ -65,7 +66,7 @@ function tokensToBlocks(tokens: Token[]): ExportBlock[] {
             continue;
         }
         if (token.type === "text") {
-            const runs = token.tokens ? inlineRuns(token.tokens) : [{ text: token.text }];
+            const runs = token.tokens ? inlineRuns(token.tokens) : [{ text: flowSoftBreaks(token.text) }];
             if (runs.length) blocks.push({ type: "paragraph", runs });
             continue;
         }
@@ -110,13 +111,22 @@ function tableBlock(token: Tokens.Table): ExportBlock {
     return { type: "table", header, rows };
 }
 
+/**
+ * A newline in prose is a CommonMark soft break: it flows as one space. A hard
+ * break (two trailing spaces, or a backslash at the end of the line) is a "br"
+ * token, not a newline in the text.
+ */
+function flowSoftBreaks(text: string): string {
+    return text.replace(/[ \t]*\r?\n[ \t]*/g, " ");
+}
+
 function inlineRuns(tokens: Token[] | undefined): InlineRun[] {
     if (!tokens) return [];
     const runs: InlineRun[] = [];
     for (const token of tokens) {
         if (token.type === "escape" || token.type === "text") {
             if ("tokens" in token && token.tokens) runs.push(...inlineRuns(token.tokens));
-            else if (token.text) runs.push({ text: token.text });
+            else if (token.text) runs.push({ text: flowSoftBreaks(token.text) });
             continue;
         }
         if (token.type === "strong") {
@@ -128,7 +138,7 @@ function inlineRuns(tokens: Token[] | undefined): InlineRun[] {
             continue;
         }
         if (token.type === "codespan") {
-            runs.push({ text: token.text, code: true });
+            runs.push({ text: flowSoftBreaks(token.text), code: true });
             continue;
         }
         if (token.type === "link") {
@@ -140,6 +150,11 @@ function inlineRuns(tokens: Token[] | undefined): InlineRun[] {
             runs.push({ text: "\n" });
             continue;
         }
+        if (token.type === "del") {
+            // The export has no strikethrough. The words stay, and a hard break inside them stays a break.
+            runs.push(...inlineRuns(token.tokens));
+            continue;
+        }
         if (token.type === "paragraph" || token.type === "list" || token.type === "blockquote") {
             const nested = tokensToBlocks([token]);
             const text = nested.map(blockPlain).filter(Boolean).join(" ");
@@ -147,7 +162,9 @@ function inlineRuns(tokens: Token[] | undefined): InlineRun[] {
             continue;
         }
         if ("text" in token && typeof token.text === "string" && token.text) {
-            runs.push({ text: token.text });
+            // Inline HTML is kept as written. Any other leftover token is prose.
+            const text = token.type === "html" || token.type === "code" ? token.text : flowSoftBreaks(token.text);
+            runs.push({ text });
         }
     }
     return runs.filter((run) => run.text.length > 0);
@@ -156,7 +173,7 @@ function inlineRuns(tokens: Token[] | undefined): InlineRun[] {
 function inlinePlain(tokens: Token[] | undefined, fallback: string): string {
     const runs = inlineRuns(tokens);
     const text = runs.map((run) => run.text).join("");
-    return text || fallback;
+    return text || flowSoftBreaks(fallback);
 }
 
 function blockPlain(block: ExportBlock): string {

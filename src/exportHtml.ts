@@ -87,6 +87,7 @@ function renderBlock(block: ExportBlock, images: ReadonlyMap<string, string>): s
 function renderRuns(runs: InlineRun[]): string {
     return runs
         .map((run) => {
+            // Soft breaks are already spaces. A newline here is a hard break.
             let html = escapeHtml(run.text).replace(/\n/g, "<br />");
             if (run.code) html = `<code>${html}</code>`;
             if (run.bold) html = `<strong>${html}</strong>`;
