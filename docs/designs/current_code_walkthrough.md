@@ -2,17 +2,17 @@
 wiki_key: design/current-code-walkthrough
 doc_type: design
 truth_state: current
-generated_at: 2026-10-31T01:01:07Z
-tag: v0.4.0
-git_hash: 61a8643a2b7658e40105aade299de65591b342a7
-branch: docs-0.4.0-design
+generated_at: 2026-11-03T23:10:26Z
+tag: v0.4.1
+git_hash: fbbc94461f94afe4e7a34ec3a8045580ad7fd6ee
+branch: docs-v0.4.1-design
 roadmap: docs/roadmap.md
 ---
 
 # PRD Forge Viewer code walkthrough
 
-This walkthrough is the guided tour of the code at tag `v0.4.0` (commit
-`61a8643`). Every listing is quoted from that commit and cites `path:line`.
+This walkthrough is the guided tour of the code at tag `v0.4.1` (commit
+`fbbc944`). Every listing is quoted from that commit and cites `path:line`.
 The design document in `docs/designs/current_design_doc.md` gives the
 architecture. Where the code and the design documents differ, the code wins and
 section 6 reports the gap.
@@ -25,7 +25,7 @@ The PRD Forge Viewer is a read-only macOS desktop app that opens a PRD Forge
 set, shows its documents, grades, and items, and searches them in one or more
 categories from a drawer at the right. A Rust core
 reads every file, checks every path, keeps a SQLite full-text index, and
-watches the set for changes. A React UI renders the content safely, shows each
+watches the set and its backlog for changes. A React UI renders the content safely, shows each
 diagram as a drawing that opens in a zoom and pan window, shows the findings
 behind a grade, links each requirement to the backlog stories that build it,
 lets the author change the text size, and builds themed PDF
@@ -40,7 +40,7 @@ the set.
 | `src-tauri/src/commands.rs` | All 22 Tauri commands | The only IPC surface. Thin wrappers over the modules. |
 | `src-tauri/src/prdset/` | Front matter, set, item, and section parsing, grade notes, and the backlog next to a set | Pure code with no Tauri import, so it is easy to test. |
 | `src-tauri/src/search.rs` | FTS5 index and BM25 ranking | ADR-003. |
-| `src-tauri/src/watch.rs` | File watcher | ADR-005. |
+| `src-tauri/src/watch.rs` | File watcher, one for the set and one for its backlog | ADR-005. |
 | `src-tauri/src/export.rs` | Export path guard, file writes, headless Chrome | ADR-002 and OUT-001. |
 | `src-tauri/src/settings.rs`, `start.rs`, `locate.rs`, `launcher.rs` | Settings file (with the text size and drawer pin since 0.4.0), start view, set discovery, `prdf` | ADR-004. |
 | `src-tauri/tests/` | Rust integration tests | Start rules and set loading through the public API. |
@@ -117,7 +117,7 @@ flowchart LR
 
 The binary calls the library. `run()` reads the first argument, registers two
 plugins, three state values, and the commands
-(`src-tauri/src/lib.rs:15-52`).
+(`src-tauri/src/lib.rs:15-65`).
 
 ```rust
 let first_arg = std::env::args().nth(1).map(std::path::PathBuf::from);
@@ -137,22 +137,46 @@ tauri::Builder::default()
   single-instance plugin turns that process into an event on the open window,
   so the author has one window.
 - **Can fail.** `.expect("error while running the PRD Forge Viewer")` ends the
-  process if Tauri cannot start (`src-tauri/src/lib.rs:51`).
+  process if Tauri cannot start (`src-tauri/src/lib.rs:64`).
 
 The MCP test bridge is compiled in only with the `mcp-bridge` feature and binds
-to `127.0.0.1` (`src-tauri/src/lib.rs:35-39`).
+to `127.0.0.1` (`src-tauri/src/lib.rs:39-51`).
+
+The window starts hidden (`src-tauri/tauri.conf.json:19`). New in 0.4.1, the
+`setup` hook shows it as its last step, unless an e2e run asks for background
+mode.
+
+```rust
+if std::env::var_os("PFV_E2E_BACKGROUND").is_some() {
+    #[cfg(target_os = "macos")]
+    _app.set_activation_policy(tauri::ActivationPolicy::Prohibited);
+    return Ok(());
+}
+}
+main.show()?;
+```
+
+`src-tauri/src/lib.rs:46-52`
+
+- **Why hidden first.** macOS pulls a window that is off every display back
+  onto one, so a hidden window is the only way to keep a test run off the
+  screen. The `Prohibited` policy also keeps the app out of the Dock and out
+  of the front.
+- **Where the gate is.** The early return is inside the `mcp-bridge` block, so
+  a release build always shows its window. A second launch skips `set_focus`
+  when the variable exists, in any build (`src-tauri/src/lib.rs:23-27`).
 
 ### 2.2 The UI asks what to show
 
 On mount, `App` loads the themes and calls `startup`
-(`src/App.tsx:186-193`).
+(`src/App.tsx:200-207`).
 
 ```tsx
 void invoke<StartView>("startup").then(showStart);
 const unlisten = listen<StartView>("start", (e) => showStart(e.payload));
 ```
 
-`src/App.tsx:188-189`
+`src/App.tsx:202-203`
 
 `startup` takes the stored argument once, so a page reload does not reopen the
 launch folder (`src-tauri/src/commands.rs:33-37`).
@@ -198,7 +222,7 @@ match sets.len() {
   union in `src/types.ts:38-42`.
 
 In the UI, `showStart` either opens the folder or shows `StartScreen`
-(`src/App.tsx:151-159`).
+(`src/App.tsx:154-162`).
 
 ### 2.4 Open a set
 
@@ -253,7 +277,7 @@ fences (`src-tauri/src/prdset/header.rs:52-60`).
 ### 2.5 Per-set setup in the UI
 
 A change of `set.folder` resets the page and starts three calls, then asks for
-the backlog (`src/App.tsx:99-121`).
+the backlog (`src/App.tsx:109-124`).
 
 ```tsx
 if (set) {
@@ -263,23 +287,30 @@ if (set) {
 }
 ```
 
-`src/App.tsx:105-109`
+`src/App.tsx:115-119`
 
-The backlog call comes second. When there is a backlog, two more calls load
-its item index and its story links (FR-028).
+The backlog call comes last, through `loadBacklog`
+(`src/App.tsx:123`). When there is a backlog, two more calls load its item
+index and its story links (FR-028).
 
 ```tsx
-if (set) {
-    void invoke<Backlog | null>("backlog", { folder: set.folder }).then((b) => {
+const loadBacklog = (folder: string, stale: () => boolean) => {
+    void invoke<Backlog | null>("backlog", { folder }).then((b) => {
+        if (stale()) return;
         setBacklog(b);
-        if (!b) return;
-        void invoke<ItemRef[]>("item_index", { folder: b.folder }).then(setBacklogIndex).catch(() => {});
-        void invoke<StoryLink[]>("story_links", { folder: b.folder }).then(setLinks).catch(() => {});
+        if (!b) return setBacklogIndex([]), setLinks([]);
+        void invoke<ItemRef[]>("item_index", { folder: b.folder }).then((i) => stale() || setBacklogIndex(i)).catch(() => {});
+        void invoke<StoryLink[]>("story_links", { folder: b.folder }).then((l) => stale() || setLinks(l)).catch(() => {});
     }).catch(() => {});
-}
+};
 ```
 
-`src/App.tsx:113-120`
+`src/App.tsx:98-106`
+
+- **Why a function.** New in 0.4.1. The live listener calls it again when the
+  backlog changes (section 2.10). The `stale` check drops a reply for a set
+  that is no longer open, or one that a later change replaced. A backlog that
+  went away clears the index and the links.
 
 - **Why reuse `item_index`.** The backlog has the same shape as a PRD set: a
   root document whose front matter lists its children. `listed` takes
@@ -346,7 +377,7 @@ for (const img of Array.from(el.querySelectorAll<HTMLImageElement>("img[data-ass
 `src/SectionPage.tsx:102-111`
 
 `read_asset` returns the image as a `data:` URL, which the CSP allows
-(`src-tauri/src/prdset/section.rs:137-148`, `src-tauri/tauri.conf.json:22`).
+(`src-tauri/src/prdset/section.rs:137-148`, `src-tauri/tauri.conf.json:23`).
 
 - **Why the sibling.** Marked wraps the diagram button in a paragraph `p`.
   `cleanForView` put the hidden sketch `div` just before that paragraph, so
@@ -396,7 +427,7 @@ export function zoomAt(v: View, factor: number, px: number, py: number): View {
 
 FR-025 is new in 0.4.0. `App` gives `SectionPage` a `loadFindings` function
 for a document of the PRD set, and none for a backlog document
-(`src/App.tsx:298`). `useFindings` owns the button and the panel:
+(`src/App.tsx:312`). `useFindings` owns the button and the panel:
 
 ```tsx
 const [shown, setShown] = useState<{ open: boolean; html?: string | null }>({ open: false });
@@ -516,9 +547,9 @@ purify.addHook("afterSanitizeAttributes", (node) => {
 
 `linkify` splits text on the ID pattern. Each odd part is an ID, and it becomes
 a button only when `known` has it. `known` holds the IDs of the set index and
-the backlog index (`src/SectionPage.tsx:9-17`, `src/App.tsx:142`). The click
+the backlog index (`src/SectionPage.tsx:9-17`, `src/App.tsx:145`). The click
 goes to `openItem`, which looks up the file in the set index first, then in
-the backlog index (`src/App.tsx:132-137`).
+the backlog index (`src/App.tsx:135-140`).
 
 ```tsx
 const openItem = useCallback((id: string) => {
@@ -529,14 +560,14 @@ const openItem = useCallback((id: string) => {
 }, [index, backlog, backlogIndex, openDoc]);
 ```
 
-`src/App.tsx:132-137`
+`src/App.tsx:135-140`
 
 - **Why the set first.** When an ID is in both indexes, the PRD document
   wins. PRD Forge uses different prefixes for backlog items, such as `US-`.
 - **The folder.** `openDoc` stores the backlog folder in `page.folder`. The
   section page then passes it on for `.md` links in the body, and the
-  document list marks the current backlog document (`src/App.tsx:294`,
-  `src/App.tsx:308`).
+  document list marks the current backlog document (`src/App.tsx:308`,
+  `src/App.tsx:322`).
 
 #### From a requirement to its stories (FR-028)
 
@@ -559,7 +590,7 @@ const builtBy = new Map<string, string[]>();
 for (const l of links) for (const r of l.requirements) builtBy.set(r, [...(builtBy.get(r) ?? []), l.id]);
 ```
 
-`src/App.tsx:139-140`
+`src/App.tsx:142-143`
 
 `ItemView` shows the stories in a **built by** row above the fields, through
 `linkify`, so each story is a button (`src/SectionPage.tsx:34-39`).
@@ -631,14 +662,14 @@ Unchecking the last kind leaves an empty list, which checks **All
 categories** again.
 
 `App` wraps the panel in `SearchDrawer` and passes the list to the command
-under the name `categories` (`src/App.tsx:277-286`). A click on a hit closes
+under the name `categories` (`src/App.tsx:291-300`). A click on a hit closes
 the drawer unless it is pinned, then opens the section:
 
 ```tsx
 onOpenHit={(hit) => { if (!searchPinned) setSearchOpen(false); openDoc(hit.file, hit.id); }}
 ```
 
-`src/App.tsx:283`
+`src/App.tsx:297`
 
 `SearchDrawer` is always mounted. When closed it is `inert` and off screen,
 so the results stay for the next open and the keyboard cannot reach it
@@ -659,7 +690,7 @@ header with a `ResizeObserver` and writes that variable, because the header
 wraps and grows with the text size (`src/App.tsx:55-63`,
 `src/styles.css:222-230`). When the drawer is open and pinned, `main` gets the
 `with-drawer` class, which pads the page by the drawer width
-(`src/App.tsx:220`, `src/styles.css:238`).
+(`src/App.tsx:234`, `src/styles.css:238`).
 
 ### 2.9a Text size and the Command keys
 
@@ -697,12 +728,18 @@ range:
 
 ```rust
 pub fn set_view(s: &mut Settings, text_zoom: f64, search_pinned: bool) {
-    s.text_zoom = (0.5..=3.0).contains(&text_zoom).then_some(text_zoom);
+    s.text_zoom = (0.8..=2.0).contains(&text_zoom).then_some(text_zoom);
     s.search_pinned = search_pinned;
 }
 ```
 
 `src-tauri/src/settings.rs:29-32`
+
+- **Why 0.8 to 2.** New in 0.4.1. The range is the range of the UI steps in
+  `src/textZoom.ts`, so the file keeps only a size that the UI can show. In
+  0.4.0 the range was 0.5 to 3.0, and a size such as 0.6 was stored and then
+  read as 1. The test `the_text_size_and_the_search_pin_survive_a_restart_and_keep_the_themes`
+  now also checks 0.5 and 2.5 (`src-tauri/src/settings.rs:170-173`).
 
 `readZoom` accepts a stored value only when it is one of `ZOOM_STEPS`, so a
 hand-edited value cannot set an odd size (`src/textZoom.ts:13-16`). `nextZoom`
@@ -725,20 +762,35 @@ Command-0, and Command-F. It ignores a key with Option or Control
 handler is bound once, so it reads the `hasSet` ref, not the `set` state
 (`src/App.tsx:53-54`, `src/App.tsx:68-72`). The header group **A−**, percent, **A+** calls the same
 function. The percent button resets to 100%, and each end button is disabled
-at its limit (`src/App.tsx:242-246`).
+at its limit (`src/App.tsx:256-260`).
 
 ### 2.10 Live changes
 
-`watch_set` clears the slot first, so the old watcher drops before the new one
-starts (`src-tauri/src/commands.rs:183-195`).
+`watch_set` clears the list first, so the old watchers drop before the new
+ones start. Since 0.4.1 it starts one watcher for the set and, when the set
+has one, a second for its backlog (`src-tauri/src/commands.rs:183-197`).
 
 ```rust
 let mut slot = state.0.lock().unwrap_or_else(|e| e.into_inner());
-*slot = None;
+slot.clear();
 let Some(folder) = folder else { return Ok(()) };
+let backlog = crate::prdset::section::backlog_of(Path::new(&folder)).map(|b| b.folder);
+for (dir, is_backlog) in std::iter::once((folder.clone(), false)).chain(backlog.map(|b| (b, true))) {
+    let (f, app) = (folder.clone(), app.clone());
+    slot.push(crate::watch::SetWatcher::start(Path::new(&dir), move |files| {
+        let _ = app.emit("set-changed", serde_json::json!({ "folder": f, "files": files, "backlog": is_backlog }));
+    })?);
+}
 ```
 
-`src-tauri/src/commands.rs:186-188`
+`src-tauri/src/commands.rs:186-195`
+
+- **Why the set folder in both events.** The UI checks `folder` against the
+  open set. With the set folder in both, that check works unchanged, and
+  `backlog` tells the two apart.
+- **Can fail.** A failed start of either watcher fails the command, and the UI
+  shows "Live updates are off". `WatchState` is now
+  `Mutex<Vec<SetWatcher>>` (`src-tauri/src/commands.rs:178`).
 
 `SetWatcher::start` runs an OS event watcher and a 1 s poll at the same time
 (`src-tauri/src/watch.rs:82-88`).
@@ -760,24 +812,38 @@ let poll = Self::poll_every(folder, Duration::from_secs(1), on)?;
   that fails to start fails the command.
 
 In the UI, the listener drops a reply when a later event or another set has
-arrived (`src/App.tsx:167-172`).
+arrived. A backlog event takes its own path and returns before the set path
+(`src/App.tsx:170-183`).
 
 ```tsx
 const mine = ++seq;
 // A later change, or another set, wins over this one.
 const stale = () => mine !== seq || current.current.set?.folder !== open.folder;
-setChanged((c) => applyChange(c, e.payload.files));
-const fresh = await invoke<PrdSet>("reload_set", { folder: open.folder }).catch(() => undefined);
-if (stale()) return;
+if (e.payload.backlog) {
+    loadBacklog(open.folder, stale);
+    if (shown?.folder && e.payload.files.includes(shown.section.file)) {
+        const section = await invoke<Section>("read_section", { folder: shown.folder, file: shown.section.file }).catch(() => undefined);
+        if (stale() || current.current.page?.section.file !== shown.section.file) return;
+        const next = reloadedPage(shown, section);
+        setPage(next.page);
+        if (next.error) setError(next.error);
+    }
+    return;
+}
 ```
 
-`src/App.tsx:167-172`
+`src/App.tsx:170-183`
+
+- **Why no change mark.** The change marks are for documents of the set. A
+  backlog page has no mark (`src/App.tsx:313`).
+- **Set path.** For a set event, the listener marks the files, reloads the set
+  and the item index, and reloads the open page only when it is a set
+  document, through the check `!shown.folder` (`src/App.tsx:184-195`).
 
 `reloadedPage` keeps the selected item when the new version still has it, and
-goes back to the overview with a message when the section is gone
-(`src/live.ts:16-19`). A backlog page is never reloaded: the check
-`!shown.folder` skips it, because the event names files of the set folder
-only (`src/App.tsx:175`).
+goes back to the overview with a message when the section is gone. Since 0.4.1
+it spreads the old page, so `folder` survives and a reloaded backlog page
+stays a backlog page (`src/live.ts:13-19`).
 
 ### 2.11 export
 
@@ -835,7 +901,7 @@ export async function loadImages(md: string, asset: (rel: string) => Promise<str
 
 `src/exportRun.ts:36-40`
 
-In the app, `asset` is the `export_image` command (`src/App.tsx:207`). The
+In the app, `asset` is the `export_image` command (`src/App.tsx:221`). The
 Rust side picks the picture:
 
 ```rust
@@ -877,8 +943,8 @@ pub fn export_image(dir: &Path, rel: &str) -> Result<String, String> {
   export, as `prd_export.py` does.
 
 Both writers start from the same block list from `markdownToBlocks`
-(`src/exportBlocks.ts:32-40`). A paragraph that holds only an image is an
-`image` block (`src/exportBlocks.ts:57-62`). Word reads the size of a PNG from
+(`src/exportBlocks.ts:32-41`). A paragraph that holds only an image is an
+`image` block (`src/exportBlocks.ts:58-63`). Word reads the size of a PNG from
 its `IHDR` chunk, and the size of an SVG from its `viewBox` with `svgSize`,
 then scales it down to fit 6.0 by 8.0 inches (`src/exportDocx.ts:66-84`).
 An SVG goes in with a 1 by 1 blank PNG fallback for a Word older than 2016:
@@ -890,6 +956,41 @@ const run = m[1] === "png"
 ```
 
 `src/exportDocx.ts:94-96`
+
+**Line breaks, new in 0.4.1.** An author wraps prose in the source. A single
+newline is a CommonMark soft break, and the exports now flow it as a space.
+`markdownToBlocks` runs the lexer with `breaks: false`
+(`src/exportBlocks.ts:34-35`), and every prose text run goes through one
+function:
+
+```ts
+function flowSoftBreaks(text: string): string {
+    return text.replace(/[ \t]*\r?\n[ \t]*/g, " ");
+}
+```
+
+`src/exportBlocks.ts:119-121`
+
+A hard break is a `br` token, which stays a `\n` run
+(`src/exportBlocks.ts:149-152`). HTML turns that run into `<br />`
+(`src/exportHtml.ts:90-91`). Word needs a `w:br` element, so `runs` splits the
+text on `\n` and puts a break run between the parts:
+
+```ts
+const lines = run.text.split("\n");
+lines.forEach((line, index) => {
+    if (index > 0) out.push(new TextRun({ break: 1 }));
+    if (line) out.push(styledRun(line, run, theme));
+});
+```
+
+`src/exportDocx.ts:235-239`
+
+- **Why in the block model.** PDF, print, and Word all start from the same
+  blocks, so one fix covers the three outputs.
+- **What keeps its newlines.** Inline HTML and code keep their text as written
+  (`src/exportBlocks.ts:164-168`). Code blocks, lists, tables, and headings
+  keep their shape, which `src/exportBlocks.test.ts` checks.
 
 On the Rust side, both export commands build the list of known sets from the
 open set and the settings file, not only from the window
@@ -960,7 +1061,7 @@ overwrite each other (`src-tauri/src/commands.rs:16-24`,
 
 ### 2.13 install `prdf`
 
-After a confirm dialog (`src/App.tsx:214-217`), `install_prdf` writes
+After a confirm dialog (`src/App.tsx:228-231`), `install_prdf` writes
 `~/.local/bin/prdf` and says whether that folder is on `PATH`
 (`src-tauri/src/commands.rs:106-116`). `install_launcher` replaces only a file
 that it wrote itself (`src-tauri/src/launcher.rs:21-35`).
@@ -991,12 +1092,15 @@ There is no CI workflow in the repository at this tag. The automation is:
   `projects/` (`bin/doc_verify.py:38-39`). For a `path:line` citation it checks
   only that the line exists, not what the line holds.
 - `bun run test:e2e`, which builds the MCP test build and runs each file in
-  `e2e/checks/` in its own process (`e2e/run.mjs:1-15`).
+  `e2e/checks/` in its own process (`e2e/run.mjs:1-15`). Since 0.4.1 the app
+  runs hidden in the background, so the run does not take the screen
+  (section 4.15). Set `PFV_E2E_KEYS=real` to press real keys and to run the
+  print panel check.
 
 The test build defines `__PFV_E2E__` as `true`
 (`src-tauri/tauri.mcp.conf.json:3`, `scripts/build.ts:17`). Only then does the
 UI read `window.__pfvSavePath` and `window.__pfvPrint`, because the checks
-cannot drive the macOS save and print dialogs (`src/App.tsx:202-212`).
+cannot drive the macOS save and print dialogs (`src/App.tsx:216-226`).
 
 ## 3. Load-bearing invariants
 
@@ -1012,11 +1116,11 @@ cannot drive the macOS save and print dialogs (`src/App.tsx:202-212`).
 | Settings change under one lock, with an atomic save. | `src-tauri/src/settings.rs:50-68` | A theme save and a set open could lose each other's change (NFR-008). |
 | A built-in theme ID is never stored. | `src-tauri/src/settings.rs:38-42`, `src/themes.ts:133-139` | A custom theme could replace Clay or Ice Snowstorm (FR-017, FR-018). |
 | The index is derived data. | `src-tauri/src/search.rs:191-198` | Do not store anything in it that cannot be rebuilt. |
-| One watcher at a time, and the last `watch_set` wins. | `src-tauri/src/commands.rs:180-195` | Events from an old set would reload the wrong set. |
+| One set and its backlog watched at a time, and the last `watch_set` wins. | `src-tauri/src/commands.rs:180-197` | Events from an old set would reload the wrong set. |
 | The search term is never FTS syntax. | `src-tauri/src/search.rs:66-69` | A term such as `(export` would be a query error. |
 | A grade note is read only from `grades/` of the set, by a plain file name. | `src-tauri/src/prdset/section.rs:152-163` | `read_grade` could read any `.md` file the web view names. |
 | The view settings are not saved until they are read. | `src/App.tsx:39-51` | Each start would reset the stored text size and pin to the defaults. |
-| A backlog page carries its folder in `page.folder`. | `src/App.tsx:85-86`, `src/App.tsx:123-131` | A link or a live reload would read the backlog file name from the set folder. |
+| A backlog page carries its folder in `page.folder`. | `src/App.tsx:85-86`, `src/App.tsx:126-134` | A link or a live reload would read the backlog file name from the set folder. |
 | `src/types.ts` matches the serde output of the Rust types. | By hand only | The UI reads `undefined` with no compile error. |
 
 ## 4. Tests as executable specification
@@ -1121,7 +1225,7 @@ expect(html).not.toContain("example.com");
 
 `theme_saves_and_opens_in_parallel_lose_nothing` runs eight threads, half
 opening a set and half saving a theme, then checks that both changes are in
-the file (`src-tauri/src/commands.rs:252-275`). **Rule.** NFR-008.
+the file (`src-tauri/src/commands.rs:254-277`). **Rule.** NFR-008.
 **Catches.** A removed lock in `update_settings`.
 
 ### 4.8 The export never says approved, and Draft follows status
@@ -1136,9 +1240,9 @@ The export model tests name their rule: `tr_005_draft_unless_every_document_is_f
 
 Each e2e check is named after the PRD criterion it proves. Examples:
 "FR-024 two sets and a last set reopens the last one"
-(`e2e/checks/plans-1-2.mjs:73`), "NFR-002: 20 saves each show within 2 s"
+(`e2e/checks/plans-1-2.mjs:80`), "NFR-002: 20 saves each show within 2 s"
 (`e2e/checks/phase-3-live.mjs:44`), and "OUT-001: an export into the set
-folder is refused" (`e2e/checks/phase-5-export.mjs:237`).
+folder is refused" (`e2e/checks/phase-5-export.mjs:239`).
 
 ### 4.10 A sketch goes only when its drawing is there
 
@@ -1273,7 +1377,7 @@ expect(scale(img)).toBeCloseTo(fitted * 1.25);
   key binding that is lost, or a sketch that stays hidden after a failed load.
 
 The e2e checks for this release are "The diagram window opens fitted, zooms,
-pans, and closes with Escape" (`e2e/checks/phase-1-reading.mjs:137`) and
+pans, and closes with Escape" (`e2e/checks/phase-1-reading.mjs:148`) and
 "Diagrams are images in the PDF, with no ASCII sketch and no details block"
 (`e2e/checks/phase-5-export.mjs:91`).
 
@@ -1309,20 +1413,41 @@ math and the stored value check.
 
 `the_text_size_and_the_search_pin_survive_a_restart_and_keep_the_themes` saves a
 size and a pin next to a custom theme, loads the file again, and checks all
-three. It then shows that a size of 40 is not stored
-(`src-tauri/src/settings.rs:158-173`).
+three. It then shows that a size of 40, 0.5, or 2.5 is not stored
+(`src-tauri/src/settings.rs:158-174`).
 
 The e2e checks are "The Search button opens the drawer with the focus in the
 search box, and Escape closes it" (`e2e/checks/phase-2-search.mjs:47`), "A
 pinned drawer stays open beside the document after a result opens, and Close
 closes it" (`e2e/checks/phase-2-search.mjs:85`), and "Text size: the buttons
 and Command-plus, Command-minus, and Command-0 change the text, and the size is
-kept" (`e2e/checks/phase-1-reading.mjs:64`). The last one needs
-`realKey(code, mods)`, which since 0.3.0 adds `using {command down}` to the
-System Events key press (`e2e/harness.mjs:47-52`). Since 0.4.0 the check also
+kept" (`e2e/checks/phase-1-reading.mjs:64`). The last one uses
+`realKey(code, mods)` (`e2e/harness.mjs:67-75`). Since 0.4.0 the check also
 reads `settings.json` until `text_zoom` is 1.3, and the pin check reads
 `search_pinned` (`e2e/checks/phase-1-reading.mjs:71-74`,
-`e2e/checks/phase-2-search.mjs:88-90`).
+`e2e/checks/phase-2-search.mjs:88-90`). New in 0.4.1, "Text size: at 200% the
+header still does not cover the document list" steps up to the largest size
+and measures the gap again (`e2e/checks/phase-1-reading.mjs:91-100`), and
+"Command-F with no open set opens no search" runs on the known locations
+screen (`e2e/checks/plans-1-2.mjs:40-46`).
+
+**Background mode, new in 0.4.1.** `realKey` no longer brings the app to the
+front by default. The harness launches the app with `PFV_E2E_BACKGROUND=1`,
+and `realKey` runs a small function in the page instead of a System Events
+key press:
+
+```js
+function pageKey(key, meta) {
+  const t = document.activeElement && document.activeElement !== document.body ? document.activeElement : document.body;
+  if (!t.dispatchEvent(new KeyboardEvent("keydown", { key, metaKey: meta, bubbles: true, cancelable: true }))) return;
+```
+
+`e2e/harness.mjs:26-28`
+
+The function then does the browser default for Escape, Return, and Tab
+(`e2e/harness.mjs:29-38`). With `PFV_E2E_KEYS=real`, the old System Events
+path runs (`e2e/harness.mjs:72-74`). `launch` fails the run if the window is
+visible in background mode (`e2e/harness.mjs:91-95`).
 
 ### 4.16 Findings and backlog links
 
@@ -1366,8 +1491,32 @@ renders the **built by** row with and without `builtBy`
 (`src/SectionPage.test.tsx:51-59`). The e2e checks "FR-025: Findings shows the
 grade note of a section, and says when a document has none" and "FR-028:
 FR-005 lists US-008, US-008 links back to FR-005, and the overview lists the
-backlog" run against the real set (`e2e/checks/phase-1-reading.mjs:91`,
-`e2e/checks/phase-1-reading.mjs:105`).
+backlog" run against the real set (`e2e/checks/phase-1-reading.mjs:102`,
+`e2e/checks/phase-1-reading.mjs:116`).
+
+New in 0.4.1, the live checks copy the set and its backlog to a temp folder,
+then save `03-stories.md` twice. "FR-028: a save of a backlog document updates
+the backlog list with no action" reads the **Backlog** section, and "FR-028: a
+save of the open backlog document shows the new text" reads the page heading
+(`e2e/checks/phase-3-live.mjs:97-116`).
+
+### 4.17 Soft breaks flow, hard breaks stay
+
+```ts
+test("a_soft_break_and_a_hard_break_in_one_paragraph_stay_distinct", () => {
+```
+
+`src/exportBlocks.test.ts:45`
+
+- **Rule.** A single newline in prose is one space. Two trailing spaces or a
+  backslash at the end of a line is a line break. The rule holds inside
+  emphasis, links, code spans, strikethrough, lists, and quotes, and in the
+  HTML and Word writers (`src/exportBlocks.test.ts:22-163`).
+- **Shape kept.** Code blocks, headings, tables, and images keep their shape
+  (`src/exportBlocks.test.ts:116`, `src/exportBlocks.test.ts:137`,
+  `src/exportBlocks.test.ts:164`).
+- **Catches.** `breaks: true` in the lexer, a writer that turns every newline
+  into a break, or a Word run with a newline inside `w:t`.
 
 ## 5. Junior engineer orientation
 
@@ -1390,7 +1539,7 @@ backlog" run against the real set (`e2e/checks/phase-1-reading.mjs:91`,
 | The wrong start screen | `start_view` (`src-tauri/src/start.rs:22-47`) |
 | An item is missing or has the wrong parent | `walk` and `item_id` (`src-tauri/src/prdset/items.rs:38-97`) |
 | A search result is wrong | `Index::refresh` and `Index::search` (`src-tauri/src/search.rs:90-162`) |
-| A save does not show | `only_new_content` (`src-tauri/src/watch.rs:47-77`) and the listener (`src/App.tsx:162-184`) |
+| A save does not show | `only_new_content` (`src-tauri/src/watch.rs:47-77`) and the listener (`src/App.tsx:165-198`) |
 | A body shows wrongly | `renderBody` (`src/renderBody.ts:35-56`), then `cleanForView` (`src/bodyClean.ts:18-19`) |
 | A wireframe sketch shows, or does not show, beside a drawing | The failed-load handler in `SectionPage` (`src/SectionPage.tsx:105-110`) |
 | A diagram is missing or old in an export | `loadImages` (`src/exportRun.ts:36-40`), then `export_image` (`src-tauri/src/prdset/section.rs:168-181`). Compare the times of the `.png` and the `.svg`. |
@@ -1399,13 +1548,16 @@ backlog" run against the real set (`e2e/checks/phase-1-reading.mjs:91`,
 | The text size does not change or is not kept | The `zoom` state and the key handler (`src/App.tsx:32-80`), `nextZoom` (`src/textZoom.ts:5-10`), then `text_zoom` in `settings.json` and `set_view` (`src-tauri/src/settings.rs:28-32`) |
 | **Findings** says that none are recorded | `read_grade` (`src-tauri/src/prdset/section.rs:150-163`). Check that `grades/<file>` exists in the set. |
 | No **Backlog** section, or no **built by** row | `backlog_of` and `story_links` (`src-tauri/src/prdset/section.rs:90-123`). Check that `<set>-backlog/backlog.md` exists and that the story has a `requirements` field. |
-| An export looks wrong | `buildExport` (`src/exportModel.ts:20-43`), then `markdownToBlocks` (`src/exportBlocks.ts:32-40`) |
+| An export looks wrong | `buildExport` (`src/exportModel.ts:20-43`), then `markdownToBlocks` (`src/exportBlocks.ts:32-41`) |
+| Exported prose breaks at each source line, or a hard break is lost | `flowSoftBreaks` and the `br` case (`src/exportBlocks.ts:119-121`, `src/exportBlocks.ts:149-152`), then `runs` in `src/exportDocx.ts:230-242` |
+| A backlog save does not show | The backlog watcher in `watch_set` (`src-tauri/src/commands.rs:186-195`), then the backlog path of the listener (`src/App.tsx:173-183`) |
+| An e2e run shows a window or takes the keyboard | `PFV_E2E_BACKGROUND` in `src-tauri/src/lib.rs:43-50` and `launch` in `e2e/harness.mjs:76-97` |
 
 ### 5.3 Where common changes go
 
 | Change | Files |
 |--------|-------|
-| A new command | `src-tauri/src/commands.rs`, the list in `src-tauri/src/lib.rs:42-49`, a type in `src/types.ts`, a call in `src/App.tsx` |
+| A new command | `src-tauri/src/commands.rs`, the list in `src-tauri/src/lib.rs:55-62`, a type in `src/types.ts`, a call in `src/App.tsx` |
 | A new item title key | `TITLE_KEYS` (`src-tauri/src/prdset/items.rs:21-24`) |
 | A new built-in theme | `src/themes.ts:72` and `src-tauri/src/settings.rs:34` |
 | A new forbidden tag | `FORBID_TAGS` (`src/renderBody.ts:27`) |
@@ -1429,7 +1581,7 @@ backlog" run against the real set (`e2e/checks/phase-1-reading.mjs:91`,
 - `src/bodyClean.ts`: a wrong pattern hides content in the viewer and in
   every export.
 - `src/styles.css`: the e2e checks find elements by class name, and one check
-  measures the diagram height (`e2e/checks/phase-1-reading.mjs:130`).
+  measures the diagram height (`e2e/checks/phase-1-reading.mjs:141`).
 
 ## 6. Gaps and design drift
 
@@ -1450,15 +1602,14 @@ backlog" run against the real set (`e2e/checks/phase-1-reading.mjs:91`,
   (`src/exportModel.ts:38`).
 - The search category list is the set of document kinds that hold items, in
   reading order (`src-tauri/src/search.rs:165-173`).
-- The backlog is read once, when the set opens. The watcher covers only the
-  set folder, so a backlog change shows only after the set opens again
-  (`src/App.tsx:110-120`, `src/App.tsx:175`).
-- The text size range differs between the two sides. `set_view` keeps any
-  size from 0.5 to 3.0 (`src-tauri/src/settings.rs:30`), and `readZoom` keeps
-  only the steps 0.8 to 2 (`src/textZoom.ts:13-16`). A hand-edited 0.6 stays
-  in the file and reads as 1.
+- `set_view` keeps any size from 0.8 to 2 (`src-tauri/src/settings.rs:30`),
+  and `readZoom` keeps only the steps in that range (`src/textZoom.ts:13-16`).
+  A hand-edited 1.05 stays in the file and reads as 1.
+- `PFV_E2E_BACKGROUND` is read in every build at a second launch, where it
+  skips `set_focus` (`src-tauri/src/lib.rs:23-27`). Only the `mcp-bridge`
+  build reads it at start.
 - `read_grade` is offered only for a document of the PRD set. A backlog page
-  has no **Findings** button (`src/App.tsx:298`).
+  has no **Findings** button (`src/App.tsx:312`).
 - An export can embed an SVG, not a PNG, when the PNG is stale
   (`src-tauri/src/prdset/section.rs:168-181`). `prd_export.py` always embeds
   the PNG. The two exports can differ until `prd-diagrams.mjs` runs again.
@@ -1474,6 +1625,16 @@ backlog" run against the real set (`e2e/checks/phase-1-reading.mjs:91`,
   (`src-tauri/src/prdset/section.rs:168-181`).
 - `fitView` clamps to `MIN_SCALE`, so a very large diagram opens at 25% and
   does not jump on the first zoom (`src/zoom.ts:11`).
+
+**Closed in 0.4.1.** Two gaps in this section and three missing tests from
+the 0.4.0 walkthrough are closed:
+
+- The backlog is live. `watch_set` watches the backlog folder, and a backlog
+  event rereads the backlog, its index, the story links, and an open backlog
+  page (section 2.10).
+- `set_view` keeps the same range as the UI steps, 0.8 to 2 (section 2.9a).
+- E2E checks now cover Command-F with no set, a backlog save while the viewer
+  is open, and the document list gap at 200% (sections 4.15 and 4.16).
 
 **Closed in 0.4.0.** Four gaps from the 0.3.0 walkthrough are closed:
 
@@ -1493,7 +1654,7 @@ backlog" run against the real set (`e2e/checks/phase-1-reading.mjs:91`,
 - `SetWatcher::start_polling` is public but only the tests call it
   (`src-tauri/src/watch.rs:91-93`).
 - `joinFrontmatter` (`src/frontmatter.ts:35-41`), `hexToRgb`
-  (`src/themes.ts:88-95`), and `runsToText` (`src/exportBlocks.ts:172-174`)
+  (`src/themes.ts:88-95`), and `runsToText` (`src/exportBlocks.ts:189-191`)
   are Motion copies with no caller in this repository. **Confirmed** by search
   at the tag.
 
@@ -1512,20 +1673,17 @@ backlog" run against the real set (`e2e/checks/phase-1-reading.mjs:91`,
 - `src/interactive.test.tsx` now covers the `DiagramViewer` key map, buttons,
   wheel, and close (section 4.14). Focus return on close and the pinch factor
   are still covered only by the e2e check
-  (`e2e/checks/phase-1-reading.mjs:137`).
+  (`e2e/checks/phase-1-reading.mjs:148`).
 - No test opens a Word file with an SVG in a Word older than 2016, where the
   1 by 1 fallback PNG shows in place of the diagram.
 - No test covers an image inside other text. It is not an `image` block, and
-  `inlineRuns` writes its alt text (`src/exportBlocks.ts:57-62`,
-  `src/exportBlocks.ts:149-151`).
+  `inlineRuns` writes its alt text (`src/exportBlocks.ts:58-63`,
+  `src/exportBlocks.ts:164-168`).
 
-- No test covers Command-F when no set is open. The fix is in
-  `src/App.tsx:68-72`, but no unit or e2e check presses the key before a set
-  opens.
-- No test covers a backlog change while the viewer is open, because the
-  viewer does not reread the backlog (section 6.2).
-- The e2e check for the text size measures the document list gap only at
-  130%, not at 200%.
+- The print panel e2e check runs only with `PFV_E2E_KEYS=real`. A default run
+  reports it as `SKIP` (`e2e/checks/phase-5-export.mjs:204-206`).
+- No unit test covers the backlog path of the `set-changed` listener. Only
+  the e2e checks in `e2e/checks/phase-3-live.mjs` do.
 - No contract test between the Rust serde output and `src/types.ts`.
 - `the_pdf_is_tagged_for_screen_readers` returns early when Chrome is missing,
   so it can pass with no check (`src-tauri/src/export.rs:187-188`).
@@ -1538,7 +1696,7 @@ backlog" run against the real set (`e2e/checks/phase-1-reading.mjs:91`,
   `src/ThemeDialog.tsx:20`.
 - The image path pattern: `loadImages` finds images with the `IMAGE` regex
   (`src/exportRun.ts:29`), and `markdownToBlocks` finds them with Marked
-  (`src/exportBlocks.ts:57-62`). An image in a code block matches the regex,
+  (`src/exportBlocks.ts:58-63`). An image in a code block matches the regex,
   so `export_image` reads it and the export does not use it.
 - The rules of `prd_export.py` exist again in `src/bodyClean.ts`,
   `export_image`, and `fitImage` (`src/exportDocx.ts:72-76`).
