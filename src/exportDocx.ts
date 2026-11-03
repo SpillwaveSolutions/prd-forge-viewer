@@ -228,17 +228,28 @@ function paragraph(
 }
 
 function runs(items: InlineRun[], theme: ExportTheme): TextRun[] {
-    return items.map(
-        (run) =>
-            new TextRun({
-                text: run.text,
-                bold: run.bold,
-                italics: run.italic,
-                font: run.code ? FONT.mono : FONT[theme.font],
-                color: hexBare(run.href ? theme.accent : run.code ? theme.codeText : theme.text),
-                size: run.code ? 20 : 22,
-            }),
-    );
+    const out: TextRun[] = [];
+    for (const run of items) {
+        // A newline left in a run is a hard break. Word draws that from w:br;
+        // a newline character inside w:t does not start a new line.
+        const lines = run.text.split("\n");
+        lines.forEach((line, index) => {
+            if (index > 0) out.push(new TextRun({ break: 1 }));
+            if (line) out.push(styledRun(line, run, theme));
+        });
+    }
+    return out;
+}
+
+function styledRun(text: string, run: InlineRun, theme: ExportTheme): TextRun {
+    return new TextRun({
+        text,
+        bold: run.bold,
+        italics: run.italic,
+        font: run.code ? FONT.mono : FONT[theme.font],
+        color: hexBare(run.href ? theme.accent : run.code ? theme.codeText : theme.text),
+        size: run.code ? 20 : 22,
+    });
 }
 
 function table(header: string[], rows: string[][], theme: ExportTheme): Table {

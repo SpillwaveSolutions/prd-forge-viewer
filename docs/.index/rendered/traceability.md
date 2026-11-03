@@ -2,6 +2,9 @@
 
 _The evidence chain: plan → item → ticket → code → release, forward and backward. Generated from `docs/.index/_graph.json`; do not edit._
 
+### Soft line breaks print as hard breaks in PDF and Word
+`01M6HJFNDDQ696ZQJ2NSKF89DN` · status: in_progress
+
 ### Fix the section 7 grader notes: WF-012 title, release 2 exit criteria, and error cases
 `01M6CDNVQNTQCPDD3W83FGQSBC` · status: done
 - belongs-to: Plan 11: 0.4.0 doc findings, section 7 grade, and SPK-001 answer

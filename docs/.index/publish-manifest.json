@@ -1,5 +1,5 @@
 {
- "git_hash": "e0506a1",
+ "git_hash": "58d55ac",
  "pages": [
   {
    "frozen": false,
@@ -45,7 +45,7 @@
    "frozen": false,
    "page_name": "Index-Traceability",
    "render": "as-is",
-   "render_hash": "a4db77245e32",
+   "render_hash": "7f83a3ad86db",
    "source": "docs/.index/rendered/traceability.md",
    "title": "Traceability Index",
    "truth_state": "current",
@@ -2342,6 +2342,16 @@
    "wiki_key": "item/01M6CDNVQNTQCPDD3W83FGQSBC"
   },
   {
+   "frozen": false,
+   "page_name": "Ticket-01M6HJFNDDQ696ZQJ2NSKF89DN",
+   "render": "as-is",
+   "render_hash": "63eba4f58c53",
+   "source": "docs/.index/rendered/tickets/01M6HJFNDDQ696ZQJ2NSKF89DN.md",
+   "title": "Soft line breaks print as hard breaks in PDF and Word",
+   "truth_state": "in-progress",
+   "wiki_key": "item/01M6HJFNDDQ696ZQJ2NSKF89DN"
+  },
+  {
    "banner": "> **Snapshot** of release v0.1.0 (2026-10-29) \u2014 frozen record. The current version is [[Code-Walkthrough]].",
    "frozen": true,
    "page_name": "Design-Freeze-2026-10-29_v0.1.0-release",
@@ -2654,13 +2664,13 @@
    "wiki_key": "plan/2026-10-31-plan-10-prd-findings-backlog"
   },
   {
-   "banner": "> **Current** \u2014 this is the living version; regenerated at 2026-11-02T20:50:22Z. Historical snapshots are linked from [[Index-Releases]].",
+   "banner": "> **Current** \u2014 this is the living version; regenerated at 2026-11-03T20:44:22Z. Historical snapshots are linked from [[Index-Releases]].",
    "frozen": false,
    "page_name": "Roadmap",
    "render": "doc+banner",
-   "render_hash": "70cb71ac88c3",
+   "render_hash": "496a44eb3181",
    "source": "docs/roadmap.md",
-   "source_hash": "65538697716e",
+   "source_hash": "329e8fb3c28d",
    "title": "Roadmap",
    "truth_state": "current",
    "wiki_key": "roadmap"
