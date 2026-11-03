@@ -4988,6 +4988,11 @@
    "status": "done",
    "title": "Commit the 2026-11-03 telemetry update"
   },
+  "item/01M6HNNFB76PGJKVMB2YYJ95N9": {
+   "doc_type": "item",
+   "status": "in_progress",
+   "title": "Executive summary prints an objective id instead of its sentence"
+  },
   "item/01M6HSF2R3GJX2PD58QDQQQSFQ": {
    "doc_type": "item",
    "status": "done",

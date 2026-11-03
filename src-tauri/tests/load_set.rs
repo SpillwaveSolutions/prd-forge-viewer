@@ -79,3 +79,92 @@ fn folder_without_root() {
     assert!(matches!(err, LoadError::NoRoot(_)));
     assert!(err.to_string().contains("No PRD set in"));
 }
+
+const OBJECTIVE: &str = "A test matter moves through the core lifecycle, filing to an approved determination, with each of the three roles acting in its own signed-in session.";
+
+fn write_objective_set(objective: &str) -> TempDir {
+    let dir = TempDir::new().unwrap();
+    let root = "---
+id: demo
+kind: prd
+title: Demo
+status: draft
+product: Demo
+version: 0.1.0
+summary:
+  problem: A problem in prose.
+  objective: OBJECTIVE_VALUE
+links:
+  children:
+    - { path: ./03-objectives-metrics.md, title: Objectives, section: 3, order: 30, status: draft }
+    - { path: ./14-release-plan.md, title: Release plan, section: 13, order: 140, status: draft }
+---
+"
+    .replace("OBJECTIVE_VALUE", objective);
+    fs::write(dir.path().join("prd.md"), root).unwrap();
+    fs::write(
+        dir.path().join("03-objectives-metrics.md"),
+        "---
+id: demo-objectives
+kind: objectives-metrics
+title: Objectives and success metrics
+status: draft
+section: 3
+order: 30
+objectives:
+  - id: O-001
+    objective: >-
+      A test matter moves through the core lifecycle, filing to an approved
+      determination, with each of the three roles acting in its own signed-in
+      session.
+  - id: O-002
+    objective: Authors fix blocking defects before stakeholders see a version.
+---
+",
+    )
+    .unwrap();
+    // A release names objective ids. Those are not the objective's sentence.
+    fs::write(
+        dir.path().join("14-release-plan.md"),
+        "---
+id: demo-release
+kind: release-plan
+title: Release plan
+status: draft
+releases:
+  - id: REL-001
+    name: Release 1
+    objectives:
+      - O-001
+---
+",
+    )
+    .unwrap();
+    dir
+}
+
+fn summary_text(dir: &Path, label: &str) -> String {
+    load_set(dir).unwrap().summary.into_iter().find(|s| s.label == label).unwrap().text
+}
+
+#[test]
+fn summary_objective_id_shows_the_objective_sentence() {
+    let dir = write_objective_set("O-001");
+    assert_eq!(summary_text(dir.path(), "Objective"), format!("{OBJECTIVE} (O-001)"));
+    assert_eq!(summary_text(dir.path(), "Problem"), "A problem in prose.");
+    // The id selects its own sentence, not the first objective in the document.
+    let dir = write_objective_set("O-002");
+    assert_eq!(summary_text(dir.path(), "Objective"), "Authors fix blocking defects before stakeholders see a version. (O-002)");
+}
+
+#[test]
+fn summary_unknown_objective_id_stays_as_written() {
+    let dir = write_objective_set("O-999");
+    assert_eq!(summary_text(dir.path(), "Objective"), "O-999");
+}
+
+#[test]
+fn summary_objective_prose_stays_as_written() {
+    let dir = write_objective_set("The whole set can be read in one place.");
+    assert_eq!(summary_text(dir.path(), "Objective"), "The whole set can be read in one place.");
+}

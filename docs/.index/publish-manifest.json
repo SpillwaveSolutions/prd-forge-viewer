@@ -45,7 +45,7 @@
    "frozen": false,
    "page_name": "Index-Traceability",
    "render": "as-is",
-   "render_hash": "965b09ffe28a",
+   "render_hash": "4f5df633af8f",
    "source": "docs/.index/rendered/traceability.md",
    "title": "Traceability Index",
    "truth_state": "current",
@@ -2403,6 +2403,16 @@
   },
   {
    "frozen": false,
+   "page_name": "Ticket-01M6HNNFB76PGJKVMB2YYJ95N9",
+   "render": "as-is",
+   "render_hash": "6adae9f417c4",
+   "source": "docs/.index/rendered/tickets/01M6HNNFB76PGJKVMB2YYJ95N9.md",
+   "title": "Executive summary prints an objective id instead of its sentence",
+   "truth_state": "in-progress",
+   "wiki_key": "item/01M6HNNFB76PGJKVMB2YYJ95N9"
+  },
+  {
+   "frozen": false,
    "page_name": "Ticket-01M6HSF2R3GJX2PD58QDQQQSFQ",
    "render": "as-is",
    "render_hash": "4153faa6c520",
@@ -2740,9 +2750,9 @@
    "frozen": false,
    "page_name": "Roadmap",
    "render": "doc+banner",
-   "render_hash": "f14f60a14e2c",
+   "render_hash": "3f4c3fd31754",
    "source": "docs/roadmap.md",
-   "source_hash": "65538697716e",
+   "source_hash": "e5fcddc9022d",
    "title": "Roadmap",
    "truth_state": "current",
    "wiki_key": "roadmap"
