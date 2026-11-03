@@ -3814,6 +3814,21 @@
    "from": "roadmap-snapshot/2026-10-31_v0.4.0-release",
    "to": "release/v0.4.0",
    "type": "targets"
+  },
+  {
+   "from": "roadmap-snapshot/2026-11-03_v0.4.1-release",
+   "to": "roadmap",
+   "type": "snapshot-of"
+  },
+  {
+   "from": "roadmap-snapshot/2026-11-03_v0.4.1-release",
+   "to": "roadmap-snapshot/2026-10-31_v0.4.0-release",
+   "type": "supersedes"
+  },
+  {
+   "from": "roadmap-snapshot/2026-11-03_v0.4.1-release",
+   "to": "release/v0.4.1",
+   "type": "targets"
   }
  ],
  "nodes": {
@@ -4952,6 +4967,11 @@
    "status": "done",
    "title": "Commit the 2026-11-03 telemetry update"
   },
+  "item/01M6HSF2R3GJX2PD58QDQQQSFQ": {
+   "doc_type": "item",
+   "status": "in_progress",
+   "title": "Release 0.4.1"
+  },
   "plan/2026-10-28-plan-1-open-and-grades": {
    "doc_type": "plan",
    "source": "docs/plans/2026-10-28-plan-1-open-and-grades.md",
@@ -5090,6 +5110,9 @@
   "release/v0.4.0": {
    "doc_type": "release"
   },
+  "release/v0.4.1": {
+   "doc_type": "release"
+  },
   "roadmap": {
    "doc_type": "roadmap",
    "source": "docs/roadmap.md",
@@ -5123,6 +5146,12 @@
   "roadmap-snapshot/2026-10-31_v0.4.0-release": {
    "doc_type": "roadmap-snapshot",
    "source": "docs/roadmap/2026-10-31_v0.4.0-release.md",
+   "title": "Roadmap",
+   "truth_state": "snapshot"
+  },
+  "roadmap-snapshot/2026-11-03_v0.4.1-release": {
+   "doc_type": "roadmap-snapshot",
+   "source": "docs/roadmap/2026-11-03_v0.4.1-release.md",
    "title": "Roadmap",
    "truth_state": "snapshot"
   },

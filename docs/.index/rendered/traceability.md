@@ -2,6 +2,9 @@
 
 _The evidence chain: plan → item → ticket → code → release, forward and backward. Generated from `docs/.index/_graph.json`; do not edit._
 
+### Release 0.4.1
+`01M6HSF2R3GJX2PD58QDQQQSFQ` · status: in_progress
+
 ### Commit the 2026-11-03 telemetry update
 `01M6HMD640N78XP1A945QMWTY6` · status: done
 - lands-in: pr/218

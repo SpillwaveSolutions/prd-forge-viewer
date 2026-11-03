@@ -1,6 +1,6 @@
 # Changelog
 
-## 0.4.1, unreleased
+## 0.4.1, 2026-11-03
 
 This release fixes the faults that the 0.4.0 documentation review found. It
 follows PRD 0.7.1.
@@ -12,6 +12,9 @@ follows PRD 0.7.1.
   no reopen (FR-028 with FR-009).
 - **One text size range.** The settings file keeps a text size only from 80% to
   200%, the same range as the text size buttons (FR-026).
+- **Wrapped paragraphs flow in exports.** A paragraph that is wrapped in the
+  markdown source now prints as one paragraph in PDF, print, and Word. A line
+  that ends with two spaces or a backslash still starts a new line (PR #215).
 - **User guide in the wiki.** The user guide index is now
   `docs/user_guide/index.md`, so the wiki publishes it as the **User-Guide**
   page that Home links to.
