@@ -2957,6 +2957,11 @@
   },
   {
    "from": "item/01M6HJFNDDQ696ZQJ2NSKF89DN",
+   "to": "pr/215",
+   "type": "lands-in"
+  },
+  {
+   "from": "item/01M6HJFNDDQ696ZQJ2NSKF89DN",
    "to": "ticket/github#216",
    "type": "references"
   },
@@ -4939,7 +4944,7 @@
   },
   "item/01M6HJFNDDQ696ZQJ2NSKF89DN": {
    "doc_type": "item",
-   "status": "in_progress",
+   "status": "done",
    "title": "Soft line breaks print as hard breaks in PDF and Word"
   },
   "item/01M6HMD640N78XP1A945QMWTY6": {
@@ -5056,6 +5061,9 @@
    "doc_type": "pr"
   },
   "pr/213": {
+   "doc_type": "pr"
+  },
+  "pr/215": {
    "doc_type": "pr"
   },
   "pr/218": {

@@ -8,7 +8,8 @@ _The evidence chain: plan → item → ticket → code → release, forward and 
 - references: [github#217](https://github.com/SpillwaveSolutions/prd-forge-viewer/issues/217)
 
 ### Soft line breaks print as hard breaks in PDF and Word
-`01M6HJFNDDQ696ZQJ2NSKF89DN` · status: in_progress
+`01M6HJFNDDQ696ZQJ2NSKF89DN` · status: done
+- lands-in: pr/215
 - references: [github#216](https://github.com/SpillwaveSolutions/prd-forge-viewer/issues/216)
 
 ### Fix the section 7 grader notes: WF-012 title, release 2 exit criteria, and error cases
