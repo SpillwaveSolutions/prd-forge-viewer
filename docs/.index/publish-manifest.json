@@ -1,5 +1,5 @@
 {
- "git_hash": "58d55ac",
+ "git_hash": "d40aa8e",
  "pages": [
   {
    "frozen": false,
@@ -45,7 +45,7 @@
    "frozen": false,
    "page_name": "Index-Traceability",
    "render": "as-is",
-   "render_hash": "7f83a3ad86db",
+   "render_hash": "2ea8a8de5b07",
    "source": "docs/.index/rendered/traceability.md",
    "title": "Traceability Index",
    "truth_state": "current",
@@ -200,6 +200,16 @@
    "title": "PR #213",
    "truth_state": "not tracked",
    "wiki_key": "pr/213"
+  },
+  {
+   "frozen": false,
+   "page_name": "PR-218",
+   "render": "as-is",
+   "render_hash": "69b7b029fc9a",
+   "source": "docs/.index/rendered/prs/218.md",
+   "title": "PR #218",
+   "truth_state": "not tracked",
+   "wiki_key": "pr/218"
   },
   {
    "frozen": false,
@@ -2345,11 +2355,21 @@
    "frozen": false,
    "page_name": "Ticket-01M6HJFNDDQ696ZQJ2NSKF89DN",
    "render": "as-is",
-   "render_hash": "63eba4f58c53",
+   "render_hash": "80a62898e8b7",
    "source": "docs/.index/rendered/tickets/01M6HJFNDDQ696ZQJ2NSKF89DN.md",
    "title": "Soft line breaks print as hard breaks in PDF and Word",
    "truth_state": "in-progress",
    "wiki_key": "item/01M6HJFNDDQ696ZQJ2NSKF89DN"
+  },
+  {
+   "frozen": false,
+   "page_name": "Ticket-01M6HMD640N78XP1A945QMWTY6",
+   "render": "as-is",
+   "render_hash": "4ea6139f85b8",
+   "source": "docs/.index/rendered/tickets/01M6HMD640N78XP1A945QMWTY6.md",
+   "title": "Commit the 2026-11-03 telemetry update",
+   "truth_state": "done",
+   "wiki_key": "item/01M6HMD640N78XP1A945QMWTY6"
   },
   {
    "banner": "> **Snapshot** of release v0.1.0 (2026-10-29) \u2014 frozen record. The current version is [[Code-Walkthrough]].",
@@ -2664,13 +2684,13 @@
    "wiki_key": "plan/2026-10-31-plan-10-prd-findings-backlog"
   },
   {
-   "banner": "> **Current** \u2014 this is the living version; regenerated at 2026-11-03T20:44:22Z. Historical snapshots are linked from [[Index-Releases]].",
+   "banner": "> **Current** \u2014 this is the living version; regenerated at 2026-11-03T21:18:38Z. Historical snapshots are linked from [[Index-Releases]].",
    "frozen": false,
    "page_name": "Roadmap",
    "render": "doc+banner",
-   "render_hash": "496a44eb3181",
+   "render_hash": "20217145428b",
    "source": "docs/roadmap.md",
-   "source_hash": "329e8fb3c28d",
+   "source_hash": "3e26f5b87976",
    "title": "Roadmap",
    "truth_state": "current",
    "wiki_key": "roadmap"
