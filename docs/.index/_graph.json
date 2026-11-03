@@ -2962,6 +2962,11 @@
   },
   {
    "from": "item/01M6HMD640N78XP1A945QMWTY6",
+   "to": "pr/218",
+   "type": "lands-in"
+  },
+  {
+   "from": "item/01M6HMD640N78XP1A945QMWTY6",
    "to": "ticket/github#217",
    "type": "references"
   },
@@ -4939,7 +4944,7 @@
   },
   "item/01M6HMD640N78XP1A945QMWTY6": {
    "doc_type": "item",
-   "status": "in_progress",
+   "status": "done",
    "title": "Commit the 2026-11-03 telemetry update"
   },
   "plan/2026-10-28-plan-1-open-and-grades": {
@@ -5051,6 +5056,9 @@
    "doc_type": "pr"
   },
   "pr/213": {
+   "doc_type": "pr"
+  },
+  "pr/218": {
    "doc_type": "pr"
   },
   "pr/4": {

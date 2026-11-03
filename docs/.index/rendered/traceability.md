@@ -3,7 +3,8 @@
 _The evidence chain: plan → item → ticket → code → release, forward and backward. Generated from `docs/.index/_graph.json`; do not edit._
 
 ### Commit the 2026-11-03 telemetry update
-`01M6HMD640N78XP1A945QMWTY6` · status: in_progress
+`01M6HMD640N78XP1A945QMWTY6` · status: done
+- lands-in: pr/218
 - references: [github#217](https://github.com/SpillwaveSolutions/prd-forge-viewer/issues/217)
 
 ### Soft line breaks print as hard breaks in PDF and Word

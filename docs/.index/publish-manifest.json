@@ -1,5 +1,5 @@
 {
- "git_hash": "4c9962c",
+ "git_hash": "d40aa8e",
  "pages": [
   {
    "frozen": false,
@@ -45,7 +45,7 @@
    "frozen": false,
    "page_name": "Index-Traceability",
    "render": "as-is",
-   "render_hash": "accac375ab55",
+   "render_hash": "2ea8a8de5b07",
    "source": "docs/.index/rendered/traceability.md",
    "title": "Traceability Index",
    "truth_state": "current",
@@ -200,6 +200,16 @@
    "title": "PR #213",
    "truth_state": "not tracked",
    "wiki_key": "pr/213"
+  },
+  {
+   "frozen": false,
+   "page_name": "PR-218",
+   "render": "as-is",
+   "render_hash": "69b7b029fc9a",
+   "source": "docs/.index/rendered/prs/218.md",
+   "title": "PR #218",
+   "truth_state": "not tracked",
+   "wiki_key": "pr/218"
   },
   {
    "frozen": false,
@@ -2355,10 +2365,10 @@
    "frozen": false,
    "page_name": "Ticket-01M6HMD640N78XP1A945QMWTY6",
    "render": "as-is",
-   "render_hash": "abb37071f12c",
+   "render_hash": "4ea6139f85b8",
    "source": "docs/.index/rendered/tickets/01M6HMD640N78XP1A945QMWTY6.md",
    "title": "Commit the 2026-11-03 telemetry update",
-   "truth_state": "in-progress",
+   "truth_state": "done",
    "wiki_key": "item/01M6HMD640N78XP1A945QMWTY6"
   },
   {
@@ -2674,13 +2684,13 @@
    "wiki_key": "plan/2026-10-31-plan-10-prd-findings-backlog"
   },
   {
-   "banner": "> **Current** \u2014 this is the living version; regenerated at 2026-11-03T21:18:19Z. Historical snapshots are linked from [[Index-Releases]].",
+   "banner": "> **Current** \u2014 this is the living version; regenerated at 2026-11-03T21:18:38Z. Historical snapshots are linked from [[Index-Releases]].",
    "frozen": false,
    "page_name": "Roadmap",
    "render": "doc+banner",
-   "render_hash": "bec95ada1dfd",
+   "render_hash": "20217145428b",
    "source": "docs/roadmap.md",
-   "source_hash": "335498549629",
+   "source_hash": "3e26f5b87976",
    "title": "Roadmap",
    "truth_state": "current",
    "wiki_key": "roadmap"
