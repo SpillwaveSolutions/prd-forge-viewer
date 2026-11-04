@@ -2,7 +2,7 @@
 wiki_key: roadmap
 doc_type: roadmap
 truth_state: current
-source_hash: f2f9823a
+source_hash: 911ebd6c
 generated_at: 2026-11-03T22:47:58Z
 git_hash: "1c70632"
 ---
@@ -14,11 +14,15 @@ git_hash: "1c70632"
 
 # Roadmap
 
-_0 epic(s) in flight, 0 open item(s), 0 blocked, 0 unclassified._
+_0 epic(s) in flight, 1 open item(s), 0 blocked, 0 unclassified._
 
 ## Now
 
-_Nothing here._
+### (no epic)
+
+| # | Item | Type | Priority | Status | Blocked by |
+|---|---|---|---|---|---|
+| 01M6HNNF | Executive summary prints an objective id instead of its sentence | task | P1 | in progress | — |
 
 ## Next
 
@@ -27,3 +31,21 @@ _Nothing here._
 ## Later
 
 _Nothing here._
+
+## Visual roadmap
+
+### Dependency graph
+
+```mermaid
+graph TD
+    01M6HNNFB76PGJKVMB2YYJ95N9["🐛 Executive summary prints an ob"]
+    classDef in_progress fill:#d9f2d9,stroke:#2e7d32
+    class 01M6HNNFB76PGJKVMB2YYJ95N9 in_progress
+```
+
+### Hierarchy
+
+```mermaid
+graph TD
+    01M6HNNFB76PGJKVMB2YYJ95N9["🐛 Executive summary prints an ob"]
+```

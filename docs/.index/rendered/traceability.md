@@ -6,6 +6,9 @@ _The evidence chain: plan → item → ticket → code → release, forward and 
 `01M6HSF2R3GJX2PD58QDQQQSFQ` · status: done
 - lands-in: pr/221
 
+### Executive summary prints an objective id instead of its sentence
+`01M6HNNFB76PGJKVMB2YYJ95N9` · status: in_progress
+
 ### Commit the 2026-11-03 telemetry update
 `01M6HMD640N78XP1A945QMWTY6` · status: done
 - lands-in: pr/218
