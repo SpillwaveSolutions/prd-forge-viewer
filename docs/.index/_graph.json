@@ -2992,6 +2992,11 @@
   },
   {
    "from": "item/01M6KHDYPXF2TG6D3ABM1E0EDF",
+   "to": "pr/226",
+   "type": "lands-in"
+  },
+  {
+   "from": "item/01M6KHDYPXF2TG6D3ABM1E0EDF",
    "to": "ticket/github#225",
    "type": "references"
   },
@@ -5121,6 +5126,9 @@
    "doc_type": "pr"
   },
   "pr/221": {
+   "doc_type": "pr"
+  },
+  "pr/226": {
    "doc_type": "pr"
   },
   "pr/4": {

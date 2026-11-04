@@ -4,6 +4,7 @@ _The evidence chain: plan → item → ticket → code → release, forward and 
 
 ### Name the PRD approver and fix the section 11 title for PRD Forge 0.14.0
 `01M6KHDYPXF2TG6D3ABM1E0EDF` · status: done
+- lands-in: pr/226
 - references: [github#225](https://github.com/SpillwaveSolutions/prd-forge-viewer/issues/225)
 
 ### Release 0.4.1

@@ -45,7 +45,7 @@
    "frozen": false,
    "page_name": "Index-Traceability",
    "render": "as-is",
-   "render_hash": "ce0b758eef1a",
+   "render_hash": "9fa74ceac88a",
    "source": "docs/.index/rendered/traceability.md",
    "title": "Traceability Index",
    "truth_state": "current",
@@ -230,6 +230,16 @@
    "title": "PR #221",
    "truth_state": "not tracked",
    "wiki_key": "pr/221"
+  },
+  {
+   "frozen": false,
+   "page_name": "PR-226",
+   "render": "as-is",
+   "render_hash": "7bab119e43e6",
+   "source": "docs/.index/rendered/prs/226.md",
+   "title": "PR #226",
+   "truth_state": "not tracked",
+   "wiki_key": "pr/226"
   },
   {
    "frozen": false,
@@ -2415,7 +2425,7 @@
    "frozen": false,
    "page_name": "Ticket-01M6KHDYPXF2TG6D3ABM1E0EDF",
    "render": "as-is",
-   "render_hash": "ded4efc68ad2",
+   "render_hash": "67cb86e8132c",
    "source": "docs/.index/rendered/tickets/01M6KHDYPXF2TG6D3ABM1E0EDF.md",
    "title": "Name the PRD approver and fix the section 11 title for PRD Forge 0.14.0",
    "truth_state": "done",

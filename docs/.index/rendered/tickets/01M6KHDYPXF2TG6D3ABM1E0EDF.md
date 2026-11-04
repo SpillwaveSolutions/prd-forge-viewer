@@ -4,6 +4,10 @@
 
 The PRD Forge 0.14.0 validator warns that prd.md names no approver by name, and that the root's title for the assumptions, risks, and dependencies section is cut at the first comma.
 
+## Linked PRs
+
+- [[PR-226]]
+
 ## Related tickets
 
 - [github #225](https://github.com/SpillwaveSolutions/prd-forge-viewer/issues/225)
