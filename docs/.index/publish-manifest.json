@@ -1,5 +1,5 @@
 {
- "git_hash": "1c70632",
+ "git_hash": "08f000d",
  "pages": [
   {
    "frozen": false,
@@ -45,7 +45,7 @@
    "frozen": false,
    "page_name": "Index-Traceability",
    "render": "as-is",
-   "render_hash": "4f5df633af8f",
+   "render_hash": "1169148bdcd3",
    "source": "docs/.index/rendered/traceability.md",
    "title": "Traceability Index",
    "truth_state": "current",
@@ -230,6 +230,16 @@
    "title": "PR #221",
    "truth_state": "not tracked",
    "wiki_key": "pr/221"
+  },
+  {
+   "frozen": false,
+   "page_name": "PR-226",
+   "render": "as-is",
+   "render_hash": "7bab119e43e6",
+   "source": "docs/.index/rendered/prs/226.md",
+   "title": "PR #226",
+   "truth_state": "not tracked",
+   "wiki_key": "pr/226"
   },
   {
    "frozen": false,
@@ -2422,6 +2432,16 @@
    "wiki_key": "item/01M6HSF2R3GJX2PD58QDQQQSFQ"
   },
   {
+   "frozen": false,
+   "page_name": "Ticket-01M6KHDYPXF2TG6D3ABM1E0EDF",
+   "render": "as-is",
+   "render_hash": "67cb86e8132c",
+   "source": "docs/.index/rendered/tickets/01M6KHDYPXF2TG6D3ABM1E0EDF.md",
+   "title": "Name the PRD approver and fix the section 11 title for PRD Forge 0.14.0",
+   "truth_state": "done",
+   "wiki_key": "item/01M6KHDYPXF2TG6D3ABM1E0EDF"
+  },
+  {
    "banner": "> **Snapshot** of release v0.1.0 (2026-10-29) \u2014 frozen record. The current version is [[Code-Walkthrough]].",
    "frozen": true,
    "page_name": "Design-Freeze-2026-10-29_v0.1.0-release",
@@ -2746,11 +2766,11 @@
    "wiki_key": "plan/2026-10-31-plan-10-prd-findings-backlog"
   },
   {
-   "banner": "> **Current** \u2014 this is the living version; regenerated at 2026-11-03T22:47:58Z. Historical snapshots are linked from [[Index-Releases]].",
+   "banner": "> **Current** \u2014 this is the living version; regenerated at 2026-11-04T15:06:12Z. Historical snapshots are linked from [[Index-Releases]].",
    "frozen": false,
    "page_name": "Roadmap",
    "render": "doc+banner",
-   "render_hash": "3f4c3fd31754",
+   "render_hash": "4ed484e6f509",
    "source": "docs/roadmap.md",
    "source_hash": "e5fcddc9022d",
    "title": "Roadmap",

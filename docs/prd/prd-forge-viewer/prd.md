@@ -4,11 +4,11 @@ kind: prd
 schema: prd-forge/prd-root@1
 title: PRD Forge Viewer PRD
 status: draft
-updated: 2026-11-01
+updated: 2026-11-04
 domain: software product management
 product: PRD Forge Viewer
 slug: prd-forge-viewer
-version: 0.7.1
+version: 0.7.2
 owner: Richard Hightower
 stakeholders:
   - Engineering lead (PER-003)
@@ -17,7 +17,8 @@ stakeholders:
 created: 2026-10-26
 golden_thread: J-001
 primary_persona: PER-001
-approvers: [PER-004]
+approvers:
+  - { name: Richard Hightower, role: "Sponsor (PER-004)", persona: PER-004 }
 summary:
   problem: >-
     A PRD Forge set is 18 linked files. Authors cannot read it as one document
@@ -51,7 +52,7 @@ links:
     - { id: prd-forge-viewer-nfr, kind: nonfunctional-requirements, path: ./09-nonfunctional-requirements.md, title: Non-functional requirements, section: 8, order: 90, status: final }
     - { id: prd-forge-viewer-constraints, kind: constraints, path: ./10-constraints.md, title: Constraints, section: 9, order: 100, status: final }
     - { id: prd-forge-viewer-decision-rights, kind: decision-rights, path: ./11-decision-rights.md, title: Decision rights, section: 10, order: 110, status: final }
-    - { id: prd-forge-viewer-ard, kind: assumptions-risks-dependencies, path: ./12-assumptions-risks-dependencies.md, title: Assumptions, risks, and dependencies, section: 11, order: 120, status: review }
+    - { id: prd-forge-viewer-ard, kind: assumptions-risks-dependencies, path: ./12-assumptions-risks-dependencies.md, title: "Assumptions, risks, and dependencies", section: 11, order: 120, status: review }
     - { id: prd-forge-viewer-open-questions, kind: open-questions, path: ./13-open-questions.md, title: Open questions, section: 12, order: 130, status: draft }
     - { id: prd-forge-viewer-release-plan, kind: release-plan, path: ./14-release-plan.md, title: Release plan, section: 13, order: 140, status: review }
     - { id: prd-forge-viewer-glossary, kind: glossary, path: ./15-glossary.md, title: Glossary, section: 14, order: 150, status: draft }
@@ -91,9 +92,59 @@ days of sending a version, by 2027-03-31.
 
 ## Details
 
-Every item in this document, with each of its fields.
+What an approver needs from every section, then each field of this document.
 
-**Version:** 0.7.1
+### Scope
+
+**In scope:**
+
+- IN-001: Open a PRD set and see the product name, the version, the executive summary, and the status of every document. The next session opens the same PRD set.
+- IN-002: See the status, score, count of blocking defects, and grade date of every section in one view.
+- IN-003: Go directly to any section and read it.
+- IN-004: Search the PRD set by term, in one or more categories or in all, and see the best matches first.
+- IN-005: See each change that the authoring tools make to a section, without any action from the author.
+- IN-006: Export the whole PRD set or selected sections as a fixed-layout document or an editable document, or print it. The fixed-layout document is PDF (ISO 32000). The editable document is a .docx file (ISO/IEC 29500). The readers already open these formats without installing anything (A-001). The export shows the version and the status of the PRD and of each section.
+- IN-007: Select an export theme. The viewer includes the built-in themes, and the author can make, change, and delete custom themes.
+- IN-008: Export only the sections that a developer selects.
+
+**Out of scope:**
+
+- OUT-001: Editing the text of a section in the viewer (Q-005).
+- OUT-002: Showing the findings behind each grade, such as what is missing and what to improve (Q-004).
+- OUT-003: Operating systems other than macOS. Release 1 runs on macOS only, on the only test computer, an Apple silicon Mac with 16 GB of memory. The PRD owner decided this on item ADV-03 of the HLD review (change log, version 0.3.2).
+- OUT-004: A larger or smaller text size, search results kept in view while reading, and links between a requirement and the backlog stories that build it.
+
+### Sections
+
+| Section | Title | Status | Grade | Blocking |
+| --- | --- | --- | --- | --- |
+| 1 | Problem and opportunity | final | 83/100 | — |
+| 2 | Target customer and market | final | 85/100 | — |
+| 3 | Objectives and success metrics | final | 83/100 | — |
+| 4 | Users and personas | final | 86/100 | — |
+| 5 | User journeys | final | 90/100 | — |
+| 5 | Scenarios | final | 81/100 | — |
+| 6 | Scope | final | 92/100 | — |
+| 7 | Functional requirements | final | 81/100 | — |
+| 7 | Wireframes | final | 97/100 | — |
+| 8 | Non-functional requirements | final | 82/100 | — |
+| 9 | Constraints | final | 85/100 | — |
+| 10 | Decision rights | final | 88/100 | — |
+| 11 | Assumptions, risks, and dependencies | review | 96/100 | — |
+| 12 | Open questions | draft | — | — |
+| 13 | Release plan | review | 96/100 | — |
+| 14 | Glossary | draft | — | — |
+| 15 | Change log | draft | — | — |
+
+### Undecided
+
+Nothing is undecided.
+
+### Blocking defects
+
+None.
+
+**Version:** 0.7.2
 
 **Owner:** Richard Hightower
 
@@ -109,7 +160,11 @@ Every item in this document, with each of its fields.
 
 **Primary persona:** PER-001
 
-**Approvers:** PER-004
+**Approvers:**
+
+- **Name:** Richard Hightower
+  - **Role:** Sponsor (PER-004)
+  - **Persona:** PER-004
 
 **Summary:**
 

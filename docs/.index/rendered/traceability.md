@@ -2,6 +2,11 @@
 
 _The evidence chain: plan → item → ticket → code → release, forward and backward. Generated from `docs/.index/_graph.json`; do not edit._
 
+### Name the PRD approver and fix the section 11 title for PRD Forge 0.14.0
+`01M6KHDYPXF2TG6D3ABM1E0EDF` · status: done
+- lands-in: pr/226
+- references: [github#225](https://github.com/SpillwaveSolutions/prd-forge-viewer/issues/225)
+
 ### Release 0.4.1
 `01M6HSF2R3GJX2PD58QDQQQSFQ` · status: done
 - lands-in: pr/221
