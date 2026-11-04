@@ -87,6 +87,32 @@ fn text_of(v: &serde_yaml::Value) -> String {
     }
 }
 
+fn field_text(item: &serde_yaml::Value, key: &str) -> Option<String> {
+    let text = text_of(item.get(key)?).trim().to_string();
+    (!text.is_empty()).then_some(text)
+}
+
+/// Each objective in an objectives-metrics document: its id and its sentence.
+fn defined_objectives(path: &Path) -> Vec<(String, String)> {
+    let Ok(text) = fs::read_to_string(path) else { return Vec::new() };
+    let Some((yaml, _)) = split_front_matter(&text) else { return Vec::new() };
+    let Ok(value) = serde_yaml::from_str::<serde_yaml::Value>(&yaml) else { return Vec::new() };
+    let Some(seq) = value.get("objectives").and_then(|v| v.as_sequence()) else { return Vec::new() };
+    seq.iter().filter_map(|item| Some((field_text(item, "id")?, field_text(item, "objective")?))).collect()
+}
+
+/// `summary.objective` is an objective id. Show that objective's sentence.
+/// Item headings and search results keep the id with the text; a summary line is
+/// a sentence, so the id follows in parentheses. An id this set does not define,
+/// or a value that is already prose, stays as written.
+fn objective_text(raw: String, objectives: &[(String, String)]) -> String {
+    let id = raw.trim();
+    match objectives.iter().find(|(k, _)| k == id) {
+        Some((_, sentence)) => format!("{sentence} ({id})"),
+        None => raw,
+    }
+}
+
 /// Read a PRD set: the root prd.md first, then each child of its links in `order` (C-003, FR-001, FR-003).
 pub fn load_set(dir: &Path) -> Result<PrdSet, LoadError> {
     let root_path = dir.join("prd.md");
@@ -94,20 +120,20 @@ pub fn load_set(dir: &Path) -> Result<PrdSet, LoadError> {
         return Err(LoadError::NoRoot(dir.to_path_buf()));
     }
     let root = read_header(&root_path).map_err(LoadError::UnreadableRoot)?;
-    let summary = root
-        .summary
-        .iter()
-        .flatten()
-        .filter_map(|(k, v)| Some(SummaryItem { label: label(k.as_str()?), text: text_of(v) }))
-        .collect();
     let mut children = root.links.clone().unwrap_or_default().children;
     children.sort_by_key(|c| c.order.unwrap_or(u32::MAX));
     let mut documents = vec![entry("prd.md".into(), &root, 0)];
+    let mut objectives = Vec::new();
     for child in children {
         let file = child.path.trim_start_matches("./").to_string();
         let order = child.order.unwrap_or(0);
         documents.push(match read_header(&dir.join(&file)) {
-            Ok(h) => entry(file, &h, order),
+            Ok(h) => {
+                if h.kind == "objectives-metrics" {
+                    objectives.extend(defined_objectives(&dir.join(&file)));
+                }
+                entry(file, &h, order)
+            }
             Err(why) => DocEntry {
                 file,
                 title: child.title,
@@ -119,6 +145,17 @@ pub fn load_set(dir: &Path) -> Result<PrdSet, LoadError> {
             },
         });
     }
+    let summary = root
+        .summary
+        .iter()
+        .flatten()
+        .filter_map(|(k, v)| {
+            let key = k.as_str()?;
+            let raw = text_of(v);
+            let text = if key == "objective" { objective_text(raw, &objectives) } else { raw };
+            Some(SummaryItem { label: label(key), text })
+        })
+        .collect();
     Ok(PrdSet {
         folder: dir.display().to_string(),
         product: root.product.clone().unwrap_or_else(|| root.title.clone()),
