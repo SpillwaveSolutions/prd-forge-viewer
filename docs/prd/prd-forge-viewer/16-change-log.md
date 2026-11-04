@@ -4,7 +4,7 @@ kind: change-log
 schema: prd-forge/change-log@1
 title: Change log
 status: draft
-updated: 2026-11-01
+updated: 2026-11-04
 domain: software product management
 section: 15
 order: 160
@@ -236,6 +236,20 @@ changes:
       - name: Richard Hightower
         role: Sponsor (PER-004)
         date: 2026-11-01
+        decision: approved
+  - version: 0.7.2
+    date: 2026-11-04
+    author: Richard Hightower
+    summary: >-
+      The owner names the approver. Richard Hightower is the only approver so
+      far, in the sponsor role (PER-004). The root now lists the approver by
+      name and role. The root's title for section 11 is quoted, so it reads
+      "Assumptions, risks, and dependencies", the same as its document.
+    sections: [11]
+    approvals:
+      - name: Richard Hightower
+        role: Sponsor (PER-004)
+        date: 2026-11-04
         decision: approved
 links:
   parent: { id: prd-forge-viewer, kind: prd, path: ./prd.md, title: PRD Forge Viewer PRD }
@@ -660,6 +674,23 @@ Every item in this document, with each of its fields.
 - **Name:** Richard Hightower
   - **Role:** Sponsor (PER-004)
   - **Date:** 2026-11-01
+  - **Decision:** approved
+
+### 0.7.2
+
+**Summary:** The owner names the approver. Richard Hightower is the only approver so far, in the sponsor role (PER-004). The root now lists the approver by name and role. The root's title for section 11 is quoted, so it reads "Assumptions, risks, and dependencies", the same as its document.
+
+**Date:** 2026-11-04
+
+**Author:** Richard Hightower
+
+**Sections:** 11
+
+**Approvals:**
+
+- **Name:** Richard Hightower
+  - **Role:** Sponsor (PER-004)
+  - **Date:** 2026-11-04
   - **Decision:** approved
 
 <!-- /prd-forge:details -->

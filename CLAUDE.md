@@ -82,7 +82,7 @@ without the owner.
   C-002 is retired. The PRD owner revisits editing on 2026-11-06.
 - Release 1 (REL-001, 2026-11-06) covers FR-001 to FR-024, except FR-006. Release 2
   (REL-002, 2026-11-06) covers FR-025 (grade findings), FR-026 (text size), FR-027
-  (search kept in view), and FR-028 (links between the PRD and its backlog). PRD 0.7.1.
+  (search kept in view), and FR-028 (links between the PRD and its backlog). PRD 0.7.2.
 - Always update the PRD, through the prd-wizard skill, when the viewer gets a new
   requirement.
 - Every export shows "Draft" until every document is `final` (TR-005).
