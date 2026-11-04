@@ -10,9 +10,11 @@ wiki_key: guide/05-live-updates
 When the authoring tools save a document of the open set, the window shows the
 change within 2 seconds. You do not have to do anything.
 
-The viewer watches the documents in the set folder. It does not watch the
-files in subfolders, for example `grades/` or `diagrams/`. It does not watch
-the backlog folder. To see a change to a backlog document, open the set again.
+The viewer watches the documents in the set folder. When the set has a
+backlog, the viewer also watches the documents in the backlog folder. A save
+in the backlog folder updates the **Backlog** list on the overview and the
+open backlog document. The viewer does not watch the files in subfolders, for
+example `grades/` or `diagrams/`.
 
 ## What changes in the window
 

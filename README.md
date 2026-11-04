@@ -25,8 +25,8 @@ With the viewer, you can:
 The viewer shows only local content. No script in a document runs, and no
 remote image loads.
 
-Release 0.4.0 covers release 1 (REL-001) of the PRD, FR-001 to FR-024 except
-FR-006, and release 2 (REL-002), FR-025 to FR-028. It follows PRD 0.7.0. For the full list of changes, see [CHANGELOG.md](CHANGELOG.md).
+Release 0.4.1 covers release 1 (REL-001) of the PRD, FR-001 to FR-024 except
+FR-006, and release 2 (REL-002), FR-025 to FR-028. It follows PRD 0.7.1. For the full list of changes, see [CHANGELOG.md](CHANGELOG.md).
 
 ## User guide
 
@@ -37,8 +37,8 @@ the viewer.
 
 The release has one disk image for Macs with Apple silicon.
 
-1. Download `PRD.Forge.Viewer_0.4.0_aarch64.dmg` from the
-   [v0.4.0 release](https://github.com/SpillwaveSolutions/prd-forge-viewer/releases/tag/v0.4.0).
+1. Download `PRD.Forge.Viewer_0.4.1_aarch64.dmg` from the
+   [v0.4.1 release](https://github.com/SpillwaveSolutions/prd-forge-viewer/releases/tag/v0.4.1).
 2. Open the disk image.
 3. Move **PRD Forge Viewer** to the **Applications** folder.
 4. Start **PRD Forge Viewer**. Its icon is a PRD page with four colored
@@ -93,6 +93,18 @@ bun run test:e2e
 The end-to-end command builds a debug app with the tauri MCP bridge. Then it
 runs each check file in `e2e/checks/` against the real app, and reads back each
 exported file.
+
+The app runs in a hidden window, and the checks send keys in the page. The
+checks do not take your screen or your keyboard, and you can use the Mac while
+they run. The check of the macOS print panel needs real key presses, and it
+runs only when you set `PFV_E2E_KEYS=real`:
+
+```bash
+PFV_E2E_KEYS=real bun run test:e2e
+```
+
+With `PFV_E2E_KEYS=real`, the app window comes to the front. Do not use the
+keyboard while the checks run.
 
 ## Known limits
 

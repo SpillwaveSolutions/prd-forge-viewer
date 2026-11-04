@@ -56,6 +56,9 @@ sections. The selected documents follow the first page, in reading order.
 
 - A section with the status `pending` shows "This section is not written yet."
 - A section that the viewer cannot read shows "This section cannot be read."
+- A paragraph that wraps across lines in the markdown file shows as one
+  paragraph. A line that ends with two spaces or a backslash starts a new
+  line.
 - A diagram shows as a picture, with its alt text as a caption below it.
 - The details block does not show.
 - The text sketch of a wireframe does not show when the export can read its
