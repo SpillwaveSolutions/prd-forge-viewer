@@ -9,37 +9,37 @@ _The evidence chain: plan → item → ticket → code → release, forward and 
 - produced-by: [[Plan-professional-print-layout]]
 
 ### Export prd-forge and check the rendered pages
-`01M7JYNEECM7V957HNK5G96QV5` · status: todo
+`01M7JYNEECM7V957HNK5G96QV5` · status: in_progress
 - belongs-to: Professional print layout for PDF and Word export
 - references: [github#233](https://github.com/SpillwaveSolutions/prd-forge-viewer/issues/233)
 - produced-by: [[Plan-professional-print-layout]]
 
 ### Add FR-010 and FR-011 acceptance criteria for page numbers and section pages
-`01M7JYNEECM7V957HNK5G96QV3` · status: todo
+`01M7JYNEECM7V957HNK5G96QV3` · status: done
 - belongs-to: Professional print layout for PDF and Word export
 - references: [github#232](https://github.com/SpillwaveSolutions/prd-forge-viewer/issues/232)
 - produced-by: [[Plan-professional-print-layout]]
 
 ### Title-case a lowercase product name in the export title
-`01M7JYNEEB98P8ZRP6935B5AR8` · status: todo
+`01M7JYNEEB98P8ZRP6935B5AR8` · status: done
 - belongs-to: Professional print layout for PDF and Word export
 - references: [github#231](https://github.com/SpillwaveSolutions/prd-forge-viewer/issues/231)
 - produced-by: [[Plan-professional-print-layout]]
 
 ### Apply the same page layout to the Word export
-`01M7JYNEEB98P8ZRP6935B5AR6` · status: todo
+`01M7JYNEEB98P8ZRP6935B5AR6` · status: done
 - belongs-to: Professional print layout for PDF and Word export
 - references: [github#230](https://github.com/SpillwaveSolutions/prd-forge-viewer/issues/230)
 - produced-by: [[Plan-professional-print-layout]]
 
 ### Design the print stylesheet for the PDF export
-`01M7JYNEEAE60FVW4Z9HH8SAX9` · status: todo
+`01M7JYNEEAE60FVW4Z9HH8SAX9` · status: done
 - belongs-to: Professional print layout for PDF and Word export
 - references: [github#229](https://github.com/SpillwaveSolutions/prd-forge-viewer/issues/229)
 - produced-by: [[Plan-professional-print-layout]]
 
 ### Professional print layout for PDF and Word export
-`01M7JYNEDBP6V12CES431GFAF6` · status: todo
+`01M7JYNEDBP6V12CES431GFAF6` · status: in_progress
 - references: [github#228](https://github.com/SpillwaveSolutions/prd-forge-viewer/issues/228)
 - contains: Design the print stylesheet for the PDF export
 - contains: Apply the same page layout to the Word export

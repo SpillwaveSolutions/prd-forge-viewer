@@ -41,3 +41,18 @@ test("a_missing_font_file_is_an_error_not_an_html_page", async () => {
         globalThis.fetch = real;
     }
 });
+
+test("a_whole_export_has_a_cover_a_footer_with_page_numbers_and_a_page_per_section", () => {
+    const doc = "# Product PRD\n\nVersion 1.0\n\n## Executive summary\n\nText.\n\n# Scope\n\nScope text.\n";
+    const html = renderThemedHtml(doc, CLAY, "Product PRD", "", new Map(), 'Product "PRD", version 1.0</style>');
+    expect(html).toContain("size: Letter");
+    expect(html).toContain('counter(page) " of " counter(pages)');
+    expect(html).toMatch(/h1 \{ break-before: page; \}/);
+    expect(html).toMatch(/<header class="cover">\n<h1>Product PRD<\/h1>[\s\S]*<\/header>\n<h2>Executive summary/);
+    // The footer text cannot end the CSS string or the style element.
+    expect(html).toContain('content: "Product \\22 PRD\\22 , version 1.0\\3c /style\\3e "');
+});
+
+test("a_page_without_a_footer_has_no_cover", () => {
+    expect(renderThemedHtml(md, CLAY, "PRD", "")).not.toContain('class="cover"');
+});

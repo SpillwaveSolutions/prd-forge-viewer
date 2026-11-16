@@ -1,6 +1,6 @@
 # Title-case a lowercase product name in the export title
 
-`01M7JYNEEB98P8ZRP6935B5AR8` · task/feature · **open**
+`01M7JYNEEB98P8ZRP6935B5AR8` · task/feature · **done**
 
 prd-forge becomes PRD Forge.
 

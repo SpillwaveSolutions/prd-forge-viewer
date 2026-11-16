@@ -5120,32 +5120,32 @@
   },
   "item/01M7JYNEDBP6V12CES431GFAF6": {
    "doc_type": "item",
-   "status": "todo",
+   "status": "in_progress",
    "title": "Professional print layout for PDF and Word export"
   },
   "item/01M7JYNEEAE60FVW4Z9HH8SAX9": {
    "doc_type": "item",
-   "status": "todo",
+   "status": "done",
    "title": "Design the print stylesheet for the PDF export"
   },
   "item/01M7JYNEEB98P8ZRP6935B5AR6": {
    "doc_type": "item",
-   "status": "todo",
+   "status": "done",
    "title": "Apply the same page layout to the Word export"
   },
   "item/01M7JYNEEB98P8ZRP6935B5AR8": {
    "doc_type": "item",
-   "status": "todo",
+   "status": "done",
    "title": "Title-case a lowercase product name in the export title"
   },
   "item/01M7JYNEECM7V957HNK5G96QV3": {
    "doc_type": "item",
-   "status": "todo",
+   "status": "done",
    "title": "Add FR-010 and FR-011 acceptance criteria for page numbers and section pages"
   },
   "item/01M7JYNEECM7V957HNK5G96QV5": {
    "doc_type": "item",
-   "status": "todo",
+   "status": "in_progress",
    "title": "Export prd-forge and check the rendered pages"
   },
   "item/01M7JYNEECM7V957HNK5G96QV7": {

@@ -3,6 +3,18 @@ import type { DocEntry, PrdSet, Section } from "./types";
 
 const cell = (s: string) => s.replace(/\|/g, "\\|").replace(/\n/g, " ");
 
+const ACRONYMS = new Set(["prd", "api", "ui", "ai"]);
+
+/** A slug such as "prd-forge" as a title, "PRD Forge". A name that has a capital letter is already a title, and stays as written. */
+export function displayName(product: string): string {
+    if (/[A-Z]/.test(product)) return product;
+    return product
+        .split(/[-_\s]+/)
+        .filter(Boolean)
+        .map((w) => (ACRONYMS.has(w) ? w.toUpperCase() : w[0]!.toUpperCase() + w.slice(1)))
+        .join(" ");
+}
+
 /** Why the export shows "Draft", or null when the root and every section are final (TR-005). */
 export function draftReason(documents: readonly DocEntry[]): string | null {
     const open = documents.filter((d) => d.status !== "final").length;
@@ -21,7 +33,7 @@ export function buildExport(set: PrdSet, bodies: ReadonlyMap<string, Section>, s
     const docs = [...set.documents].sort((a, b) => a.order - b.order);
     const draft = draftReason(docs);
     const first = [
-        `# ${set.product} PRD`,
+        `# ${displayName(set.product)} PRD`,
         `Version ${set.version}`,
         ...(draft ? [`**Draft.** ${draft} The mark goes away when every document is final.`] : []),
         "## Executive summary",

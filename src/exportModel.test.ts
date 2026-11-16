@@ -1,5 +1,5 @@
 import { expect, test } from "bun:test";
-import { buildExport, draftReason } from "./exportModel";
+import { buildExport, displayName, draftReason } from "./exportModel";
 import { doc, sampleSet } from "./fixtures";
 import type { Section } from "./types";
 
@@ -91,4 +91,11 @@ test("fr_019_grades_are_left_out_by_default", () => {
 test("fr_019_grades_show_when_the_author_includes_them", () => {
     const contents = buildExport(set, bodies, null, { grades: true }).slice(0);
     expect(contents).toContain("| Section | Status | Score | Blocking defects |");
+});
+
+test("a_lowercase_slug_is_title_cased_and_a_title_is_kept", () => {
+    expect(displayName("prd-forge")).toBe("PRD Forge");
+    expect(displayName("snugg_pro api")).toBe("Snugg Pro API");
+    expect(displayName("PRD Forge Viewer")).toBe("PRD Forge Viewer");
+    expect(buildExport({ ...set, product: "prd-forge" }, bodies, null)).toStartWith("# PRD Forge PRD\n");
 });

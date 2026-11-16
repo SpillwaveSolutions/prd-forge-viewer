@@ -1,6 +1,6 @@
 # Apply the same page layout to the Word export
 
-`01M7JYNEEB98P8ZRP6935B5AR6` · task/feature · **open**
+`01M7JYNEEB98P8ZRP6935B5AR6` · task/feature · **done**
 
 Letter page, footer with page numbers, page break before each section, rows that do not split.
 

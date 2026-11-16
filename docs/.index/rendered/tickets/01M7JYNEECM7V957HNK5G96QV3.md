@@ -1,6 +1,6 @@
 # Add FR-010 and FR-011 acceptance criteria for page numbers and section pages
 
-`01M7JYNEECM7V957HNK5G96QV3` · task/feature · **open**
+`01M7JYNEECM7V957HNK5G96QV3` · task/feature · **done**
 
 Add FR-010 and FR-011 acceptance criteria for page numbers and section pages
 

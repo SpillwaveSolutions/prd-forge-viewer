@@ -1,6 +1,6 @@
 # Design the print stylesheet for the PDF export
 
-`01M7JYNEEAE60FVW4Z9HH8SAX9` · task/feature · **open**
+`01M7JYNEEAE60FVW4Z9HH8SAX9` · task/feature · **done**
 
 Letter page box, footer with page numbers, cover page, page break before each section, diagrams kept with their headings and tables.
 

@@ -1,5 +1,5 @@
 {
- "git_hash": "be3dfbe",
+ "git_hash": "1396902",
  "pages": [
   {
    "frozen": false,
@@ -15,7 +15,7 @@
    "frozen": false,
    "page_name": "Index-Decisions",
    "render": "as-is",
-   "render_hash": "c9b1c5ec35c5",
+   "render_hash": "ee4fe8386038",
    "source": "docs/.index/rendered/decisions.md",
    "title": "Decisions Index",
    "truth_state": "current",
@@ -45,7 +45,7 @@
    "frozen": false,
    "page_name": "Index-Traceability",
    "render": "as-is",
-   "render_hash": "d7c0dd4edf93",
+   "render_hash": "a6a64c5a2a68",
    "source": "docs/.index/rendered/traceability.md",
    "title": "Traceability Index",
    "truth_state": "current",
@@ -2445,60 +2445,60 @@
    "frozen": false,
    "page_name": "Ticket-01M7JYNEDBP6V12CES431GFAF6",
    "render": "as-is",
-   "render_hash": "1fbf18cddfa5",
+   "render_hash": "22b7f6efc073",
    "source": "docs/.index/rendered/tickets/01M7JYNEDBP6V12CES431GFAF6.md",
    "title": "Professional print layout for PDF and Word export",
-   "truth_state": "open",
+   "truth_state": "in-progress",
    "wiki_key": "item/01M7JYNEDBP6V12CES431GFAF6"
   },
   {
    "frozen": false,
    "page_name": "Ticket-01M7JYNEEAE60FVW4Z9HH8SAX9",
    "render": "as-is",
-   "render_hash": "2a1f37b8544d",
+   "render_hash": "224ce597ba88",
    "source": "docs/.index/rendered/tickets/01M7JYNEEAE60FVW4Z9HH8SAX9.md",
    "title": "Design the print stylesheet for the PDF export",
-   "truth_state": "open",
+   "truth_state": "done",
    "wiki_key": "item/01M7JYNEEAE60FVW4Z9HH8SAX9"
   },
   {
    "frozen": false,
    "page_name": "Ticket-01M7JYNEEB98P8ZRP6935B5AR6",
    "render": "as-is",
-   "render_hash": "2f2761aa4d09",
+   "render_hash": "5c5f02bf380d",
    "source": "docs/.index/rendered/tickets/01M7JYNEEB98P8ZRP6935B5AR6.md",
    "title": "Apply the same page layout to the Word export",
-   "truth_state": "open",
+   "truth_state": "done",
    "wiki_key": "item/01M7JYNEEB98P8ZRP6935B5AR6"
   },
   {
    "frozen": false,
    "page_name": "Ticket-01M7JYNEEB98P8ZRP6935B5AR8",
    "render": "as-is",
-   "render_hash": "c2923a708b96",
+   "render_hash": "32889e96581b",
    "source": "docs/.index/rendered/tickets/01M7JYNEEB98P8ZRP6935B5AR8.md",
    "title": "Title-case a lowercase product name in the export title",
-   "truth_state": "open",
+   "truth_state": "done",
    "wiki_key": "item/01M7JYNEEB98P8ZRP6935B5AR8"
   },
   {
    "frozen": false,
    "page_name": "Ticket-01M7JYNEECM7V957HNK5G96QV3",
    "render": "as-is",
-   "render_hash": "d3791d12f5c6",
+   "render_hash": "f0bd8e4a4840",
    "source": "docs/.index/rendered/tickets/01M7JYNEECM7V957HNK5G96QV3.md",
    "title": "Add FR-010 and FR-011 acceptance criteria for page numbers and section pages",
-   "truth_state": "open",
+   "truth_state": "done",
    "wiki_key": "item/01M7JYNEECM7V957HNK5G96QV3"
   },
   {
    "frozen": false,
    "page_name": "Ticket-01M7JYNEECM7V957HNK5G96QV5",
    "render": "as-is",
-   "render_hash": "d0d3c4ebd94d",
+   "render_hash": "b543fae640d1",
    "source": "docs/.index/rendered/tickets/01M7JYNEECM7V957HNK5G96QV5.md",
    "title": "Export prd-forge and check the rendered pages",
-   "truth_state": "open",
+   "truth_state": "in-progress",
    "wiki_key": "item/01M7JYNEECM7V957HNK5G96QV5"
   },
   {
@@ -2836,11 +2836,11 @@
    "wiki_key": "plan/2026-10-31-plan-10-prd-findings-backlog"
   },
   {
-   "banner": "> **Current** \u2014 plan not yet started; plans are frozen once written, a changed design gets a new plan.",
+   "banner": "> **Current** \u2014 plan in flight; plans are frozen once written, a changed design gets a new plan.",
    "frozen": true,
    "page_name": "Plan-professional-print-layout",
    "render": "doc+banner",
-   "render_hash": "2a134e8817b4",
+   "render_hash": "3caa3c261760",
    "source": "docs/plans/2026-11-16-professional-print-layout.md",
    "source_hash": "322938439378",
    "title": "Professional print layout for PDF and Word export",
@@ -2848,13 +2848,13 @@
    "wiki_key": "plan/2026-11-16-professional-print-layout"
   },
   {
-   "banner": "> **Current** \u2014 this is the living version; regenerated at 2026-11-16T19:53:05Z. Historical snapshots are linked from [[Index-Releases]].",
+   "banner": "> **Current** \u2014 this is the living version; regenerated at 2026-11-16T19:58:24Z. Historical snapshots are linked from [[Index-Releases]].",
    "frozen": false,
    "page_name": "Roadmap",
    "render": "doc+banner",
-   "render_hash": "6750e3fd7774",
+   "render_hash": "1b229ab5dc08",
    "source": "docs/roadmap.md",
-   "source_hash": "733074f9d2bb",
+   "source_hash": "f400b2b02b14",
    "title": "Roadmap",
    "truth_state": "current",
    "wiki_key": "roadmap"
