@@ -3006,9 +3006,19 @@
    "type": "references"
   },
   {
+   "from": "item/01M7JYNEDBP6V12CES431GFAF6",
+   "to": "ticket/github#228",
+   "type": "references"
+  },
+  {
    "from": "item/01M7JYNEEAE60FVW4Z9HH8SAX9",
    "to": "item/01M7JYNEDBP6V12CES431GFAF6",
    "type": "belongs-to"
+  },
+  {
+   "from": "item/01M7JYNEEAE60FVW4Z9HH8SAX9",
+   "to": "ticket/github#229",
+   "type": "references"
   },
   {
    "from": "item/01M7JYNEEB98P8ZRP6935B5AR6",
@@ -3016,9 +3026,19 @@
    "type": "belongs-to"
   },
   {
+   "from": "item/01M7JYNEEB98P8ZRP6935B5AR6",
+   "to": "ticket/github#230",
+   "type": "references"
+  },
+  {
    "from": "item/01M7JYNEEB98P8ZRP6935B5AR8",
    "to": "item/01M7JYNEDBP6V12CES431GFAF6",
    "type": "belongs-to"
+  },
+  {
+   "from": "item/01M7JYNEEB98P8ZRP6935B5AR8",
+   "to": "ticket/github#231",
+   "type": "references"
   },
   {
    "from": "item/01M7JYNEECM7V957HNK5G96QV3",
@@ -3026,14 +3046,29 @@
    "type": "belongs-to"
   },
   {
+   "from": "item/01M7JYNEECM7V957HNK5G96QV3",
+   "to": "ticket/github#232",
+   "type": "references"
+  },
+  {
    "from": "item/01M7JYNEECM7V957HNK5G96QV5",
    "to": "item/01M7JYNEDBP6V12CES431GFAF6",
    "type": "belongs-to"
   },
   {
+   "from": "item/01M7JYNEECM7V957HNK5G96QV5",
+   "to": "ticket/github#233",
+   "type": "references"
+  },
+  {
    "from": "item/01M7JYNEECM7V957HNK5G96QV7",
    "to": "item/01M7JYNEDBP6V12CES431GFAF6",
    "type": "belongs-to"
+  },
+  {
+   "from": "item/01M7JYNEECM7V957HNK5G96QV7",
+   "to": "ticket/github#234",
+   "type": "references"
   },
   {
    "from": "plan/2026-10-28-plan-1-open-and-grades",
@@ -5725,9 +5760,37 @@
    "doc_type": "ticket",
    "url": "https://github.com/SpillwaveSolutions/prd-forge-viewer/issues/227"
   },
+  "ticket/github#228": {
+   "doc_type": "ticket",
+   "url": "https://github.com/SpillwaveSolutions/prd-forge-viewer/issues/228"
+  },
+  "ticket/github#229": {
+   "doc_type": "ticket",
+   "url": "https://github.com/SpillwaveSolutions/prd-forge-viewer/issues/229"
+  },
   "ticket/github#23": {
    "doc_type": "ticket",
    "url": "https://github.com/SpillwaveSolutions/prd-forge-viewer/issues/23"
+  },
+  "ticket/github#230": {
+   "doc_type": "ticket",
+   "url": "https://github.com/SpillwaveSolutions/prd-forge-viewer/issues/230"
+  },
+  "ticket/github#231": {
+   "doc_type": "ticket",
+   "url": "https://github.com/SpillwaveSolutions/prd-forge-viewer/issues/231"
+  },
+  "ticket/github#232": {
+   "doc_type": "ticket",
+   "url": "https://github.com/SpillwaveSolutions/prd-forge-viewer/issues/232"
+  },
+  "ticket/github#233": {
+   "doc_type": "ticket",
+   "url": "https://github.com/SpillwaveSolutions/prd-forge-viewer/issues/233"
+  },
+  "ticket/github#234": {
+   "doc_type": "ticket",
+   "url": "https://github.com/SpillwaveSolutions/prd-forge-viewer/issues/234"
   },
   "ticket/github#24": {
    "doc_type": "ticket",

@@ -14,3 +14,7 @@ The PDF and Word exports have no page numbers, no footer, and no page margins af
 - [[Ticket-01M7JYNEECM7V957HNK5G96QV7]] Open the PR, merge on green, and cut release 0.5.0 — Open the PR, merge on green, and cut release 0.5.0 (open)
 
 Progress: 0/6 done
+
+## Related tickets
+
+- [github #228](https://github.com/SpillwaveSolutions/prd-forge-viewer/issues/228)
