@@ -531,13 +531,34 @@
    "wiki_key": "plan/2026-10-31-plan-10-prd-findings-backlog"
   },
   {
+   "canonical_key": "plan/2026-11-16-professional-print-layout",
+   "date": "2026-11-16",
+   "doc_type": "plan",
+   "epic": "01M7JYNEDBP6V12CES431GFAF6",
+   "git_hash": "4ce7c9104e24b12d4780e63ed2238782c7863dc4",
+   "items": [
+    "01M7JYNEEAE60FVW4Z9HH8SAX9",
+    "01M7JYNEEB98P8ZRP6935B5AR6",
+    "01M7JYNEEB98P8ZRP6935B5AR8",
+    "01M7JYNEECM7V957HNK5G96QV3",
+    "01M7JYNEECM7V957HNK5G96QV5",
+    "01M7JYNEECM7V957HNK5G96QV7"
+   ],
+   "slug": "professional-print-layout",
+   "source": "docs/plans/2026-11-16-professional-print-layout.md",
+   "status": "planned",
+   "title": "Professional print layout for PDF and Word export",
+   "truth_state": "current",
+   "wiki_key": "plan/2026-11-16-professional-print-layout"
+  },
+  {
    "canonical_key": "roadmap",
    "doc_type": "roadmap",
-   "generated_at": "2026-11-04T15:06:12Z",
-   "git_hash": "08f000d",
+   "generated_at": "2026-11-16T19:52:07Z",
+   "git_hash": "4ce7c91",
    "slug": "roadmap",
    "source": "docs/roadmap.md",
-   "source_hash": 75770150,
+   "source_hash": "0bd1b225",
    "title": "Roadmap",
    "truth_state": "current",
    "wiki": "https://github.com/SpillwaveSolutions/prd-forge-viewer/wiki/Roadmap",

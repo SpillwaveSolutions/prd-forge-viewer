@@ -3,3 +3,7 @@
 `01M6HNNFB76PGJKVMB2YYJ95N9` · task/bug · **in-progress**
 
 The executive summary prints summary.objective as written.
+
+## Related tickets
+
+- [github #227](https://github.com/SpillwaveSolutions/prd-forge-viewer/issues/227)
