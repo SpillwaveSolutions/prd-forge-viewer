@@ -35,11 +35,12 @@ test("the_html_shows_a_figure_with_a_caption_and_only_data_images", () => {
     expect(html).toContain("Gone");
 });
 
-test("the_png_size_is_read_and_fits_6_by_8_inches", () => {
+test("the_png_size_is_read_and_fits_6_inches_by_180_mm", () => {
     const size = pngSize(png);
     expect(size.width).toBeGreaterThan(0);
     expect(fitImage({ width: 1152, height: 400 })).toEqual({ width: 576, height: 200 });
-    expect(fitImage({ width: 300, height: 1536 })).toEqual({ width: 150, height: 768 });
+    // 680 px is the 180 mm diagram height of the PDF, so a section heading, a journey heading and the diagram share a page.
+    expect(fitImage({ width: 300, height: 1536 })).toEqual({ width: 133, height: 680 });
     expect(fitImage({ width: 100, height: 50 })).toEqual({ width: 100, height: 50 });
 });
 

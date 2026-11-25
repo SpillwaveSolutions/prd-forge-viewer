@@ -98,9 +98,9 @@ export function pngSize(png: Uint8Array): { width: number; height: number } {
     return { width: v.getUint32(16), height: v.getUint32(20) };
 }
 
-/** Scale down only, to fit 6.0 by 8.0 inches at 96 pixels an inch, as the PRD Forge exporter does. */
+/** Scale down only, to fit 6.0 inches wide and 180 mm high at 96 pixels an inch, the diagram height of the PDF, so a section heading, a journey heading and the diagram fit on one page. */
 export function fitImage(size: { width: number; height: number }): { width: number; height: number } {
-    const scale = Math.min(1, 576 / size.width, 768 / size.height);
+    const scale = Math.min(1, 576 / size.width, 680 / size.height);
     return { width: Math.round(size.width * scale), height: Math.round(size.height * scale) };
 }
 
