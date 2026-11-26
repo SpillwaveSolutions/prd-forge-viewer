@@ -27,7 +27,10 @@ export function draftReason(documents: readonly DocEntry[]): string | null {
  * says that the PRD is approved (TR-007), and a blocking defect never stops an export (TR-010).
  */
 /** What the author can change in an export. Grades are left out unless the author includes them (FR-019). */
-export type ExportOptions = { grades?: boolean; hasDrawing?: (path: string) => boolean };
+export type ExportOptions = { grades?: boolean; hasDrawing?: (path: string) => boolean; exported?: Date };
+
+/** The export date on the cover, in the American form, for example "November 25, 2026". */
+export const exportDate = (d: Date) => d.toLocaleDateString("en-US", { year: "numeric", month: "long", day: "numeric" });
 
 export function buildExport(set: PrdSet, bodies: ReadonlyMap<string, Section>, selected: ReadonlySet<string> | null, options: ExportOptions = {}): string {
     const docs = [...set.documents].sort((a, b) => a.order - b.order);
@@ -35,6 +38,7 @@ export function buildExport(set: PrdSet, bodies: ReadonlyMap<string, Section>, s
     const first = [
         `# ${displayName(set.product)} PRD`,
         `Version ${set.version}`,
+        ...(options.exported ? [`Exported ${exportDate(options.exported)}`] : []),
         ...(draft ? [`**Draft.** ${draft} The mark goes away when every document is final.`] : []),
         "## Executive summary",
         ...set.summary.map((s) => `**${s.label}.** ${s.text}`),

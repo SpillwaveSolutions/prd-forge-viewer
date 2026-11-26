@@ -99,3 +99,9 @@ test("a_lowercase_slug_is_title_cased_and_a_title_is_kept", () => {
     expect(displayName("PRD Forge Viewer")).toBe("PRD Forge Viewer");
     expect(buildExport({ ...set, product: "prd-forge" }, bodies, null)).toStartWith("# PRD Forge PRD\n");
 });
+
+test("the_cover_shows_the_export_date_after_the_version", () => {
+    const md = buildExport(set, bodies, null, { exported: new Date(2026, 10, 25) });
+    expect(md).toContain(`Version ${set.version}\n\nExported November 25, 2026\n`);
+    expect(buildExport(set, bodies, null)).not.toContain("Exported ");
+});

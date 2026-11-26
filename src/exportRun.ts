@@ -52,7 +52,7 @@ async function themedExport(set: PrdSet, selected: ReadonlySet<string>, options:
     const bodies = await collectBodies(set, selected, deps.read);
     // The images first, so a sketch stays in the export when its drawing cannot be read.
     const images = await loadImages([...bodies.values()].map((b) => b.body).join("\n"), deps.asset);
-    const markdown = buildExport(set, bodies, selected, { ...options, hasDrawing: (p) => images.has(p) });
+    const markdown = buildExport(set, bodies, selected, { exported: new Date(), ...options, hasDrawing: (p) => images.has(p) });
     const title = `${displayName(set.product)} PRD`;
     // The footer says "draft" on every page while the export is a draft (TR-005).
     const footer = `${title}, version ${set.version}${draftReason(set.documents) ? ", draft" : ""}`;
