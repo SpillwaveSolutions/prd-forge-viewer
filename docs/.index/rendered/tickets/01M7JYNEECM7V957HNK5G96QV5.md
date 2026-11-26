@@ -1,6 +1,6 @@
 # Export prd-forge and check the rendered pages
 
-`01M7JYNEECM7V957HNK5G96QV5` · task/feature · **in-progress**
+`01M7JYNEECM7V957HNK5G96QV5` · task/feature · **done**
 
 Export prd-forge and check the rendered pages
 

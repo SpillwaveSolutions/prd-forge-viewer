@@ -2,14 +2,22 @@
 
 _The evidence chain: plan → item → ticket → code → release, forward and backward. Generated from `docs/.index/_graph.json`; do not edit._
 
+### Show the export date on the export cover
+`01M8AP059YQ9G6JJ202A189SGK` · status: done
+- belongs-to: Professional print layout for PDF and Word export
+
+### Word diagrams use the 180 mm diagram height of the PDF
+`01M8AG9MM87RBN5CSCB9TDFZ44` · status: done
+- belongs-to: Professional print layout for PDF and Word export
+
 ### Open the PR, merge on green, and cut release 0.5.0
-`01M7JYNEECM7V957HNK5G96QV7` · status: todo
+`01M7JYNEECM7V957HNK5G96QV7` · status: in_progress
 - belongs-to: Professional print layout for PDF and Word export
 - references: [github#234](https://github.com/SpillwaveSolutions/prd-forge-viewer/issues/234)
 - produced-by: [[Plan-professional-print-layout]]
 
 ### Export prd-forge and check the rendered pages
-`01M7JYNEECM7V957HNK5G96QV5` · status: in_progress
+`01M7JYNEECM7V957HNK5G96QV5` · status: done
 - belongs-to: Professional print layout for PDF and Word export
 - references: [github#233](https://github.com/SpillwaveSolutions/prd-forge-viewer/issues/233)
 - produced-by: [[Plan-professional-print-layout]]
@@ -47,6 +55,8 @@ _The evidence chain: plan → item → ticket → code → release, forward and 
 - contains: Add FR-010 and FR-011 acceptance criteria for page numbers and section pages
 - contains: Export prd-forge and check the rendered pages
 - contains: Open the PR, merge on green, and cut release 0.5.0
+- contains: Word diagrams use the 180 mm diagram height of the PDF
+- contains: Show the export date on the export cover
 - produced-by: [[Plan-professional-print-layout]]
 
 ### Name the PRD approver and fix the section 11 title for PRD Forge 0.14.0
