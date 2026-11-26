@@ -1,5 +1,5 @@
 {
- "git_hash": "1396902",
+ "git_hash": "4afe45c",
  "pages": [
   {
    "frozen": false,
@@ -45,7 +45,7 @@
    "frozen": false,
    "page_name": "Index-Traceability",
    "render": "as-is",
-   "render_hash": "a6a64c5a2a68",
+   "render_hash": "b67ead40bf26",
    "source": "docs/.index/rendered/traceability.md",
    "title": "Traceability Index",
    "truth_state": "current",
@@ -2445,7 +2445,7 @@
    "frozen": false,
    "page_name": "Ticket-01M7JYNEDBP6V12CES431GFAF6",
    "render": "as-is",
-   "render_hash": "22b7f6efc073",
+   "render_hash": "a02c4a0e3b22",
    "source": "docs/.index/rendered/tickets/01M7JYNEDBP6V12CES431GFAF6.md",
    "title": "Professional print layout for PDF and Word export",
    "truth_state": "in-progress",
@@ -2495,21 +2495,41 @@
    "frozen": false,
    "page_name": "Ticket-01M7JYNEECM7V957HNK5G96QV5",
    "render": "as-is",
-   "render_hash": "b543fae640d1",
+   "render_hash": "7d98e702b93a",
    "source": "docs/.index/rendered/tickets/01M7JYNEECM7V957HNK5G96QV5.md",
    "title": "Export prd-forge and check the rendered pages",
-   "truth_state": "in-progress",
+   "truth_state": "done",
    "wiki_key": "item/01M7JYNEECM7V957HNK5G96QV5"
   },
   {
    "frozen": false,
    "page_name": "Ticket-01M7JYNEECM7V957HNK5G96QV7",
    "render": "as-is",
-   "render_hash": "169774423caf",
+   "render_hash": "dc9ab539902e",
    "source": "docs/.index/rendered/tickets/01M7JYNEECM7V957HNK5G96QV7.md",
    "title": "Open the PR, merge on green, and cut release 0.5.0",
-   "truth_state": "open",
+   "truth_state": "in-progress",
    "wiki_key": "item/01M7JYNEECM7V957HNK5G96QV7"
+  },
+  {
+   "frozen": false,
+   "page_name": "Ticket-01M8AG9MM87RBN5CSCB9TDFZ44",
+   "render": "as-is",
+   "render_hash": "53b3f31666c6",
+   "source": "docs/.index/rendered/tickets/01M8AG9MM87RBN5CSCB9TDFZ44.md",
+   "title": "Word diagrams use the 180 mm diagram height of the PDF",
+   "truth_state": "done",
+   "wiki_key": "item/01M8AG9MM87RBN5CSCB9TDFZ44"
+  },
+  {
+   "frozen": false,
+   "page_name": "Ticket-01M8AP059YQ9G6JJ202A189SGK",
+   "render": "as-is",
+   "render_hash": "c94f2d51046d",
+   "source": "docs/.index/rendered/tickets/01M8AP059YQ9G6JJ202A189SGK.md",
+   "title": "Show the export date on the export cover",
+   "truth_state": "done",
+   "wiki_key": "item/01M8AP059YQ9G6JJ202A189SGK"
   },
   {
    "banner": "> **Snapshot** of release v0.1.0 (2026-10-29) \u2014 frozen record. The current version is [[Code-Walkthrough]].",
@@ -2848,13 +2868,13 @@
    "wiki_key": "plan/2026-11-16-professional-print-layout"
   },
   {
-   "banner": "> **Current** \u2014 this is the living version; regenerated at 2026-11-16T19:58:24Z. Historical snapshots are linked from [[Index-Releases]].",
+   "banner": "> **Current** \u2014 this is the living version; regenerated at 2026-11-26T01:02:28Z. Historical snapshots are linked from [[Index-Releases]].",
    "frozen": false,
    "page_name": "Roadmap",
    "render": "doc+banner",
-   "render_hash": "1b229ab5dc08",
+   "render_hash": "8895b340ed87",
    "source": "docs/roadmap.md",
-   "source_hash": "f400b2b02b14",
+   "source_hash": "ecd09b75937d",
    "title": "Roadmap",
    "truth_state": "current",
    "wiki_key": "roadmap"

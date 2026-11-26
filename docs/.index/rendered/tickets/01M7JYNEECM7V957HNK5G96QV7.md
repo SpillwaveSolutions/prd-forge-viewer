@@ -1,6 +1,6 @@
 # Open the PR, merge on green, and cut release 0.5.0
 
-`01M7JYNEECM7V957HNK5G96QV7` · task/feature · **open**
+`01M7JYNEECM7V957HNK5G96QV7` · task/feature · **in-progress**
 
 Open the PR, merge on green, and cut release 0.5.0
 
