@@ -4,7 +4,7 @@ kind: change-log
 schema: prd-forge/change-log@1
 title: Change log
 status: draft
-updated: 2026-11-04
+updated: 2026-11-16
 domain: software product management
 section: 15
 order: 160
@@ -250,6 +250,22 @@ changes:
       - name: Richard Hightower
         role: Sponsor (PER-004)
         date: 2026-11-04
+        decision: approved
+  - version: 0.7.3
+    date: 2026-11-16
+    author: Richard Hightower
+    summary: >-
+      The owner asked for a professional page layout in exports. FR-010 and
+      FR-011 get one criterion each: the first page is a cover, each section
+      starts on a new page, and each later page shows the document name, the
+      version, the draft mark, and its page number with the total page count.
+      FR-014 gets one criterion: a product name in lower case with hyphens,
+      such as "prd-forge", shows as "PRD Forge" in the export title.
+    sections: [7]
+    approvals:
+      - name: Richard Hightower
+        role: Sponsor (PER-004)
+        date: 2026-11-16
         decision: approved
 links:
   parent: { id: prd-forge-viewer, kind: prd, path: ./prd.md, title: PRD Forge Viewer PRD }
@@ -691,6 +707,23 @@ Every item in this document, with each of its fields.
 - **Name:** Richard Hightower
   - **Role:** Sponsor (PER-004)
   - **Date:** 2026-11-04
+  - **Decision:** approved
+
+### 0.7.3
+
+**Summary:** The owner asked for a professional page layout in exports. FR-010 and FR-011 get one criterion each: the first page is a cover, each section starts on a new page, and each later page shows the document name, the version, the draft mark, and its page number with the total page count. FR-014 gets one criterion: a product name in lower case with hyphens, such as "prd-forge", shows as "PRD Forge" in the export title.
+
+**Date:** 2026-11-16
+
+**Author:** Richard Hightower
+
+**Sections:** 7
+
+**Approvals:**
+
+- **Name:** Richard Hightower
+  - **Role:** Sponsor (PER-004)
+  - **Date:** 2026-11-16
   - **Decision:** approved
 
 <!-- /prd-forge:details -->

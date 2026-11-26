@@ -35,3 +35,17 @@ test("the_document_has_a_title_and_a_table_header_row", async () => {
     expect(await part("docProps/core.xml")).toContain("<dc:title>PRD Forge Viewer PRD</dc:title>");
     expect(await part("word/document.xml")).toContain("<w:tblHeader/>");
 });
+
+test("a_whole_export_has_a_page_numbered_footer_and_a_page_per_section", async () => {
+    const whole = await JSZip.loadAsync(await exportDocx("# PRD\n\nVersion 1\n\n## Executive summary\n\nIntro:\n\n| A |\n| --- |\n| 1 |\n\n# Scope\n\nText\n", CLAY, "PRD", fonts, new Map(), "PRD, version 1"));
+    const files = Object.keys(whole.files).filter((f) => /^word\/footer\d*\.xml$/.test(f));
+    const footers = (await Promise.all(files.map((f) => whole.file(f)!.async("string")))).join("");
+    expect(footers).toContain("PRD, version 1");
+    expect(footers).toContain("NUMPAGES");
+    const doc = await whole.file("word/document.xml")!.async("string");
+    expect(doc).toContain("<w:titlePg/>");
+    expect(doc).toContain('w:w="12240"');
+    // The first page after the cover and the Scope section start on new pages.
+    expect(doc.match(/<w:pageBreakBefore\/>/g)?.length).toBe(2);
+    expect(doc).toContain("<w:cantSplit/>");
+});

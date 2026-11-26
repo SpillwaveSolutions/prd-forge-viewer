@@ -4,7 +4,7 @@ kind: functional-requirements
 schema: prd-forge/functional-requirements@1
 title: Functional requirements
 status: final
-updated: 2026-11-01
+updated: 2026-11-16
 domain: software product management
 section: 7
 order: 80
@@ -228,6 +228,12 @@ requirements:
         Given the author picks a folder where the file cannot be written, when
         the author exports the whole set as a fixed-layout document, then the
         author sees that the export was not done, with the reason.
+      - >-
+        Given a draft PRD set with 18 documents, when the author exports the
+        whole set as a fixed-layout document, then the first page is a cover, each
+        section starts on a new page, and each page after the first shows the
+        document name, the version, the word "draft", and its page number with
+        the total page count.
     priority: must
     journey_stage: ST-005
     objective: O-001
@@ -249,6 +255,12 @@ requirements:
         Given the author picks a folder where the file cannot be written, when
         the author exports the whole set as an editable document, then the
         author sees that the export was not done, with the reason.
+      - >-
+        Given a draft PRD set with 18 documents, when the author exports the
+        whole set as an editable document, then the first page is a cover, each
+        section starts on a new page, and each page after the first shows the
+        document name, the version, the word "draft", and its page number with
+        the total page count.
     priority: should
     journey_stage: ST-005
     objective: O-001
@@ -304,6 +316,10 @@ requirements:
         Given version 1.0.0 with the root and every section at final, when the
         sponsor opens the export, then the first page shows version 1.0.0 and
         does not show the word "Draft".
+      - >-
+        Given a product named "prd-forge", in lower case with a hyphen, when the
+        sponsor opens the export, then the title on the first page reads
+        "PRD Forge PRD". A product name that has a capital letter shows as written.
     priority: must
     journey_stage: ST-005
     objective: O-001
@@ -698,12 +714,13 @@ limit in section 8.
 ## FR-010. Export as a fixed-layout document
 
 One fixed-layout document (IN-006) holds every document in order. A reader opens it without the
-authoring tools.
+authoring tools. The first page is a cover, each section starts on a new page, and each later
+page shows the document name, the version, the draft mark, and its page number.
 
 ## FR-011. Export as an editable document
 
 One editable document (IN-006) holds every document in order. A reader opens it without the
-authoring tools.
+authoring tools. The pages are laid out the same as the fixed-layout document.
 
 ## FR-012. Export only selected sections
 
@@ -715,7 +732,8 @@ The printed copy matches the fixed-layout export in documents, order, and draft 
 
 ## FR-014. See the version, and if it is a draft, in an export
 
-The first page shows the version and "Draft".
+The first page shows the version and "Draft". A product name in lower case with hyphens shows
+in title case in the title, so "prd-forge" reads "PRD Forge".
 
 ## FR-015. Select a built-in export theme
 
@@ -1029,6 +1047,7 @@ Every item in this document, with each of its fields.
 
 1. Given a PRD set with 18 documents, when the author exports the whole set as a fixed-layout document, then one file in the format that IN-006 names contains every document in order, and the sponsor opens it without the authoring tools.
 2. Given the author picks a folder where the file cannot be written, when the author exports the whole set as a fixed-layout document, then the author sees that the export was not done, with the reason.
+3. Given a draft PRD set with 18 documents, when the author exports the whole set as a fixed-layout document, then the first page is a cover, each section starts on a new page, and each page after the first shows the document name, the version, the word "draft", and its page number with the total page count.
 
 **Priority:** must
 
@@ -1052,6 +1071,7 @@ Every item in this document, with each of its fields.
 
 1. Given a PRD set with 18 documents, when the author exports the whole set as an editable document, then one file in the format that IN-006 names contains every document in order, and the engineering lead opens it in a word processor without the authoring tools.
 2. Given the author picks a folder where the file cannot be written, when the author exports the whole set as an editable document, then the author sees that the export was not done, with the reason.
+3. Given a draft PRD set with 18 documents, when the author exports the whole set as an editable document, then the first page is a cover, each section starts on a new page, and each page after the first shows the document name, the version, the word "draft", and its page number with the total page count.
 
 **Priority:** should
 
@@ -1122,6 +1142,7 @@ Every item in this document, with each of its fields.
 
 1. Given version 0.1.0 with sections at draft, when the sponsor opens the export, then the first page shows version 0.1.0 and the word "Draft".
 2. Given version 1.0.0 with the root and every section at final, when the sponsor opens the export, then the first page shows version 1.0.0 and does not show the word "Draft".
+3. Given a product named "prd-forge", in lower case with a hyphen, when the sponsor opens the export, then the title on the first page reads "PRD Forge PRD". A product name that has a capital letter shows as written.
 
 **Priority:** must
 

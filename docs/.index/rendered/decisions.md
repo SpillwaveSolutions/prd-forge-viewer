@@ -11,6 +11,7 @@ _Why things are the way they are: ADRs (rules adopted) and plans (designs execut
 
 | Plan | Lifecycle | Truth | Date |
 |---|---|---|---|
+| [[Plan-professional-print-layout]] Professional print layout for PDF and Word export | active | current | 2026-11-16 |
 | [[Plan-plan-10-prd-findings-backlog]] Plan 10: PRD catch-up, grade findings, backlog navigation, and release 0.4.0 | completed | current | 2026-10-31 |
 | [[Plan-plan-9-diagrams-design]] Plan 9: diagrams as images, optional grades, and a better layout | completed | current | 2026-10-30 |
 | [[Plan-plan-8-closeout]] Plan 8: close out release 1 | completed | current | 2026-10-29 |

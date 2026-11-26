@@ -2,6 +2,63 @@
 
 _The evidence chain: plan → item → ticket → code → release, forward and backward. Generated from `docs/.index/_graph.json`; do not edit._
 
+### Show the export date on the export cover
+`01M8AP059YQ9G6JJ202A189SGK` · status: done
+- belongs-to: Professional print layout for PDF and Word export
+
+### Word diagrams use the 180 mm diagram height of the PDF
+`01M8AG9MM87RBN5CSCB9TDFZ44` · status: done
+- belongs-to: Professional print layout for PDF and Word export
+
+### Open the PR, merge on green, and cut release 0.5.0
+`01M7JYNEECM7V957HNK5G96QV7` · status: in_progress
+- belongs-to: Professional print layout for PDF and Word export
+- references: [github#234](https://github.com/SpillwaveSolutions/prd-forge-viewer/issues/234)
+- produced-by: [[Plan-professional-print-layout]]
+
+### Export prd-forge and check the rendered pages
+`01M7JYNEECM7V957HNK5G96QV5` · status: done
+- belongs-to: Professional print layout for PDF and Word export
+- references: [github#233](https://github.com/SpillwaveSolutions/prd-forge-viewer/issues/233)
+- produced-by: [[Plan-professional-print-layout]]
+
+### Add FR-010 and FR-011 acceptance criteria for page numbers and section pages
+`01M7JYNEECM7V957HNK5G96QV3` · status: done
+- belongs-to: Professional print layout for PDF and Word export
+- references: [github#232](https://github.com/SpillwaveSolutions/prd-forge-viewer/issues/232)
+- produced-by: [[Plan-professional-print-layout]]
+
+### Title-case a lowercase product name in the export title
+`01M7JYNEEB98P8ZRP6935B5AR8` · status: done
+- belongs-to: Professional print layout for PDF and Word export
+- references: [github#231](https://github.com/SpillwaveSolutions/prd-forge-viewer/issues/231)
+- produced-by: [[Plan-professional-print-layout]]
+
+### Apply the same page layout to the Word export
+`01M7JYNEEB98P8ZRP6935B5AR6` · status: done
+- belongs-to: Professional print layout for PDF and Word export
+- references: [github#230](https://github.com/SpillwaveSolutions/prd-forge-viewer/issues/230)
+- produced-by: [[Plan-professional-print-layout]]
+
+### Design the print stylesheet for the PDF export
+`01M7JYNEEAE60FVW4Z9HH8SAX9` · status: done
+- belongs-to: Professional print layout for PDF and Word export
+- references: [github#229](https://github.com/SpillwaveSolutions/prd-forge-viewer/issues/229)
+- produced-by: [[Plan-professional-print-layout]]
+
+### Professional print layout for PDF and Word export
+`01M7JYNEDBP6V12CES431GFAF6` · status: in_progress
+- references: [github#228](https://github.com/SpillwaveSolutions/prd-forge-viewer/issues/228)
+- contains: Design the print stylesheet for the PDF export
+- contains: Apply the same page layout to the Word export
+- contains: Title-case a lowercase product name in the export title
+- contains: Add FR-010 and FR-011 acceptance criteria for page numbers and section pages
+- contains: Export prd-forge and check the rendered pages
+- contains: Open the PR, merge on green, and cut release 0.5.0
+- contains: Word diagrams use the 180 mm diagram height of the PDF
+- contains: Show the export date on the export cover
+- produced-by: [[Plan-professional-print-layout]]
+
 ### Name the PRD approver and fix the section 11 title for PRD Forge 0.14.0
 `01M6KHDYPXF2TG6D3ABM1E0EDF` · status: done
 - lands-in: pr/226
@@ -13,6 +70,7 @@ _The evidence chain: plan → item → ticket → code → release, forward and 
 
 ### Executive summary prints an objective id instead of its sentence
 `01M6HNNFB76PGJKVMB2YYJ95N9` · status: in_progress
+- references: [github#227](https://github.com/SpillwaveSolutions/prd-forge-viewer/issues/227)
 
 ### Commit the 2026-11-03 telemetry update
 `01M6HMD640N78XP1A945QMWTY6` · status: done
