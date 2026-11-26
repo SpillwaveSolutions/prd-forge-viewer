@@ -2,7 +2,7 @@ import DOMPurify from "dompurify";
 import { exportDocx } from "./exportDocx";
 import { fontFaceCss, loadFonts, toBase64, type FontData } from "./exportFonts";
 import { renderThemedHtml } from "./exportHtml";
-import { buildExport, type ExportOptions } from "./exportModel";
+import { buildExport, displayName, draftReason, type ExportOptions } from "./exportModel";
 import type { ExportTheme } from "./themes";
 import type { PrdSet, Section } from "./types";
 
@@ -52,32 +52,36 @@ async function themedExport(set: PrdSet, selected: ReadonlySet<string>, options:
     const bodies = await collectBodies(set, selected, deps.read);
     // The images first, so a sketch stays in the export when its drawing cannot be read.
     const images = await loadImages([...bodies.values()].map((b) => b.body).join("\n"), deps.asset);
-    const markdown = buildExport(set, bodies, selected, { ...options, hasDrawing: (p) => images.has(p) });
-    return { markdown, images, title: `${set.product} PRD`, fonts: await appFonts() };
+    const markdown = buildExport(set, bodies, selected, { exported: new Date(), ...options, hasDrawing: (p) => images.has(p) });
+    const title = `${displayName(set.product)} PRD`;
+    // The footer says "draft" on every page while the export is a draft (TR-005).
+    const footer = `${title}, version ${set.version}${draftReason(set.documents) ? ", draft" : ""}`;
+    return { markdown, images, title, footer, fonts: await appFonts() };
 }
 
 /** Export to PDF or Word, saved where the author picks (FR-010, FR-011, FR-012). Returns false when the author cancels. */
 export async function runExport(format: "pdf" | "docx", set: PrdSet, theme: ExportTheme, selected: ReadonlySet<string>, deps: Deps, options: ExportOptions = {}): Promise<boolean> {
     const path = await deps.save(format, exportFileName(set, format));
     if (!path) return false;
-    const { markdown, images, title, fonts } = await themedExport(set, selected, options, deps);
-    if (format === "pdf") await deps.writePdf(path, renderThemedHtml(markdown, theme, title, fontFaceCss(fonts), images));
-    else await deps.writeDocx(path, toBase64(new Uint8Array(await (await exportDocx(markdown, theme, title, fonts, images)).arrayBuffer())));
+    const { markdown, images, title, footer, fonts } = await themedExport(set, selected, options, deps);
+    if (format === "pdf") await deps.writePdf(path, renderThemedHtml(markdown, theme, title, fontFaceCss(fonts), images, footer));
+    else await deps.writeDocx(path, toBase64(new Uint8Array(await (await exportDocx(markdown, theme, title, fonts, images, footer)).arrayBuffer())));
     return true;
 }
 
 /** The themed CSS for print only: the window shows nothing else on paper. @font-face and @page cannot be inside @media. */
 export function printCss(html: string): string {
     const css = /<style>([\s\S]*?)<\/style>/.exec(html)?.[1] ?? "";
-    const outside = css.match(/@font-face[^}]*\}|@page[^}]*\}/g) ?? [];
+    // An @page rule holds its margin boxes, one level of braces deep.
+    const outside = css.match(/@font-face[^}]*\}|@page[^{]*\{(?:[^{}]|\{[^{}]*\})*\}/g) ?? [];
     const rest = outside.reduce((s, r) => s.replace(r, ""), css);
     return `${outside.join("\n")}\n@media print {\n  body > :not(#print-root) { display: none !important; }\n  #print-root { display: block !important; }\n${rest}\n}\n#print-root { display: none; }`;
 }
 
 /** Print the same themed document as the PDF export (FR-013). */
 export async function runPrint(set: PrdSet, theme: ExportTheme, selected: ReadonlySet<string>, deps: Pick<Deps, "read" | "asset" | "print">, options: ExportOptions = {}): Promise<void> {
-    const { markdown, images, title, fonts } = await themedExport(set, selected, options, deps);
-    const html = renderThemedHtml(markdown, theme, title, fontFaceCss(fonts), images);
+    const { markdown, images, title, footer, fonts } = await themedExport(set, selected, options, deps);
+    const html = renderThemedHtml(markdown, theme, title, fontFaceCss(fonts), images, footer);
     // The last print stays in the page, hidden on screen: the print dialog can read the page after print() returns.
     document.getElementById("print-style")?.remove();
     document.getElementById("print-root")?.remove();
